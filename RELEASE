@@ -1,0 +1,20 @@
+Autor: Robson Vaamonde
+Site: www.procedimentosemti.com.br
+Facebook: facebook.com/ProcedimentosEmTI
+Facebook: facebook.com/BoraParaPratica
+YouTube: youtube.com/BoraParaPratica
+Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+Github: https://github.com/vaamonde
+Data de criação: 02/05/2022
+Data de atualização: 02/05/2022
+Versão: 0.01
+Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+Comando para verificar todas as versões dos scripts: grep 'Versão:' *.sh
+Comando para verificar todas as datas de atualização dos scripts: grep 'Data de atualização:' *.sh
+    ls -1 *.sh > /tmp/01.txt
+    grep 'Versão:' *.sh | cut -d '#' -f2 > /tmp/02.txt
+    grep 'Data de atualização:' *.sh | cut -d '#' -f2 > /tmp/03.txt
+    paste /tmp/01.txt /tmp/02.txt /tmp/03.txt >> ../RELEASE
+
+============================ LANÇAMENTO DAS VERSÕES DOS SCRIPTS ============================

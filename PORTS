@@ -1,0 +1,56 @@
+Autor: Robson Vaamonde
+Site: www.procedimentosemti.com.br
+Facebook: facebook.com/ProcedimentosEmTI
+Facebook: facebook.com/BoraParaPratica
+YouTube: youtube.com/BoraParaPratica
+Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+Github: https://github.com/vaamonde
+Data de criação: 02/05/2022
+Data de atualização: 02/05/2022
+Versão: 0.01
+Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+
+Network: 172.16.1.0/24
+CIDR: 24 (255.255.255.0)
+IP Address Server: 172.16.1.20
+IP Address Gateway: 172.16.1.254
+IP Address DNS: 8.8.8.8, 8.8.4.4, 172.16.1.254, 172.16.1.20
+Hostname: ptispo01ws01
+Domain: pti.intra
+
+SCRIPT                        PROTOCOLO/PORTA/SERVIÇO (Daemon)
+01-openssh.sh --------------> TCP 22 (sshd) e TCP 4200 (shellinaboxd HTTPS)
+02-dhcp.sh -----------------> UDP 67 (dhcpd)
+03-dns.sh ------------------> TCP 53 (named), TCP 53 (systemd-r), TCP 953 (named), UDP 53 (systemd-r) e UDP 53 (named)
+04-dhcpdns.sh --------------> UDP 67 (dhcpd), TCP 53 (named), TCP 53 (systemd-r), TCP 953 (named) e UDP 53 (named)
+05-ntp.sh ------------------> UDP 123 (ntpd)
+06-tftphpa.sh --------------> UDP 69 (in.tftpd) e UDP 67 (dhcpd)
+07-lamp.sh -----------------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld)
+08-openssl.sh --------------> TCP 443 (apache2 HTTPS)
+09-vsftpd.sh ---------------> TCP 21 (vsftpd FTP), TCP 20 (ftp-data) e TCP 990 (vsftpd SFTP)
+10-tomcat.sh ---------------> TCP 8080 (java HTTP)
+11-wordpress.sh ------------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld)
+12-webmin.sh ---------------> TCP 10000 (miniserv HTTPS) e TCP 20000 (miniserv HTTPS)
+13-netdata.sh --------------> TCP 19999 (netdata HTTP)
+14-loganalyzer.sh ----------> TCP 80 (apache2 HTTP), TCP 3306 (mysqld), TCP 514 (rsyslogd) e UDP 514 (rsyslogd)
+15-glpi.sh -----------------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld)
+16-fusioninventory.sh ------> TCP 80 (apache2 HTTP), TCP 3306 (mysqld) e TCP 62354 (fusioninv GLPI)
+17-zoneminder.sh -----------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld)
+18-guacamole.sh ------------> TCP 8080 (java HTTP) e TCP 4822 (guacd)
+19-grafana.sh --------------> TCP 3000 (grafana-s HTTP)
+20-zabbix.sh ---------------> TCP 80 (apache2 HTTP), TCP 3306 (mysqld), TCP 10050 (zabbix_ag) e 10051 (zabbix_se)
+21-docker.sh ---------------> TCP 9000 (docker-pr HTTP)
+22-ansible.sh --------------> TCP 4440 (java HTTP)
+23-ntopng.sh ---------------> TCP 3001 (ntopng HTTP) e TCP 6379 (redis-ser)
+24-openfire.sh -------------> TCP 9090 (java HTTP)
+25-owncloud.sh -------------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld)
+26-ocsinventory.sh ---------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld) 
+27-bacula.sh ---------------> TCP 9101 (bacula-di), TCP 9102 (bacula-fd), TCP 9103 (bacula-sd), TCP 9095 (baculum HTTP) e TCP 9096 (baculum HTTP)
+28-graylog.sh --------------> TCP 9200 (java ElasticSearch), TCP 19000 (java HTTP) e TCP 27017 (mongod)
+29-postgresql.sh -----------> TCP 5432 (postgres) e TCP 80 (apache2 HTTP)
+30-nfs.sh ------------------> TCP 111 (portmapper) e TCP 2049 (nfs)
+31-webdav.sh ---------------> TCP 80 (apache2 HTTP)
+32-nextcloud.sh ------------> TCP 80 (apache2 HTTP) e TCP 3306 (mysqld)
+33-asterisk.sh -------------> UDP 5060 (SIP)
+34-netdisco.sh -------------> TCP 5000 (HTTP) e TCP 5432 (postgres)
