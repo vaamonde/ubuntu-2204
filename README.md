@@ -1,4 +1,4 @@
-# EM DESENVOLVIMENTO: Curso GRÁTIS de GNU/Linux Ubuntu Server 22.04.x LTS DevOps utilizando Shell Script
+# EM DESENVOLVIMENTO: Curso GRÁTIS de GNU/Linux Ubuntu Server 22.04.x LTS (Jammy Jellyfish) Essentials
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos e materiais gratuitos para o Canal do YouTUBE
 ## 💰 Chave PIX do projeto: robsonvaamonde@gmail.com
@@ -30,8 +30,6 @@ Esse curso tem como objetivo demonstrar a instalação e configuração da nova 
 
 Projetado para suportar implementações On-Premise (Servidores Locais) ou Cloud (Nuvens), essa versão possui várias ferramentas integradas e soluções desenvolvidas pela Canonical que facilita a implementação em larga escala com suporte a Host Virtual e Cloud melhorados.
 
-Para esse curso as metodologias de DevOps, utilizando Shell Script, Git e Github serão empregadas de forma dinâmica, desenvolvendo scripts e automatizando todo o processo de instalação e configuração dos serviços de rede.
-
 Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pré-requisitos técnicos e práticos para Implementar e Administrar Servidores GNU/Linux Ubuntu Server em cenários On-Premise ou Cloud.
 
 ## **Links Oficiais do Ubuntu, Mint, pfSense, Microsoft e VirtualBOX:**
@@ -46,13 +44,5 @@ Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pr�
 🔴 Ubuntu Server Guide: https://ubuntu.com/server/docs<br>
 🔴 Ubuntu Server Guide FULL-PDF: https://assets.ubuntu.com/v1/f954307f-ubuntu-server-guide.pdf
 
-## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS DevOps:**
+## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS Essentials:**
 🔴 Link da Playlist: 
-
-## **Como utilizar os scripts desse curso no GNU/Linux Ubuntu Server 22.04.x LTS**
-01. Se logar com seu usuário no Ubuntu Server;
-02. Após logado, alterar para Root com o comando: sudo -i <Enter>;
-03. Clocar o projeto do Github com o comando: git clone https://github.com/vaamonde/ubuntu-2204 <Enter>;
-04. Acessar o diretório dos scripts com o comando: cd ubuntu-2204/scripts/ <Enter>;
-05. Para executar os scripts digite o comando: bash 00-nome_do_script.sh <Enter>;
-06. Dúvidas veja o arquivo: https://github.com/vaamonde/ubuntu-2204/blob/main/HELP.
