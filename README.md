@@ -1,4 +1,4 @@
-# EM DESENVOLVIMENTO: Curso GRÁTIS de GNU/Linux Ubuntu Server 22.04.x LTS (Jammy Jellyfish) Essentials
+# EM DESENVOLVIMENTO: Curso GRÁTIS de GNU/Linux Ubuntu Server 22.04.x LTS (Jammy Jellyfish) DevOps (“desenvolvimento” e “operação”) CI/CD ("integração contínua" e "entrega contínua") 
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos e materiais gratuitos para o Canal do YouTUBE
 ## 💰 Chave PIX do projeto: robsonvaamonde@gmail.com
@@ -26,23 +26,30 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/ubuntu-2204/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2204?color=2b9348" alt="License Badge"/></a>
 </div>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 22.04.x LTS, essa versão foi projetada para uma fácil implementação, administração e configuração dos principais serviços de rede utilizados no nosso dia a dia.
+Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 22.04.x LTS Jammy Jellyfish, utilizando os conceitos de DevOps (“desenvolvimento” e “operação”) integrado com os conceitos de CI/CD ("integração contínua" e "entrega contínua") tudo será construído em Container (Docker) e automatizado utilizando o Vagrant (HashiCorp) e Ansible (Red Hat).
 
-Projetado para suportar implementações On-Premise (Servidores Locais) ou Cloud (Nuvens), essa versão possui várias ferramentas integradas e soluções desenvolvidas pela Canonical que facilita a implementação em larga escala com suporte a Host Virtual e Cloud melhorados.
+Vagrant: é um software de código aberto para criar e manter ambientes de desenvolvimento virtuais portáteis, utilizando VirtualBox, KVM, Hyper-V, Docker, VMware, AWS, etc. Ele tenta simplificar a gerência de configuração de software das virtualizações para aumentar a produtividade do desenvolvimento.
 
-Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pré-requisitos técnicos e práticos para Implementar e Administrar Servidores GNU/Linux Ubuntu Server em cenários On-Premise ou Cloud.
+Ubuntu: é um sistema operacional de código aberto, construído a partir do núcleo Linux, baseado no Debian. Esta distribuição Linux é desenvolvida pela Canonical Ltd.
 
-## **Links Oficiais do Ubuntu, Mint, pfSense, Microsoft e VirtualBOX:**
+Docker: é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+
+Ansible: é uma ferramenta de TI de código aberto para gerenciar, automatizar, configurar servidores e, implantar aplicativos, a partir de uma localização central. Ele inclui sua própria linguagem declarativa para descrever a configuração do sistema.
+
+## **Links Oficiais da Canonical, Ubuntu, Mint, VirtualBOX, Vagrant e Ansbile:**
 🔴 Canonical: https://canonical.com/<br>
 🔴 Linux Ubuntu: https://ubuntu.com/<br>
 🔴 Linux Mint: https://www.linuxmint.com/<br>
-🔴 pfSense: https://www.pfsense.org/<br>
-🔴 Microsoft Windows:  https://www.microsoft.com/pt-br/windows<br>
-🔴 Oracle VirtualBOX: https://www.virtualbox.org/
+🔴 Oracle VirtualBOX: https://www.virtualbox.org/<br>
+🔴 Vagrant HashiCorp: https://www.vagrantup.com/<br>
+🔴 Ansible Red Hat: https://www.ansible.com/
 
-## **Documentação Oficial do Ubuntu Server 22.04.x LTS:**
+## **Documentação Oficial do Ubuntu Server 22.04.x LTS e demais projetos:**
 🔴 Ubuntu Server Guide: https://ubuntu.com/server/docs<br>
-🔴 Ubuntu Server Guide FULL-PDF: https://assets.ubuntu.com/v1/f954307f-ubuntu-server-guide.pdf
+🔴 Ubuntu Server Guide FULL-PDF: https://assets.ubuntu.com/v1/f954307f-ubuntu-server-guide.pdf<br>
+🔴 Vagrant: https://devdocs.io/vagrant/<br>
+🔴 Ansible: https://docs.ansible.com/ansible/latest/index.html
 
-## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS Essentials:**
+## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS:**
 🔴 Link da Playlist: 
+
