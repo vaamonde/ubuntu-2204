@@ -30,7 +30,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_ 01. Ferramentas;
 	_		Novo
 	_ 02. Nome e Sistema Operacional:
-	_		Nome: Webserver-Ubuntu-2204
+	_		Nome: UbuntuServer
 	_		Pasta da Máquina: (deixar o padrão do sistema)
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
@@ -51,7 +51,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_		Localização: (deixar o padrão do sistema)
 	_		Tamanho do disco: 50GB
 	_	<Criar>
-	_ 08. Configurações da Máquina Virtual  Webserver-Ubuntu-2204 (Propriedades/Configurações)
+	_ 08. Configurações da Máquina Virtual UbuntuServer (Propriedades/Configurações)
 	_	Sistema
 	_		Placa Mãe
 	_			Recurso Estendidos
@@ -75,7 +75,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.1 LTS (localizar a ISO)
 
-	_ 01. VM  Webserver-Ubuntu-2204: Iniciar
+	_ 01. VM  UbuntuServer: Iniciar
 	_ 02. Selecione o disco rígido de boot
 	_ 		Selecionar um arquivo de disco óptico virtual
 	_ 03. Seletor de Discos Ópticos
@@ -93,7 +93,7 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 01. Use UP, DOWN and ENTER keys to select your language
 	_ 		English - <Enter>
 	_ 02. Installer update available
-	_	<Continue without updating>
+	_		<Continue without updating>
 	_ 03. Keyboard configuration
 	_ 		Layout: [English (US)] ou [Portuguese (Brazil)]
 	_ 		Variant: [English (US)] ou [Portuguese (Brazil)]
