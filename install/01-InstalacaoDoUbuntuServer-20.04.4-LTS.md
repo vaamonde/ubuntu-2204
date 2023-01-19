@@ -28,7 +28,7 @@ Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualB
 Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 	_ 01. Ferramentas;
-	_		Novo
+	_	<Novo>
 
 	_ 02. Nome e Sistema Operacional:
 	_		Nome: UbuntuServer
