@@ -101,10 +101,10 @@ Quarta etapa: Instalação e Configuração do Ubuntu Server 22.04.1 LTS<br>
 Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 	_ 01. Use UP, DOWN and ENTER keys to select your language
-	_ 		English - <Enter>
+	_ 	English - <Enter>
 	
 	_ 02. Installer update available
-	_		<Continue without updating>
+	_	<Continue without updating>
 	
 	_ 03. Keyboard configuration
 	_ 		Layout: [English (US)] ou [Portuguese (Brazil)]
