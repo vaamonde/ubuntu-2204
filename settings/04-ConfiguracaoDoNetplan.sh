@@ -74,10 +74,10 @@ cd /etc/netplan/
 #
 # Configuração do endereçamento IPv4 Dynamic (Dinâmico)
 network:
-	ethernets:
-		enp0s3:
-			dhcp4: true
-	version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: true
+  version: 2
 #	
 # Aplicando as configurações e verificando o status da Placa de Rede
 sudo netplan --debug try
@@ -93,15 +93,15 @@ sudo ip route
 # Configuração do Endereço IPv4 e dos Servidores de DNS na mesma linha
 # utilizando os [] (Colchetes)
 network:
-	ethernets:
-		enp0s3:
-			dhcp4: false
-			addresses: [172.16.1.20/24]
-			gateway4: 172.16.1.254
-			nameservers:
-				addresses: [172.16.1.254, 8.8.8.8, 8.8.4.4]
-				search: [pti.intra]
-	version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: false
+      addresses: [172.16.1.20/24]
+      gateway4: 172.16.1.254
+      nameservers:
+        addresses: [172.16.1.254, 8.8.8.8, 8.8.4.4]
+        search: [pti.intra]
+  version: 2
 #
 # Aplicando as configurações e verificando o status da Placa de Rede
 sudo netplan --debug try
