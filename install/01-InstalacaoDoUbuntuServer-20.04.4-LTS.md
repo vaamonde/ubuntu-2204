@@ -29,28 +29,35 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 	_ 01. Ferramentas;
 	_		Novo
+
 	_ 02. Nome e Sistema Operacional:
 	_		Nome: UbuntuServer
 	_		Pasta da Máquina: (deixar o padrão do sistema)
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
 	_	<Próximo>
+
 	_ 03. Tamanho da memória:
 	_		Tamanho: 4096MB
 	_	<Próximo>
+
 	_ 04. Disco Rígido:
 	_		Criar um novo disco rígido virtual agora
 	_	<Criar>
+
 	_ 05. Tipo de arquivo de disco rígido
 	_		VDI (VirtualBOX Disk Image)
 	_	<Próximo>
+
 	_ 06. Armazenamento em disco rígido físico
 	_		Dinamicamente alocado
 	_	<Próximo>
+
 	_ 07. Localização e tamanho do arquivo
 	_		Localização: (deixar o padrão do sistema)
 	_		Tamanho do disco: 50GB
 	_	<Criar>
+
 	_ 08. Configurações da Máquina Virtual UbuntuServer (Propriedades/Configurações)
 	_	Sistema
 	_		Placa Mãe
@@ -59,7 +66,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_		Processador
 	_			Processadores: 02 CPUs
 	_			Recursos Estendidos: Habilitar PAE/NX
-				                     Habilitar VT-x/AMD-v Aninhado 
+	_			                     Habilitar VT-x/AMD-v Aninhado 
 	_	Monitor
 	_		Tela
 	_			Memória de Vídeo: 128MB
@@ -76,12 +83,15 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.1 LTS (localizar a ISO)
 
 	_ 01. VM  UbuntuServer: Iniciar
+	
 	_ 02. Selecione o disco rígido de boot
 	_ 		Selecionar um arquivo de disco óptico virtual
+	
 	_ 03. Seletor de Discos Ópticos
 	_ 		Acrescentar
 	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.1-live-server-amd64.iso
 	_ 	<Abrir>
+	
 	_ 04. Not Attached
 	_ 		Selecionar: ubuntu-22.04.1-live-server-amd64.iso
 	_ 	<Escolher>
@@ -92,25 +102,32 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 	_ 01. Use UP, DOWN and ENTER keys to select your language
 	_ 		English - <Enter>
+	
 	_ 02. Installer update available
 	_		<Continue without updating>
+	
 	_ 03. Keyboard configuration
 	_ 		Layout: [English (US)] ou [Portuguese (Brazil)]
 	_ 		Variant: [English (US)] ou [Portuguese (Brazil)]
 	_ 	<Done>
+	
 	_ 04. Network connections
 	_ 		enp0s3 eth <Enter>
 	_ 	<Done>
+	
 	_ 05. Configure proxy
 	_	<Done>
+	
 	_ 06. Configure Ubuntu archive mirror
 			Mirror: http://us.archive.ubuntu.com/ubuntu <-- resolve o problema de lentidão -->
 		<Done>
+	
 	_ 07. Guided storage configuration
 	_	(X) Use an entire disk
 	_		[VBOX_HARDISK local disk 50.000G]
 	_		(X) Set up this disk as an LVM group
 	_	<Done>
+	
 	_ 08. Storage configuration
 	_	USED DEVICES
 	_		ubuntu-lv	new, to be formatted as ext4, mounted at /	24.498G 
@@ -123,6 +140,7 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_	<Done>
 	_	Confirm destructive action
 	_		<Continue>
+	
 	_ 09. Profile setup
 	_ 		Your name: Robson Vaamonde <Tab>
 	_ 		Your server's name: ptispo01ws01 <Tab>
@@ -130,14 +148,19 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 		Choose a passwords: pti@2018 <Tab>
 	_ 		Confirm your passwords: pti@2018
 	_ 	<Done>
+	
 	_ 10. Enable Ubuntu Advantage
 	_	<Done>
+	
 	_ 11. SSH Setup
 	_ 		Install OpenSSH server: ON <Space>
 	_ 		Import SSH identity: No <Tab>
 	_ 	<Done>
+	
 	_ 12. Featured Server Snaps
 	_	<Done>
+	
 	_ 13. Install complete!
 	_	<Reboot Now>
+	
 	_ 14. Please remove the installation medium, then press ENTER - <Enter>
