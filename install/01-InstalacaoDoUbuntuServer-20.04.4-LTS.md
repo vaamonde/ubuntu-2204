@@ -13,11 +13,11 @@ Data de atualização: 18/01/2023<br>
 Versão: 0.01<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
 
-Release Notes Ubuntu Server 20.04.4: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
+Release Notes Ubuntu Server 22.04.4: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle
 
-Primeira etapa: Download da ISO do Ubuntu Server 20.04.4 LTS
+Primeira etapa: Download da ISO do Ubuntu Server 22.04.1 LTS
 
 01. Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
 02. Versão do download Ubuntu Server: ubuntu-22.04.1-live-server-amd64.iso (09/08/2022)
@@ -59,7 +59,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_		Processador
 	_			Processadores: 02 CPUs
 	_			Recursos Estendidos: Habilitar PAE/NX
-	_								 Habilitar VT-x/AMD-v Aninhado 
+	_                                Habilitar VT-x/AMD-v Aninhado 
 	_	Monitor
 	_		Tela
 	_			Memória de Vídeo: 128MB
@@ -100,14 +100,6 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 	<Done>
 	_ 04. Network connections
 	_ 		enp0s3 eth <Enter>
-	_ 			Edit IPv4 <Enter>
-	_ 				IPv4 Method: Manual <Enter>
-	_ 					Subnet: 172.16.1.0/24 <Tab>
-	_ 					Address: 172.16.1.20 <Tab>
-	_ 					Gateway: 172.16.1.254 <Tab>
-	_ 					Name servers: 172.16.1.254 <Tab>
-	_ 					Search domains: pti.intra
-	_ 				<Save>
 	_ 	<Done>
 	_ 05. Configure proxy
 	_	<Done>
@@ -124,7 +116,7 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_		ubuntu-lv	new, to be formatted as ext4, mounted at /	24.498G 
 	_			Edit
 	_				Name: ubuntu-lv
-	_				Size: 48.996G
+	_				Size: 47.996G
 	_				Format: ext4
 	_				Mount: /
 	_			<Save>
