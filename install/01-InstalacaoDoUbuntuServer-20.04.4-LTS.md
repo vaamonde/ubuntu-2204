@@ -59,7 +59,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_		Processador
 	_			Processadores: 02 CPUs
 	_			Recursos Estendidos: Habilitar PAE/NX
-	_                                Habilitar VT-x/AMD-v Aninhado 
+				                     Habilitar VT-x/AMD-v Aninhado 
 	_	Monitor
 	_		Tela
 	_			Memória de Vídeo: 128MB
