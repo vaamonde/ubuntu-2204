@@ -21,30 +21,11 @@
 # servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo 
 # localizado em /etc/hosts
 #
-# Nsswitch.conf: Arquivo de configuração da troca de serviço de nome, utilizado para 
-# mudar as prioridades de resolução de nomes no servidor, por padrão está configurado 
-# para utilizar o arquivo hosts e depois o DNS.
-#
-# TCP Wrappers: O TCP Wrapper é um sistema de rede ACL baseado em host, usado para 
-# filtrar acesso à rede a servidores de protocolo de Internet (IP) em sistemas operacionais 
-# do tipo Unix, como Linux ou BSD. Ele permite que o host, endereços IP de sub-rede, 
-# nomes e/ou respostas de consulta ident, sejam usados como tokens sobre os quais 
-# realizam-se filtros para propósitos de controle de acesso.
-#
-# Hosts.allow e Hosts.Deny: formato de arquivos de controle de acesso ao host
-#
 # Alterando o nome do servidor
 sudo vim /etc/hostname
 #
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
-#
-# Verificando a forma de consulta de nomes no servidor
-sudo vim /etc/nsswitch.conf
-#
-# Configurando a segurança de acesso remoto do servidor
-sudo vim /etc/hosts.allow
-sudo vim /etc/hosts.deny
 #
 # Reinicializando o servidor
 sudo reboot
@@ -54,6 +35,7 @@ sudo reboot
 sudo hostname
 sudo hostname -A
 sudo hostname -d
+sudo hostname -i
 #
 # Verificando os usuário logados no servidor
 sudo w

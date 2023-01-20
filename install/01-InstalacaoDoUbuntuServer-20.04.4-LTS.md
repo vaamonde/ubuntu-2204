@@ -76,8 +76,8 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_	Rede
 	_		Adaptador 1 (LAN)
 	_			Habilitar Placa de Rede
-	_			Conectado a: Rede Interna
-	_			Nome: (deixar o padrão do sistema: intnet)
+	_			Conectado a: Placa em modo Bridge
+	_			Nome: (deixar o padrão do sistema)
 	_	<OK>
 
 Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.1 LTS (localizar a ISO)
