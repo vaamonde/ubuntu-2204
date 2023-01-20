@@ -38,5 +38,5 @@ sudo shutdown -h
 sudo shutdown -h now
 sudo shutdown -r now
 sudo date
-sudo shutdown -h 19:50 Servidor será desligado
+sudo shutdown -r 19:50 Servidor será reinicializando
 sudo shutdown -c

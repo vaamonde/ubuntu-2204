@@ -50,7 +50,7 @@ sudo vim /etc/hosts.deny
 sudo reboot
 #
 # Checando as informações do servidor
-# opção do comando hostname: -A (all-fqdns), -d (domain)
+# opção do comando hostname: -A (all-fqdns), -d (domain), -i (ip address)
 sudo hostname
 sudo hostname -A
 sudo hostname -d
