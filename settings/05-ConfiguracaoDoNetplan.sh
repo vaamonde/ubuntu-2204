@@ -99,3 +99,6 @@ sudo ifconfig enp0s3
 sudo ip address show enp3s0 
 sudo route -n
 sudo ip route
+#
+# Adicionando as informações de pesquisa de IP e nome no servidor
+sudo vim /etc/hosts
