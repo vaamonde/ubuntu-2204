@@ -26,11 +26,9 @@ sudo apt install bridge-utils ifenslave net-tools
 # opções do comando lspci: -v (verbose), -s (show)
 # opção do comando grep: -i (ignore-case)
 sudo lspci -v | grep -i ethernet
-sudo lcpci -v -s 00:03.0
 #
 # Verificando os detalhes do hardware de Placa de Rede instalada
 sudo lshw -class network
-sudo lshw -class network | grep "logical name"
 #
 # Verificando as configurações de endereçamento da Placa de Rede instalada
 # opção do comando ifconfig: -a (all)
@@ -43,8 +41,7 @@ sudo route -n
 sudo ip route
 #
 # Verificando as informações de cache dos Servidores DNS (resolução de nomes)
-sudo systemd-resolve --status
-sudo systemd-resolve --statistics
+sudo resolvectl
 #
 # Diretório padrão das configurações da Placa de Rede no Ubuntu Server
 cd /etc/netplan/
@@ -52,8 +49,7 @@ cd /etc/netplan/
 # Arquivos de configuração da Placa de Rede no Ubuntu Server utilizando
 # o Netplan. OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão
 # do Ubuntu Server.
-/etc/netplan/50-cloud-init.yaml #Padrão Ubuntu Server 18.04.x LTS
-/etc/netplan/00-installer-config.yaml #Padrão Ubuntu Server 20.04.x LTS
+/etc/netplan/00-installer-config.yaml #Padrão Ubuntu Server 22.04.x LTS
 #
 # OBSERVAÇÃO IMPORTANTE: o arquivo de configuração o Netplan e baseado no
 # formato de serialização de dados legíveis YAML (Yet Another Markup Language)
@@ -61,6 +57,8 @@ cd /etc/netplan/
 # tabulação e principalmente sua indentação.
 #
 # Configuração do endereçamento IPv4 Dynamic (Dinâmico)
+sudo vim 00-installer-config.yaml
+
 network:
   ethernets:
     enp0s3:
@@ -80,6 +78,8 @@ sudo ip route
 # Configuração do endereçamento IPv4 Static (Estático)
 # Configuração do Endereço IPv4 e dos Servidores de DNS na mesma linha
 # utilizando os [] (Colchetes)
+sudo vim 00-installer-config.yaml
+
 network:
   ethernets:
     enp0s3:
