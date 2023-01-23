@@ -13,6 +13,11 @@
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
 
+Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
+Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
+Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
+Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
+
 #02_ Instalando o Apache 2 e PHP 8.x<br>
 
 	sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-dev apt-transport-https
