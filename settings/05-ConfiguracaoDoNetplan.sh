@@ -35,7 +35,7 @@ sudo lshw -class network | grep "logical name"
 # Verificando as configurações de endereçamento da Placa de Rede instalada
 # opção do comando ifconfig: -a (all)
 sudo ifconfig -a
-sudo ip address
+sudo ip address show
 #
 # Verificando as configurações de Gateway (route)
 # opção do comando route: -n (number)
@@ -45,18 +45,6 @@ sudo ip route
 # Verificando as informações de cache dos Servidores DNS (resolução de nomes)
 sudo systemd-resolve --status
 sudo systemd-resolve --statistics
-#
-# Não se utiliza mais os comandos ifdown e ifup para desligar os ligar as placas
-# de rede no Ubuntu Server, utilizamos os comandos ifconfig ou ip para isso
-sudo ifdown enp0s3
-sudo ifup enp0s3
-#
-# Opção ifconfig down e up ainda e utilizado para depende do pacote net-tool
-# seja instalado no sistema, o comando ip link set é o padrão do Ubuntu Server
-sudo ifconfig enp0s3 down
-sudo ifconfig enp0s3 up
-sudo ip link set enp0s3 down
-sudo ip link set enp0s3 up
 #
 # Diretório padrão das configurações da Placa de Rede no Ubuntu Server
 cd /etc/netplan/
@@ -96,11 +84,11 @@ network:
   ethernets:
     enp0s3:
       dhcp4: false
-      addresses: [172.16.1.20/24]
-      gateway4: 172.16.1.254
+      addresses: [10.26.44.XXX/24]
+      gateway4: 10.26.44.1
       nameservers:
-        addresses: [172.16.1.254, 8.8.8.8, 8.8.4.4]
-        search: [pti.intra]
+        addresses: [8.8.8.8, 8.8.4.4]
+        search: [senac.intra]
   version: 2
 #
 # Aplicando as configurações e verificando o status da Placa de Rede

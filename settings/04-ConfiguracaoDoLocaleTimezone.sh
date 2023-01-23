@@ -15,10 +15,6 @@
 #
 # Configuração do Locale (Localidade) do Sistema Operacional Ubuntu Server
 sudo localectl
-sudo cat /etc/default/locale
-sudo ls /usr/share/X11/locale
-	LANG=en_US.UTF-8 (Padrão Inglês Americano com acentuação)
-	LANG=pt_BR.UTF-8 (Padrão Português Brasileiro com acentuação)
 sudo locale -a
 sudo locale-gen pt_BR.UTF-8
 sudo localectl set-locale LANG=pt_BR.UTF-8
@@ -35,7 +31,6 @@ sudo timedatectl set-timezone "America/Sao_Paulo"
 # esse error e por causa do Fuso Horário em relação ao Horário de Verão que não existe 
 # mais no Brasil
 sudo cat /etc/timezone
-sudo cat /etc/systemd/timesyncd.conf
 sudo vim /etc/systemd/timesyncd.conf
 	INSERT
 		[Time]
