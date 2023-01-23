@@ -69,16 +69,17 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	
 		#opção do comando mkdir: -v (verbose)
 		sudo mkdir -v teste
+		
 		#opção do comando chmod: -v (verbose), 775 (User=RWX,Group=RWX,Other=R-X)
 		sudo chmod -v 775 teste/
+		
 		#opção do comando chown: -v (verbose), root (User), . (separate), www-date (group)
 		sudo chown -v root.www-data teste/
 		cd teste
 
 #08_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar o arquivo teste.html, teste.php
-	e phpinfo.php utilizando o Vim.
+	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar o arquivo teste.html, teste.php e phpinfo.php utilizando o Vim.
 
 ```html
 <!DOCTYPE html>
