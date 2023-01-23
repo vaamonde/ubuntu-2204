@@ -26,6 +26,9 @@ sudo vim /etc/hostname
 #
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
+	INSERT
+		127.0.0.1 wsvaamonde.senac.intra 	wsvaamonde
+	ESC SHIFT : x <Enter>
 #
 # Reinicializando o servidor
 sudo reboot

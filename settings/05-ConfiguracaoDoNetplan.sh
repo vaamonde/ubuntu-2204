@@ -59,12 +59,16 @@ cd /etc/netplan/
 # Configuração do endereçamento IPv4 Dynamic (Dinâmico)
 sudo vim 00-installer-config.yaml
 
+INSERT
+
 network:
   ethernets:
     enp0s3:
       dhcp4: true
   version: 2
-#	
+
+ESC SHIFT : x <Enter>
+#
 # Aplicando as configurações e verificando o status da Placa de Rede
 sudo netplan --debug try
 sudo netplan --debug apply
@@ -80,6 +84,8 @@ sudo ip route
 # utilizando os [] (Colchetes)
 sudo vim 00-installer-config.yaml
 
+INSERT
+
 network:
   ethernets:
     enp0s3:
@@ -90,6 +96,8 @@ network:
         addresses: [8.8.8.8, 8.8.4.4]
         search: [senac.intra]
   version: 2
+
+ESC SHIFT : x <Enter>
 #
 # Aplicando as configurações e verificando o status da Placa de Rede
 sudo netplan --debug try
@@ -102,3 +110,7 @@ sudo ip route
 #
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
+	INSERT
+		127.0.0.1     wsvaamonde.senac.intra 	wsvaamonde
+		10.26.44.200  wsvaamonde.senac.intra 	wsvaamonde
+	ESC SHIFT : x <Enter>

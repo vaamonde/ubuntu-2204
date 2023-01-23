@@ -30,7 +30,6 @@ sudo timedatectl set-timezone "America/Sao_Paulo"
 # fica errada no sistema, nesse caso podemos mudar para America/Fortaleza ou America/Bahia
 # esse error e por causa do Fuso Horário em relação ao Horário de Verão que não existe 
 # mais no Brasil
-sudo cat /etc/timezone
 sudo vim /etc/systemd/timesyncd.conf
 	INSERT
 		[Time]
