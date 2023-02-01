@@ -84,16 +84,48 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	#opções do comando mysql: -u (user), -p (password)
 	mysql -u dba -p
 
-#09_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
+#09_ Permitindo o Root se Logar Remoto no MySQL Server<br>
+
+	#acessar o diretório das configurações do MySQL Server
+	cd /etc/mysql/mysql.conf.d
+	
+	#editar o arquivo de configuração do MySQL Server
+	sudo vim mysqld.cnf
+		INSERT
+			#alterar a linha do: bind-address = 127.0.0.1
+			bind-address = 0.0.0.0
+
+			#comentar a linha do mysqlx-bind-address
+			#mysqlx-bind-address = 127.0.0.1
+		ESC SHIFT :x <Enter>
+
+	#reiniciar o serviço do MySQL Server
+	sudo systemctl restart mysql
+	sudo systemctl status mysql
+
+	#acessar o MySQL Server como Root
+	sudo mysql -u root -p
+
+	#criar o usuário Root Remoto do MySQL
+	CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123@senac';
+	GRANT ALL ON *.* TO 'root'@'%';
+	FLUSH PRIVILEGES;
+
+	#verificar o usuário Root Remoto do MySQL
+	USE mysq;
+	SELECT user,host FROM user;
+	exit
+
+#10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
 	#conectando com o usuário dba do MySQL no Workbench
 	MySQL Connections: +
 		Connection Name: UbuntuServer
 		Connection Method: Standard (TCP/IP)
 		Parameters:
-			Hostname: endereçco_ipv4_ubuntuserver
+			Hostname: endereço_ipv4_ubuntuserver
 			Port: 3306
-			Username: dba
+			Username: root
 			Password:
 				Store in Keychain
 					Password: 123@senac
