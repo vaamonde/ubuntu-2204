@@ -112,7 +112,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	FLUSH PRIVILEGES;
 
 	#verificar o usuário Root Remoto do MySQL
-	USE mysq;
+	USE mysql;
 	SELECT user,host FROM user;
 	exit
 
