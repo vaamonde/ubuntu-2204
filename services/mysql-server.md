@@ -14,11 +14,12 @@ Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
 Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
-#02_ Instalando o MySQL Server e Client 8.0<br>
+#01_ Instalando o MySQL Server e Client 8.0<br>
 
+	sudo apt update
 	sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
 
-#05_ Verificando o Serviço e Versão do MySQL Server<br>
+#02_ Verificando o Serviço e Versão do MySQL Server<br>
 
 	sudo systemctl status mysql
 	sudo systemctl restart mysql
@@ -28,12 +29,12 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	sudo mysqld --version (Server)
 	sudo mysql --version (Client)
 
-#06_ Verificando a Porta de Conexão do MySQL Server<br>
+#03_ Verificando a Porta de Conexão do MySQL Server<br>
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
-#07_ Localização dos Arquivos de Configuração do MySQL Server<br>
+#04_ Localização dos Arquivos de Configuração do MySQL Server<br>
 
 	/etc/mysql <-- Diretório de configuração do SGBD MySQL Server
 	/etc/mysql/mysql.conf.d/mysqld.cnf <-- Arquivo de configuração do Servidor SGBD do MySQL Server
@@ -41,12 +42,12 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	/var/log/mysql <-- Diretório padrão dos Logs do SGBD Mysql Server
 	/var/lib/mysql <-- Diretório da Base de Dados padrão do SGBD MySQL Server
 
-#08_ Acesso o MySQL Server<br>
+#05_ Acesso o MySQL Server<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-#09_ Aplicando a segurança de acesso do usuário Root do MySQL Server<br>
+#06_ Aplicando a segurança de acesso do usuário Root do MySQL Server<br>
 
 	SHOW DATABASES;
 	USE mysql;
@@ -60,7 +61,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-#10_ Criando um usuário DBA no MySQL Server<br>
+#07_ Criando um usuário DBA no MySQL Server<br>
 
 	CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY '123@senac';
 	GRANT ALL ON *.* TO 'dba'@'localhost';
@@ -70,7 +71,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dba -p
 
-#11_ Adicionado o Usuário Local no Grupo Padrão do MySQL Server<br>
+#08_ Adicionado o Usuário Local no Grupo Padrão do MySQL Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G mysql $USER
@@ -83,7 +84,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	#opções do comando mysql: -u (user), -p (password)
 	mysql -u dba -p
 
-#12_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
+#09_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
 	#conectando com o usuário dba do MySQL no Workbench
 	MySQL Connections: +
