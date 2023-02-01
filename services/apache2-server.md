@@ -20,8 +20,13 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #02_ Instalando o Apache 2 e PHP 8.x<br>
 
+	#atualizando as listas do Apt
+	sudo apt update
+	
+	#instalando as dependências do Apache2
 	sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-dev apt-transport-https
 
+	#instalando o Apache2 e PHP 8.x
 	sudo apt install apache2 apache2-utils apache2-bin apache2-data php8.1 php8.1-cli php8.1-common \
 	php8.1-mysql php8.1-opcache php8.1-readline php8.1-common php8.1-bcmath php8.1-curl php8.1-intl \
 	php8.1-mbstring php8.1-xml php8.1-zip php8.1-soap php-imagick php-json libapache2-mod-php libapr1 \
@@ -34,6 +39,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo systemctl stop apache2
 	sudo systemctl start apache2
 
+	#verificando as versões do Apache2 e do PHP
 	sudo apache2 -V (Server)
 	sudo php --version (PHP)
 
@@ -65,6 +71,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #07_ Criando um diretório de Teste do HTML e PHP no Linux Mint<br>
 
+	#acessando o diretório padrão do Apache2
 	cd /var/www/html
 	
 		#opção do comando mkdir: -v (verbose)

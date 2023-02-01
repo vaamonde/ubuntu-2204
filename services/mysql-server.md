@@ -14,9 +14,14 @@ Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
 Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
+Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
+
 #01_ Instalando o MySQL Server e Client 8.0<br>
 
+	#atualizando as listas do Apt
 	sudo apt update
+	
+	#instalando o MySQL Server e Client
 	sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
 
 #02_ Verificando o Serviço e Versão do MySQL Server<br>
@@ -26,6 +31,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	sudo systemctl stop mysql
 	sudo systemctl start mysql
 
+	#verificando as versões do MySQL Server e Client
 	sudo mysqld --version (Server)
 	sudo mysql --version (Client)
 
@@ -49,13 +55,26 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
 #06_ Aplicando a segurança de acesso do usuário Root do MySQL Server<br>
 
+	#visualizando as bases de dados do MySQL
 	SHOW DATABASES;
+
+	#utilizando a base de dados mysql
 	USE mysql;
+		
+		#mostrando as tabelas criadas na base de dados mysql
 		SHOW TABLES;
+
+		#selecionando o dados da tabela user somente as colunas: user e host
 		SELECT user,host FROM user;
+
+		#alterando a senha do usuário Root Localhost
 		ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123@senac';
+		
+		#alterando as permissões do usuário Root Localhost
 		GRANT ALL ON *.* TO 'root'@'localhost';
 		FLUSH PRIVILEGES;
+		
+		#saindo do MySQL
 		exit (ou quit)
 
 	#opções do comando mysql: -u (user), -p (password)
@@ -63,9 +82,14 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
 #07_ Criando um usuário DBA no MySQL Server<br>
 
+	#criando o usuário DBA Localhost
 	CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY '123@senac';
+	
+	#alterando as permissões do usuário DBA Localhost
 	GRANT ALL ON *.* TO 'dba'@'localhost';
 	FLUSH PRIVILEGES;
+
+	#saindo do MySQL
 	exit (ou quit)
 
 	#opções do comando mysql: -u (user), -p (password)
@@ -106,12 +130,12 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 	#acessar o MySQL Server como Root
 	sudo mysql -u root -p
 
-	#criar o usuário Root Remoto do MySQL
+	#criando o usuário Root Remoto do MySQL
 	CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123@senac';
 	GRANT ALL ON *.* TO 'root'@'%';
 	FLUSH PRIVILEGES;
 
-	#verificar o usuário Root Remoto do MySQL
+	#verificando o usuário Root Remoto do MySQL
 	USE mysql;
 	SELECT user,host FROM user;
 	exit

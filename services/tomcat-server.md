@@ -14,13 +14,20 @@ Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
 Site Oficial do OpenJDK: https://openjdk.org/
 
+Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
+Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
+Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
+Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
+
 #02_ Instalando as Dependências do Apache Tomcat Server no Linux Mint<br>
 
+	#instalando as dependências do Apache Tomcat
 	sudo apt install git vim openjdk-17-jdk openjdk-17-jre software-properties-common build-essential
 
 #03_ Verificando as Versões do Java instalado<br>
 
 	#opção do comando grep: -i (ignore-case)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	sudo java -version
 	sudo apt list --installed | grep -i openjdk
 	sudo update-alternatives --list java
