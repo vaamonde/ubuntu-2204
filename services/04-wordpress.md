@@ -26,9 +26,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo apt update
 	
 	#instalando as dependências do Wordpress
-	sudo apt install php-bcmath php-mbstring php-pear php-dev php-json libmcrypt-dev pwgen \
-	unzip ghostscript libapache2-mod-php php-bcmath php-curl php-imagick php-intl php-json \
-	php-mbstring php-mysql php-xml php-zip php-soap zlibc zlib1g-dev
+	sudo apt install php8.1-bcmath php8.1-mbstring  php8.1-dev php8.1-curl php8.1-mysql \
+	php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
+	pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
 
 #02_ Criando a Base de Dados do Wordpress<br>
 
