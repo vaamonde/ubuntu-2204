@@ -19,6 +19,9 @@
               version="1.0">
 	<!-- Configuração dos Papéis (Roles) de administração do Servidor Web Apache Tomcat -->
 	<role rolename="manager-gui"/>
+	<role rolename="manager-script"/>
+	<role rolename="manager-jmx"/>
+	<role rolename="manager-status"/>
 	<role rolename="manager"/>
 	<role rolename="admin-gui"/>
 	<role rolename="admin"/>
