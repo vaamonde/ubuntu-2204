@@ -52,16 +52,16 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#acessando diretório temporário
 	cd /tmp
 
-	#fazendo o download do Wordpress
+	#fazendo o download do Wordpress do site Oficial do Brasil
 	#opção do comando wget: -O (output-document)
 	wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
 
-	#descompactando o Wordpress
+	#descompactando o arquivo do Wordpress
 	unzip wordpress.zip
 
 	#movendo o conteúdo do Wordpress para o Apache2
 	#opção do comando mv: -v (verbose)
-	mv -v wordpress/ /var/www/wp/
+	mv -v wordpress/ /var/www/html/wp/
 
 	#alterando as permissões dos diretórios e arquivos do Wordpress
 	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
@@ -83,9 +83,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	cp -v wp-config-sample.php wp-config.php
 
 	#editando o arquivo de configuração do Wordpress
-	vim /var/www/wp/wp-config.php
+	vim wp-config.php
 
-	#alterar as linhas a partir da 23 nas variáveis "define"
+	#alterar os valores das variáveis "define" a partir da linha 23
 	INSERT
 		
 		#variável do nome do banco de dados
@@ -99,7 +99,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	
 	ESC SHIFT :x
 
-#05_ Habilitar os módulos do Apache2 utilizado pelo Wordpress
+#05_ Habilitar os módulos do Apache2 utilizados pelo Wordpress
 
 	#habilitar os módulos do Apache2
 	sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
@@ -108,7 +108,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo systemctl restart apache2
 	sudo systemctl status apache2
 
-#06_ Acessando configurando o Wordpress no navegador<br>
+#06_ Acessando e configurando o Wordpress no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
 
@@ -120,4 +120,4 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		Senha: 123@senac;
 		Confirme a senha: Confirmar o uso de uma senha fraca;
 		O seu e-mail: admin@senac.intra; 
-	<Instalar WordPress>.
+	<Instalar WordPress>
