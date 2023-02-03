@@ -116,6 +116,6 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #14_ Testando o Apache Tomcat Server no navegador utilizando o Linux Mint<br>
 
-	firefox ou google chrome: http://endereçco_ipv4_ubuntuserver:8080
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 		Usuário padrão: admin
 		Senha padrão..: 123@senac

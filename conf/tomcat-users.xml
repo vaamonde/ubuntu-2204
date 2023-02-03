@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+#Autor: Robson Vaamonde
+#Procedimentos em TI: http://procedimentosemti.com.br
+#Bora para Prática: http://boraparapratica.com.br
+#Robson Vaamonde: http://vaamonde.com.br
+#Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+#Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+#Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+#YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+#LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+#Data de criação: 19/01/2023
+#Data de atualização: 19/01/2023
+#Versão: 0.02
+-->
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+	<!-- Configuração dos Papéis (Roles) de administração do Servidor Web Apache Tomcat -->
+	<role rolename="manager-gui"/>
+	<role rolename="manager"/>
+	<role rolename="admin-gui"/>
+	<role rolename="admin"/>
+	<role rolename="tomcat"/>
+	<role rolename="role1"/>
+	<!-- Configuração do Usuário, Senha e Papéis do administrador do Servidor Web Tomcat -->
+	<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+</tomcat-users>
