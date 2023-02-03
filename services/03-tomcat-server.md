@@ -56,10 +56,10 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 #06_ Atualizando os arquivos de configuração do Apache Tomcat 10.1.x<br>
 
 	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /opt/tomcat/conf/server.xml https://github.com/vaamonde/ubuntu-2204/blob/main/conf/server.xml
-	wget -v -O /opt/tomcat/conf/tomcat-users.xml https://github.com/vaamonde/ubuntu-2204/blob/main/conf/tomcat-users.xml
-	wget -v -O /opt/tomcat/conf/context.xml https://github.com/vaamonde/ubuntu-2204/blob/main/conf/context.xml
-	wget -v -O /etc/systemd/system/tomcat10.service https://github.com/vaamonde/ubuntu-2204/blob/main/conf/tomcat10.service
+	wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.xml
+	wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
+	wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+	wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 
 #07_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x<br>
 
