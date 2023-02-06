@@ -87,10 +87,10 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 	#criando o arquivo de configuração do banco de dados do Wordpress
 	#opção do comando cp: -v (verbose)
-	cp -v wp-config-sample.php wp-config.php
+	sudo cp -v wp-config-sample.php wp-config.php
 
 	#editando o arquivo de configuração do Wordpress
-	vim wp-config.php
+	sudo vim wp-config.php
 
 	#alterar os valores das variáveis "define" a partir da linha 23
 	INSERT
