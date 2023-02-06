@@ -76,9 +76,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#opção do comando chmod: -v (verbose), 755 (Dono=RWX,Grupo=R-X,Outros=R-X)
 	#opção do comando chmod: -v (verbose), 644 (Dono=RW-,Grupo=R--,Outros=R--)
 	#opção do comando {} \;: executa comandos em lote e aplicar as permissões para cada arquivo/diretório em loop
-	chown -Rfv www-data.www-data /var/www/wp/
-	find /var/www/wp/. -type d -exec chmod -v 755 {} \;
-	find /var/www/wp/. -type f -exec chmod -v 644 {} \;
+	sudo chown -Rfv www-data.www-data /var/www/wp/
+	sudo find /var/www/wp/. -type d -exec chmod -v 755 {} \;
+	sudo find /var/www/wp/. -type f -exec chmod -v 644 {} \;
 
 #04_ Editando o arquivo de conexão com o Banco de Dados do Wordpress<br>
 
