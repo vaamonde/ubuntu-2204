@@ -47,6 +47,13 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	FLUSH PRIVILEGES;
 	exit
 
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u wordpress -p
+
+	#visualizando as bases de dados
+	SHOW DATABASES;
+	exit
+
 #03_ Fazendo o download do Wordpress e descompactando o seu conteúdo<br>
 
 	#acessando diretório temporário
