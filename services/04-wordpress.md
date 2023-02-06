@@ -39,7 +39,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	CREATE DATABASE wordpress;
 
 	#criando o usuário do Wordpress
-	CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY;
+	CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
 	
 	#aplicando as permissões do usuário Wordpress
 	GRANT USAGE ON *.* TO 'wordpress';
