@@ -123,8 +123,8 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	Português do Brasil: Continuar;
 	Informação necessária
 		Título do site: Seu Nome;
-		Nome de usuário: admin;
+		Nome de usuário: senac;
 		Senha: 123@senac;
 		Confirme a senha: Confirmar o uso de uma senha fraca;
-		O seu e-mail: admin@senac.intra; 
+		O seu e-mail: senac@senac.intra; 
 	<Instalar WordPress>
