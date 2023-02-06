@@ -68,7 +68,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 	#movendo o conteúdo do Wordpress para o Apache2
 	#opção do comando mv: -v (verbose)
-	mv -v wordpress/ /var/www/html/wp/
+	sudo mv -v wordpress/ /var/www/html/wp/
 
 	#alterando as permissões dos diretórios e arquivos do Wordpress
 	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
