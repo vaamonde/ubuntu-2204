@@ -86,3 +86,9 @@ app.listen(3000, function() {
 #08_ Acessando o Projeto Simples do Node.JS<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+
+#09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
+
+	jobs
+	fg %1
+	Ctrl + C
