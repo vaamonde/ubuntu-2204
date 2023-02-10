@@ -66,7 +66,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#descompactando o arquivo do Wordpress
 	unzip wordpress.zip
 
-	#movendo o conteúdo do Wordpress para o Apache2
+	#movendo o conteúdo do Wordpress para o diretório do Apache2
 	#opção do comando mv: -v (verbose)
 	sudo mv -v wordpress/ /var/www/html/wp/
 

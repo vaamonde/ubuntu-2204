@@ -115,12 +115,14 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	
 	#editar o arquivo de configuração do MySQL Server
 	sudo vim mysqld.cnf
+		
 		INSERT
-			#alterar a linha do: bind-address = 127.0.0.1
+			#alterar a linha do: bind-address = 127.0.0.1 para: 0.0.0.0
 			bind-address = 0.0.0.0
 
 			#comentar a linha do mysqlx-bind-address
 			#mysqlx-bind-address = 127.0.0.1
+		
 		ESC SHIFT :x <Enter>
 
 	#reiniciar o serviço do MySQL Server
@@ -142,7 +144,7 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
-	#conectando com o usuário dba do MySQL no Workbench
+	#conectando com o usuário Root do MySQL no Workbench
 	MySQL Connections: +
 		Connection Name: UbuntuServer
 		Connection Method: Standard (TCP/IP)

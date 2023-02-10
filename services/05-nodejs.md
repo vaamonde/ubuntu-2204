@@ -90,5 +90,5 @@ app.listen(3000, function() {
 #09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
 
 	jobs
-	fg %1
+	fg
 	Ctrl + C

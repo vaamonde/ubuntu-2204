@@ -36,7 +36,8 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 #04_ Download do Apache Tomcat Server 10.1.x do site Oficial<br>
 
 	OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
-	Root do Linux Mint para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
+	Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
+	
 	Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
 
 	#opção do comando sudo: -i (login)

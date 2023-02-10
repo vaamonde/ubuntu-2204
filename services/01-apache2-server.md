@@ -139,5 +139,5 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #09_ Testando o Apache2 e o PHP no navegador<br>
 
-	firefox ou google chrome: http://endereçco_ipv4_ubuntuserver
-	firefox ou google chrome: http://endereçco_ipv4_ubuntuserver/teste/
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/

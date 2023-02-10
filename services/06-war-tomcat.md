@@ -25,13 +25,11 @@ Github do projeto do Prof. José de Assis: https://github.com/professorjosedeass
 
 	Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 	Clique em: Releases
-	Em assets, clique em: agenda.war para fazer o Download.
+		Em assets, clique em: agenda.war para fazer o Download.
 
 #02_ Acessando o Apache Tomcat pelo Navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
-		Usuário padrão: admin
-		Senha padrão..: 123@senac
 
 #03_ Fazendo o Deploy da Aplicação no Apache Tomcat<br>
 
