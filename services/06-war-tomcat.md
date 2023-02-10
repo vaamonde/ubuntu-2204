@@ -58,8 +58,8 @@ CREATE DATABASE dbagenda;
 
 /* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
 CREATE USER 'dbagenda'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbagenda';
-GRANT USAGE ON *.* TO 'dbagenda';
-GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda';
+GRANT USAGE ON *.* TO 'dbagenda'@'localhost';
+GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
 FLUSH PRIVILEGES;
 
 /* Criando a Tabela Contatos do Banco de Dados Agenda */
