@@ -53,7 +53,7 @@ Github do projeto do Prof. José de Assis: https://github.com/professorjosedeass
 	sudo mysql -u root -p
 
 ```sql
-/* Criando o Banco de Dados Agenda */
+/* Criando o Banco de Dados DBAgenda */
 CREATE DATABASE dbagenda;
 
 /* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
@@ -62,8 +62,10 @@ GRANT USAGE ON *.* TO 'dbagenda'@'localhost';
 GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
 FLUSH PRIVILEGES;
 
-/* Criando a Tabela Contatos do Banco de Dados Agenda */
+/* Acessando o Banco de Dados DBAgenda */
 USE dbagenda;
+
+/* Criando a Tabela Contatos no Banco de Dados DBAgenda */
 CREATE TABLE contatos (
 	idcon int NOT NULL AUTO_INCREMENT,
 	nome varchar(50) NOT NULL,
@@ -71,16 +73,32 @@ CREATE TABLE contatos (
 	email varchar(50) DEFAULT NULL,
 	PRIMARY KEY (idcon)
 );
+
+/* Verificando as informações das Tabelas */
 SHOW TABLES;
 DESC contatos;
+
+/* Saindo do Banco de Dados */
 exit
 ```
+
+#05_ Testando o acesso a Base de Dados DBAgenda<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dbagenda -p
 
+```sql
 	SHOW DATABASES;
 	USE dbagenda;
 	SHOW TABLES;
 	DESC contatos;
 	exit
+```
+
+#06_ Fazendo o Backup e Restore do Banco de Dados MySQL<br>
+
+	#opções do comando mysqldump: -u (user), -p (password)
+	sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
+
+	#verificando o conteúdo do arquivo backupeado 
+	sudo less bkp-dbagenda.sql
