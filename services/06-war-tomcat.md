@@ -57,8 +57,8 @@ Github do projeto do Prof. José de Assis: https://github.com/professorjosedeass
 CREATE DATABASE dbagenda;
 
 /* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
-CREATE USER 'dbagenda' IDENTIFIED WITH mysql_native_password BY 'dbagenda';"
-GRANT USAGE ON *.* TO 'dbagenda';"
+CREATE USER 'dbagenda'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbagenda';
+GRANT USAGE ON *.* TO 'dbagenda';
 GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda';
 FLUSH PRIVILEGES;
 
@@ -71,7 +71,9 @@ CREATE TABLE contatos (
 	email varchar(50) DEFAULT NULL,
 	PRIMARY KEY (idcon)
 );
-EXIT
+SHOW TABLES;
+DESC contatos;
+exit
 ```
 
 	#opções do comando mysql: -u (user), -p (password)
@@ -80,4 +82,5 @@ EXIT
 	SHOW DATABASES;
 	USE dbagenda;
 	SHOW TABLES;
+	DESC contatos;
 	exit
