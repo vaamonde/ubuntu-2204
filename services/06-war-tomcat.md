@@ -77,7 +77,7 @@ exit
 ```
 
 	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u agenda -p
+	sudo mysql -u dbagenda -p
 
 	SHOW DATABASES;
 	USE dbagenda;
