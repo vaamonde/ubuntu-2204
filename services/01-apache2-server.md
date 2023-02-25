@@ -18,21 +18,21 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-#02_ Instalando o Apache 2 e PHP 8.x<br>
+#02_ Instalando o Apache2 Server e PHP 8.x<br>
 
 	#atualizando as listas do Apt
 	sudo apt update
 	
-	#instalando as dependências do Apache2
+	#instalando as dependências do Apache2 Server
 	sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-dev apt-transport-https
 
-	#instalando o Apache2 e PHP 8.x
+	#instalando o Apache2 Server e PHP 8.x
 	sudo apt install apache2 apache2-utils apache2-bin apache2-data php8.1 php8.1-cli php8.1-common \
 	php8.1-mysql php8.1-opcache php8.1-readline php8.1-common php8.1-bcmath php8.1-curl php8.1-intl \
 	php8.1-mbstring php8.1-xml php8.1-zip php8.1-soap php-imagick php-json libapache2-mod-php libapr1 \
 	libapache2-mod-php8.1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap
 
-#03_ Verificando o Serviço e Versão do Apache 2 e do PHP<br>
+#03_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
 
 	sudo systemctl status apache2
 	sudo systemctl restart apache2
@@ -43,12 +43,12 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo apache2 -V (Server)
 	sudo php --version (PHP)
 
-#04_ Verificando a Porta de Conexão do Apache 2<br>
+#04_ Verificando a Porta de Conexão do Apache2 Server<br>
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
-#05_ Localização dos Arquivos de Configuração do Apache 2 e do PHP 8.x<br>
+#05_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
 
 	/etc/apache2/ <-- Diretório de configuração do Apache 2 Server
 	/etc/apache2/apache2.conf <-- Arquivo de configuração do Apache 2 Server
@@ -69,9 +69,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#07_ Criando um diretório de Teste do HTML e PHP no Linux Mint<br>
+#07_ Criando um diretório de Teste do HTML e PHP<br>
 
-	#acessando o diretório padrão do Apache2
+	#acessando o diretório padrão dos Sites do Apache2 Server
 	cd /var/www/html
 	
 		#opção do comando mkdir: -v (verbose)
@@ -87,6 +87,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 #08_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
 
 	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar o arquivo teste.html, teste.php e phpinfo.php utilizando o Vim.
+
+	sudo vim seu_nome.html
+	INSERT
 
 ```html
 <!DOCTYPE html>
@@ -107,6 +110,11 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		</body>
 	</html>
 ```
+	#sair e salvar o arquivo
+	ESC SHIFT :x
+
+	sudo vim seu_nome.php
+	INSERT
 
 ```php
 <!DOCTYPE html>
@@ -129,6 +137,11 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		</body>
 	</html>
 ```
+	#sair e salvar o arquivo
+	ESC SHIFT :x
+
+	sudo vim phpinfo.php
+	INSERT
 
 ```php
 <?php
@@ -136,8 +149,10 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	phpinfo(); 
 ?>
 ```
+	#sair e salvar o arquivo
+	ESC SHIFT :x
 
-#09_ Testando o Apache2 e o PHP no navegador<br>
+#09_ Testando o Apache2 Server e o PHP no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/

@@ -91,6 +91,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 	sudo systemctl stop tomcat10
 	sudo systemctl start tomcat10
 
+	#verificando a versão do Tomcat Server
 	sudo bash /opt/tomcat/bin/version.sh
 
 #11_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>

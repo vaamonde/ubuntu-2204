@@ -66,7 +66,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#descompactando o arquivo do Wordpress
 	unzip wordpress.zip
 
-	#movendo o conteúdo do Wordpress para o diretório do Apache2
+	#movendo o conteúdo do Wordpress para o diretório do Apache2 Server
 	#opção do comando mv: -v (verbose)
 	sudo mv -v wordpress/ /var/www/html/wp/
 
@@ -106,12 +106,12 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	
 	ESC SHIFT :x
 
-#05_ Habilitar os módulos do Apache2 utilizados pelo Wordpress
+#05_ Habilitando os módulos do Apache2 Server utilizados pelo Wordpress<br>
 
-	#habilitar os módulos do Apache2
+	#habilitar os módulos do Apache2 Server
 	sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
 
-	#reiniciar o serviço do Apache2
+	#reiniciar o serviço do Apache2 Server
 	sudo systemctl restart apache2
 	sudo systemctl status apache2
 

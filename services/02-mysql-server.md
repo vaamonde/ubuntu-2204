@@ -115,8 +115,8 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	
 	#editar o arquivo de configuração do MySQL Server
 	sudo vim mysqld.cnf
-		
 		INSERT
+		
 			#alterar a linha do: bind-address = 127.0.0.1 para: 0.0.0.0
 			bind-address = 0.0.0.0
 

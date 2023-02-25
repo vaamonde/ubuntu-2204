@@ -26,7 +26,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#instalando as dependências do Node.JS
 	sudo apt install git vim curl gcc g++ make software-properties-common build-essential ca-certificates
 
-#02_ Instalando a Versão LTS do Node.JS<br>
+#02_ Instalando a Versão LTS do Node.JS e do NPM<br>
 
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -57,6 +57,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 #05_ Editando o Projeto Simples do Node.JS<br>
 
 	vim index.js
+	INSERT
 
 ```js
 // Criando as variáveis do Express e App do Node.JS
@@ -73,6 +74,8 @@ app.listen(3000, function() {
 	console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });
 ```
+	#sair e salvar o arquivo
+	ESC SHIFT :x
 
 #06_ Executando o Projeto Simples do Node.JS<br>
 
@@ -89,6 +92,11 @@ app.listen(3000, function() {
 
 #09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
 
+	#verificando os processo em segundo plano
 	jobs
+	
+	#trazendo o processo do Node.JS para o primeiro plano
 	fg
+
+	#finalizando o processo do Node.JS
 	Ctrl + C
