@@ -17,6 +17,10 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 
 #02_ Instalando as Dependências do MongoDB Server<br>
 
+	#atualizando as lista do apt
+	sudo apt update
+
+	#instalando as dependências do MongoDB Server
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 	
 	#opção do comando dpkg: -i (install)
@@ -56,6 +60,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	sudo systemctl stop mongod
 	sudo systemctl start mongod
 
+	#verificando as versões do MongoDB Server e do Client
 	mongod --version
 	mongosh --version
 
@@ -167,7 +172,8 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 #17_ Download e Instalação do MongoDB Compass no Linux Mint<br>
 
 	#Link atualizado em: 22/02/2023
-	Link Oficial do MongoDB Compass: https://downloads.mongodb.com/compass/mongodb-compass_1.35.0_amd64.deb
+	Link Oficial do MongoDB Compass Linux: https://downloads.mongodb.com/compass/mongodb-compass_1.35.0_amd64.deb
+	Link Oficial do MongoDB Compass Windows: https://downloads.mongodb.com/compass/mongodb-compass-1.35.0-win32-x64.exe
 	
 	01_ Na pasta de Download, clicar duas vezes no Instalador do MongoDB Compass;
 	02_ Seguir os procedimentos na tela.
