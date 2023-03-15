@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 19/01/2023<br>
-#Versão: 0.01<br>
+#Data de atualização: 15/03/2023<br>
+#Versão: 0.02<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -44,7 +44,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 	sudo -i
 	
 	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz
+	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.7/bin/apache-tomcat-10.1.7.tar.gz
 
 #05_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
 
