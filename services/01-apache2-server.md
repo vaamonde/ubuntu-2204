@@ -34,6 +34,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #03_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
 
+	#verificando o serviço do Apache2
 	sudo systemctl status apache2
 	sudo systemctl restart apache2
 	sudo systemctl stop apache2
@@ -50,14 +51,14 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #05_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
 
-	/etc/apache2/ <-- Diretório de configuração do Apache 2 Server
-	/etc/apache2/apache2.conf <-- Arquivo de configuração do Apache 2 Server
-	/etc/apache2/sites-available/ <-- Diretório padrão do Sites Acessíveis do Apache 2 Server
-	/etc/apache2/conf-available/ <-- Diretório padrão das Configurações Acessíveis do Apache 2 Server
-	/etc/php/ <--- Diretório de configuração do PHP 7.x ou 8.x
-	/etc/php/8.1/apache2/php.ini <-- Arquivo de configuração do PHP 8.x do Apache 2 Server
-	/var/www/html/ <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
-	/var/log/apache2/ <-- Diretório padrão dos Logs do Apache 2 Server
+	/etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
+	/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
+	/etc/apache2/sites-available/  <-- Diretório padrão do Sites Acessíveis do Apache 2 Server
+	/etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache 2 Server
+	/etc/php/                      <--- Diretório de configuração do PHP 7.x ou 8.x
+	/etc/php/8.1/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache 2 Server
+	/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
+	/var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 
 #06_ Adicionado o Usuário Local no Grupo Padrão do Apache2 Server<br>
 
@@ -86,8 +87,10 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #08_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar o arquivo teste.html, teste.php e phpinfo.php utilizando o Vim.
+	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar o arquivo teste.html, teste.php e phpinfo.php 
+	utilizando o Editor de Texto em Linha de Comando Vim.
 
+	#criando o arquivo em HTML
 	sudo vim seu_nome.html
 	INSERT
 
@@ -111,8 +114,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	</html>
 ```
 	#sair e salvar o arquivo
-	ESC SHIFT :x
+	ESC SHIFT :x <Enter>
 
+	#criando o arquivo em PHP
 	sudo vim seu_nome.php
 	INSERT
 
@@ -138,8 +142,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	</html>
 ```
 	#sair e salvar o arquivo
-	ESC SHIFT :x
+	ESC SHIFT :x <Enter>
 
+	#criando o arquivo de informações do PHP
 	sudo vim phpinfo.php
 	INSERT
 
@@ -150,9 +155,14 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 ?>
 ```
 	#sair e salvar o arquivo
-	ESC SHIFT :x
+	ESC SHIFT :x <Enter>
 
 #09_ Testando o Apache2 Server e o PHP no navegador<br>
 
+	#utilizar os navegadores para testar as páginas
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
+
+#10_ DESAFIO: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM SEU_NOME PARA UM 
+NOVO SITE, CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html (TUDO EM MINÚSCULA) NO SEU DIRETÓRIO, 
+ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS NA PÁGINA.

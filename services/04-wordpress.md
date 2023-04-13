@@ -104,7 +104,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		#variável da senha do usuário do banco de dados
 		define( 'DB_PASSWORD', 'wordpress' );
 	
-	ESC SHIFT :x
+	ESC SHIFT :x <Enter>
 
 #05_ Habilitando os módulos do Apache2 Server utilizados pelo Wordpress<br>
 

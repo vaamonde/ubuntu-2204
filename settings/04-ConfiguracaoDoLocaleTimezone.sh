@@ -14,6 +14,7 @@
 #Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
 #
 # Configuração do Locale (Localidade) do Sistema Operacional Ubuntu Server
+# opção do comando locale: -a (all-locales)
 sudo localectl
 sudo locale -a
 sudo locale-gen pt_BR.UTF-8
@@ -35,20 +36,20 @@ sudo vim /etc/systemd/timesyncd.conf
 		[Time]
 		NTP=a.st1.ntp.br
 		FallbackNTP=a.ntp.br
-	ESC SHIFT : x
+	ESC SHIFT : x <Enter>
 sudo systemctl restart systemd-timesyncd.service
 sudo systemctl status systemd-timesyncd.service
 sudo timedatectl
 #
 # Configuração de Data e Hora do Sistema Operacional Ubuntu Server
+# opção do comando date: -s (set)
 sudo date
 sudo date +%d/%m/%Y
-sudo date -s 20/01/2023	(-s=set, Mês, Dia e Ano)
+sudo date -s 20/01/2023
 sudo date +%H:%M:%S
-sudo date -s 13:30:00 (-s=set, Hora, Minuto, Segundos)
+sudo date -s 13:30:00
 #
 # Sincronizando Data e Hora do Sistema Operacional Ubuntu Server e Hardware (BIOS)
 sudo hwclock --show
 sudo hwclock --systohc (Atualização do Sistema para o Hardware)
 sudo hwclock --hctosys (Atualização do Hardware para o Sistema)
-#

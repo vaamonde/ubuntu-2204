@@ -57,11 +57,23 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 #06_ Atualizando os arquivos de configuração do Apache Tomcat 10.1.x<br>
 
 	#opção do comando wget: -v (verbose), -O (output file)
+	
+	#arquivo de configuração do Servidor Tomcat
 	wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.xml
+	
+	#arquivo de configuração dos Usuários do Tomcat
 	wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
+	
+	#arquivo de configuração do Contexto do Tomcat
 	wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+	
+	#arquivo de configuração do Meta Dados do Contexto Manager do Tomcat
 	wget -v -O /opt/tomcat/webapps/manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+	
+	#arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
 	wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+	
+	#arquivo de configuração da Inicialização do Tomcat
 	wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 
 #07_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x<br>
@@ -79,6 +91,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #09_ Habilitando o Serviço do Apache Tomcat Server 10.1.x<br>
 
+	#habilitando o serviço do Tomcat
 	systemctl daemon-reload
 	systemctl enable tomcat10
 	systemctl start tomcat10
@@ -86,6 +99,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #10_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
 
+	#verificando o serviço do
 	sudo systemctl status tomcat10
 	sudo systemctl restart tomcat10
 	sudo systemctl stop tomcat10
@@ -101,13 +115,13 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #12_ Localização dos Arquivos de Configuração do Apache Tomcat Server<br>
 
-	/opt/tomcat <-- Diretório de configuração do Apache Tomcat Server
-	/opt/tomcat/bin <-- Diretório do binário (executável) do Apache Tomcat Server
-	/opt/tomcat/conf <-- Diretório das configurações do Apache Tomcat Server
-	/opt/tomcat/conf/server.xml <-- Arquivo de configuração do Servidor do Apache Tomcat Server
-	/opt/tomcat/conf/tomcat-users.xml <-- Arquivo de configuração dos Usuários do Apache Tomcat Server
-	/opt/tomcat/logs <-- Diretório dos Logs do Apache Tomcat Server
-	/opt/tomcat/webapps <-- Diretório das Aplicações Web do Apache Tomcat Server
+	/opt/tomcat                        <-- Diretório de configuração do Apache Tomcat Server
+	/opt/tomcat/bin                    <-- Diretório do binário (executável) do Apache Tomcat Server
+	/opt/tomcat/conf                   <-- Diretório das configurações do Apache Tomcat Server
+	/opt/tomcat/conf/server.xml        <-- Arquivo de configuração do Servidor do Apache Tomcat Server
+	/opt/tomcat/conf/tomcat-users.xml  <-- Arquivo de configuração dos Usuários do Apache Tomcat Server
+	/opt/tomcat/logs                   <-- Diretório dos Logs do Apache Tomcat Server
+	/opt/tomcat/webapps                <-- Diretório das Aplicações Web do Apache Tomcat Server
 
 #13_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server<br>
 

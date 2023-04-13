@@ -23,11 +23,14 @@
 #
 # Alterando o nome do servidor
 sudo vim /etc/hostname
+	INSERT
+		wsseunome.senac.intra
+	ESC SHIFT : x <Enter>
 #
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
 	INSERT
-		127.0.0.1 wsvaamonde.senac.intra 	wsvaamonde
+		127.0.0.1 wsseunome.senac.intra 	wsseunome
 	ESC SHIFT : x <Enter>
 #
 # Reinicializando o servidor
@@ -42,4 +45,3 @@ sudo hostname -i
 #
 # Verificando os usuário logados no servidor
 sudo w
-#

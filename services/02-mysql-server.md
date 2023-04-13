@@ -26,6 +26,7 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
 #02_ Verificando o Serviço e Versão do MySQL Server<br>
 
+	#verificando o serviço do MySQL
 	sudo systemctl status mysql
 	sudo systemctl restart mysql
 	sudo systemctl stop mysql
@@ -42,11 +43,11 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
 #04_ Localização dos Arquivos de Configuração do MySQL Server<br>
 
-	/etc/mysql <-- Diretório de configuração do SGBD MySQL Server
-	/etc/mysql/mysql.conf.d/mysqld.cnf <-- Arquivo de configuração do Servidor SGBD do MySQL Server
-	/etc/mysql/mysql.conf.d/mysql.cnf <-- Arquivo de configuração do Cliente SGBD do MySQL Client
-	/var/log/mysql <-- Diretório padrão dos Logs do SGBD Mysql Server
-	/var/lib/mysql <-- Diretório da Base de Dados padrão do SGBD MySQL Server
+	/etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
+	/etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
+	/etc/mysql/mysql.conf.d/mysql.cnf   <-- Arquivo de configuração do Cliente SGBD do MySQL Client
+	/var/log/mysql                      <-- Diretório padrão dos Logs do SGBD Mysql Server
+	/var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
 
 #05_ Acesso o MySQL Server<br>
 
@@ -72,6 +73,8 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 		
 		#alterando as permissões do usuário Root Localhost
 		GRANT ALL ON *.* TO 'root'@'localhost';
+		
+		#aplicando todas as mudanças na base de dados
 		FLUSH PRIVILEGES;
 		
 		#saindo do MySQL
@@ -80,13 +83,15 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-#07_ Criando um usuário DBA no MySQL Server<br>
+#07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
 
 	#criando o usuário DBA Localhost
 	CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY '123@senac';
 	
 	#alterando as permissões do usuário DBA Localhost
 	GRANT ALL ON *.* TO 'dba'@'localhost';
+	
+	#aplicando todas as mudanças na base de dados
 	FLUSH PRIVILEGES;
 
 	#saindo do MySQL
@@ -159,3 +164,6 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 		<Test Connection>
 			<OK>
 		<OK>
+
+#11_ DESAFIO: CRIAR UM BANCO DE DADOS COM O SEU_NOME, DENTRO DESSE BANCO DE DADOS CRIAR
+UMA TABELA COM O SEU_NOME COM AS SEGUINTES COLUNAS: Nome e Idade.

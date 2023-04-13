@@ -49,7 +49,7 @@ cd /etc/netplan/
 # Arquivos de configuração da Placa de Rede no Ubuntu Server utilizando
 # o Netplan. OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão
 # do Ubuntu Server.
-/etc/netplan/00-installer-config.yaml #Padrão Ubuntu Server 22.04.x LTS
+# /etc/netplan/00-installer-config.yaml #Padrão Ubuntu Server 22.04.x LTS
 #
 # OBSERVAÇÃO IMPORTANTE: o arquivo de configuração o Netplan e baseado no
 # formato de serialização de dados legíveis YAML (Yet Another Markup Language)
@@ -70,6 +70,7 @@ network:
 ESC SHIFT : x <Enter>
 #
 # Aplicando as configurações e verificando o status da Placa de Rede
+# opção do comando route: -n (numeric)
 sudo netplan --debug try
 sudo netplan --debug apply
 sudo netplan ip leases enp0s3
@@ -100,6 +101,7 @@ network:
 ESC SHIFT : x <Enter>
 #
 # Aplicando as configurações e verificando o status da Placa de Rede
+# opção do comando route: -n (numeric)
 sudo netplan --debug try
 sudo netplan --debug apply
 sudo systemd-resolve --status
@@ -111,6 +113,6 @@ sudo ip route
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
 	INSERT
-		127.0.0.1     wsvaamonde.senac.intra 	wsvaamonde
-		10.26.44.200  wsvaamonde.senac.intra 	wsvaamonde
+		127.0.0.1     wsseunome.senac.intra     wsseunome
+		10.26.44.XXX  wsseunome.senac.intra     wsseunome
 	ESC SHIFT : x <Enter>

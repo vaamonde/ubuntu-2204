@@ -9,18 +9,18 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 18/01/2023<br>
-Versão: 0.01<br>
-Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
+Data de atualização: 12/04/2023<br>
+Versão: 0.02<br>
+Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
-Release Notes Ubuntu Server 22.04.4: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
+Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle
 
-Primeira etapa: Download da ISO do Ubuntu Server 22.04.1 LTS
+Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 
 01. Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
-02. Versão do download Ubuntu Server: ubuntu-22.04.1-live-server-amd64.iso (09/08/2022)
+02. Versão do download Ubuntu Server: ubuntu-22.04.2-live-server-amd64.iso (17/02/2023)
 03. Arquitetura do Ubuntu Server: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
 
@@ -31,8 +31,8 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_	<Novo>
 
 	_ 02. Nome e Sistema Operacional:
-	_		Nome: UbuntuServer
-	_		Pasta da Máquina: (deixar o padrão do sistema)
+	_		Nome: Webserver
+	_		Pasta da Máquina: 
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
 	_	<Próximo>
@@ -80,7 +80,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_			Nome: (deixar o padrão do sistema)
 	_	<OK>
 
-Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.1 LTS (localizar a ISO)
+Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
 
 	_ 01. VM  UbuntuServer: Iniciar
 	
@@ -89,15 +89,15 @@ Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.1 LTS (localizar
 	
 	_ 03. Seletor de Discos Ópticos
 	_ 		Acrescentar
-	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.1-live-server-amd64.iso
+	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.2-live-server-amd64.iso
 	_ 	<Abrir>
 	
 	_ 04. Not Attached
-	_ 		Selecionar: ubuntu-22.04.1-live-server-amd64.iso
+	_ 		Selecionar: ubuntu-22.04.2-live-server-amd64.iso
 	_ 	<Escolher>
 	_ <Iniciar>
 
-Quarta etapa: Instalação e Configuração do Ubuntu Server 22.04.1 LTS<br>
+Quarta etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 	_ 01. Use UP, DOWN and ENTER keys to select your language
@@ -142,11 +142,11 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_		<Continue>
 	
 	_ 09. Profile setup
-	_ 		Your name: Robson Vaamonde <Tab>
-	_ 		Your server's name: ptispo01ws01 <Tab>
-	_ 		Pick a username: vaamonde <Tab>
-	_ 		Choose a passwords: pti@2018 <Tab>
-	_ 		Confirm your passwords: pti@2018
+	_ 		Your name: Seu Nome e Sobrenome <Tab>
+	_ 		Your server's name: wsseunome <Tab>
+	_ 		Pick a username: senac <Tab>
+	_ 		Choose a passwords: 123@senac <Tab>
+	_ 		Confirm your passwords: 123@senac
 	_ 	<Done>
 	
 	_ 10. Enable Ubuntu Advantage

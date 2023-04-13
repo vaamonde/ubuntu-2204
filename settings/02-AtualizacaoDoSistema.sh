@@ -44,4 +44,3 @@ sudo apt autoclean
 #
 # Clean limpa o repositório local de arquivos de pacotes recuperados
 sudo apt clean
-#
