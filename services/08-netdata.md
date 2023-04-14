@@ -10,7 +10,7 @@
 #Data de atualização: 14/04/2023<br>
 #Versão: 0.01<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=JUWuyTHvLVY
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=bVivYQ3RMEs
 
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
@@ -60,7 +60,11 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 
-#06_ Localização dos Arquivos de Configuração do Netdata Server<br>
+#06_ Habilitando as atualizações do Netdata Server
+
+	sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
+
+#07_ Localização dos Arquivos de Configuração do Netdata Server<br>
 
 	/etc/netdata/netdata.conf                      <-- arquivo de configuração do serviço do Netdata Server
 	/etc/netdata/apps_groups.conf                  <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
@@ -69,26 +73,41 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 	/usr/lib/netdata/conf.d/python.d/mysql.conf    <-- arquivo de monitoramento do MySQL Server
 	/usr/lib/netdata/conf.d/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
 
-#07_ Atualizando os arquivos de configuração do Netdata Server<br>
+#08_ Atualizando os arquivos de configuração do Netdata Server<br>
 
 	#opção do comando wget: -v (verbose), -O (output file)
 
 	#arquivo de configuração dos grupos de aplicativos do Netdata
-	sudo wget -v -O /etc/netdata/apps_groups.conf 
+	sudo wget -v -O /etc/netdata/apps_groups.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/apps_groups.conf
 
 	#arquivo de monitoramento do Apache2 Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/apache.conf 
+	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/apache.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/apache.conf
 
 	#arquivo de monitoramento do MongoDB Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/mongodb.conf 
+	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/mongodb.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mongodb.conf
 
 	#arquivo de monitoramento do MySQL Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/mysql.conf 
+	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/mysql.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mysql.conf
 
-	#arquivo de monitoramento do Tomcat Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/tomcat.conf 
+	#arquivo de monitoramento do Apache Tomcat Server
+	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/tomcat.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat.conf
 
-#08_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
+#09_ Criando o usuário de monitoramento do MySQL Server do Netdata Server<br>
+
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u root -p
+
+		#criando o usuário do Netdata no MySQL
+		CREATE USER 'netdata'@'localhost';
+
+		#aplicando as permissões do usuário do Netdata no MySQL
+		GRANT USAGE, REPLICATION CLIENT ON *.* TO 'netdata'@'localhost';
+
+		#fazendo o flush das permissões e saindo do MySQL
+		FLUSH PRIVILEGES;
+		exit
+
+#10_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G netdata $USER
@@ -98,3 +117,6 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
+#11_ Acessando e configurando o Netdata Server no navegador<br>
+
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999

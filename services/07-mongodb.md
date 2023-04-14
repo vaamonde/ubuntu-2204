@@ -17,7 +17,7 @@ Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass
 
 Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 
-#02_ Instalando as Dependências do MongoDB Server<br>
+#01_ Instalando as Dependências do MongoDB Server<br>
 
 	#atualizando as lista do apt
 	sudo apt update
@@ -29,33 +29,33 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
 	sudo dpkg -i libssl*.deb
 
-#03_ Baixando e instalando a Chave GPG do MongoDB Server<br>
+#02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do comando gpg: -o (output)
 	curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/mongodb-6.gpg
 
-#04_ Criando o repositório do MongoDB Server<br>
+#03_ Criando o repositório do MongoDB Server<br>
 
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 
-#05_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
+#04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
 
 	sudo apt update
 
-#06_ Instalando o MongoDB Server e Client<br>
+#05_ Instalando o MongoDB Server e Client<br>
 
 	sudo apt install mongodb-org
 
-#07_ Habilitando o Serviço do MongoDB Server<br>
+#06_ Habilitando o Serviço do MongoDB Server<br>
 
 	sudo systemctl daemon-reload
 	sudo systemctl enable mongod
 	sudo systemctl start mongod
 
-#08_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
+#07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
 
 	sudo systemctl status mongod
 	sudo systemctl restart mongod
@@ -66,18 +66,18 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	mongod --version
 	mongosh --version
 
-#09_ Verificando a Porta de Conexão do MongoDB Server<br>
+#08_ Verificando a Porta de Conexão do MongoDB Server<br>
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 
-#10_ Localização dos Arquivos de Configuração do MongoDB Server<br>
+#09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
 
 	/etc/mongod.conf	<-- arquivo de configuração do MongoDB Server
 	/var/log/mongodb	<-- diretório dos arquivos de Log do MongoDB Sever
 	/var/lib/mongodb	<-- diretório dos arquivos de Banco de Dados do MongoDB Server
 
-#11_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
+#10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G mongodb $USER
@@ -87,11 +87,11 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#12_ Testando a Conexão Local com o MongoDB Server<br>
+#11_ Testando a Conexão Local com o MongoDB Server<br>
 
 	mongosh
 
-#13_ Comandos Básicos do MongoDB Server<br>
+#12_ Comandos Básicos do MongoDB Server<br>
 
 	#exibir os bancos de dados existentes no MongoDB
 	show dbs
@@ -108,7 +108,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	#sair do MongoDB
 	quit
 
-#14_ Criando o usuário de administração do MongoDB Server<br>
+#13_ Criando o usuário de administração do MongoDB Server<br>
 
 	mongosh
 	
@@ -130,7 +130,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	#saindo do MongoDB
 	exit
 
-#15_ Configurando o MongoDB Server para suportar autenticação e acesso Remoto<br>
+#14_ Configurando o MongoDB Server para suportar autenticação e acesso Remoto<br>
 
 	sudo vim /etc/mongod.conf
 		
@@ -150,10 +150,11 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 		#sair e salvar o arquivo
 		ESC SHIFT :x <ENTER>
 
+	#reiniciar o serviço do MongoDB Server
 	sudo systemctl restart mongod
 	sudo systemctl status mongod
 
-#16_ Acessando o MongoDB com e sem autenticação<br>
+#15_ Acessando o MongoDB com e sem autenticação<br>
 
 	mongosh
 
@@ -172,7 +173,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	#saindo do MongoDB Server
 	quit
 
-#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
+#16_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
 
 	#instalando a Extensão do MongoDB
 	VSCode

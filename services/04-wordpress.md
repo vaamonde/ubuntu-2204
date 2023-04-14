@@ -10,7 +10,7 @@
 #Data de atualização: 14/04/2023<br>
 #Versão: 0.03<br>
 
-VIDEO AULA DE APOIO: 
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=M1pW_-qE0KU
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -83,7 +83,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo find /var/www/html/wp/. -type d -exec chmod -v 755 {} \;
 	sudo find /var/www/html/wp/. -type f -exec chmod -v 644 {} \;
 
-#04_ Editando o arquivo de conexão com o Banco de Dados do Wordpress<br>
+#04_ Editando o arquivo de conexão com o Banco de Dados e Salt do Wordpress<br>
 
 	#acessando o diretório do Wordpress
 	cd /var/www/html/wp/
@@ -107,6 +107,10 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		#variável da senha do usuário do banco de dados
 		define( 'DB_PASSWORD', 'wordpress' );
 	
+		#configuração do Salt do Wordpress site: https://api.wordpress.org/secret-key/1.1/salt/
+		#mais informações sobre o Salt's do Wordpress: https://www.hostinger.com.br/tutoriais/wordpress-salt
+		#copiar o conteúdo do Salt e colocar a partir da linha 
+
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
 
@@ -133,5 +137,8 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		O seu e-mail: senac@senac.intra; 
 	<Instalar WordPress>
 
-#07_ DESAFIO: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
+#07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
+
+#08_ DESAFIO-08: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
+NO DIA A DIA: Wordfence Security E W3 Total Cache.
