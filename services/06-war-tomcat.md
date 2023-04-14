@@ -7,8 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/01/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 14/04/2023<br>
+#Versão: 0.03<br>
+
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -21,7 +23,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 
-#01_ Fazendo o download do WAR do Tomcat desenvolvido em JavaEE<br>
+#01_ Fazendo o download do WAR do Apache Tomcat desenvolvido em JavaEE<br>
 
 	Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 	Clique em: Releases
@@ -45,7 +47,7 @@ Github do projeto do Prof. José de Assis: https://github.com/professorjosedeass
 	Após o Deploy da aplicação a nova URL de acesso será: 
 		firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
-#04_ Criando a Base de Dados do MySQL do projeto da Agenda em JavaEE<br>
+#04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -80,7 +82,7 @@ DESC contatos;
 exit
 ```
 
-#05_ Testando o acesso a Base de Dados DBAgenda<br>
+#05_ Testando o acesso a Base de Dados DBAgenda com o usuário dbagenda<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dbagenda -p
@@ -93,7 +95,7 @@ exit
 	exit
 ```
 
-#06_ Fazendo o Backup e Restore do Banco de Dados MySQL<br>
+#06_ Fazendo o Backup e Restore do Banco de Dados MySQL Server<br>
 
 	#opções do comando mysqldump: -u (user), -p (password)
 	sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql

@@ -7,8 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/01/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 14/04/2023<br>
+#Versão: 0.03<br>
+
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=awDyXU-vIsk
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/
@@ -26,7 +28,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#instalando as dependências do Node.JS
 	sudo apt install git vim curl gcc g++ make software-properties-common build-essential ca-certificates
 
-#02_ Instalando a Versão LTS do Node.JS e do NPM<br>
+#02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
 
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -60,13 +62,13 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	INSERT
 
 ```js
-// Criando as variáveis do Express e App do Node.JS
+// Criando as variáveis do Express e do App do Node.JS
 var express = require ('express'); 
 var app = express();
 
 // Mensagem que será mostrada no browser (navegador) 
 app.get('/', function (req, res) {
-	res.send('Robson Vaamonde #BoraParaPrática!!!');
+	res.send('Seu Nome e Sobrenome #SenacTatuape!!!');
 });
 
 // Porta padrão utilizada pela aplicação do Node.JS
@@ -77,11 +79,12 @@ app.listen(3000, function() {
 	#sair e salvar o arquivo
 	ESC SHIFT :x
 
-#06_ Executando o Projeto Simples do Node.JS<br>
+#06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
 
+	#opção do comando &: background
 	node index.js &
 
-#07_ Verificando a Porta de Conexão do Node.JS<br>
+#07_ Verificando a Porta de Conexão do Node.JS Express<br>
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
@@ -92,11 +95,15 @@ app.listen(3000, function() {
 
 #09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
 
-	#verificando os processo em segundo plano
+	#verificando os processo em segundo plano (background)
 	jobs
 	
-	#trazendo o processo do Node.JS para o primeiro plano
+	#trazendo o processo do Node.JS para o primeiro plano (foreground)
 	fg
 
-	#finalizando o processo do Node.JS
+	#finalizando o processo do Node.JS Express
 	Ctrl + C
+
+#10_ DESAFIO: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM SEU_NOME
+NA RAIZ DO PERFIL DO USUÁRIO, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js, MUDAR A 
+MENSAGEM NO BROWSER PRA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030.

@@ -7,8 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/01/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 14/04/2023<br>
+#Versão: 0.03<br>
+
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=XDURRbCpd2M
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
@@ -18,7 +20,7 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-#02_ Instalando o Apache2 Server e PHP 8.x<br>
+#01_ Instalando o Apache2 Server e PHP 8.x<br>
 
 	#atualizando as listas do Apt
 	sudo apt update
@@ -32,7 +34,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	php8.1-mbstring php8.1-xml php8.1-zip php8.1-soap php-imagick php-json libapache2-mod-php libapr1 \
 	libapache2-mod-php8.1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap
 
-#03_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
+#02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
 
 	#verificando o serviço do Apache2
 	sudo systemctl status apache2
@@ -44,12 +46,12 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo apache2 -V (Server)
 	sudo php --version (PHP)
 
-#04_ Verificando a Porta de Conexão do Apache2 Server<br>
+#03_ Verificando a Porta de Conexão do Apache2 Server<br>
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
-#05_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
+#04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
 
 	/etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
 	/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
@@ -60,7 +62,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
 	/var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 
-#06_ Adicionado o Usuário Local no Grupo Padrão do Apache2 Server<br>
+#05_ Adicionado o Usuário Local no Grupo Padrão do Apache2 Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G www-data $USER
@@ -70,7 +72,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#07_ Criando um diretório de Teste do HTML e PHP<br>
+#06_ Criando um diretório de Teste do HTML e PHP<br>
 
 	#acessando o diretório padrão dos Sites do Apache2 Server
 	cd /var/www/html
@@ -83,11 +85,13 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		
 		#opção do comando chown: -v (verbose), root (User), . (separate), www-date (group)
 		sudo chown -v root.www-data teste/
+		
+		#acessando o diretório criado
 		cd teste
 
-#08_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
+#07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar o arquivo teste.html, teste.php e phpinfo.php 
+	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar os arquivos teste.html, teste.php e phpinfo.php 
 	utilizando o Editor de Texto em Linha de Comando Vim.
 
 	#criando o arquivo em HTML
@@ -157,12 +161,12 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
 
-#09_ Testando o Apache2 Server e o PHP no navegador<br>
+#08_ Testando o Apache2 Server e o PHP no navegador<br>
 
 	#utilizar os navegadores para testar as páginas
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
-#10_ DESAFIO: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM SEU_NOME PARA UM 
+#09_ DESAFIO: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM SEU_NOME PARA UM 
 NOVO SITE, CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html (TUDO EM MINÚSCULA) NO SEU DIRETÓRIO, 
 ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS NA PÁGINA.

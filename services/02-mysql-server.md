@@ -7,8 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 17/01/2023<br>
+#Data de atualização: 14/04/2023<br>
 #Versão: 0.05<br>
+
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ClnoU4-x5oI
 
 Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
@@ -54,7 +56,7 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-#06_ Aplicando a segurança de acesso do usuário Root do MySQL Server<br>
+#06_ Aplicando a segurança de acesso do usuário Root no MySQL Server<br>
 
 	#visualizando as bases de dados do MySQL
 	SHOW DATABASES;
@@ -113,7 +115,7 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	#opções do comando mysql: -u (user), -p (password)
 	mysql -u dba -p
 
-#09_ Permitindo o Root se Logar Remoto no MySQL Server<br>
+#09_ Permitindo o Root se Logar Remotamente no MySQL Server<br>
 
 	#acessar o diretório das configurações do MySQL Server
 	cd /etc/mysql/mysql.conf.d
@@ -127,7 +129,8 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
 			#comentar a linha do mysqlx-bind-address
 			#mysqlx-bind-address = 127.0.0.1
-		
+
+		#sair e salvar o arquivo	
 		ESC SHIFT :x <Enter>
 
 	#reiniciar o serviço do MySQL Server
@@ -137,12 +140,12 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	#acessar o MySQL Server como Root
 	sudo mysql -u root -p
 
-	#criando o usuário Root Remoto do MySQL
+	#criando o usuário Root Remoto do MySQL Server
 	CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123@senac';
 	GRANT ALL ON *.* TO 'root'@'%';
 	FLUSH PRIVILEGES;
 
-	#verificando o usuário Root Remoto do MySQL
+	#verificando o usuário Root Remoto do MySQL Server
 	USE mysql;
 	SELECT user,host FROM user;
 	exit
@@ -165,5 +168,28 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 			<OK>
 		<OK>
 
-#11_ DESAFIO: CRIAR UM BANCO DE DADOS COM O SEU_NOME, DENTRO DESSE BANCO DE DADOS CRIAR
-UMA TABELA COM O SEU_NOME COM AS SEGUINTES COLUNAS: Nome e Idade.
+#11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
+
+	#instalando a Extensão do MySQL Server
+	VSCode
+		Extensões
+			Pesquisar
+				MySQL (Database manager for MySQL/MariaDB, PostgreSQL, SQLite, Redis and ElasticSearch)
+					Instalar
+
+	#configurando a conexão com o MySQL Server
+	VSCode
+		Database
+			<Create Connection>
+				Name: UbuntuServer
+				Server Type:
+					MySQL
+						Host: 10.26.44.XXX
+						Port: 3306
+						Username: root
+						Password: 123@senac
+				<Save>
+
+#12_ DESAFIO: CRIAR UM BANCO DE DADOS COM O SEU_NOME, DENTRO DESSE BANCO DE DADOS CRIAR
+UMA TABELA COM O SEU_NOME COM AS SEGUINTES COLUNAS: Nome e Idade. OBSERVAÇÃO IMPORTANTE:
+NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.

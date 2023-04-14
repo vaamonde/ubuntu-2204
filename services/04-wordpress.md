@@ -7,8 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/01/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 14/04/2023<br>
+#Versão: 0.03<br>
+
+VIDEO AULA DE APOIO: 
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -50,8 +52,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u wordpress -p
 
-	#visualizando as bases de dados
+	#visualizando a base de dados do Wordpress
 	SHOW DATABASES;
+	USE wordpress;
 	exit
 
 #03_ Fazendo o download do Wordpress e descompactando o seu conteúdo<br>
@@ -104,6 +107,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		#variável da senha do usuário do banco de dados
 		define( 'DB_PASSWORD', 'wordpress' );
 	
+	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
 
 #05_ Habilitando os módulos do Apache2 Server utilizados pelo Wordpress<br>
@@ -128,3 +132,6 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		Confirme a senha: Confirmar o uso de uma senha fraca;
 		O seu e-mail: senac@senac.intra; 
 	<Instalar WordPress>
+
+#07_ DESAFIO: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
+POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.

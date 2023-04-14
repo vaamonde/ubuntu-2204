@@ -7,8 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 23/02/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 14/04/2023<br>
+#Versão: 0.06<br>
+
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=JUWuyTHvLVY
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass
@@ -89,7 +91,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 
 	mongosh
 
-#13_ Comandos Básicos do MongoDB Server no Linux Mint<br>
+#13_ Comandos Básicos do MongoDB Server<br>
 
 	#exibir os bancos de dados existentes no MongoDB
 	show dbs
@@ -113,7 +115,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	#alterar o database informe no MongoDB
 	use admin
 
-	#criando o usuário admin e suas roles do MongoDB
+	#criando o usuário admin e suas roles (papéis) do MongoDB
 	db.createUser(
 	{
 		user: "admin",
@@ -144,7 +146,8 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 			#descomentar a linha: #security, adicionar o valor: authorization: enabled
 			security:
 			  authorization: enabled
-			
+		
+		#sair e salvar o arquivo
 		ESC SHIFT :x <ENTER>
 
 	sudo systemctl restart mongod
@@ -169,35 +172,16 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 	#saindo do MongoDB Server
 	quit
 
-#17_ Download e Instalação do MongoDB Compass no Linux Mint<br>
+#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
 
-	#Link atualizado em: 22/02/2023
-	Link Oficial do MongoDB Compass Linux: https://downloads.mongodb.com/compass/mongodb-compass_1.35.0_amd64.deb
-	Link Oficial do MongoDB Compass Windows: https://downloads.mongodb.com/compass/mongodb-compass-1.35.0-win32-x64.exe
-	
-	01_ Na pasta de Download, clicar duas vezes no Instalador do MongoDB Compass;
-	02_ Seguir os procedimentos na tela.
-
-	Menu
-		Pesquisa Indexada: MongoDB Compass
-			New connection +
-				Advanced Connection Options
-					Authentication
-						Authentication Method: Username/Password
-							Username: admin
-							Password: pti@2018
-							Authentication Database: admin
-							Authentication Mechanism: Default
-			<Save>
-
-#18_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
-
+	#instalando a Extensão do MongoDB
 	VSCode
 		Extensões
 			Pesquisar
 				MongoDB for VS Code
 					Instalar
 
+	#configurando a conexão com o MongoDB
 	VSCode
 		MongoDB
 			CONNECTIONS

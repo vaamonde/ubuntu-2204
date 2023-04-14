@@ -9,9 +9,9 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Github Procedimentos em TI: https://github.com/vaamonde
 #Data de criação: 18/01/2023
-#Data de atualização: 18/01/2023
-#Versão: 0.01
-#Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
+#Data de atualização: 14/04/2023
+#Versão: 0.02
+#Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 #
 # Configuração da Placa de Rede no GNU/Linux Ubuntu 20.04.x LTS
 # UDEV (userspace /dev) responsável por controlar os dispositivos do
@@ -116,3 +116,13 @@ sudo vim /etc/hosts
 		127.0.0.1     wsseunome.senac.intra     wsseunome
 		10.26.44.XXX  wsseunome.senac.intra     wsseunome
 	ESC SHIFT : x <Enter>
+#
+# Reinicializando o servidor
+sudo reboot
+#
+# Checando as informações do servidor
+# opção do comando hostname: -A (all-fqdns), -d (domain), -i (ip address)
+sudo hostname
+sudo hostname -A
+sudo hostname -d
+sudo hostname -i
