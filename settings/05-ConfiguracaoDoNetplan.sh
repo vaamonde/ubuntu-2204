@@ -66,7 +66,7 @@ network:
     enp0s3:
       dhcp4: true
   version: 2
-
+#salvar e sair
 ESC SHIFT : x <Enter>
 #
 # Aplicando as configurações e verificando o status da Placa de Rede
@@ -74,7 +74,7 @@ ESC SHIFT : x <Enter>
 sudo netplan --debug try
 sudo netplan --debug apply
 sudo netplan ip leases enp0s3
-sudo systemd-resolve --status
+sudo resolvectl
 sudo ifconfig enp0s3
 sudo ip address show enp3s0 
 sudo route -n
@@ -97,14 +97,14 @@ network:
         addresses: [8.8.8.8, 8.8.4.4]
         search: [senac.intra]
   version: 2
-
+#salvar e sair
 ESC SHIFT : x <Enter>
 #
 # Aplicando as configurações e verificando o status da Placa de Rede
 # opção do comando route: -n (numeric)
 sudo netplan --debug try
 sudo netplan --debug apply
-sudo systemd-resolve --status
+sudo resolvectl
 sudo ifconfig enp0s3
 sudo ip address show enp3s0 
 sudo route -n
@@ -115,6 +115,7 @@ sudo vim /etc/hosts
 	INSERT
 		127.0.0.1     wsseunome.senac.intra     wsseunome
 		10.26.44.XXX  wsseunome.senac.intra     wsseunome
+	#salvar e sair
 	ESC SHIFT : x <Enter>
 #
 # Reinicializando o servidor

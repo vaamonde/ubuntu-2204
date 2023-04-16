@@ -36,6 +36,7 @@ sudo vim /etc/systemd/timesyncd.conf
 		[Time]
 		NTP=a.st1.ntp.br
 		FallbackNTP=a.ntp.br
+	#salvar e sair
 	ESC SHIFT : x <Enter>
 sudo systemctl restart systemd-timesyncd.service
 sudo systemctl status systemd-timesyncd.service
