@@ -51,6 +51,7 @@ Site Oficial do OpenSSL: https://www.openssl.org/
 	/etc/ssh/ssh_config   <-- Arquivo de configuração do OpenSSH Client
 	/etc/hosts.deny       <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Deny
 	/etc/hosts.allow      <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Allow
+	/etc/issue.net        <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
 	/var/log/             <-- Diretório de Logs do Sistema Operacional Ubuntu Server
 	/var/log/syslog       <-- Log principal do Sistema Operacional Ubuntu Server
 	/var/log/auth.log     <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
@@ -73,11 +74,61 @@ Site Oficial do OpenSSL: https://www.openssl.org/
 		sshd: 10.26.44.0/24
 
 	#sair e salvar o arquivo
-	ESC SHIFT :x <Enter
+	ESC SHIFT :x <Enter>
 
-#06_ Atualizando e editando o arquivo de configuração do OpenSSH Server<br>
+#06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
 
 	#opção do comando wget: -v (verbose), -O (output file)
 	
-	#arquivo de configuração do Servidor Tomcat
-	sudo wget -v -O /etc/ssh/sshd_config 
+	#arquivo de configuração do OpenSSH Server
+	sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
+
+	#arquivo de configuração do Banner do Ubuntu Server
+	sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
+
+	#editando o arquivo de configuração do OpenSSH Server
+	sudo vim /etc/ssh/sshd_config
+	INSERT
+
+		#alterar a linha do: ListenAddress 10.26.44.xxx para: 10.26.44.SEU_IPV4
+		ListenAddress 10.26.44.xxx
+
+	#sair e salvar o arquivo
+	ESC SHIFT :x <Enter>
+
+	#editando o arquivo de configuração do Banner do Ubuntu Server
+	sudo vim /etc/issue.net
+	INSERT
+
+		#alterar a linha do: Servidor: wsseunome - Aluno: Nome e Sobrenome
+		Servidor: wsseunome - Aluno: Nome e Sobrenome
+
+	#sair e salvar o arquivo
+	ESC SHIFT :x <Enter>
+
+	#reiniciar o serviço do OpenSSH Server
+	sudo systemctl restart ssh
+	sudo systemctl status ssh
+
+#07_ Acessando remotamente o OpenSSH via Powershell e pelo PuTTY
+
+	Windows
+		Pesquisa do Windows
+			Powershell
+
+	ssh senac@10.26.44.XXX (alterar para o endereço IPv4 do seu servidor)
+
+	Windows
+		Pesquisa do Windows
+			PuTTY
+
+	Category
+		Session
+			Host Name (or IP address): senac@10.26.44.XXX (alterar para o endereço IPv4 do seu servidor)
+			Port: 22
+			SSH: On
+	<Open>
+
+#08_ Criando um usuário Administrador no Ubuntu Server
+
+	
