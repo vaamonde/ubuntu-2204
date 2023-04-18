@@ -174,5 +174,8 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 16. Please remove the installation medium, then press ENTER
 	_	<Enter>
 
-	
+	AGUARDAR A INICIALIZAÇÃO TOTAL DO SERVIDOR UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS
+	CHAVES DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONAR <ENTER> PARA APARECER A TELA DE LOGIN
+
 	_ swseunome login: senac <Enter>
+	_ password: 123@senac <Enter>
