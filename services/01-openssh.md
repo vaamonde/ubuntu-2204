@@ -150,7 +150,7 @@ Site Oficial do PuTTY: https://www.putty.org/
 	sudo getent passwd admin
 
 	#listando o grupo criado no arquivo group
-	sudo catr /etc/group | grep admin
+	sudo cat /etc/group | grep admin
 
 	#listando o grupo criado com o comando getent
 	sudo getent group admin
