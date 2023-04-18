@@ -1,0 +1,182 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 11/10/2021
+# Data de atualização: 13/04/2023
+# Versão: 0.07
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+# Testado e homologado para a versão do OpenSSH Server v8.2.x
+#
+# Incluindo o diretório de configuração personalizada do OpenSSH Server
+Include /etc/ssh/sshd_config.d/*.conf
+#
+# Porta de conexão padrão do Servidor de OpenSSH, por segurança é recomendado mudar 
+# o número da porta. Caso você mude o número da porta, no cliente você precisa usar 
+# o comando: ssh -p porta usuário@ip_do_servidor
+Port 22
+#
+# Versão do protocolo padrão do Servidor de OpenSSH
+Protocol 2
+#
+# Endereço IPv4 do Servidor de OpenSSH que está liberado para permitir conexões remotas 
+# via protocolo SSH (Alterar o valor do endereço IPv4 da sua rede)
+ListenAddress 10.26.44.xxx
+#
+# Métodos de Autenticação do OpenSSH, utilizar chaves públicas e autenticação por senha
+# Por padrão o Servidor de OpenSSH não trabalhar com Chaves Pública para autenticação, 
+# utilizando o arquivo /etc/passwd para se autenticar no servidor, por motivos de segurança, 
+# é recomendado utilizar chaves públicas e senhas para se autenticar no servidor
+# Descomentar essa opção depois de configurar a chave pública no client e no servidor
+#AuthenticationMethods publickey,password
+AuthenticationMethods password
+#
+# Autenticação utilizando chaves públicas geradas no cliente com o comando: ssh-keygen 
+# e exportada para o servidor com o comando: ssh-copy-id, chaves localizadas no diretório: 
+# /home/nome_usuário/.ssh/authorized_keys. Essa opção será utiliza em conjunto com a 
+# opção: AuthenticationMethods para verificar a chave pública.
+PubkeyAuthentication yes
+#
+# Especifica se a autenticação por senha é permitida. O padrão é yes. Não é recomendado 
+# alterar essa opção.
+PasswordAuthentication yes
+#
+# Configuração do diretório de chaves públicas para autenticar os usuários, as chaves 
+# devem ser exportada para o Servidor de OpenSSH utilizando o comando: ssh-copy-id
+AuthorizedKeysFile .ssh/authorized_keys
+#
+# Evitar o uso de diretórios residenciais inseguros e permissões de arquivos de chaves 
+# não confiáveis
+StrictModes yes
+#
+# Localização das configurações das Chaves Públicas e Privadas do Servidor de OpenSSH
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+#
+# Limite as cifras àquelas aprovadas pelo FIPS e use somente cifras no modo contador (CTR).
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+#
+# Configuração dos Log's do Servidor de OpenSSH, recomendado utilizar junto com os 
+# arquivos de configuração: hosts.allow e hosts.deny para geração de log´s detalhados 
+# das conexões ao Servidor de OpenSSH.
+# Log's de autenticação do OpenSSH: sudo cat -n /var/log/auth.log | grep -i sshd
+# Log's de serviço do OpenSSH: sudo cat -n /var/log/syslog | grep -i ssh
+SyslogFacility AUTH
+LogLevel INFO
+#
+# Negar o acesso remoto ao Servidor de OpenSSH para o usuário ROOT
+PermitRootLogin no
+#
+# Usuários que tem permissão de acesso remoto ao Servidor de OpenSSH, separados por 
+# espaço, deve existir no servidor. Usuários listados no arquivo /etc/passwd
+AllowUsers senac
+#
+# Grupos que tem permissão de acesso remoto ao Servidor de OpenSSH, cuidado, se você 
+# usar a variável AllowUsers o grupo padrão do usuário precisa está liberado na linha 
+# AllowGroups, separados por espaço, deve existir no servidor. Grupos listados no 
+# arquivo /etc/group
+AllowGroups senac
+#
+# Usuários que não tem permissão de acesso remoto ao Servidor de OpenSSH, separados 
+# por espaço, deve existir no servidor. Usuários listados no arquivo /etc/passwd
+DenyUsers root
+#
+# Grupos que não tem permissão de acesso remoto ao Servidor de OpenSSH, cuidado, se 
+# você usar a variável DenyUsers o grupo padrão do usuário precisa está bloqueado 
+# na linha DenyGroups, separados por espaço, deve existir no servidor. Grupos 
+# listados no arquivo /etc/group
+DenyGroups root
+#
+# Banner que será apresentado no momento do acesso remoto ao Servidor de OpenSSH, 
+# não é recomendado utilizar acentuação
+Banner /etc/issue.net
+#
+# Tempo após o qual o servidor será desconectado se o usuário não tiver efetuado 
+# login com êxito.
+LoginGraceTime 60
+#
+# Tempo de inatividade em segundos para que os usuários logados na sessão do 
+# Servidor de OpenSSH sejam desconectados. Se você utiliza o recurso do Visual 
+# Studio Code VSCode com Remote SSH, recomendo comentar ou aumentar o tempo da sessão
+ClientAliveInterval 1800
+ClientAliveCountMax 3
+#
+# Tentativa máxima de conexões simultâneas no Servidor de OpenSSH
+MaxAuthTries 3
+#
+# Número de usuários ou sessões que podem se conectar remotamente no Servidor de OpenSSH
+MaxSessions 3
+#
+# Especifica o número máximo de conexões simultâneas não autenticadas com o OpenSSH 
+# para ser rejeitado a conexão. 5=conexão não autenticada | 60=rejeitar 60% das conexões 
+# | 10=tentativas de conexão
+MaxStartups 5:60:10
+#
+# Especifica qual família de endereços IP o OpenSSH deve suportar.
+# Os argumentos válidos são: any (IPv4 e IPV6), inet (somente IPv4), inet6 (somente IPv6)
+AddressFamily inet
+#
+# Não ler os arquivos de configurações ~/.rhosts e ~/.shosts
+IgnoreRhosts yes
+HostbasedAuthentication no
+#
+# Não permitir que usuários sem senhas se autentique remotamente no Servidor de OpenSSH
+PermitEmptyPasswords no
+#
+# Não permitir que os usuários definam opções de ambiente, utilizar os pré-definidos
+PermitUserEnvironment no
+#
+# Especifica se o encaminhamento de TCP é permitido. O padrão é yes. Se você utiliza o 
+# recurso do Visual Studio Code VSCode com Remote SSH, recomendo deixar yes
+AllowTcpForwarding no
+#
+# Não permitir encaminhamento de portas via Servidor de OpenSSH para os serviços de 
+# X11 (ambiente gráfico)
+X11Forwarding no
+#
+# Especifica o primeiro número de exibição disponível para encaminhamento X11 do 
+# sshd. Isso evita que o sshd interfira nos servidores X11 reais. O padrão é 10.
+X11DisplayOffset 10
+#
+# Controla o suporte para o esquema de autenticação "keyboard-interactive" definido 
+# no RFC-4256. Utilizar um desafio para se autenticar, muito utilizado com QRCode
+ChallengeResponseAuthentication no
+#
+# Utilizar autenticação de usuário via PAM (Linux Pluggable Authentication), essa 
+# opção só vai funcionar se o Serviço do PAM esteja configurado no Servidor
+UsePAM yes
+#
+# Imprimir na tela a mensagem de boas vindas do dia no login do OpenSSH
+PrintMotd no
+#
+# Imprimir na tela o Log da última autenticação válida da sessão do OpenSSH na tela
+PrintLastLog yes
+#
+# Especifica quais variáveis de ambiente enviadas pelo cliente serão copiadas para 
+# o ambiente da sessão após se autenticar no SSH
+AcceptEnv LANG LC_*
+#
+# Configura um subsistema externo (por exemplo, daemon de transferência de arquivo). 
+# Os argumentos devem ser um nome de subsistema e um comando (com argumentos opcionais) 
+# para executar mediante solicitação do subsistema.
+Subsystem sftp /usr/lib/openssh/sftp-server
+#
+# Especifica se o sistema deve enviar mensagens de manutenção de atividade TCP para o 
+# outro lado. Se forem enviados, será devidamente notado a morte da conexão ou travamento 
+# de uma das máquinas.
+TCPKeepAlive yes
+#
+# Desativar os mecanismos de autenticação desnecessários para fins de segurança
+KerberosAuthentication no
+GSSAPIAuthentication no
+#
+# Ativar a compactação após autenticação bem-sucedida (aumentar a segurança e desempenho)
+Compression delayed
+#
+# Não procure o nome do host remoto utilizando o serviço do DNS
+UseDNS no
