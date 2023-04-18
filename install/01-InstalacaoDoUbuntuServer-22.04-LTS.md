@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 12/04/2023<br>
-Versão: 0.02<br>
+Data de atualização: 18/04/2023<br>
+Versão: 0.04<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
@@ -32,7 +32,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 	_ 02. Nome e Sistema Operacional:
 	_		Nome: Webserver
-	_		Pasta da Máquina: D:\SEU_NOME\UbuntuServer
+	_		Pasta da Máquina: 
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
 	_	<Próximo>
@@ -100,48 +100,55 @@ Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar
 Quarta etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
-	_ 01. Use UP, DOWN and ENTER keys to select your language
+	_ 01. *Try or Install Ubuntu Server
+	_	<Enter>
+
+	_ 02. Use UP, DOWN and ENTER keys to select your language
 	_ 	English - <Enter>
 	
-	_ 02. Installer update available
+	_ 03. Installer update available
 	_	<Continue without updating>
 	
-	_ 03. Keyboard configuration
+	_ 04. Keyboard configuration
 	_ 		Layout: [English (US)] ou [Portuguese (Brazil)]
 	_ 		Variant: [English (US)] ou [Portuguese (Brazil)]
 	_ 	<Done>
-	
-	_ 04. Network connections
-	_ 		enp0s3 eth <Enter>
+
+	_ 05. Choose type of install
+	_		Ubuntu Server
+	_	<Done>
+
+	_ 06. Network connections
+	_		enp0s3 eth
 	_ 	<Done>
 	
-	_ 05. Configure proxy
+	_ 07. Configure proxy
 	_	<Done>
 	
-	_ 06. Configure Ubuntu archive mirror
-			Mirror: http://us.archive.ubuntu.com/ubuntu <-- resolve o problema de lentidão -->
-		<Done>
+	_ 08. Configure Ubuntu archive mirror
+			Mirror: http://br.archive.ubuntu.com/ubuntu
+	_	<Done>
 	
-	_ 07. Guided storage configuration
+	_ 09. Guided storage configuration
 	_	(X) Use an entire disk
 	_		[VBOX_HARDISK local disk 50.000G]
 	_		(X) Set up this disk as an LVM group
 	_	<Done>
 	
-	_ 08. Storage configuration
+	_ 10. Storage configuration
 	_	USED DEVICES
-	_		ubuntu-lv	new, to be formatted as ext4, mounted at /	24.498G 
-	_			Edit
+	_		ubuntu-lv	new, to be formatted as ext4, mounted at /	24G <Enter>
+	_			Edit <Enter>
 	_				Name: ubuntu-lv
-	_				Size: 47.996G
+	_				Size (max 47.996G): 47.996G
 	_				Format: ext4
 	_				Mount: /
 	_			<Save>
 	_	<Done>
-	_	Confirm destructive action
-	_		<Continue>
+	_		Confirm destructive action
+	_	<Continue>
 	
-	_ 09. Profile setup
+	_ 11. Profile setup
 	_ 		Your name: Seu Nome e Sobrenome <Tab>
 	_ 		Your server's name: wsseunome <Tab>
 	_ 		Pick a username: senac <Tab>
@@ -149,18 +156,23 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 		Confirm your passwords: 123@senac
 	_ 	<Done>
 	
-	_ 10. Enable Ubuntu Advantage
-	_	<Done>
+	_ 12. Enable Ubuntu Advantage
+	_		(X) Skip for now
+	_	<Continue>
 	
-	_ 11. SSH Setup
+	_ 13. SSH Setup
 	_ 		Install OpenSSH server: ON <Space>
 	_ 		Import SSH identity: No <Tab>
 	_ 	<Done>
 	
-	_ 12. Featured Server Snaps
+	_ 14. Featured Server Snaps
 	_	<Done>
 	
-	_ 13. Install complete!
+	_ 15. Install complete!
 	_	<Reboot Now>
 	
-	_ 14. Please remove the installation medium, then press ENTER - <Enter>
+	_ 16. Please remove the installation medium, then press ENTER
+	_	<Enter>
+
+	
+	_ swseunome login: senac <Enter>
