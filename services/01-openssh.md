@@ -13,7 +13,8 @@
 VIDEO AULA DE APOIO: 
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
-Site Oficial do OpenSSL: https://www.openssl.org/
+Site Oficial do OpenSSL: https://www.openssl.org/<br>
+Site Oficial do PuTTY: https://www.putty.org/
 
 #01_ Instalando o OpenSSH<br>
 
@@ -131,4 +132,45 @@ Site Oficial do OpenSSL: https://www.openssl.org/
 
 #08_ Criando um usuário Administrador no Ubuntu Server
 
+	#criando o usuário Admin
+	sudo adduser admin <Enter>
+		New password: 123@senac <Enter>
+		Retype new password: 123@senac <Enter>
+			Full Name []: Admin SENAC <Enter>
+			Room Number []: <Enter>
+			Work Phone []: <Enter>
+			Home Phone []: <Enter>
+			Other []: <Enter>
+		Is the information correct? [Y/n] y <Enter>
 	
+	#listando o usuário criado no arquivo passwd
+	sudo cat /etc/passwd | grep admin
+
+	#listando o usuário criado com o comando getent
+	sudo getent passwd admin
+
+	#listando o grupo criado no arquivo group
+	sudo catr /etc/group | grep admin
+
+	#listando o grupo criado com o comando getent
+	sudo getent group admin
+
+#09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)
+
+	#adicionando o usuário Admin ao grupo do SUDO
+	#opção do comando usermod: -a (append), -G (groups)
+	sudo usermod -aG sudo admin
+
+	#verificando os grupos do usuário Admin
+	sudo groups admin
+
+	#verificando as identificações de grupos do usuário Admin
+	sudo id admin
+
+#10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server
+
+	OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
+	verificar se está tudo OK
+
+#11_ DESAFIO: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
+SERVER VIA SSH UTILIZANDO O POWERSHELL OU PUTTY.
