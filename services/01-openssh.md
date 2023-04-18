@@ -10,7 +10,7 @@
 #Data de atualização: 18/04/2023<br>
 #Versão: 0.01<br>
 
-VIDEO AULA DE APOIO: 
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=yESGEqv-t3Q
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
