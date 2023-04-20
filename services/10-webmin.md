@@ -8,9 +8,9 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
 #Data de atualização: 20/04/2023<br>
-#Versão: 0.01<br>
+#Versão: 0.02<br>
 
-VIDEO AULA DE APOIO: 
+VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=QBt7lteBLa8
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
@@ -21,7 +21,8 @@ Site Oficial do Webmin: https://webmin.com/<br>
 
 	#instalando as dependências do Webmin
 	sudo apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime \
-	libio-pty-perl apt-show-versions python unzip apt-transport-https software-properties-common
+	libio-pty-perl apt-show-versions python2 python3 unzip apt-transport-https \
+	software-properties-common
 
 #02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
 
@@ -38,6 +39,7 @@ Site Oficial do Webmin: https://webmin.com/<br>
 
 	#instalando o Webmin
 	sudo apt install webmin
+		Setup Webmin official repository? (y/N) y <Enter>
 
 #04_ Habilitando o Serviço do Webmin<br>
 
@@ -75,7 +77,19 @@ Site Oficial do Webmin: https://webmin.com/<br>
 	Password: 123@senac 
 	<Sign In>
 
-#09_ Atualizando o Módulos de Serviços do Webmin<br>
+#09_ Configurações Básicas do Webmin<br>
 
+	#Atualizando o Módulos de Serviços do Web
 	Webmin
 		Refresh Modules
+
+	#Alterando a Linguagem do Webmin
+	Webmin
+		Webmin Configuration
+			Language and Locale
+				Lannguage: português (Brasil)
+			<Change Language>
+	
+	#Alterando o Tema para Night/Black do Webmin
+	Webmin
+		Ícone: Day/night mode toggle (Alt + L)
