@@ -60,6 +60,7 @@ Site Oficial do PuTTY: https://www.putty.org/
 
 #05_ Habilitando a segurança de acesso ao OpenSSH Server<br>
 
+	#editando o arquivo de configuração de Negação de Serviço e Host
 	sudo vim /etc/hosts.deny
 	INSERT
 
@@ -69,6 +70,7 @@ Site Oficial do PuTTY: https://www.putty.org/
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
 
+	#editando o arquivo de configuração de NegaLiberação de Serviço e Host
 	sudo vim /etc/hosts.allow
 	INSERT
 
