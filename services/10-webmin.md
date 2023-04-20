@@ -26,7 +26,7 @@ Site Oficial do Webmin: https://webmin.com/<br>
 
 #02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
 
-	#opção do comando curl: -o (output)
+	#opção do comando curl: -o (output file)
 	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 
 	#executando o script de adicionar o repositório
