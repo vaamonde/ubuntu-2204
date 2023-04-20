@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.05<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
 
@@ -21,7 +21,7 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
-#01_ Instalando as Dependências do Apache Tomcat Server no Linux Mint<br>
+#01_ Instalando as Dependências do Apache Tomcat Server<br>
 
 	#atualizando as lista do apt
 	sudo apt update
@@ -49,7 +49,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 	sudo -i
 	
 	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.7/bin/apache-tomcat-10.1.7.tar.gz
+	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
 
@@ -59,7 +59,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 	#opção do comando mv: -v (verbose)
 	mv -v /tmp/apache-tomcat* /opt/tomcat
 
-#05_ Atualizando os arquivos de configuração do Apache Tomcat 10.1.x<br>
+#05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x<br>
 
 	#opção do comando wget: -v (verbose), -O (output file)
 	
@@ -96,7 +96,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x<br>
 
-	#habilitando o serviço do Tomcat
+	#habilitando o serviço do Apache Tomcat Server
 	systemctl daemon-reload
 	systemctl enable tomcat10
 	systemctl start tomcat10
@@ -104,13 +104,13 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
 
-	#verificando o serviço do
+	#verificando o serviço do Apache Tomcar Server
 	sudo systemctl status tomcat10
 	sudo systemctl restart tomcat10
 	sudo systemctl stop tomcat10
 	sudo systemctl start tomcat10
 
-	#verificando a versão do Tomcat Server
+	#verificando a versão do Apache Tomcat Server
 	sudo bash /opt/tomcat/bin/version.sh
 
 #10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>

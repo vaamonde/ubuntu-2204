@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.07<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=JUWuyTHvLVY
 
@@ -73,9 +73,9 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 
 #09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
 
-	/etc/mongod.conf	<-- arquivo de configuração do MongoDB Server
-	/var/log/mongodb	<-- diretório dos arquivos de Log do MongoDB Sever
-	/var/lib/mongodb	<-- diretório dos arquivos de Banco de Dados do MongoDB Server
+	/etc/mongod.conf  <-- arquivo de configuração do MongoDB Server
+	/var/log/mongodb  <-- diretório dos arquivos de Log do MongoDB Sever
+	/var/lib/mongodb  <-- diretório dos arquivos de Banco de Dados do MongoDB Server
 
 #10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
 
@@ -195,7 +195,7 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 								Port: 27017
 								Authentication: Username/Password
 									Username: admin
-									Password: pti@2018
+									Password: 123@senac
 									Authentication Database: admin
 						<Connect>
 					<Close>

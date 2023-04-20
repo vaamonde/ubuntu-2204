@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.05<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=M1pW_-qE0KU
 
@@ -32,7 +32,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
 	pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
 
-#02_ Criando a Base de Dados do Wordpress<br>
+#02_ Criando a Base de Dados do Wordpress no MySQL Server<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -57,7 +57,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	USE wordpress;
 	exit
 
-#03_ Fazendo o download do Wordpress e descompactando o seu conteúdo<br>
+#03_ Fazendo o download do Wordpress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
 
 	#acessando diretório temporário
 	cd /tmp
@@ -94,9 +94,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 	#editando o arquivo de configuração do Wordpress
 	sudo vim wp-config.php
-
-	#alterar os valores das variáveis "define" a partir da linha 23
 	INSERT
+
+		#alterar os valores das variáveis "define" a partir da linha 23
 		
 		#variável do nome do banco de dados
 		define( 'DB_NAME', 'wordpress' );
@@ -140,5 +140,5 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 #07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
-#08_ DESAFIO-08: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
+#08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
 NO DIA A DIA: Wordfence Security E W3 Total Cache.

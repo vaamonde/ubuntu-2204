@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.05<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=XDURRbCpd2M
 
@@ -36,15 +36,16 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 #02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
 
-	#verificando o serviço do Apache2
+	#verificando o serviço do Apache2 Server
 	sudo systemctl status apache2
 	sudo systemctl restart apache2
 	sudo systemctl stop apache2
 	sudo systemctl start apache2
 
-	#verificando as versões do Apache2 e do PHP
-	sudo apache2 -V (Server)
-	sudo php --version (PHP)
+	#verificando as versões do Apache2 Server e do PHP
+	#opção do comando apache2: -V (version)
+	sudo apache2 -V
+	sudo php --version
 
 #03_ Verificando a Porta de Conexão do Apache2 Server<br>
 
@@ -72,7 +73,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#06_ Criando um diretório de Teste do HTML e PHP<br>
+#06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server<br>
 
 	#acessando o diretório padrão dos Sites do Apache2 Server
 	cd /var/www/html
@@ -167,6 +168,10 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
-#09_ DESAFIO: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM SEU_NOME PARA UM 
-NOVO SITE, CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html (TUDO EM MINÚSCULA) NO SEU DIRETÓRIO, 
-ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS NA PÁGINA.
+#09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM seu_nome (TUDO EM
+MINÚSCULO) PARA UM NOVO SITE, CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html (TUDO EM MINÚSCULA) 
+NO SEU DIRETÓRIO, ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS 
+NA PÁGINA.
+
+#10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: seunome.php, ADICIONAR MAIS
+OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR.

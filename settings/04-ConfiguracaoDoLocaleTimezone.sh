@@ -9,35 +9,47 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Github Procedimentos em TI: https://github.com/vaamonde
 #Data de criação: 18/01/2023
-#Data de atualização: 18/01/2023
-#Versão: 0.01
+#Data de atualização: 20/04/2023
+#Versão: 0.02
 #Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
 #
-# Configuração do Locale (Localidade) do Sistema Operacional Ubuntu Server
+# Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server
 # opção do comando locale: -a (all-locales)
 sudo localectl
 sudo locale -a
+#
+# Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server
 sudo locale-gen pt_BR.UTF-8
 sudo localectl set-locale LANG=pt_BR.UTF-8
 sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 sudo reboot
 #
-# Configuração do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server
+# Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server
 sudo timedatectl
-sudo systemctl status systemd-timesyncd.service
+#
+# Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server
 sudo timedatectl set-timezone "America/Sao_Paulo"
 #
 # OBSERVAÇÃO IMPORTANTE: geralmente mudar para o Time Zone de America/Sao_Paulo a hora
 # fica errada no sistema, nesse caso podemos mudar para America/Fortaleza ou America/Bahia
 # esse error e por causa do Fuso Horário em relação ao Horário de Verão que não existe 
 # mais no Brasil
+#
+# O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo 
+# UDP sob a porta 123. É utilizado para sincronização do relógio de um conjunto de computadores 
+# e dispositivos em redes de dados com latência variável.
 sudo vim /etc/systemd/timesyncd.conf
 	INSERT
+		
+		#descomentar e alterar os valores das variáveis a partir da linha 14
 		[Time]
 		NTP=a.st1.ntp.br
 		FallbackNTP=a.ntp.br
-	#salvar e sair
+	
+	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
+#
+# Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora)
 sudo systemctl restart systemd-timesyncd.service
 sudo systemctl status systemd-timesyncd.service
 sudo timedatectl
@@ -51,6 +63,7 @@ sudo date +%H:%M:%S
 sudo date -s 13:30:00
 #
 # Sincronizando Data e Hora do Sistema Operacional Ubuntu Server e Hardware (BIOS)
+# opção do comando hwclock: --systohc (system clock to hardware clock), --hctosys (hardware clock to system clock)
 sudo hwclock --show
-sudo hwclock --systohc (Atualização do Sistema para o Hardware)
-sudo hwclock --hctosys (Atualização do Hardware para o Sistema)
+sudo hwclock --systohc
+sudo hwclock --hctosys

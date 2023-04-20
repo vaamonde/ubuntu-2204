@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.04<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=awDyXU-vIsk
 
@@ -56,7 +56,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 		npm install express
 		ls -lh
 
-#05_ Editando o Projeto Simples do Node.JS<br>
+#05_ Criando um Projeto Simples do Node.JS<br>
 
 	vim index.js
 	INSERT
@@ -77,7 +77,7 @@ app.listen(3000, function() {
 });
 ```
 	#sair e salvar o arquivo
-	ESC SHIFT :x
+	ESC SHIFT :x <Enter>
 
 #06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
 
@@ -98,12 +98,13 @@ app.listen(3000, function() {
 	#verificando os processo em segundo plano (background)
 	jobs
 	
-	#trazendo o processo do Node.JS para o primeiro plano (foreground)
+	#trazendo o processo em segundo plano do Node.JS para o primeiro plano (foreground)
 	fg
 
 	#finalizando o processo do Node.JS Express
 	Ctrl + C
 
-#10_ DESAFIO: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM SEU_NOME
-NA RAIZ DO PERFIL DO USUÁRIO, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js, MUDAR A 
-MENSAGEM NO BROWSER PRA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030.
+#10_ DESAFIO: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM seu_nome 
+(TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO USUÁRIO: /home/senac, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO 
+CHAMADA: seunome.js (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: Meu novo projeto em Node.JS 
+- Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030.

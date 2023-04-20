@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 18/04/2023<br>
-#Versão: 0.01<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.03<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=yESGEqv-t3Q
 
@@ -16,7 +16,7 @@ Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
-#01_ Instalando o OpenSSH<br>
+#01_ Instalando o OpenSSH Server e Client<br>
 
 	#atualizando as listas do Apt
 	sudo apt update
@@ -36,9 +36,10 @@ Site Oficial do PuTTY: https://www.putty.org/
 	sudo systemctl stop ssh
 	sudo systemctl start ssh
 
-	#verificando as versões do OpenSSH
-	sudo sshd -V (Server)
-	sudo ssh -V (Client)
+	#verificando as versões do OpenSSH Server e Client
+	#opção do comando sshd e ssh: -V (version)
+	sudo sshd -V
+	sudo ssh -V
 
 #03_ Verificando a Porta de Conexão do OpenSSH Server<br>
 
@@ -81,10 +82,10 @@ Site Oficial do PuTTY: https://www.putty.org/
 
 	#opção do comando wget: -v (verbose), -O (output file)
 	
-	#arquivo de configuração do OpenSSH Server
+	#atualizando o arquivo de configuração do OpenSSH Server
 	sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
 
-	#arquivo de configuração do Banner do Ubuntu Server
+	#atualizando arquivo de configuração do Banner do Ubuntu Server
 	sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
 
 	#editando o arquivo de configuração do OpenSSH Server
@@ -111,7 +112,7 @@ Site Oficial do PuTTY: https://www.putty.org/
 	sudo systemctl restart ssh
 	sudo systemctl status ssh
 
-#07_ Acessando remotamente o OpenSSH via Powershell e pelo PuTTY
+#07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY
 
 	Windows
 		Pesquisa do Windows
@@ -133,10 +134,10 @@ Site Oficial do PuTTY: https://www.putty.org/
 #08_ Criando um usuário Administrador no Ubuntu Server
 
 	#criando o usuário Admin
-	sudo adduser admin <Enter>
-		New password: 123@senac <Enter>
-		Retype new password: 123@senac <Enter>
-			Full Name []: Admin SENAC <Enter>
+	sudo adduser admin
+		New password: 123@senac
+		Retype new password: 123@senac
+			Full Name []: Admin SENAC Tatuapé
 			Room Number []: <Enter>
 			Work Phone []: <Enter>
 			Home Phone []: <Enter>
@@ -172,5 +173,9 @@ Site Oficial do PuTTY: https://www.putty.org/
 	OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
 	verificar se está tudo OK
 
-#11_ DESAFIO: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
+#11_ DESAFIO-01: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL OU PUTTY.
+
+#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: vaamonde (TUDO EM MINÚSCULO)
+FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: sudo E PERMITIR QUE O
+SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.

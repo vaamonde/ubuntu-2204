@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.07<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ClnoU4-x5oI
 
@@ -18,7 +18,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
-#01_ Instalando o MySQL Server e Client 8.0<br>
+#01_ Instalando o MySQL Server e Client<br>
 
 	#atualizando as listas do Apt
 	sudo apt update
@@ -35,8 +35,8 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	sudo systemctl start mysql
 
 	#verificando as versões do MySQL Server e Client
-	sudo mysqld --version (Server)
-	sudo mysql --version (Client)
+	sudo mysqld --version
+	sudo mysql --version
 
 #03_ Verificando a Porta de Conexão do MySQL Server<br>
 
@@ -51,7 +51,10 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	/var/log/mysql                      <-- Diretório padrão dos Logs do SGBD Mysql Server
 	/var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
 
-#05_ Acesso o MySQL Server<br>
+#05_ Acessando o MySQL Server utilizando o MySQL Client (Console)<br>
+
+	OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
+	se logar no MySQL Client Console.
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -67,7 +70,7 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 		#mostrando as tabelas criadas na base de dados mysql
 		SHOW TABLES;
 
-		#selecionando o dados da tabela user somente as colunas: user e host
+		#selecionando o dados da tabela user, filtrando somente as colunas: user e host
 		SELECT user,host FROM user;
 
 		#alterando a senha do usuário Root Localhost
@@ -79,8 +82,8 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 		#aplicando todas as mudanças na base de dados
 		FLUSH PRIVILEGES;
 		
-		#saindo do MySQL
-		exit (ou quit)
+		#saindo do MySQL Client Console
+		exit
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -96,8 +99,8 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	#aplicando todas as mudanças na base de dados
 	FLUSH PRIVILEGES;
 
-	#saindo do MySQL
-	exit (ou quit)
+	#saindo do MySQL Client Console
+	exit
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dba -p
@@ -115,23 +118,20 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 	#opções do comando mysql: -u (user), -p (password)
 	mysql -u dba -p
 
-#09_ Permitindo o Root se Logar Remotamente no MySQL Server<br>
-
-	#acessar o diretório das configurações do MySQL Server
-	cd /etc/mysql/mysql.conf.d
+#09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
 	
 	#editar o arquivo de configuração do MySQL Server
-	sudo vim mysqld.cnf
-		INSERT
-		
-			#alterar a linha do: bind-address = 127.0.0.1 para: 0.0.0.0
-			bind-address = 0.0.0.0
+	sudo /etc/mysql/mysql.conf.d/vim mysqld.cnf
+	INSERT
+	
+		#alterar a linha do: bind-address = 127.0.0.1 para: 0.0.0.0
+		bind-address = 0.0.0.0
 
-			#comentar a linha do mysqlx-bind-address
-			#mysqlx-bind-address = 127.0.0.1
+		#comentar a linha do mysqlx-bind-address
+		#mysqlx-bind-address = 127.0.0.1
 
-		#sair e salvar o arquivo	
-		ESC SHIFT :x <Enter>
+	#sair e salvar o arquivo	
+	ESC SHIFT :x <Enter>
 
 	#reiniciar o serviço do MySQL Server
 	sudo systemctl restart mysql
@@ -190,6 +190,7 @@ Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 						Password: 123@senac
 				<Save>
 
-#12_ DESAFIO: CRIAR UM BANCO DE DADOS COM O SEU_NOME, DENTRO DESSE BANCO DE DADOS CRIAR
-UMA TABELA COM O SEU_NOME COM AS SEGUINTES COLUNAS: Nome e Idade. OBSERVAÇÃO IMPORTANTE:
-NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+#12_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE 
+BANCO DE DADOS CRIAR UMA TABELA COM O: seu_nome (TUDO EM MINÚSCULO) COM AS SEGUINTES 
+COLUNAS: Nome (Tipo Texto) e Idade (Tipo Numérico) (TUDO EM MINÚSCULO) (VEJA O SITE W3SCHOOLS). 
+OBSERVAÇÃO IMPORTANTE: NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.

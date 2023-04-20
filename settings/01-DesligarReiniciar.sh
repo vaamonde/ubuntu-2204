@@ -9,8 +9,8 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Github Procedimentos em TI: https://github.com/vaamonde
 #Data de criação: 18/01/2023
-#Data de atualização: 18/01/2023
-#Versão: 0.01
+#Data de atualização: 20/04/2023
+#Versão: 0.02
 #Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
 #
 # Desligando e reinicializando o servidor com halt

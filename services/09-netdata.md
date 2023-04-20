@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.01<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.02<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=bVivYQ3RMEs
 
@@ -22,13 +22,9 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 	#instalando as dependências do Netdata Server
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates \
 	zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python3 python3-mysqldb python3-pip \
-	python3-dev libmysqlclient-dev python-ipaddress libuv1-dev netcat libwebsockets15 libwebsockets-dev \
+	python3-dev libmysqlclient-dev python-ipaddress libuv1-dev netcat libwebsockets16 libwebsockets-dev \
 	libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev autoconf-archive curl cmake \
 	protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 python3-pymysql
-	
-	#opção do comando dpkg: -i (install)
-	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
-	sudo dpkg -i libssl*.deb
 
 #02_ Clonando o projeto do Netdata Server do Github<br>
 
@@ -120,3 +116,7 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 #11_ Acessando e configurando o Netdata Server no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
+
+#12_ DESAFIO: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
+INTEGRAÇÃO: 15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent, LINK:
+https://www.youtube.com/watch?v=5MrH8L5cSIU

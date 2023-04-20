@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 14/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 20/04/2023<br>
+#Versão: 0.04<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
 
@@ -23,7 +23,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 
-#01_ Fazendo o download do WAR do Apache Tomcat desenvolvido em JavaEE<br>
+#01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
 
 	Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 	Clique em: Releases
@@ -44,7 +44,7 @@ Github do projeto do Prof. José de Assis: https://github.com/professorjosedeass
 	Localize o arquivo WAR na pasta: Download clique em: <Abrir>
 	Finalize clicando em: <Deploy>
 
-	Após o Deploy da aplicação a nova URL de acesso será: 
+	Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso será: 
 		firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 #04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>

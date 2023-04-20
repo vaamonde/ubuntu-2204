@@ -9,13 +9,18 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Github Procedimentos em TI: https://github.com/vaamonde
 #Data de criação: 18/01/2023
-#Data de atualização: 18/01/2023
-#Versão: 0.01
+#Data de atualização: 20/04/2023
+#Versão: 0.02
 #Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
 #
 # Hostname: é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome 
 # de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de 
 # nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name)
+#
+# FQDN, algumas vezes denominado nome de domínio absoluto, é um nome de domínio que 
+# especifica sua localização exata na árvore hierárquica do Domain Name System. Ele 
+# especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo 
+# nível e um domínio de nível superior.
 #
 # Hosts: pesquisa de tabela estática para nomes de host, é utilizado quando não temos 
 # servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo 
@@ -25,15 +30,19 @@
 sudo vim /etc/hostname
 	INSERT
 		wsseunome.senac.intra
+	
+	#sair e salvar o arquivo
 	ESC SHIFT : x <Enter>
 #
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
 	INSERT
 		127.0.0.1 wsseunome.senac.intra 	wsseunome
+	
+	#sair e salvar o arquivo
 	ESC SHIFT : x <Enter>
 #
-# Reinicializando o servidor
+# Reinicializando o servidor para aplicar as mudanças
 sudo reboot
 #
 # Checando as informações do servidor
@@ -42,6 +51,3 @@ sudo hostname
 sudo hostname -A
 sudo hostname -d
 sudo hostname -i
-#
-# Verificando os usuário logados no servidor
-sudo w
