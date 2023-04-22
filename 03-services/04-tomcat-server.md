@@ -104,7 +104,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 #09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
 
-	#verificando o serviço do Apache Tomcar Server
+	#verificando o serviço do Apache Tomcat Server
 	sudo systemctl status tomcat10
 	sudo systemctl restart tomcat10
 	sudo systemctl stop tomcat10

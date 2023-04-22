@@ -56,9 +56,10 @@ Site Oficial do Webmin: https://webmin.com/<br>
 	sudo systemctl stop webmin
 	sudo systemctl start webmin
 
-	#verificando as versões do Webmin
-	#opção do comando : 
-	sudo 
+	#verificando a versão do Webmin
+	#opção do comando grep: -i (ignore-case)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	sudo apt list --installed | grep -i webmin 
 
 #06_ Verificando a Porta de Conexão do Webmin<br>
 

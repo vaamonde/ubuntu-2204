@@ -43,9 +43,10 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 	sudo systemctl start apache2
 
 	#verificando as versões do Apache2 Server e do PHP
-	#opção do comando apache2: -V (version)
-	sudo apache2 -V
-	sudo php --version
+	#opção do comando apache2ctl: -V (version)
+	#opção do comando php: -v (version)
+	sudo apache2ctl -V
+	sudo php -v
 
 #03_ Verificando a Porta de Conexão do Apache2 Server<br>
 

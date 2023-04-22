@@ -126,7 +126,7 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_	<Done>
 	
 	_ 08. Configure Ubuntu archive mirror
-			Mirror: http://br.archive.ubuntu.com/ubuntu
+			Mirror: http://us.archive.ubuntu.com/ubuntu
 	_	<Done>
 	
 	_ 09. Guided storage configuration

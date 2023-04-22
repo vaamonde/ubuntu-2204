@@ -102,3 +102,9 @@ exit
 
 	#verificando o conteúdo do arquivo backupeado 
 	sudo less bkp-dbagenda.sql
+
+#07_ DESAFIO: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Sample Web Application DO PROJETO 
+DO GITHUB: https://github.com/AKSarav/SampleWebApp/ - APÓS O DEPLOY SERÁ CRIADO O LINK DO APP:
+http://endereço_ipv4_ubuntuserver:8080/SampleWebApp
+
+LINK DO ARQUIVO WAR: https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
