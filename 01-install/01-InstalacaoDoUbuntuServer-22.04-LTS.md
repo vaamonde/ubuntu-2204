@@ -32,7 +32,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 	_ 02. Nome e Sistema Operacional:
 	_		Nome: Webserver
-	_		Pasta da Máquina: 
+	_		Pasta da Máquina: D:\SeuNome\UbuntuServer
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
 	_	<Próximo>
