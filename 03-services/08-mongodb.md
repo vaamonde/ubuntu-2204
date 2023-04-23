@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.07<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.08<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=JUWuyTHvLVY
 
@@ -16,6 +16,10 @@ Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass
 
 Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
+
+MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e<br>
+multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados<br>
+NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 #01_ Instalando as Dependências do MongoDB Server<br>
 
@@ -199,3 +203,8 @@ Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 									Authentication Database: admin
 						<Connect>
 					<Close>
+
+#17_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
+DE DADOS CRIAR UM COLLECTION CHAMADO: senactat (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
+INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTA AS INFORMAÇÕES NO VSCODE. (VEJA 
+O SITE W3SCHOOLS)

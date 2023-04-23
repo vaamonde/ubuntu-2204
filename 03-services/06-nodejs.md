@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.04<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.05<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=awDyXU-vIsk
 
@@ -19,6 +19,10 @@ Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
+
+Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do<br>
+Google e que permite a execução de códigos JavaScript fora de um navegador web. A principal<br>
+característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
 
 #01_ Instalando as Dependências do Node.JS<br>
 

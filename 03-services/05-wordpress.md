@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.06<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=M1pW_-qE0KU
 
@@ -21,6 +21,10 @@ Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
+
+WordPress é um sistema livre e aberto de gestão de conteúdo para internet, baseado em PHP<br>
+com banco de dados MySQL, executado em um servidor interpretador, voltado principalmente<br>
+para a criação de páginas eletrônicas e blogs online.
 
 #01_ Instalando as Dependências do Wordpress<br>
 

@@ -7,12 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.03<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=bVivYQ3RMEs
 
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
+
+Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real,<br>
+como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e<br>
+exibi-las em gráficos ao vivo e fáceis de interpretar.
 
 #01_ Instalando as Dependências do Netdata Server<br>
 

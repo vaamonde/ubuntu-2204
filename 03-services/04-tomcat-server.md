@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.06<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
 
@@ -20,6 +20,11 @@ Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
+
+O Tomcat é um servidor web Java, mais especificamente, um container de servlets. O Tomcat<br>
+implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer<br>
+Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation,<br> 
+é distribuído como software livre.
 
 #01_ Instalando as Dependências do Apache Tomcat Server<br>
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.04<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.05<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
 
@@ -22,6 +22,10 @@ Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<
 Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
+
+Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribuir uma coleção<br>
+de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas<br>
+web estáticas e outros recursos que, juntos, constituem uma aplicação web.
 
 #01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
 

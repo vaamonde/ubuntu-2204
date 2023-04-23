@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.07<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.08<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ClnoU4-x5oI
 
@@ -17,6 +17,10 @@ Site Oficial do MariaDB: https://mariadb.org/<br>
 Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
+
+O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como<br>
+interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares<br>
+da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo. 
 
 #01_ Instalando o MySQL Server e Client<br>
 

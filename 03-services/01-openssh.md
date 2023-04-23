@@ -7,14 +7,17 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.04<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=yESGEqv-t3Q
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
+
+OpenSSH é um conjunto de utilitários de rede relacionado à segurança que provém a criptografia<br> 
+em sessões de comunicações em uma rede de computadores usando o protocolo SSH.
 
 #01_ Instalando o OpenSSH Server e Client<br>
 

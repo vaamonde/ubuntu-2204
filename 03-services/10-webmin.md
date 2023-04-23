@@ -7,12 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 20/04/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 23/04/2023<br>
+#Versão: 0.03<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=QBt7lteBLa8
 
 Site Oficial do Webmin: https://webmin.com/<br>
+
+O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas 
+operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via
+navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
 #01_ Instalando as Dependências do Webmin<br>
 
