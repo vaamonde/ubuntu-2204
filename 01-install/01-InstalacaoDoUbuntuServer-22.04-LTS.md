@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 20/04/2023<br>
-Versão: 0.05<br>
+Data de atualização: 24/04/2023<br>
+Versão: 0.07<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
@@ -62,22 +62,22 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_	Sistema
 	_		Placa Mãe
 	_			Recurso Estendidos
-	_				Relógio da máquina retorno hora UTC: Desabilitar
+	_				Relógio da máquina retorno hora UTC: Off (Desabilitar)
 	_		Processador
 	_			Processadores: 02 CPUs
 	_			Recursos Estendidos: Habilitar PAE/NX
 	_			                     Habilitar VT-x/AMD-v Aninhado 
 	_	Monitor
-	_		Tela
+	_		Tela (S)
 	_			Memória de Vídeo: 128MB
-	_			Aceleração: Habilitar Aceleração 3D
+	_			Aceleração: On (Habilitar) Habilitar Aceleração 3D
 	_	Áudio
-	_		Habilitar Áudio: Desabilitar
+	_		Habilitar Áudio: Off (Desabilitar)
 	_	Rede
 	_		Adaptador 1 (LAN)
-	_			Habilitar Placa de Rede
+	_			Habilitar Placa de Rede: On (Habilitar)
 	_			Conectado a: Placa em modo Bridge
-	_			Nome: (deixar o padrão do sistema)
+	_			Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
 	_	<OK>
 
 Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
@@ -115,18 +115,19 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 	<Done>
 
 	_ 05. Choose type of install
-	_		Ubuntu Server
+	_		(X) Ubuntu Server
 	_	<Done>
 
 	_ 06. Network connections
 	_		enp0s3 eth
+	_		DHCPv4 10.26.44.XXX/24
 	_ 	<Done>
 	
 	_ 07. Configure proxy
 	_	<Done>
 	
 	_ 08. Configure Ubuntu archive mirror
-			Mirror: http://us.archive.ubuntu.com/ubuntu
+			Mirror: http://br.archive.ubuntu.com/ubuntu
 	_	<Done>
 	
 	_ 09. Guided storage configuration
@@ -156,13 +157,13 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 		Confirm your passwords: 123@senac
 	_ 	<Done>
 	
-	_ 12. Enable Ubuntu Advantage
+	_ 12. Upgrade to Ubuntu Pro
 	_		(X) Skip for now
 	_	<Continue>
 	
 	_ 13. SSH Setup
-	_ 		Install OpenSSH server: ON <Space>
-	_ 		Import SSH identity: No <Tab>
+	_ 		Install OpenSSH server: ON (Habilitar) <Space>
+	_ 		Import SSH identity: No
 	_ 	<Done>
 	
 	_ 14. Featured Server Snaps
@@ -171,11 +172,11 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 15. Install complete!
 	_	<Reboot Now>
 	
-	_ 16. Please remove the installation medium, then press ENTER
+	_ 16. Please remove the installation medium, then press ENTER:
 	_	<Enter>
 
 	AGUARDAR A INICIALIZAÇÃO TOTAL DO SERVIDOR UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS
 	CHAVES DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONAR <ENTER> PARA APARECER A TELA DE LOGIN
 
 	_ swseunome login: senac <Enter>
-	_ password: 123@senac <Enter>
+	_ Password: 123@senac <Enter>

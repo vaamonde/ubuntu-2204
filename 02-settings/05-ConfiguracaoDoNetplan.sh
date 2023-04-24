@@ -51,6 +51,7 @@ sudo resolvectl
 #
 # Diretório padrão das configurações da Placa de Rede no Ubuntu Server
 cd /etc/netplan/
+ls -lh
 #
 # Arquivos de configuração da Placa de Rede no Ubuntu Server utilizando o Netplan. 
 # OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.

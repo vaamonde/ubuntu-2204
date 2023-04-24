@@ -24,11 +24,16 @@ sudo localectl set-locale LANG=pt_BR.UTF-8
 sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 sudo reboot
 #
+# Verificando as mudanças
+sudo localectl
+sudo locale -a
+#
 # Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server
 sudo timedatectl
 #
 # Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server
 sudo timedatectl set-timezone "America/Sao_Paulo"
+sudo timedatectl
 #
 # OBSERVAÇÃO IMPORTANTE: geralmente mudar para o Time Zone de America/Sao_Paulo a hora
 # fica errada no sistema, nesse caso podemos mudar para America/Fortaleza ou America/Bahia
