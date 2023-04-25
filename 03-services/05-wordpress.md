@@ -113,7 +113,9 @@ para a criação de páginas eletrônicas e blogs online.
 	
 		#configuração do Salt do Wordpress site: https://api.wordpress.org/secret-key/1.1/salt/
 		#mais informações sobre o Salt's do Wordpress: https://www.hostinger.com.br/tutoriais/wordpress-salt
-		#copiar o conteúdo do Salt e colocar a partir da linha 
+		#copiar o conteúdo do Salt e colocar a partir da linha: 53
+		#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes antes de copiar/colar as
+		#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
