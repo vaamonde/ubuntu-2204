@@ -136,12 +136,23 @@ para a criação de páginas eletrônicas e blogs online.
 	#Informações que serão solicitadas na configuração via Web do WordPress
 	Português do Brasil: Continuar;
 	Informação necessária
-		Título do site: Seu Nome;
+		Título do site: Seu Nome e Sobrenome;
 		Nome de usuário: senac;
 		Senha: 123@senac;
-		Confirme a senha: Confirmar o uso de uma senha fraca;
+		Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
 		O seu e-mail: senac@senac.intra; 
 	<Instalar WordPress>
+	<Acessar>
+
+	#tela de login do Wordpress
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
+		Nome de usuário ou endereço de email: senac
+		Senha: 123@senac
+		Lembrar-me: On (Habilitado)
+		<Acessar>
+		
+	#tela do site do Wordpress
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
 #07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
