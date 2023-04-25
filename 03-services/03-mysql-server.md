@@ -125,7 +125,7 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 #09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
 	
 	#editar o arquivo de configuração do MySQL Server
-	sudo /etc/mysql/mysql.conf.d/vim mysqld.cnf
+	sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 	INSERT
 	
 		#alterar a linha do: bind-address = 127.0.0.1 para: 0.0.0.0
