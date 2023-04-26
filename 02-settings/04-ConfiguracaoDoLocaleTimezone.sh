@@ -60,7 +60,7 @@ sudo systemctl status systemd-timesyncd.service
 sudo timedatectl
 #
 # Configuração de Data e Hora do Sistema Operacional Ubuntu Server
-# opção do comando date: -s (set)
+# opção do comando date: -s (set), %d (day of month), %m (month), %Y (year), %H (hour), %M (minute), %S (second)
 sudo date
 sudo date +%d/%m/%Y
 sudo date -s 20/01/2023

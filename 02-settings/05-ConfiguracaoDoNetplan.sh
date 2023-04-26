@@ -119,6 +119,8 @@ sudo resolvectl
 # Adicionando as informações de pesquisa de IP e nome no servidor no arquivo hosts
 sudo vim /etc/hosts
 	INSERT
+		
+		#adicionar o endereço IPv4 e nome FQDN do seu servidor na linha 3
 		127.0.0.1     wsseunome.senac.intra     wsseunome
 		10.26.44.XXX  wsseunome.senac.intra     wsseunome
 	

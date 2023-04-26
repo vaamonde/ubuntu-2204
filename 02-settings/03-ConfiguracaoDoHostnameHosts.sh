@@ -29,6 +29,8 @@
 # Alterando o nome do servidor
 sudo vim /etc/hostname
 	INSERT
+		
+		#adicionar o nome de domínio na linha 1
 		wsseunome.senac.intra
 	
 	#sair e salvar o arquivo
@@ -37,6 +39,8 @@ sudo vim /etc/hostname
 # Adicionando as informações de pesquisa de IP e nome no servidor
 sudo vim /etc/hosts
 	INSERT
+		
+		#adicionar o nome de domínio e apelido na linha 2
 		127.0.0.1 wsseunome.senac.intra 	wsseunome
 	
 	#sair e salvar o arquivo
