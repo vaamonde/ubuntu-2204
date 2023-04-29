@@ -24,7 +24,7 @@ sudo localectl set-locale LANG=pt_BR.UTF-8
 sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 sudo reboot
 #
-# Verificando as mudanças
+# Verificando as mudanças do Locale (Localidade) no Sistema Operacional Ubuntu Server
 sudo localectl
 sudo locale -a
 #
@@ -59,7 +59,7 @@ sudo systemctl restart systemd-timesyncd.service
 sudo systemctl status systemd-timesyncd.service
 sudo timedatectl
 #
-# Configuração de Data e Hora do Sistema Operacional Ubuntu Server
+# Configuração de Data e Hora manualmente do Sistema Operacional Ubuntu Server
 # opção do comando date: -s (set), %d (day of month), %m (month), %Y (year), %H (hour), %M (minute), %S (second)
 sudo date
 sudo date +%d/%m/%Y

@@ -41,7 +41,8 @@ sudo vim /etc/hosts
 	INSERT
 		
 		#adicionar o nome de domínio e apelido na linha 2
-		127.0.0.1 wsseunome.senac.intra 	wsseunome
+		127.0.0.1 localhost
+		127.0.1.1 wsseunome.senac.intra 	wsseunome
 	
 	#sair e salvar o arquivo
 	ESC SHIFT : x <Enter>

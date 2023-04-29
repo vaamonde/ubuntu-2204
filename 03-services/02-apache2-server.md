@@ -61,9 +61,9 @@ web NCSA HTTPd criado por Rob McCool.
 
 	/etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
 	/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
-	/etc/apache2/sites-available/  <-- Diretório padrão do Sites Acessíveis do Apache 2 Server
+	/etc/apache2/sites-available/  <-- Diretório padrão dos Sites Acessíveis do Apache 2 Server
 	/etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache 2 Server
-	/etc/php/                      <--- Diretório de configuração do PHP 7.x ou 8.x
+	/etc/php/                      <-- Diretório de configuração do PHP 7.x ou 8.x
 	/etc/php/8.1/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache 2 Server
 	/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
 	/var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server

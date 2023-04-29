@@ -15,7 +15,8 @@ Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
-Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle
+Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
+Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 

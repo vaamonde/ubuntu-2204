@@ -48,3 +48,6 @@ sudo apt autoclean
 #
 # Clean limpa o repositório local de arquivos de pacotes recuperados
 sudo apt clean
+#
+# Reiniciar o servidor para aplicar todas as atualizações
+sudo reboot

@@ -73,7 +73,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
 
-	#editando o arquivo de configuração de NegaLiberação de Serviço e Host
+	#editando o arquivo de configuração de Liberação de Serviço e Host
 	sudo vim /etc/hosts.allow
 	INSERT
 
