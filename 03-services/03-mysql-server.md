@@ -161,7 +161,7 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 		Connection Name: UbuntuServer
 		Connection Method: Standard (TCP/IP)
 		Parameters:
-			Hostname: endereço_ipv4_ubuntuserver
+			Hostname: 10.26.44.XXX
 			Port: 3306
 			Username: root
 			Password:

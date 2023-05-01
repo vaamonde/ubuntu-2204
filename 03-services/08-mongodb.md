@@ -30,7 +30,7 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 	
 	#opção do comando dpkg: -i (install)
-	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.17_amd64.deb
+	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.18_amd64.deb
 	sudo dpkg -i libssl*.deb
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
@@ -206,5 +206,5 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 #17_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
 DE DADOS CRIAR UM COLLECTION CHAMADO: senactat (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
-INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTA AS INFORMAÇÕES NO VSCODE. (VEJA 
-O SITE W3SCHOOLS)
+INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE. (VEJA 
+O SITE W3SCHOOLS).
