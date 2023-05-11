@@ -144,13 +144,27 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#13_ Testando o Apache Tomcat Server no navegador<br>
+#13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server
+
+	#editando o arquivo de criação de usuários do Tomcat
+	sudo vim /opt/tomcat/conf/tomcat-users.xml
+
+	#verificando o serviço do Apache Tomcat Server
+	sudo systemctl restart tomcat10
+	sudo systemctl status tomcat10
+
+#14_ Testando o Apache Tomcat Server no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 
-#14_ Administrando o Apache Tomcat Server<br>
+#15_ Administrando o Apache Tomcat Server<br>
 
 	Clique em: Manager App
 		Usuário padrão: admin
 		Senha padrão..: 123@senac
 	<Fazer Login>
+
+#16_ DESAFIO: FAZER A CRIAÇÃO DE 02 (DOIS) NOVOS USUÁRIOS PARA ADMINISTRAR O APACHE TOMCAT SERVER
+PRIMEIRO USUÁRIO: senac (TUDO EM MINÚSCULO) SENHA: 123@senac, SEGUNDO USUÁRIO: seu_nome (TUDO EM 
+MINÚSCULO) SENHA: 123@senac, TESTAR O ACESSO AO TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO
+DIREITOS PARA ADMINISTRAR O SERVIDOR.
