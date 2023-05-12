@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 11/05/2023<br>
+#Versão: 0.07<br>
 
 VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
 
@@ -82,7 +82,10 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 	
 	#arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
 	wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
-	
+
+	#arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
+	wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+
 	#arquivo de configuração da Inicialização do Tomcat
 	wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 
