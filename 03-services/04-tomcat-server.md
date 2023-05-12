@@ -83,9 +83,9 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 	#arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
 	wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-	#arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
+	#arquivo de configuração do Meta Dados do Contexto Examples do Tomcat
 	wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
-
+	
 	#arquivo de configuração da Inicialização do Tomcat
 	wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 
