@@ -177,7 +177,27 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 	#saindo do MongoDB Server
 	quit
 
-#16_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
+#16_ Integrando o MongoDB Server com o Compass GUI<br>
+
+	#criando uma nova conexão
+	<New connection+>
+		New Connection
+			URL: mongodb://10.26.44.xxx:27017
+		Advanced Connection Options
+			Connection String Scheme
+				mongodb
+			Host:
+				10.26.44.xxx:27017
+		Authentication
+			Username/Password
+				Username: admin
+				Password: 123@senac
+				Authentication Database: admin
+			Authentication Mechanism
+				Default
+		<Save & Connect>
+
+#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
 
 	#instalando a Extensão do MongoDB
 	VSCode
@@ -195,7 +215,7 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 						New Connection
 							General
 								Connection Type: Standalone
-								Hostname: localhost
+								Hostname: 10.26.44.XXX
 								Port: 27017
 								Authentication: Username/Password
 									Username: admin
@@ -204,7 +224,7 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 						<Connect>
 					<Close>
 
-#17_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
+#18_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
 DE DADOS CRIAR UM COLLECTION CHAMADO: senactat (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
 INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE. (VEJA 
 O SITE W3SCHOOLS).
