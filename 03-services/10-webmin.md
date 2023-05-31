@@ -98,3 +98,6 @@ navegador, não precisando de conhecimentos avanças em Bash/Shell.
 	#Alterando o Tema para Night/Black do Webmin
 	Webmin
 		Ícone: Day/night mode toggle (Alt + L)
+
+#10_ DESAFIO: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
+ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT.
