@@ -26,7 +26,7 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 	#instalando as dependências do Netdata Server
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates \
 	zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python3 python3-mysqldb python3-pip \
-	python3-dev libmysqlclient-dev python-ipaddress libuv1-dev netcat libwebsockets16 libwebsockets-dev \
+	python3-dev libmysqlclient-dev libuv1-dev netcat libwebsockets16 libwebsockets-dev \
 	libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev autoconf-archive curl cmake \
 	protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 python3-pymysql
 
