@@ -35,7 +35,7 @@
    # Porta Segura (8443 - HTTPS)
   -->
   <Service name="Catalina">
-    <!-- Comentar essas linhas na configuração do TLs/SSL do Apache Tomcat9 -->  
+    <!-- Comentar essas linhas na configuração do TLS/SSL do Apache Tomcat9 -->  
     <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" />
