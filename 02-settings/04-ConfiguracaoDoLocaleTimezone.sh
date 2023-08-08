@@ -25,6 +25,7 @@ sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 sudo reboot
 #
 # Verificando as mudanças do Locale (Localidade) no Sistema Operacional Ubuntu Server
+# opção do comando locale: -a (all-locales)
 sudo localectl
 sudo locale -a
 #

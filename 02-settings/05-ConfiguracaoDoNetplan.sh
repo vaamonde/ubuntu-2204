@@ -50,6 +50,7 @@ sudo resolvectl
 # escolhida.
 #
 # Diretório padrão das configurações da Placa de Rede no Ubuntu Server
+# opção do comando ls: -l (long listing), -h (human-readable)
 cd /etc/netplan/
 ls -lh
 #
