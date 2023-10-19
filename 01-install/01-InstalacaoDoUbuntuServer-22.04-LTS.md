@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 24/04/2023<br>
-Versão: 0.07<br>
+Data de atualização: 19/10/2023<br>
+Versão: 0.08<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
@@ -21,7 +21,7 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 
 01. Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
-02. Versão do download Ubuntu Server: ubuntu-22.04.2-live-server-amd64.iso (17/02/2023)
+02. Versão do download Ubuntu Server: ubuntu-22.04.3-live-server-amd64.iso (10/08/2023)
 03. Arquitetura do Ubuntu Server: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
 
@@ -32,8 +32,8 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_	<Novo>
 
 	_ 02. Nome e Sistema Operacional:
-	_		Nome: Webserver
-	_		Pasta da Máquina: D:\SeuNome\UbuntuServer
+	_		Nome: UbuntuWebserver
+	_		Pasta da Máquina: #PATH_PADRÃO\UbuntuWebserver
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
 	_	<Próximo>
@@ -59,7 +59,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_		Tamanho do disco: 50GB
 	_	<Criar>
 
-	_ 08. Configurações da Máquina Virtual UbuntuServer (Propriedades/Configurações)
+	_ 08. Configurações da Máquina Virtual UbuntuWebserver (Propriedades/Configurações)
 	_	Sistema
 	_		Placa Mãe
 	_			Recurso Estendidos
@@ -79,22 +79,23 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_			Habilitar Placa de Rede: On (Habilitar)
 	_			Conectado a: Placa em modo Bridge
 	_			Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
+				OBSERVAÇÃO: VERIFICAR QUAL A PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
 	_	<OK>
 
 Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
 
-	_ 01. VM  UbuntuServer: Iniciar
+	_ 01. VM UbuntuWebserver: Iniciar
 	
 	_ 02. Selecione o disco rígido de boot
 	_ 		Selecionar um arquivo de disco óptico virtual
 	
 	_ 03. Seletor de Discos Ópticos
 	_ 		Acrescentar
-	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.2-live-server-amd64.iso
+	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.3-live-server-amd64.iso
 	_ 	<Abrir>
 	
 	_ 04. Not Attached
-	_ 		Selecionar: ubuntu-22.04.2-live-server-amd64.iso
+	_ 		Selecionar: ubuntu-22.04.3-live-server-amd64.iso
 	_ 	<Escolher>
 	_ <Iniciar>
 
@@ -121,7 +122,9 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 	_ 06. Network connections
 	_		enp0s3 eth
-	_		DHCPv4 10.26.44.XXX/24
+	_		DHCPv4 192.168.0.XXX/24
+			OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA
+			REDE INTERNA.
 	_ 	<Done>
 	
 	_ 07. Configure proxy
@@ -152,10 +155,12 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	
 	_ 11. Profile setup
 	_ 		Your name: Seu Nome e Sobrenome <Tab>
-	_ 		Your server's name: wsseunome <Tab>
-	_ 		Pick a username: senac <Tab>
-	_ 		Choose a passwords: 123@senac <Tab>
-	_ 		Confirm your passwords: 123@senac
+	_ 		Your server's name: wsvaamonde <Tab>
+	_ 		Pick a username: vaamonde <Tab>
+	_ 		Choose a passwords: pti@2018 <Tab>
+	_ 		Confirm your passwords: pti@2018
+			OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU
+			CENÁRIO.
 	_ 	<Done>
 	
 	_ 12. Upgrade to Ubuntu Pro
@@ -179,5 +184,5 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	AGUARDAR A INICIALIZAÇÃO TOTAL DO SERVIDOR UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS
 	CHAVES DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONAR <ENTER> PARA APARECER A TELA DE LOGIN
 
-	_ swseunome login: senac <Enter>
-	_ Password: 123@senac <Enter>
+	_ swvaamonde login: vaamonde <Enter>
+	_ Password: pti@2018 <Enter>

@@ -11,7 +11,7 @@
 #Data de criação: 18/01/2023
 #Data de atualização: 20/04/2023
 #Versão: 0.02
-#Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
+#Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 #
 # Desligando e reinicializando o servidor com halt
 # opção do comando halt: -p (poweroff)

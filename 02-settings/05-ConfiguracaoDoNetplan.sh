@@ -9,11 +9,11 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Github Procedimentos em TI: https://github.com/vaamonde
 #Data de criação: 18/01/2023
-#Data de atualização: 20/04/2023
-#Versão: 0.03
+#Data de atualização: 19/10/2023
+#Versão: 0.04
 #Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 #
-# Configuração da Placa de Rede no GNU/Linux Ubuntu 20.04.x LTS UDEV (userspace /dev) 
+# Configuração da Placa de Rede no GNU/Linux Ubuntu 22.04.x LTS UDEV (userspace /dev) 
 # responsável por controlar os dispositivos do sistema utilizando o Systemd para nomear 
 # as Placas de Rede no Ubuntu - Site: https://netplan.io/examples
 #
@@ -98,11 +98,14 @@ network:
   ethernets:
     enp0s3:
       dhcp4: false
-      addresses: [10.26.44.XXX/24]
-      gateway4: 10.26.44.1
+      addresses: [192.168.0.XXX/24]
+      gateway4: 192.168.0.1
+      #routes:
+      #  - to: default
+      #    via: 192.168.0.1
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
-        search: [senac.intra]
+        search: [pti.intra]
   version: 2
 
 #salvar e sair do arquivo
@@ -123,8 +126,8 @@ sudo vim /etc/hosts
 		
 		#adicionar o endereço IPv4 e nome FQDN do seu servidor na linha 3
 		127.0.0.1     localhost
-		127.0.1.1     wsseunome.senac.intra     wsseunome
-		10.26.44.XXX  wsseunome.senac.intra     wsseunome
+		127.0.1.1     wsvaamonde.pti.intra     wsvaamonde
+		192.168.0.XXX  wsvaamonde.pti.intra    wsvaamonde
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>

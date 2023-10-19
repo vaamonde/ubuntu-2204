@@ -11,7 +11,7 @@
 #Data de criação: 18/01/2023
 #Data de atualização: 20/04/2023
 #Versão: 0.02
-#Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
+#Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 #
 # Apt-Get ou Apt A ferramenta de pacote avançada, é uma interface de usuário de software 
 # livre que funciona com bibliotecas centrais para lidar com a instalação e remoção de 

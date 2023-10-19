@@ -7,10 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.04<br>
-
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=yESGEqv-t3Q
+#Data de atualização: 19/10/2023<br>
+#Versão: 0.05<br>
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
@@ -78,7 +76,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	INSERT
 
 		#inserir as informações na linha 10
-		sshd: 10.26.44.0/24
+		sshd: 192.168.0.0/24
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
@@ -97,8 +95,8 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	sudo vim /etc/ssh/sshd_config
 	INSERT
 
-		#alterar a linha do: ListenAddress 10.26.44.xxx para: 10.26.44.SEU_IPV4
-		ListenAddress 10.26.44.xxx
+		#alterar a linha do: ListenAddress 192.168.0.xxx para: 192.168.0.SEU_IPV4
+		ListenAddress 192.168.0.xxx
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
@@ -107,8 +105,8 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	sudo vim /etc/issue.net
 	INSERT
 
-		#alterar a linha do: Servidor: wsseunome - Aluno: Nome e Sobrenome
-		Servidor: wsseunome - Aluno: Nome e Sobrenome
+		#alterar a linha do: Servidor: wsvaamonde
+		Servidor: wsvaamonde
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
@@ -123,7 +121,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 		Pesquisa do Windows
 			Powershell
 
-	ssh senac@10.26.44.XXX (alterar para o endereço IPv4 do seu servidor)
+	ssh vaamonde@192.168.0.XXX (alterar para o endereço IPv4 do seu servidor)
 
 	Windows
 		Pesquisa do Windows
@@ -131,7 +129,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 
 	Category
 		Session
-			Host Name (or IP address): senac@10.26.44.XXX (alterar para o endereço IPv4 do seu servidor)
+			Host Name (or IP address): vaamonde@192.168.0.XXX (alterar para o endereço IPv4 do seu servidor)
 			Port: 22
 			SSH: On
 	<Open>
@@ -140,9 +138,9 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 
 	#criando o usuário Admin
 	sudo adduser admin
-		New password: 123@senac
-		Retype new password: 123@senac
-			Full Name []: Admin SENAC Tatuapé
+		New password: pti@2018
+		Retype new password: pti@2018
+			Full Name []: Admin Bora para Prática
 			Room Number []: <Enter>
 			Work Phone []: <Enter>
 			Home Phone []: <Enter>
@@ -181,6 +179,6 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL OU PUTTY.
 
-#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: vaamonde (TUDO EM MINÚSCULO)
+#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO)
 FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: sudo E PERMITIR QUE O
 SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.

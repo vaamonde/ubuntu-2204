@@ -9,9 +9,9 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Github Procedimentos em TI: https://github.com/vaamonde
 #Data de criação: 18/01/2023
-#Data de atualização: 20/04/2023
-#Versão: 0.02
-#Testado e homologado no GNU/Linux Ubuntu Server 22.04.1 LTS
+#Data de atualização: 19/10/2023
+#Versão: 0.03
+#Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 #
 # Hostname: é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome 
 # de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de 
@@ -31,7 +31,8 @@ sudo vim /etc/hostname
 	INSERT
 		
 		#adicionar o nome de domínio na linha 1
-		wsseunome.senac.intra
+		#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
+		wsvaamonde.pti.intra
 	
 	#sair e salvar o arquivo
 	ESC SHIFT : x <Enter>
@@ -41,8 +42,9 @@ sudo vim /etc/hosts
 	INSERT
 		
 		#adicionar o nome de domínio e apelido na linha 2
+		#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
 		127.0.0.1 localhost
-		127.0.1.1 wsseunome.senac.intra 	wsseunome
+		127.0.1.1 wsvaamonde.pti.intra 	wsvaamonde
 	
 	#sair e salvar o arquivo
 	ESC SHIFT : x <Enter>
