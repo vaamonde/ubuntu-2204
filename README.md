@@ -26,11 +26,13 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/ubuntu-2204/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2204?color=2b9348" alt="License Badge"/></a>
 </div>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 22.04.x LTS Jammy Jellyfish, utilizando os conceitos de DevOps (“desenvolvimento” e “operação”) integrado com os conceitos de CI/CD ("integração contínua" e "entrega contínua") tudo será construído em Container (Docker) e automatizado utilizando o Vagrant (HashiCorp) e Ansible (Red Hat).
-
-Vagrant: é um software de código aberto para criar e manter ambientes de desenvolvimento virtuais portáteis, utilizando VirtualBox, KVM, Hyper-V, Docker, VMware, AWS, etc. Ele tenta simplificar a gerência de configuração de software das virtualizações para aumentar a produtividade do desenvolvimento.
+Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 22.04.x LTS Jammy Jellyfish, utilizando os conceitos de DevOps (“desenvolvimento” e “operação”) com futura integração com os conceitos de CI/CD ("integração contínua" e "entrega contínua") migrando toda essa estrutura On-Premises (Servidores Locais) para Cloud (Nuvem) ou construído uma Base Sólida em Container (Docker) e automatizando a criação das VM's com o Vagrant (HashiCorp) e Ansible (Red Hat) numa etapa futura.
 
 Ubuntu: é um sistema operacional de código aberto, construído a partir do núcleo Linux, baseado no Debian. Esta distribuição Linux é desenvolvida pela Canonical Ltd.
+
+Cloud: Computação em nuvem é um termo coloquial para a disponibilidade sob demanda de recursos do sistema de computador, especialmente armazenamento de dados e capacidade de computação, sem o gerenciamento ativo direto do utilizador.
+
+Vagrant: é um software de código aberto para criar e manter ambientes de desenvolvimento virtuais portáteis, utilizando VirtualBox, KVM, Hyper-V, Docker, VMware, AWS, etc. Ele tenta simplificar a gerência de configuração de software das virtualizações para aumentar a produtividade do desenvolvimento.
 
 Docker: é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
@@ -51,5 +53,12 @@ Ansible: é uma ferramenta de TI de código aberto para gerenciar, automatizar, 
 🔴 Ansible: https://docs.ansible.com/ansible/latest/index.html
 
 ## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS:**
-🔴 Link da Playlist: 
+🔴 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUM1-yu4qP9RZxoejgIfCxdI
 
+## **🤩🤩 Apresentação do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora  para Prática 🤩🤩**
+
+Vídeo de apresentação do NOVO Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
+
+Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologias como Docker, Kubernets, Ansible e muito mais.
+
+[![Apresentação do Curso](http://img.youtube.com/vi/kkhTHvZKQlM4/0.jpg)](https://www.youtube.com/watch?v=kkhTHvZKQlM "Apresentação do Curso")
