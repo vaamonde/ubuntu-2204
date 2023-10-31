@@ -61,4 +61,4 @@ Vídeo de apresentação do NOVO Curso de Servidores GNU/Linux Ubuntu Server ver
 
 Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologias como Docker, Kubernets, Ansible e muito mais.
 
-[![Apresentação do Curso](http://img.youtube.com/vi/kkhTHvZKQlM4/0.jpg)](https://www.youtube.com/watch?v=kkhTHvZKQlM "Apresentação do Curso")
+[![Apresentação do Curso](http://img.youtube.com/vi/kkhTHvZKQlM/0.jpg)](https://www.youtube.com/watch?v=kkhTHvZKQlM "Apresentação do Curso")
