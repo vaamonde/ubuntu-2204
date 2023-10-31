@@ -27,7 +27,7 @@ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 
 Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualBOX<br>
 Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
-Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
+Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
 Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA
 
 	_ 01. Ferramentas;
