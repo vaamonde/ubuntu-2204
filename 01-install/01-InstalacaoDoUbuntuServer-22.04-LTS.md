@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 19/10/2023<br>
-Versão: 0.08<br>
+Data de atualização: 31/10/2023<br>
+Versão: 0.09<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
@@ -26,20 +26,22 @@ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 04. Tipo de instalação: DVD Image (ISO) Installer
 
 Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualBOX<br>
-Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
+Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
+Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
+Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA
 
 	_ 01. Ferramentas;
 	_	<Novo>
 
 	_ 02. Nome e Sistema Operacional:
 	_		Nome: UbuntuWebserver
-	_		Pasta da Máquina: #PATH_PADRÃO\UbuntuWebserver
+	_		Pasta da Máquina: #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
 	_		Tipo: Linux
 	_		Versão: Ubuntu (64-bit)
 	_	<Próximo>
 
 	_ 03. Tamanho da memória:
-	_		Tamanho: 4096MB
+	_		Tamanho: 4096MB (altere conforme a sua necessidade, mínimo 2048MB)
 	_	<Próximo>
 
 	_ 04. Disco Rígido:
@@ -56,7 +58,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 	_ 07. Localização e tamanho do arquivo
 	_		Localização: (deixar o padrão do sistema)
-	_		Tamanho do disco: 50GB
+	_		Tamanho do disco: 50GB (altere conforme a sua necessidade, mínimo 50GB)
 	_	<Criar>
 
 	_ 08. Configurações da Máquina Virtual UbuntuWebserver (Propriedades/Configurações)
@@ -79,7 +81,9 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 	_			Habilitar Placa de Rede: On (Habilitar)
 	_			Conectado a: Placa em modo Bridge
 	_			Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
-				OBSERVAÇÃO: VERIFICAR QUAL A PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
+				OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
+				QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
+				SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
 	_	<OK>
 
 Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
@@ -106,14 +110,14 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_	<Enter>
 
 	_ 02. Use UP, DOWN and ENTER keys to select your language
-	_ 	English - <Enter>
+	_ 	English - <Enter> (recomendado utilizar sempre a opção em Inglês)
 	
 	_ 03. Installer update available
 	_	<Continue without updating>
 	
 	_ 04. Keyboard configuration
-	_ 		Layout: [English (US)] ou [Portuguese (Brazil)]
-	_ 		Variant: [English (US)] ou [Portuguese (Brazil)]
+	_ 		Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+	_ 		Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 	_ 	<Done>
 
 	_ 05. Choose type of install
@@ -121,10 +125,10 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_	<Done>
 
 	_ 06. Network connections
-	_		enp0s3 eth
-	_		DHCPv4 192.168.0.XXX/24
+	_		enp0s3 eth (o nome lógico da placa de rede muda de equipamento para equipamento)
+	_		DHCPv4 172.16.1.XXX/24 (altere conforme a sua necessidade)
 			OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA
-			REDE INTERNA.
+			REDE INTERNA PARA ADAPTAR NO SEU CENÁRIO.
 	_ 	<Done>
 	
 	_ 07. Configure proxy
@@ -132,6 +136,9 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	
 	_ 08. Configure Ubuntu archive mirror
 			Mirror: http://br.archive.ubuntu.com/ubuntu
+			OBSERVAÇÃO IMPORTANTE: CASO QUEIRA TROCAR O MIRROR DO UBUNTU DO BRASIL PARA O
+			OFICIAL NO US, SUBSTITUA A URL DE: http://br.archive.ubuntu.com/ubuntu PARA A
+			URL: http://us.archive.ubuntu.com/ubuntu
 	_	<Done>
 	
 	_ 09. Guided storage configuration
@@ -181,8 +188,8 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_ 16. Please remove the installation medium, then press ENTER:
 	_	<Enter>
 
-	AGUARDAR A INICIALIZAÇÃO TOTAL DO SERVIDOR UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS
-	CHAVES DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONAR <ENTER> PARA APARECER A TELA DE LOGIN
+	AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
+	DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
-	_ swvaamonde login: vaamonde <Enter>
+	_ wsvaamonde login: vaamonde <Enter>
 	_ Password: pti@2018 <Enter>
