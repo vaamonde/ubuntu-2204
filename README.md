@@ -62,3 +62,9 @@ Vídeo de apresentação do NOVO Curso de Servidores GNU/Linux Ubuntu Server ver
 Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologias como Docker, Kubernets, Ansible e muito mais.
 
 [![Apresentação do Curso](http://img.youtube.com/vi/kkhTHvZKQlM/0.jpg)](https://www.youtube.com/watch?v=kkhTHvZKQlM "Apresentação do Curso")
+
+## **🤩🤩 Instalação do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX Projeto Bora para Prática 🤩🤩**
+
+Vídeo de instalação do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender a baixar a ISO do Ubuntu Server do site oficial, criar e customizar a máquina virtual no VirtualBOX e fazer a instalação padrão do Ubuntu Server, no próximo vídeo começamos a etapa de configuração.
+
+[![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")
