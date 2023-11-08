@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.08<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=JUWuyTHvLVY
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass
@@ -30,7 +31,7 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 	
 	#opção do comando dpkg: -i (install)
-	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.18_amd64.deb
+	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 	sudo dpkg -i libssl*.deb
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
@@ -123,7 +124,7 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 	db.createUser(
 	{
 		user: "admin",
-		pwd: "123@senac",
+		pwd: "pti@2018",
 		roles: [ "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase" ]
 	}
 	)
@@ -182,16 +183,16 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 	#criando uma nova conexão
 	<New connection+>
 		New Connection
-			URL: mongodb://10.26.44.xxx:27017
+			URL: mongodb://172.16.120:27017
 		Advanced Connection Options
 			Connection String Scheme
 				mongodb
 			Host:
-				10.26.44.xxx:27017
+				172.16.1.20:27017
 		Authentication
 			Username/Password
 				Username: admin
-				Password: 123@senac
+				Password: pti@2018
 				Authentication Database: admin
 			Authentication Mechanism
 				Default
@@ -215,16 +216,19 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 						New Connection
 							General
 								Connection Type: Standalone
-								Hostname: 10.26.44.XXX
+								Hostname: 172.16.1.20
 								Port: 27017
 								Authentication: Username/Password
 									Username: admin
-									Password: 123@senac
+									Password: pti@2018
 									Authentication Database: admin
 						<Connect>
 					<Close>
 
 #18_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
-DE DADOS CRIAR UM COLLECTION CHAMADO: senactat (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
-INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE. (VEJA 
-O SITE W3SCHOOLS).
+DE DADOS CRIAR UM COLLECTION CHAMADO: cadastro (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
+INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE OU NO
+COMPASS (VEJA O SITE W3SCHOOLS).
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática

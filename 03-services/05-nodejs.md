@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.05<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=awDyXU-vIsk
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/
@@ -72,7 +73,7 @@ var app = express();
 
 // Mensagem que será mostrada no browser (navegador) 
 app.get('/', function (req, res) {
-	res.send('Seu Nome e Sobrenome #SenacTatuape!!!');
+	res.send('Seu Nome e Sobrenome #BoraParaPrática!!!');
 });
 
 // Porta padrão utilizada pela aplicação do Node.JS
@@ -109,6 +110,9 @@ app.listen(3000, function() {
 	Ctrl + C
 
 #10_ DESAFIO: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM:
-seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO USUÁRIO: /home/senac, CRIAR UMA PÁGINA 
-DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER 
-PARA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030.
+seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: /home/seu_usuário, CRIAR UMA 
+PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO 
+BROWSER PARA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática

@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.06<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=XDURRbCpd2M
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
@@ -75,8 +76,15 @@ web NCSA HTTPd criado por Rob McCool.
 	newgrp www-data
 	id
 	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+	#recomendo fazer logout do usuário para testar as permissões de grupos 
+	logout
+	exit
+	Ctrl + D
+
+	#OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utile os caracteres de escape para 
+	finalizar conexões SSH.
+	#caracteres: ~ (til) e . (ponto)
+	~.
 
 #06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server<br>
 
@@ -180,3 +188,9 @@ NA PÁGINA.
 
 #10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: seunome.php, ADICIONAR MAIS
 OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR.
+
+#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O SEU USUÁRIO CRIADO NO SISTEMA NO GRUPO DO APACHE2,
+TESTAR AS PERMISSÕES E ACESSOS NOS DIRETÓRIOS DO APACHE 2 E DOS SITES.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática

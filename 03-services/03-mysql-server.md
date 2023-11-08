@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.08<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ClnoU4-x5oI
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
@@ -78,7 +79,8 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 		SELECT user,host FROM user;
 
 		#alterando a senha do usuário Root Localhost
-		ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123@senac';
+		#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE
+		ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
 		
 		#alterando as permissões do usuário Root Localhost
 		GRANT ALL ON *.* TO 'root'@'localhost';
@@ -95,7 +97,8 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 #07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
 
 	#criando o usuário DBA Localhost
-	CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY '123@senac';
+	#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE
+	CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
 	
 	#alterando as permissões do usuário DBA Localhost
 	GRANT ALL ON *.* TO 'dba'@'localhost';
@@ -116,8 +119,8 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 	newgrp mysql
 	id
 	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+	#recomendo fazer logout do usuário para testar as permissões de grupos 
+	exit
 
 	#opções do comando mysql: -u (user), -p (password)
 	mysql -u dba -p
@@ -145,7 +148,8 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 	sudo mysql -u root -p
 
 	#criando o usuário Root Remoto do MySQL Server
-	CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123@senac';
+	#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE
+	CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
 	GRANT ALL ON *.* TO 'root'@'%';
 	FLUSH PRIVILEGES;
 
@@ -158,15 +162,15 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 
 	#conectando com o usuário Root do MySQL no Workbench
 	MySQL Connections: +
-		Connection Name: UbuntuServer
+		Connection Name: UbuntuWeserver
 		Connection Method: Standard (TCP/IP)
 		Parameters:
-			Hostname: 10.26.44.XXX
+			Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
 			Port: 3306
 			Username: root
 			Password:
 				Store in Keychain
-					Password: 123@senac
+					Password: pti@2018 (alterar a senha do usuário root do seu servidor)
 				<OK>
 		<Test Connection>
 			<OK>
@@ -188,10 +192,10 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 				Name: UbuntuServer
 				Server Type:
 					MySQL
-						Host: 10.26.44.XXX
+						Host: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
 						Port: 3306
 						Username: root
-						Password: 123@senac
+						Password: pti@2018 (alterar a senha do usuário root do seu servidor)
 				<Save>
 
 #12_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE 
@@ -199,3 +203,13 @@ BANCO DE DADOS CRIAR UMA TABELA COM O: seu_nome (TUDO EM MINÚSCULO) COM AS SEGU
 COLUNAS: Nome (Tipo Texto) e Idade (Tipo Numérico) (TUDO EM MINÚSCULO), DENTRO DESSA
 TABELA CRIAR UM REGISTRO COM: Seu Nome e Sua Idade (VEJA O SITE W3SCHOOLS). 
 OBSERVAÇÃO IMPORTANTE: NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+
+#13_ DESAFIO: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO PROCEDIMENTO
+DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO MYSQL: mysql PARA ADMINISTRAR O SERVIDOR SEM A 
+NECESSIDADE DO COMANDO SUDO.
+
+#14_ DESAFIO: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: seu_nome, CONFIGURAR TODAS
+AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática

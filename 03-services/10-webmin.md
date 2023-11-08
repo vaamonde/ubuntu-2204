@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.03<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=QBt7lteBLa8
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
@@ -78,8 +79,8 @@ navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
 	firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
 
-	Username: senac
-	Password: 123@senac 
+	Username: vaamonde
+	Password: pti@2018 
 	<Sign In>
 
 #09_ Configurações Básicas do Webmin<br>
@@ -101,3 +102,6 @@ navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
 #10_ DESAFIO: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
 ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática

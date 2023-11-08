@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.06<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=M1pW_-qE0KU
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -137,17 +138,17 @@ para a criação de páginas eletrônicas e blogs online.
 	Português do Brasil: Continuar;
 	Informação necessária
 		Título do site: Seu Nome e Sobrenome;
-		Nome de usuário: senac;
-		Senha: 123@senac;
+		Nome de usuário: admin;
+		Senha: pti@2018;
 		Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
-		O seu e-mail: senac@senac.intra; 
+		O seu e-mail: admin@ptin.intra; 
 	<Instalar WordPress>
 	<Acessar>
 
 	#tela de login do Wordpress
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
-		Nome de usuário ou endereço de email: senac
-		Senha: 123@senac
+		Nome de usuário ou endereço de email: admin
+		Senha: pti@2018
 		Lembrar-me: On (Habilitado)
 		<Acessar>
 		
@@ -159,3 +160,6 @@ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
 #08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
 NO DIA A DIA: Wordfence Security E W3 Total Cache.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática

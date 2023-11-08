@@ -10,6 +10,9 @@
 #Data de atualização: 19/10/2023<br>
 #Versão: 0.05<br>
 
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
+
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
@@ -17,21 +20,21 @@ Site Oficial do PuTTY: https://www.putty.org/
 OpenSSH é um conjunto de utilitários de rede relacionado à segurança que provém a criptografia<br> 
 em sessões de comunicações em uma rede de computadores usando o protocolo SSH.
 
-#01_ Instalando o OpenSSH Server e Client<br>
+#01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
 
 	#atualizando as listas do Apt
 	sudo apt update
 	
-	OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
-	o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
-	instalado e pré-configurado.
+	#OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
+	#o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
+	#instalado e pré-configurado.
 
 	#instalando o OpenSSH Server e Client
 	sudo apt install openssh-server openssh-client openssl 
 
-#02_ Verificando o Serviço e Versão do OpenSSH Server e Client<br>
+#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
 
-	#verificando o serviço do OpenSSH
+	#verificando o serviço do OpenSSH Server
 	sudo systemctl status ssh
 	sudo systemctl restart ssh
 	sudo systemctl stop ssh
@@ -76,7 +79,8 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	INSERT
 
 		#inserir as informações na linha 10
-		sshd: 192.168.0.0/24
+		#OBSERVAÇÃO: ALTERAR A REDE CONFORME A SUA NECESSIDADE
+		sshd: 172.16.1.0/24
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
@@ -95,8 +99,17 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	sudo vim /etc/ssh/sshd_config
 	INSERT
 
-		#alterar a linha do: ListenAddress 192.168.0.xxx para: 192.168.0.SEU_IPV4
-		ListenAddress 192.168.0.xxx
+		#alterar a linha 27: ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
+		#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
+		ListenAddress 172.16.1.20
+
+		#alterar a linha 77: AllowUsers
+		#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
+		AllowUsers vaamonde
+
+		#alterar a linha 83: AllowGroups
+		#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
+		AllowGroups vaamonde
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
@@ -105,8 +118,9 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	sudo vim /etc/issue.net
 	INSERT
 
-		#alterar a linha do: Servidor: wsvaamonde
-		Servidor: wsvaamonde
+		#alterar a linha 5: Servidor e Admin
+		#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
+		Servidor: wsvaamonde - Admin: Robson Vaamonde
 
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
@@ -115,13 +129,13 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	sudo systemctl restart ssh
 	sudo systemctl status ssh
 
-#07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY
+#07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
 
 	Windows
 		Pesquisa do Windows
 			Powershell
 
-	ssh vaamonde@192.168.0.XXX (alterar para o endereço IPv4 do seu servidor)
+	ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
 
 	Windows
 		Pesquisa do Windows
@@ -129,14 +143,28 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 
 	Category
 		Session
-			Host Name (or IP address): vaamonde@192.168.0.XXX (alterar para o endereço IPv4 do seu servidor)
+			Host Name (or IP address): vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
 			Port: 22
 			SSH: On
 	<Open>
 
-#08_ Criando um usuário Administrador no Ubuntu Server
+	Linux
+		Terminal: Ctrl + Alt + T
+			ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
+	
+	#verificando os usuários logados remotamente no Ubuntu Server
+	#opção do comando who: -H (heading), -a (all)
+	w
+	who -Ha
+	users
+
+#08_ Criando um usuário Administrador no Ubuntu Server<br>
 
 	#criando o usuário Admin
+	#OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
+	#ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
+	#É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE
+	#USUÁRIO PARA INVADIR SERVIDORES.
 	sudo adduser admin
 		New password: pti@2018
 		Retype new password: pti@2018
@@ -174,11 +202,14 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server
 
 	OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
-	verificar se está tudo OK
+	verificar se está tudo OK na criação do usuário admin.
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
-SERVER VIA SSH UTILIZANDO O POWERSHELL OU PUTTY.
+SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
 
 #12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO)
 FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: sudo E PERMITIR QUE O
 SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática

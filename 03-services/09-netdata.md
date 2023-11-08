@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.03<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=bVivYQ3RMEs
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
@@ -124,3 +125,6 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 #12_ DESAFIO: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
 INTEGRAÇÃO: 15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent, LINK:
 https://www.youtube.com/watch?v=5MrH8L5cSIU
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática

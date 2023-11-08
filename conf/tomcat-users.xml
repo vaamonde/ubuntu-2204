@@ -28,5 +28,5 @@
 	<role rolename="tomcat"/>
 	<role rolename="role1"/>
 	<!-- Configuração do Usuário, Senha e Papéis do administrador do Servidor Web Tomcat -->
-	<user username="admin" password="123@senac" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+	<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 </tomcat-users>

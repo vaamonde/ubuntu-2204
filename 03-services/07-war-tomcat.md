@@ -10,7 +10,8 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.05<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -112,3 +113,6 @@ DO GITHUB: https://github.com/AKSarav/SampleWebApp/ - APÓS O DEPLOY SERÁ CRIAD
 http://endereço_ipv4_ubuntuserver:8080/SampleWebApp
 
 LINK DO ARQUIVO WAR: https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática

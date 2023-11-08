@@ -53,8 +53,8 @@ localizado em /etc/hosts
 	INSERT
 		
 		#adicionar o nome de domínio e apelido na linha 2 e 3
-		#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-		127.0.0.1    localhost
+		#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+		127.0.0.1    localhost.localdomain  localhost
 		127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
 		172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
 	
@@ -123,10 +123,12 @@ localizado em /etc/hosts
         #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes
         addresses: [172.16.1.20/24]
         #alterar o gateway padrão para o seu cenário
-        gateway4: 192.168.0.1
+        gateway4: 172.16.1.254
+        #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
+        #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
         #routes:
         #  - to: default
-        #    via: 192.168.0.1
+        #    via: 172.16.1.254
         nameservers:
           #alterar os servidores DNS para o seu cenário
           #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes
@@ -143,6 +145,10 @@ localizado em /etc/hosts
 
 	#aplicando as mudanças do Netplan em modo Debug (detalhado)
 	sudo netplan --debug apply
+
+	#OBSERVAÇÃO IMPORTANTE: você pode utilizar a opção: try que caso aconteça alguma
+	#falha na hora de configurar a placa de rede ele reverte a configuração
+	sudo netplan --debug try
 
 	#verificando o endereço IPv4 da Interface de Rede
 	sudo ifconfig
@@ -166,3 +172,19 @@ localizado em /etc/hosts
 	sudo hostname -A
 	sudo hostname -d
 	sudo hostname -i
+
+#08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
+
+	#OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
+	#acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux
+	#ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
+	#fácil administrar e configurar os principais serviços de rede e forma remota.
+
+	#testando a conexão com o Ubuntu Server
+	ping 172.16.1.20
+
+	#acessando remotamente o Ubuntu Server
+	ssh vaamonde@172.16.1.20
+
+	#confirmando a troca das chaves públicas e do fingerprint do SSH
+	Yes <Enter>

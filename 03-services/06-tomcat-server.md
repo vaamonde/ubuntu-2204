@@ -10,7 +10,8 @@
 #Data de atualização: 11/05/2023<br>
 #Versão: 0.07<br>
 
-VIDEO AULA DE APOIO: https://www.youtube.com/watch?v=ZmpQFKsMIXE
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Tomcat realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -54,7 +55,7 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 	sudo -i
 	
 	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
+	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.15/bin/apache-tomcat-10.1.15.tar.gz
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
 
@@ -164,10 +165,13 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 
 	Clique em: Manager App
 		Usuário padrão: admin
-		Senha padrão..: 123@senac
+		Senha padrão..: pti@2018
 	<Fazer Login>
 
 #16_ DESAFIO: FAZER A CRIAÇÃO DE 02 (DOIS) NOVOS USUÁRIOS PARA ADMINISTRAR O APACHE TOMCAT SERVER
-PRIMEIRO USUÁRIO: senac (TUDO EM MINÚSCULO) SENHA: 123@senac, SEGUNDO USUÁRIO: seu_nome (TUDO EM 
-MINÚSCULO) SENHA: 123@senac, TESTAR O ACESSO AO TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO
+PRIMEIRO USUÁRIO: tomcat10 (TUDO EM MINÚSCULO) SENHA: tomcat10, SEGUNDO USUÁRIO: seu_nome (TUDO EM 
+MINÚSCULO) SENHA: sua_senha, TESTAR O ACESSO AO TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO
 DIREITOS PARA ADMINISTRAR O SERVIDOR.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Tomcat realizado com sucesso!!! #BoraParaPrática

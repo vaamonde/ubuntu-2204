@@ -161,13 +161,13 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	_	<Continue>
 	
 	_ 11. Profile setup
+			OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU
+			CENÁRIO.
 	_ 		Your name: Seu Nome e Sobrenome <Tab>
 	_ 		Your server's name: wsvaamonde <Tab>
 	_ 		Pick a username: vaamonde <Tab>
 	_ 		Choose a passwords: pti@2018 <Tab>
 	_ 		Confirm your passwords: pti@2018
-			OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU
-			CENÁRIO.
 	_ 	<Done>
 	
 	_ 12. Upgrade to Ubuntu Pro
@@ -191,5 +191,5 @@ Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
 	DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
-	_ wsvaamonde login: vaamonde <Enter>
-	_ Password: pti@2018 <Enter>
+	_ wsvaamonde login: vaamonde <Enter> (altere para o seu usuário)
+	_ Password: pti@2018 <Enter> (altere para o seu usuário)

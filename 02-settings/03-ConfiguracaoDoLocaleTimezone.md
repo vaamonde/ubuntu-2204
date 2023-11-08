@@ -53,6 +53,7 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 	#mais no Brasil
 
 	#configurando o fuso horário de America São Paulo
+	#OBSERVAÇÃO: ALTERAR CONFORME A SUA LOCALIDADE DO SEU SERVIDOR
 	sudo timedatectl set-timezone "America/Sao_Paulo"
 	sudo timedatectl
 
