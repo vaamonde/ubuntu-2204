@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 31/10/2023<br>
-#Versão: 0.01<br>
+#Data de atualização: 12/11/2023<br>
+#Versão: 0.02<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -55,25 +55,69 @@ Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 	Acesse o site: https://ubuntu.com/pro/dashboard
 	Faça a autenticação com a sua conta criada no Ubuntu One;
 	Será mostrado no campo Free Personal Token o seu token;
-	Copia o seu Token no campo: Token.
+	Copiar o seu Token no campo: Token.
 
 #05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
 
 	OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
-	>= 27.13.x
+	>= a versão 27.13.x
 
+	#verificando a versão do cliente do Ubuntu Pro
 	sudo pro --version
 
 #06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
 
+	#adicionando o Token da licença do Ubuntu Pro
 	sudo pro attach [COLAR O SEU TOKEN]
-	sudo apt update
 
-#07_ Verificando os repositório de origem das atualizações no Ubuntu Server<br>
+#07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
 
+	#verificando o status do Ubuntu Pro
 	sudo pro status
+
+	#verificando os status dos pacotes de segurança do Ubuntu Pro
 	sudo pro security-status
+
+	#verificando os status dos pacotes de segurança ESM do Ubuntu Pro
 	sudo pro security-status --esm-apps
+
+	#verificando as informações de Fix (correção) dos CVE (Common Vulnerabilities and Exposures)
 	sudo pro fix CVE-2023-23518
 
-#08_ https://learnubuntu.com/use-ubuntu-pro/
+#08_ Habilitando outros Serviços do Ubuntu Pro<br>
+
+	OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais serviços 
+	são habilitados, sendo o ESM-INFRA e o Livepatch, caso queira habilitar mais serviços veja a 
+	lista abaixo:
+
+	cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
+	cis.............: Ferramentas para conformidade automatizada com o Center of Internet Security 
+	(CIS) e seus benchmarks.
+	esm-infra.......: Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos de 
+	atualizações de segurança para versões LTS.
+	esm-apps........: ESM do Ubuntu, mas para aplicativos.
+	fips............: Relacionado à conformidade com os Padrões Federais de Processamento de 
+	Informações (FIPS).
+	fips-updates: Atualizações de segurança para fips.
+	livepatch.......: Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch).
+	realtime-kernel.: Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente não 
+	precisa dele).
+	ros.............: Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional 
+	de Robô.
+	ros-updates.....: Atualizações de segurança para o sistema operacional do robô.
+	usg.............: Ferramentas para conformidade de segurança e auditoria do sistema.
+
+	#habilitando o suporte ao ESM-APPS no Ubuntu Pro
+	sudo pro enable esm-apps
+
+	#verificando o status do Ubuntu Pro
+	sudo pro status
+
+#09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+
+		sudo apt update
+		sudo apt upgrade
+		sudo apt full-upgrade
+		sudo apt dist-upgrade
+		sudo apt autoremove
+		sudo apt autoclean
