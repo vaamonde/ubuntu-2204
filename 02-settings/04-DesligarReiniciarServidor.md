@@ -51,5 +51,6 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 	
 	#agendando o desligamento ou o reboot do servidor
 	sudo date
-	sudo shutdown -r 19:50 Servidor será reinicializando
+	sudo shutdown -r 19:50 Servidor será reinicializando às 19:50hs
+	show shutdown -r +20 Servidor será reinicializando em 20 minutos
 	sudo shutdown -c

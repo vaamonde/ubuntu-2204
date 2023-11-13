@@ -28,12 +28,12 @@ Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
 #02_ Atualizando o Sistema Operacional Ubuntu Server<br>
 
-		sudo apt update
-		sudo apt upgrade
-		sudo apt full-upgrade
-		sudo apt dist-upgrade
-		sudo apt autoremove
-		sudo apt autoclean
+	sudo apt update
+	sudo apt upgrade
+	sudo apt full-upgrade
+	sudo apt dist-upgrade
+	sudo apt autoremove
+	sudo apt autoclean
 
 #03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
 
@@ -115,9 +115,9 @@ Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
 #09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
 
-		sudo apt update
-		sudo apt upgrade
-		sudo apt full-upgrade
-		sudo apt dist-upgrade
-		sudo apt autoremove
-		sudo apt autoclean
+	sudo apt update
+	sudo apt upgrade
+	sudo apt full-upgrade
+	sudo apt dist-upgrade
+	sudo apt autoremove
+	sudo apt autoclean

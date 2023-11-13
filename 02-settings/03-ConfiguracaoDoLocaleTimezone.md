@@ -28,6 +28,7 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 	sudo locale-gen pt_BR.UTF-8
 
 	#configurando a localidade Português do Brasil
+	#opção do comando localectl: set-locale (Set the system locale)
 	sudo localectl set-locale LANG=pt_BR.UTF-8
 
 	#atualizando as localidades do Português do Brasil e Linguagem do Sistema
@@ -54,6 +55,7 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 	#configurando o fuso horário de America São Paulo
 	#OBSERVAÇÃO: ALTERAR CONFORME A SUA LOCALIDADE DO SEU SERVIDOR
+	#opção do comando timedatectl: set-timezone (set the system time zone to the specified value)
 	sudo timedatectl set-timezone "America/Sao_Paulo"
 	sudo timedatectl
 
