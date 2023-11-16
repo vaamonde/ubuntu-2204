@@ -1,4 +1,4 @@
-# EM DESENVOLVIMENTO: Curso GRÁTIS de GNU/Linux Ubuntu Server 22.04.x LTS (Jammy Jellyfish) DevOps (“desenvolvimento” e “operação”) CI/CD ("integração contínua" e "entrega contínua") 
+# Curso GRÁTIS de GNU/Linux Ubuntu Server 22.04.x LTS (Jammy Jellyfish) Essentials
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos e materiais gratuitos para o Canal do YouTUBE
 ## 💰 Chave PIX do projeto: robsonvaamonde@gmail.com
@@ -26,7 +26,7 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/ubuntu-2204/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2204?color=2b9348" alt="License Badge"/></a>
 </div>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 22.04.x LTS Jammy Jellyfish, utilizando os conceitos de DevOps (“desenvolvimento” e “operação”) com futura integração com os conceitos de CI/CD ("integração contínua" e "entrega contínua") migrando toda essa estrutura On-Premises (Servidores Locais) para Cloud (Nuvem) ou construído uma Base Sólida em Container (Docker) e automatizando a criação das VM's com o Vagrant (HashiCorp) e Ansible (Red Hat) numa etapa futura.
+Esse curso tem como objetivo demonstrar a instalação e configuração da nova versão de Servidor da Canonical o GNU/Linux Ubuntu Server 22.04.x LTS Jammy Jellyfish, todo o procedimento de instalação e configuração dos principais serviços de redes serão executados de forma manual, seguindo as boas práticas de implementação para serviços Localhost, Intranet, Extranet ou para Internet Cloud, esse curso será a base para o próximo utilizando os conceitos de DevOps (“desenvolvimento” e “operação”) com futura integração com os conceitos de CI/CD ("integração contínua" e "entrega contínua") migrando toda essa estrutura On-Premises (Servidores Locais) para Cloud (Nuvem) ou construído uma Base Sólida em Container (Docker) e automatizando a criação das VM's com o Vagrant (HashiCorp) e Ansible (Red Hat) numa etapa futura.
 
 Ubuntu: é um sistema operacional de código aberto, construído a partir do núcleo Linux, baseado no Debian. Esta distribuição Linux é desenvolvida pela Canonical Ltd.
 
@@ -63,11 +63,17 @@ Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologi
 
 [![Apresentação do Curso](http://img.youtube.com/vi/kkhTHvZKQlM/0.jpg)](https://www.youtube.com/watch?v=kkhTHvZKQlM "Apresentação do Curso")
 
+Link da vídeo aula: https://www.youtube.com/watch?v=kkhTHvZKQlM
+
 ## **🤩🤩 Instalação do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX Projeto Bora para Prática 🤩🤩**
 
 Vídeo de instalação do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender a baixar a ISO do Ubuntu Server do site oficial, criar e customizar a máquina virtual no VirtualBOX e fazer a instalação padrão do Ubuntu Server, no próximo vídeo começamos a etapa de configuração.
 
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/01-install/01-InstalacaoDoUbuntuServer-22.04-LTS.md
 
 # **🤩🤩 Atualização do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
@@ -75,8 +81,46 @@ Vídeo de atualização do Ubuntu Server 22.04.x LTS no Oracl VirtualBOX, nesse 
 
 [![Atualização Ubuntu Server](http://img.youtube.com/vi/B3FzV2bxjtw/0.jpg)](https://www.youtube.com/watch?v=B3FzV2bxjtw "Atualização Ubuntu Server")
 
+Link da vídeo aula: https://www.youtube.com/watch?v=B3FzV2bxjtw
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/01-AtualizacaoDoServidorUbuntuServer.md
+
 # **🤩🤩 Configurando a Placa de Rede do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
 Vídeo de configuração da Placa de Rede do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar o Hostname (Novo do Servidor), FQDN (Nome Totalmente Qualificado), tabela de Hosts (Computadores) e configurar a Placa de Rede de modo Estático no Servidor Ubuntu Server e fazer todos os testes de rede antes de iniciar a instalação dos serviços.
 
 [![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/02-ConfiguracaoHostnameHostsNetplan.md
+
+# **🤩🤩 Configurando a Data e Hora do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração da Data e Hora do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar a localidade (Locale), Zona de Horário (Timezone), Sincronismo de Data Hora com o Protocolo NTP (Network Time Protocol) e configurações manuais de Data, Hora e sincronismo com o Hardware.
+
+[![Data e Hora Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Data e Hora Ubuntu Server")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/03-ConfiguracaoDoLocaleTimezone.md
+
+# **🤩🤩 Desligando e Reiniciando o Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de desligar e reiniciar o Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para desligar ou reiniciar o servidor de forma correta, vai aprender a agendar um agendamento de desligamento ou reinicialização do sistema.
+
+[![Desligar Reiniciar Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Desligar e Reiniciar Ubuntu Server")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/04-DesligarReiniciarServidor.md
+
+# **🤩🤩 Habilitando a Licença Ubuntu Pro Free no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração da Licença do Ubuntu Pro Free no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para habilitar o suporte ao Ubuntu Pro Free no Ubuntu Server, esse recurso permiti manter o nosso servidor sempre atualizado com os novos patchs de segurança e garante o suporte até 10 anos de uso da plataforma para Canonical.
+
+[![Ubuntu Pro Free](http://img.youtube.com/vi//0.jpg)]( "Ubuntu Pro Free")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/05-HabilitandoUbuntuPro.md
