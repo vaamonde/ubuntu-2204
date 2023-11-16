@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 12/11/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 16/11/2023<br>
+#Versão: 0.03<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -40,20 +40,24 @@ Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 	Acesse o site: https://login.ubuntu.com/
 	Clique em: I don’t have an Ubuntu One account
 	Preencha os campos: 
-		Please type your email;
-		Full name;
-		Username;
-		Choose password;
-		Re-type password;
+		Please type your email: (DIGITE_SEU_EMAIL)
+		Full name: (DIGITE SEU NOME COMPLETO)
+		Username: (DIGITE O SEU USUÁRIO)
+		Choose password: (DIGITE SUA SENHA)
+		Re-type password: (CONFIRME SUA SENHA)
 		Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical's SSO privacy notice.
 		Clique em: <Create account>
 	
 	Finalize os procedimentos acessando seu email para ativar a sua conta no Ubuntu One.
+		Are you sure you want to confirm and validate this email address?
+		<Sem, tenho certeza>
 
 #04_ Criando uma Assinatura do Ubuntu Pro Free para uso pessoal<br>
 
 	Acesse o site: https://ubuntu.com/pro/dashboard
 	Faça a autenticação com a sua conta criada no Ubuntu One;
+		Personal Data Request: <Yes, log me in>
+	
 	Será mostrado no campo Free Personal Token o seu token;
 	Copiar o seu Token no campo: Token.
 
