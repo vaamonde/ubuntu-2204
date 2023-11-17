@@ -99,9 +99,9 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-set
 
 Vídeo de configuração da Data e Hora do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar a localidade (Locale), Zona de Horário (Timezone), Sincronismo de Data Hora com o Protocolo NTP (Network Time Protocol) e configurações manuais de Data, Hora e sincronismo com o Hardware.
 
-[![Data e Hora Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Data e Hora Ubuntu Server")
+[![Data e Hora Ubuntu Server](http://img.youtube.com/vi/Szt6egOsKxE/0.jpg)](https://www.youtube.com/watch?v=Szt6egOsKxE "Data e Hora Ubuntu Server")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/03-ConfiguracaoDoLocaleTimezone.md
 
@@ -109,9 +109,9 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-set
 
 Vídeo de desligar e reiniciar o Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para desligar ou reiniciar o servidor de forma correta, vai aprender a agendar um agendamento de desligamento ou reinicialização do sistema.
 
-[![Desligar Reiniciar Ubuntu Server](http://img.youtube.com/vi//0.jpg)]( "Desligar e Reiniciar Ubuntu Server")
+[![Desligar Reiniciar Ubuntu Server](http://img.youtube.com/vi/NbA-k5-iLWA/0.jpg)](https://www.youtube.com/watch?v=NbA-k5-iLWA "Desligar e Reiniciar Ubuntu Server")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/04-DesligarReiniciarServidor.md
 

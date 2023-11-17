@@ -44,6 +44,7 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 #05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
 
 	#opção do comando shutdown: -P (poweroff), -h (halt 60 second), -r (reboot), -c (cancel)
+	#now (Shutdown immediately), 19:50 (Shutdown at 19:50 pm), +20 (Shutdown in 20 minutes)
 	sudo shutdown -P
 	sudo shutdown -h
 	sudo shutdown -h now
@@ -52,5 +53,5 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 	#agendando o desligamento ou o reboot do servidor
 	sudo date
 	sudo shutdown -r 19:50 Servidor será reinicializando às 19:50hs
-	show shutdown -r +20 Servidor será reinicializando em 20 minutos
+	sudo shutdown -r +20 Servidor será reinicializando em 20 minutos
 	sudo shutdown -c
