@@ -152,8 +152,15 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 
 	#editando o arquivo de criação de usuários do Tomcat
 	sudo vim /opt/tomcat/conf/tomcat-users.xml
+	INSERT
 
-	#verificando o serviço do Apache Tomcat Server
+		#alterar a partir da linha: 31
+		<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+
+	#sair e salvar
+	ESC SHIFT : x <Enter>
+
+	#reiniciando e verificando o serviço do Apache Tomcat Server
 	sudo systemctl restart tomcat10
 	sudo systemctl status tomcat10
 
