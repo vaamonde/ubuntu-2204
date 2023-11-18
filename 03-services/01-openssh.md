@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 19/10/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 18/11/2023<br>
+#Versão: 0.06<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -211,7 +211,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
 
-#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO)
+#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO),
 FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: sudo E PERMITIR QUE O
 SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
 

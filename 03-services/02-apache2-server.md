@@ -7,11 +7,17 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 18/11/2023<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+
+LINK DO SELO: 
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
@@ -108,6 +114,10 @@ web NCSA HTTPd criado por Rob McCool.
 	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar os arquivos teste.html, teste.php e phpinfo.php 
 	utilizando o Editor de Texto em Linha de Comando Vim.
 
+	#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e colar
+	o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY para
+	editar os códigos ou copiar e colar.
+
 	#criando o arquivo em HTML
 	sudo vim seu_nome.html
 	INSERT
@@ -122,6 +132,7 @@ web NCSA HTTPd criado por Rob McCool.
 		<body>
 			<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>
 			Autor: Robson Vaamonde<br>
+			Editado por: SEU NOME AQUI<br>
 			Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
 			Site: <a href="procedimentosemti.com.br">procedimentosemti.com.br</a><br>
 			Facebook: <a href="facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
@@ -131,7 +142,7 @@ web NCSA HTTPd criado por Rob McCool.
 		</body>
 	</html>
 ```
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 	#criando o arquivo em PHP
@@ -149,6 +160,7 @@ web NCSA HTTPd criado por Rob McCool.
 			<?php 
 				echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
 				echo 'Autor: Robson Vaamonde<br>';
+				echo 'Editado por: SEU NOME AQUI<br>';
 				echo 'Linkedin: linkedin.com/in/robson-vaamonde-0b029028/<br>';
 				echo 'Site: procedimentosemti.com.br<br>';
 				echo 'Facebook: facebook.com/ProcedimentosEmTI<br>';
@@ -159,7 +171,7 @@ web NCSA HTTPd criado por Rob McCool.
 		</body>
 	</html>
 ```
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 	#criando o arquivo de informações do PHP
@@ -172,25 +184,29 @@ web NCSA HTTPd criado por Rob McCool.
 	phpinfo(); 
 ?>
 ```
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 #08_ Testando o Apache2 Server e o PHP no navegador<br>
 
-	#utilizar os navegadores para testar as páginas
+	#utilizar os navegadores para testar suas páginas
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
-#09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM seu_nome (TUDO EM
-MINÚSCULO) PARA UM NOVO SITE, CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html (TUDO EM MINÚSCULA) 
-NO SEU DIRETÓRIO, ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS 
+#09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM: seu_nome (TUDO EM
+MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html
+(TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS 
 NA PÁGINA.
 
 #10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: seunome.php, ADICIONAR MAIS
 OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR.
 
-#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O SEU USUÁRIO CRIADO NO SISTEMA NO GRUPO DO APACHE2,
-TESTAR AS PERMISSÕES E ACESSOS NOS DIRETÓRIOS DO APACHE 2 E DOS SITES.
+#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADO NO SISTEMA NO GRUPO DO 
+APACHE2, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE 2 E DOS SITES CRIADOS.
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
