@@ -7,14 +7,35 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.06<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
 
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado as Dependências do Node.JS;<br>
+#02_ Instalando o Node.JS no Ubuntu Server;<br>
+#03_ Verificando as Versões do Node.JS e NPM;<br>
+#04_ Criando o diretório do Projeto do Node.JS;<br>
+#05_ Inicializando o Projeto do Node.JS e Instalando o Express;<br>
+#06_ Criando o Arquivos INDEX.JS do Node.JS;<br>
+#07_ Criando o Primeiro Código em JavaScript do Node.JS;<br>
+#08_ Executando uma Aplicação Node.JS via Terminal;<br>
+#09_ Verificando a Porta de Conexão da Aplicação Node.JS;<br>
+#10_ Testando a Aplicação via Navegador;<br>
+#11_ Gerenciando Processos do Node.JS no Ubuntu Server;<br>
+#12_ Desafio de uma Nova Aplicação do Node.JS.
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
+
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
-Site Oficial do NPM: https://www.npmjs.com/
+Site Oficial do NPM: https://www.npmjs.com/<br>
+Projeto do Github do Nodesource: https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions
 
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
@@ -31,10 +52,12 @@ característica do Node.js é sua arquitetura assíncrona e orientada por evento
 	sudo apt update
 	
 	#instalando as dependências do Node.JS
-	sudo apt install git vim curl gcc g++ make software-properties-common build-essential ca-certificates
+	sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
+	build-essential ca-certificates
 
 #02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
 
+	#adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do comando sudo: -E (preserve-env)
@@ -50,6 +73,7 @@ característica do Node.js é sua arquitetura assíncrona e orientada por evento
 
 #04_ Criando um Projeto Simples para Testar o Node.JS<br>
 
+	#criando o diretório do projeto de teste do Node.JS
 	#opção do comando mkdir: -v (verbose)
 	mkdir -v nodejs-hello
 	cd nodejs-hello
@@ -63,6 +87,7 @@ característica do Node.js é sua arquitetura assíncrona e orientada por evento
 
 #05_ Criando um Projeto Simples do Node.JS<br>
 
+	#criando o arquivo index.js
 	vim index.js
 	INSERT
 
@@ -81,7 +106,7 @@ app.listen(3000, function() {
 	console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });
 ```
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 #06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
@@ -100,7 +125,7 @@ app.listen(3000, function() {
 
 #09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
 
-	#verificando os processo em segundo plano (background)
+	#verificando os processos em segundo plano (background)
 	jobs
 	
 	#trazendo o processo em segundo plano do Node.JS para o primeiro plano (foreground)
@@ -116,3 +141,7 @@ BROWSER PARA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO P
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
