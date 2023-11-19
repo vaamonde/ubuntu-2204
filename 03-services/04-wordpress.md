@@ -26,7 +26,7 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Configurando o Arquivo WP-CONFIG.PHP do Wordpress;<br>
 #07_ Habilitado os Módulos do Apache2;<br>
 #08_ Acessando o Wordpress e fazendo sua Pré-Configuração;<br>
-#09_ Desafios de Postagem, Temas e Plugins do Wordpress.
+#09_ Desafios de Postagem, Temas e Plugins do CMS Wordpress.
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 

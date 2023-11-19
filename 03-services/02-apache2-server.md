@@ -29,7 +29,7 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Criando Páginas em HTML e PHP para testar o Apache2;<br>
 #10_ Utilizando o VSCode para editar páginas HTML e PHP;<br>
 #11_ Testando o acesso as Páginas no Navegador do Apache2;<br>
-#12_ Desafios de Novo Projeto e Usuários do Apache2.
+#12_ Desafios de Novo Projeto e Usuários do Web Server Apache2.
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 

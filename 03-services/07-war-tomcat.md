@@ -7,11 +7,28 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Acessando o Projeto do Github do Prof. José de Assis;<br>
+#02_ Download da Aplicação Java Web do Github;<br>
+#03_ Acessando e fazendo o Deploy da Aplicação no Apache TomCAT Server;<br>
+#04_ Verificando o Status e Acesso a Aplicação Java Web;<br>
+#05_ Criando o Banco de Dados e Usuário da Aplicação Java Web;<br>
+#06_ Testando a Conexão com o Banco de Dados da Aplicação Java Web;<br>
+#07_ Fazendo o Backup do Banco de Dados Aplicação Java Web;<br>
+#08_ Acessando a Aplicação e Criando Registros de Contatos;<br>
+#09_ Desafio de Deploy de Aplicações Java Web no Apache TomCAT Server.
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -42,7 +59,7 @@ web estáticas e outros recursos que, juntos, constituem uma aplicação web.
 
 	Clique em: Manager App
 		Usuário padrão: admin
-		Senha padrão..: 123@senac
+		Senha padrão..: pti@2018
 	<Fazer Login>
 
 	Em: WAR file to deploy clique em: <Escolher arquivo>
@@ -116,3 +133,7 @@ LINK DO ARQUIVO WAR: https://github.com/AKSarav/SampleWebApp/raw/master/dist/Sam
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde

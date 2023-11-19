@@ -29,7 +29,7 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Verificando a Porta de Conexão da Aplicação Node.JS;<br>
 #10_ Testando a Aplicação via Navegador;<br>
 #11_ Gerenciando Processos do Node.JS no Ubuntu Server;<br>
-#12_ Desafio de uma Nova Aplicação do Node.JS.
+#12_ Desafios de uma Nova Aplicação do Node.JS.
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
