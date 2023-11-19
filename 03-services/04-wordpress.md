@@ -7,11 +7,28 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado as Dependências do Wordpress;<br>
+#02_ Criando a Base de Dados e Usuário no MySQL Server;<br>
+#03_ Baixando o Wordpress do Site Oficial;<br>
+#04_ Descompactando e Movendo o conteúdo do Site para o Apache2;<br>
+#05_ Alterando as Permissões de Arquivos e Diretórios do Wordpress;<br>
+#06_ Configurando o Arquivo WP-CONFIG.PHP do Wordpress;<br>
+#07_ Habilitado os Módulos do Apache2;<br>
+#08_ Acessando o Wordpress e fazendo sua Pré-Configuração;<br>
+#09_ Desafios de Postagem, Temas e Plugins do Wordpress.
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -163,3 +180,7 @@ NO DIA A DIA: Wordfence Security E W3 Total Cache.
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde

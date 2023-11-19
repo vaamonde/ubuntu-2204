@@ -91,7 +91,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 		#inserir as informações na linha 17
 		ALL: ALL
 
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 	#editando o arquivo de configuração de Liberação de Serviço e Host
@@ -102,7 +102,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 		#OBSERVAÇÃO: ALTERAR A REDE CONFORME A SUA NECESSIDADE
 		sshd: 172.16.1.0/24
 
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 #06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
@@ -131,7 +131,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 		#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
 		AllowGroups vaamonde
 
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 	#editando o arquivo de configuração do Banner do Ubuntu Server
@@ -142,7 +142,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 		#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
 		Servidor: wsvaamonde - Admin: Robson Vaamonde
 
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 	#reiniciar o serviço do OpenSSH Server
