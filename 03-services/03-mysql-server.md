@@ -17,19 +17,19 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTR
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
 #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
 
-Conteúdo estudado nesse desafio:
-#01_ Instalado o MySQL Server e Client no Ubuntu Server;
-#02_ Verificando os Status do Serviço do MySQL Server;
-#03_ Verificando a Versão do MySQL Server;
-#04_ Verificando a Porta de Conexão do MySQL Server;
-#05_ Diretórios e Arquivos de Configuração do MySQL Server;
-#06_ Conectando no Console do MySQL Server;
-#07_ Adicionando uma Senha no usuário Root do MySQL Server;
-#08_ Criando Usuários e Permissões no MySQL Server;
-#09_ Adicionando os Usuários Locais no Grupo do MySQL Server;
-#10_ Permitindo o Acesso Remoto no MySQL Server;
-#11_ Acessando Remotamente o MySQL Server pelo MySQL Workbench;
-#12_ Acessando Remotamente o MySQL Server pelo VSCode;
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado o MySQL Server e Client no Ubuntu Server;<br>
+#02_ Verificando os Status do Serviço do MySQL Server;<br>
+#03_ Verificando a Versão do MySQL Server;<br>
+#04_ Verificando a Porta de Conexão do MySQL Server;<br>
+#05_ Diretórios e Arquivos de Configuração do MySQL Server;<br>
+#06_ Conectando no Console do MySQL Server;<br>
+#07_ Adicionando uma Senha no usuário Root do MySQL Server;<br>
+#08_ Criando Usuários e Permissões no MySQL Server;<br>
+#09_ Adicionando os Usuários Locais no Grupo do MySQL Server;<br>
+#10_ Permitindo o Acesso Remoto no MySQL Server;<br>
+#11_ Acessando Remotamente o MySQL Server pelo MySQL Workbench;<br>
+#12_ Acessando Remotamente o MySQL Server pelo VSCode;<br>
 #13_ Desafios do Banco de Dados MySQL Server.
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png

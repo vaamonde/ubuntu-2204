@@ -17,18 +17,18 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTR
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
 #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
 
-Conteúdo estudado nesse desafio:
-#01_ Instalado o Apache2 e PHP8 no Ubuntu Server;
-#02_ Verificando os Status do Serviço do Apache2;
-#03_ Verificando as Versões do Apache2 e PHP8;
-#04_ Verificando a Porta de Conexão do Apache2;
-#05_ Diretórios e Arquivos de Configuração do Apache2 e PHP8;
-#06_ Adicionando o Usuário Local no Grupo do Apache2;
-#07_ Criando um Projeto de Teste de Site no Apache2;
-#08_ Alterando as Permissões de Arquivos e Diretórios;
-#09_ Criando Páginas em HTML e PHP para testar o Apache2;
-#10_ Utilizando o VSCode para editar páginas HTML e PHP;
-#11_ Testando o acesso as Páginas no Navegador do Apache2;
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado o Apache2 e PHP8 no Ubuntu Server;<br>
+#02_ Verificando os Status do Serviço do Apache2;<br>
+#03_ Verificando as Versões do Apache2 e PHP8;<br>
+#04_ Verificando a Porta de Conexão do Apache2;<br>
+#05_ Diretórios e Arquivos de Configuração do Apache2 e PHP8;<br>
+#06_ Adicionando o Usuário Local no Grupo do Apache2;<br>
+#07_ Criando um Projeto de Teste de Site no Apache2;<br>
+#08_ Alterando as Permissões de Arquivos e Diretórios;<br>
+#09_ Criando Páginas em HTML e PHP para testar o Apache2;<br>
+#10_ Utilizando o VSCode para editar páginas HTML e PHP;<br>
+#11_ Testando o acesso as Páginas no Navegador do Apache2;<br>
 #12_ Desafios de Novo Projeto e Usuários do Apache2.
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png

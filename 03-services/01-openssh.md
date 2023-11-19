@@ -17,18 +17,18 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTR
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
 #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
 
-Conteúdo estudado nesse desafio:
-#01_ Instalado o OpenSSH no Ubuntu Server;
-#02_ Verificando os Status do Serviço do OpenSSH;
-#03_ Verificando a Versão do OpenSSH Server e Client;
-#04_ Verificando a Porta de Conexão do OpenSSH Server;
-#05_ Diretórios e Arquivos de Configuração do OpenSSH;
-#06_ Segurança do Arquivo Hosts.Deny do TCPWrappers;
-#07_ Segurança do Arquivo Hosts.Allow do TCPWrappers;
-#08_ Configuração do Arquivo sshd_config do OpenSSH;
-#09_ Configuração do Arquivo issue.net (Banner Login);
-#10_ Acessando Remoto via Powershell, PuTTY e Terminal;
-#11_ Criando usuário Local e Adicionando ao Grupo SUDO;
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado o OpenSSH no Ubuntu Server;<br>
+#02_ Verificando os Status do Serviço do OpenSSH;<br>
+#03_ Verificando a Versão do OpenSSH Server e Client;<br>
+#04_ Verificando a Porta de Conexão do OpenSSH Server;<br>
+#05_ Diretórios e Arquivos de Configuração do OpenSSH;<br>
+#06_ Segurança do Arquivo Hosts.Deny do TCPWrappers;<br>
+#07_ Segurança do Arquivo Hosts.Allow do TCPWrappers;<br>
+#08_ Configuração do Arquivo sshd_config do OpenSSH;<br>
+#09_ Configuração do Arquivo issue.net (Banner Login);<br>
+#10_ Acessando Remoto via Powershell, PuTTY e Terminal;<br>
+#11_ Criando usuário Local e Adicionando ao Grupo SUDO;<br>
 #12_ Desafios de Usuários e Acesso Remoto do OpenSSH.
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
