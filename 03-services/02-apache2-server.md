@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 18/11/2023<br>
-#Versão: 0.07<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.08<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
@@ -17,7 +17,21 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTR
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
 #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
 
-LINK DO SELO: 
+Conteúdo estudado nesse desafio:
+#01_ Instalado o Apache2 e PHP8 no Ubuntu Server;
+#02_ Verificando os Status do Serviço do Apache2;
+#03_ Verificando as Versões do Apache2 e PHP8;
+#04_ Verificando a Porta de Conexão do Apache2;
+#05_ Diretórios e Arquivos de Configuração do Apache2 e PHP8;
+#06_ Adicionando o Usuário Local no Grupo do Apache2;
+#07_ Criando um Projeto de Teste de Site no Apache2;
+#08_ Alterando as Permissões de Arquivos e Diretórios;
+#09_ Criando Páginas em HTML e PHP para testar o Apache2;
+#10_ Utilizando o VSCode para editar páginas HTML e PHP;
+#11_ Testando o acesso as Páginas no Navegador do Apache2;
+#12_ Desafios de Novo Projeto e Usuários do Apache2.
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/

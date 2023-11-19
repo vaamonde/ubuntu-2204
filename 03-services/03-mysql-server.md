@@ -7,11 +7,32 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.08<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
+#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+
+Conteúdo estudado nesse desafio:
+#01_ Instalado o MySQL Server e Client no Ubuntu Server;
+#02_ Verificando os Status do Serviço do MySQL Server;
+#03_ Verificando a Versão do MySQL Server;
+#04_ Verificando a Porta de Conexão do MySQL Server;
+#05_ Diretórios e Arquivos de Configuração do MySQL Server;
+#06_ Conectando no Console do MySQL Server;
+#07_ Adicionando uma Senha no usuário Root do MySQL Server;
+#08_ Criando Usuários e Permissões no MySQL Server;
+#09_ Adicionando os Usuários Locais no Grupo do MySQL Server;
+#10_ Permitindo o Acesso Remoto no MySQL Server;
+#11_ Acessando Remotamente o MySQL Server pelo MySQL Workbench;
+#12_ Acessando Remotamente o MySQL Server pelo VSCode;
+#13_ Desafios do Banco de Dados MySQL Server.
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
@@ -137,7 +158,7 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 		#comentar a linha do mysqlx-bind-address
 		#mysqlx-bind-address = 127.0.0.1
 
-	#sair e salvar o arquivo	
+	#salvar e sair do arquivo	
 	ESC SHIFT :x <Enter>
 
 	#reiniciar o serviço do MySQL Server
@@ -205,8 +226,8 @@ TABELA CRIAR UM REGISTRO COM: Seu Nome e Sua Idade (VEJA O SITE W3SCHOOLS).
 OBSERVAÇÃO IMPORTANTE: NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
 
 #13_ DESAFIO: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO PROCEDIMENTO
-DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO MYSQL: mysql PARA ADMINISTRAR O SERVIDOR SEM A 
-NECESSIDADE DO COMANDO SUDO.
+DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO MYSQL PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE 
+DO COMANDO SUDO.
 
 #14_ DESAFIO: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: seu_nome, CONFIGURAR TODAS
 AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.

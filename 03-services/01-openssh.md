@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 18/11/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -16,6 +16,22 @@ A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
 #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+
+Conteúdo estudado nesse desafio:
+#01_ Instalado o OpenSSH no Ubuntu Server;
+#02_ Verificando os Status do Serviço do OpenSSH;
+#03_ Verificando a Versão do OpenSSH Server e Client;
+#04_ Verificando a Porta de Conexão do OpenSSH Server;
+#05_ Diretórios e Arquivos de Configuração do OpenSSH;
+#06_ Segurança do Arquivo Hosts.Deny do TCPWrappers;
+#07_ Segurança do Arquivo Hosts.Allow do TCPWrappers;
+#08_ Configuração do Arquivo sshd_config do OpenSSH;
+#09_ Configuração do Arquivo issue.net (Banner Login);
+#10_ Acessando Remoto via Powershell, PuTTY e Terminal;
+#11_ Criando usuário Local e Adicionando ao Grupo SUDO;
+#12_ Desafios de Usuários e Acesso Remoto do OpenSSH.
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
