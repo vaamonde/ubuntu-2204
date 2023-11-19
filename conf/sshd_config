@@ -6,10 +6,10 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 11/10/2021
-# Data de atualização: 13/04/2023
-# Versão: 0.07
+# Data de atualização: 19/11/2023
+# Versão: 0.08
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
-# Testado e homologado para a versão do OpenSSH Server v8.2.x
+# Testado e homologado para a versão do OpenSSH Server v8.9.x
 #
 # Incluindo o diretório de configuração personalizada do OpenSSH Server
 Include /etc/ssh/sshd_config.d/*.conf

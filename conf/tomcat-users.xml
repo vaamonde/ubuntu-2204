@@ -10,8 +10,8 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Data de criação: 19/01/2023
-#Data de atualização: 19/01/2023
-#Versão: 0.02
+#Data de atualização: 19/11/2023
+#Versão: 0.03
 -->
 <tomcat-users xmlns="http://tomcat.apache.org/xml"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,5 +28,7 @@
 	<role rolename="tomcat"/>
 	<role rolename="role1"/>
 	<!-- Configuração do Usuário, Senha e Papéis do administrador do Servidor Web Tomcat -->
+	<!-- Para criar novos usuários no Apache TomCAT Server copiar a linha abaixo e colar -->
+	<!-- na próxima linha alterando o nome, senha e papeis do usuário -->
 	<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 </tomcat-users>
