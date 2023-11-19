@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 31/10/2023<br>
-#Versão: 0.01<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.02<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -32,6 +32,10 @@ nível e um domínio de nível superior.
 Hosts: pesquisa de tabela estática para nomes de host, é utilizado quando não temos<br> 
 servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo<br> 
 localizado em /etc/hosts
+
+[![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
 #01_ Alterando o nome FQDN do Ubuntu Server<br>
 

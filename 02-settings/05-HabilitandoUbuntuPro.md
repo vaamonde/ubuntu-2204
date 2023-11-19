@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 16/11/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 19/11/2023<br>
+#Versão: 0.04<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -20,6 +20,10 @@ Site Oficial dos Procedimentos do Ubuntu Pro: https://ubuntu.com/pro/tutorial<br
 Site Oficial do Ubuntu One: https://login.ubuntu.com/<br>
 Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
+
+[![Ubuntu Pro Free](http://img.youtube.com/vi//0.jpg)]( "Ubuntu Pro Free")
+
+Link da vídeo aula: 
 
 #01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
 
@@ -82,7 +86,7 @@ Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 	#verificando os status dos pacotes de segurança do Ubuntu Pro
 	sudo pro security-status
 
-	#verificando os status dos pacotes de segurança ESM do Ubuntu Pro
+	#verificando os status dos pacotes de segurança ESM (Enterprise Service Manger) do Ubuntu Pro
 	sudo pro security-status --esm-apps
 
 	#verificando as informações de Fix (correção) dos CVE (Common Vulnerabilities and Exposures)
@@ -102,7 +106,7 @@ Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 	esm-apps........: ESM do Ubuntu, mas para aplicativos.
 	fips............: Relacionado à conformidade com os Padrões Federais de Processamento de 
 	Informações (FIPS).
-	fips-updates: Atualizações de segurança para fips.
+	fips-updates....: Atualizações de segurança para fips.
 	livepatch.......: Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch).
 	realtime-kernel.: Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente não 
 	precisa dele).
