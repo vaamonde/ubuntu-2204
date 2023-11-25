@@ -21,9 +21,9 @@ Site Oficial do Ubuntu One: https://login.ubuntu.com/<br>
 Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
-[![Ubuntu Pro Free](http://img.youtube.com/vi//0.jpg)]( "Ubuntu Pro Free")
+[![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 #01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
 

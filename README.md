@@ -119,8 +119,8 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-set
 
 Vídeo de configuração da Licença do Ubuntu Pro Free no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para habilitar o suporte ao Ubuntu Pro Free no Ubuntu Server, esse recurso permiti manter o nosso servidor sempre atualizado com os novos patchs de segurança e garante o suporte até 10 anos de uso da plataforma para Canonical.
 
-[![Ubuntu Pro Free](http://img.youtube.com/vi//0.jpg)]( "Ubuntu Pro Free")
+[![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/05-HabilitandoUbuntuPro.md
