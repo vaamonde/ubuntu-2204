@@ -7,15 +7,19 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 19/11/2023<br>
-#Versão: 0.07<br>
+#Data de atualização: 24/11/2023<br>
+#Versão: 0.08<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
-#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalado as Dependências do Wordpress;<br>
@@ -27,8 +31,6 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Habilitado os Módulos do Apache2;<br>
 #08_ Acessando o Wordpress e fazendo sua Pré-Configuração;<br>
 #09_ Desafios de Postagem, Temas e Plugins do CMS Wordpress.
-
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>

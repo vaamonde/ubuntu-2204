@@ -10,8 +10,32 @@
 #Data de atualização: 23/04/2023<br>
 #Versão: 0.08<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalando as Dependências do MongoDB Server<br>
+#02_ Adicionando o Repositório do MongoDB Server<br>
+#03_ Instalando o MongoDB Server no Ubuntu Server<br>
+#04_ Verificando o Serviço e Versão do MongoDB Server<br>
+#05_ Verificando a Porta de Conexão do MongoDB Server<br>
+#06_ Diretórios e Arquivos de Configuração do MongoDB Server<br>
+#07_ Adicionando o Usuário Local no Grupo do MongoDB Server<br>
+#08_ Acessando o Console do MongoDB Server<br>
+#09_ Comandos Básicos do MongoDB Server<br>
+#10_ Criando o Usuário de Administração do MongoDB Server<br>
+#11_ Configurando o Acesso Remoto do MongoDB com Autenticação<br>
+#12_ Acessando o MongoDB Server com Compass GUI<br>
+#13_ Acessando o MongoDB Server com Visual Studio Code VSCode<br>
+#14_ Desafios do Banco de Dados MongoDB Server.
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass

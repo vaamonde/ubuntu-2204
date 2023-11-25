@@ -7,15 +7,19 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 19/11/2023<br>
-#Versão: 0.08<br>
+#Data de atualização: 24/11/2023<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Tomcat realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS: #boraparapratica #boraparaprática #vaamonde
-#robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependências do Java do Apache TomCAT;<br>
@@ -33,8 +37,6 @@ Conteúdo estudado nesse desafio:<br>
 #13_ Alterando o Arquivo de Configuração TOMCAT-USERS.XML;<br>
 #14_ Acessando o Apache TomCAT Server via Navegador;<br>
 #15_ Desafios do Servidor de Aplicação Apache TomCAT Server.
-
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
