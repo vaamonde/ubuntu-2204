@@ -77,7 +77,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/01-install/01-InstalacaoDoUbuntuServer-22.04-LTS.md
 
-============ SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER ===========
+=========== SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER ==========
 
 # **🤩🤩 Atualização do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
