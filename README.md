@@ -55,7 +55,7 @@ Ansible: é uma ferramenta de TI de código aberto para gerenciar, automatizar, 
 ## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS:**
 🔴 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUM1-yu4qP9RZxoejgIfCxdI
 
-================  PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER ================ 
+================  PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER ================
 
 ## **🤩🤩 Apresentação do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora  para Prática 🤩🤩**
 
@@ -77,7 +77,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/01-install/01-InstalacaoDoUbuntuServer-22.04-LTS.md
 
-================  SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER ================ 
+============ SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER ===========
 
 # **🤩🤩 Atualização do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
@@ -129,4 +129,4 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/05-HabilitandoUbuntuPro.md
 
-================ TERCEIRA ETAPA: INSTALAÇÃO DOS SERVIÇOS DE REDE NO UBUNTU SERVER ================ 
+====== TERCEIRA ETAPA: INSTALAÇÃO DOS SERVIÇOS DE REDE NO UBUNTU SERVER ======
