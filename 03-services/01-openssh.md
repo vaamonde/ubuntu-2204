@@ -109,9 +109,8 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 
 #06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
 
-	#opção do comando wget: -v (verbose), -O (output file)
-	
 	#atualizando o arquivo de configuração do OpenSSH Server
+	#opção do comando wget: -v (verbose), -O (output file)
 	sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
 
 	#atualizando arquivo de configuração do Banner do Ubuntu Server
@@ -182,11 +181,12 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 
 #08_ Criando um usuário Administrador no Ubuntu Server<br>
 
-	#criando o usuário Admin
 	#OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
 	#ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
 	#É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE
 	#USUÁRIO PARA INVADIR SERVIDORES.
+
+	#criando o usuário Admin
 	sudo adduser admin
 		New password: pti@2018
 		Retype new password: pti@2018
@@ -209,7 +209,7 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	#listando o grupo criado com o comando getent
 	sudo getent group admin
 
-#09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)
+#09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)<br>
 
 	#adicionando o usuário Admin ao grupo do SUDO
 	#opção do comando usermod: -a (append), -G (groups)
@@ -221,12 +221,12 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 	#verificando as identificações de grupos do usuário Admin
 	sudo id admin
 
-#10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server
+#10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 
 	OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
 	verificar se está tudo OK na criação do usuário admin.
 
-#11_ DESAFIO-01: PERMITIR QUE O USUÁRIO ADMIN SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
+#11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
 
 #12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO),

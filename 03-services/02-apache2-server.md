@@ -33,7 +33,7 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Criando Páginas em HTML e PHP para testar o Apache2;<br>
 #10_ Utilizando o VSCode para editar páginas HTML e PHP;<br>
 #11_ Testando o acesso as Páginas no Navegador do Apache2;<br>
-#12_ Desafios de Novo Projeto e Usuários do Web Server Apache2.
+#12_ Desafio do Novo Projeto e Usuários do Web Server Apache2.
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
@@ -56,6 +56,7 @@ web NCSA HTTPd criado por Rob McCool.
 	sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-dev apt-transport-https
 
 	#instalando o Apache2 Server e PHP 8.x
+	#opção da contra barra (\): criar uma quebra de linha no terminal
 	sudo apt install apache2 apache2-utils apache2-bin apache2-data php8.1 php8.1-cli php8.1-common \
 	php8.1-mysql php8.1-opcache php8.1-readline php8.1-common php8.1-bcmath php8.1-curl php8.1-intl \
 	php8.1-mbstring php8.1-xml php8.1-zip php8.1-soap php-imagick php-json libapache2-mod-php libapr1 \
@@ -93,18 +94,22 @@ web NCSA HTTPd criado por Rob McCool.
 
 #05_ Adicionado o Usuário Local no Grupo Padrão do Apache2 Server<br>
 
+	#adicionando o seu usuário no grupo do Apache2
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G www-data $USER
+	
+	#fazendo login em um novo grupo do Apache2
 	newgrp www-data
+	
+	#verificando os identificadores de usuário e grupos
 	id
 	
-	#recomendo fazer logout do usuário para testar as permissões de grupos 
+	#recomendo fazer logout do usuário para testar as permissões de grupos
+	#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
 	logout
-	exit
-	Ctrl + D
 
 	#OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utile os caracteres de escape para 
-	finalizar conexões SSH.
+	#finalizar conexões SSH.
 	#caracteres: ~ (til) e . (ponto)
 	~.
 
@@ -113,12 +118,15 @@ web NCSA HTTPd criado por Rob McCool.
 	#acessando o diretório padrão dos Sites do Apache2 Server
 	cd /var/www/html
 	
+		#criando o diretório de teste das páginas HTML e PHP
 		#opção do comando mkdir: -v (verbose)
 		sudo mkdir -v teste
 		
+		#alterando as permissões do diretório de teste
 		#opção do comando chmod: -v (verbose), 775 (User=RWX,Group=RWX,Other=R-X)
 		sudo chmod -v 775 teste/
 		
+		#alterando o dono e grupo do diretório de teste
 		#opção do comando chown: -v (verbose), root (User), . (separate), www-date (group)
 		sudo chown -v root.www-data teste/
 		
@@ -128,11 +136,11 @@ web NCSA HTTPd criado por Rob McCool.
 #07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
 
 	#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar os arquivos teste.html, teste.php e phpinfo.php 
-	utilizando o Editor de Texto em Linha de Comando Vim.
+	#utilizando o Editor de Texto em Linha de Comando Vim.
 
 	#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e colar
-	o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY para
-	editar os códigos ou copiar e colar.
+	#o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY 
+	#para editar os códigos ou copiar e colar.
 
 	#criando o arquivo em HTML
 	sudo vim seu_nome.html
