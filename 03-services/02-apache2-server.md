@@ -7,14 +7,14 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 28/11/2023<br>
-#Versão: 0.10<br>
+#Data de atualização: 01/12/2023<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE CCOM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/02-apache2.png
 
@@ -47,6 +47,10 @@ O Servidor HTTP Apache ou Servidor Apache ou HTTP Daemon Apache ou somente Apach
 web livre criado em 1995 por um grupo de desenvolvedores da NCSA, tendo como base o servidor<br>
 web NCSA HTTPd criado por Rob McCool.
 
+PHP é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de<br>
+aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na<br> 
+World Wide Web.
+
 #01_ Instalando o Apache2 Server e PHP 8.x<br>
 
 	#atualizando as listas do Apt
@@ -67,6 +71,7 @@ web NCSA HTTPd criado por Rob McCool.
 	#verificando o serviço do Apache2 Server
 	sudo systemctl status apache2
 	sudo systemctl restart apache2
+	sudo systemctl reload apache2
 	sudo systemctl stop apache2
 	sudo systemctl start apache2
 
@@ -106,7 +111,7 @@ web NCSA HTTPd criado por Rob McCool.
 	
 	#recomendo fazer logout do usuário para testar as permissões de grupos
 	#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
-	logout
+	exit
 
 	#OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utile os caracteres de escape para 
 	#finalizar conexões SSH.
@@ -119,16 +124,16 @@ web NCSA HTTPd criado por Rob McCool.
 	cd /var/www/html
 	
 		#criando o diretório de teste das páginas HTML e PHP
-		#opção do comando mkdir: -v (verbose)
-		sudo mkdir -v teste
+		#opção do comando mkdir: -R (recursive), -v (verbose)
+		sudo mkdir -Rv teste
 		
 		#alterando as permissões do diretório de teste
-		#opção do comando chmod: -v (verbose), 775 (User=RWX,Group=RWX,Other=R-X)
-		sudo chmod -v 775 teste/
+		#opção do comando chmod: -R (recursive), -v (verbose), 775 (User=RWX,Group=RWX,Other=R-X)
+		sudo chmod -Rv 775 teste/
 		
 		#alterando o dono e grupo do diretório de teste
-		#opção do comando chown: -v (verbose), root (User), . (separate), www-date (group)
-		sudo chown -v root.www-data teste/
+		#opção do comando chown: -R (recursive), -v (verbose), root (User), . (separate), www-date (group)
+		sudo chown -Rv root.www-data teste/
 		
 		#acessando o diretório criado
 		cd teste
@@ -223,7 +228,8 @@ MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM
 NA PÁGINA.
 
 #10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: seunome.php, ADICIONAR MAIS
-OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR.
+OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK DAS PÁGINAS:
+index.html COM A PÁGINA PHP seunome.php PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE.
 
 #11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADO NO SISTEMA NO GRUPO DO 
 APACHE2, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE 2 E DOS SITES CRIADOS.

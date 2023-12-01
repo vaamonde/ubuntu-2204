@@ -130,3 +130,74 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/05-HabilitandoUbuntuPro.md
 
 ====== TERCEIRA ETAPA: INSTALAÇÃO DOS SERVIÇOS DE REDE NO UBUNTU SERVER ======
+
+# **🤩🤩 Configuração do OpenSSH Server no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração do OpenSSH Server no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar o acesso remoto no nosso servidor de forma segura e customizada.
+
+OpenSSH é um conjunto de utilitários de rede relacionado à segurança que provém a criptografia
+em sessões de comunicações em uma rede de computadores usando o protocolo SSH.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO:
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/01-openssh.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioopenssh #desafiossh
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado o OpenSSH no Ubuntu Server;<br>
+#02_ Verificando os Status do Serviço do OpenSSH;<br>
+#03_ Verificando a Versão do OpenSSH Server e Client;<br>
+#04_ Verificando a Porta de Conexão do OpenSSH Server;<br>
+#05_ Diretórios e Arquivos de Configuração do OpenSSH;<br>
+#06_ Segurança do Arquivo Hosts.Deny do TCPWrappers;<br>
+#07_ Segurança do Arquivo Hosts.Allow do TCPWrappers;<br>
+#08_ Configuração do Arquivo sshd_config do OpenSSH;<br>
+#09_ Configuração do Arquivo issue.net (Banner Login);<br>
+#10_ Acessando Remoto via Powershell, PuTTY e Terminal;<br>
+#11_ Criando usuário Local e Adicionando ao Grupo SUDO;<br>
+#12_ Desafio de Usuários e Acesso Remoto do OpenSSH.
+
+[![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/01-openssh.md
+
+# **🤩🤩 Configuração do Apache2 Server no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração do Apache2 Server no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e criar nossas primeiras páginas Web hospedadas no Apache2 para processar arquivos HTML e PHP.
+
+O Servidor HTTP Apache ou Servidor Apache ou HTTP Daemon Apache ou somente Apache, é o servidor web livre criado em 1995 por um grupo de desenvolvedores da NCSA, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
+
+PHP é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na World Wide Web.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/02-apache2.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioapache2 #desafioapache
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado o Apache2 e PHP8 no Ubuntu Server;<br>
+#02_ Verificando os Status do Serviço do Apache2;<br>
+#03_ Verificando as Versões do Apache2 e PHP8;<br>
+#04_ Verificando a Porta de Conexão do Apache2;<br>
+#05_ Diretórios e Arquivos de Configuração do Apache2 e PHP8;<br>
+#06_ Adicionando o Usuário Local no Grupo do Apache2;<br>
+#07_ Criando um Projeto de Teste de Site no Apache2;<br>
+#08_ Alterando as Permissões de Arquivos e Diretórios;<br>
+#09_ Criando Páginas em HTML e PHP para testar o Apache2;<br>
+#10_ Utilizando o VSCode para editar páginas HTML e PHP;<br>
+#11_ Testando o acesso as Páginas no Navegador do Apache2;<br>
+#12_ Desafio do Novo Projeto de Site e Usuários do Apache2.
+
+[![Apache2 Server](http://img.youtube.com/vi/p6fnF1fZ1j4/0.jpg)](https://www.youtube.com/watch?v=p6fnF1fZ1j4 "Apache2 Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/02-apache2-server.md
