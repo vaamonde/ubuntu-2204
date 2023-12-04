@@ -42,6 +42,10 @@ Site Oficial do PuTTY: https://www.putty.org/
 OpenSSH é um conjunto de utilitários de rede relacionado à segurança que provém a criptografia<br> 
 em sessões de comunicações em uma rede de computadores usando o protocolo SSH.
 
+[![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
+
 #01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
 
 	#atualizando as listas do Apt

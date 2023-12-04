@@ -51,6 +51,10 @@ PHP é uma linguagem interpretada livre, usada originalmente apenas para o desen
 aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na<br> 
 World Wide Web.
 
+[![Apache2 Server](http://img.youtube.com/vi/p6fnF1fZ1j4/0.jpg)](https://www.youtube.com/watch?v=p6fnF1fZ1j4 "Apache2 Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
+
 #01_ Instalando o Apache2 Server e PHP 8.x<br>
 
 	#atualizando as listas do Apt
