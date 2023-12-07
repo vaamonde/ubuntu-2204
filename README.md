@@ -201,3 +201,40 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/02-apache2-server.md
+
+# **🤩🤩 Configuração do MySQL Server no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração do MySQL Server no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e criar os primeiros Banco de Dados utilizando o MySQL Server que é o servidor de Data Base mais utilizado na Internet.
+
+O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo. 
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/03-mysql.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioapache2 #desafioapache
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado o MySQL Server e Client no Ubuntu Server;<br>
+#02_ Verificando os Status do Serviço do MySQL Server;<br>
+#03_ Verificando a Versão do MySQL Server;<br>
+#04_ Verificando a Porta de Conexão do MySQL Server;<br>
+#05_ Diretórios e Arquivos de Configuração do MySQL Server;<br>
+#06_ Conectando no Console do MySQL Server;<br>
+#07_ Adicionando uma Senha no usuário Root do MySQL Server;<br>
+#08_ Criando Usuários e Permissões no MySQL Server;<br>
+#09_ Adicionando os Usuários Locais no Grupo do MySQL Server;<br>
+#10_ Permitindo o Acesso Remoto no MySQL Server;<br>
+#11_ Acessando Remotamente o MySQL Server pelo MySQL Workbench;<br>
+#12_ Acessando Remotamente o MySQL Server pelo VSCode;<br>
+#13_ Desafio do Banco de Dados MySQL Server.
+
+[![MySQL Server](http://img.youtube.com/vi//0.jpg)]( "MySQL Server")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/03-mysql-server.md

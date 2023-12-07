@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 28/11/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 07/12/2023<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
@@ -233,6 +233,10 @@ DO COMANDO SUDO.
 
 #14_ DESAFIO: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: seu_nome, CONFIGURAR TODAS
 AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
+
+#15_ DESAFIO: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO DE
+DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
+DESAFIO DA ETAPA: 12 E TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 
 =========================================================================================
 
