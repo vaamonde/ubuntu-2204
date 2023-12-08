@@ -46,6 +46,10 @@ O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguage
 interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares<br>
 da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo. 
 
+[![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
+
 #01_ Instalando o MySQL Server e Client<br>
 
 	#atualizando as listas do Apt
@@ -182,6 +186,8 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 	exit
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
+
+	#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
 	#conectando com o usuário Root do MySQL no Workbench
 	MySQL Connections: +

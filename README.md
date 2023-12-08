@@ -233,8 +233,8 @@ Conteúdo estudado nesse desafio:<br>
 #12_ Acessando Remotamente o MySQL Server pelo VSCode;<br>
 #13_ Desafio do Banco de Dados MySQL Server.
 
-[![MySQL Server](http://img.youtube.com/vi//0.jpg)]( "MySQL Server")
+[![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/03-mysql-server.md
