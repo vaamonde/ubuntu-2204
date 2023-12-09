@@ -122,7 +122,7 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 
-#12_ DESAFIO: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
+#12_ DESAFIO-01: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
 INTEGRAÇÃO: 15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent, LINK:
 https://www.youtube.com/watch?v=5MrH8L5cSIU
 
