@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.08<br>
+#Data de atualização: 08/12/2023<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -16,7 +16,7 @@ A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selo/desafio.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/08-mongodb.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
@@ -53,7 +53,10 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 	#instalando as dependências do MongoDB Server
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
-	
+
+	#download da última versão do Libssl (link atualizado em 08/12/2023)
+	#OBSERVAÇÃO IMPORTANTE: o tempo todo o a Biblioteca Libssl sofre alteração, antes
+	#de faze o download do arquivo verifique a versão no link: hhttp://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 	#opção do comando dpkg: -i (install)
 	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 	sudo dpkg -i libssl*.deb
@@ -72,20 +75,24 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 #04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
 
+	#atualizando as listas do Apt
 	sudo apt update
 
 #05_ Instalando o MongoDB Server e Client<br>
 
+	#instalando o MongoDB Server e Client (Console)
 	sudo apt install mongodb-org
 
 #06_ Habilitando o Serviço do MongoDB Server<br>
 
+	#habilitando o serviço do MongoDB Server
 	sudo systemctl daemon-reload
 	sudo systemctl enable mongod
 	sudo systemctl start mongod
 
 #07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
 
+	#verificando o serviço do MongoDB Server
 	sudo systemctl status mongod
 	sudo systemctl restart mongod
 	sudo systemctl stop mongod
@@ -118,11 +125,12 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 #11_ Testando a Conexão Local com o MongoDB Server<br>
 
+	#acessando o MongoDB Server via Client (MongoDB Shell/Console)
 	mongosh
 
 #12_ Comandos Básicos do MongoDB Server<br>
 
-	#exibir os bancos de dados existentes no MongoDB
+	#exibindo os bancos de dados existentes no MongoDB
 	show dbs
 
 	#alterar o database informe no MongoDB
@@ -159,25 +167,25 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 	#saindo do MongoDB
 	exit
 
-#14_ Configurando o MongoDB Server para suportar autenticação e acesso Remoto<br>
+#14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
 
+	#editando o arquivo de configuração do MongoDB Server
 	sudo vim /etc/mongod.conf
+	INSERT
 		
-		INSERT
-			
-			#habilitando o suporte remoto do MongoDB Server
-			#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
-			net:
-			  port: 27017
-			  bindIp: 0.0.0.0
-			
-			#habilitando o recurso de autenticação do MongoDB Server
-			#descomentar a linha: #security, adicionar o valor: authorization: enabled
-			security:
-			  authorization: enabled
+		#habilitando o suporte remoto do MongoDB Server
+		#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
+		net:
+			port: 27017
+			bindIp: 0.0.0.0
 		
-		#sair e salvar o arquivo
-		ESC SHIFT :x <ENTER>
+		#habilitando o recurso de autenticação do MongoDB Server
+		#descomentar a linha: #security, adicionar o valor: authorization: enabled
+		security:
+			authorization: enabled
+	
+	#salvar e sair do arquivo
+	ESC SHIFT :x <ENTER>
 
 	#reiniciar o serviço do MongoDB Server
 	sudo systemctl restart mongod
@@ -204,7 +212,9 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 #16_ Integrando o MongoDB Server com o Compass GUI<br>
 
-	#criando uma nova conexão
+	Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
+
+	#criando uma nova conexão com o MongoDB Server
 	<New connection+>
 		New Connection
 			URL: mongodb://172.16.120:27017
@@ -231,7 +241,7 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 				MongoDB for VS Code
 					Instalar
 
-	#configurando a conexão com o MongoDB
+	#configurando a conexão com o MongoDB Server
 	VSCode
 		MongoDB
 			CONNECTIONS
@@ -249,10 +259,20 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 						<Connect>
 					<Close>
 
-#18_ DESAFIO: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
+#18_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
 DE DADOS CRIAR UM COLLECTION CHAMADO: cadastro (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
 INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE OU NO
 COMPASS (VEJA O SITE W3SCHOOLS).
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+=========================================================================================
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/08-mongodb.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica

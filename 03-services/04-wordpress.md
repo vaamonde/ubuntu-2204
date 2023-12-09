@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 28/11/2023<br>
-#Versão: 0.09<br>
+#Data de atualização: 08/12/2023<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
@@ -52,6 +52,7 @@ para a criação de páginas eletrônicas e blogs online.
 	sudo apt update
 	
 	#instalando as dependências do Wordpress
+	#opção da contra barra (\): criar uma quebra de linha no terminal
 	sudo apt install php8.1-bcmath php8.1-mbstring  php8.1-dev php8.1-curl php8.1-mysql \
 	php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
 	pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
@@ -179,6 +180,10 @@ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
 #08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
 NO DIA A DIA: Wordfence Security E W3 Total Cache.
+
+#09_ DESAFIO-03: NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS ÍCONES DO
+GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
+FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP.
 
 =========================================================================================
 
