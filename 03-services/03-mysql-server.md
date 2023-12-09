@@ -187,6 +187,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
+	#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
+	#Banco de Dados Sys (Sistema) e mostrado em Esquemas, os demais Banco de Dados utilizados pelo
+	#MySQL Server não são mostrados por motivo de segurança.
+	
 	#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
 	#conectando com o usuário Root do MySQL no Workbench
@@ -206,6 +210,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 		<OK>
 
 #11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
+
+	#OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE
+	#NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS.
 
 	#instalando a Extensão do MySQL Server
 	VSCode
@@ -243,6 +250,10 @@ AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORK
 #15_ DESAFIO-04: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO 
 DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
 DESAFIO-01 DA ETAPA: 12 E TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
+
+OBSERVAÇÃO IMPORTANTE: APÓS VÁRIOS TESTES FEITO NO DB4FREE O MESMO APRESENTOU UM GRANDE DELAY
+NAS CONEXÕES, NO MYSQL WORKBENCH E NA EXTENSÃO DO VSCODE MUITAS VEZES É NECESSÁRIO ATUALIZAR
+VÁRIAS VEZES PARA MOSTRAR A BASE DE DADOS E AS TABELAS CRIADAS.
 
 =========================================================================================
 
