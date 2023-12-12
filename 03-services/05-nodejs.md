@@ -101,16 +101,21 @@ Link da vídeo aula:
 	mkdir -v nodejs-hello
 	cd nodejs-hello
 		
+		#Inicializando o diretório do Projeto do Node.JS
 		#opção do comando npm: init (create package.json file), -y (yes)
-		#opção do comando npm: install (install package in directory)
-		#opção do comando ls: -l (list), -h (human-readable)
 		npm init -y
+		
+		#Instalando o Módulo/Pacote Express do Node.JS
+		#opção do comando npm: install (install package in directory)
 		npm install express
-		ls -lh
+
+		#Listando o conteúdo do diretório do projeto do Node.JS
+		#opção do comando ls: -l (long listing), -h (human-readable), -a (all)
+		ls -lha
 
 #05_ Criando um Projeto Simples do Node.JS<br>
 
-	#criando o arquivo index.js
+	#Criando o arquivo index.js do projeto do Node.JS
 	vim index.js
 	INSERT
 
@@ -156,6 +161,11 @@ app.listen(3000, function() {
 
 	#finalizando o processo do Node.JS Express
 	Ctrl + C
+
+	#OBSERVAÇÃO IMPORTANTE: caso você não consiga trazer os processos que estão em Segundo
+	#Plano (Background) para o Primeiro Plano (Foregorund) para finalizar o processo, você
+	#pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
+	#kill -9 PID
 
 #10_ DESAFIO-01: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM:
 seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: /home/seu_usuário, CRIAR UMA 
