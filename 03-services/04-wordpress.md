@@ -186,8 +186,8 @@ GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DE
 FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP.
 
 #10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:<br>
-A) Path New Site..............: /var/www/html/site<br>
-B) Database Name..............: newsite<br>
+A) Path New Site.: /var/www/html/site<br>
+B) Database Name.: newsite<br>
 C) User and Password Database.: newsite<br>
 D) Wordpress Template Install.: Astra<br>
 
