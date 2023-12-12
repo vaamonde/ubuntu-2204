@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 08/12/2023<br>
-#Versão: 0.10<br>
+#Data de atualização: 11/12/2023<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
@@ -179,11 +179,17 @@ para a criação de páginas eletrônicas e blogs online.
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
 #08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
-NO DIA A DIA: Wordfence Security E W3 Total Cache.
+NO DIA A DIA: Wordfence Security E W3 Total Cache (OU OUTRO DE SUA PREFERÊNCIA E ESCOLHA).
 
 #09_ DESAFIO-03: NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS ÍCONES DO
 GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
 FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP.
+
+#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
+A) Path New Site...............: /var/www/html/site
+B) Data Base Name..............: newsite
+C) User and Password Data Base.: newsite
+D) Wordpress Template Install..: Astra
 
 =========================================================================================
 
