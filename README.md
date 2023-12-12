@@ -238,3 +238,37 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/03-mysql-server.md
+
+# **🤩🤩 Configuração do WordPress CMS no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de instalação e configuração do WordPress CMS no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o Site Dinâmico WordPress CMS utilizando o Apache2, MySQL Server e o suporte a Linguagem PHP para a construção de sites dinâmicos.
+
+WordPress é um sistema livre e aberto de gestão de conteúdo para internet, baseado em PHP com banco de dados MySQL, executado em um servidor interpretador, voltado principalmente para a criação de páginas eletrônicas e blogs online.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/04-wordpress.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado as Dependências do Wordpress;<br>
+#02_ Criando a Base de Dados e Usuário no MySQL Server;<br>
+#03_ Baixando o Wordpress do Site Oficial;<br>
+#04_ Descompactando e Movendo o conteúdo do Site para o Apache2;<br>
+#05_ Alterando as Permissões de Arquivos e Diretórios do Wordpress;<br>
+#06_ Configurando o Arquivo WP-CONFIG.PHP do Wordpress;<br>
+#07_ Habilitado os Módulos do Apache2;<br>
+#08_ Acessando o Wordpress e fazendo sua Pré-Configuração;<br>
+#09_ Desafio de Postagem, Temas e Plugins do CMS Wordpress.
+
+[![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/04-wordpress.md

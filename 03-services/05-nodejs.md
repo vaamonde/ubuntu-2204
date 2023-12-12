@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 08/12/2023<br>
-#Versão: 0.09<br>
+#Data de atualização: 12/12/2023<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
@@ -33,7 +33,7 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Verificando a Porta de Conexão da Aplicação Node.JS;<br>
 #10_ Testando a Aplicação via Navegador;<br>
 #11_ Gerenciando Processos do Node.JS no Ubuntu Server;<br>
-#12_ Desafios de uma Nova Aplicação do Node.JS.
+#12_ Desafio de uma Nova Aplicação do Node.JS.
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
@@ -48,6 +48,10 @@ Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/
 Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do<br>
 Google e que permite a execução de códigos JavaScript fora de um navegador web. A principal<br>
 característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
+
+[![Node.JS](http://img.youtube.com/vi//0.jpg)]( "Node.JS")
+
+Link da vídeo aula: 
 
 #01_ Instalando as Dependências do Node.JS<br>
 
@@ -65,10 +69,25 @@ característica do Node.js é sua arquitetura assíncrona e orientada por evento
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do comando sudo: -E (preserve-env)
-	sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
+	
+	#Script de configuração do Repositório do Node.JS descontinuado, não é mais indicado
+	#utilizar esse script em servidores de produção.
+	#sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
+	
+	#Adicionando a Chave GPG do Node.JS via Nodesource
+	curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
+	
+	#Adicionando o Repositório do Node.JS
+	#OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
+	#Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
+	#no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
+	echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+	#Instalando o Node.JS e NPM (Node Package Manager)
+	sudo apt update
 	sudo apt install nodejs
 
-#03_ Verificando as Versões do Node.JS e NPM<br>
+#03_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
 
 	#opção do comando node: -v (version)
 	#opção do comando npm: -v (version)
@@ -143,6 +162,10 @@ seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: /home/seu_usuá
 PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO 
 BROWSER PARA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030 E
 ADICIONAR MAIS ALGUM RECURSO DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS)
+
+#11_ DESAFIO-02: DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND),
+NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO DESAFIO-03 DO
+WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
 =========================================================================================
 
