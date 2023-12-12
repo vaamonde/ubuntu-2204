@@ -185,11 +185,11 @@ NO DIA A DIA: Wordfence Security E W3 Total Cache (OU OUTRO DE SUA PREFERÊNCIA 
 GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
 FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP.
 
-#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
-A) Path New Site...............: /var/www/html/site
-B) Data Base Name..............: newsite
-C) User and Password Data Base.: newsite
-D) Wordpress Template Install..: Astra
+#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:<br>
+A) Path New Site...............: /var/www/html/site<br>
+B) Data Base Name..............: newsite<br>
+C) User and Password Data Base.: newsite<br>
+D) Wordpress Template Install..: Astra<br>
 
 =========================================================================================
 
