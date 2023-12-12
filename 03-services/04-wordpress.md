@@ -7,11 +7,11 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 11/12/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 12/12/2023<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
+A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
@@ -46,7 +46,11 @@ WordPress é um sistema livre e aberto de gestão de conteúdo para internet, ba
 com banco de dados MySQL, executado em um servidor interpretador, voltado principalmente<br>
 para a criação de páginas eletrônicas e blogs online.
 
-#01_ Instalando as Dependências do Wordpress<br>
+[![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
+
+#01_ Instalando as Dependências do WordPress<br>
 
 	#atualizando as listas do Apt
 	sudo apt update
@@ -57,7 +61,7 @@ para a criação de páginas eletrônicas e blogs online.
 	php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
 	pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
 
-#02_ Criando a Base de Dados do Wordpress no MySQL Server<br>
+#02_ Criando a Base de Dados do WordPress no MySQL Server<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -82,23 +86,23 @@ para a criação de páginas eletrônicas e blogs online.
 	USE wordpress;
 	exit
 
-#03_ Fazendo o download do Wordpress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
+#03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
 
 	#acessando diretório temporário
 	cd /tmp
 
-	#fazendo o download do Wordpress do site Oficial do Brasil
+	#fazendo o download do WordPress do site Oficial do Brasil
 	#opção do comando wget: -O (output-document)
 	wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
 
 	#descompactando o arquivo do Wordpress
 	unzip wordpress.zip
 
-	#movendo o conteúdo do Wordpress para o diretório do Apache2 Server
+	#movendo o conteúdo do WordPress para o diretório do Apache2 Server
 	#opção do comando mv: -v (verbose)
 	sudo mv -v wordpress/ /var/www/html/wp/
 
-	#alterando as permissões dos diretórios e arquivos do Wordpress
+	#alterando as permissões dos diretórios e arquivos do WordPress
 	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 	#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 	#opção do comando chmod: -v (verbose), 755 (Dono=RWX,Grupo=R-X,Outros=R-X)
@@ -108,16 +112,16 @@ para a criação de páginas eletrônicas e blogs online.
 	sudo find /var/www/html/wp/. -type d -exec chmod -v 755 {} \;
 	sudo find /var/www/html/wp/. -type f -exec chmod -v 644 {} \;
 
-#04_ Editando o arquivo de conexão com o Banco de Dados e Salt do Wordpress<br>
+#04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
 
-	#acessando o diretório do Wordpress
+	#acessando o diretório do WordPress
 	cd /var/www/html/wp/
 
-	#criando o arquivo de configuração do banco de dados do Wordpress
+	#criando o arquivo de configuração do banco de dados do WordPress
 	#opção do comando cp: -v (verbose)
 	sudo cp -v wp-config-sample.php wp-config.php
 
-	#editando o arquivo de configuração do Wordpress
+	#editando o arquivo de configuração do WordPress
 	sudo vim wp-config.php
 	INSERT
 
@@ -141,7 +145,7 @@ para a criação de páginas eletrônicas e blogs online.
 	#sair e salvar o arquivo
 	ESC SHIFT :x <Enter>
 
-#05_ Habilitando os módulos do Apache2 Server utilizados pelo Wordpress<br>
+#05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
 
 	#habilitar os módulos do Apache2 Server
 	sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
@@ -150,7 +154,7 @@ para a criação de páginas eletrônicas e blogs online.
 	sudo systemctl restart apache2
 	sudo systemctl status apache2
 
-#06_ Acessando e configurando o Wordpress no navegador<br>
+#06_ Acessando e configurando o WordPress no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
 
@@ -165,36 +169,39 @@ para a criação de páginas eletrônicas e blogs online.
 	<Instalar WordPress>
 	<Acessar>
 
-	#tela de login do Wordpress
+	#Tela de login do WordPress
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
 		Nome de usuário ou endereço de email: admin
 		Senha: pti@2018
 		Lembrar-me: On (Habilitado)
 		<Acessar>
-		
-	#tela do site do Wordpress
+	
+	#Configuração dos Links Permanentes do WordPress
+	Configurações
+		Links permanentes
+			Configurações de Links Permanentes
+				Configurações Comuns
+					Estrutura de Links Permanentes
+						ON (Selecionar): Padrão (http://172.16.1.20/wp/?=123)
+		<Salvar Alterações>
+
+	#Tela do site do WordPress
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
 #07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
 #08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
-NO DIA A DIA: Wordfence Security E W3 Total Cache (OU OUTRO DE SUA PREFERÊNCIA E ESCOLHA).
+NO DIA A DIA: Wordfence Security E W3 Total Cache.
 
 #09_ DESAFIO-03: NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS ÍCONES DO
 GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
 FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP.
 
-#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:<br>
-A) Path New Site.: /var/www/html/site<br>
-B) Database Name.: newsite<br>
-C) User and Password Database.: newsite<br>
-D) Wordpress Template Install.: Astra<br>
-
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Wordpress realizado com sucesso!!! #BoraParaPrática
+A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
