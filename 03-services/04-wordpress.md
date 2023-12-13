@@ -22,20 +22,20 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/04-wordpre
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado as Dependências do Wordpress;<br>
+#01_ Instalado as Dependências do WordPress;<br>
 #02_ Criando a Base de Dados e Usuário no MySQL Server;<br>
-#03_ Baixando o Wordpress do Site Oficial;<br>
+#03_ Baixando o WordPress do Site Oficial;<br>
 #04_ Descompactando e Movendo o conteúdo do Site para o Apache2;<br>
-#05_ Alterando as Permissões de Arquivos e Diretórios do Wordpress;<br>
-#06_ Configurando o Arquivo WP-CONFIG.PHP do Wordpress;<br>
+#05_ Alterando as Permissões de Arquivos e Diretórios do WordPress;<br>
+#06_ Configurando o Arquivo WP-CONFIG.PHP do WordPress;<br>
 #07_ Habilitado os Módulos do Apache2;<br>
-#08_ Acessando o Wordpress e fazendo sua Pré-Configuração;<br>
-#09_ Desafio de Postagem, Temas e Plugins do CMS Wordpress.
+#08_ Acessando o WordPress e fazendo sua Pré-Configuração;<br>
+#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
 Site Oficial do MySQL: https://www.mysql.com/<br>
-Site Oficial do Wordpress: https://br.wordpress.org/
+Site Oficial do WordPress: https://br.wordpress.org/
 
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
@@ -55,7 +55,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 	#atualizando as listas do Apt
 	sudo apt update
 	
-	#instalando as dependências do Wordpress
+	#instalando as dependências do WordPress
 	#opção da contra barra (\): criar uma quebra de linha no terminal
 	sudo apt install php8.1-bcmath php8.1-mbstring  php8.1-dev php8.1-curl php8.1-mysql \
 	php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
@@ -66,13 +66,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-	#criando a base de dados do Wordpress
+	#criando a Base de Dados do WordPress
 	CREATE DATABASE wordpress;
 
-	#criando o usuário do Wordpress
+	#criando o usuário ba Base de Dados do WordPress
 	CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
 	
-	#aplicando as permissões do usuário Wordpress
+	#aplicando as permissões do usuário WordPress
 	GRANT USAGE ON *.* TO 'wordpress';
 	GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';
 	FLUSH PRIVILEGES;
@@ -81,7 +81,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u wordpress -p
 
-	#visualizando a base de dados do Wordpress
+	#visualizando a base de dados do WordPress
 	SHOW DATABASES;
 	USE wordpress;
 	exit
@@ -95,7 +95,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 	#opção do comando wget: -O (output-document)
 	wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
 
-	#descompactando o arquivo do Wordpress
+	#descompactando o arquivo do WordPress
 	unzip wordpress.zip
 
 	#movendo o conteúdo do WordPress para o diretório do Apache2 Server
@@ -136,8 +136,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 		#variável da senha do usuário do banco de dados
 		define( 'DB_PASSWORD', 'wordpress' );
 	
-		#configuração do Salt do Wordpress site: https://api.wordpress.org/secret-key/1.1/salt/
-		#mais informações sobre o Salt's do Wordpress: https://www.hostinger.com.br/tutoriais/wordpress-salt
+		#configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
+		#mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
 		#copiar o conteúdo do Salt e colocar a partir da linha: 53
 		#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes antes de copiar/colar as
 		#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 

@@ -37,7 +37,7 @@ Conteúdo estudado nesse desafio:<br>
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
-Projeto do Github do Nodesource: https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions
+Github do Nodesource: https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions
 
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
@@ -163,7 +163,7 @@ app.listen(3000, function() {
 	Ctrl + C
 
 	#OBSERVAÇÃO IMPORTANTE: caso você não consiga trazer os processos que estão em Segundo
-	#Plano (Background) para o Primeiro Plano (Foregorund) para finalizar o processo, você
+	#Plano (Background) para o Primeiro Plano (Foreground) para finalizar o processo, você
 	#pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
 	#kill -9 PID
 

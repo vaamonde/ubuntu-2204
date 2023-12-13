@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 08/12/2023<br>
-#Versão: 0.10<br>
+#Data de atualização: 12/12/2023<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
@@ -85,11 +85,11 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 	#opção do comando sudo: -i (login)
 	sudo -i
 	
-	#download da última versão do Apache TomCAT Server (link atualizado em 19/11/2023)
+	#download da última versão do Apache TomCAT Server (link atualizado em 12/12/2023)
 	#OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 	#de faze o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.16/bin/apache-tomcat-10.1.16.tar.gz
+	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
 
