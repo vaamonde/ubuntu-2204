@@ -49,9 +49,9 @@ Node.js é um software de código aberto, multiplataforma, baseado no interpreta
 Google e que permite a execução de códigos JavaScript fora de um navegador web. A principal<br>
 característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
 
-[![Node.JS](http://img.youtube.com/vi//0.jpg)]( "Node.JS")
+[![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
 #01_ Instalando as Dependências do Node.JS<br>
 

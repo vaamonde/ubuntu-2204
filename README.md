@@ -208,11 +208,9 @@ Vídeo de configuração do MySQL Server no Ubuntu Server 22.04.x LTS no Oracle 
 
 O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo. 
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/03-mysql.png
 
@@ -245,30 +243,61 @@ Vídeo de instalação e configuração do WordPress CMS no Ubuntu Server 22.04.
 
 WordPress é um sistema livre e aberto de gestão de conteúdo para internet, baseado em PHP com banco de dados MySQL, executado em um servidor interpretador, voltado principalmente para a criação de páginas eletrônicas e blogs online.
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM  A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/04-wordpress.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado as Dependências do Wordpress;<br>
+#01_ Instalado as Dependências do WordPress;<br>
 #02_ Criando a Base de Dados e Usuário no MySQL Server;<br>
-#03_ Baixando o Wordpress do Site Oficial;<br>
+#03_ Baixando o WordPress do Site Oficial;<br>
 #04_ Descompactando e Movendo o conteúdo do Site para o Apache2;<br>
-#05_ Alterando as Permissões de Arquivos e Diretórios do Wordpress;<br>
-#06_ Configurando o Arquivo WP-CONFIG.PHP do Wordpress;<br>
+#05_ Alterando as Permissões de Arquivos e Diretórios do WordPress;<br>
+#06_ Configurando o Arquivo WP-CONFIG.PHP do WordPress;<br>
 #07_ Habilitado os Módulos do Apache2;<br>
-#08_ Acessando o Wordpress e fazendo sua Pré-Configuração;<br>
-#09_ Desafio de Postagem, Temas e Plugins do CMS Wordpress.
+#08_ Acessando o WordPress e fazendo sua Pré-Configuração;<br>
+#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
 
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/04-wordpress.md
+
+# **🤩🤩 Configuração do Node.JS no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de instalação e configuração do Node.JS no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o Node.JS para o desenvolvimento de Aplicações Web baseadas na Linguagem JavaScript.
+
+Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web. A principal característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/05-nodejs.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalado as Dependências do Node.JS;<br>
+#02_ Instalando o Node.JS no Ubuntu Server;<br>
+#03_ Verificando as Versões do Node.JS e NPM;<br>
+#04_ Criando o diretório do Projeto do Node.JS;<br>
+#05_ Inicializando o Projeto do Node.JS e Instalando o Express;<br>
+#06_ Criando o Arquivos INDEX.JS do Node.JS;<br>
+#07_ Criando o Primeiro Código em JavaScript do Node.JS;<br>
+#08_ Executando uma Aplicação Node.JS via Terminal;<br>
+#09_ Verificando a Porta de Conexão da Aplicação Node.JS;<br>
+#10_ Testando a Aplicação via Navegador;<br>
+#11_ Gerenciando Processos do Node.JS no Ubuntu Server;<br>
+#12_ Desafio de uma Nova Aplicação do Node.JS.
+
+[![Node.JS](http://img.youtube.com/vi/1JOs_qALw6/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/05-nodejs.md
