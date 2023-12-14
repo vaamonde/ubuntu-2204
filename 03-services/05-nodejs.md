@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/12/2023<br>
-#Versão: 0.10<br>
+#Data de atualização: 14/12/2023<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
@@ -140,6 +140,8 @@ app.listen(3000, function() {
 #06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
 
 	#opção do comando &: background
+	#OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do
+	#caractere: & (E-Comercial)
 	node index.js &
 
 #07_ Verificando a Porta de Conexão do Node.JS Express<br>
