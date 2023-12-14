@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 11/10/2021
-# Data de atualização: 19/11/2023
-# Versão: 0.08
+# Data de atualização: 14/12/2023
+# Versão: 0.09
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.9.x
 #
@@ -97,7 +97,8 @@ DenyGroups root
 Banner /etc/issue.net
 #
 # Tempo após o qual o servidor será desconectado se o usuário não tiver efetuado 
-# login com êxito.
+# login com êxito, é referente ao tempo de conexão inativa. Caso fique inativo, 
+# a conexão sera derrubada
 LoginGraceTime 60
 #
 # Tempo de inatividade em segundos para que os usuários logados na sessão do 
@@ -114,7 +115,8 @@ MaxSessions 3
 #
 # Especifica o número máximo de conexões simultâneas não autenticadas com o OpenSSH 
 # para ser rejeitado a conexão. 5=conexão não autenticada | 60=rejeitar 60% das conexões 
-# | 10=tentativas de conexão
+# | 10=tentativas de conexão, se o número de tentativas chegar a 6, todas as tentativas 
+# de conexões do IP origem serão recusadas.
 MaxStartups 5:60:10
 #
 # Especifica qual família de endereços IP o OpenSSH deve suportar.
