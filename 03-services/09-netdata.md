@@ -7,11 +7,34 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 16/12/2023<br>
+#Versão: 0.04<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-netdata.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalação das Dependência do Netdata<br>
+#02_ Clonagem do Projeto do Netdata do Github<br>
+#03_ Compilação e Instalação do Netdata no Ubuntu Server<br>
+#04_ Verificando o Status do Serviço do Netdata<br>
+#05_ Verificando a Versão do Netdata<br>
+#06_ Verificando a Porta de Conexão do Netdata<br>
+#07_ Habilitando o Recurso de Auto-Atualização do Netdata<br>
+#08_ Arquivo e Diretórios de Configuração do Netdata<br>
+#09_ Atualização os Arquivos de Monitoramento de Serviços do Netdata<br>
+#10_ Criando o Usuário de Monitoramento do MySQL Server do Netdata<br>
+#11_ Adicionando o Usuário Local do Grupo do Netdata<br>
+#12_ Acessando o Netdata via Navegador<br>
+#13_ Desafio do Netdata Cloud<br>
 
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
@@ -33,12 +56,14 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 
 #02_ Clonando o projeto do Netdata Server do Github<br>
 
+	#clonando o projeto do Github do Netdata
 	#opção do comando git clone: --recurse-submodules (initialize and clone submodules within based on the provided pathspec)
 	#opção do comando git clone: --depth (create a shallow clone with a history truncated to the specified number of commits)
 	git clone --recurse-submodules https://github.com/netdata/netdata --depth=100
 
 #03_ Compilando e Instalando o Netdata Server<br>
 
+	#acessando o diretório clonado e instalando o Netdata
 	#opção do ./: execução de script desenvolvido em Shell Script .sh
 	cd netdata/
 		sudo ./netdata-installer.sh
@@ -63,6 +88,7 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 
 #06_ Habilitando as atualizações do Netdata Server
 
+	#habilitando o suporte para atualização do Netdata
 	sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 
 #07_ Localização dos Arquivos de Configuração do Netdata Server<br>
@@ -76,6 +102,7 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 
 #08_ Atualizando os arquivos de configuração do Netdata Server<br>
 
+	#download dos arquivos de configuração dos monitoramento de serviços customizados
 	#opção do comando wget: -v (verbose), -O (output file)
 
 	#arquivo de configuração dos grupos de aplicativos do Netdata
@@ -126,5 +153,18 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 INTEGRAÇÃO: 15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent, LINK:
 https://www.youtube.com/watch?v=5MrH8L5cSIU
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+#13_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
+GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+
+=========================================================================================
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-netdata.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica

@@ -7,16 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 23/04/2023<br>
-#Versão: 0.03<br>
+#Data de atualização: 16/12/2023<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
-O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas 
-operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via
+O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas<br>
+operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via<br>
 navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
 #01_ Instalando as Dependências do Webmin<br>
@@ -100,7 +100,7 @@ navegador, não precisando de conhecimentos avanças em Bash/Shell.
 	Webmin
 		Ícone: Day/night mode toggle (Alt + L)
 
-#10_ DESAFIO: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
+#10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
 ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT.
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
