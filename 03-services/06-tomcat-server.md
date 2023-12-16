@@ -19,7 +19,7 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/06-tomcat.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiotomcat #desafiojava
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependências do Java do Apache TomCAT;<br>
@@ -233,4 +233,4 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/06-tomcat.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiotomcat #desafiojava

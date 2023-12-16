@@ -19,7 +19,7 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/07-tomcat-war.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiotomcat #desafiowartomcat
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Acessando o Projeto do Github do Prof. José de Assis;<br>
@@ -144,4 +144,4 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/07-tomcat-war.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiotomcat #desafiowartomcat

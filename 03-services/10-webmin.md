@@ -8,10 +8,30 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
 #Data de atualização: 16/12/2023<br>
-#Versão: 0.04<br>
+#Versão: 0.05<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-webmin.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalando a Dependências do Webmin<br>
+#02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
+#03_ Instalando o Webmin no Ubuntu Server<br>
+#04_ Habilitando e Verificando o Serviço do Webmin<br>
+#05_ Verificando a Versão do Webmin<br>
+#06_ Verificando a Porta de Conexão do Webmin<br>
+#07_ Arquivos e Diretório de Configuração do Webmin<br>
+#08_ Acessando Webmin Via Navegador<br>
+#09_ Configurações Básicas do Webmin<br>
+#10_ Desafios do Webmin e Cockpit<br>
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
@@ -103,5 +123,15 @@ navegador, não precisando de conhecimentos avanças em Bash/Shell.
 #10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
 ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT.
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+=========================================================================================
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-webmin.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
