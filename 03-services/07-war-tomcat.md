@@ -111,13 +111,13 @@ exit
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dbagenda -p
 
-```sql
-	SHOW DATABASES;
-	USE dbagenda;
-	SHOW TABLES;
-	DESC contatos;
-	exit
-```
+		#comandos básicos de verificação da base de dados e tabelas do MySQL
+		SHOW DATABASES;
+		USE dbagenda;
+		SHOW TABLES;
+		DESC contatos;
+		exit
+
 
 #06_ Fazendo o Backup e Restore do Banco de Dados MySQL Server<br>
 

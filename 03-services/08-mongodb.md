@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 12/12/2023<br>
-#Versão: 0.10<br>
+#Data de atualização: 16/12/2023<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -63,6 +63,9 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 
+	#download da Chave GPG do MmongoDB Server
+	#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as
+	#chaves GPG de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do comando gpg: -o (output)
@@ -263,6 +266,11 @@ NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 DE DADOS CRIAR UM COLLECTION CHAMADO: cadastro (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
 INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE OU NO
 COMPASS (VEJA O SITE W3SCHOOLS).
+
+#19_ DESAFIO-02: CONHECER O PROJETO: MongoDB Atlas, FAZER O CADASTRO NO SITE OFFICIAL PARA A 
+CRIAÇÃO DE UMA CONTA FREE NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A
+OPÇÃO: LEARN FREE, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZENDO A CRIAÇÃO DO MESMO BANCO
+DE DADOS DO DESAFIO-O1, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE.
 
 =========================================================================================
 

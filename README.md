@@ -296,8 +296,45 @@ Conteúdo estudado nesse desafio:<br>
 #11_ Gerenciando Processos do Node.JS no Ubuntu Server;<br>
 #12_ Desafio de uma Nova Aplicação do Node.JS.
 
-[![Node.JS](http://img.youtube.com/vi/1JOs_qALw6/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
+[![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/05-nodejs.md
+
+# **🤩🤩 Configuração do Apache TomCAT 10 no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de instalação e configuração do Apache TomCAT 10 no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o Apache TomCAT Server para hospedar páginas desenvolvidas em Java.
+
+O Apache Tomcat é um servidor Web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/06-tomcat.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalando as Dependências do Java do Apache TomCAT;<br>
+#02_ Verificando as Versões de Java instalado no Ubuntu Server;<br>
+#03_ Download da última Versão do Apache TomCAT Server;<br>
+#04_ Descompactar e Mover o Diretório do Apache TomCAT Server;<br>
+#05_ Download dos Arquivos de Configuração do Apache TomCAT Server;<br>
+#06_ Criação do Usuário de Serviços do Apache TomCAT Server;<br>
+#07_ Alteração das Permissões de Arquivos e Diretórios;<br>
+#08_ Verificando o Status do Serviço do Apache TomCAT Server;<br>
+#09_ Verificando a Versão do Apache TomCAT Server;<br>
+#10_ Verificando a Porta de Conexão do Apache TomCAT Server;<br>
+#11_ Diretórios e Arquivos de Configuração do Apache TomCAT Server;<br>
+#12_ Adicionando o Usuário Local no Grupo do Apache TomCAT Server;<br>
+#13_ Alterando o Arquivo de Configuração TOMCAT-USERS.XML;<br>
+#14_ Acessando o Apache TomCAT Server via Navegador;<br>
+#15_ Desafios do Servidor de Aplicação Apache TomCAT Server.
+
+[![Apache Tomcat](http://img.youtube.com/vi//0.jpg)]( "Apache Tomcat")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/06-tomcat-server.md
