@@ -10,8 +10,8 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Data de criação: 19/01/2023
-#Data de atualização: 19/11/2023
-#Versão: 0.03
+#Data de atualização: 16/12/2023
+#Versão: 0.04
 -->
 <Server port="-1" shutdown="SHUTDOWN">
   <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
@@ -35,11 +35,34 @@
    # Porta Segura (8443 - HTTPS)
   -->
   <Service name="Catalina">
-    <!-- Comentar essas linhas na configuração do TLS/SSL do Apache Tomcat9 -->  
+    <!-- Comentar essas linhas na configuração do TLS/SSL do Apache Tomcat 0-->  
     <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" />
-    <Engine name="Catalina" defaultHost="localhost">
+    <!--
+    # Configuração do suporte ao SSL/TLS do Tomcat utilizando o software Keytool
+    # e Certificados Assinados utilizando o OpenSSL
+    # Comando para a geração do certificado do Tomcat SSL/TLS não assinado pela CA
+    # keytool -genkey -alias tomcat -keyalg RSA -keystore /etc/tomcat/tomcat.jks
+	# Descomentar as linhas abaixo depois de configurar o TLS/SSL do Apache Tomcat
+    -->
+    <!--	
+    <Connector
+		port="8443"
+		protocol="HTTP/1.1"
+		connectionTimeout="20000"
+		scheme="https"
+		secure="true"
+		maxThreads="150"
+		clientAuth="false"
+		SSLEnabled="true" 
+		sslProtocol="TLS"
+		sslEnabledProtocols="TLSv1.2,TLSv1.1,TLSv1,SSLv2Hello"
+		keystoreFile="/etc/tomcat/tomcat.jks"
+		keystorePass="pti@2018" />
+    -->
+	
+	<Engine name="Catalina" defaultHost="localhost">
       <Realm className="org.apache.catalina.realm.LockOutRealm">
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
