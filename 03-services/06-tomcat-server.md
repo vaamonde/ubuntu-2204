@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 12/12/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 19/12/2023<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
@@ -193,7 +193,10 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 	sudo vim /opt/tomcat/conf/tomcat-users.xml
 	INSERT
 
-		#alterar a partir da linha: 31
+		#alterar a partir da linha: 30
+		<!-- Configuração do Usuário, Senha e Papéis do administrador do Servidor Web Tomcat -->
+		<!-- Para criar novos usuários no Apache TomCAT Server copiar a linha abaixo e colar -->
+		<!-- na próxima linha alterando o nome, senha e papeis do usuário -->
 		<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 
 	#salvar e sair do arquivo
