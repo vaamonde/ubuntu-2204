@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 16/12/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 19/12/2023<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -269,8 +269,12 @@ COMPASS (VEJA O SITE W3SCHOOLS).
 
 #19_ DESAFIO-02: CONHECER O PROJETO: MongoDB Atlas, FAZER O CADASTRO NO SITE OFFICIAL PARA A 
 CRIAÇÃO DE UMA CONTA FREE NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A
-OPÇÃO: LEARN FREE, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZENDO A CRIAÇÃO DO MESMO BANCO
-DE DADOS DO DESAFIO-O1, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE.
+OPÇÃO: LEARN FREE, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO
+DE DADOS DO DESAFIO-O1, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. OBSERVAÇÃO: VEJA A
+DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: MongoDB for VS Code, CUIDADO PRINCIPALMENTE COM AS
+OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
+
+https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
 
 =========================================================================================
 
