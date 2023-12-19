@@ -52,6 +52,10 @@ implementa, dentre outras de menor relevância, as tecnologias Java Servlet e Ja
 Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation,<br> 
 é distribuído como software livre.
 
+[![Apache TomCAT](http://img.youtube.com/vi/TcC7cijfub0/0.jpg)](https://www.youtube.com/watch?v=TcC7cijfub0 "Apache TomCAT")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
+
 #01_ Instalando as Dependências do Apache Tomcat Server<br>
 
 	#atualizando as lista do apt

@@ -333,8 +333,8 @@ Conteúdo estudado nesse desafio:<br>
 #14_ Acessando o Apache TomCAT Server via Navegador;<br>
 #15_ Desafios do Servidor de Aplicação Apache TomCAT Server.
 
-[![Apache Tomcat](http://img.youtube.com/vi//0.jpg)]( "Apache Tomcat")
+[![Apache Tomcat](http://img.youtube.com/vi/TcC7cijfub0/0.jpg)](https://www.youtube.com/watch?v=TcC7cijfub0 "Apache Tomcat")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/06-tomcat-server.md
