@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 08/11/2023<br>
-#Versão: 0.09<br>
+#Data de atualização: 19/12/2023<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
@@ -47,17 +47,28 @@ Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribui
 de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas<br>
 web estáticas e outros recursos que, juntos, constituem uma aplicação web.
 
+[![WAR TomCAT](http://img.youtube.com/vi//0.jpg)]( "WAR TomCAT")
+
+Link da vídeo aula:
+
 #01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
 
+	#OBSERVAÇÃO IMPORTANTE: o projeta da Agenda desenvolvida em JavaEE do Prof.
+	#José de Assis no seu Github está desatualizado, o projeto que está no Github
+	#foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse
+	#problema ele compilou um no WAR que está no meu Github para essa aula.
+	
 	Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 	Clique em: Releases
 		Em assets, clique em: agenda.war para fazer o Download.
 
-#02_ Acessando o Apache Tomcat pelo Navegador<br>
+	LINK DE DOWNLOAD DOS ARQUIVOS WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
+
+#02_ Acessando o Apache TomCAT Server pelo Navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 
-#03_ Fazendo o Deploy da Aplicação no Apache Tomcat<br>
+#03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache TomCAT Server<br>
 
 	Clique em: Manager App
 		Usuário padrão: admin
@@ -119,7 +130,7 @@ exit
 		exit
 
 
-#06_ Fazendo o Backup e Restore do Banco de Dados MySQL Server<br>
+#06_ Fazendo o Backup e Restore do Banco de Dados DBAGenda no MySQL Server<br>
 
 	#opções do comando mysqldump: -u (user), -p (password)
 	sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql

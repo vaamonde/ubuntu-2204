@@ -42,6 +42,10 @@ Netdata é uma ferramenta de código aberto projetada para coletar métricas em 
 como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e<br>
 exibi-las em gráficos ao vivo e fáceis de interpretar.
 
+[![Netdata Server](http://img.youtube.com/vi//0.jpg)]( "Netdata Server")
+
+Link da vídeo aula:
+
 #01_ Instalando as Dependências do Netdata Server<br>
 
 	#atualizando as lista do apt

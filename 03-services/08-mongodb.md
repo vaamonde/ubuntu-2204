@@ -38,13 +38,18 @@ Conteúdo estudado nesse desafio:<br>
 #14_ Desafios do Banco de Dados MongoDB Server.
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
-Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass
+Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass<br>
+Site Oficial da MongoDB Atlas: https://www.mongodb.com/atlas/database
 
 Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
 
 MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e<br>
 multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados<br>
 NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
+
+[![MongoDB Server](http://img.youtube.com/vi//0.jpg)]( "MongoDB Server")
+
+Link da vídeo aula:
 
 #01_ Instalando as Dependências do MongoDB Server<br>
 

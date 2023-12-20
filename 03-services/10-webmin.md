@@ -39,6 +39,10 @@ O Webmin é um painel de controle de gerenciamento de servidor baseado na web pa
 operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via<br>
 navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
+[![Webmin](http://img.youtube.com/vi//0.jpg)]( "Webmin")
+
+Link da vídeo aula:
+
 #01_ Instalando as Dependências do Webmin<br>
 
 	#atualizando as lista do apt
