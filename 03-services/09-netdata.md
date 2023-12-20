@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 16/12/2023<br>
-#Versão: 0.04<br>
+#Data de atualização: 20/12/2023<br>
+#Versão: 0.05<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -56,7 +56,7 @@ Link da vídeo aula:
 	zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python3 python3-mysqldb python3-pip \
 	python3-dev libmysqlclient-dev libuv1-dev netcat libwebsockets16 libwebsockets-dev libjson-c-dev libbpfcc-dev \
 	liblz4-dev libjudy-dev libelf-dev libmnl-dev autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler \
-	lm-sensors python3-psycopg2 python3-pymysql
+	lm-sensors python3-psycopg2 python3-pymysql libssl-dev libprotobuf-dev g++
 
 #02_ Clonando o projeto do Netdata Server do Github<br>
 
@@ -64,10 +64,11 @@ Link da vídeo aula:
 	#opção do comando git clone: --recurse-submodules (initialize and clone submodules within based on the provided pathspec)
 	#opção do comando git clone: --depth (create a shallow clone with a history truncated to the specified number of commits)
 	git clone --recurse-submodules https://github.com/netdata/netdata --depth=100
+	#git clone --recursive https://github.com/netdata/netdata.git --depth=100 
 
 #03_ Compilando e Instalando o Netdata Server<br>
 
-	#acessando o diretório clonado e instalando o Netdata
+	#acessando o diretório clonado e instalando o Netdata Server
 	#opção do ./: execução de script desenvolvido em Shell Script .sh
 	cd netdata/
 		sudo ./netdata-installer.sh
@@ -75,13 +76,13 @@ Link da vídeo aula:
 
 #04_ Verificando o Serviço e Versão do Netdata Server<br>
 
-	#verificando o serviço do Netdata
+	#verificando o serviço do Netdata Server
 	sudo systemctl status netdata
 	sudo systemctl restart netdata
 	sudo systemctl stop netdata
 	sudo systemctl start netdata
 
-	#verificando a versão do Netdata
+	#verificando a versão do Netdata Server
 	#opção do comando netdata: -v (version)
 	sudo netdata -v
 
@@ -90,41 +91,12 @@ Link da vídeo aula:
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 
-#06_ Habilitando as atualizações do Netdata Server
+#06_ Habilitando as atualizações do Netdata Server<br>
 
-	#habilitando o suporte para atualização do Netdata
+	#habilitando o suporte para atualização do Netdata Server
 	sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 
-#07_ Localização dos Arquivos de Configuração do Netdata Server<br>
-
-	/etc/netdata/netdata.conf                      <-- arquivo de configuração do serviço do Netdata Server
-	/etc/netdata/apps_groups.conf                  <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
-	/usr/lib/netdata/conf.d/python.d/apache.conf   <-- arquivo de monitoramento do Apache2 Server
-	/usr/lib/netdata/conf.d/python.d/mongodb.conf  <-- arquivo de monitoramento do MongoDB Server
-	/usr/lib/netdata/conf.d/python.d/mysql.conf    <-- arquivo de monitoramento do MySQL Server
-	/usr/lib/netdata/conf.d/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
-
-#08_ Atualizando os arquivos de configuração do Netdata Server<br>
-
-	#download dos arquivos de configuração dos monitoramento de serviços customizados
-	#opção do comando wget: -v (verbose), -O (output file)
-
-	#arquivo de configuração dos grupos de aplicativos do Netdata
-	sudo wget -v -O /etc/netdata/apps_groups.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/apps_groups.conf
-
-	#arquivo de monitoramento do Apache2 Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/apache.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/apache.conf
-
-	#arquivo de monitoramento do MongoDB Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/mongodb.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mongodb.conf
-
-	#arquivo de monitoramento do MySQL Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/mysql.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mysql.conf
-
-	#arquivo de monitoramento do Apache Tomcat Server
-	sudo wget -v -O /usr/lib/netdata/conf.d/python.d/tomcat.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat.conf
-
-#09_ Criando o usuário de monitoramento do MySQL Server do Netdata Server<br>
+#07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -139,7 +111,22 @@ Link da vídeo aula:
 		FLUSH PRIVILEGES;
 		exit
 
-#10_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
+#08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server<br>
+
+	#opção do comando mongosh: admin (database) -u (username), -p (password)
+	mongosh admin -u admin -p
+
+		db.createUser({
+			"user":"netdata",
+			"pwd": "netdata",
+			"roles" : [
+			{role: 'read', db: 'admin' },
+			{role: 'clusterMonitor', db: 'admin'},
+			{role: 'read', db: 'local' }
+			]
+		})
+
+#09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G netdata $USER
@@ -148,6 +135,59 @@ Link da vídeo aula:
 	
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
+
+#07_ Localização dos Arquivos de Configuração do Netdata Server<br>
+
+	/etc/netdata/netdata.conf                      <-- arquivo de configuração do serviço do Netdata Server
+	/etc/netdata/apps_groups.conf                  <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
+	/usr/lib/netdata/conf.d/python.d/apache.conf   <-- arquivo de monitoramento do Apache2 Server
+	/usr/lib/netdata/conf.d/python.d/mongodb.conf  <-- arquivo de monitoramento do MongoDB Server
+	/usr/lib/netdata/conf.d/python.d/mysql.conf    <-- arquivo de monitoramento do MySQL Server
+	/usr/lib/netdata/conf.d/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
+
+#08_ Configurando os Serviços de Monitoramento do Netdata Server<br>
+
+	#OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
+	#Netdata Server, os arquivo de configuração são baseados na Linguagem de Programação
+	#Python utilizando o conceito do YAML (YAML Ain't Markup Language), não se utiliza TAB
+	#sempre utilizar 02 (dois) espaços para endentar o código.
+
+	#acessando o diretório de configuração do Netdata Server
+	cd /etc/netdata/
+
+	#configuração do serviço de monitoramento do Apache Server
+	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
+	sudo ./edit-config go.d/apache.conf
+
+	jobs:
+	  - name: wsvaamonde
+	    url: http://localhost/server-status?auto
+	
+	#configuração do serviço de monitoramento do Apache TomCAT Server
+	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
+	sudo ./edit-config python.d/tomcat.conf
+
+	jobs:
+	  - name: wsvaamonde
+	    url: http://localhost:8080/manager/status?XML=true
+	    user: admin
+	    pass: pti@2018
+
+	#configuração do serviço de monitoramento do MySQL Server
+	#https://learn.netdata.cloud/docs/data-collection/databases/mysql
+	sudo ./edit-config go.d/mysql.conf
+
+	jobs:
+	  - name: local
+	    dsn: netdata@tcp(127.0.0.1:3306)/
+
+	#configuração do serviço de monitoramento do MongoDB Server
+	#https://learn.netdata.cloud/docs/data-collection/databases/mongodb
+	sudo ./edit-config go.d/mongodb.conf
+
+	jobs:
+	  - name: local
+	    uri: mongodb://netdata:netdata@localhost:27017
 
 #11_ Acessando e configurando o Netdata Server no navegador<br>
 

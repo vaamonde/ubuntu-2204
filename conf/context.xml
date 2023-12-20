@@ -10,8 +10,8 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Data de criação: 19/01/2023
-#Data de atualização: 19/11/2023
-#Versão: 0.03
+#Data de atualização: 20/12/2023
+#Versão: 0.04
 -->
 <!-- O conteúdo deste arquivo será carregado para cada aplicação web -->
 <Context antiResourceLocking="false" privileged="true" >
@@ -29,6 +29,10 @@
   <CookieProcessor className="org.apache.tomcat.util.http.Rfc6265CookieProcessor"
                    sameSiteCookies="strict" />
   <!-- Configuração da Classe de Acesso remoto do Servidor Apache Tomcat -->
+  <!-- Na variável allow="" você adiciona as redes que serão permitidas o acesso
+       no Apache TomCAT Server e dos seus Webapps, caso você queira liberar todas
+	   as redes pode trocar os valores das sub-redes por: allow=".*"
+  -->
   <Valve className="org.apache.catalina.valves.RemoteAddrValve"
 		 allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1|10\.\d+\.\d+\.\d+|172\.\d+\.\d+\.\d+|192\.\d+\.\d+\.\d+" />
   <Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/>
