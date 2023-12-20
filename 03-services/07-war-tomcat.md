@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 19/12/2023<br>
-#Versão: 0.10<br>
+#Data de atualização: 20/12/2023<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
@@ -53,7 +53,7 @@ Link da vídeo aula:
 
 #01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
 
-	#OBSERVAÇÃO IMPORTANTE: o projeta da Agenda desenvolvida em JavaEE do Prof.
+	#OBSERVAÇÃO IMPORTANTE: o projeto da Agenda desenvolvida em JavaEE do Prof.
 	#José de Assis no seu Github está desatualizado, o projeto que está no Github
 	#foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse
 	#problema ele compilou um no WAR que está no meu Github para essa aula.
@@ -62,7 +62,7 @@ Link da vídeo aula:
 	Clique em: Releases
 		Em assets, clique em: agenda.war para fazer o Download.
 
-	LINK DE DOWNLOAD DOS ARQUIVOS WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
+	LINK DE DOWNLOAD DO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
 #02_ Acessando o Apache TomCAT Server pelo Navegador<br>
 
@@ -129,20 +129,62 @@ exit
 		DESC contatos;
 		exit
 
+#06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros<br>
 
-#06_ Fazendo o Backup e Restore do Banco de Dados DBAGenda no MySQL Server<br>
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
-	#opções do comando mysqldump: -u (user), -p (password)
+#07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server<br>
+
+	#fazendo o backup do banco de dados DBAgenda
+	#opções do comando mysqldump: -u (user), -p (password), database
+	#opção do redirecionador de saída >: Redireciona a saída padrão (STDOUT)
 	sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
 
 	#verificando o conteúdo do arquivo backupeado 
 	sudo less bkp-dbagenda.sql
 
-#07_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Sample Web Application DO PROJETO 
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u dbagenda -p
+
+		#comandos básicos de verificação da base de dados e tabelas do MySQL
+		SHOW DATABASES;
+		USE dbagenda;
+		SHOW TABLES;
+
+		#verificando todos os registros da Tabela Contatos
+		SELECT * FROM contatos;
+
+		#removendo todos os registros da Tabela Contatos
+		TRUNCATE TABLE contatos;
+		SELECT * FROM contatos;
+		exit
+	
+	#restaurando o backup do banco de dados DBAgenda
+	#opções do comando mysqldump: -u (user), -p (password)
+	#opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
+	sudo mysqldump -u root -p dbagenda < bkp-dbagenda.sql
+
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u dbagenda -p
+
+		#comandos básicos de verificação da base de dados e tabelas do MySQL
+		SHOW DATABASES;
+		USE dbagenda;
+		SHOW TABLES;
+
+		#verificando todos os registros da Tabela Contatos
+		SELECT * FROM contatos;
+		exit
+
+#08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Sample Web Application DO PROJETO 
 DO GITHUB: https://github.com/AKSarav/SampleWebApp/ - APÓS O DEPLOY SERÁ CRIADO O LINK DO APP:
 http://endereço_ipv4_ubuntuserver:8080/SampleWebApp
 
 LINK DO ARQUIVO WAR: https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+
+#09_ DESAFIO-09: ADICIONAR OS LINKS DOS DESAFIOS DO TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS
+PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS
+TECNOLOGIAS ESTUDAS ATÉ AGORA.
 
 =========================================================================================
 
