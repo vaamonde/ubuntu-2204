@@ -136,7 +136,7 @@ Link da vídeo aula:
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#07_ Localização dos Arquivos de Configuração do Netdata Server<br>
+#10_ Localização dos Arquivos de Configuração do Netdata Server<br>
 
 	/etc/netdata/netdata.conf                      <-- arquivo de configuração do serviço do Netdata Server
 	/etc/netdata/apps_groups.conf                  <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
@@ -145,7 +145,7 @@ Link da vídeo aula:
 	/usr/lib/netdata/conf.d/python.d/mysql.conf    <-- arquivo de monitoramento do MySQL Server
 	/usr/lib/netdata/conf.d/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
 
-#08_ Configurando os Serviços de Monitoramento do Netdata Server<br>
+#11_ Configurando os Serviços de Monitoramento do Netdata Server<br>
 
 	#OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
 	#Netdata Server, os arquivo de configuração são baseados na Linguagem de Programação
@@ -189,7 +189,7 @@ Link da vídeo aula:
 	  - name: wsvaamonde
 	    uri: mongodb://netdata:netdata@localhost:27017
 
-#11_ Acessando e configurando o Netdata Server no navegador<br>
+#12_ Acessando e configurando o Netdata Server no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 

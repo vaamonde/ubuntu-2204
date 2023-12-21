@@ -68,7 +68,7 @@ Link da vídeo aula:
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 
-	#download da Chave GPG do MmongoDB Server
+	#download da Chave GPG do MongoDB Server
 	#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as
 	#chaves GPG de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)

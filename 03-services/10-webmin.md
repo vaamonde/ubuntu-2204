@@ -124,6 +124,10 @@ Link da vídeo aula:
 	Webmin
 		Ícone: Day/night mode toggle (Alt + L)
 
+	#Conectando no Banco de Dados MySQL Server
+	Webmin
+		
+
 #10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
 ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN
 PARA O UBUNTU SERVER
