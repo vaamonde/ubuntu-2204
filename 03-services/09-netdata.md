@@ -117,7 +117,7 @@ Link da vídeo aula:
 	mongosh admin -u admin -p
 
 		db.createUser({
-			"user":"netdata",
+			"user": "netdata",
 			"pwd": "netdata",
 			"roles" : [
 			{role: 'read', db: 'admin' },
@@ -178,7 +178,7 @@ Link da vídeo aula:
 	sudo ./edit-config go.d/mysql.conf
 
 	jobs:
-	  - name: local
+	  - name: wsvaamonde
 	    dsn: netdata@tcp(127.0.0.1:3306)/
 
 	#configuração do serviço de monitoramento do MongoDB Server
@@ -186,7 +186,7 @@ Link da vídeo aula:
 	sudo ./edit-config go.d/mongodb.conf
 
 	jobs:
-	  - name: local
+	  - name: wsvaamonde
 	    uri: mongodb://netdata:netdata@localhost:27017
 
 #11_ Acessando e configurando o Netdata Server no navegador<br>
@@ -199,6 +199,9 @@ https://www.youtube.com/watch?v=5MrH8L5cSIU
 
 #13_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
 GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+
+#14_ DESAFIO-03: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL
+A TODOS OS DESAFIOS ATÉ AGORA.
 
 =========================================================================================
 
