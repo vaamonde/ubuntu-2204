@@ -160,7 +160,7 @@ exit
 		exit
 	
 	#restaurando o backup do banco de dados DBAgenda
-	#opções do comando mysqldump: -u (user), -p (password)
+	#opções do comando mysql: -u (user), -p (password)
 	#opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
 	sudo mysql -u root -p dbagenda < bkp-dbagenda.sql
 

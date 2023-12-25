@@ -15,6 +15,6 @@ Network: 172.16.1.0/24
 CIDR: 24 (255.255.255.0)
 IP Address Server: 172.16.1.20
 IP Address Gateway: 172.16.1.254
-IP Address DNS: 8.8.8.8, 8.8.4.4, 172.16.1.254, 172.16.1.20
-Hostname: ptispo01ws01
+IP Address DNS: 8.8.8.8, 8.8.4.4,
+Hostname: wsvaamonde
 Domain: pti.intra

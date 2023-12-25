@@ -10,7 +10,7 @@
 #Data de atualização: 20/12/2023<br>
 #Versão: 0.05<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
@@ -162,6 +162,8 @@ Link da vídeo aula:
 	jobs:
 	  - name: wsvaamonde
 	    url: http://localhost/server-status?auto
+
+	#salvar e sair do arquivo
 	
 	#configuração do serviço de monitoramento do Apache TomCAT Server
 	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
@@ -189,6 +191,19 @@ Link da vídeo aula:
 	  - name: wsvaamonde
 	    uri: mongodb://netdata:netdata@localhost:27017
 
+	#configuração do serviço de monitoramento do ICMP Ping
+	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
+	sudo ./edit-config go.d/ping.conf
+
+	#configuração do serviço de monitoramento das Portas TCP Endpoint
+	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
+	sudo ./edit-config go.d/portcheck.conf
+
+
+	#reinicializar o serviço do Netdata Server
+	sudo systemctl restart netdata
+	sudo systemctl status netdata
+
 #12_ Acessando e configurando o Netdata Server no navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
@@ -201,11 +216,11 @@ https://www.youtube.com/watch?v=5MrH8L5cSIU
 GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
 #14_ DESAFIO-03: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL
-A TODOS OS DESAFIOS ATÉ AGORA.
+A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
