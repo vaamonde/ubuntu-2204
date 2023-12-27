@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 20/12/2023<br>
-#Versão: 0.05<br>
+#Data de atualização: 27/12/2023<br>
+#Versão: 0.06<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -63,8 +63,7 @@ Link da vídeo aula:
 	#clonando o projeto do Github do Netdata
 	#opção do comando git clone: --recurse-submodules (initialize and clone submodules within based on the provided pathspec)
 	#opção do comando git clone: --depth (create a shallow clone with a history truncated to the specified number of commits)
-	git clone --recurse-submodules https://github.com/netdata/netdata --depth=100
-	#git clone --recursive https://github.com/netdata/netdata.git --depth=100 
+	git clone --recursive https://github.com/netdata/netdata.git --depth=100 
 
 #03_ Compilando e Instalando o Netdata Server<br>
 
@@ -109,6 +108,11 @@ Link da vídeo aula:
 
 		#fazendo o flush das permissões e saindo do MySQL
 		FLUSH PRIVILEGES;
+
+		#verificando o usuário do Netdata criado no MySQL
+		SELECT user,host FROM mysql.user;
+
+		#saindo do MySQL
 		exit
 
 #08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server<br>
@@ -116,6 +120,7 @@ Link da vídeo aula:
 	#opção do comando mongosh: admin (database) -u (username), -p (password)
 	mongosh admin -u admin -p
 
+		#criando o usuário de monitoramento do Netdata
 		db.createUser({
 			"user": "netdata",
 			"pwd": "netdata",
@@ -125,6 +130,13 @@ Link da vídeo aula:
 			{role: 'read', db: 'local' }
 			]
 		})
+
+		#verificando o usuário criado no MongoDB
+		db.getUsers()
+		db.getUser("netdata")
+	
+		#saindo do MongoDB
+		quit
 
 #09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
 
@@ -138,12 +150,14 @@ Link da vídeo aula:
 
 #10_ Localização dos Arquivos de Configuração do Netdata Server<br>
 
-	/etc/netdata/netdata.conf                      <-- arquivo de configuração do serviço do Netdata Server
-	/etc/netdata/apps_groups.conf                  <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
-	/usr/lib/netdata/conf.d/python.d/apache.conf   <-- arquivo de monitoramento do Apache2 Server
-	/usr/lib/netdata/conf.d/python.d/mongodb.conf  <-- arquivo de monitoramento do MongoDB Server
-	/usr/lib/netdata/conf.d/python.d/mysql.conf    <-- arquivo de monitoramento do MySQL Server
-	/usr/lib/netdata/conf.d/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
+	/etc/netdata/netdata.conf           <-- arquivo de configuração do serviço do Netdata Server
+	/etc/netdata/apps_groups.conf       <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
+	/etc/netdata/go.d/apache.conf       <-- arquivo de monitoramento do Apache2 Server
+	/etc/netdata/go.d/mongodb.conf      <-- arquivo de monitoramento do MongoDB Server
+	/etc/netdata/go.d/mysql.conf        <-- arquivo de monitoramento do MySQL Server
+	/etc/netdata/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
+	/etc/netdata/go.d/ping.conf         <-- arquivo de monitoramento do ICMP Ping
+	/etc/netdata/go.d/portcheck.conf    <-- arquivo de monitoramento do Port Check
 
 #11_ Configurando os Serviços de Monitoramento do Netdata Server<br>
 
@@ -163,17 +177,40 @@ Link da vídeo aula:
 	  - name: wsvaamonde
 	    url: http://localhost/server-status?auto
 
+	  - name: wsvaamonde
+	    url: http://127.0.0.1/server-status?auto
+
 	#salvar e sair do arquivo
+	Ctrl + X
+		Save modified buffer? Y
+		File Name to Write: <Enter>
 	
 	#configuração do serviço de monitoramento do Apache TomCAT Server
 	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
 	sudo ./edit-config python.d/tomcat.conf
 
-	jobs:
-	  - name: wsvaamonde
-	    url: http://localhost:8080/manager/status?XML=true
-	    user: admin
-	    pass: pti@2018
+	localhost:
+	name : 'wsvaamonde'
+	url  : 'http://localhost:8080/manager/status?XML=true'
+	user : 'admin'
+	pass : 'pti@2018'
+
+	localipv4:
+	name : 'wsvaamonde'
+	url  : 'http://127.0.0.1:8080/manager/status?XML=true'
+	user : 'admin'
+	pass : 'pti@2018'
+
+	localipv6:
+	name : 'wsvaamonde'
+	url  : 'http://[::1]:8080/manager/status?XML=true'
+	user : 'admin'
+	pass : 'pti@2018'
+
+	#salvar e sair do arquivo
+	Ctrl + X
+		Save modified buffer? Y
+		File Name to Write: <Enter>
 
 	#configuração do serviço de monitoramento do MySQL Server
 	#https://learn.netdata.cloud/docs/data-collection/databases/mysql
@@ -183,6 +220,11 @@ Link da vídeo aula:
 	  - name: wsvaamonde
 	    dsn: netdata@tcp(127.0.0.1:3306)/
 
+	#salvar e sair do arquivo
+	Ctrl + X
+		Save modified buffer? Y
+		File Name to Write: <Enter>
+
 	#configuração do serviço de monitoramento do MongoDB Server
 	#https://learn.netdata.cloud/docs/data-collection/databases/mongodb
 	sudo ./edit-config go.d/mongodb.conf
@@ -191,14 +233,43 @@ Link da vídeo aula:
 	  - name: wsvaamonde
 	    uri: mongodb://netdata:netdata@localhost:27017
 
+	#salvar e sair do arquivo
+	Ctrl + X
+		Save modified buffer? Y
+		File Name to Write: <Enter>
+
 	#configuração do serviço de monitoramento do ICMP Ping
 	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
 	sudo ./edit-config go.d/ping.conf
+
+	jobs:
+	  - name: google 
+		hosts:
+		- 8.8.8.8
+
+	#salvar e sair do arquivo
+	Ctrl + X
+		Save modified buffer? Y
+		File Name to Write: <Enter>
 
 	#configuração do serviço de monitoramento das Portas TCP Endpoint
 	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
 	sudo ./edit-config go.d/portcheck.conf
 
+	jobs:
+	  - name: wsvaamodne
+	    host: 172.16.1.20
+	    ports: [22, 80, 3306, 8080, 19999, 27017]
+
+	#salvar e sair do arquivo
+	Ctrl + X
+		Save modified buffer? Y
+		File Name to Write: <Enter>
+
+	#verificando os arquivos de configuração do monitoramento criados
+	#opção do comando ls: -l (long listing), -h (human-readable)
+	ls -lh go.d/
+	ls -lh python.d/
 
 	#reinicializar o serviço do Netdata Server
 	sudo systemctl restart netdata

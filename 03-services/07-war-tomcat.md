@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 20/12/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 27/12/2023<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
@@ -97,6 +97,9 @@ GRANT USAGE ON *.* TO 'dbagenda'@'localhost';
 GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
 FLUSH PRIVILEGES;
 
+/* Verificando o Usuário Agenda criado no Banco de Dados MySQL Server*/
+SELECT user,host FROM mysql.user;
+
 /* Acessando o Banco de Dados DBAgenda */
 USE dbagenda;
 
@@ -176,15 +179,20 @@ exit
 		SELECT * FROM contatos;
 		exit
 
-#08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Sample Web Application DO PROJETO 
-DO GITHUB: https://github.com/AKSarav/SampleWebApp/ - APÓS O DEPLOY SERÁ CRIADO O LINK DO APP:
-http://endereço_ipv4_ubuntuserver:8080/SampleWebApp
+#08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Hello World DO PROJETO DO 
+GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO 
+O LINK DO APP: http://endereço_ipv4_ubuntuserver:8080/helloworld/
 
-LINK DO ARQUIVO WAR: https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+#09_ DESAFIO-02: DELETAR A BASE DE DADOS: dbagenda E O USUÁRIO: dbagenda DO MYSQL SERVER
+(VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP
+E TESTAR A CONEXÃO NO NAVEGADOR.
 
-#09_ DESAFIO-02: ADICIONAR OS LINKS DOS DESAFIOS DO TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS
-PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS
-TECNOLOGIAS ESTUDAS ATÉ AGORA.
+#10_ DESAFIO-03: FAZER O UNDEPLOY DA APLICAÇÃO: dbagenda E FAZER O DEPLOY NOVAMENTE,
+VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
+
+#11_ DESAFIO-04: ADICIONAR OS LINKS DOS DESAFIOS DO WAR TOMCAT DA AGENDA E DO SAMPLE NO 
+WORDPRESS PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO 
+DE TODAS AS TECNOLOGIAS ESTUDAS ATÉ AGORA.
 
 =========================================================================================
 

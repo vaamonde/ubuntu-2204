@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 19/12/2023<br>
-#Versão: 0.12<br>
+#Data de atualização: 27/12/2023<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -74,7 +74,7 @@ Link da vídeo aula:
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do comando gpg: -o (output)
-	curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o usr/share/keyrings/mongodb-server-7.0.gpg
+	curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg
 
 #03_ Criando o repositório do MongoDB Server<br>
 
@@ -181,16 +181,16 @@ Link da vídeo aula:
 	sudo vim /etc/mongod.conf
 	INSERT
 		
-		#habilitando o suporte remoto do MongoDB Server
+		#habilitando o suporte remoto do MongoDB Server na linha: 18
 		#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
 		net:
-			port: 27017
-			bindIp: 0.0.0.0
+		  port: 27017
+		  bindIp: 0.0.0.0
 		
-		#habilitando o recurso de autenticação do MongoDB Server
+		#habilitando o recurso de autenticação do MongoDB Server na linha: 28
 		#descomentar a linha: #security, adicionar o valor: authorization: enabled
 		security:
-			authorization: enabled
+		  authorization: enabled
 	
 	#salvar e sair do arquivo
 	ESC SHIFT :x <ENTER>
