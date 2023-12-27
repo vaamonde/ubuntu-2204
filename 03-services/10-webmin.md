@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 20/12/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 27/12/2023<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
@@ -51,7 +51,7 @@ Link da vídeo aula:
 	#instalando as dependências do Webmin
 	sudo apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime \
 	libio-pty-perl apt-show-versions python2 python3 unzip apt-transport-https \
-	software-properties-common
+	software-properties-common libdbi-perl libdbd-mysql-perl
 
 #02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
 
@@ -60,6 +60,7 @@ Link da vídeo aula:
 
 	#executando o script de adicionar o repositório
 	sudo sh setup-repos.sh
+		Setup repository? (y/N) y <Enter>
 
 #03_ Instalando o Webmin<br>
 
@@ -67,15 +68,14 @@ Link da vídeo aula:
 	sudo apt update
 
 	#instalando o Webmin
-	sudo apt install webmin
-		Setup Webmin official repository? (y/N) y <Enter>
+	sudo apt install --install-recommends webmin
 
 #04_ Habilitando o Serviço do Webmin<br>
 
 	#habilitando o serviço do Webmin
-	systemctl daemon-reload
-	systemctl enable webmin
-	systemctl start webmin
+	sudo systemctl daemon-reload
+	sudo systemctl enable webmin
+	sudo systemctl start webmin
 
 #05_ Verificando o Serviço e Versão do Webmin<br>
 
@@ -97,6 +97,7 @@ Link da vídeo aula:
 
 #07_ Localização dos diretórios principais do Webmin<br>
 
+	/etc/webmin/*  <-- Diretório dos arquivos de Configuração do serviço do Webmin
 	/var/webmin/*  <-- Diretório dos arquivos de Log's do serviço do Webmin
 
 #08_ Testando o Webmin no navegador<br>
@@ -117,15 +118,21 @@ Link da vídeo aula:
 	Webmin
 		Webmin Configuration
 			Language and Locale
-				Lannguage: português (Brasil)
+				Language: português (Brasil)
+				Locale: português (Brasil)
 			<Change Language>
 	
 	#Alterando o Tema para Night/Black do Webmin
 	Webmin
-		Ícone: Day/night mode toggle (Alt + L)
+		Ícone: Day/night mode toggle (atalho: Alt + L)
 
 	#Conectando no Banco de Dados MySQL Server
 	Webmin
+		Servidores
+			Servidor de base de dados MySQL
+				Usuário: root
+				Senha: pti@2018
+				<Salvar>
 		
 
 #10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
