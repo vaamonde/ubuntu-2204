@@ -338,3 +338,70 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/06-tomcat-server.md
+
+# **🤩🤩 Deploy de Aplicação WAR Apache TomCAT 10 no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de Deploy de uma Aplicação desenvolvida em JavaEE rodando no Apache TomCAT 10 no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar uma aplicação JavaEE no Apache TomCAT Server e fazer a conexão com o Banco de Dados MySQL Server.
+
+Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribuir uma coleção de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas e outros recursos que, juntos, constituem uma aplicação web.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/07-tomcat-war.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiotomcat #desafiowartomcat
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Acessando o Projeto do Github do Prof. José de Assis;<br>
+#02_ Download da Aplicação Java Web do Github;<br>
+#03_ Acessando e fazendo o Deploy da Aplicação no Apache TomCAT Server;<br>
+#04_ Verificando o Status e Acesso a Aplicação Java Web;<br>
+#05_ Criando o Banco de Dados e Usuário da Aplicação Java Web;<br>
+#06_ Testando a Conexão com o Banco de Dados da Aplicação Java Web;<br>
+#07_ Fazendo o Backup do Banco de Dados Aplicação Java Web;<br>
+#08_ Acessando a Aplicação e Criando Registros de Contatos;<br>
+#09_ Desafio de Deploy de Aplicações Java Web no Apache TomCAT Server.
+
+[![WAR Tomcat](http://img.youtube.com/vi//0.jpg)]( "WAR Tomcat")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/07-war-tomcat.md
+
+# **🤩🤩 Configuração do MongoDB Server no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração do MongoDB Server no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e criar os primeiros Banco de Dados utilizando o MongoDB Server que é o servidor de Data Base No-SQL mais utilizado na Internet para desenvolvimento de API e aplicações rápidas.
+
+MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/08-mongodb.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiomongodb #desafiocompass
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalando as Dependências do MongoDB Server<br>
+#02_ Adicionando o Repositório do MongoDB Server<br>
+#03_ Instalando o MongoDB Server no Ubuntu Server<br>
+#04_ Verificando o Serviço e Versão do MongoDB Server<br>
+#05_ Verificando a Porta de Conexão do MongoDB Server<br>
+#06_ Diretórios e Arquivos de Configuração do MongoDB Server<br>
+#07_ Adicionando o Usuário Local no Grupo do MongoDB Server<br>
+#08_ Acessando o Console do MongoDB Server<br>
+#09_ Comandos Básicos do MongoDB Server<br>
+#10_ Criando o Usuário de Administração do MongoDB Server<br>
+#11_ Configurando o Acesso Remoto do MongoDB com Autenticação<br>
+#12_ Acessando o MongoDB Server com Compass GUI<br>
+#13_ Acessando o MongoDB Server com Visual Studio Code VSCode<br>
+#14_ Desafios do Banco de Dados MongoDB Server.
+
+[![MongoDB Server](http://img.youtube.com/vi//0.jpg)]( "MongoDB Server")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/08-mongodb.md
