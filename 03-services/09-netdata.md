@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 27/12/2023<br>
-#Versão: 0.06<br>
+#Data de atualização: 28/12/2023<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -52,16 +52,17 @@ Link da vídeo aula:
 	sudo apt update
 
 	#instalando as dependências do Netdata Server
-	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates \
-	zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python3 python3-mysqldb python3-pip \
-	python3-dev libmysqlclient-dev libuv1-dev netcat libwebsockets16 libwebsockets-dev libjson-c-dev libbpfcc-dev \
-	liblz4-dev libjudy-dev libelf-dev libmnl-dev autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler \
-	lm-sensors python3-psycopg2 python3-pymysql libssl-dev libprotobuf-dev g++
+	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https \
+	ca-certificates zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python3 \
+	python3-mysqldb python3-pip python3-dev libmysqlclient-dev libuv1-dev netcat libwebsockets16 \
+	libwebsockets-dev libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev \
+	autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 \
+	python3-pymysql libssl-dev libprotobuf-dev g++ flex bison
 
 #02_ Clonando o projeto do Netdata Server do Github<br>
 
 	#clonando o projeto do Github do Netdata
-	#opção do comando git clone: --recurse-submodules (initialize and clone submodules within based on the provided pathspec)
+	#opção do comando git clone: --recursive (initialize and clone submodules within based on the provided pathspec)
 	#opção do comando git clone: --depth (create a shallow clone with a history truncated to the specified number of commits)
 	git clone --recursive https://github.com/netdata/netdata.git --depth=100 
 
