@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
 #Data de atualização: 28/12/2023<br>
-#Versão: 0.07<br>
+#Versão: 0.08<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -174,6 +174,7 @@ Link da vídeo aula:
 	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
 	sudo ./edit-config go.d/apache.conf
 
+	#editar as informações a partir da linha: 8
 	jobs:
 	  - name: wsvaamonde
 	    url: http://localhost/server-status?auto
@@ -190,6 +191,7 @@ Link da vídeo aula:
 	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
 	sudo ./edit-config python.d/tomcat.conf
 
+	#editar as informações a partir da linha: 79
 	localhost:
 	name : 'wsvaamonde'
 	url  : 'http://localhost:8080/manager/status?XML=true'
@@ -217,6 +219,7 @@ Link da vídeo aula:
 	#https://learn.netdata.cloud/docs/data-collection/databases/mysql
 	sudo ./edit-config go.d/mysql.conf
 
+	#editar as informações a partir da linha: 52
 	jobs:
 	  - name: wsvaamonde
 	    dsn: netdata@tcp(127.0.0.1:3306)/
@@ -230,6 +233,7 @@ Link da vídeo aula:
 	#https://learn.netdata.cloud/docs/data-collection/databases/mongodb
 	sudo ./edit-config go.d/mongodb.conf
 
+	#editar as informações a partir da linha: 8
 	jobs:
 	  - name: wsvaamonde
 	    uri: mongodb://netdata:netdata@localhost:27017
@@ -243,6 +247,7 @@ Link da vídeo aula:
 	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
 	sudo ./edit-config go.d/ping.conf
 
+	#editar as informações a partir da linha: 10
 	jobs:
 	  - name: google 
 		hosts:
@@ -257,6 +262,7 @@ Link da vídeo aula:
 	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
 	sudo ./edit-config go.d/portcheck.conf
 
+	#editar as informações a partir da linha: 8
 	jobs:
 	  - name: wsvaamodne
 	    host: 172.16.1.20
