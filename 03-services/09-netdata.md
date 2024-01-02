@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 28/12/2023<br>
-#Versão: 0.08<br>
+#Data de atualização: 02/01/2024<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -57,7 +57,7 @@ Link da vídeo aula:
 	python3-mysqldb python3-pip python3-dev libmysqlclient-dev libuv1-dev netcat libwebsockets16 \
 	libwebsockets-dev libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev \
 	autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 \
-	python3-pymysql libssl-dev libprotobuf-dev g++ flex bison
+	python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap
 
 #02_ Clonando o projeto do Netdata Server do Github<br>
 
@@ -281,6 +281,22 @@ Link da vídeo aula:
 	#reinicializar o serviço do Netdata Server
 	sudo systemctl restart netdata
 	sudo systemctl status netdata
+
+	#verificando todos os serviços iniciados e rodando no Ubuntu Server
+	#opção do comando systemctl: list-units (List units that systemd currently has in memory)
+	#--type (list of unit types such as service and socket), --state (list of unit LOAD, SUB, 
+	#or ACTIVE states)
+	sudo systemctl list-units --type=service --state=running
+
+	#verificando todas as portas abertas no Ubuntu Server
+	#opção do comando nmap: -sS (scan TCP SYN), -sU (scans UDP)
+	#opção do comando grep: -i (ignore-case)
+	#opção do comando cat: -n (number line)
+	sudo nmap 172.16.1.20 -sS -sU | grep -i open | cat -n
+
+	#verificando todas as portas de serviços no Ubuntu Server
+	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+	sudo lsof -nP -iTCP:'22,80,3306,8080,19999,27017' -sTCP:LISTEN
 
 #12_ Acessando e configurando o Netdata Server no navegador<br>
 
