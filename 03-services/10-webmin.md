@@ -68,6 +68,7 @@ Link da vídeo aula:
 	sudo apt update
 
 	#instalando o Webmin
+	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 	sudo apt install --install-recommends webmin
 
 #04_ Habilitando o Serviço do Webmin<br>
@@ -137,7 +138,13 @@ Link da vídeo aula:
 
 #10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
 ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN
-GUI (Graphical User Interface) WEB PARA A ADMINISTRAÇÃO DO UBUNTU SERVER.
+GUI (Graphical User Interface) WEB PARA A ADMINISTRAÇÃO DO UBUNTU SERVER, COMENTAR NA
+DESCRIÇÃO DESSE VÍDEO.
+
+#11_ DESAFIO-02: ADICIONAR O MONITORAMENTO DAS PORTAS DO WEBMIN E DO COCKPIT NO NETDATA.
+
+#12_ DESAFIO-03: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN, 
+IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
 

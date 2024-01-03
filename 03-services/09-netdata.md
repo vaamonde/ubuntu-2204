@@ -292,6 +292,7 @@ Link da vídeo aula:
 	#opção do comando nmap: -sS (scan TCP SYN), -sU (scans UDP)
 	#opção do comando grep: -i (ignore-case)
 	#opção do comando cat: -n (number line)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	sudo nmap 172.16.1.20 -sS -sU | grep -i open | cat -n
 
 	#verificando todas as portas de serviços no Ubuntu Server
@@ -302,14 +303,14 @@ Link da vídeo aula:
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 
-#12_ DESAFIO-01: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
+#13_ DESAFIO-01: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
 INTEGRAÇÃO: 15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent, LINK:
 https://www.youtube.com/watch?v=5MrH8L5cSIU
 
-#13_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
+#14_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
 GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
-#14_ DESAFIO-03: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL
+#15_ DESAFIO-03: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL
 A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
