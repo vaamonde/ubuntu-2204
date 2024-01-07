@@ -364,9 +364,9 @@ Conteúdo estudado nesse desafio:<br>
 #08_ Acessando a Aplicação e Criando Registros de Contatos;<br>
 #09_ Desafio de Deploy de Aplicações Java Web no Apache TomCAT Server.
 
-[![WAR Tomcat](http://img.youtube.com/vi//0.jpg)]( "WAR Tomcat")
+[![WAR Tomcat](http://img.youtube.com/vi/DTduw0NKQvo/0.jpg)](https://www.youtube.com/watch?v=DTduw0NKQvo "WAR Tomcat")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/07-war-tomcat.md
 
@@ -400,8 +400,8 @@ Conteúdo estudado nesse desafio:<br>
 #13_ Acessando o MongoDB Server com Visual Studio Code VSCode<br>
 #14_ Desafios do Banco de Dados MongoDB Server.
 
-[![MongoDB Server](http://img.youtube.com/vi//0.jpg)]( "MongoDB Server")
+[![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/08-mongodb.md

@@ -41,15 +41,16 @@ Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass<br>
 Site Oficial da MongoDB Atlas: https://www.mongodb.com/atlas/database
 
-Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/
+Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/<br>
+Site Oficial do W3C School JSON: https://www.w3schools.com/js/js_json.asp
 
 MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e<br>
 multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados<br>
 NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
-[![MongoDB Server](http://img.youtube.com/vi//0.jpg)]( "MongoDB Server")
+[![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
 
-Link da vídeo aula:
+Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 #01_ Instalando as Dependências do MongoDB Server<br>
 
@@ -61,7 +62,7 @@ Link da vídeo aula:
 
 	#download da última versão do Libssl (link atualizado em 08/12/2023)
 	#OBSERVAÇÃO IMPORTANTE: o tempo todo o a Biblioteca Libssl sofre alteração, antes
-	#de faze o download do arquivo verifique a versão no link: hhttp://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
+	#de faze o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 	#opção do comando dpkg: -i (install)
 	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 	sudo dpkg -i libssl*.deb

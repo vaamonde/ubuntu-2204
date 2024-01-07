@@ -47,9 +47,9 @@ Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribui
 de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas<br>
 web estáticas e outros recursos que, juntos, constituem uma aplicação web.
 
-[![WAR TomCAT](http://img.youtube.com/vi//0.jpg)]( "WAR TomCAT")
+[![WAR TomCAT](http://img.youtube.com/vi/DTduw0NKQvo/0.jpg)](https://www.youtube.com/watch?v=DTduw0NKQvo "WAR TomCAT")
 
-Link da vídeo aula:
+Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 #01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
 
