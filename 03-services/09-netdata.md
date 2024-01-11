@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 02/01/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 11/01/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -42,9 +42,9 @@ Netdata é uma ferramenta de código aberto projetada para coletar métricas em 
 como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e<br>
 exibi-las em gráficos ao vivo e fáceis de interpretar.
 
-[![Netdata Server](http://img.youtube.com/vi//0.jpg)]( "Netdata Server")
+[![Netdata Server](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Server")
 
-Link da vídeo aula:
+Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 #01_ Instalando as Dependências do Netdata Server<br>
 
@@ -62,9 +62,10 @@ Link da vídeo aula:
 #02_ Clonando o projeto do Netdata Server do Github<br>
 
 	#clonando o projeto do Github do Netdata
-	#opção do comando git clone: --recursive (initialize and clone submodules within based on the provided pathspec)
-	#opção do comando git clone: --depth (create a shallow clone with a history truncated to the specified number of commits)
-	git clone --recursive https://github.com/netdata/netdata.git --depth=100 
+	#opção do comando git clone: --recurse-submodules (initialize and clone submodules within based 
+	#on the provided pathspec), --depth (create a shallow clone with a history truncated to the 
+	#specified number of commits)
+	git clone --recurse-submodules https://github.com/netdata/netdata --depth=100
 
 #03_ Compilando e Instalando o Netdata Server<br>
 
@@ -163,7 +164,7 @@ Link da vídeo aula:
 #11_ Configurando os Serviços de Monitoramento do Netdata Server<br>
 
 	#OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
-	#Netdata Server, os arquivo de configuração são baseados na Linguagem de Programação
+	#Netdata Server, os arquivos de configuração são baseados na Linguagem de Programação
 	#Python utilizando o conceito do YAML (YAML Ain't Markup Language), não se utiliza TAB
 	#sempre utilizar 02 (dois) espaços para endentar o código.
 
@@ -253,6 +254,10 @@ Link da vídeo aula:
 		hosts:
 		- 8.8.8.8
 
+	  - name: wsvaamonde 
+		hosts:
+		- 172.16.1.20
+
 	#salvar e sair do arquivo
 	Ctrl + X
 		Save modified buffer? Y
@@ -288,12 +293,15 @@ Link da vídeo aula:
 	#or ACTIVE states)
 	sudo systemctl list-units --type=service --state=running
 
+	#OBSERVAÇÃO IMPORTANTE: no vídeo as portas listadas com o comando: nmap só listou
+	#as portas conhecidas, para listar todas as portas adicionei a opção: -p-
+
 	#verificando todas as portas abertas no Ubuntu Server
-	#opção do comando nmap: -sS (scan TCP SYN), -sU (scans UDP)
+	#opção do comando nmap: -p- (port ranges all) -sS (scan TCP SYN), -sU (scans UDP)
 	#opção do comando grep: -i (ignore-case)
 	#opção do comando cat: -n (number line)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	sudo nmap 172.16.1.20 -sS -sU | grep -i open | cat -n
+	sudo nmap -p- 172.16.1.20 -sS -sU | grep -i open | cat -n
 
 	#verificando todas as portas de serviços no Ubuntu Server
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)

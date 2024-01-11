@@ -405,3 +405,38 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/08-mongodb.md
+
+# **🤩🤩 Configuração do Netdata Agent no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração do Netdata Agent no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o Sistema de Monitoramento em Tempo Real de Serviços, Portas e Recursos do nosso servidor Ubuntu Server utilizando o sistema Netdata Server.
+
+Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real,como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-netdata.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionetdata #desafionetdatacloud
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalação das Dependência do Netdata<br>
+#02_ Clonagem do Projeto do Netdata do Github<br>
+#03_ Compilação e Instalação do Netdata no Ubuntu Server<br>
+#04_ Verificando o Status do Serviço do Netdata<br>
+#05_ Verificando a Versão do Netdata<br>
+#06_ Verificando a Porta de Conexão do Netdata<br>
+#07_ Habilitando o Recurso de Auto-Atualização do Netdata<br>
+#08_ Arquivo e Diretórios de Configuração do Netdata<br>
+#09_ Atualização os Arquivos de Monitoramento de Serviços do Netdata<br>
+#10_ Criando o Usuário de Monitoramento do MySQL Server do Netdata<br>
+#11_ Adicionando o Usuário Local do Grupo do Netdata<br>
+#12_ Acessando o Netdata via Navegador<br>
+#13_ Desafio do Netdata Cloud<br>
+
+[![Netdata Agent](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Agent")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/09-netdata.md
