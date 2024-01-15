@@ -57,7 +57,7 @@ Ansible: é uma ferramenta de TI de código aberto para gerenciar, automatizar, 
 
 ================  PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER ================
 
-## **🤩🤩 Apresentação do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora  para Prática 🤩🤩**
+## **🤩🤩 Apresentação do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
 Vídeo de apresentação do NOVO Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
 
@@ -440,3 +440,47 @@ Conteúdo estudado nesse desafio:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/09-netdata.md
+
+# **🤩🤩 Configuração do Webmin no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
+
+Vídeo de configuração do Webmin no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de gerenciamento via Web do nosso servidor utilizando o Webm.
+
+O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-webmin.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
+
+Conteúdo estudado nesse desafio:<br>
+#01_ Instalando a Dependências do Webmin<br>
+#02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
+#03_ Instalando o Webmin no Ubuntu Server<br>
+#04_ Habilitando e Verificando o Serviço do Webmin<br>
+#05_ Verificando a Versão do Webmin<br>
+#06_ Verificando a Porta de Conexão do Webmin<br>
+#07_ Arquivos e Diretório de Configuração do Webmin<br>
+#08_ Acessando Webmin Via Navegador<br>
+#09_ Configurações Básicas do Webmin<br>
+#10_ Desafios do Webmin e Cockpit<br>
+
+[![Webmin](http://img.youtube.com/vi/QEpOrGZbEl8/0.jpg)](https://www.youtube.com/watch?v=QEpOrGZbEl8 "Webmin")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/10-webmin.md
+
+===================== FINALIZAÇÃO DO CURSO UBUNTU SERVER =====================
+
+## **🤩🤩 Finalização do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de finalização do NOVO Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
+
+Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologias como Docker, Kubernets, Ansible e muito mais.
+
+[![Finalização do Curso](http://img.youtube.com/vi//0.jpg)]( "Finalização do Curso")
+
+Link da vídeo aula:
