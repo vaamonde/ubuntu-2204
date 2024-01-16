@@ -481,6 +481,6 @@ Vídeo de finalização do Curso de Servidores GNU/Linux Ubuntu Server versão 2
 
 LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: [Certificado do Curso](https://forms.gle/wbiy4UhfEHp6Qqb59)
 
-[![Finalização do Curso](http://img.youtube.com/vi//0.jpg)]( "Finalização do Curso")
+[![Finalização do Curso](http://img.youtube.com/vi/0JB8GsmaVgQ/0.jpg)](https://www.youtube.com/watch?v=0JB8GsmaVgQ "Finalização do Curso")
 
-Link da vídeo aula:
+Link da vídeo aula: https://www.youtube.com/watch?v=0JB8GsmaVgQ
