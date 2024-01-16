@@ -55,8 +55,6 @@ Ansible: é uma ferramenta de TI de código aberto para gerenciar, automatizar, 
 ## **Playlist do YouTUBE com todos os Vídeos do GNU/Linux Ubuntu Server 22.04.x LTS:**
 🔴 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUM1-yu4qP9RZxoejgIfCxdI
 
-================  PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER ================
-
 ## **🤩🤩 Apresentação do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
 Vídeo de apresentação do NOVO Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
@@ -66,6 +64,8 @@ Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologi
 [![Apresentação do Curso](http://img.youtube.com/vi/kkhTHvZKQlM/0.jpg)](https://www.youtube.com/watch?v=kkhTHvZKQlM "Apresentação do Curso")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=kkhTHvZKQlM
+
+================ PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER ================
 
 ## **🤩🤩 Instalação do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX Projeto Bora para Prática 🤩🤩**
 
@@ -475,11 +475,11 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-ser
 
 ===================== FINALIZAÇÃO DO CURSO UBUNTU SERVER =====================
 
-## **🤩🤩 Finalização do NOVO CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Finalização do CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
-Vídeo de finalização do NOVO Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
+Vídeo de finalização do Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
 
-Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologias como Docker, Kubernets, Ansible e muito mais.
+LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: [![Certificado do Curso](https://forms.gle/wbiy4UhfEHp6Qqb59)]
 
 [![Finalização do Curso](http://img.youtube.com/vi//0.jpg)]( "Finalização do Curso")
 
