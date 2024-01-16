@@ -479,7 +479,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-ser
 
 Vídeo de finalização do Curso de Servidores GNU/Linux Ubuntu Server versão 22.04 do Projeto do Bora para Prática. O objetivo desse curso é mostrar os procedimentos básicos para baixar e instalar a versão do Ubuntu Server 22.04.x LTS em Máquina Virtual (ou em máquina física se preferir) no seu computador local, simulando um Servidor On-Premises (Servidor Local), fazer todas as configurações básicas e depois instalar e configurar os principais serviços de rede, com foco para Servidores Web tanto para Intranet, Extranet ou Internet.
 
-LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: [![Certificado do Curso](https://forms.gle/wbiy4UhfEHp6Qqb59)]
+LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: (https://forms.gle/wbiy4UhfEHp6Qqb59 "Certificado do Curso)
 
 [![Finalização do Curso](http://img.youtube.com/vi//0.jpg)]( "Finalização do Curso")
 
