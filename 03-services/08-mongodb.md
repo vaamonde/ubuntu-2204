@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 27/12/2023<br>
-#Versão: 0.13<br>
+#Data de atualização: 05/03/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -166,7 +166,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	{
 		user: "admin",
 		pwd: "pti@2018",
-		roles: [ "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase" ]
+		roles: [ "root", "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase", "clusterAdmin" ]
 	}
 	)
 
