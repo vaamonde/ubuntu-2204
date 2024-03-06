@@ -61,8 +61,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 
 	#download da última versão do Libssl (link atualizado em 06/03/2024)
-	#OBSERVAÇÃO IMPORTANTE: o tempo todo o a Biblioteca Libssl sofre alteração, antes
-	#de faze o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
+	#OBSERVAÇÃO IMPORTANTE: o tempo todo a Biblioteca Libssl sofre alteração, antes de faze o download do 
+	#arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 	#opção do comando dpkg: -i (install)
 	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 	sudo dpkg -i libssl*.deb
