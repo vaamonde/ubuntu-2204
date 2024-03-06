@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 05/03/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 06/03/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -60,11 +60,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	#instalando as dependências do MongoDB Server
 	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 
-	#download da última versão do Libssl (link atualizado em 08/12/2023)
+	#download da última versão do Libssl (link atualizado em 06/03/2024)
 	#OBSERVAÇÃO IMPORTANTE: o tempo todo o a Biblioteca Libssl sofre alteração, antes
 	#de faze o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 	#opção do comando dpkg: -i (install)
-	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
+	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 	sudo dpkg -i libssl*.deb
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
@@ -160,6 +160,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	
 	#alterar o database informe no MongoDB
 	use admin
+
+	#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
+	#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
+	#vídeos, no momento do desenvolvimento de aplicações utilizando o Node.JS junto com o recursos
+	#de conexão com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão",
+	#essa falha foi corrigida adicionando essas "Roles" e também na conexão com o Banco de Dados
+	#foi adicionado a opção: ?authSource=admin 
 
 	#criando o usuário admin e suas roles (papéis) do MongoDB
 	db.createUser(
