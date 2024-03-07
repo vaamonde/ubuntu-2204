@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
 #Data de atualização: 07/03/2024<br>
-#Versão: 0.01<br>
+#Versão: 0.02<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -97,20 +97,20 @@ Link da vídeo aula:
 /* Criando o Banco de Dados Zabbix */
 CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
-/* Criando o Usuário Zabbix com a Senha Zabbix do Banco de Dados Zabbix*/
+/* Criando o Usuário Zabbix com a Senha Zabbix do Banco de Dados Zabbix */
 CREATE USER 'zabbix'@'localhost' IDENTIFIED WITH mysql_native_password BY 'zabbix';
 GRANT USAGE ON *.* TO 'zabbix'@'localhost';
 GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
 FLUSH PRIVILEGES;
 
-/* Habilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server*/
+/* Habilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
 SET GLOBAL log_bin_trust_function_creators = 1;
 
 /* Listando os Bancos de Dados do MySQL */
 SHOW DATABASES;
 
-/* Verificando o Usuário Zabbix criado no Banco de Dados MySQL Server*/
-SELECT user,host FROM mysql.user;
+/* Verificando o Usuário Zabbix criado no Banco de Dados MySQL Server */
+SELECT user,host FROM mysql.user WHERE user='zabbix';
 
 /* Saindo do Banco de Dados */
 exit
@@ -134,23 +134,38 @@ exit
 
 #06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
 
-	 #importando o esquema e os dados iniciais do banco de dados do Zabbix
-	 #opções do comando mysql: -u (user), -p (password), zabbix (database)
-	 sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
-	 -uzabbix -pzabbix zabbix 
+	#OBSERVAÇÃO IMPORTANTE: ESSE PROCESSO DEMORA UM POUCO DEPENDENDO DO SEU HARDWARE
+
+	#importando o esquema e os dados iniciais do banco de dados do Zabbix
+	#opções do comando mysql: -u (user), -p (password), zabbix (database)
+	sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
+	-uzabbix -pzabbix zabbix 
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u zabbix -p
 
 ```sql
-/* Desabilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server*/
-SET GLOBAL log_bin_trust_function_creators = 0;
-
 /* Acessando o Banco de Dados Zabbix */
 USE zabbix;
 
-/* Verificando as Tabelas criadas pelo Script*/
+/* Verificando as Tabelas criadas pelo Script */
 SHOW TABLES;
+
+/* Verificando os Usuários criados pelo Script */
+SELECT username,passwd FROM users;
+
+/* Saindo do Banco de Dados */
+exit
+```
+
+	#Desabilitando a opção de CRiação de Função no MySQL Server
+
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u root -p
+
+```sql
+/* Desabilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
+SET GLOBAL log_bin_trust_function_creators = 0;
 
 /* Saindo do Banco de Dados */
 exit
@@ -162,7 +177,7 @@ exit
 	sudo vim /etc/zabbix/zabbix_server.conf
 	INSERT
 
-		#decomentar e alterar o valor da variável DBPassword= na linha: 129
+		#decomentar e alterar o valor da variável DBPassword= na linha: 131
 		DBPassword=zabbix
 	
 	#salvar e sair do arquivo
@@ -198,13 +213,45 @@ exit
 	sudo systemctl start zabbix-server zabbix-agent
 
 	#verificando a versão do Zabbix Server e Agent
-	#opção do comando dpkg-query: -W (show), -f (showformat), ${version} (package information), \n (newline)
-	sudo dpkg-query -W -f '${version}\n' zabbix-agent
-	sudo dpkg-query -W -f '${version}\n' zabbix-server-mysql
+	#opção do comando zabbix_server: -V (version)
+	#opção do comando zabbix_agentd: -V (version)
+	sudo zabbix_server -V
+	sudo zabbix_agentd -V
 
 #10_ Configurando o Zabbix Server via Navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
+
+	#Configuração inicial do Zabbix Server
+	Welcome to Zabbix 7.0
+		Default language: English (en_US)
+			<Next step>
+		Check of pre-requisites
+			<Next step>
+		Configure DB connection
+			Database type: MySQL
+			Database host: localhost
+			Database port: 0 (use default port)
+			Database name: zabbix
+			Store credentials in: Plain text
+			User: zabbix
+			Password: zabbix
+			<Next step>
+		Settings
+			Zabbix server name: wsvaamonde
+			Default time zone: (UTC-03:00) America/Sao_Paulo
+			Default theme: Dark
+			<Next step>
+		Pre-installation summary
+			<Next step>
+		Install
+			<Finish>
+
+	#Acessando o Painel de Gerenciamento do Zabbix Server
+	Username: Admin
+	Password: zabbix
+	Yes: Remember me for 30 days
+	<Sign in>
 
 #11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
 
@@ -213,9 +260,9 @@ exit
 
 #12_ Localização dos diretórios principais do Zabbix Server e Agent<br>
 
-	/etc/zabbix/*     <-- Diretório dos arquivos de Configuração do serviço do Zabbix
-	/var/log/zabbix*  <-- Diretório dos arquivos de Log's do serviço do Zabbix
-	/usr/share/zabbix <-- Diretório dos arquivos do Site do serviço do Zabbix
+	/etc/zabbix/*      <-- Diretório dos arquivos de Configuração do serviço do Zabbix
+	/var/log/zabbix*   <-- Diretório dos arquivos de Log's do serviço do Zabbix
+	/usr/share/zabbix* <-- Diretório dos arquivos do Site do serviço do Zabbix
 
 #13_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
 
