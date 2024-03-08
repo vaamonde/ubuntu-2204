@@ -266,6 +266,70 @@ exit
 
 #13_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
 
+	#Link de referência do download: https://www.zabbix.com/br/download_agents
+
+	Windows, Any, amd64, v6.4, No encryption, MSI: 6.4.12
+	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.12/zabbix_agent2_plugins-6.4.12-windows-amd64.msi
+
+	#Instalação Manual do Zabbix Agent para Microsoft
+	Pasta de Download
+		Welcome to the Zabbix Agent (64-bit) Setup Wizard <Next>
+		End-User License Agreement
+			On I accept the therms in the License Agreement <Next>
+		Custom Setup
+			On Zabbix Agent <Next>
+		Zabbix Agent service configuration
+			Host name: win10
+			Zabbix server IP/DNS: 172.16.1.20
+			Agent listen port: 10050
+			Server or Proxy for active checks: 172.16.1.20
+			Off Enable PSK
+			On Add agent location to the PATH <Next>
+		Ready to install Zabbix Agent (64-bit) <Install>
+			Zabbix Agent MSI package (64)-bit <Sim>
+		Completed the Zabbix Agent (64-bit) <Finish>
+	
+	#Verificação da instalação do Zabbix Agent no Powershell 
+	Powershell
+		hostname
+		netstat -an | findstr 10050
+		Get-Service Zabbix-Agent
+
+	#Link de referência do download: https://www.zabbix.com/br/download
+	
+	7.0 PRE-RELEASE, Ubuntu, 22.04 (Jammy), Agent 2
+	wget https://repo.zabbix.com/zabbix/6.5/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.5-1+ubuntu22.04_all.deb
+
+	#instalando o repositório do Zabbix Agent2
+	#opção do comandoo dpkg: -i (install)
+	sudo dpkg -i zabbix-release_6.5-1+ubuntu22.04_all.deb
+
+	#atualizando as lista do apt com o novo repositório do Zabbix Agent2
+	sudo apt update
+
+	#instalando o Zabbix Agent2
+	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+	sudo apt install --install-recommends zabbix-agent2 zabbix-agent2-plugin-*
+
+	#editando o arquivo de configuração do Zabbix Agent2
+	sudo vim /etc/zabbix/zabbix_agentd.conf
+	INSERT
+
+		#alterar as linhas 117, 171 e 182:
+		Server=172.16.1.20
+		ServerActive=172.16.1.20
+		Hostname=172.16.1.20
+	
+	#salvar e sair do arquivo
+	ESC SHFT : x <Enter>
+	
+	#habilitando o serviço do Zabbix Agent2
+	systemctl enable zabbix-agent2
+	systemctl restart zabbix-agent2
+
+	#verificando o serviço do Zabbix Agent2
+	sudo systemctl status zabbix-agent2
+
 #14_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
 
 #15_ DESAFIO-01: 
