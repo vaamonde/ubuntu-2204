@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 07/03/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 08/03/2024<br>
+#Versão: 0.03<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -56,7 +56,7 @@ Link da vídeo aula:
 	sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
 	software-properties-common git vim
 
-#02_ Adicionando o Repositório do Zabbixn no Ubuntu Server<br>
+#02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
 
 	#Link de referência do download: https://www.zabbix.com/download
 	
@@ -158,7 +158,7 @@ SELECT username,passwd FROM users;
 exit
 ```
 
-	#Desabilitando a opção de CRiação de Função no MySQL Server
+	#Desabilitando a opção de Criação de Função no MySQL Server
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -279,7 +279,7 @@ exit
 		Custom Setup
 			On Zabbix Agent <Next>
 		Zabbix Agent service configuration
-			Host name: win10
+			Host name: windows10
 			Zabbix server IP/DNS: 172.16.1.20
 			Agent listen port: 10050
 			Server or Proxy for active checks: 172.16.1.20
@@ -289,11 +289,12 @@ exit
 			Zabbix Agent MSI package (64)-bit <Sim>
 		Completed the Zabbix Agent (64-bit) <Finish>
 	
-	#Verificação da instalação do Zabbix Agent no Powershell 
+	#Verificação da instalação do Zabbix Agent no Powershell
+	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 	Powershell
 		hostname
-		netstat -an | findstr 10050
 		Get-Service Zabbix-Agent
+		netstat -an | findstr 10050
 
 	#Link de referência do download: https://www.zabbix.com/br/download
 	
@@ -301,11 +302,15 @@ exit
 	wget https://repo.zabbix.com/zabbix/6.5/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.5-1+ubuntu22.04_all.deb
 
 	#instalando o repositório do Zabbix Agent2
-	#opção do comandoo dpkg: -i (install)
+	#opção do comando dpkg: -i (install)
 	sudo dpkg -i zabbix-release_6.5-1+ubuntu22.04_all.deb
 
 	#atualizando as lista do apt com o novo repositório do Zabbix Agent2
 	sudo apt update
+
+	#instalando as dependências do Zabbix Agent2
+	sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
+	software-properties-common git vim
 
 	#instalando o Zabbix Agent2
 	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
@@ -318,7 +323,7 @@ exit
 		#alterar as linhas 117, 171 e 182:
 		Server=172.16.1.20
 		ServerActive=172.16.1.20
-		Hostname=172.16.1.20
+		Hostname=linuxmint213
 	
 	#salvar e sair do arquivo
 	ESC SHFT : x <Enter>
@@ -330,7 +335,55 @@ exit
 	#verificando o serviço do Zabbix Agent2
 	sudo systemctl status zabbix-agent2
 
+	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+	sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
+
 #14_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
+
+	#Criação dos Host GNU/Linux e Microsoft Windows no Zabbix Server
+	Data collection
+		Hosts
+			<Create host>
+				Host
+					Host name: linuxmint213
+					Visible name: linuxmint213
+					Templates: <Select>
+						Template group: <Select>
+							Templates/Operating systems
+							Linux by Zabbix agent <Select>
+					Host groups: <select>
+						Discovered hosts <Select>
+					Interfaces: Add:
+						Agent: 
+							DNS name: 172.16.1.
+							Connect to: DNS
+							Port: 10050
+					Description: Desktop Linux Mint 21.3
+					Monitored by proxy: (no proxy)
+					Enable: On
+				<Add>
+	
+	Data collection
+		Hosts
+			<Create host>
+				Host
+					Host name: windows10
+					Visible name: windows10
+					Templates: <Select>
+						Template group: <Select>
+							Templates/Operating systems
+							Windows by Zabbix agent <Select>
+					Host groups: <select>
+						Discovered hosts <Select>
+					Interfaces: Add:
+						Agent: 
+							DNS name: 172.16.1.
+							Connect to: DNS
+							Port: 10050
+					Description: Desktop Microsoft Windows 10
+					Monitored by proxy: (no proxy)
+					Enable: On
+				<Add>
 
 #15_ DESAFIO-01: 
 
