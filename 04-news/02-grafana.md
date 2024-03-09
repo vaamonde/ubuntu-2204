@@ -126,7 +126,7 @@ Link da vídeo aula:
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 
-#12_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
+#08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G grafana $USER
@@ -136,7 +136,7 @@ Link da vídeo aula:
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#08_ Localização dos diretórios principais do Grafana Server<br>
+#09_ Localização dos diretórios principais do Grafana Server<br>
 
 	/usr/share/grafana*        <-- Diretório do Site do Grafava Server
 	/var/log/grafana*          <-- Diretório dos arquivos de Log's do serviço do Grafana Server
@@ -144,7 +144,7 @@ Link da vídeo aula:
 	/etc/grafana/*             <-- Diretório das configurações do Grafana Server
 	/var/lib/grafana/plugins*  <-- Diretório dos Plugins do Grafana Server
 
-#09_ Configurando o Grafana Server via Navegador<br>
+#10_ Configurando o Grafana Server via Navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
@@ -159,7 +159,7 @@ Link da vídeo aula:
 		Confirm new password: pti@2018 
 	<Submit>
 
-#10_ Criando um Data Sources do MySQL Server no Grafana Server<br>
+#11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
 
 	#criando um Data Sources do Banco de Dados DBAgenda do MySQL Server
 	Open Menu
@@ -177,7 +177,7 @@ Link da vídeo aula:
 						<Save & Test>
 			Data Sources
 
-#11_ Criando um Dashboard do Banco de Dados DBAgenda<br>
+#12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
 
 	#criando o Dashboard do Banco de Dados DBAgenda
 	Open Menu

@@ -72,11 +72,11 @@ Link da vídeo aula:
 
 	#download do arquivo de serviço do Prometheus
 	#opção do comando wget: -v (verbose), -O (output file)
-	sudo wget -v -O /etc/systemd/system/prometheus.service 
+	sudo wget -v -O /etc/systemd/system/prometheus.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/prometheus.service
 
 	#download do arquivo de configuração padrão do Prometheus
 	#opção do comando wget: -v (verbose), -O (output file)
-	sudo wget -v -O /etc/prometheus/prometheus.yml
+	sudo wget -v -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/prometheus.yml
 
 #07_ Alterando as permissões de arquivos e diretórios do Prometheus<br>
 
@@ -105,7 +105,7 @@ Link da vídeo aula:
 	sudo systemctl enable prometheus
 	sudo systemctl start prometheus
 
-#09_ Verificando o Serviço e Versão do Prometheus<br>
+#10_ Verificando o Serviço e Versão do Prometheus<br>
 
 	#verificando o serviço do Prometheus
 	sudo systemctl status prometheus
@@ -116,7 +116,7 @@ Link da vídeo aula:
 	#verificando a versão do Prometheus
 	sudo prometheus --version
 
-#10_ Verificando a Porta de Conexão do Prometheus<br>
+#11_ Verificando a Porta de Conexão do Prometheus<br>
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
@@ -131,9 +131,10 @@ Link da vídeo aula:
 	#recomendado reinicializar a máquina para aplicar as permissões
 	sudo reboot
 
-#08_ Localização dos diretórios principais do Prometheus<br>
+#13_ Localização dos diretórios principais do Prometheus<br>
 
-	/usr/share/grafana*        <-- Diretório do Site do Grafava Server
+	/etc/prometheus/*      <-- Diretório de configuração do Prometheus
+	/var/lib/prometheus/*  <-- Diretório de armazenamento dos binários e dados do Prometheus
 
 
 #15_ DESAFIO-01: 
