@@ -54,7 +54,7 @@ Link da vídeo aula:
 
 	#instalando as dependências do Zabbix
 	sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
-	software-properties-common git vim
+	software-properties-common git vim fping
 
 #02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
 
