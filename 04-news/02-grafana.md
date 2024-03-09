@@ -126,6 +126,16 @@ Link da vídeo aula:
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 
+#12_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
+
+	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+	sudo usermod -a -G grafana $USER
+	newgrp grafana
+	id
+	
+	#recomendado reinicializar a máquina para aplicar as permissões
+	sudo reboot
+
 #08_ Localização dos diretórios principais do Grafana Server<br>
 
 	/usr/share/grafana*        <-- Diretório do Site do Grafava Server

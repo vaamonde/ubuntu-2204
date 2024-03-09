@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 08/03/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 09/03/2024<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -258,13 +258,23 @@ exit
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN
 
-#12_ Localização dos diretórios principais do Zabbix Server e Agent<br>
+#12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
+
+	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+	sudo usermod -a -G zabbix $USER
+	newgrp zabbix
+	id
+	
+	#recomendado reinicializar a máquina para aplicar as permissões
+	sudo reboot
+
+#13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
 
 	/etc/zabbix/*      <-- Diretório dos arquivos de Configuração do serviço do Zabbix
 	/var/log/zabbix*   <-- Diretório dos arquivos de Log's do serviço do Zabbix
 	/usr/share/zabbix* <-- Diretório dos arquivos do Site do serviço do Zabbix
 
-#13_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
+#14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
 
 	#Link de referência do download: https://www.zabbix.com/br/download_agents
 
@@ -338,7 +348,7 @@ exit
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
 
-#14_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
+#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
 
 	#Criação dos Host GNU/Linux e Microsoft Windows no Zabbix Server
 	Data collection
