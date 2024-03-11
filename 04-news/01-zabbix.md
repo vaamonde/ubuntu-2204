@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 09/03/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 11/03/2024<br>
+#Versão: 0.05<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -78,23 +78,24 @@ Link da vídeo aula:
 
 	#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server e necessário ter instalado e
 	#configurado de forma correto o MySQL Server e o Apache2 Server, no caso do Banco de Dados
-	#MySQL Server pode ficar em outro servidor (Recomendado).
+	#MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade
+	#de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
 
-	#atualizando as lista do apt com o novo repositório do Zabbix
+	#atualizando as lista do Apt com o novo repositório do Zabbix Server
 	sudo apt update
 
-	#instalando o Zabbix
+	#instalando o Zabbix Server e Agent
 	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 	sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
 	zabbix-sql-scripts zabbix-agent
 
-#04_ Criando a Base de Dados no MySQL Server do Zabbix Server<br>
+#04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
 ```sql
-/* Criando o Banco de Dados Zabbix */
+/* Criando o Banco de Dados Zabbix Server */
 CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 /* Criando o Usuário Zabbix com a Senha Zabbix do Banco de Dados Zabbix */
@@ -116,7 +117,7 @@ SELECT user,host FROM mysql.user WHERE user='zabbix';
 exit
 ```
 
-#05_ Testando o acesso a Base de Dados no MySQL Server do Zabbix Server<br>
+#05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server<br>
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u zabbix -p
@@ -136,7 +137,8 @@ exit
 
 	#OBSERVAÇÃO IMPORTANTE: ESSE PROCESSO DEMORA UM POUCO DEPENDENDO DO SEU HARDWARE
 
-	#importando o esquema e os dados iniciais do banco de dados do Zabbix
+	#importando o esquema e os dados iniciais do banco de dados do Zabbix Server
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	#opções do comando mysql: -u (user), -p (password), zabbix (database)
 	sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
 	-uzabbix -pzabbix zabbix 
@@ -171,13 +173,13 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 exit
 ```
 
-#07_ Editando os arquivos de Configurações do Zabbix Server e Agent<br>
+#07_ Editando os arquivos de Configuração do Zabbix Server e Agent<br>
 
 	#editando o arquivo de configuração do Zabbix Server
 	sudo vim /etc/zabbix/zabbix_server.conf
 	INSERT
 
-		#decomentar e alterar o valor da variável DBPassword= na linha: 131
+		#descomentar e alterar o valor da variável DBPassword= na linha: 131
 		DBPassword=zabbix
 	
 	#salvar e sair do arquivo
@@ -278,6 +280,10 @@ exit
 
 	#Link de referência do download: https://www.zabbix.com/br/download_agents
 
+	#OBSERVAÇÃO IMPORTANTE: ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O
+	#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4 DO 
+	#ZABBIX SERVER.
+
 	Windows, Any, amd64, v6.4, No encryption, MSI: 6.4.12
 	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.12/zabbix_agent2_plugins-6.4.12-windows-amd64.msi
 
@@ -308,14 +314,14 @@ exit
 
 	#Link de referência do download: https://www.zabbix.com/br/download
 	
-	7.0 PRE-RELEASE, Ubuntu, 22.04 (Jammy), Agent 2
+	SELECIONAR: 7.0 PRE-RELEASE, Ubuntu, 22.04 (Jammy), Agent 2
 	wget https://repo.zabbix.com/zabbix/6.5/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.5-1+ubuntu22.04_all.deb
 
 	#instalando o repositório do Zabbix Agent2
 	#opção do comando dpkg: -i (install)
 	sudo dpkg -i zabbix-release_6.5-1+ubuntu22.04_all.deb
 
-	#atualizando as lista do apt com o novo repositório do Zabbix Agent2
+	#atualizando as lista do Apt com o novo repositório do Zabbix Agent2
 	sudo apt update
 
 	#instalando as dependências do Zabbix Agent2

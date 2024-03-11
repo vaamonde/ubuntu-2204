@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 09/03/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 11/03/2024<br>
+#Versão: 0.03<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -48,16 +48,19 @@ Link da vídeo aula:
 	sudo apt update
 
 	#instalando as dependências do Grafana Server
-	sudo apt install apt-transport-https software-properties-common
+	sudo apt install apt-transport-https software-properties-common git vim
 
 #02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server<br>
 
 	#baixando a Chave GPG do Grafana Server
-	#opção do comando wget: -q (), -O ()
+	#opção do comando wget: -q (quiet), -O (output-document)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
 	sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
 
 	#adicionando o Repositório do Grafana Server
-	#opção do comando tee: -a ()
+	#opção do comando tee: -a (append)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
