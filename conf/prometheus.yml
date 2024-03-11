@@ -7,9 +7,9 @@
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 04/02/2022
 # Data de atualização: 11/03/2024
-# Versão: 0.02
+# Versão: 0.03
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
-# Testado e homologado para a versão do Prometheus 2.50.x
+# Testado e homologado para a versão do Prometheus 2.50.x e Node Exporter 1.7.x
 #
 # Configurações Globais do Prometheus
 global:
@@ -36,9 +36,15 @@ rule_files:
 # Configurações do Serviço do Prometheus (alterado a Porta para 9091 para não entrar
 # em conflito com o serviço do OpenFire, porta padrão do Prometheus é a 9090)
 scrape_configs:
-  - job_name: "wsvaamonde"
+  - job_name: "prometheus"
     static_configs:
       - targets: ["172.16.1.20:9091"]
+# Configurações dos Serviços de Monitoramento de Métricas do Prometheus utilizando
+# o recurso de Exportação do Node Remoto para sistemas operacionais Linux e Windows
+scrape_configs:
+  - job_name: "wsvaamonde"
+    static_configs:
+      - targets: ["172.16.1.20:9100"]
 # - job_name: "linuxmint213"
 #   static_configs:
 #     - targets: ["172.16.1.:9100"]
