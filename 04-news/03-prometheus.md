@@ -283,8 +283,9 @@ Link da vídeo aula:
 	#acessando o Node Exporter do Ubuntu Server
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 
+#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
 
-#15_ DESAFIO-01: 
+#24_ DESAFIO-01: 
 
 
 =========================================================================================
