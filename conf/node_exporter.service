@@ -1,12 +1,22 @@
 [Unit]
 Description=Node Exporter
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 User=node_exporter
 Group=node_exporter
-Type=simple
-ExecStart=/usr/local/bin/node_exporter
+Restart=on-failure
+type=simple
+RestartSec=3
+EnvironmentFile=/etc/prometheus/node_exporter.conf
+ExecStart=/usr/local/bin/node_exporter $OPTIONS 
+ExecReload=/bin/kill -HUP $MAINPID
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+CPUAccounting=yes
+MemoryAccounting=yes
 
 [Install]
 WantedBy=multi-user.target

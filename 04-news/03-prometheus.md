@@ -42,12 +42,15 @@ Link da vídeo aula:
 
 	#criação do grupo e usuário de serviço do Node Exporter
 	#opção do comando: &>> (redirecionar de saída padrão)
-	#opção do comando useradd: -s (shell), -g (group) 
+	#opção do comando useradd: -s (shell), -g (group)
+	#opções do comando usermod: -a (append), -G (groups)
 	sudo groupadd --system node_exporter
 	sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_exporter
+	sudo usermod -a -G prometheus node_exporter
 
 #02_ Criando os diretórios do Prometheus<br>
 
+	#criando o diretório de configuração e bibliotecas do Prometheus
 	#opção do comando: &>> (redirecionar a saída padrão)
 	#opção do comando mkdir: =p (parents), -v (verbose)
 	sudo mkdir -pv /etc/prometheus /var/lib/prometheus
@@ -102,7 +105,7 @@ Link da vídeo aula:
 	#opção do comando chmod: -R (recursive) -v (verbose), 775 (User: RWX, Group: RWX, Other: R-X)
 	sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 
-#08_ Instalando o Coletor de Métricas Node Exporter <br>
+#08_ Instalando o Coletor de Métricas Node Exporter<br>
 
 	#OBSERVAÇÃO IMPORTANTE: o executável do Node Exporter do Prometheus sofre alteração
 	#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
@@ -111,36 +114,44 @@ Link da vídeo aula:
 	#download do Node Exporter do Github (Link atualizado no dia 12/03/2024)
 	wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
 
-	#listando o download do arquivo do Node Exporter do Prometheus
+	#listando o download do arquivo do Node Exporter
 	#opção do comando ls: -l (long listing), -h (human-readable)
 	#opção do caractere curinga * (asterisco): Qualquer coisa
 	ls -lh node_exporter*
 
-#09_ Descompactando o arquivo do Node Exporter do Prometheus<br>
+#09_ Descompactando o arquivo do Node Exporters<br>
 
-	#descompactando o arquivo do Node Exporter do Prometheus
+	#descompactando o arquivo do Node Exporter
 	#opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
 	#opção do caractere curinga * (asterisco): Qualquer coisa
 	tar -zxvf node_exporter*.tar.gz 
 
-#10_ Atualizando os arquivos de configuração do Node Exporter do Prometheus<br>
+#10_ Atualizando os arquivos de configuração do Node Exporter<br>
 
-	#atualizando os arquivos de configurações do Node Exporter do Prometheus
+	#atualizando os arquivos de configurações do Node Exporter
 	#opção do comando cp: -R (recursive), -v (verbose)
 	#opção do caractere curinga * (asterisco): Qualquer coisa
 	sudo cp -Rv node_exporter*/node_exporter /usr/local/bin/
 
-#11_ Baixando e atualizando o arquivo de Serviço do Node Exporter do Prometheus<br>
+#11_ Baixando e atualizando os arquivos de Configuração e Serviço do Node Exporter<br>
 
-	#download do arquivo de serviço do Prometheus
+	#download do arquivo de serviço do Node Exporter
 	#opção do comando wget: -v (verbose), -O (output file)
-	sudo wget -v -O /etc/systemd/system/node_exporter.service 
+	sudo wget -v -O /etc/systemd/system/node_exporter.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.service
+
+	#download do arquivo de serviço do Node Exporter
+	#opção do comando wget: -v (verbose), -O (output file)
+	sudo wget -v -O /etc/prometheus/node_exporter.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.conf
 
 #12_ Alterando as permissões do executável do Node Exporter<br>
 
 	#alterando o dono e grupo do arquivo do Node Exporter
 	#opção do comando chown: -R (recursive) -v (verbose), node_exporter (user), :node_exporter (group)
 	sudo chown -Rv node_exporter:node_exporter /usr/local/bin/node_exporter
+
+	#alterando o dono e grupo do arquivo do Node Exporter
+	#opção do comando chown: -R (recursive) -v (verbose), node_exporter (user), :node_exporter (group)
+	sudo chown -Rv node_exporter:node_exporter /etc/prometheus/node_exporter.conf
 
 	#alterando as permissões do arquivo do Node Exporter
 	#opção do comando chmod: -R (recursive) -v (verbose), 775 (User: RWX, Group: RWX, Other: R-X)
@@ -234,9 +245,43 @@ Link da vídeo aula:
 	/etc/prometheus/*      <-- Diretório de configuração do Prometheus
 	/var/lib/prometheus/*  <-- Diretório de armazenamento dos binários e dados do Prometheus
 
-#22_ Configurando o Grafana Server via Navegador<br>
+#22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
 
+	#acessando o Prometheus
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
+
+	Status
+		Targets
+			Prometheus
+				Endpoint: http://172.16.1.20:9091/metrics
+			wsvaamonde
+				Endpoint: http://172.16.1.20:9100/metrics
+
+	#verificando a versões do Sistema Operacional
+	a) Expression: node_os_info{job="wsvaamonde"} <Execute>
+
+	#verificando informações de Hard Disk
+	b) Expression: node_disk_info{job="wsvaamonde"} <Execute>
+
+	#verificando informações da BIOS e da Placa Mãe
+	c) Expression: node_dmi_info{job="wsvaamonde"} <Execute>
+
+	#verificando a quantidade de Memória Ativa em Bytes
+	d) Expression: node_memory_Active_bytes{job="wsvaamonde"} <Execute> - <Graph>
+
+	#verificando a quantidade total de processos da CPU
+	e) Expression: node_cpu_seconds_total{job="wsvaamonde"} <Execute> - <Graph>
+
+	#verificando o incremento do Total de CPU por segundos em 1m
+	f) Expression: rate(node_cpu_seconds_total{job="wsvaamonde"}[1m]) <Execute> - <Graph>
+	g) Expression: rate(node_cpu_seconds_total{cpu="0",job="wsvaamonde"}[1m]) <Execute> - <Graph>
+
+	#verificando o incremente do Total de Pacotes Enviados e Recebidos da Interface de Rede
+	h) rate(node_network_receive_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
+	i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
+
+	#acessando o Node Exporter do Ubuntu Server
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 
 
 #15_ DESAFIO-01: 
