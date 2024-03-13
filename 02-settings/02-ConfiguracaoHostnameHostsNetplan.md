@@ -119,6 +119,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 	sudo vim /etc/netplan/00-installer-config.yaml
 	INSERT
 
+```yaml
     network:
       ethernets:
         enp0s3:
@@ -141,6 +142,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
           #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
           search: [pti.intra]
     version: 2
+```
 
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>

@@ -135,7 +135,8 @@ exit
 
 #06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
 
-	#OBSERVAÇÃO IMPORTANTE: ESSE PROCESSO DEMORA UM POUCO DEPENDENDO DO SEU HARDWARE
+	#OBSERVAÇÃO IMPORTANTE: O PROCEDIMENTO DE CRIAÇÃO A POPULAÇÃO DAS TABELAS DO ZABBIX
+	#SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
 	#importando o esquema e os dados iniciais do banco de dados do Zabbix Server
 	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
