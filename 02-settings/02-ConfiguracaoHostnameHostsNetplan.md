@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 19/11/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 12/03/2024<br>
+#Versão: 0.03<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -120,28 +120,34 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 	INSERT
 
 ```yaml
-    network:
-      ethernets:
-        enp0s3:
-        dhcp4: false
-        #alterar o endereço IPv4 para o seu cenário
-        #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes
-        addresses: [172.16.1.20/24]
-        #alterar o gateway padrão para o seu cenário
-        gateway4: 172.16.1.254
-        #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
-        #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
-        #routes:
-        #  - to: default
-        #    via: 172.16.1.254
-        nameservers:
-          #alterar os servidores DNS para o seu cenário
-          #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes
-          addresses: [8.8.8.8, 8.8.4.4]
-          #alterar a pesquisa de domínio para o seu cenário
-          #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
-          search: [pti.intra]
-    version: 2
+network:
+  ethernets:
+    #configuração da Interface Física
+	enp0s3:
+    #desabilitando o suporte ao DHCP Client
+    dhcp4: false
+    #alterar o endereço IPv4 para o seu cenário
+    #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
+    addresses: [172.16.1.20/24]
+    #alterar o gateway padrão para o seu cenário
+    #gateway4: 172.16.1.254
+    #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
+    #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
+    routes:
+      #configuração da rota padrão (cuidado com o traço antes do to)
+      - to: default
+        #configuração do endereço IPv4 do Gateway
+        via: 172.16.1.254
+    #configuração dos servidores de DNS Preferencial e Alternativo
+    nameservers:
+      #alterar os servidores DNS para o seu cenário
+      #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
+      #por vírgula
+      addresses: [8.8.8.8, 8.8.4.4]
+      #alterar a pesquisa de domínio para o seu cenário
+      #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
+      search: [pti.intra]
+  version: 2
 ```
 
 	#salvar e sair do arquivo
