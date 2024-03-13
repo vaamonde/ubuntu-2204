@@ -123,7 +123,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 network:
   ethernets:
     #configuração da Interface Física
-	enp0s3:
+    enp0s3:
     #desabilitando o suporte ao DHCP Client
     dhcp4: false
     #alterar o endereço IPv4 para o seu cenário
