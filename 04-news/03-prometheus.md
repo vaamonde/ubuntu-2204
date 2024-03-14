@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/03/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 13/03/2024<br>
+#Versão: 0.05<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -22,17 +22,44 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometh
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus
 
 Conteúdo estudado nesse desafio:<br>
+#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
+#02_ Criando os diretórios do Prometheus<br>
+#03_ Baixando o Prometheus do Projeto do Github<br>
+#04_ Descompactando o arquivo do Prometheus<br>
+#05_ Atualizando os arquivos de configuração do Prometheus<br>
+#06_ Baixando e atualizando os arquivos customizados do Prometheus<br>
+#07_ Alterando as permissões de arquivos e diretórios do Prometheus<br>
+#08_ Instalando o Coletor de Métricas Node Exporter<br>
+#09_ Descompactando o arquivo do Node Exporters<br>
+#10_ Atualizando os arquivos de configuração do Node Exporter<br>
+#11_ Baixando e atualizando os arquivos customizados do Node Exporter<br>
+#12_ Alterando as permissões do executável do Node Exporter<br>
+#13_ Habilitando o Serviço do Node Exporter no Ubuntu Server<br>
+#14_ Verificando o Serviço e Versão do Node Exporter<br>
+#15_ Verificando a Porta de Conexão do Node Exporter<br>
+#16_ Editando o arquivo de configuração do Prometheus<br>
+#17 Habilitando o Serviço do Prometheus no Ubuntu Server<br>
+#18_ Verificando o Serviço e Versão do Prometheus<br>
+#19_ Verificando a Porta de Conexão do Prometheus<br>
+#20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
+#21_ Localização dos diretórios principais do Prometheus<br>
+#22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
+#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
+#24_ Desafios do Prometheus e do Node Exporter
 
+Site Oficial do Prometheus: https://prometheus.io/<br>
 
-Site Oficial do Prometheus: <br>
-
-s.
+Prometheus é um aplicativo de software livre usado para monitoramento de eventos e alertas.<br>
+Ele registra métricas em tempo real em um banco de dados de séries temporais (permitindo alta<br>
+dimensionalidade) construído usando um modelo HTTP pull, com consultas flexíveis e alertas em<br>
+tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012[4] e agora é<br>
+mantido independentemente de qualquer empresa. 
 
 [![Prometheus](http://img.youtube.com/vi//0.jpg)]( "Prometheus")
 
 Link da vídeo aula: 
 
-#01_ Criando os Grupos e o Usuários de Sistema do Prometheus e do Node Exporter<br>
+#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
 
 	#criação do grupo usuário de serviço do Prometheus
 	#opção do comando: &>> (redirecionar de saída padrão)
@@ -133,7 +160,7 @@ Link da vídeo aula:
 	#opção do caractere curinga * (asterisco): Qualquer coisa
 	sudo cp -Rv node_exporter*/node_exporter /usr/local/bin/
 
-#11_ Baixando e atualizando os arquivos de Configuração e Serviço do Node Exporter<br>
+#11_ Baixando e atualizando os arquivos customizados do Node Exporter<br>
 
 	#download do arquivo de serviço do Node Exporter
 	#opção do comando wget: -v (verbose), -O (output file)
@@ -229,7 +256,7 @@ Link da vídeo aula:
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
 
-#20_ Adicionado o Usuário Local no Grupo Padrão do Prometheus e Node Exporter<br>
+#20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G prometheus $USER

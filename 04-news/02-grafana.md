@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/03/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 13/03/2024<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -29,14 +29,18 @@ Conteúdo estudado nesse desafio:<br>
 #05_ Habilitando o Serviço do Grafana Server<br>
 #06_ Verificando o Serviço e Versão do Grafana Server<br>
 #07_ Verificando a Porta de Conexão do Grafana Server<br>
-#08_ Localização dos diretórios principais do Grafana Server<br>
-#09_ Configurando o Grafana Server via Navegador<br>
+#08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
+#09_ Localização dos diretórios principais do Grafana Server<br>
+#10_ Configurando o Grafana Server via Navegador<br>
+#11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
+#12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
+#13_ Desafios do Grafana Server
 
 Site Oficial do Grafana: https://grafana.com/<br>
 
 Grafana é uma aplicação web de análise de código aberto multiplataforma e visualização<br>
 interativa da web. Ele fornece tabelas, gráficos e alertas para a Web quando conectado a<br>
-fontes de dados suportadas. É expansível através de um sistema de plug-in. Wikipédia
+fontes de dados suportadas. É expansível através de um sistema de plug-in.
 
 [![Grafana](http://img.youtube.com/vi//0.jpg)]( "Grafana")
 
@@ -217,7 +221,7 @@ Link da vídeo aula:
 					<Save> - <Save>
 					<Apply>
 
-#15_ DESAFIO-01: 
+#13_ DESAFIO-01: 
 
 
 =========================================================================================

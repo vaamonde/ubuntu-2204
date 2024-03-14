@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/03/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 13/03/2024<br>
+#Versão: 0.06<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -23,19 +23,21 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependências do Zabbix Server e Agent<br>
-#02_ Adicionando o Repositório do Zabbixn no Ubuntu Server<br>
+#02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
 #03_ Instalando o Zabbix Server, Frontend e Agent<br>
-#04_ Criando a Base de Dados no MySQL Server do Zabbix Server<br>
-#05_ Testando o acesso a Base de Dados no MySQL Server do Zabbix Server<br>
+#04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
+#05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server<br>
 #06_ Populando as Tabelas no Banco de Dados do Zabbix Server<br>
-#07_ Editando os arquivos de Configurações do Zabbix Server e Agent<br>
+#07_ Editando os arquivos de Configuração do Zabbix Server e Agent<br>
 #08_ Habilitando o Serviço do Zabbix Server e Agent<br>
 #09_ Verificando o Serviço e Versão do Zabbix Server e Agent<br>
 #10_ Configurando o Zabbix Server via Navegador<br>
 #11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
-#12_ Localização dos diretórios principais do Zabbix Server e Agent<br>
-#13_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
-#14_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
+#12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
+#13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
+#14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
+#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
+#16_ Desafios do Zabbix Server e Agent
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
@@ -402,7 +404,7 @@ exit
 					Enable: On
 				<Add>
 
-#15_ DESAFIO-01: 
+#16_ DESAFIO-01: 
 
 
 =========================================================================================
