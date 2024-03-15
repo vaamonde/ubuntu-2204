@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 28/11/2023<br>
-#Versão: 0.09<br>
+#Data de atualização: 15/03/2024<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -92,6 +92,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 	#editando o arquivo de configuração de Negação de Serviço e Host
 	sudo vim /etc/hosts.deny
+	ESC SHIFT : set number <Enter>
 	INSERT
 
 		#inserir as informações na linha 17
@@ -102,6 +103,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 	#editando o arquivo de configuração de Liberação de Serviço e Host
 	sudo vim /etc/hosts.allow
+	ESC SHIFT : set number <Enter>
 	INSERT
 
 		#inserir as informações na linha 10
