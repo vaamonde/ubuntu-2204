@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 13/03/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 14/03/2024<br>
+#Versão: 0.08<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -49,13 +49,14 @@ Zabbix coleta e exibe métricas básicas.
 
 Link da vídeo aula: 
 
-#01_ Instalando as Dependências do Zabbix Server e Agent<br>
+#01_ Instalando as Dependências do Zabbix Server e Agent2<br>
 
 	#atualizando as lista do apt
 	sudo apt update
 
 	#instalando as dependências do Zabbix
-	sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
+	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+	sudo apt install --install-recommends traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
 	software-properties-common git vim fping
 
 #02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
@@ -76,7 +77,7 @@ Link da vídeo aula:
 	#opção do comando dpkg: -i (install)
 	sudo dpkg -i zabbix-release_6.5*.deb
 
-#03_ Instalando o Zabbix Server, Frontend e Agent<br>
+#03_ Instalando o Zabbix Server, Frontend e Agent2<br>
 
 	#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server e necessário ter instalado e
 	#configurado de forma correto o MySQL Server e o Apache2 Server, no caso do Banco de Dados
@@ -86,10 +87,10 @@ Link da vídeo aula:
 	#atualizando as lista do Apt com o novo repositório do Zabbix Server
 	sudo apt update
 
-	#instalando o Zabbix Server e Agent
+	#instalando o Zabbix Server e Agent2
 	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 	sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
-	zabbix-sql-scripts zabbix-agent
+	zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
 
 #04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
 
@@ -150,6 +151,9 @@ exit
 	sudo mysql -u zabbix -p
 
 ```sql
+/* Listando os Bancos de Dados do MySQL */
+SHOW DATABASES;
+
 /* Acessando o Banco de Dados Zabbix */
 USE zabbix;
 
@@ -182,46 +186,57 @@ exit
 	sudo vim /etc/zabbix/zabbix_server.conf
 	INSERT
 
+		#descomentar e alterar o valor da variável DBHost= na linha: 95
+		DBHost=localhost
+
+		#deixar o padrão da variável DBName= na linha: 107
+		DBName=zabbix
+
+		#deixar o padrão da variável DBUser= na linha: 123
+		DBUser=zabbix
+
 		#descomentar e alterar o valor da variável DBPassword= na linha: 131
 		DBPassword=zabbix
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
 
-	#editando o arquivo de configuração do Zabbix Agent
-	sudo vim /etc/zabbix/zabbix_agentd.conf
+	#editando o arquivo de configuração do Zabbix Agent2
+	sudo vim /etc/zabbix/zabbix_agent2.conf
 	INSERT
 
-		#deixar o padrão das variáveis Server= e ServerActive= nas linhas: 117 e 171
-		Server=127.0.0.1
-		ServerActive=127.0.0.1
+		#alterar o valor da variável Server= na linha: 80
+		Server=172.16.1.20
 
-		#alterar o valor da variável Hostname= na linha: 182
+		#alterar o valor da variável ServerActive= na linha: 133
+		ServerActive=172.16.1.20
+
+		#alterar o valor da variável Hostname= na linha: 144
 		Hostname=wsvaamonde
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
 
-#08_ Habilitando o Serviço do Zabbix Server e Agent<br>
+#08_ Habilitando o Serviço do Zabbix Server e Agent2<br>
 
-	#habilitando o serviço do Zabbix Server e Agent
+	#habilitando o serviço do Zabbix Server e Agent2
 	sudo systemctl daemon-reload
-	sudo systemctl enable zabbix-server zabbix-agent
-	sudo systemctl restart zabbix-server zabbix-agent apache2
+	sudo systemctl enable zabbix-server
+	sudo systemctl restart zabbix-server zabbix-agent2 apache2
 
-#09_ Verificando o Serviço e Versão do Zabbix Server e Agent<br>
+#09_ Verificando o Serviço e Versão do Zabbix Server e Agent2<br>
 
-	#verificando o serviço do Zabbix Server e Agent
-	sudo systemctl status zabbix-server zabbix-agent
+	#verificando o serviço do Zabbix Server e Agent2
+	sudo systemctl status zabbix-server zabbix-agent2
 	sudo systemctl restart zabbix-server zabbix-agent
 	sudo systemctl stop zabbix-server zabbix-agent
 	sudo systemctl start zabbix-server zabbix-agent
 
-	#verificando a versão do Zabbix Server e Agent
+	#verificando a versão do Zabbix Server e Agent2
 	#opção do comando zabbix_server: -V (version)
 	#opção do comando zabbix_agentd: -V (version)
 	sudo zabbix_server -V
-	sudo zabbix_agentd -V
+	sudo zabbix_agent2 -V
 
 #10_ Configurando o Zabbix Server via Navegador<br>
 
@@ -287,8 +302,8 @@ exit
 	#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4 DO 
 	#ZABBIX SERVER.
 
-	Windows, Any, amd64, v6.4, No encryption, MSI: 6.4.12
-	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.12/zabbix_agent2_plugins-6.4.12-windows-amd64.msi
+	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.12
+	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.12/zabbix_agent-6.4.12-windows-amd64-openssl.msi
 
 	#Instalação Manual do Zabbix Agent para Microsoft
 	Pasta de Download
@@ -296,7 +311,7 @@ exit
 		End-User License Agreement
 			On I accept the therms in the License Agreement <Next>
 		Custom Setup
-			On Zabbix Agent <Next>
+			On Zabbix Agent (64-bit) <Next>
 		Zabbix Agent service configuration
 			Host name: windows10
 			Zabbix server IP/DNS: 172.16.1.20
@@ -312,8 +327,12 @@ exit
 	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 	Powershell
 		hostname
-		Get-Service Zabbix-Agent
+		Get-Service 'Zabbix Agent'
 		netstat -an | findstr 10050
+	
+	#Localização do arquivo de configuaração do Zabbix Agent
+	C:\Program Files\Zabbix Agent\
+		zabbix_agentd.conf
 
 	#Link de referência do download: https://www.zabbix.com/br/download
 	
@@ -322,7 +341,7 @@ exit
 
 	#instalando o repositório do Zabbix Agent2
 	#opção do comando dpkg: -i (install)
-	sudo dpkg -i zabbix-release_6.5-1+ubuntu22.04_all.deb
+	sudo dpkg -i zabbix-release_*.deb
 
 	#atualizando as lista do Apt com o novo repositório do Zabbix Agent2
 	sudo apt update
@@ -336,20 +355,25 @@ exit
 	sudo apt install --install-recommends zabbix-agent2 zabbix-agent2-plugin-*
 
 	#editando o arquivo de configuração do Zabbix Agent2
-	sudo vim /etc/zabbix/zabbix_agentd.conf
+	sudo vim /etc/zabbix/zabbix_agent2.conf
 	INSERT
 
-		#alterar as linhas 117, 171 e 182:
+		#alterar o valor da variável Server= na linha: 80
 		Server=172.16.1.20
+
+		#alterar o valor da variável ServerActive= na linha: 133
 		ServerActive=172.16.1.20
+
+		#alterar o valor da variável Hostname= na linha: 144
 		Hostname=linuxmint213
 	
 	#salvar e sair do arquivo
-	ESC SHFT : x <Enter>
+	ESC SHIFT : x <Enter>
 	
 	#habilitando o serviço do Zabbix Agent2
-	systemctl enable zabbix-agent2
-	systemctl restart zabbix-agent2
+	sudo systemctl daemon-reload
+	sudo systemctl enable zabbix-agent2
+	sudo systemctl restart zabbix-agent2
 
 	#verificando o serviço do Zabbix Agent2
 	sudo systemctl status zabbix-agent2
@@ -374,8 +398,8 @@ exit
 						Discovered hosts <Select>
 					Interfaces: Add:
 						Agent: 
-							DNS name: 172.16.1.
-							Connect to: DNS
+							DNS name: 172.16.1.110
+							Connect to: IP
 							Port: 10050
 					Description: Desktop Linux Mint 21.3
 					Monitored by proxy: (no proxy)
@@ -396,8 +420,8 @@ exit
 						Discovered hosts <Select>
 					Interfaces: Add:
 						Agent: 
-							DNS name: 172.16.1.
-							Connect to: DNS
+							DNS name: 172.16.1.193
+							Connect to: IP
 							Port: 10050
 					Description: Desktop Microsoft Windows 10
 					Monitored by proxy: (no proxy)
