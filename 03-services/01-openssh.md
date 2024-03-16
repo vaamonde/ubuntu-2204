@@ -92,7 +92,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 	#editando o arquivo de configuração de Negação de Serviço e Host
 	sudo vim /etc/hosts.deny
-	ESC SHIFT : set number <Enter>
+	
+	#mostrando o número de linha do arquivo
+	ESC SHIFT :set number <Enter>
 	INSERT
 
 		#inserir as informações na linha 17
@@ -103,7 +105,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 	#editando o arquivo de configuração de Liberação de Serviço e Host
 	sudo vim /etc/hosts.allow
-	ESC SHIFT : set number <Enter>
+	
+	#mostrando o número de linha do arquivo
+	ESC SHIFT :set number <Enter>
 	INSERT
 
 		#inserir as informações na linha 10
