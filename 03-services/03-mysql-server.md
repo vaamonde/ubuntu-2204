@@ -93,55 +93,70 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #06_ Aplicando a segurança de acesso do usuário Root no MySQL Server<br>
 
-	#visualizando as bases de dados do MySQL
-	SHOW DATABASES;
+```sql
 
-	#utilizando a base de dados mysql
-	USE mysql;
-		
-		#mostrando as tabelas criadas na base de dados mysql
-		SHOW TABLES;
+/* visualizando as bases de dados do MySQL */
+SHOW DATABASES;
 
-		#selecionando o dados da tabela user, filtrando somente as colunas: user e host
-		SELECT user,host FROM user;
+/* utilizando a base de dados mysql */
+USE mysql;
+	
+/* mostrando as tabelas criadas na base de dados mysql */
+SHOW TABLES;
 
-		#alterando a senha do usuário Root Localhost
-		#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE
-		ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
-		
-		#alterando as permissões do usuário Root Localhost
-		GRANT ALL ON *.* TO 'root'@'localhost';
-		
-		#aplicando todas as mudanças na base de dados
-		FLUSH PRIVILEGES;
-		
-		#saindo do MySQL Client Console
-		exit
+/* selecionando o dados da tabela user, filtrando somente as colunas: user e host */
+SELECT user,host FROM user;
+
+/* alterando a senha do usuário Root Localhost */
+/* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+
+/* alterando as permissões do usuário Root Localhost */
+GRANT ALL ON *.* TO 'root'@'localhost';
+
+/* aplicando todas as mudanças na base de dados */
+FLUSH PRIVILEGES;
+
+/* saindo do MySQL Client Console */
+exit
+```
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
 #07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
 
-	#criando o usuário DBA Localhost
-	#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE
-	CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
-	
-	#alterando as permissões do usuário DBA Localhost
-	GRANT ALL ON *.* TO 'dba'@'localhost';
-	
-	#aplicando todas as mudanças na base de dados
-	FLUSH PRIVILEGES;
+```sql
 
-	#saindo do MySQL Client Console
-	exit
+/* criando o usuário DBA Localhost */
+/* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
+CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+
+/* alterando as permissões do usuário DBA Localhost */
+GRANT ALL ON *.* TO 'dba'@'localhost';
+
+/* aplicando todas as mudanças na base de dados */
+FLUSH PRIVILEGES;
+
+/* Verificando o Usuário DBA criado no Banco de Dados MySQL Server*/
+SELECT user,host FROM mysql.user WHERE user='dba';
+
+/* saindo do MySQL Client Console */
+exit
+```
 
 	#se logando com o usuário dba para testar a conexão com o MySQL Server
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dba -p
 
-	#saindo do MySQL Client Console
-	exit
+```sql
+
+/* visualizando as bases de dados do MySQL */
+SHOW DATABASES;
+
+/* saindo do MySQL Client Console */
+exit
+```
 
 #08_ Adicionado o Usuário Local no Grupo Padrão do MySQL Server<br>
 
@@ -182,16 +197,19 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 	#acessar o MySQL Server como Root
 	sudo mysql -u root -p
 
-	#criando o usuário Root Remoto do MySQL Server
-	#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE
-	CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
-	GRANT ALL ON *.* TO 'root'@'%';
-	FLUSH PRIVILEGES;
+```sql
 
-	#verificando o usuário Root Remoto do MySQL Server
-	USE mysql;
-	SELECT user,host FROM user;
-	exit
+/* criando o usuário Root Remoto do MySQL Server */
+/* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
+CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+GRANT ALL ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+
+/* verificando o usuário Root Remoto do MySQL Server */
+USE mysql;
+SELECT user,host FROM user;
+exit
+```
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 

@@ -143,22 +143,22 @@ exit
 	INSERT
 
 ```php
-		#alterar os valores das variáveis "define" a partir da linha: 23
-		
-		#alterar o valor da variável: DB_NAME do nome do banco de dados na linha: 23
-		define( 'DB_NAME', 'wordpress' );
-		
-		#alterar o valor da variável: DB_USER do nome do usuário de autenticação do banco de dados na linha: 26
-		define( 'DB_USER', 'wordpress' );
-		
-		#alterar o valor da variável: DB_PASSWORD da senha do usuário do banco de dados na linha: 29
-		define( 'DB_PASSWORD', 'wordpress' );
-	
-		#configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
-		#mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
-		#copiar o conteúdo do Salt e colocar a partir da linha: 53
-		#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 53 até: 60 antes de copiar/colar as
-		#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
+#alterar os valores das variáveis "define" a partir da linha: 23
+
+#alterar o valor da variável: DB_NAME do nome do banco de dados na linha: 23
+define( 'DB_NAME', 'wordpress' );
+
+#alterar o valor da variável: DB_USER do nome do usuário de autenticação do banco de dados na linha: 26
+define( 'DB_USER', 'wordpress' );
+
+#alterar o valor da variável: DB_PASSWORD da senha do usuário do banco de dados na linha: 29
+define( 'DB_PASSWORD', 'wordpress' );
+
+#configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
+#mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
+#copiar o conteúdo do Salt e colocar a partir da linha: 53
+#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 53 até: 60 antes de copiar/colar as
+#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
 ```
 
 	#salvar e sair do arquivo
