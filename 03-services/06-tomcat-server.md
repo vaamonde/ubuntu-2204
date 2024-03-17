@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 19/12/2023<br>
-#Versão: 0.12<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
@@ -65,10 +65,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	#e do OpenJRE: 8, 11, 17, 18 e 19, cuidado na versão do Java que você está usando no seu
 	#projeto e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
 
-	#instalando as dependências do Java OpenJDK e OpenJRE utilizado no Apache Tomcat
+	#instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
 	sudo apt install git vim openjdk-17-jdk openjdk-17-jre software-properties-common build-essential
 
-#02_ Verificando as Versões do Java instalado<br>
+#02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado<br>
 
 	#verificando as versões de Java instalado
 	#opção do comando grep: -i (ignore-case)
@@ -80,20 +80,20 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 #03_ Download do Apache Tomcat Server 10.1.x do site Oficial<br>
 
-	OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
-	Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
+	#OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
+	#Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
 	
-	Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
+	#Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
 
 	#mudando para o usuário Root do Ubuntu Server
 	#opção do comando sudo: -i (login)
 	sudo -i
 	
-	#download da última versão do Apache TomCAT Server (link atualizado em 12/12/2023)
+	#download da última versão do Apache TomCAT Server (link atualizado em 17/03/2024)
 	#OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
-	#de faze o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
+	#de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
+	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.19/bin/apache-tomcat-10.1.19.tar.gz
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
 
@@ -107,6 +107,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 #05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x<br>
 
+	#download dos principais arquivos de configuração do Apache TomCAT Server
 	#opção do comando wget: -v (verbose), -O (output file)
 	
 	#download do arquivo de configuração do Servidor Tomcat
@@ -152,6 +153,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	systemctl daemon-reload
 	systemctl enable tomcat10
 	systemctl start tomcat10
+	
+	#saindo do usuário Root
 	exit
 
 #09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
@@ -197,11 +200,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	sudo vim /opt/tomcat/conf/tomcat-users.xml
 	INSERT
 
-		#alterar a partir da linha: 30
-		<!-- Configuração do Usuário, Senha e Papéis do administrador do Servidor Web Tomcat -->
-		<!-- Para criar novos usuários no Apache TomCAT Server copiar a linha abaixo e colar -->
+```xml
+		<!-- alterar os valores das variável a partir da linha: 30 -->
+		<!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Web Tomcat -->
+		<!-- Para criar novos usuários no Apache TomCAT Server é spo copiar a linha abaixo e colar -->
 		<!-- na próxima linha alterando o nome, senha e papeis do usuário -->
 		<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+```
 
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
@@ -224,10 +229,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 #16_ DESAFIO-01: FAZER A CRIAÇÃO DE 02 (DOIS) NOVOS USUÁRIOS PARA ADMINISTRAR O APACHE TOMCAT SERVER
 PRIMEIRO USUÁRIO: tomcat10 (TUDO EM MINÚSCULO) SENHA: tomcat10, SEGUNDO USUÁRIO: seu_nome (TUDO EM 
 MINÚSCULO) SENHA: sua_senha, TESTAR O ACESSO AO TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO
-DIREITOS PARA ADMINISTRAR O SERVIDOR.
+DIREITOS PARA ADMINISTRAR O SERVIDOR. OBSERVAÇÃO IMPORTANTE: RECOMENDO UTILIZAR DOIS NAVEGADORES
+DIFERENTES PARA ESSE TESTE, POIS O USUÁRIO E SENHA DO TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR.
 
 #17: DESAFIO-02: ADICIONAR O USUÁRIO: admin E O SEU: seu_usuário NO GRUPO DO TOMCAT PARA ADMINISTRAR
-O TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
+O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
 
 =========================================================================================
 

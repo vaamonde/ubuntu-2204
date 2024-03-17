@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 07/12/2023<br>
-#Versão: 0.12<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
@@ -60,7 +60,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #02_ Verificando o Serviço e Versão do MySQL Server<br>
 
-	#verificando o serviço do MySQL
+	#verificando o serviço do MySQL Server
 	sudo systemctl status mysql
 	sudo systemctl restart mysql
 	sudo systemctl stop mysql
@@ -85,8 +85,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #05_ Acessando o MySQL Server utilizando o MySQL Client (Console)<br>
 
-	OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
-	se logar no MySQL Client Console.
+	#OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
+	#se logar no MySQL Client Console.
 
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
@@ -136,8 +136,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 	#saindo do MySQL Client Console
 	exit
 
+	#se logando com o usuário dba para testar a conexão com o MySQL Server
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dba -p
+
+	#saindo do MySQL Client Console
+	exit
 
 #08_ Adicionado o Usuário Local no Grupo Padrão do MySQL Server<br>
 
@@ -154,14 +158,18 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
 	
+	#fazendo o backup do arquivo de configuração do MySQL Server
+	#opção do comando cp: -v (verbose)
+	sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
+	
 	#editar o arquivo de configuração do MySQL Server
 	sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 	INSERT
 	
-		#alterar a linha do: bind-address = 127.0.0.1 para: 0.0.0.0
+		#alterar a linha: 31 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
 		bind-address = 0.0.0.0
 
-		#comentar a linha do mysqlx-bind-address
+		#comentar a linha:32 da variável do: mysqlx-bind-address
 		#mysqlx-bind-address = 127.0.0.1
 
 	#salvar e sair do arquivo	
@@ -195,7 +203,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 	#conectando com o usuário Root do MySQL no Workbench
 	MySQL Connections: +
-		Connection Name: UbuntuWeserver
+		Connection Name: wsvaamonde
 		Connection Method: Standard (TCP/IP)
 		Parameters:
 			Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
@@ -212,7 +220,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 #11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
 
 	#OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE
-	#NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS.
+	#NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO,
+	#POR MOTIVO DE SEGURANÇA.
 
 	#instalando a Extensão do MySQL Server
 	VSCode
@@ -249,7 +258,7 @@ AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORK
 
 #15_ DESAFIO-04: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO 
 DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
-DESAFIO-01 DA ETAPA: 12 E TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
+DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 
 OBSERVAÇÃO IMPORTANTE: APÓS VÁRIOS TESTES FEITO NO DB4FREE O MESMO APRESENTOU UM GRANDE DELAY
 NAS CONEXÕES, NO MYSQL WORKBENCH E NA EXTENSÃO DO VSCODE MUITAS VEZES É NECESSÁRIO ATUALIZAR

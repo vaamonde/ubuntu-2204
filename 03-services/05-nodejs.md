@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 14/12/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
@@ -66,21 +66,25 @@ Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 #02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
 
 	#adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
+
+	#Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
+	#utilizar esse script em servidores de produção.
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do comando sudo: -E (preserve-env)
-	
-	#Script de configuração do Repositório do Node.JS descontinuado, não é mais indicado
-	#utilizar esse script em servidores de produção.
 	#sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
 	
 	#Adicionando a Chave GPG do Node.JS via Nodesource
+	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do comando gpg: -o (output file)
 	curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
 	
-	#Adicionando o Repositório do Node.JS
+	#Adicionando o Repositório do Node.JS no Ubuntu Server
 	#OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
 	#Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
 	#no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 
 	#Instalando o Node.JS e NPM (Node Package Manager)
@@ -96,7 +100,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
 #04_ Criando um Projeto Simples para Testar o Node.JS<br>
 
-	#criando o diretório do projeto de teste do Node.JS
+	#criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 	#opção do comando mkdir: -v (verbose)
 	mkdir -v nodejs-hello
 	cd nodejs-hello
@@ -141,7 +145,7 @@ app.listen(3000, function() {
 
 	#opção do comando &: background
 	#OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do
-	#caractere: & (E-Comercial)
+	#caractere: & (E-Comercial) colocando a aplicação em background
 	node index.js &
 
 #07_ Verificando a Porta de Conexão do Node.JS Express<br>

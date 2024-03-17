@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/12/2023<br>
-#Versão: 0.12<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
@@ -66,29 +66,45 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-	#criando a Base de Dados do WordPress
-	CREATE DATABASE wordpress;
+```sql
+/* Criando o Banco de Dados Wordpress */
+CREATE DATABASE wordpress;
 
-	#criando o usuário ba Base de Dados do WordPress
-	CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
-	
-	#aplicando as permissões do usuário WordPress
-	GRANT USAGE ON *.* TO 'wordpress';
-	GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';
-	FLUSH PRIVILEGES;
-	exit
+/* Criando o usuário da Base de Dados do WordPress */
+CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
 
+/* Aplicando as permissões de acesso do usuário WordPress */
+GRANT USAGE ON *.* TO 'wordpress';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';
+FLUSH PRIVILEGES;
+
+/* Verificando o Usuário Wordpress criado no Banco de Dados MySQL Server*/
+SELECT user,host FROM mysql.user WHERE user='wordpress';
+
+/* Visualizando as bases de dados do MySQL */
+SHOW DATABASES;
+
+/* Acessando o Banco de Dados wordpress */
+USE wordpress;
+
+/* Saindo do Banco de Dados */
+exit
+```
+
+	#se logando com o usuário wordpress para testar a conexão com o MySQL Server
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u wordpress -p
 
-	#visualizando a base de dados do WordPress
-	SHOW DATABASES;
-	USE wordpress;
-	exit
+```sql
+#visualizando a base de dados do WordPress
+SHOW DATABASES;
+USE wordpress;
+exit
+```
 
 #03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
 
-	#acessando diretório temporário
+	#acessando diretório temporário do Ubuntu Server
 	cd /tmp
 
 	#fazendo o download do WordPress do site Oficial do Brasil
@@ -125,36 +141,38 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 	sudo vim wp-config.php
 	INSERT
 
-		#alterar os valores das variáveis "define" a partir da linha 23
+```php
+		#alterar os valores das variáveis "define" a partir da linha: 23
 		
-		#variável do nome do banco de dados
+		#alterar o valor da variável: DB_NAME do nome do banco de dados na linha: 23
 		define( 'DB_NAME', 'wordpress' );
 		
-		#variável do nome do usuário de autenticação do banco de dados
+		#alterar o valor da variável: DB_USER do nome do usuário de autenticação do banco de dados na linha: 26
 		define( 'DB_USER', 'wordpress' );
 		
-		#variável da senha do usuário do banco de dados
+		#alterar o valor da variável: DB_PASSWORD da senha do usuário do banco de dados na linha: 29
 		define( 'DB_PASSWORD', 'wordpress' );
 	
 		#configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
 		#mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
 		#copiar o conteúdo do Salt e colocar a partir da linha: 53
-		#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes antes de copiar/colar as
+		#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 53 até: 60 antes de copiar/colar as
 		#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
+```
 
-	#sair e salvar o arquivo
+	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 #05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
 
-	#habilitar os módulos do Apache2 Server
+	#habilitando os módulos do Apache2 Server
 	sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
 
 	#reiniciar o serviço do Apache2 Server
 	sudo systemctl restart apache2
 	sudo systemctl status apache2
 
-#06_ Acessando e configurando o WordPress no navegador<br>
+#06_ Acessando e configurando o WordPress via navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
 
@@ -176,6 +194,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 		Lembrar-me: On (Habilitado)
 		<Acessar>
 	
+	#OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
+	#é recomendado alterar as configurações de Links Permanente do Wordpres, com isso resolvemos
+	#uma falhar de JSON na hora de salvar as mudanças dos Posts no Wordpress.
+	
 	#Configuração dos Links Permanentes do WordPress
 	Configurações
 		Links permanentes
@@ -192,11 +214,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
 #08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
-NO DIA A DIA: Wordfence Security E W3 Total Cache.
+NO DIA A DIA O: Wordfence Security E: W3 Total Cache.
 
 #09_ DESAFIO-03: NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS ÍCONES DO
 GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
-FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP.
+FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO
+UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
 =========================================================================================
 

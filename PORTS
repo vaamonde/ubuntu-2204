@@ -7,8 +7,8 @@ Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 Github: https://github.com/vaamonde
 Data de criação: 02/05/2022
-Data de atualização: 02/05/2022
-Versão: 0.01
+Data de atualização: 16/03/2024
+Versão: 0.02
 Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 
 Network: 172.16.1.0/24
@@ -18,3 +18,20 @@ IP Address Gateway: 172.16.1.254
 IP Address DNS: 8.8.8.8, 8.8.4.4,
 Hostname: wsvaamonde
 Domain: pti.intra
+
+PROCEDIMENTO           PROTOCOLO/PORTA/SERVIÇO (Daemon)
+01-openssh.md          TCP 22 (sshd)
+02-apache2-server.md   TCP 80 (apache2 HTTP), TCP 443 (apache2 HTTPS)
+03-mysql-server.mb     TCP 3306 (mysqld)
+04-wordpress.md        TCP 80 (apache2 HTTP), TCP 443 (apache2 HTTPS), TCP 3306 (mysqld)
+05-nodejs.mb           TCP 3000 (node HTTP), TCP 3030 (node HTTP)
+06-tomcat-server.md    TCP 8080 (java HTTP), TCP 8443 (java HTTPS)
+07-war-tomcat.md       TCP 8080 (tomcat10 HTTP), TCP 8443 (tomcat10 HTTPS), TCP 3306 (mysqld)
+08-mongodb.md          TCP 27017 (mongod)
+09-netdata.md          TCP 19999 (netdata HTTP)
+10-webmin.md           TCP 10000 (webmin HTTPS), TCP 9090 (cockpit HTTPS)
+
+PROCEDIMENTO/EXTRA     PROTOCOLO/PORTA/SERVIÇO (Daemon)
+01-zabbix.md           TCP 80 (apache2 HTTP), TCP 443 (apache2 HTTPS), TCP 3306 (mysqld), TCP 10050 (zabbix_ag) e 10051 (zabbix_se)
+02-grafana.md          TCP 3000 (grafana-s HTTP)
+03-prometheus.md       TCP 9091 (prometheus HTTP), TCP 9100 (node_exporter HTTP), 

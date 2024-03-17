@@ -57,6 +57,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 	#José de Assis no seu Github está desatualizado, o projeto que está no Github
 	#foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse
 	#problema ele compilou um no WAR que está no meu Github para essa aula.
+
+	#OBSERVAÇÃO: esse novo WAR do Projeto da Agenda foi customizado e melhorado
+	#pela Prof(a). Sirlene Sanches, criando uma nova estrutura em CSS para deixar
+	#o ambiente mais bonito.
 	
 	Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 	Clique em: Releases
@@ -82,6 +86,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 	Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso será: 
 		firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
+	#OBSERVAÇÃO IMPORTANTE: acessando a aplicação Agenda pela primeira vez será apresentado
+	#uma mensagem de erro, esse erro está associado ao Banco de Dados que ainda não foi
+	#criado, após a sua criação o sistema irá funcionar perfeitamente.
+
 #04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>
 
 	#opções do comando mysql: -u (user), -p (password)
@@ -98,7 +106,7 @@ GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
 FLUSH PRIVILEGES;
 
 /* Verificando o Usuário Agenda criado no Banco de Dados MySQL Server*/
-SELECT user,host FROM mysql.user;
+SELECT user,host FROM mysql.user WHERE user='dbagenda';
 
 /* Acessando o Banco de Dados DBAgenda */
 USE dbagenda;
@@ -125,12 +133,14 @@ exit
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dbagenda -p
 
+```sql
 		#comandos básicos de verificação da base de dados e tabelas do MySQL
 		SHOW DATABASES;
 		USE dbagenda;
 		SHOW TABLES;
 		DESC contatos;
 		exit
+```
 
 #06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros<br>
 

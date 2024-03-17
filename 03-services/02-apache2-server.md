@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 01/12/2023<br>
-#Versão: 0.11<br>
+#Data de atualização: 17/03/2023<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
@@ -117,7 +117,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 	#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
 	exit
 
-	#OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utile os caracteres de escape para 
+	#OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utilize os caracteres de escape para 
 	#finalizar conexões SSH.
 	#caracteres: ~ (til) e . (ponto)
 	~.
@@ -149,7 +149,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 	#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e colar
 	#o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY 
-	#para editar os códigos ou copiar e colar.
+	#para editar os códigos ou copiar e colar. No Linux Mint essa falha não acontece.
 
 	#criando o arquivo em HTML
 	sudo vim seu_nome.html
@@ -213,7 +213,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 ```php
 <?php
-	/** Módulo do PHP para gerar a página de documentação e parâmetros do PHP*/
+	/** Função do PHP para gerar a página de documentação e parâmetros do PHP*/
 	phpinfo(); 
 ?>
 ```
@@ -235,8 +235,8 @@ NA PÁGINA.
 OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK DAS PÁGINAS:
 index.html COM A PÁGINA PHP seunome.php PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE.
 
-#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADO NO SISTEMA NO GRUPO DO 
-APACHE2, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE 2 E DOS SITES CRIADOS.
+#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO SISTEMA NO GRUPO DO 
+APACHE2, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
 =========================================================================================
 

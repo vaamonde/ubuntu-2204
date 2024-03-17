@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 15/03/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -73,6 +73,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 #03_ Verificando a Porta de Conexão do OpenSSH Server<br>
 
+	#verificando a porta padrão do OpenSSH Server
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 
@@ -93,11 +94,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	#editando o arquivo de configuração de Negação de Serviço e Host
 	sudo vim /etc/hosts.deny
 	
-	#mostrando o número de linha do arquivo
+	#mostrando o número de linha do arquivo hosts.deny
 	ESC SHIFT :set number <Enter>
 	INSERT
 
 		#inserir as informações na linha 17
+		#lista de serviço: lista de hosts: comando
 		ALL: ALL
 
 	#salvar e sair do arquivo
@@ -106,18 +108,23 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	#editando o arquivo de configuração de Liberação de Serviço e Host
 	sudo vim /etc/hosts.allow
 	
-	#mostrando o número de linha do arquivo
+	#mostrando o número de linha do arquivo hosts.allow
 	ESC SHIFT :set number <Enter>
 	INSERT
 
 		#inserir as informações na linha 10
-		#OBSERVAÇÃO: ALTERAR A REDE CONFORME A SUA NECESSIDADE
+		#lista de serviço: lista de hosts: comando
+		#OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 		sshd: 172.16.1.0/24
 
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
 #06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
+
+	#fazendo o backup do arquivo de configuração do OpenSSH Server
+	#opção do comando cp: -v (verbose)
+	sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 
 	#atualizando o arquivo de configuração do OpenSSH Server
 	#opção do comando wget: -v (verbose), -O (output file)
@@ -130,15 +137,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	sudo vim /etc/ssh/sshd_config
 	INSERT
 
-		#alterar a linha 27: ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
+		#alterar a variável ListenAddress na linha 27: ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
 		#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 		ListenAddress 172.16.1.20
 
-		#alterar a linha 77: AllowUsers
+		#alterar a variável AllowUsers na linha 77:
 		#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
 		AllowUsers vaamonde
 
-		#alterar a linha 83: AllowGroups
+		#alterar a variável AllowGroups na linha 83:
 		#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
 		AllowGroups vaamonde
 
@@ -162,12 +169,14 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 #07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
 
+	#acessando via Powershell
 	Windows
 		Pesquisa do Windows
 			Powershell
 
 	ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
 
+	#acessando via PuTTY
 	Windows
 		Pesquisa do Windows
 			PuTTY
@@ -179,6 +188,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 			SSH: On
 	<Open>
 
+	#acessando via Terminal no Linux Mint
 	Linux
 		Terminal: Ctrl + Alt + T
 			ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
@@ -194,7 +204,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	#OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
 	#ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
 	#É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE
-	#USUÁRIO PARA INVADIR SERVIDORES.
+	#USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO
+	#DE APRENDIZAGEM.
 
 	#criando o usuário Admin
 	sudo adduser admin
