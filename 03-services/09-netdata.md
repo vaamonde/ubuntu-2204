@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 11/01/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -102,43 +102,47 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
-		#criando o usuário do Netdata no MySQL
-		CREATE USER 'netdata'@'localhost';
+```sql
 
-		#aplicando as permissões do usuário do Netdata no MySQL
-		GRANT USAGE, REPLICATION CLIENT ON *.* TO 'netdata'@'localhost';
+/* criando o usuário do Netdata no MySQL */
+CREATE USER 'netdata'@'localhost';
 
-		#fazendo o flush das permissões e saindo do MySQL
-		FLUSH PRIVILEGES;
+/* aplicando as permissões do usuário do Netdata no MySQL */
+GRANT USAGE, REPLICATION CLIENT ON *.* TO 'netdata'@'localhost';
 
-		#verificando o usuário do Netdata criado no MySQL
-		SELECT user,host FROM mysql.user;
+/* fazendo o flush das permissões e saindo do MySQL */
+FLUSH PRIVILEGES;
 
-		#saindo do MySQL
-		exit
+/* verificando o usuário do Netdata criado no MySQL */
+SELECT user,host FROM mysql.user WHERE user="netdata";
+
+ /* saindo do MySQL */
+exit
+```
 
 #08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server<br>
 
 	#opção do comando mongosh: admin (database) -u (username), -p (password)
 	mongosh admin -u admin -p
 
-		#criando o usuário de monitoramento do Netdata
-		db.createUser({
-			"user": "netdata",
-			"pwd": "netdata",
-			"roles" : [
-			{role: 'read', db: 'admin' },
-			{role: 'clusterMonitor', db: 'admin'},
-			{role: 'read', db: 'local' }
-			]
-		})
+```json
+db.createUser({
+	"user": "netdata",
+	"pwd": "netdata",
+	"roles" : [
+	{role: 'read', db: 'admin' },
+	{role: 'clusterMonitor', db: 'admin'},
+	{role: 'read', db: 'local' }
+	]
+})
+``` 
 
-		#verificando o usuário criado no MongoDB
-		db.getUsers()
-		db.getUser("netdata")
-	
-		#saindo do MongoDB
-		quit
+	#verificando o usuário criado no MongoDB
+	db.getUsers()
+	db.getUser("netdata")
+
+	#saindo do MongoDB
+	quit
 
 #09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
 

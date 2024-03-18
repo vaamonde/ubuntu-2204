@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 06/03/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 17/03/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -108,8 +108,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	sudo systemctl start mongod
 
 	#verificando as versões do MongoDB Server e do Client
-	mongod --version
-	mongosh --version
+	sudo mongod --version
+	sudo mongosh --version
 
 #08_ Verificando a Porta de Conexão do MongoDB Server<br>
 
@@ -168,14 +168,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	#essa falha foi corrigida adicionando essas "Roles" e também na conexão com o Banco de Dados
 	#foi adicionado a opção: ?authSource=admin 
 
-	#criando o usuário admin e suas roles (papéis) do MongoDB
-	db.createUser(
-	{
-		user: "admin",
-		pwd: "pti@2018",
-		roles: [ "root", "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase", "clusterAdmin" ]
-	}
-	)
+```json
+db.createUser(
+{
+	user: "admin",
+	pwd: "pti@2018",
+	roles: [ "root", "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase", "clusterAdmin" ]
+}
+)
+```
 
 	#visualizando os usuários do MongoDB
 	db.getUsers()
