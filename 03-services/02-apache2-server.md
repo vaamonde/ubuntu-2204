@@ -129,7 +129,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 	
 		#criando o diretório de teste das páginas HTML e PHP
 		#opção do comando mkdir: -v (verbose)
-		sudo mkdir v teste
+		sudo mkdir -v teste
 		
 		#alterando as permissões do diretório de teste
 		#opção do comando chmod: -R (recursive), -v (verbose), 775 (User=RWX,Group=RWX,Other=R-X)
