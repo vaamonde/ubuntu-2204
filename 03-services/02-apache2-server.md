@@ -149,7 +149,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 	#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e colar
 	#o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY 
-	#para editar os códigos ou copiar e colar. No Linux Mint essa falha não acontece.
+	#para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+
+	#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
+	#macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
+	#padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
+	#e modificação arquivos desse curso.
 
 	#criando o arquivo em HTML
 	sudo vim seu_nome.html
