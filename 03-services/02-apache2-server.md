@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/03/2023<br>
-#Versão: 0.12<br>
+#Data de atualização: 19/03/2023<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
@@ -132,8 +132,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 		sudo mkdir -v teste
 		
 		#alterando as permissões do diretório de teste
-		#opção do comando chmod: -R (recursive), -v (verbose), 775 (User=RWX,Group=RWX,Other=R-X)
-		sudo chmod -Rv 775 teste/
+		#opção do comando chmod: -R (recursive), -v (verbose), 2775 (Set-GID=2,User=RWX,Group=RWS,Other=R-X)
+		sudo chmod -Rv 2775 teste/
 		
 		#alterando o dono e grupo do diretório de teste
 		#opção do comando chown: -R (recursive), -v (verbose), root (User), . (separate), www-date (group)
@@ -172,11 +172,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 			Autor: Robson Vaamonde<br>
 			Editado por: SEU NOME AQUI<br>
 			Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
-			Site: <a href="procedimentosemti.com.br">procedimentosemti.com.br</a><br>
-			Facebook: <a href="facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
-			Facebook: <a href="facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
+			Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
+			Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
+			Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
 			Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
-			YouTube: <a href="youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+			YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
 		</body>
 	</html>
 ```
@@ -199,12 +199,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 				echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
 				echo 'Autor: Robson Vaamonde<br>';
 				echo 'Editado por: SEU NOME AQUI<br>';
-				echo 'Linkedin: linkedin.com/in/robson-vaamonde-0b029028/<br>';
-				echo 'Site: procedimentosemti.com.br<br>';
-				echo 'Facebook: facebook.com/ProcedimentosEmTI<br>';
-				echo 'Facebook: facebook.com/BoraParaPratica<br>';
-				echo 'Instagram: instagram.com/procedimentoem/<br>';
-				echo 'YouTube: youtube.com/BoraParaPratica<br>'; 
+				echo 'Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
+				echo 'Site: http://procedimentosemti.com.br/<br>';
+				echo 'Facebook: https://www.facebook.com/ProcedimentosEmTI<br>';
+				echo 'Facebook: https://www.facebook.com/BoraParaPratica<br>';
+				echo 'Instagram: https://www.instagram.com/procedimentoem/<br>';
+				echo 'YouTube: https://youtube.com/BoraParaPratica<br>'; 
 			?>
 		</body>
 	</html>

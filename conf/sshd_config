@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 11/10/2021
-# Data de atualização: 14/12/2023
-# Versão: 0.09
+# Data de atualização: 19/03/2024
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.9.x
 #
@@ -133,8 +133,8 @@ PermitEmptyPasswords no
 # Não permitir que os usuários definam opções de ambiente, utilizar os pré-definidos
 PermitUserEnvironment no
 #
-# Especifica se o encaminhamento de TCP é permitido. O padrão é yes. Se você utiliza o 
-# recurso do Visual Studio Code VSCode com Remote SSH, recomendo deixar yes
+# Especifica se o encaminhamento de TCP é permitido. O padrão é yes. Se você utilizar a 
+# extensão do Visual Studio Code VSCode com Remote SSH, será necessário alterar para: yes
 AllowTcpForwarding no
 #
 # Não permitir encaminhamento de portas via Servidor de OpenSSH para os serviços de 
