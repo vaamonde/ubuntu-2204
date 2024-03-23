@@ -101,7 +101,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 	/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
 	/var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 
-#05_ Adicionado o Usuário Local no Grupo Padrão do Apache2 Server<br>
+#05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server<br>
 
 	#adicionando o seu usuário no grupo do Apache2
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)

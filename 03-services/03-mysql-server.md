@@ -158,7 +158,7 @@ SHOW DATABASES;
 exit
 ```
 
-#08_ Adicionado o Usuário Local no Grupo Padrão do MySQL Server<br>
+#08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server<br>
 
 	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 	sudo usermod -a -G mysql $USER
