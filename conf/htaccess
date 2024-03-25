@@ -1,0 +1,28 @@
+#!/bin/bash
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 18/10/2021
+# Data de atualização: 30/04/2022
+# Versão: 0.03
+# Testado e homologado para a versão do Ubuntu Server 20.04.x LTS x64x
+# Testado e homologado para a versão do Apache2 v2.4.x
+# Testado e homologado para a versão do Wordpress v6.0.x
+#
+# O htaccess é um arquivo de configuração do Servidor Web Apache. É utilizado para o controle 
+# de diversos parâmetros, entre eles restringir acessos, redirecionamentos, páginas de erro e 
+# URLs amigáveis. Também é muito utilizado para a proteção de arquivos e diretórios.
+#
+# Configurações Básicas do .htaccess do Wordpress retirado do site Oficial do Wordpress
+# Site: https://wordpress.org/support/article/htaccess/
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
