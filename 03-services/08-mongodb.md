@@ -163,7 +163,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 	#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
 	#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
-	#vídeos, no momento do desenvolvimento de aplicações utilizando o Node.JS junto com o recursos
+	#vídeos, no momento do desenvolvimento de aplicações utilizando o Node.JS junto com o recurso
 	#de conexão com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão",
 	#essa falha foi corrigida adicionando essas "Roles" e também na conexão com o Banco de Dados
 	#foi adicionado a opção: ?authSource=admin 

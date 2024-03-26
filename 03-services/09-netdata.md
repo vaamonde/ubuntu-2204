@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 26/03/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -69,6 +69,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 #03_ Compilando e Instalando o Netdata Server<br>
 
+	#OBSERVAÇÃO IMPORTANTE: o processo de compilação e instalação do Netdata demora
+	#bastante, dependendo do seu hardware pode demorar mais de 30 minutos para baixar
+	#as dependências, compilar e instalar o Netdata.
+	
 	#acessando o diretório clonado e instalando o Netdata Server
 	#opção do ./: execução de script desenvolvido em Shell Script .sh
 	cd netdata/
@@ -96,6 +100,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 	#habilitando o suporte para atualização do Netdata Server
 	sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
+
+	#OBSERVAÇÃO IMPORTANTE: caso queira atualizar manualmente o Netdata digite o
+	#mesmo comenda do agendamento de atualizações do Netdata no terminal.
+	#opção do ./: execução de script desenvolvido em Shell Script .sh
+	sudo /usr/libexec/netdata/./netdata-updater.sh
 
 #07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server<br>
 

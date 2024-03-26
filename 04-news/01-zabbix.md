@@ -7,21 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 14/03/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 26/03/2024<br>
+#Versão: 0.09<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
+A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix
 
-Conteúdo estudado nesse desafio:<br>
+Conteúdo estudado nessa implementação:<br>
 #01_ Instalando as Dependências do Zabbix Server e Agent<br>
 #02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
 #03_ Instalando o Zabbix Server, Frontend e Agent<br>
@@ -36,8 +36,7 @@ Conteúdo estudado nesse desafio:<br>
 #12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
 #13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
 #14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
-#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
-#16_ Desafios do Zabbix Server e Agent
+#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
@@ -138,7 +137,7 @@ exit
 
 #06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
 
-	#OBSERVAÇÃO IMPORTANTE: O PROCEDIMENTO DE CRIAÇÃO A POPULAÇÃO DAS TABELAS DO ZABBIX
+	#OBSERVAÇÃO IMPORTANTE: O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX
 	#SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
 	#importando o esquema e os dados iniciais do banco de dados do Zabbix Server
@@ -428,16 +427,13 @@ exit
 					Enable: On
 				<Add>
 
-#16_ DESAFIO-01: 
-
-
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Zabbix realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
+A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.png
 

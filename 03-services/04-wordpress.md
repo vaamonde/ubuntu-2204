@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 26/03/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
@@ -122,12 +122,12 @@ exit
 	#alterando as permissões dos diretórios e arquivos do WordPress
 	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 	#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
-	#opção do comando chmod: -v (verbose), 755 (Dono=RWX,Grupo=R-X,Outros=R-X)
-	#opção do comando chmod: -v (verbose), 644 (Dono=RW-,Grupo=R--,Outros=R--)
+	#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
+	#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
 	#opção do comando {} \;: executa comandos em lote e aplicar as permissões para cada arquivo/diretório em loop
 	sudo chown -Rfv www-data.www-data /var/www/html/wp/
-	sudo find /var/www/html/wp/. -type d -exec chmod -v 755 {} \;
-	sudo find /var/www/html/wp/. -type f -exec chmod -v 644 {} \;
+	sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
+	sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 
 #04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
 

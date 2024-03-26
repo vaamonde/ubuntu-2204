@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 26/03/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
@@ -103,6 +103,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 	#criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 	#opção do comando mkdir: -v (verbose)
 	mkdir -v nodejs-hello
+	
+	#acessando o diretório do projeto
 	cd nodejs-hello
 		
 		#Inicializando o diretório do Projeto do Node.JS

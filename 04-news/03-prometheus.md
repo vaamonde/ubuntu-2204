@@ -7,21 +7,21 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 13/03/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 26/03/2024<br>
+#Versão: 0.06<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Prometheus realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
+A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus
 
-Conteúdo estudado nesse desafio:<br>
+Conteúdo estudado nessa implementação:<br>
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
 #02_ Criando os diretórios do Prometheus<br>
 #03_ Baixando o Prometheus do Projeto do Github<br>
@@ -38,14 +38,13 @@ Conteúdo estudado nesse desafio:<br>
 #14_ Verificando o Serviço e Versão do Node Exporter<br>
 #15_ Verificando a Porta de Conexão do Node Exporter<br>
 #16_ Editando o arquivo de configuração do Prometheus<br>
-#17 Habilitando o Serviço do Prometheus no Ubuntu Server<br>
+#17_ Habilitando o Serviço do Prometheus no Ubuntu Server<br>
 #18_ Verificando o Serviço e Versão do Prometheus<br>
 #19_ Verificando a Porta de Conexão do Prometheus<br>
 #20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
 #21_ Localização dos diretórios principais do Prometheus<br>
 #22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
-#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
-#24_ Desafios do Prometheus e do Node Exporter
+#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
@@ -300,10 +299,12 @@ Link da vídeo aula:
 	e) Expression: node_cpu_seconds_total{job="wsvaamonde"} <Execute> - <Graph>
 
 	#verificando o incremento do Total de CPU por segundos em 1m
+	#rate = | [1m] = 
 	f) Expression: rate(node_cpu_seconds_total{job="wsvaamonde"}[1m]) <Execute> - <Graph>
 	g) Expression: rate(node_cpu_seconds_total{cpu="0",job="wsvaamonde"}[1m]) <Execute> - <Graph>
 
 	#verificando o incremente do Total de Pacotes Enviados e Recebidos da Interface de Rede
+	#rate = | [10m] = | *8/1024/1024 =  
 	h) rate(node_network_receive_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 	i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 
@@ -312,18 +313,15 @@ Link da vídeo aula:
 
 #23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
 
-#24_ DESAFIO-01: 
-
-
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Prometheus realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
+A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiografana
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus

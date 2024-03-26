@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 12/03/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 26/03/2024<br>
+#Versão: 0.04<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -126,6 +126,10 @@ network:
     enp0s3:
     #desabilitando o suporte ao DHCP Client
     dhcp4: false
+    #desativando o suporte ao IPv6
+    #OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
+    #na sua rede o recurso do IPv6
+    link-local: []
     #alterar o endereço IPv4 para o seu cenário
     #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
     addresses: [172.16.1.20/24]

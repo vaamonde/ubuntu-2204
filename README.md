@@ -484,3 +484,5 @@ LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: [Certificado do Curso](https://fo
 [![Finalização do Curso](http://img.youtube.com/vi/0JB8GsmaVgQ/0.jpg)](https://www.youtube.com/watch?v=0JB8GsmaVgQ "Finalização do Curso")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=0JB8GsmaVgQ
+
+===================== NOVOS VÍDEOS DO CURSO UBUNTU SERVER =====================
