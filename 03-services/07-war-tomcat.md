@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 27/12/2023<br>
-#Versão: 0.12<br>
+#Data de atualização: 28/03/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
@@ -134,12 +134,12 @@ exit
 	sudo mysql -u dbagenda -p
 
 ```sql
-		#comandos básicos de verificação da base de dados e tabelas do MySQL
-		SHOW DATABASES;
-		USE dbagenda;
-		SHOW TABLES;
-		DESC contatos;
-		exit
+#comandos básicos de verificação da base de dados e tabelas do MySQL
+SHOW DATABASES;
+USE dbagenda;
+SHOW TABLES;
+DESC contatos;
+exit
 ```
 
 #06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros<br>
@@ -147,6 +147,10 @@ exit
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 #07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server<br>
+
+	#OBSERVAÇÃO IMPORTANTE: para esse teste, recomendo adicionar vários registros no Banco
+	#de Dados do DBAgenda, para verificar os procedimentos de Dump do Banco e Restore das
+	#informações.
 
 	#fazendo o backup do banco de dados DBAgenda
 	#opções do comando mysqldump: -u (user), -p (password), database
@@ -159,19 +163,21 @@ exit
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dbagenda -p
 
-		#comandos básicos de verificação da base de dados e tabelas do MySQL
-		SHOW DATABASES;
-		USE dbagenda;
-		SHOW TABLES;
+```sql
+#comandos básicos de verificação da base de dados e tabelas do MySQL
+SHOW DATABASES;
+USE dbagenda;
+SHOW TABLES;
 
-		#verificando todos os registros da Tabela Contatos
-		SELECT * FROM contatos;
+#verificando todos os registros da Tabela Contatos
+SELECT * FROM contatos;
 
-		#removendo todos os registros da Tabela Contatos
-		TRUNCATE TABLE contatos;
-		SELECT * FROM contatos;
-		exit
-	
+#removendo todos os registros da Tabela Contatos
+TRUNCATE TABLE contatos;
+SELECT * FROM contatos;
+exit
+```
+
 	#restaurando o backup do banco de dados DBAgenda
 	#opções do comando mysql: -u (user), -p (password)
 	#opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
@@ -180,14 +186,16 @@ exit
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u dbagenda -p
 
-		#comandos básicos de verificação da base de dados e tabelas do MySQL
-		SHOW DATABASES;
-		USE dbagenda;
-		SHOW TABLES;
+```sql
+#comandos básicos de verificação da base de dados e tabelas do MySQL
+SHOW DATABASES;
+USE dbagenda;
+SHOW TABLES;
 
-		#verificando todos os registros da Tabela Contatos
-		SELECT * FROM contatos;
-		exit
+#verificando todos os registros da Tabela Contatos
+SELECT * FROM contatos;
+exit
+```
 
 #08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Hello World DO PROJETO DO 
 GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO 
