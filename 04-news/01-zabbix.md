@@ -79,7 +79,7 @@ Link da vídeo aula:
 #03_ Instalando o Zabbix Server, Frontend e Agent2<br>
 
 	#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server e necessário ter instalado e
-	#configurado de forma correto o MySQL Server e o Apache2 Server, no caso do Banco de Dados
+	#configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados
 	#MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade
 	#de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
 
@@ -329,7 +329,7 @@ exit
 		Get-Service 'Zabbix Agent'
 		netstat -an | findstr 10050
 	
-	#Localização do arquivo de configuaração do Zabbix Agent
+	#Localização do arquivo de configuração do Zabbix Agent
 	C:\Program Files\Zabbix Agent\
 		zabbix_agentd.conf
 

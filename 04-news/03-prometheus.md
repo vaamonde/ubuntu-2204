@@ -61,14 +61,13 @@ Link da vídeo aula:
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
 
 	#criação do grupo usuário de serviço do Prometheus
-	#opção do comando: &>> (redirecionar de saída padrão)
 	#opção do comando useradd: -s (shell), -g (group) 
 	sudo groupadd --system prometheus
 	sudo useradd -s /sbin/nologin --no-create-home --system -g prometheus prometheus
 
 	#criação do grupo e usuário de serviço do Node Exporter
-	#opção do comando: &>> (redirecionar de saída padrão)
-	#opção do comando useradd: -s (shell), -g (group)
+	#opção do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), --system 
+	#(Create a system account). -g (group) 
 	#opções do comando usermod: -a (append), -G (groups)
 	sudo groupadd --system node_exporter
 	sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_exporter
@@ -77,7 +76,6 @@ Link da vídeo aula:
 #02_ Criando os diretórios do Prometheus<br>
 
 	#criando o diretório de configuração e bibliotecas do Prometheus
-	#opção do comando: &>> (redirecionar a saída padrão)
 	#opção do comando mkdir: =p (parents), -v (verbose)
 	sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 
@@ -217,17 +215,20 @@ Link da vídeo aula:
 	sudo vim /etc/prometheus/prometheus.yml
 	INSERT
 
-		#alterar os valores das viráveis a partir da linha: 37
-		scrape_configs:
- 		  - job_name: "prometheus"
- 		    static_configs:
-		      - targets: ["172.16.1.20:9091"]
+```json
 
-		#alterar os valores das variáveis a partir da linha: 44
-		scrape_configs:
-		  - job_name: "wsvaamonde"
-		    static_configs:
- 		     - targets: ["172.16.1.20:9100"]
+#alterar os valores das viráveis a partir da linha: 37
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["172.16.1.20:9091"]
+
+#alterar os valores das variáveis a partir da linha: 44
+scrape_configs:
+  - job_name: "wsvaamonde"
+    static_configs:
+      - targets: ["172.16.1.20:9100"]
+```
 
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
