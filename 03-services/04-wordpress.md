@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 26/03/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 02/04/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
@@ -210,6 +210,26 @@ define( 'DB_PASSWORD', 'wordpress' );
 
 	#Tela do site do WordPress
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
+
+#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em um rede Local ou Cloud,
+#e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
+#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tablea de
+#configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
+#conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
+
+#Mais informações acesse o Link dos Desenvolvedores do Wordpress:
+Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
+
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u root -p
+
+```sql
+/* Alterar os endereços IPv4 ou Nome do Domínio conforme a sua necessidade */
+UPDATE wp_options SET option_value = replace(option_value, 'IPv4.ANTIGO', 'IPv4.NOVO') WHERE option_name = 'home' OR option_name = 'siteurl'; 
+UPDATE wp_posts SET guid = replace(guid, 'IPv4.ANTIGO','IPv4.NOVO'); 
+UPDATE wp_posts SET post_content = replace(post_content, 'IPv4.ANTIGO', 'IPv4.NOVO'); 
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'IPv4.ANTIGO','IPv4.NOVO');
+```
 
 #07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
