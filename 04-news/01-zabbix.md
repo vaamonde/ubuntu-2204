@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 26/03/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 03/04/2024<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -63,7 +63,7 @@ Link da vídeo aula:
 	#Link de referência do download: https://www.zabbix.com/download
 	
 	#OBSERVAÇÃO IMPORTANTE: NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0
-	#PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.4.
+	#PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
 
 	#OBSERVAÇÃO IMPORTANTE: NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER
 	#FOI SELECIONADO: 7.0 PRE-RELEASE, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL
@@ -298,40 +298,40 @@ exit
 	#Link de referência do download: https://www.zabbix.com/br/download_agents
 
 	#OBSERVAÇÃO IMPORTANTE: ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O
-	#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4 DO 
-	#ZABBIX SERVER.
+	#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO 
+	#ZABBIX AGENT.
 
-	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.12
-	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.12/zabbix_agent-6.4.12-windows-amd64-openssl.msi
+	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.13
+	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.13/zabbix_agent2-6.4.13-windows-amd64-openssl.msi
 
-	#Instalação Manual do Zabbix Agent para Microsoft
+	#Instalação Manual do Zabbix Agent 2 para Microsoft
 	Pasta de Download
-		Welcome to the Zabbix Agent (64-bit) Setup Wizard <Next>
+		Welcome to the Zabbix Agent 2 (64-bit) Setup Wizard <Next>
 		End-User License Agreement
-			On I accept the therms in the License Agreement <Next>
+			(On) I accept the therms in the License Agreement <Next>
 		Custom Setup
-			On Zabbix Agent (64-bit) <Next>
+			(On) Zabbix Agent 2 (64-bit) <Next>
 		Zabbix Agent service configuration
 			Host name: windows10
 			Zabbix server IP/DNS: 172.16.1.20
 			Agent listen port: 10050
 			Server or Proxy for active checks: 172.16.1.20
-			Off Enable PSK
-			On Add agent location to the PATH <Next>
-		Ready to install Zabbix Agent (64-bit) <Install>
-			Zabbix Agent MSI package (64)-bit <Sim>
-		Completed the Zabbix Agent (64-bit) <Finish>
+			(Off) Enable PSK
+			(On) Add agent location to the PATH <Next>
+		Ready to install Zabbix Agent 2 (64-bit) <Install>
+			Zabbix Agent 2 MSI package (64)-bit <Sim>
+		Completed the Zabbix Agent 2 (64-bit) <Finish>
 	
-	#Verificação da instalação do Zabbix Agent no Powershell
+	#Verificação da instalação do Zabbix Agent 2 no Powershell
 	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 	Powershell
 		hostname
-		Get-Service 'Zabbix Agent'
+		Get-Service 'Zabbix Agent 2'
 		netstat -an | findstr 10050
 	
-	#Localização do arquivo de configuração do Zabbix Agent
-	C:\Program Files\Zabbix Agent\
-		zabbix_agentd.conf
+	#Localização do arquivo de configuração do Zabbix Agent 2
+	C:\Program Files\Zabbix Agent 2\
+		zabbix_agent2.conf
 
 	#Link de referência do download: https://www.zabbix.com/br/download
 	
