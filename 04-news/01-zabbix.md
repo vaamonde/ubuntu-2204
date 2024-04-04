@@ -44,9 +44,9 @@ Traduzido do inglês-O Zabbix é uma ferramenta de software de código aberto pa
 a infraestrutura de TI, como redes, servidores, máquinas virtuais e serviços em nuvem. O <br>
 Zabbix coleta e exibe métricas básicas.
 
-[![Zabbix](http://img.youtube.com/vi//0.jpg)]( "Zabbix")
+[![Zabbix Server](http://img.youtube.com/vi/ms5_qLThRTg/0.jpg)](https://www.youtube.com/watch?v=ms5_qLThRTg "Zabbix Server")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
 #01_ Instalando as Dependências do Zabbix Server e Agent2<br>
 

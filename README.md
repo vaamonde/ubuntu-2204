@@ -486,3 +486,40 @@ LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: [Certificado do Curso](https://fo
 Link da vídeo aula: https://www.youtube.com/watch?v=0JB8GsmaVgQ
 
 ===================== NOVOS VÍDEOS DO CURSO UBUNTU SERVER =====================
+
+## **🤩🤩 Implementação do Zabbix Server 7 e Agent 2 no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de implementação do Zabbix Server 7 no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Monitoramento em Tempo Real do Zabbix Server e Agent para obter as principais métricas do nosso servidor.
+
+O Zabbix é uma ferramenta de software de código aberto para monitorar a infraestrutura de TI, como redes, servidores, máquinas virtuais e serviços em nuvem. O Zabbix coleta e exibe métricas básicas. O Zabbix foi projetado principalmente como uma ferramenta de monitoramento de infraestrutura de TI. Novos recursos são geralmente lançados a cada seis meses para as principais versões e a cada 1,5 anos para versões LTS.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM  A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver  #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Instalando as Dependências do Zabbix Server e Agent<br>
+#02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
+#03_ Instalando o Zabbix Server, Frontend e Agent<br>
+#04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
+#05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server<br>
+#06_ Populando as Tabelas no Banco de Dados do Zabbix Server<br>
+#07_ Editando os arquivos de Configuração do Zabbix Server e Agent<br>
+#08_ Habilitando o Serviço do Zabbix Server e Agent<br>
+#09_ Verificando o Serviço e Versão do Zabbix Server e Agent<br>
+#10_ Configurando o Zabbix Server via Navegador<br>
+#11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
+#12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
+#13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
+#14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
+#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server
+
+[![Implementação Zabbix](http://img.youtube.com/vi/ms5_qLThRTg/0.jpg)](https://www.youtube.com/watch?v=ms5_qLThRTg "Implementação Zabbix")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/01-zabbix.md
