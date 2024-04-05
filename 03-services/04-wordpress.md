@@ -252,9 +252,9 @@ UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 #10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS
 ABAIXO:
 
-A) Path New Site: /var/www/html/site
-B) Database Name: newsite
-C) User and Password Database: newsite
+A) Path New Site: /var/www/html/site<br>
+B) Database Name: newsite<br>
+C) User and Password Database: newsite<br>
 D) Wordpress Template Install: Astra
 
 =========================================================================================
