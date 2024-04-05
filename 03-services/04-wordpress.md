@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 02/04/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 05/04/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
@@ -213,7 +213,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 
 #OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em um rede Local ou Cloud,
 #e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
-#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tablea de
+#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
 #configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
 #conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
 
@@ -221,14 +221,21 @@ define( 'DB_PASSWORD', 'wordpress' );
 Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
 	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+	sudo mysql -u wordpress -p
 
 ```sql
+/* Utilizar o banco de dados do Wordpress */
+USE wordpress;
+
 /* Alterar os endereços IPv4 ou Nome do Domínio conforme a sua necessidade */
+/* OBSERVAÇÃO IMPORTANTE: RECOMENDO USAR AS ATUALIZAÇÕES UMA DE CADA VEZ */ 
 UPDATE wp_options SET option_value = replace(option_value, 'IPv4.ANTIGO', 'IPv4.NOVO') WHERE option_name = 'home' OR option_name = 'siteurl'; 
 UPDATE wp_posts SET guid = replace(guid, 'IPv4.ANTIGO','IPv4.NOVO'); 
 UPDATE wp_posts SET post_content = replace(post_content, 'IPv4.ANTIGO', 'IPv4.NOVO'); 
 UPDATE wp_postmeta SET meta_value = replace(meta_value,'IPv4.ANTIGO','IPv4.NOVO');
+
+/* Sair do Mysql Server e Testar novamente o Site do Wordpress no navegador */ 
+exit
 ```
 
 #07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
@@ -241,6 +248,14 @@ NO DIA A DIA O: Wordfence Security E: W3 Total Cache.
 GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
 FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO
 UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
+
+#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS
+ABAIXO:
+
+A) Path New Site: /var/www/html/site
+B) Database Name: newsite
+C) User and Password Database: newsite
+D) Wordpress Template Install: Astra
 
 =========================================================================================
 
