@@ -314,6 +314,33 @@ scrape_configs:
 
 #23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
 
+	#Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
+
+	#link para download direto do Node Exporter (link atualizado em: 04/04/2024)
+	https://github.com/prometheus-community/windows_exporter/releases/download/v0.25.1/windows_exporter-0.25.1-amd64.msi
+
+	#OBSERVAÇÃO IMPORTANTE: fazer a instalação do Prometheus Windows Exporter utilizando 
+	#o Powershell em modo Administrador.
+
+	Menu
+		Powershell 
+			Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
+
+	#acessando o diretório de Download do Perfil do Usuário
+	cd c:\user\vaamonde\Download
+
+	#instalando o Node Exporter
+	#opção do comando msiexec: -i (install)
+	msiexec -i windows_exporter-*-amd64.msi ENABLED_COLLECTORS=cpu,memory,net,logical_disk,os,system,logon,thermalzone
+
+	#verificando o status de serviço do Node Exporter
+	Get-Service 'Node Exporter'
+	
+	#verificando a porta de conexão do Node Exporter
+	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
+	netstat -an | findstr 9182
+
+
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
