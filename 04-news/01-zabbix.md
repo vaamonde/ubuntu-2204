@@ -78,7 +78,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
 #03_ Instalando o Zabbix Server, Frontend e Agent2<br>
 
-	#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server e necessário ter instalado e
+	#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server é necessário ter instalado e
 	#configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados
 	#MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade
 	#de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
@@ -278,10 +278,10 @@ exit
 
 #11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
-	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
-	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
-	#Entrada, Porta e Protocolo TCP.
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN

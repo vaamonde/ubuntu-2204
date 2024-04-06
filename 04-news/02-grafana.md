@@ -130,6 +130,11 @@ Link da vídeo aula:
 
 #07_ Verificando a Porta de Conexão do Grafana Server<br>
 
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 

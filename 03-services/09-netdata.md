@@ -89,7 +89,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 	#analisando os Log's e mensagens de erro do Servidor do Netdata (NÃO COMENTADO NO VÍDEO)
 	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-	sudo journalctl -xeu mongod
+	sudo journalctl -xeu netdata
 
 	#verificando a versão do Netdata Server
 	#opção do comando netdata: -v (version)
@@ -97,10 +97,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 #05_ Verificando a Porta de Conexão do Netdata Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
-	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
-	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
-	#Entrada, Porta e Protocolo TCP.
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.P.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
@@ -111,7 +111,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 	sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 
 	#OBSERVAÇÃO IMPORTANTE: caso queira atualizar manualmente o Netdata digite o
-	#mesmo comenda do agendamento de atualizações do Netdata no terminal.
+	#mesmo comendo do agendamento de atualizações do Netdata no terminal.
 	#opção do ./: execução de script desenvolvido em Shell Script .sh
 	sudo /usr/libexec/netdata/./netdata-updater.sh
 

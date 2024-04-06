@@ -174,10 +174,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 #10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
-	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
-	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
-	#Entrada, Porta e Protocolo TCP.
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN

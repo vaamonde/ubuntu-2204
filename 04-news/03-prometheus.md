@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 26/03/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -201,6 +201,11 @@ Link da vídeo aula:
 
 #15_ Verificando a Porta de Conexão do Node Exporter<br>
 
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 
@@ -253,6 +258,11 @@ scrape_configs:
 
 #19_ Verificando a Porta de Conexão do Prometheus<br>
 
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
 
@@ -274,7 +284,7 @@ scrape_configs:
 
 #22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
 
-	#acessando o Prometheus
+	#acessando o Prometheus via navegador
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
 	Status

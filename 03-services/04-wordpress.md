@@ -215,7 +215,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 	#Tela do site do WordPress
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
-#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em um rede Local ou Cloud,
+#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em uma rede Local ou Cloud,
 #e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
 #atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
 #configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
@@ -266,7 +266,7 @@ DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPR
 ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO O SISTEMA DO WORDPRESS FICA FORA
 DO AR (INDISPONÍVEL) E APRESENTA A MENSAGEM: Momentaneamente indisponível para manutenção 
 programada. Confira novamente em um minuto. ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR
-A ATUALIZAÇÃO O WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUNDANÇAS, MAIS PODE
+A ATUALIZAÇÃO O WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE
 ACONTECER QUE ELE NÃO VOLTE. PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO:
 
 	#acessar o diretório do site do Wordpress
