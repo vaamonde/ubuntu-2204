@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 26/03/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -87,11 +87,20 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 	sudo systemctl stop netdata
 	sudo systemctl start netdata
 
+	#analisando os Log's e mensagens de erro do Servidor do Netdata (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+	sudo journalctl -xeu mongod
+
 	#verificando a versão do Netdata Server
 	#opção do comando netdata: -v (version)
 	sudo netdata -v
 
 #05_ Verificando a Porta de Conexão do Netdata Server<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN

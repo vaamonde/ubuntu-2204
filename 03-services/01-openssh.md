@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -72,6 +72,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	sudo ssh -V
 
 #03_ Verificando a Porta de Conexão do OpenSSH Server<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
 
 	#verificando a porta padrão do OpenSSH Server
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -152,6 +157,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
+	#testando o arquivo de configuração do OpenSSH SERVER (NÃO COMENTADO NO VÍDEO)
+	#opção do comando sshd: -t (text mode check configuration)
+	sudo sshd -t
+
 	#editando o arquivo de configuração do Banner do Ubuntu Server
 	sudo vim /etc/issue.net
 	INSERT
@@ -166,6 +175,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	#reiniciar o serviço do OpenSSH Server
 	sudo systemctl restart ssh
 	sudo systemctl status ssh
+
+	#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+	sudo journalctl -t sshd
+	sudo journalctl -xeu ssh
 
 #07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
 
@@ -244,8 +258,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 
-	OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
-	verificar se está tudo OK na criação do usuário admin.
+	#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
+	#verificar se está tudo OK na criação do usuário admin.
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.

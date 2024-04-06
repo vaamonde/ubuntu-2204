@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 05/04/2024<br>
+#Data de atualização: 06/04/2024<br>
 #Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
@@ -124,7 +124,7 @@ exit
 	#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 	#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
 	#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
-	#opção do comando {} \;: executa comandos em lote e aplicar as permissões para cada arquivo/diretório em loop
+	#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
 	sudo chown -Rfv www-data.www-data /var/www/html/wp/
 	sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
 	sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
@@ -173,6 +173,10 @@ define( 'DB_PASSWORD', 'wordpress' );
 	sudo systemctl restart apache2
 	sudo systemctl status apache2
 
+	#analisando os Log's e mensagens de erro do Servidor do Apache2 (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+	sudo journalctl -xeu apache2
+
 #06_ Acessando e configurando o WordPress via navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
@@ -196,8 +200,8 @@ define( 'DB_PASSWORD', 'wordpress' );
 		<Acessar>
 	
 	#OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
-	#é recomendado alterar as configurações de Links Permanente do Wordpres, com isso resolvemos
-	#uma falhar de JSON na hora de salvar as mudanças dos Posts no Wordpress.
+	#é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos
+	#uma falha de JSON na hora de salvar as mudanças dos Posts no Wordpress.
 	
 	#Configuração dos Links Permanentes do WordPress
 	Configurações
@@ -220,6 +224,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 #Mais informações acesse o Link dos Desenvolvedores do Wordpress:
 Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
+	#se logando no MySQL Server com o usuário e senha Wordpress
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u wordpress -p
 
@@ -228,7 +233,7 @@ Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 USE wordpress;
 
 /* Alterar os endereços IPv4 ou Nome do Domínio conforme a sua necessidade */
-/* OBSERVAÇÃO IMPORTANTE: RECOMENDO USAR AS ATUALIZAÇÕES UMA DE CADA VEZ */ 
+/* OBSERVAÇÃO IMPORTANTE: RECOMENDO APLICAR AS ATUALIZAÇÕES UMA DE CADA VEZ */ 
 UPDATE wp_options SET option_value = replace(option_value, 'IPv4.ANTIGO', 'IPv4.NOVO') WHERE option_name = 'home' OR option_name = 'siteurl'; 
 UPDATE wp_posts SET guid = replace(guid, 'IPv4.ANTIGO','IPv4.NOVO'); 
 UPDATE wp_posts SET post_content = replace(post_content, 'IPv4.ANTIGO', 'IPv4.NOVO'); 
@@ -249,13 +254,35 @@ GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DE
 FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO
 UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
-#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS
-ABAIXO:
+#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
 A) Path New Site: /var/www/html/site<br>
 B) Database Name: newsite<br>
 C) User and Password Database: newsite<br>
 D) Wordpress Template Install: Astra
+
+OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS
+DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE
+ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO O SISTEMA DO WORDPRESS FICA FORA
+DO AR (INDISPONÍVEL) E APRESENTA A MENSAGEM: Momentaneamente indisponível para manutenção 
+programada. Confira novamente em um minuto. ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR
+A ATUALIZAÇÃO O WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUNDANÇAS, MAIS PODE
+ACONTECER QUE ELE NÃO VOLTE. PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO:
+
+	#acessar o diretório do site do Wordpress
+	cd /var/www/html/wp
+
+	#listar o arquivo de manutenção do Wordpress
+	ls -lha .maintenance
+
+	#remover o arquivo de manutenção do Wordpress
+	sudo rm -v .maintenance
+
+	#fazer um Reload do serviço do Apache2
+	sudo systemctl reload apache2
+
+	#testar novamente o Site, atualizar a página com Ctrl+R ou F5
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
 =========================================================================================
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 03/04/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -231,6 +231,10 @@ exit
 	sudo systemctl stop zabbix-server zabbix-agent
 	sudo systemctl start zabbix-server zabbix-agent
 
+	#analisando os Log's e mensagens de erro do Servidor do Zabbix (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: -t (identifier)
+	sudo journalctl -t zabbix_agent2
+
 	#verificando a versão do Zabbix Server e Agent2
 	#opção do comando zabbix_server: -V (version)
 	#opção do comando zabbix_agentd: -V (version)
@@ -273,6 +277,11 @@ exit
 	<Sign in>
 
 #11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN

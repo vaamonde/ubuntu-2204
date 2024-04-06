@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.18<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -69,7 +69,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 
-	#download da Chave GPG do MongoDB Server
+	#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 7.0 EM: 06/04/2024)
 	#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as
 	#chaves GPG de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
@@ -107,11 +107,21 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	sudo systemctl stop mongod
 	sudo systemctl start mongod
 
+	#analisando os Log's e mensagens de erro do Servidor do MongoDB (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+	sudo journalctl -t mongod
+	sudo journalctl -xeu mongod
+
 	#verificando as versões do MongoDB Server e do Client
 	sudo mongod --version
 	sudo mongosh --version
 
 #08_ Verificando a Porta de Conexão do MongoDB Server<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
@@ -156,6 +166,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 #13_ Criando o usuário de administração do MongoDB Server<br>
 
+	#acessando o MongoDB Server via Client (MongoDB Shell/Console)
 	mongosh
 	
 	#alterar o database informe no MongoDB

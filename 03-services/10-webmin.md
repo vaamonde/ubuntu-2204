@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 10/01/2023<br>
-#Versão: 0.08<br>
+#Data de atualização: 06/04/2023<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
@@ -86,12 +86,22 @@ Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 	sudo systemctl stop webmin
 	sudo systemctl start webmin
 
+	#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+	sudo journalctl -t webmin
+	sudo journalctl -xeu webmin
+
 	#verificando a versão do Webmin
 	#opção do comando grep: -i (ignore-case)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	sudo apt list --installed | grep -i webmin 
 
 #06_ Verificando a Porta de Conexão do Webmin<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
@@ -165,10 +165,19 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	sudo systemctl stop tomcat10
 	sudo systemctl start tomcat10
 
+	#analisando os Log's e mensagens de erro do Servidor do TomCAT (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+	sudo journalctl -xeu tomcat10
+
 	#verificando a versão do Apache Tomcat Server
 	sudo bash /opt/tomcat/bin/version.sh
 
 #10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 17/03/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 06/04/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
@@ -72,6 +72,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #03_ Verificando a Porta de Conexão do MySQL Server<br>
 
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
+
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
@@ -121,6 +126,7 @@ FLUSH PRIVILEGES;
 exit
 ```
 
+	#testando novamente o acesso ao MySQL Server agora com senha
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
@@ -190,9 +196,17 @@ exit
 	#salvar e sair do arquivo	
 	ESC SHIFT :x <Enter>
 
+	#testando o arquivo de configuração do MySQL SERVER (NÃO COMENTADO NO VÍDEO)
+	#opção do comando mysqld: --validate-config (checked for problems without running the server)
+	sudo mysqld --validate-config
+
 	#reiniciar o serviço do MySQL Server
 	sudo systemctl restart mysql
 	sudo systemctl status mysql
+
+	#analisando os Log's e mensagens de erro do Servidor do MySQL (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+	sudo journalctl -xeu mysql
 
 	#acessar o MySQL Server como Root
 	sudo mysql -u root -p
@@ -214,7 +228,7 @@ exit
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
 	#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
-	#Banco de Dados Sys (Sistema) e mostrado em Esquemas, os demais Banco de Dados utilizados pelo
+	#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
 	#MySQL Server não são mostrados por motivo de segurança.
 	
 	#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/

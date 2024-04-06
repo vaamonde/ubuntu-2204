@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 19/03/2023<br>
-#Versão: 0.14<br>
+#Data de atualização: 06/04/2023<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
@@ -79,6 +79,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 	sudo systemctl stop apache2
 	sudo systemctl start apache2
 
+	#analisando os Log's e mensagens de erro do Servidor do Apache2 (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+	sudo journalctl -xeu apache2
+	
 	#verificando as versões do Apache2 Server e do PHP
 	#opção do comando apache2ctl: -V (version)
 	#opção do comando php: -v (version)
@@ -87,6 +91,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 #03_ Verificando a Porta de Conexão do Apache2 Server<br>
 
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server por padrão as Regras de Firewall utilizando
+	#o comando: iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha
+	#habilitado algum recurso de Firewall é necessário fazer a liberação do Fluxo de 
+	#Entrada, Porta e Protocolo TCP.
+	
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
