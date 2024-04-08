@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 08/04/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
@@ -120,6 +120,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 		ls -lha
 
 #05_ Criando um Projeto Simples do Node.JS<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
+	#colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
+	#PuTTY para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+
+	#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
+	#macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
+	#padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
+	#e modificação arquivos desse curso.
 
 	#Criando o arquivo index.js do projeto do Node.JS
 	vim index.js
