@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 26/03/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 08/04/2024<br>
+#Versão: 0.06<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -122,6 +122,11 @@ Link da vídeo aula:
 	sudo systemctl stop grafana-server
 	sudo systemctl start grafana-server
 
+	#analisando os Log's e mensagens de erro do Servidor do Grafana
+	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+	sudo journalctl -t grafana
+	sudo journalctl -xeu grafana-server
+
 	#verificando a versão do Grafana Server
 	#opção do comando grafana-server: -v (version)
 	#opção do comando grafana-cli: -v (version)
@@ -178,9 +183,9 @@ Link da vídeo aula:
 		Connections
 			Data Sources
 				<Add data source>
-					Filter by name or type: SQL
-						MySQL
-							Name: MySQL-DBAgenda
+					Filter by name or type: MySQL
+						Select: MySQL (Data Source for MySQL databases)
+							Name: MySQL-DBAgenda - Default (Enable)
 							MySQL Connection
 								Host URL: localhost:3306
 								Database name: dbagenda
@@ -198,33 +203,112 @@ Link da vídeo aula:
 			<+ Add visualization>
 				Select data source
 					Data source: MySQL-DBAgenda
+				
+				#primeira etapa: criar o Dataset do Banco, Tabela e Coluna
 				Builder
 					Dataset: dbagenda   Tabela: contatos
 					Columm: nome   Aggregation: COUNT (Contar)   Alias: Choose (Default)
 				<Run query>
+				
+				#segunda etapa: criar a visualização dos dados no painel
 				Panel Title
 					<Open visualization suggestions>
 						Suggestions: Gauge
 							Panel options
 								Tile: Total de Contatos
-								Description: Total de Contatos cadastrado no banco DBAgenda
-						<Save> - <Save>
-						<Apply>
+								Description: Total de Contatos cadastrados no banco DBAgenda
+							Standard Option
+								Min: 1
+								Max: 20
+						<Save>
+
+				#terceira etapa: salvando as mudanças do Dashboard		
+				Details
+					Title: DBAgenda
+					Description: Dashboard DBAgenda
+					Folder: Dashboard
+				<Save>
+				
+			#quarta etapa: adicionando mais um painel no Dashboard DBAgenda
 			<Add>
-				Builder
-					Dataset: dbagenda   Tabela: contatos
-					Columm: nome   Aggregation: Choose (Default)   Alias: Choose (Default)
-					Order by: idcon
-					Sort by: descending
-					Limit: 10
-				<Run query>
-				Panel Title
-					<Switch to table>
-						Panel options
-							Tile: Contatos do DBAgenda
-							Description: Nome dos contatos do banco DBAgenda
-					<Save> - <Save>
+				Visualization
+					Builder
+						Dataset: dbagenda   Tabela: contatos
+						Columm: nome   Aggregation: Choose (Default)   Alias: Choose (Default)
+						
+						#habilitar a opção: Order (Enable) no painel da Builder
+						Order by: idcon
+						Sort by: descending
+						Limit: 10
+					<Run query>
+					
+					Panel Title
+						<Switch to table>
+							Panel options
+								Tile: Últimos Contatos do DBAgenda
+								Description: Nome dos últimos contatos do banco DBAgenda
+						<Save> - <Save>
 					<Apply>
+
+#13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana<br>
+
+	#instalando o Plugin do Zabbix Server no Grafana
+	sudo grafana-cli plugins install alexanderzobnin-zabbix-app
+
+	#reiniciar o serviço do Grafana Server
+	sudo systemctl restart grafana-server
+	sudo systemctl status grafana-server
+
+	#criando usuário de autenticação no Zabbix Server
+	#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
+	#Server: admin acontecia o erro de autenticação aparecendo sempre a mensagem de:
+	#Incorrect user name or password or account is temporarily blocked. Para corrigir
+	#essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
+
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
+
+	#criação do usuário para a integração com o Grafana
+	Zabbix
+		Users
+			Users
+				<Create User>
+					User
+						Username: vaamonde
+						Name: Robson Vaamonde
+						Password: pti@2018
+						Password (once again): pti@2018
+					Permission
+						Role: <Select>
+							Super admin role
+				<Add>
+
+	#habilitando o Plugin do Zabbix Server
+	Open Menu
+		Administration
+			Plugins and data
+				Plugins
+					Search: Zabbix (clicar)
+					<Enabled>
+
+	#criando o Data Source da Zabbix Server
+	Open Menu
+		Connections
+			Data sources
+				<+ Add new data source>
+					Filter: Zabbix (select)
+						Name: wsvaamonde
+						Connection: http://172.16.1.20/zabbix/api_jsonrpc.php
+						Zabbix Connection
+							Auth type: User and password
+							Username: vaamonde
+							Password: pti@2018
+				<Save and test>
+	
+	#criando o Dashboard padrão do Zabbix Server
+	Open Menu
+		New Dashboard
+			<+ Add visualization>
+				Select data source: wsvaamonde (Zabbix Server)
 
 =========================================================================================
 
