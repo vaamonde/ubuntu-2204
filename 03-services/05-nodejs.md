@@ -189,6 +189,14 @@ app.listen(3000, function() {
 	#pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
 	#kill -9 PID
 
+	#exemplo de finalizar o processo utilizando o comando ps para descobrir o PID
+	#opção do comando ps: -u (userlist)
+	ps -u
+
+
+	#opção do comando kill: -9 (Kill all processes you can kill)
+	kill -i 15939
+
 #10_ DESAFIO-01: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM:
 seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: /home/seu_usuário, CRIAR UMA 
 PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO 
