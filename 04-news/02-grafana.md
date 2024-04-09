@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 08/04/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 09/04/2024<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -82,7 +82,7 @@ Link da vídeo aula:
 	sudo vim /etc/default/grafana-server
 	INSERT
 
-		#principais variáveis do Grafana Server
+		#principais variáveis do Grafana Server (padrão não alterar)
 		GRAFANA_USER=grafana		(usuário do serviço do Grafana Server)
 		GRAFANA_GROUP=grafana		(grupo do serviço do Grafana Server)
 		LOG_DIR=/var/log/grafana	(localização dos arquivos de Log do Grafana Server)
@@ -139,6 +139,11 @@ Link da vídeo aula:
 	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
 	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
 	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+	#OBSERVAÇÃO IMPORTANTE: CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O NODE.JS E
+	#OS SEUS DESAFIOS, POR PADRÃO A PRIMEIRA APLICAÇÃO EM JAVASCRIPT FEITA UTILIZANDO O
+	#RECURSO DE EXPRESS ESTÁ NA PORTA 3000, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU
+	#DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
 
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
@@ -261,13 +266,14 @@ Link da vídeo aula:
 
 	#criando usuário de autenticação no Zabbix Server
 	#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
-	#Server: admin acontecia o erro de autenticação aparecendo sempre a mensagem de:
+	#Server: Admin acontecia o erro de autenticação, aparecendo sempre a mensagem de:
 	#Incorrect user name or password or account is temporarily blocked. Para corrigir
 	#essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
 
+	#acessando o Zabbix Server via Navegador
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
 
-	#criação do usuário para a integração com o Grafana
+	#criação do usuário para a integração com o Grafana Server
 	Zabbix
 		Users
 			Users
@@ -282,7 +288,7 @@ Link da vídeo aula:
 							Super admin role
 				<Add>
 
-	#habilitando o Plugin do Zabbix Server
+	#habilitando o Plugin do Zabbix Server no Grafana Server
 	Open Menu
 		Administration
 			Plugins and data
