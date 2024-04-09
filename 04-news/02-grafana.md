@@ -13,7 +13,7 @@
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/12-grafana.png
@@ -34,7 +34,7 @@ Conteúdo estudado nessa implementação:<br>
 #10_ Configurando o Grafana Server via Navegador<br>
 #11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
 #12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
-#13_ Desafios do Grafana Server
+#13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana
 
 Site Oficial do Grafana: https://grafana.com/<br>
 
@@ -62,10 +62,11 @@ Link da vídeo aula:
 	#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
 	sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
 
-	#adicionando o Repositório do Grafana Server
+	#adicionando o Repositório do Grafana Server (versão BETA)
+	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual troque a palavra: beta por: stable
 	#opção do comando tee: -a (append)
 	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
 
@@ -95,13 +96,13 @@ Link da vídeo aula:
 	sudo vim /etc/grafana/grafana.ini
 	INSERT
 
-		#descomentar a variável protocol = na linha: 36
+		#descomentar a variável protocol = na linha: 32
 		protocol = http
 
-		#descomentar a variável ;http_port = na linha 45
+		#descomentar a variável ;http_port = na linha 41
 		http_port = 3000
 
-		#descomentar a variável ;domain = = na linha 48
+		#descomentar a variável ;domain = = na linha 44
 		domain = pti.intra
 
 	#salvar e sair do arquivo
@@ -321,7 +322,7 @@ Link da vídeo aula:
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTRAGRAM)
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/12-grafana.png
