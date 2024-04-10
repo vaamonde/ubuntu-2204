@@ -210,11 +210,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	INSERT
 
 ```xml
-		<!-- alterar os valores das variável a partir da linha: 30 -->
-		<!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Web Tomcat -->
-		<!-- Para criar novos usuários no Apache TomCAT Server é spo copiar a linha abaixo e colar -->
-		<!-- na próxima linha alterando o nome, senha e papeis do usuário -->
-		<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+<!-- alterar os valores das variável a partir da linha: 30 -->
+<!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Web Tomcat -->
+<!-- Para criar novos usuários no Apache TomCAT Server é spo copiar a linha abaixo e colar -->
+<!-- na próxima linha alterando o nome, senha e papeis do usuário -->
+<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 ```
 
 	#salvar e sair do arquivo
