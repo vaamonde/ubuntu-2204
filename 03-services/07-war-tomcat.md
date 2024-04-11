@@ -88,7 +88,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 	#OBSERVAÇÃO IMPORTANTE: acessando a aplicação Agenda pela primeira vez será apresentado
 	#uma mensagem de erro, esse erro está associado ao Banco de Dados que ainda não foi
-	#criado, após a sua criação o sistema irá funcionar perfeitamente.
+	#criado no MySQL, após a sua criação o sistema irá funcionar perfeitamente.
 
 #04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>
 
@@ -196,6 +196,8 @@ SHOW TABLES;
 SELECT * FROM contatos;
 exit
 ```
+	#acessar novamente a aplicação para verificar se voltou os registros
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 #08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Hello World DO PROJETO DO 
 GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO 
