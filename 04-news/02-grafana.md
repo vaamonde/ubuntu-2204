@@ -330,15 +330,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 	sudo apt install stress-ng s-tui
 
-	#verificando a versão do stress-ng e do s-tui
+	#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
 	sudo stress-ng --version
 	sudo s-tui --version
 
-	#verificando a carga atual do servidor Ubuntu
+	#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
 	#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
 	sudo uptime
 
-	#verificando o desempenho do servidor Ubuntu
+	#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
 	sudo top
 
 	#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
@@ -349,8 +349,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	#for at least T seconds)
 	sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
 
-	#parando alguns serviços do Ubuntu Server
+	#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 	sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+
+	#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
+	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
+	sudo find / -name vaamonde*
 
 =========================================================================================
 
