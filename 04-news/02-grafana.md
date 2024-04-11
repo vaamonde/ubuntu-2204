@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 09/04/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 11/04/2024<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -316,6 +316,41 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 		New Dashboard
 			<+ Add visualization>
 				Select data source: wsvaamonde (Zabbix Server)
+
+				#gráfico de utilização da CPU
+
+				#gráfico de utilização da RAM
+
+				#gráfico de utilização do DISK
+
+				#gráfico de utilização da NETWORK
+
+#14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+
+	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+	sudo apt install stress-ng s-tui
+
+	#verificando a versão do stress-ng e do s-tui
+	sudo stress-ng --version
+	sudo s-tui --version
+
+	#verificando a carga atual do servidor Ubuntu
+	#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
+	sudo uptime
+
+	#verificando o desempenho do servidor Ubuntu
+	sudo top
+
+	#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+	#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
+	#removing temporary files.), --io (start N workers continuously calling sync(2) to 
+	#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
+	#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
+	#for at least T seconds)
+	sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+
+	#parando alguns serviços do Ubuntu Server
+	sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
 
 =========================================================================================
 
