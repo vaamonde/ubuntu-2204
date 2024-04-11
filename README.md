@@ -523,3 +523,38 @@ Conteúdo estudado nessa implementação:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/01-zabbix.md
+
+## **🤩🤩 Implementação do Grafana Server 11 no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de implementação do Grafana Server 11 no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de análise de código e visualização interativa da web para criação de Dashboard dinâmicos.
+
+Grafana é uma aplicação web de análise de código aberto multiplataforma e visualização interativa da web. Ele fornece tabelas, gráficos e alertas para a Web quando conectado a fontes de dados suportadas. É expansível através de um sistema de plug-in. Os usuários finais podem criar painéis de monitoramento complexos usando criadores de consultas interativas.[1] 
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/12-grafana.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiografana
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Instalando as Dependências do Grafana Server<br>
+#02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server<br>
+#03_ Instalando o Grafana Server no Ubuntu Server<br>
+#04_ Editando os arquivos de configuração do Grafana Server<br>
+#05_ Habilitando o Serviço do Grafana Server<br>
+#06_ Verificando o Serviço e Versão do Grafana Server<br>
+#07_ Verificando a Porta de Conexão do Grafana Server<br>
+#08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
+#09_ Localização dos diretórios principais do Grafana Server<br>
+#10_ Configurando o Grafana Server via Navegador<br>
+#11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
+#12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
+#13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana
+
+[![Implementação Grafana](http://img.youtube.com/vi/vD1aFVcgdlo/0.jpg)](https://www.youtube.com/watch?v=vD1aFVcgdlo "Implementação Grafana")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
+
+Link da documentação: 

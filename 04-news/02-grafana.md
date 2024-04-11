@@ -42,9 +42,9 @@ Grafana é uma aplicação web de análise de código aberto multiplataforma e v
 interativa da web. Ele fornece tabelas, gráficos e alertas para a Web quando conectado a<br>
 fontes de dados suportadas. É expansível através de um sistema de plug-in.
 
-[![Grafana](http://img.youtube.com/vi//0.jpg)]( "Grafana")
+[![Grafana](http://img.youtube.com/vi/vD1aFVcgdlo/0.jpg)](https://www.youtube.com/watch?v=vD1aFVcgdlo "Grafana")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 #01_ Instalando as Dependências do Grafana Server<br>
 
@@ -63,7 +63,7 @@ Link da vídeo aula:
 	sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
 
 	#adicionando o Repositório do Grafana Server (versão BETA)
-	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual troque a palavra: beta por: stable
+	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
 	#opção do comando tee: -a (append)
 	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
