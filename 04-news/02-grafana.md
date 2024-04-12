@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/04/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 12/04/2024<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -161,10 +161,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 #09_ Localização dos diretórios principais do Grafana Server<br>
 
-	/usr/share/grafana*        <-- Diretório do Site do Grafava Server
-	/var/log/grafana*          <-- Diretório dos arquivos de Log's do serviço do Grafana Server
-	/var/lib/grafana*          <-- Diretório dos banco de dados do Grafana Server
-	/etc/grafana/*             <-- Diretório das configurações do Grafana Server
+	/usr/share/grafana*          <-- Diretório do Site do Grafava Server
+	/var/log/grafana*            <-- Diretório dos arquivos de Log's do serviço do Grafana Server
+	/var/lib/grafana*            <-- Diretório dos banco de dados do Grafana Server
+	/etc/grafana/*               <-- Diretório das configurações do Grafana Server
+	/etc/grafana/grafana.ini     <-- Arquivo de Configuração e Inicialização do Grafana Server
+	/etc/default/grafana-server  <-- Arquivo de Configuração do Serviço do Grafana Server
 	/var/lib/grafana/plugins*  <-- Diretório dos Plugins do Grafana Server
 
 #10_ Configurando o Grafana Server via Navegador<br>

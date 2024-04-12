@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 12/04/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -212,6 +212,9 @@ exit
 
 		#alterar o valor da variável Hostname= na linha: 144
 		Hostname=wsvaamonde
+
+		#descomentar o valor da variável RefreshActiveChecks= na linha 204
+		RefreshActiveChecks=5s
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
@@ -298,9 +301,11 @@ exit
 
 #13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
 
-	/etc/zabbix/*      <-- Diretório dos arquivos de Configuração do serviço do Zabbix
-	/var/log/zabbix*   <-- Diretório dos arquivos de Log's do serviço do Zabbix
-	/usr/share/zabbix* <-- Diretório dos arquivos do Site do serviço do Zabbix
+	/etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
+	/etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
+	/etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent
+	/var/log/zabbix*                <-- Diretório dos arquivos de Log's do serviço do Zabbix
+	/usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
 
 #14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
 
@@ -374,6 +379,9 @@ exit
 
 		#alterar o valor da variável Hostname= na linha: 144
 		Hostname=linuxmint213
+		
+		#descomentar o valor da variável RefreshActiveChecks= na linha 204
+		RefreshActiveChecks=5s
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
