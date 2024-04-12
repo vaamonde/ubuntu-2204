@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 12/04/2024<br>
+#Versão: 0.08<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -51,7 +51,7 @@ Site Oficial do Prometheus: https://prometheus.io/<br>
 Prometheus é um aplicativo de software livre usado para monitoramento de eventos e alertas.<br>
 Ele registra métricas em tempo real em um banco de dados de séries temporais (permitindo alta<br>
 dimensionalidade) construído usando um modelo HTTP pull, com consultas flexíveis e alertas em<br>
-tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012[4] e agora é<br>
+tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012 e agora é<br>
 mantido independentemente de qualquer empresa. 
 
 [![Prometheus](http://img.youtube.com/vi//0.jpg)]( "Prometheus")
@@ -85,8 +85,8 @@ Link da vídeo aula:
 	#alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 	#versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-	#download do Prometheus do Github (Link atualizado no dia 09/03/2024)
-	wget https://github.com/prometheus/prometheus/releases/download/v2.50.1/prometheus-2.50.1.linux-amd64.tar.gz
+	#download do Prometheus do Github (Link atualizado no dia 12/04/2024)
+	wget https://github.com/prometheus/prometheus/releases/download/v2.51.1/prometheus-2.51.1.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Prometheus
 	#opção do comando ls: -l (long listing), -h (human-readable)
@@ -163,7 +163,7 @@ Link da vídeo aula:
 	#opção do comando wget: -v (verbose), -O (output file)
 	sudo wget -v -O /etc/systemd/system/node_exporter.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.service
 
-	#download do arquivo de serviço do Node Exporter
+	#download do arquivo de configuração do Node Exporter
 	#opção do comando wget: -v (verbose), -O (output file)
 	sudo wget -v -O /etc/prometheus/node_exporter.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.conf
 
@@ -279,14 +279,17 @@ scrape_configs:
 
 #21_ Localização dos diretórios principais do Prometheus<br>
 
-	/etc/prometheus/*      <-- Diretório de configuração do Prometheus
-	/var/lib/prometheus/*  <-- Diretório de armazenamento dos binários e dados do Prometheus
+	/etc/prometheus/*                   <-- Diretório de configuração do Prometheus
+	/etc/prometheus/prometheus.yml      <-- Arquivo de configuração do Prometheus
+	/etc/prometheus/node_exporter.conf  <-- Arquivo de configuração do Node Exporter
+	/var/lib/prometheus/*               <-- Diretório de armazenamento dos binários e dados do Prometheus
 
 #22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
 
 	#acessando o Prometheus via navegador
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
+	#verificando os alvos monitorados do Prometheus
 	Status
 		Targets
 			Prometheus
@@ -324,6 +327,7 @@ scrape_configs:
 
 #23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
 
+	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS
 	#Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
 	#link para download direto do Node Exporter (link atualizado em: 04/04/2024)
@@ -350,6 +354,78 @@ scrape_configs:
 	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 	netstat -an | findstr 9182
 
+
+	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO LINUX MINT
+	#Link de referência do download: https://github.com/prometheus/node_exporter/releases/
+	
+	#criação do grupo e usuário de serviço do Node Exporter
+	#opção do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), --system 
+	#(Create a system account). -g (group) 
+	#opções do comando usermod: -a (append), -G (groups)
+	sudo groupadd --system node_exporter
+	sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_exporter
+
+	#criando o diretório de configuração e bibliotecas do Prometheus
+	#opção do comando mkdir: =p (parents), -v (verbose)
+	sudo mkdir -pv /etc/prometheus /var/lib/prometheus
+
+	#OBSERVAÇÃO IMPORTANTE: o executável do Node Exporter do Prometheus sofre alteração
+	#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
+	#software no Link: https://github.com/prometheus/node_exporter/releases/
+
+	#download do Node Exporter do Github (Link atualizado no dia 12/03/2024)
+	wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+
+	#listando o download do arquivo do Node Exporter
+	#opção do comando ls: -l (long listing), -h (human-readable)
+	#opção do caractere curinga * (asterisco): Qualquer coisa
+	ls -lh node_exporter*
+
+	#descompactando o arquivo do Node Exporter
+	#opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
+	#opção do caractere curinga * (asterisco): Qualquer coisa
+	tar -zxvf node_exporter*.tar.gz 
+
+	#atualizando os arquivos de configurações do Node Exporter
+	#opção do comando cp: -R (recursive), -v (verbose)
+	#opção do caractere curinga * (asterisco): Qualquer coisa
+	sudo cp -Rv node_exporter*/node_exporter /usr/local/bin/
+
+	#download do arquivo de serviço do Node Exporter
+	#opção do comando wget: -v (verbose), -O (output file)
+	sudo wget -v -O /etc/systemd/system/node_exporter.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.service
+
+	#download do arquivo de configuração do Node Exporter
+	#opção do comando wget: -v (verbose), -O (output file)
+	sudo wget -v -O /etc/prometheus/node_exporter.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.conf
+
+	#alterando o dono e grupo do arquivo do Node Exporter
+	#opção do comando chown: -R (recursive) -v (verbose), node_exporter (user), :node_exporter (group)
+	sudo chown -Rv node_exporter:node_exporter /usr/local/bin/node_exporter
+
+	#alterando o dono e grupo do arquivo do Node Exporter
+	#opção do comando chown: -R (recursive) -v (verbose), node_exporter (user), :node_exporter (group)
+	sudo chown -Rv node_exporter:node_exporter /etc/prometheus/node_exporter.conf
+
+	#alterando as permissões do arquivo do Node Exporter
+	#opção do comando chmod: -R (recursive) -v (verbose), 775 (User: RWX, Group: RWX, Other: R-X)
+	sudo chmod -Rv 775 /usr/local/bin/node_exporter
+
+	#habilitando o serviço do Node Exporter
+	sudo systemctl daemon-reload
+	sudo systemctl enable node_exporter
+	sudo systemctl start node_exporter
+
+	#verificando a versão do Node Exporter
+	sudo node_exporter --version
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+	sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 
 =========================================================================================
 
