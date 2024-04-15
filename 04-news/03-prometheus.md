@@ -479,6 +479,10 @@ scrape_configs:
 			Data Sources
 				<Add data source>
 					Filter by name or type: Prometheus
+						Name: prometheus-wsvaamonde
+						Connection
+							Prometheus server URL: http://172.16.1.20:9091
+				<Save & Test>
 
 	#criando o Dashboard do Prometheus
 	Open Menu
@@ -486,7 +490,7 @@ scrape_configs:
 			<Create Dashboard>
 			<+ Add visualization>
 				Select data source
-					Data source: 
+					Data source: prometheus-wsvaamonde
 
 =========================================================================================
 
