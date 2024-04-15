@@ -222,7 +222,7 @@ Link da vídeo aula:
 	sudo vim /etc/prometheus/prometheus.yml
 	INSERT
 
-```json
+```yaml
 
 #alterar os valores das viráveis a partir da linha: 42
 scrape_configs:
@@ -429,7 +429,7 @@ scrape_configs:
 	sudo vim /etc/prometheus/prometheus.yml
 	INSERT
 
-```json
+```yaml
 
 #alterar os valores das viráveis a partir da linha: 54
 scrape_configs:
