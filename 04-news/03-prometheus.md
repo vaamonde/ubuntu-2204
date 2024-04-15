@@ -228,7 +228,6 @@ Link da vídeo aula:
 	INSERT
 
 ```yaml
-
 #alterar os valores das viráveis a partir da linha: 42
 scrape_configs:
   - job_name: "prometheus"
@@ -440,7 +439,6 @@ scrape_configs:
 	INSERT
 
 ```yaml
-
 #alterar os valores das viráveis a partir da linha: 54
 scrape_configs:
   - job_name: "linuxmint213"
