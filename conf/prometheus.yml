@@ -6,10 +6,10 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 04/02/2022
-# Data de atualização: 12/03/2024
+# Data de atualização: 15/04/2024
 # Versão: 0.05
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
-# Testado e homologado para a versão do Prometheus 2.50.x e Node Exporter 1.7.x
+# Testado e homologado para a versão do Prometheus 2.51.x e Node Exporter 1.7.x
 #
 # Configurações Globais do Prometheus
 global:

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/04/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 15/04/2024<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -19,7 +19,7 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
 
 Conteúdo estudado nessa implementação:<br>
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
@@ -44,7 +44,9 @@ Conteúdo estudado nessa implementação:<br>
 #20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
 #21_ Localização dos diretórios principais do Prometheus<br>
 #22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
-#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows
+#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
+#24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus<br>
+#25_ Integrando o Prometheus no Grafana.
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
@@ -60,7 +62,7 @@ Link da vídeo aula:
 
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
 
-	#criação do grupo usuário de serviço do Prometheus
+	#criação do grupo e usuário de serviço do Prometheus
 	#opção do comando useradd: -s (shell), -g (group) 
 	sudo groupadd --system prometheus
 	sudo useradd -s /sbin/nologin --no-create-home --system -g prometheus prometheus
@@ -73,7 +75,7 @@ Link da vídeo aula:
 	sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_exporter
 	sudo usermod -a -G prometheus node_exporter
 
-#02_ Criando os diretórios do Prometheus<br>
+#02_ Criando os diretórios do Prometheus e Node Exporter<br>
 
 	#criando o diretório de configuração e bibliotecas do Prometheus
 	#opção do comando mkdir: =p (parents), -v (verbose)
@@ -85,8 +87,8 @@ Link da vídeo aula:
 	#alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 	#versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-	#download do Prometheus do Github (Link atualizado no dia 12/04/2024)
-	wget https://github.com/prometheus/prometheus/releases/download/v2.51.1/prometheus-2.51.1.linux-amd64.tar.gz
+	#download do Prometheus do Github (Link atualizado no dia 15/04/2024)
+	wget https://github.com/prometheus/prometheus/releases/download/v2.51.2/prometheus-2.51.2.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Prometheus
 	#opção do comando ls: -l (long listing), -h (human-readable)
@@ -222,13 +224,13 @@ Link da vídeo aula:
 
 ```json
 
-#alterar os valores das viráveis a partir da linha: 37
+#alterar os valores das viráveis a partir da linha: 42
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
       - targets: ["172.16.1.20:9091"]
 
-#alterar os valores das variáveis a partir da linha: 44
+#alterar os valores das variáveis a partir da linha: 51
 scrape_configs:
   - job_name: "wsvaamonde"
     static_configs:
@@ -313,12 +315,12 @@ scrape_configs:
 	e) Expression: node_cpu_seconds_total{job="wsvaamonde"} <Execute> - <Graph>
 
 	#verificando o incremento do Total de CPU por segundos em 1m
-	#rate = | [1m] = 
+	#rate = taxa | [1m] = intervalo
 	f) Expression: rate(node_cpu_seconds_total{job="wsvaamonde"}[1m]) <Execute> - <Graph>
 	g) Expression: rate(node_cpu_seconds_total{cpu="0",job="wsvaamonde"}[1m]) <Execute> - <Graph>
 
 	#verificando o incremente do Total de Pacotes Enviados e Recebidos da Interface de Rede
-	#rate = | [10m] = | *8/1024/1024 =  
+	#rate = taxa | [10m] = intervalo | *8/1024/1024 = fórmula para versão em Kbps ou Mbps
 	h) rate(node_network_receive_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 	i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 
@@ -353,7 +355,6 @@ scrape_configs:
 	#verificando a porta de conexão do Node Exporter
 	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 	netstat -an | findstr 9182
-
 
 	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO LINUX MINT
 	#Link de referência do download: https://github.com/prometheus/node_exporter/releases/
@@ -419,13 +420,63 @@ scrape_configs:
 	#verificando a versão do Node Exporter
 	sudo node_exporter --version
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
-
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
+
+#24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus<br>
+
+	#arquivo de configuração padrão do Prometheus
+	sudo vim /etc/prometheus/prometheus.yml
+	INSERT
+
+```json
+
+#alterar os valores das viráveis a partir da linha: 54
+scrape_configs:
+  - job_name: "linuxmint213"
+    static_configs:
+      - targets: ["172.16.1.100:9100"]
+
+#alterar os valores das variáveis a partir da linha: 44
+scrape_configs:
+  - job_name: "windows10"
+    static_configs:
+      - targets: ["172.16.1.101:9182"]
+```
+
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#verificando o serviço do Prometheus
+	sudo systemctl restart prometheus
+	sudo systemctl status prometheus
+
+	#acessando o Prometheus via navegador
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
+
+	#verificando os alvos monitorados do Prometheus
+	Status
+		Targets
+
+#25_ Integrando o Prometheus no Grafana<br>
+
+	#acessando o Grafana Server
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+
+	#criando um Data Sources do Prometheus
+	Open Menu
+		Connections
+			Data Sources
+				<Add data source>
+					Filter by name or type: Prometheus
+
+	#criando o Dashboard do Prometheus
+	Open Menu
+		Dashboards
+			<Create Dashboard>
+			<+ Add visualization>
+				Select data source
+					Data source: 
 
 =========================================================================================
 
@@ -438,4 +489,4 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
