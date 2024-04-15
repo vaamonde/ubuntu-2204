@@ -198,6 +198,11 @@ Link da vídeo aula:
 	sudo systemctl stop node_exporter
 	sudo systemctl start node_exporter
 
+	#analisando os Log's e mensagens de erro do Node Exporter
+	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+	sudo journalctl -t node_exporter
+	sudo journalctl -xeu node_exporter
+
 	#verificando a versão do Node Exporter
 	sudo node_exporter --version
 
@@ -254,6 +259,11 @@ scrape_configs:
 	sudo systemctl restart prometheus
 	sudo systemctl stop prometheus
 	sudo systemctl start prometheus
+
+	#analisando os Log's e mensagens de erro do Prometheus
+	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+	sudo journalctl -t prometheus
+	sudo journalctl -xeu prometheus
 
 	#verificando a versão do Prometheus
 	sudo prometheus --version
