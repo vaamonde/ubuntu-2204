@@ -193,7 +193,6 @@ app.listen(3000, function() {
 	#opção do comando ps: -u (userlist)
 	ps -u
 
-
 	#opção do comando kill: -9 (Kill all processes you can kill)
 	kill -i 15939
 
