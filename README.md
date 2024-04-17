@@ -528,7 +528,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-new
 
 Vídeo de implementação do Grafana Server 11 no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de análise de código e visualização interativa da web para criação de Dashboard dinâmicos.
 
-Grafana é uma aplicação web de análise de código aberto multiplataforma e visualização interativa da web. Ele fornece tabelas, gráficos e alertas para a Web quando conectado a fontes de dados suportadas. É expansível através de um sistema de plug-in. Os usuários finais podem criar painéis de monitoramento complexos usando criadores de consultas interativas.[1] 
+Grafana é uma aplicação web de análise de código aberto multiplataforma e visualização interativa da web. Ele fornece tabelas, gráficos e alertas para a Web quando conectado a fontes de dados suportadas. É expansível através de um sistema de plug-in. Os usuários finais podem criar painéis de monitoramento complexos usando criadores de consultas interativas.
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
 
@@ -557,4 +557,52 @@ Conteúdo estudado nessa implementação:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
-Link da documentação: 
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/02-grafana.md
+
+## **🤩🤩 Implementação do Prometheus e Node Exporter no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de implementação do Prometheus e do Node Exporter no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar a ferramenta de monitoramento de séries temporais de código aberto para gerenciar uma variedade de recursos e aplicativos do sistema.
+
+Prometheus é um aplicativo de software livre usado para monitoramento de eventos e alertas. Ele registra métricas em tempo real em um banco de dados de séries temporais construído usando um modelo HTTP pull, com consultas flexíveis e alertas em tempo real.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
+#02_ Criando os diretórios do Prometheus e do Node Exporter<br>
+#03_ Baixando o Prometheus do Projeto do Github<br>
+#04_ Descompactando o arquivo do Prometheus<br>
+#05_ Atualizando os arquivos de configuração do Prometheus<br>
+#06_ Baixando e atualizando os arquivos customizados do Prometheus<br>
+#07_ Alterando as permissões de arquivos e diretórios do Prometheus<br>
+#08_ Instalando o Coletor de Métricas Node Exporter<br>
+#09_ Descompactando o arquivo do Node Exporter<br>
+#10_ Atualizando os arquivos de configuração do Node Exporter<br>
+#11_ Baixando e atualizando os arquivos customizados do Node Exporter<br>
+#12_ Alterando as permissões do executável do Node Exporter<br>
+#13_ Habilitando o Serviço do Node Exporter no Ubuntu Server<br>
+#14_ Verificando o Serviço e Versão do Node Exporter<br>
+#15_ Verificando a Porta de Conexão do Node Exporter<br>
+#16_ Editando o arquivo de configuração do Prometheus<br>
+#17_ Habilitando o Serviço do Prometheus no Ubuntu Server<br>
+#18_ Verificando o Serviço e Versão do Prometheus<br>
+#19_ Verificando a Porta de Conexão do Prometheus<br>
+#20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
+#21_ Localização dos diretórios principais do Prometheus<br>
+#22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
+#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
+#24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus<br>
+#25_ Integrando o Prometheus e Node Exporter no Grafana<br>
+#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.
+
+[![Prometheus](http://img.youtube.com/vi/0h6le4K6uEQ/0.jpg)](https://www.youtube.com/watch?v=0h6le4K6uEQ "Prometheus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/03-prometheus.md

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/04/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 17/04/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -37,6 +37,7 @@ Conteúdo estudado nessa implementação:<br>
 #13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
 #14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
 #15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server
+#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
@@ -443,6 +444,37 @@ exit
 					Monitored by proxy: (no proxy)
 					Enable: On
 				<Add>
+
+#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+
+	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+	sudo apt install stress-ng s-tui
+
+	#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
+	sudo stress-ng --version
+	sudo s-tui --version
+
+	#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+	#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
+	sudo uptime
+
+	#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+	sudo top
+
+	#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+	#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
+	#removing temporary files.), --io (start N workers continuously calling sync(2) to 
+	#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
+	#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
+	#for at least T seconds)
+	sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+
+	#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+	sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+
+	#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
+	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
+	sudo find / -name vaamonde*
 
 =========================================================================================
 

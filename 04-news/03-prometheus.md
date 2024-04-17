@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 15/04/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 17/04/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -23,14 +23,14 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometh
 
 Conteúdo estudado nessa implementação:<br>
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
-#02_ Criando os diretórios do Prometheus<br>
+#02_ Criando os diretórios do Prometheus e do Node Exporter<br>
 #03_ Baixando o Prometheus do Projeto do Github<br>
 #04_ Descompactando o arquivo do Prometheus<br>
 #05_ Atualizando os arquivos de configuração do Prometheus<br>
 #06_ Baixando e atualizando os arquivos customizados do Prometheus<br>
 #07_ Alterando as permissões de arquivos e diretórios do Prometheus<br>
 #08_ Instalando o Coletor de Métricas Node Exporter<br>
-#09_ Descompactando o arquivo do Node Exporters<br>
+#09_ Descompactando o arquivo do Node Exporter<br>
 #10_ Atualizando os arquivos de configuração do Node Exporter<br>
 #11_ Baixando e atualizando os arquivos customizados do Node Exporter<br>
 #12_ Alterando as permissões do executável do Node Exporter<br>
@@ -46,7 +46,8 @@ Conteúdo estudado nessa implementação:<br>
 #22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
 #23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
 #24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus<br>
-#25_ Integrando o Prometheus no Grafana.
+#25_ Integrando o Prometheus e Node Exporter no Grafana<br>
+#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
@@ -56,9 +57,9 @@ dimensionalidade) construído usando um modelo HTTP pull, com consultas flexíve
 tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012 e agora é<br>
 mantido independentemente de qualquer empresa. 
 
-[![Prometheus](http://img.youtube.com/vi//0.jpg)]( "Prometheus")
+[![Prometheus](http://img.youtube.com/vi/0h6le4K6uEQ/0.jpg)](https://www.youtube.com/watch?v=0h6le4K6uEQ "Prometheus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
 
@@ -145,7 +146,7 @@ Link da vídeo aula:
 	#opção do caractere curinga * (asterisco): Qualquer coisa
 	ls -lh node_exporter*
 
-#09_ Descompactando o arquivo do Node Exporters<br>
+#09_ Descompactando o arquivo do Node Exporter<br>
 
 	#descompactando o arquivo do Node Exporter
 	#opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
@@ -320,7 +321,7 @@ scrape_configs:
 	#verificando a quantidade de Memória Ativa em Bytes
 	d) Expression: node_memory_Active_bytes{job="wsvaamonde"} <Execute> - <Graph>
 
-	#verificando a quantidade total de processos da CPU
+	#verificando a quantidade total de processos por segundos da CPU
 	e) Expression: node_cpu_seconds_total{job="wsvaamonde"} <Execute> - <Graph>
 
 	#verificando o incremento do Total de CPU por segundos em 1m
@@ -329,7 +330,7 @@ scrape_configs:
 	g) Expression: rate(node_cpu_seconds_total{cpu="0",job="wsvaamonde"}[1m]) <Execute> - <Graph>
 
 	#verificando o incremente do Total de Pacotes Enviados e Recebidos da Interface de Rede
-	#rate = taxa | [10m] = intervalo | *8/1024/1024 = fórmula para versão em Kbps ou Mbps
+	#rate = taxa | [10m] = intervalo | *8/1024/1024 = fórmula para conversão em Kbps ou Mbps
 	h) rate(node_network_receive_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 	i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 
@@ -356,10 +357,10 @@ scrape_configs:
 
 	#instalando o Node Exporter
 	#opção do comando msiexec: -i (install)
-	msiexec -i windows_exporter-*-amd64.msi ENABLED_COLLECTORS=cpu,memory,net,logical_disk,os,system,logon,thermalzone
+	msiexec -i windows_exporter-0.25.1-amd64.msi ENABLED_COLLECTORS=cpu,memory,net,logical_disk,os,system,logon,thermalzone
 
 	#verificando o status de serviço do Node Exporter
-	Get-Service 'Node Exporter'
+	Get-Service 'windows_exporter'
 	
 	#verificando a porta de conexão do Node Exporter
 	#opção do comando netstat: -a (All connections), -n (addresses and port numbers)
@@ -489,6 +490,37 @@ scrape_configs:
 			<+ Add visualization>
 				Select data source
 					Data source: prometheus-wsvaamonde
+
+#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+
+	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+	sudo apt install stress-ng s-tui
+
+	#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
+	sudo stress-ng --version
+	sudo s-tui --version
+
+	#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+	#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
+	sudo uptime
+
+	#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+	sudo top
+
+	#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+	#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
+	#removing temporary files.), --io (start N workers continuously calling sync(2) to 
+	#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
+	#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
+	#for at least T seconds)
+	sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+
+	#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+	sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+
+	#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
+	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
+	sudo find / -name vaamonde*
 
 =========================================================================================
 
