@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 17/04/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -111,7 +111,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 	sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 
 	#OBSERVAÇÃO IMPORTANTE: caso queira atualizar manualmente o Netdata digite o
-	#mesmo comendo do agendamento de atualizações do Netdata no terminal.
+	#mesmo comando do agendamento de atualizações do Netdata no terminal.
 	#opção do ./: execução de script desenvolvido em Shell Script .sh
 	sudo /usr/libexec/netdata/./netdata-updater.sh
 
@@ -216,22 +216,22 @@ db.createUser({
 
 	#editar as informações a partir da linha: 79
 	localhost:
-	name : 'wsvaamonde'
-	url  : 'http://localhost:8080/manager/status?XML=true'
-	user : 'admin'
-	pass : 'pti@2018'
+	  name : 'wsvaamonde'
+	  url  : 'http://localhost:8080/manager/status?XML=true'
+	  user : 'admin'
+	  pass : 'pti@2018'
 
 	localipv4:
-	name : 'wsvaamonde'
-	url  : 'http://127.0.0.1:8080/manager/status?XML=true'
-	user : 'admin'
-	pass : 'pti@2018'
+	  name : 'wsvaamonde'
+	  url  : 'http://127.0.0.1:8080/manager/status?XML=true'
+	  user : 'admin'
+	  pass : 'pti@2018'
 
 	localipv6:
-	name : 'wsvaamonde'
-	url  : 'http://[::1]:8080/manager/status?XML=true'
-	user : 'admin'
-	pass : 'pti@2018'
+	  name : 'wsvaamonde'
+	  url  : 'http://[::1]:8080/manager/status?XML=true'
+	  user : 'admin'
+	  pass : 'pti@2018'
 
 	#salvar e sair do arquivo
 	Ctrl + X
@@ -273,12 +273,12 @@ db.createUser({
 	#editar as informações a partir da linha: 10
 	jobs:
 	  - name: google 
-		hosts:
-		- 8.8.8.8
+	    hosts:
+	      - 8.8.8.8
 
 	  - name: wsvaamonde 
-		hosts:
-		- 172.16.1.20
+	    hosts:
+	      - 172.16.1.20
 
 	#salvar e sair do arquivo
 	Ctrl + X
@@ -291,7 +291,7 @@ db.createUser({
 
 	#editar as informações a partir da linha: 8
 	jobs:
-	  - name: wsvaamodne
+	  - name: wsvaamonde
 	    host: 172.16.1.20
 	    ports: [22, 80, 3306, 8080, 19999, 27017]
 
