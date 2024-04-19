@@ -100,7 +100,24 @@ Link da vídeo aula:
 
 	#configurando a integração com o Ubuntu Server no Windows 10
 	vscode
-	
+		Extensões
+			Search: Remote SSH <Install>
+
+		Remote Explorer
+			Remotes (Tunnels/SSH)
+				SSH: +(New Remote)
+					Enter SSH Connection Command: vaamonde@172.16.1.20
+					Select SSH configuration file to update: C:\Users\SEU_USUÁRIO\.ssh\config
+					<Refresh>
+				172.16.1.20 (Connect in Current Windows)
+					Select the platform of the remote host: Linux
+					Enter password for: vaamonde@172.16.1.20: pti@2018
+
+		<Open Folder>
+			nodejs-hello <OK>
+				Enter password for: vaamonde@172.16.1.20: pti@2018
+				(YES) Trust the authors of all files in the parent folder
+				
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM 
