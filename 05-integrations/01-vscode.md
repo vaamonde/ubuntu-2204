@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 16/04/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 20/04/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM 
 A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
@@ -93,10 +93,33 @@ Link da vídeo aula:
 	sudo systemctl restart ssh
 	sudo systemctl status ssh
 
+	#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+	sudo journalctl -t sshd
+	sudo journalctl -xeu ssh
+
 #05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
 
 	#configurando a integração com o Ubuntu Server no Linux Mint
 	vscode
+		Extensões
+			Search: Remote SSH <Install>
+	
+		Remote Explorer
+			Remotes (Tunnels/SSH)
+				SSH: +(New Remote)
+					Enter SSH Connection Command: vaamonde@172.16.1.20
+					Select SSH configuration file to update: /home/SEU_USUÁRIO/.ssh/config
+					<Refresh>
+
+				172.16.1.20 (Connect in Current Windows)
+					Select the platform of the remote host: Linux
+					Enter password for: vaamonde@172.16.1.20: pti@201
+
+		<Open Folder>
+			nodejs-hello <OK>
+				Enter password for: vaamonde@172.16.1.20: pti@2018
+				(YES) Trust the authors of all files in the parent folder
 
 	#configurando a integração com o Ubuntu Server no Windows 10
 	vscode
