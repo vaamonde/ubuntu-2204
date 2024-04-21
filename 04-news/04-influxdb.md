@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 20/04/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 21/04/2024<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
@@ -22,10 +22,22 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/14-influxd
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
+#01_ Instalando as Dependências do InfluxDB2 e do Telegraf<br>
+#02_ Instalando a Chave GPG do InfluxDB2 e do Telegraf no Ubuntu Server<br>
+#03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server<br>
+#04_ Habilitando o Serviço do InfluxDB2<br>
+#05_ Verificando o Serviço e Versão do InfluxDB2<br>
+#06_ Verificando a Porta de Conexão do InfluxDB2<br>
+#07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf<br>
+#08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf<br>
+#09_ Configurando o InfluxDB2 via Navegador<br>
+#10_ Criando o Token de Integração do Telegraf com o InfluxDB<br>
+#11_ Editando o arquivo de configuração do Telegraf<br>
+#12_ Habilitando o Serviço do Telegraf<br>
+#13_ Verificando o Serviço e Versão do Telegraf<br>
+#14_ Criando um Data Explorer do Telegraf no InfluxDB2
 
-
-Site Oficial do InfluxDB: https://prometheus.io/<br>
+Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
 InfluxDB é um banco de dados de série temporal de código aberto desenvolvido pela empresa<br>
 InfluxData. Ele é usado para armazenamento e recuperação de dados de séries temporais em<br>
@@ -228,4 +240,4 @@ MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO:
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/14-influxdb.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxd
+#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
