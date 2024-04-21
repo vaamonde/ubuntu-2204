@@ -22,7 +22,29 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-graylog
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
+#01_ Instalando as Dependências do Graylog Server<br>
+#02_ Baixando e instalando a Chave GPG do OpenSearch<br>
+#03_ Instalando o OpenSearch no Ubuntu Server<br>
+#04_ Editando o arquivo de configuração do OpenSearch<br>
+#05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
+#06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
+#07_ Habilitando o Serviço do OpenSearch<br>
+#08_ Verificando o Serviço e Versão do OpenSearch<br>
+#09_ Verificando a Porta de Conexão do OpenSearch<br>
+#10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
+#11_ Instalando o Graylog Server no Ubuntu Server<br>
+#12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
+#13_ Editando o arquivo de configuração do Graylog Server<br>
+#14_ Criando o usuário de autenticação do MongoDB Server<br>
+#15_ Habilitando o Serviço do Graylog Server<br>
+#16_ Verificando o Serviço e Versão do Graylog Server<br>
+#17_ Verificando a Porta de Conexão do Graylog Server<br>
+#18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
+#19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
+#20_ Configurando o Graylog Server via Navegador<br>
+#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
+#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
+#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server
 
 Site Oficial do Graylog: https://graylog.org/<br>
 
@@ -182,11 +204,19 @@ Link da vídeo aula:
 	#gerando a senha aleatório da variável: password_secret
 	#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
 	#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
+	#opção do comando tr: -d (delete), -c (complement)
+	#opção do comando head: -c (bytes)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
 
 	#gerando a senha aleatório da variável: root_password_sha2
 	#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
 	#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
+	#opção do comando echo: -n (do not output the trailing newline)
+	#opção do comando head: -1 (lines)
+	#opção do comando tr: -d (delete)
+	#opção do comando cut: -d (delimiter), -f (fields)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 	echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
 		Enter Password: pti@2018
 	
@@ -200,7 +230,10 @@ Link da vídeo aula:
 		password_secret = COLAR_SUA_SENHA_GERADA
 
 		#copiar e colar a senha da variável root_password_sha2 na linha: 68
-		password_secret = root_password_sha2
+		root_password_sha2 = COLAR_SUA_SENHA_GERADA
+
+		#descomentar a alterar o valor da variável root_timezone na linha: 76
+		root_timezone = America/Sao_Paulo
 
 		#descomentar e alterar o valor da variável http_bind_address na linha: 104
 		http_bind_address = 0.0.0.0:9000
@@ -260,7 +293,9 @@ db.createUser({
 	sudo journalctl -xeu graylog-server
 
 	#verificando a versão do Graylog Server
-	sudo apt list grep -i graylog
+	#opção do comando grep: - i (ignore-case)
+	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	sudo apt list | grep -i graylog
 
 #17_ Verificando a Porta de Conexão do Graylog Server<br>
 
@@ -301,6 +336,169 @@ db.createUser({
 		Username: admim
 		Password: pti@2018
 	<Sign In>
+
+#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
+
+	#criando um Input no Graylog Server
+	Welcome
+		System
+			Inputs
+				Select input: Syslog UDP <Launch new input>
+	
+	#configurando o Input do Syslog UDP
+	Launch new Syslog UDP input
+		Node: XXXX/wsvaamonde.pti.intra
+		Title: wsvaamonde
+		Bind Address: 172.16.1.20
+		Port: 1514
+		Encoding (optional): UTF-8
+	<Launch Input>
+
+	#verificando a porta de conexão do Input do Graylog
+	sudo lsof -nP -iUDP:'1514'
+
+	#configurando a exportação dos Logs do Rsyslog para o Graylog
+	#verificando o status de serviço do Rsyslog
+	sudo systemctl status rsyslog
+
+	#criando o arquivo de exportação dos Logs
+	sudo vim /etc/rsyslog.d/70-graylog.conf
+	INSERT
+
+		#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
+		*.*@172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+	
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#reiniciar e verificar o serviço do Rsyslog
+	sudo systemctl restart rsyslog
+	sudo systemctl status rsyslog
+
+#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
+
+	#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP
+	#CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER
+	#OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
+
+	#configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog
+	#verificando o status de serviço do Rsyslog
+	sudo systemctl status rsyslog
+
+	#criando o arquivo de exportação dos Logs
+	sudo vim /etc/rsyslog.d/70-graylog.conf
+	INSERT
+
+		#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
+		*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+	
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#reiniciar e verificar o serviço do Rsyslog
+	sudo systemctl restart rsyslog
+	sudo systemctl status rsyslog
+
+	#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
+	#baixando o software NXLog-CE do site oficial:
+	Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
+		Available Downloads
+			Version: NXLog Community Edition
+			Platform: Windows
+			Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
+		<Download>
+		<No thanks, just starts my download>
+
+	#instalando o NXLog-CE no Windows 10
+	Download
+		Executar o software: nxlog-ce-3.2.2329.msi
+		Welcome to the NXLog-CE Setup Wizard: <Next>
+		End-User License Agreement: ON I Accept the terms in the License Agreement <Next>
+		Destination Folder: Default <Next>
+		Ready to install NXLog-CE: <Install>
+			Controle de Conta do Usuário: <Sim>
+		Completed the NXLog-CE Setup Wizard: <Finish>
+	
+	#editando o arquivo de configuração do NXLog-CE via Powershell
+	#OBSERVAÇÃO IMPORTANTE: fazer a instalação do NXLog-CE Windows utilizando 
+	#o Powershell em modo Administrador.
+
+	Menu
+		Powershell 
+			Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
+
+	#acessando o diretório de configuração do NXLog-CE
+	cd '.\Program Files\nxlog\conf\'
+
+	#editando o arquivo de configuração do NXLog-CE
+	notepad.exe .\nxlog.conf
+	
+	#copiar e colar o bloco de configuração abaixo no final do arquivo nxlog.conf
+
+```xml
+#Habilitando o Módulo GElF do NXLog-CE
+<Extension gelf>
+    Module      xm_gelf
+</Extension>
+
+#Exemplo de configuração compatível com caixa de Coletando log de eventos
+<Input in>
+   Module      im_msvistalog
+    ReadFromLast FALSE
+    SavePos     FALSE
+    Query       <QueryList>\
+                    <Query Id="0">\
+                        <Select Path="Application">*</Select>\
+                        <Select Path="System">*</Select>\
+                        <Select Path="Security">*</Select>\
+                    </Query>\
+                </QueryList>
+</Input>
+
+#Convertendo os eventos em transmitindo via UDP para o Graylog
+<Output out>
+    Module      om_udp
+    Host        172.16.1.20
+    Port        12201
+    OutputType  GELF
+</Output>
+
+#Configuração da Rota de entrada 'in' à saída 'out'
+<Route 1>
+    Path        in => out
+</Route>
+```
+
+	#fechar e salvar as mudanças do arquivo
+	<Fechar>
+		<Salvar>
+
+	#testando o arquivo de configuração do NXLog-CE
+	..\nxlog.exe -v
+
+	#reiniciar e verificar o serviço do NXLog-CE
+	Restart-Service nxlog
+	Get-Service nxlog
+
+#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server<br>
+
+	#criando um Input GELF UDP do Windows 10 no Graylog Server
+	Welcome
+		System
+			Inputs
+				Select input: GELF UDP <Launch new input>
+	
+	#configurando o Input do GELF UDP
+	Launch new GELF UDP input
+		Node: XXXX/wsvaamonde.pti.intra
+		Title: windows10
+		Bind Address: 172.16.1.20
+		Port: 12201
+		Encoding (optional): UTF-8
+	<Launch Input>
+
+	#verificando a porta de conexão do Input do Graylog
+	sudo lsof -nP -iUDP:'12201'
 
 =========================================================================================
 
