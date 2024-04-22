@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 21/04/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 22/04/2024<br>
+#Versão: 0.03<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
@@ -168,8 +168,10 @@ Link da vídeo aula:
 	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)nsearch
 	sudo journalctl -xeu opensearch
 
-	#verificando a versão do OpenSearch
+	#verificando a versão do OpenSearch via Terminal ou Navegador
 	curl -X GET "http://localhost:9200"
+
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 
 #09_ Verificando a Porta de Conexão do OpenSearch<br>
 
@@ -207,6 +209,7 @@ Link da vídeo aula:
 	#opção do comando tr: -d (delete), -c (complement)
 	#opção do comando head: -c (bytes)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
 	< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
 
 	#gerando a senha aleatório da variável: root_password_sha2
@@ -366,7 +369,7 @@ db.createUser({
 	INSERT
 
 		#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-		*.*@172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+		*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
