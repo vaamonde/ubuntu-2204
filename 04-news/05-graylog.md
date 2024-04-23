@@ -485,7 +485,7 @@ db.createUser({
 
 #23_ Criando um Input GELF UDP do Windows 10 no Graylog Server<br>
 
-	#criando um Input GELF UDP do Windows 10 no Graylog Server
+	#criando um Input GELF UDP no Graylog Server
 	Welcome
 		System
 			Inputs
