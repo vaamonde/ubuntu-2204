@@ -416,7 +416,7 @@ db.createUser({
 	Download
 		Executar o software: nxlog-ce-3.2.2329.msi
 		Welcome to the NXLog-CE Setup Wizard: <Next>
-		End-User License Agreement: ON I Accept the terms in the License Agreement <Next>
+		End-User License Agreement: (ON) I Accept the terms in the License Agreement <Next>
 		Destination Folder: Default <Next>
 		Ready to install NXLog-CE: <Install>
 			Controle de Conta do Usuário: <Sim>
