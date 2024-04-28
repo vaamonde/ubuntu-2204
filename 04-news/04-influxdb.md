@@ -228,7 +228,6 @@ Link da vídeo aula:
 		Filter: host: wsvaamonde.pti.intra
 	<SUBMIT>
 
-
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 

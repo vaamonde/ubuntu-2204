@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 22/04/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 28/04/2024<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
@@ -130,8 +130,8 @@ Link da vídeo aula:
 	sudo vim /etc/opensearch/jvm.options
 	INSERT
 
-		#manter o padrão das configurações do Heap Space a parti da linha: 22
-		#padrão de tamanho inicial e máximo de: 1GB
+		#manter o padrão das configurações do Heap Space a partir da linha: 22
+		#padrão do tamanho inicial e máximo da memória do JVM: 1GB
 		-Xms1g
 		-Xmx1g
 
@@ -209,6 +209,7 @@ Link da vídeo aula:
 	#opção do comando tr: -d (delete), -c (complement)
 	#opção do comando head: -c (bytes)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
 	#opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
 	< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
 
@@ -220,6 +221,7 @@ Link da vídeo aula:
 	#opção do comando tr: -d (delete)
 	#opção do comando cut: -d (delimiter), -f (fields)
 	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
 	echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
 		Enter Password: pti@2018
 	
@@ -245,6 +247,8 @@ Link da vídeo aula:
 		elasticsearch_hosts = http://172.16.1.20:9200
 
 		#alterando o valor da variável mongodb_uri na linha: 576
+		#OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
+		#utilizando usuário e senha.
 		mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
 
 	#salvar e sair do arquivo
@@ -408,6 +412,7 @@ db.createUser({
 		Available Downloads
 			Version: NXLog Community Edition
 			Platform: Windows
+			#download da versão atualizada em: 28/04/2024
 			Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
 		<Download>
 		<No thanks, just starts my download>
@@ -444,7 +449,7 @@ db.createUser({
     Module      xm_gelf
 </Extension>
 
-#Exemplo de configuração compatível com caixa de Coletando log de eventos
+#Exemplo de configuração compatível com a caixa de Coleta dos Logs de Eventos
 <Input in>
    Module      im_msvistalog
     ReadFromLast FALSE
@@ -458,7 +463,7 @@ db.createUser({
                 </QueryList>
 </Input>
 
-#Convertendo os eventos em transmitindo via UDP para o Graylog
+#Convertendo os eventos e transmitindo via UDP para o Graylog
 <Output out>
     Module      om_udp
     Host        172.16.1.20
@@ -466,7 +471,7 @@ db.createUser({
     OutputType  GELF
 </Output>
 
-#Configuração da Rota de entrada 'in' à saída 'out'
+#Configuração da Rota de entrada 'in' e saída 'out'
 <Route 1>
     Path        in => out
 </Route>
@@ -485,7 +490,7 @@ db.createUser({
 
 #23_ Criando um Input GELF UDP do Windows 10 no Graylog Server<br>
 
-	#criando um Input GELF UDP no Graylog Server
+	#criando um Input GELF (Graylog Extended Log Format) UDP no Graylog Server
 	Welcome
 		System
 			Inputs
@@ -502,6 +507,19 @@ db.createUser({
 
 	#verificando a porta de conexão do Input do Graylog
 	sudo lsof -nP -iUDP:'12201'
+
+#24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10<br>
+
+	Graylog
+		Search
+			Select time range: 30 minutes
+			(Play) Every 1 second
+	
+	Graylog
+		Dashboard
+			Sources
+				Select time range: 30 minutes
+				(Play) Every 1 second
 
 =========================================================================================
 
