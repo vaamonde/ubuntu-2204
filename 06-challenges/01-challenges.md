@@ -11,7 +11,7 @@
 #Versão: 0.01<br>
 
 =========================================================================================<br>
-  ############################### 01-openssh.md CHALLENGES ################################<br>
+############################### 01-openssh.md CHALLENGES ################################<br>
 =========================================================================================<br>
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
@@ -70,7 +70,7 @@ SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
 	sudo systemctl status ssh
 
 =========================================================================================<br>
-  ############################ 02-apache2-server.md CHALLENGES ############################<br>
+############################ 02-apache2-server.md CHALLENGES ############################<br>
 =========================================================================================<br>
 
 #09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM: seu_nome
@@ -181,3 +181,101 @@ DOS SITES CRIADOS.
 	#adicionando o usuário Admin e Robson ao grupo do Apache2
 	sudo usermod -aG www-data admin
 	sudo usermod -aG www-data robson
+
+=========================================================================================<br>
+############################# 02-mysql-server.md CHALLENGES #############################<br>
+=========================================================================================<br>
+
+#12_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE 
+BANCO DE DADOS CRIAR UMA TABELA COM O: seu_nome (TUDO EM MINÚSCULO) COM AS SEGUINTES COLUNAS: 
+Nome (Tipo Texto) e Idade (Tipo Numérico) (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM 
+REGISTRO COM: Seu Nome e Sua Idade (VEJA O SITE W3SCHOOLS). OBSERVAÇÃO IMPORTANTE: NÃO PRECISA 
+CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+
+	#acessar o MySQL Server como Root
+	sudo mysql -u root -p
+
+```sql
+/* criando o banco de dados robson */
+CREATE DATABASE robson;
+
+/* verificando os banco de dados criados */
+SHOW DATABASES;
+
+/* acessando o banco de dados robson */
+USE robson;
+
+/* criando uma tabela robson com os campos nome e idade */
+CREATE TABLE robson (
+	nome VARCHAR(50),
+	idade INT
+);
+
+/* verificando a tabela criada robson */
+SHOW TABLES;
+
+/* verificando a descrição da tabela criada robson */
+DESC robson;
+
+/* inserindo os dados na tabela robson */
+INSERT INTO robson (
+	nome, 
+	idade
+)
+VALUES (
+	'Robson Vaamonde', 
+	45
+);
+
+/* verificando as informações cadastradas na tabela robson */
+SELECT * FROM robson;
+```
+
+#13_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO PROCEDIMENTO
+DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO MYSQL PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE 
+DO COMANDO SUDO.
+
+	#adicionando o usuário Admin e Robson ao grupo do Apache2
+	sudo usermod -aG mysql admin
+	sudo usermod -aG mysql robson
+
+#14_ DESAFIO-03: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: seu_nome, CONFIGURAR TODAS
+AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL.
+
+	#acessar o MySQL Server como Root
+	sudo mysql -u root -p
+
+```sql
+/* criando o usuário Robson Localhost */
+CREATE USER 'robson'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+
+/* alterando as permissões do usuário Robson Localhost */
+GRANT ALL ON *.* TO 'robson'@'localhost';
+
+/* aplicando todas as mudanças na base de dados */
+FLUSH PRIVILEGES;
+
+/* Verificando o Usuário Robson criado no Banco de Dados MySQL Server*/
+SELECT user,host FROM mysql.user WHERE user='robson';
+
+/* saindo do MySQL Client Console */
+exit
+```
+
+	#se logando com o usuário Robson para testar a conexão com o MySQL Server
+	sudo mysql -u robson -p
+
+```sql
+/* visualizando as bases de dados do MySQL */
+SHOW DATABASES;
+
+/* saindo do MySQL Client Console */
+exit
+```
+
+#15_ DESAFIO-04: CRIAR OS USUÁRIO: dba E SEU NOME: seu_nome, CONFIGURAR TODAS AS PERMISSÕES
+IGUAIS AO USUÁRIO ROOT REMOTO, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
+
+#16_ DESAFIO-04: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO 
+DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
+DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
