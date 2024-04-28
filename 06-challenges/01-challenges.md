@@ -10,9 +10,9 @@
 #Data de atualização: 28/04/2024<br>
 #Versão: 0.01<br>
 
-=========================================================================================
-############################### 01-openssh.md CHALLENGES ################################
-=========================================================================================
+=============================================
+######### 01-openssh.md CHALLENGES ##########
+=============================================
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
