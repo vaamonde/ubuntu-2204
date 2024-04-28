@@ -10,9 +10,9 @@
 #Data de atualização: 28/04/2024<br>
 #Versão: 0.01<br>
 
-=============================================<br>
-######### 01-openssh.md CHALLENGES ##########<br>
-=============================================<br>
+=========================================================================================<br>
+############################### 01-openssh.md CHALLENGES ################################<br>
+=========================================================================================<br>
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
@@ -69,9 +69,9 @@ SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
 	sudo systemctl restart ssh
 	sudo systemctl status ssh
 
-=========================================================================================
-############################ 02-apache2-server.md CHALLENGES ############################
-=========================================================================================
+=========================================================================================<br>
+############################ 02-apache2-server.md CHALLENGES ############################<br>
+=========================================================================================<br>
 
 #09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM: seu_nome
 (TUDO EM MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM HTML
