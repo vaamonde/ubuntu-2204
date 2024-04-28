@@ -342,3 +342,196 @@ DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 =========================================================================================<br>
 ############################## 03-wordpress.md CHALLENGES ###############################<br>
 =========================================================================================<br>
+
+#07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
+POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
+
+	#acessar o site Wordpress
+	http://172.16.1.20/wp/wp-login.php
+		Usuário: admim
+		Senha: pti@2018
+		<Acessar>
+
+	#instalando um novo Tema do Wordpress
+	Painel
+		Aparência
+			Temas
+				<Adicionar novo tema>
+					Tema: Twenty Seventeen <Instalar>
+					<Ativar>
+	
+	#criando as duas postagem no Wordpress no tema Twenty Seventeen
+	Painel
+		Posts
+			<Adicionar novo Post>
+				Adicionar Título: Nova Postagem no Wordpress
+				Digite / para escolher o bloco: Adicionando uma nova postagem no Wordpress
+				Digite / para escolher o bloco: Clicar no + (MAIS)
+					Imagem: Inserir a partir de uma URL
+						Colar ou digitar a URL: https://hermes.dio.me/assets/articles/beea2f49-fb44-4778-8cb0-69101a5113ab.png <Aplicar>
+				Digite / para escolher o bloco: Clicar no + (MAIS)
+					Imagem: Inserir a partir de uma URL
+						Colar ou digitar a URL: https://hermes.dio.me/assets/articles/50a9f5e9-1ac3-40d9-8559-def8b46e981f.png <Aplicar>
+			<Publicar>
+				<Publicar>
+				<Ver Post>
+
+#08_ DESAFIO-02: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE 02 (DOIS) PLUGINS DO WORDPRESS MAIS USADO
+NO DIA A DIA O: Wordfence Security E: W3 Total Cache.
+
+	#adicionado o Plugin do Wordfence Security
+	Painel
+		Plugins
+			<Adicionar Plugin>
+				Pesquisar Plugin: Wordfence Security <Instalar agora>
+				<Ativar>
+
+	#configurando o Wordfence Security
+	Complete a instalação do Wordfence
+		<OBTER SUA LICENÇA DO WORDFENCE>
+			FREE: <GET FREE LICENSE>
+				<I'm OK waiting 30 days for protection from new threats>
+					Site URL: http://172.16.1.20/wp
+					Email: SEU_EMAIL@SEU_DOMÍNIO
+					Would you like WordPress security and vulnerability alerts sent to you via email? NO
+					(ENABLE) I have read and agree to, as applicable
+					<Register>
+				Check your email: Install Your Wordfence License
+					Automatic Installation: <Install My License Automatically>
+						Instalar Wordfence
+							E-mail: SEU_EMAIL@SEU_DOMÍNIO
+							Chave da licença: SUA_CHAVE_DE_LICENÇA
+						<INSTALAR LICENÇA>
+				Licença gratuita instalada
+					<IR PARA O PAINEL>
+						Você quer que o Wordfence esteja atualizado automaticamente? < Sim, ativar a atualização automática.>
+						Para tornar seu site o mais seguro possível, reserve um momento para otimizar o firewall de aplicativos da web do Wordfence: <CLIQUE AQUI PARA CONFIGURAR>
+							<BAIXAR .HTACCESS>
+								Otimizar o firewall do Wordfence: <CONTINUAR>
+							<FECHAR>
+	
+	#adicionado o Plugin do W3 Total Cache
+	Painel
+		Plugins
+			<Adicionar Plugin>
+				Pesquisar Plugin: W3 Total Cache <Instalar agora>
+				<Ativar>
+	
+	#configurando o Plugin do W3 Total Cache
+	Painel
+		Performance
+			Total Cache Setup Guide
+				By allowing us to collect data about how W3 Total Cache is used: <ACCEPT>
+				Welcome to the W3 Total Cache Setup Guide! <NEXT>
+				Page Cache: <Test Page Cache> <SKIP>
+			Please execute commands manually: <VIEW REQUIRED CHANGE>
+				COPIAR AS MUDANÇAS DO ARQUIVO: WP-CONFIG.PHP
+					/** Enable W3 Total Cache */
+					define('WP_CACHE', true); // Added by W3 Total Cache
+			<HIDE REQUIRED CHANGE>
+
+	#editando o arquivo de configuração do Wordpress
+	sudo vim /var/www/html/wp/wp-config.php +
+	INSERT
+
+		#colar o conteúdo a partir da linha: 101
+		/** Enable W3 Total Cache */
+		define('WP_CACHE', true); // Added by W3 Total Cache
+	
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
+	#reiniciar o serviço do Apache2 Server
+	sudo systemctl restart apache2
+	sudo systemctl status apache2
+
+#09_ DESAFIO-03: NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS ÍCONES DO
+GITHUB, LINKEDIN E FACEBOOK, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO APACHE2,
+FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM HTML E PHP E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO
+UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
+
+	#adicionado o Plugin do Social Media Share Buttons
+	Painel
+		Plugins
+			<Adicionar Plugin>
+				Pesquisar Plugin: Social Media Share Buttons & Social Sharing Icons <Instalar Agora>
+				<Ativar>
+
+	#configurando o Social Media Share Buttons
+	Painel
+		Ultimate Social Media Icons
+			<Allow & Continue>
+				1 Quais ícones você deseja mostrar em seu site?
+					(ENABLE) Facebook
+					(ENABLE) YouTUBE
+					(ENABLE) LinkedIn
+				<Salvar>
+				2 O que você deseja que os ícones façam?
+					Facebook: 
+						(ENABLE) Visitar minha página do Facebook em: https://www.facebook.com/ProcedimentosEmTi
+					Youtube:
+						(ENABLE) Visitar minha página do Youtube em: https://www.youtube.com/boraparapratica
+					LinkedIn: 
+						(ENABLE) Visitar minha página do Linkedin em: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+				<Salvar>
+				3 Onde eles devem ser exibidos?
+					Flutuando nas páginas do seu site: Inferior direito
+				<Salvar>
+			<Save All Settings>
+
+	#adicionado o Plugin do WP Social Widget 
+	Painel
+		Plugins
+			<Adicionar Plugin>
+				Pesquisar Plugin: WP Social Widget
+			<Ativar>
+	
+	#personalizando o sistema com WP Social Widget
+	Painel
+		Aparência
+			Widgets
+				Rodapé 2
+				<+ Adicionar bloco>
+					<Navegar por todos>
+						Widgets
+							WP Social Widget
+								Title: Facebook Procedimentos em TI
+								Open Social Profile Links in: Blank (New Tab) Page
+								(ENABLE) Icon Circle:
+								Click on social icon to show social link field(s): Facebook
+								Facebook link: https://www.facebook.com/ProcedimentosEmTi
+				<+ Adicionar bloco>
+					<Navegar por todos>
+						Widgets
+							WP Social Widget
+								Title: LinkedIn Robson Vaamonde
+								Open Social Profile Links in: Blank (New Tab) Page
+								(ENABLE) Icon Circle:
+								Click on social icon to show social link field(s): LinkedIn
+								Facebook link: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+				<+ Adicionar bloco>
+					<Navegar por todos>
+						Widgets
+							WP Social Widget
+								Title: Github Robson Vaamonde
+								Open Social Profile Links in: Blank (New Tab) Page
+								(ENABLE) Icon Circle:
+								Click on social icon to show social link field(s): Github
+								Facebook link: https://github.com/vaamonde
+				<+ Adicionar bloco>
+					<Navegar por todos>
+						Widgets
+							WP Social Widget
+								Title: YouTUBE Bora para Prática
+								Open Social Profile Links in: Blank (New Tab) Page
+								(ENABLE) Icon Circle:
+								Click on social icon to show social link field(s): YouTUBE
+								Facebook link: https://www.youtube.com/boraparapratica
+			<Atualizar>
+
+#10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
+
+A) Path New Site: /var/www/html/site<br>
+B) Database Name: newsite<br>
+C) User and Password Database: newsite<br>
+D) Wordpress Template Install: Astra
