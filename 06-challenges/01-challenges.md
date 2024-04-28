@@ -11,7 +11,7 @@
 #Versão: 0.01<br>
 
 =========================================================================================<br>
-############################### 01-openssh.md CHALLENGES ################################<br>
+  ############################### 01-openssh.md CHALLENGES ################################<br>
 =========================================================================================<br>
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
@@ -70,7 +70,7 @@ SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
 	sudo systemctl status ssh
 
 =========================================================================================<br>
-############################ 02-apache2-server.md CHALLENGES ############################<br>
+  ############################ 02-apache2-server.md CHALLENGES ############################<br>
 =========================================================================================<br>
 
 #09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM: seu_nome
