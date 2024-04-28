@@ -276,6 +276,69 @@ exit
 #15_ DESAFIO-04: CRIAR OS USUÁRIO: dba E SEU NOME: seu_nome, CONFIGURAR TODAS AS PERMISSÕES
 IGUAIS AO USUÁRIO ROOT REMOTO, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
 
+	#acessar o MySQL Server como Root
+	sudo mysql -u root -p
+
+```sql
+/* criando os usuários dba e robson remoto no  MySQL Server */
+CREATE USER 'dba'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+GRANT ALL ON *.* TO 'dba'@'%';
+CREATE USER 'robson'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+GRANT ALL ON *.* TO 'robson'@'%';
+FLUSH PRIVILEGES;
+
+/* verificando os usuários Remoto do MySQL Server */
+SELECT user,host FROM mysql.user where host = '%';
+exit
+```
+
 #16_ DESAFIO-04: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO 
 DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
 DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
+
+	#acessar o site do DB4Free
+	https://www.db4free.net/
+		Clicar em: Criar uma conta
+			Cadastre-se:
+				Nome do banco de dados MySQL: robson
+				Nome de usuário MySQL: SEU_USUÁRIO
+				Senha do MySQL: SUA_SENHA
+				Confirmação de senha do MySQL: SUA_SENHA
+				E-mail: SEU_EMAIL@SEU_DOMÍNIO.COM
+				(Enable) Li e concordo com os termos de uso.
+			<Cadastre-se>
+	
+	#acessar o email de confirmação da conta e do banco DB4Free
+	Você receberá um e-mail para confirmação de seu cadastro.
+		Clicar no link: https://www.db4free.net/confirm.php?create=XXXXXXXXX
+	
+	#acessando o PhPMyAdmin do DB4Free
+	https://www.db4free.net/phpMyAdmin/
+		 Idioma (Language): Português (Brasil) - Português (Brazil)
+		 Usuário: SEU_USUÁRIO
+		 Senha: SUA_SENHA
+	
+	#criando a tabela no banco de dados robson no PhPMySQLAdmin
+	clicar no Banco: robson
+		Clicar em: <Criar nova tabela>
+			Nome da tabela: robson
+			Número de colunas: 2
+		<Criar>
+	
+	#criando os campos da tabela robson no banco de dados robson
+	Nome: nome - Tipo: VARCHAR - 50
+	Nome: idade - Tipo: INT - 3
+	<Salvar>
+
+	#inserir os dados na tabela robson no banco de dados robson
+	clicar em: Inserir
+		Coluna: nome - Valor: Robson Vaamonde
+		Coluna: idade - Valor: 45
+	<Executar>
+
+	#visualizar os dados cadastrados na tabela robson no banco de dados robson
+	clicar em: Visualizar
+
+=========================================================================================<br>
+############################## 03-wordpress.md CHALLENGES ###############################<br>
+=========================================================================================<br>
