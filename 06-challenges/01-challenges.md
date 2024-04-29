@@ -803,7 +803,7 @@ WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
 							<Adicionar ao menu>
 						<Adicionar Itens>
 							Links Personalizados
-								URL: http://172.16.1.20:3000
+								URL: http://172.16.1.20:3030
 								Texto do link: Novo Projeto Node.JS
 							<Adicionar ao menu>
 					<Publicar>
@@ -857,9 +857,90 @@ O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
 GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO 
 O LINK DO APP: http://endereço_ipv4_ubuntuserver:8080/helloworld/
 
+	Link do download: https://github.com/vaamonde/ubuntu-2204/blob/main/war/helloworld.war
+	Opção: Download raw file
+
+	#instalando a nova aplicação
+	firefox ou google chrome: http://172.16.1.20:8080
+		<Manager App>
+			Nome do usuário: NOVO_USUÁRIO_TOMCAT
+			Senha: SENHA_DO_USUÁRIO
+
+	#adicionando um nova aplicação WAR no Tomcat
+	WAR file to deploy
+		Select WAR file to upload: helloworld.war
+		<Deploy>
+	
+	#testando a nova aplicação WAR
+	http://172.16.1.20:8080/helloworld/
+
 #09_ DESAFIO-02: DELETAR A BASE DE DADOS: dbagenda E O USUÁRIO: dbagenda DO MYSQL SERVER
 (VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP
 E TESTAR A CONEXÃO NO NAVEGADOR.
+
+	#se logando com o usuário root no MySQL Server
+	sudo mysql -u root -p
+
+```sql
+/* deletando a base de dados DBAgenda */
+SHOW DATABASES;
+DROP DATABASE dbagenda;
+
+/* deletando o usuário DBAgenda */
+SELECT user,host FROM mysql.user WHERE user='dbagenda';
+DROP USER 'dbagenda'@'host';
+
+/* recriando o Banco de Dados DBAgenda */
+CREATE DATABASE dbagenda;
+
+/* recriando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
+CREATE USER 'dbagenda'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbagenda';
+GRANT USAGE ON *.* TO 'dbagenda'@'localhost';
+GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
+FLUSH PRIVILEGES;
+
+/* verificando o Usuário Agenda criado no Banco de Dados MySQL Server*/
+SELECT user,host FROM mysql.user WHERE user='dbagenda';
+
+/* acessando o Banco de Dados DBAgenda */
+USE dbagenda;
+
+/* recriando a Tabela Contatos no Banco de Dados DBAgenda */
+CREATE TABLE contatos (
+	idcon int NOT NULL AUTO_INCREMENT,
+	nome varchar(50) NOT NULL,
+	fone varchar(15) NOT NULL,
+	email varchar(50) DEFAULT NULL,
+	PRIMARY KEY (idcon)
+);
+
+/* verificando as informações das Tabelas */
+SHOW TABLES;
+DESC contatos;
+
+/* saindo do Banco de Dados */
+exit
+```
+
+	#restaurando o backup do banco de dados DBAgenda
+	sudo mysql -u root -p dbagenda < bkp-dbagenda.sql
+
+	#acessando o MySQL Server com o usuário dbagenda
+	sudo mysql -u dbagenda -p
+
+```sql
+#comandos básicos de verificação da base de dados e tabelas do MySQL
+SHOW DATABASES;
+USE dbagenda;
+SHOW TABLES;
+
+#verificando todos os registros da Tabela Contatos
+SELECT * FROM contatos;
+exit
+```
+
+	#acessar novamente a aplicação para verificar se voltou os registros
+	firefox ou google chrome: http://172.16.1.20:8080/agenda
 
 #10_ DESAFIO-03: FAZER O UNDEPLOY DA APLICAÇÃO: dbagenda E FAZER O DEPLOY NOVAMENTE,
 VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
