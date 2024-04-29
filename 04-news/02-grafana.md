@@ -97,13 +97,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	sudo vim /etc/grafana/grafana.ini
 	INSERT
 
-		#descomentar a variável protocol = na linha: 32
+		#descomentar a variável protocol = na linha: 46
 		protocol = http
 
-		#descomentar a variável ;http_port = na linha 41
+		#descomentar a variável ;http_port = na linha 45
 		http_port = 3000
 
-		#descomentar a variável ;domain = = na linha 44
+		#descomentar a variável ;domain = na linha 48
 		domain = pti.intra
 
 	#salvar e sair do arquivo
