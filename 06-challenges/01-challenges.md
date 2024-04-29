@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 28/04/2024<br>
 #Data de atualização: 28/04/2024<br>
-#Versão: 0.01<br>
+#Versão: 0.02<br>
 
 =========================================================================================<br>
 ############################### 01-openssh.md CHALLENGES ################################<br>
@@ -339,6 +339,40 @@ DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 	#visualizar os dados cadastrados na tabela robson no banco de dados robson
 	clicar em: Visualizar
 
+	#conectando o DB4Free no MySQL Workbench
+	MySQL Workbench
+		MySQL Connections: (+)
+			Connection name: DB4Free
+			Connection Method:
+				Parameters
+					Hostname: db4free.net
+					Port: 3306
+					Username: SEU_USUÁRIO
+					Password: <Store in Keychain>
+						Password: SUA_SENHA <OK>
+					<Test Connection>
+						<Continue Anyway>
+						<OK>
+				Advanced
+					Timeout: 1000
+		<OK>
+	
+	#conectando o DB4Free no Visual Studio Code VSCode
+	Visual Studio Code
+		Database
+			<+ Add Connection>
+				Connect to server
+					Name: DB4Free
+				Server Type
+					MySQL Server
+				Config
+					Host: db4free.net
+					Port: 3306
+					Username: SEU_USUÁRIO
+					Password: SUA_SENHA
+			<Save>
+		<+ Connect>
+
 =========================================================================================<br>
 ############################## 03-wordpress.md CHALLENGES ###############################<br>
 =========================================================================================<br>
@@ -535,3 +569,240 @@ A) Path New Site: /var/www/html/site<br>
 B) Database Name: newsite<br>
 C) User and Password Database: newsite<br>
 D) Wordpress Template Install: Astra
+
+	#acessando diretório temporário do Ubuntu Server
+	cd /tmp
+
+	#baixando o Wordpress do site Oficial
+	wget -O site.zip https://br.wordpress.org/latest-pt_BR.zip
+
+	#descompactando o arquivo do WordPress
+	unzip site.zip
+
+	#movendo o conteúdo do WordPress para o diretório do Apache2 Server
+	#opção do comando mv: -v (verbose)
+	sudo mv -v wordpress/ /var/www/html/site/
+
+	#alterando as permissões dos diretórios e arquivos do WordPress
+	sudo chown -Rfv www-data.www-data /var/www/html/site/
+	sudo find /var/www/html/site/. -type d -exec chmod -v 2775 {} \;
+	sudo find /var/www/html/site/. -type f -exec chmod -v 2664 {} \;
+
+	#acessando o diretório do WordPress
+	cd /var/www/html/site/
+
+	#criando o arquivo de configuração do banco de dados do WordPress
+	sudo cp -v wp-config-sample.php wp-config.php
+
+	#editando o arquivo de configuração do WordPress
+	sudo vim wp-config.php
+	INSERT
+
+```php
+#alterar os valores das variáveis "define" a partir da linha: 23
+
+#alterar o valor da variável: DB_NAME do nome do banco de dados na linha: 23
+define( 'DB_NAME', 'newsite' );
+
+#alterar o valor da variável: DB_USER do nome do usuário de autenticação do banco de dados na linha: 26
+define( 'DB_USER', 'newsite' );
+
+#alterar o valor da variável: DB_PASSWORD da senha do usuário do banco de dados na linha: 29
+define( 'DB_PASSWORD', 'newsite' );
+
+#configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
+#mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
+#copiar o conteúdo do Salt e colocar a partir da linha: 53
+#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 53 até: 60 antes de copiar/colar as
+#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
+```
+
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
+	#reiniciar o serviço do Apache2 Server
+	sudo systemctl restart apache2
+	sudo systemctl status apache2
+
+	#opções do comando mysql: -u (user), -p (password)
+	sudo mysql -u root -p
+
+```sql
+/* Criando o Banco de Dados Wordpress */
+CREATE DATABASE newsite;
+
+/* Criando o usuário da Base de Dados do WordPress */
+CREATE USER 'newsite' IDENTIFIED WITH mysql_native_password BY 'newsite';
+
+/* Aplicando as permissões de acesso do usuário WordPress */
+GRANT USAGE ON *.* TO 'newsite';
+GRANT ALL PRIVILEGES ON newsite.* TO 'newsite';
+FLUSH PRIVILEGES;
+
+/* Verificando o Usuário Wordpress criado no Banco de Dados MySQL Server*/
+SELECT user,host FROM mysql.user WHERE user='newsite';
+
+/* Visualizando as bases de dados do MySQL */
+SHOW DATABASES;
+
+/* Acessando o Banco de Dados wordpress */
+USE newsite;
+
+/* Saindo do Banco de Dados */
+exit
+```
+
+	#se logando com o usuário newsite para testar a conexão com o MySQL Server
+	sudo mysql -u newsite -p
+
+```sql
+
+/* visualizando a base de dados do WordPress */
+SHOW DATABASES;
+USE newsite;
+exit
+```
+
+	firefox ou google chrome: http://172.16.1.20/site
+
+	#Informações que serão solicitadas na configuração via Web do WordPress
+	Português do Brasil: Continuar;
+	Informação necessária
+		Título do site: Novo Site Wordpress;
+		Nome de usuário: SEU_USUÁRIO;
+		Senha: SUA_SENHA;
+		Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
+		O seu e-mail: SEU_EMAIL@SEU_DOMÍNIO; 
+	<Instalar WordPress>
+	<Acessar>
+
+	#Tela de login do WordPress
+	firefox ou google chrome: http://172.16.1.20/site/wp-login.php
+		Nome de usuário ou endereço de email: SEU_USUÁRIO
+		Senha: SUA_SENHA
+		Lembrar-me: On (Habilitado)
+		<Acessar>
+	
+	#Configuração dos Links Permanentes do WordPress
+	Configurações
+		Links permanentes
+			Configurações de Links Permanentes
+				Configurações Comuns
+					Estrutura de Links Permanentes
+						ON (Selecionar): Padrão (http://172.16.1.20/site/?=123)
+		<Salvar Alterações>
+	
+	#instalando um novo Tema do Wordpress Astra
+	Painel
+		Aparência
+			Temas
+				<Adicionar novo tema>
+					Tema: Astra <Instalar>
+					<Ativar>
+
+=========================================================================================<br>
+################################ 05-nodejs.md CHALLENGES ################################<br>
+=========================================================================================<br>
+
+#10_ DESAFIO-01: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM:
+seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: /home/seu_usuário, CRIAR UMA 
+PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: seunome.js (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO 
+BROWSER PARA: Meu novo projeto em Node.JS - Seu Nome, MUDAR A PORTA DO PROJETO PARA 3030 E
+ADICIONAR MAIS ALGUM RECURSO DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS)
+
+	#criando o diretório do novo projeto do Node.JS
+	mkdir -v /home/vaamonde/robson
+
+	#acessando o diretório do novo projeto robson
+	cd /home/vaamonde/robson/
+
+	#inicializando o diretório robson do Node.JS
+	npm init -y
+	
+	#instalando o Módulo/Pacote Express do Node.JS
+	npm install express
+
+	#listando o conteúdo do diretório robson do Node.JS
+	ls -lha
+
+	#criando o arquivo robson.js do novo projeto do Node.JS
+	vim robson.js
+	INSERT
+
+```js
+// Criando as variáveis do Express e do App do Node.JS
+var express = require ('express'); 
+var app = express();
+
+// Mensagem que será mostrada no browser (navegador) 
+app.get('/', function (req, res) {
+    // Obtém a data e hora atual
+    var dataHoraAtual = new Date().toLocaleString();
+    // Mensagem que será enviada com a data e hora atual
+    var mensagem = 'Meu novo projeto em Node.JS - Robson Vaamonde<br>Data e hora atual: ' + dataHoraAtual;
+    res.send(mensagem);
+});
+
+// Porta padrão utilizada pela aplicação do Node.JS
+app.listen(3000, function() {
+	console.log('Aplicativo de exemplo ouvindo na porta 3030');
+});
+```
+
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
+	#executando o novo projeto em background
+	node robson.js &
+
+	#verificando se a aplicação e porta está disponível
+	sudo lsof -nP -iTCP:'3030' -sTCP:LISTEN
+
+	#acessando o projeto
+	firefox ou google chrome: http://172.16.1.20:3030
+
+#11_ DESAFIO-02: DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND),
+NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO DESAFIO-03 DO
+WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
+
+	#acessando o primeiro projeto do Node.Js
+	cd /home/vaamonde/nodejs-hello
+
+	#executando o projeto em background
+	node index.js &
+
+	#verificando se a aplicação e porta está disponível
+	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
+
+	#acessando o projeto
+	firefox ou google chrome: http://172.16.1.20:3000
+
+	#acessar o site Wordpress
+	http://172.16.1.20/wp/wp-login.php
+		Usuário: admim
+		Senha: pti@2018
+		<Acessar>
+
+	#personalizar a menu do tema do Wordpress
+	Painel
+		Aparência
+			Temas
+				Twenty Seventeen: <Personalizar>
+					Menus
+						<Criar novo menu>
+							Nome do menu: Principais Links
+							Localizações de menu: (ENABLE) Menu do Topo
+							<Seguinte>
+						<Adicionar Itens>
+							Páginas: Início
+						<Adicionar Itens>
+							Links Personalizados
+								URL: http://172.16.1.20:3000
+								Texto do link: Projeto Node.JS
+							<Adicionar ao menu>
+						<Adicionar Itens>
+							Links Personalizados
+								URL: http://172.16.1.20:3000
+								Texto do link: Novo Projeto Node.JS
+							<Adicionar ao menu>
+					<Publicar>
