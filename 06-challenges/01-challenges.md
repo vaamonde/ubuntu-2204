@@ -49,10 +49,10 @@ SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
 	#listando o usuário criado com o comando getent
 	sudo getent passwd robson
 
-	#adicionando o usuário Admin ao grupo do SUDO
+	#adicionando o usuário Robson ao grupo do SUDO
 	sudo usermod -aG sudo robson
 
-	#verificando os grupos do usuário Admin
+	#verificando os grupos do usuário Robson
 	sudo groups robson
 
 	#editar o arquivo de configuração do OpenSSH
@@ -663,6 +663,7 @@ USE newsite;
 exit
 ```
 
+	#acessando o gerenciados do Wordpress via Navegador
 	firefox ou google chrome: http://172.16.1.20/site
 
 	#Informações que serão solicitadas na configuração via Web do WordPress
@@ -744,7 +745,7 @@ app.get('/', function (req, res) {
 });
 
 // Porta padrão utilizada pela aplicação do Node.JS
-app.listen(3000, function() {
+app.listen(3030, function() {
 	console.log('Aplicativo de exemplo ouvindo na porta 3030');
 });
 ```
@@ -758,7 +759,7 @@ app.listen(3000, function() {
 	#verificando se a aplicação e porta está disponível
 	sudo lsof -nP -iTCP:'3030' -sTCP:LISTEN
 
-	#acessando o projeto
+	#acessando o projeto via navegador
 	firefox ou google chrome: http://172.16.1.20:3030
 
 #11_ DESAFIO-02: DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND),
@@ -774,7 +775,7 @@ WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
 	#verificando se a aplicação e porta está disponível
 	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 
-	#acessando o projeto
+	#acessando o projeto via navegador
 	firefox ou google chrome: http://172.16.1.20:3000
 
 	#acessar o site Wordpress
@@ -806,3 +807,63 @@ WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
 								Texto do link: Novo Projeto Node.JS
 							<Adicionar ao menu>
 					<Publicar>
+
+=========================================================================================<br>
+########################### 06-tomcat-server.md CHALLENGES ##############################<br>
+=========================================================================================<br>
+
+#16_ DESAFIO-01: FAZER A CRIAÇÃO DE 02 (DOIS) NOVOS USUÁRIOS PARA ADMINISTRAR O APACHE TOMCAT SERVER
+PRIMEIRO USUÁRIO: tomcat10 (TUDO EM MINÚSCULO) SENHA: tomcat10, SEGUNDO USUÁRIO: seu_nome (TUDO EM 
+MINÚSCULO) SENHA: sua_senha, TESTAR O ACESSO AO TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO
+DIREITOS PARA ADMINISTRAR O SERVIDOR. OBSERVAÇÃO IMPORTANTE: RECOMENDO UTILIZAR DOIS NAVEGADORES
+DIFERENTES PARA ESSE TESTE, POIS O USUÁRIO E SENHA DO TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR.
+
+	#editando o arquivo de criação de usuários do Tomcat
+	sudo vim /opt/tomcat/conf/tomcat-users.xml +
+	INSERT
+
+```xml
+<!-- criando o usuário tomcat10 com a mesma senha -->
+<user username="tomcat10" password="tomcat10" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+<!-- criando o usuário robson com a mesma senha -->
+<user username="robson" password="robson" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+```
+
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#reiniciando e verificando o serviço do Apache Tomcat Server
+	sudo systemctl restart tomcat10
+	sudo systemctl status tomcat10
+
+	#testando no navegador os usuários criados
+	firefox ou google chrome: http://172.16.1.20:8080
+		<Manager App>
+			Nome do usuário: NOVO_USUÁRIO_TOMCAT
+			Senha: SENHA_DO_USUÁRIO
+
+#17: DESAFIO-02: ADICIONAR O USUÁRIO: admin E O SEU: seu_usuário NO GRUPO DO TOMCAT PARA ADMINISTRAR
+O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
+
+	#adicionando o usuário Admin e Robson ao grupo do TomCAT10 Server
+	sudo usermod -aG tomcat admin
+	sudo usermod -aG tomcat robson
+
+=========================================================================================<br>
+############################# 07-war-tomcat.md CHALLENGES ###############################<br>
+=========================================================================================<br>
+
+#08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Hello World DO PROJETO DO 
+GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO 
+O LINK DO APP: http://endereço_ipv4_ubuntuserver:8080/helloworld/
+
+#09_ DESAFIO-02: DELETAR A BASE DE DADOS: dbagenda E O USUÁRIO: dbagenda DO MYSQL SERVER
+(VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP
+E TESTAR A CONEXÃO NO NAVEGADOR.
+
+#10_ DESAFIO-03: FAZER O UNDEPLOY DA APLICAÇÃO: dbagenda E FAZER O DEPLOY NOVAMENTE,
+VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
+
+#11_ DESAFIO-04: ADICIONAR OS LINKS DOS DESAFIOS DO WAR TOMCAT DA AGENDA E DO SAMPLE NO 
+WORDPRESS PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO 
+DE TODAS AS TECNOLOGIAS ESTUDAS ATÉ AGORA.
