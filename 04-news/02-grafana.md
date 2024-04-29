@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/04/2024<br>
+#Data de atualização: 29/04/2024<br>
 #Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
@@ -67,7 +67,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
 	#opção do comando tee: -a (append)
 	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
 
