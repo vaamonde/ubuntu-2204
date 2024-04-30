@@ -945,6 +945,314 @@ exit
 #10_ DESAFIO-03: FAZER O UNDEPLOY DA APLICAÇÃO: dbagenda E FAZER O DEPLOY NOVAMENTE,
 VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
 
+	#instalando a nova aplicação
+	firefox ou google chrome: http://172.16.1.20:8080
+		<Manager App>
+			Nome do usuário: NOVO_USUÁRIO_TOMCAT
+			Senha: SENHA_DO_USUÁRIO
+	
+	#fazer o undeploy da aplicação Agenda
+	Applications
+		/agenda <Undeploy>
+	
+	#fazer o deploy da aplicação Agenda
+	WAR file to deploy
+		<Procurar> agenda.war
+		<Deploy>
+
+	#testando novamente a aplicação Agenda
+	http://172.16.1.20:8080/agenda/
+
 #11_ DESAFIO-04: ADICIONAR OS LINKS DOS DESAFIOS DO WAR TOMCAT DA AGENDA E DO SAMPLE NO 
 WORDPRESS PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO 
 DE TODAS AS TECNOLOGIAS ESTUDAS ATÉ AGORA.
+
+	#acessar o site Wordpress
+		http://172.16.1.20/wp/wp-login.php
+			Usuário: admim
+			Senha: pti@2018
+			<Acessar>
+
+		#personalizar a menu do tema do Wordpress
+		Painel
+			Aparência
+				Temas
+					Twenty Seventeen: <Personalizar>
+						Menus
+						<Adicionar Itens>
+							Links Personalizados
+								URL: http://172.16.1.20:8080/agenda/
+								Texto do link: Projeto DBAgenda Java
+							<Adicionar ao menu>
+					<Publicar>
+
+=========================================================================================<br>
+############################### 08-mongodb.md CHALLENGES ################################<br>
+=========================================================================================<br>
+
+#18_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
+DE DADOS CRIAR UM COLLECTION CHAMADO: cadastro (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION
+INSERIR OS DOCUMENTS: nome: Seu Nome, idade: Sua Idade LISTAR AS INFORMAÇÕES NO VSCODE OU NO
+COMPASS (VEJA O SITE W3SCHOOLS).
+
+	#acessando o MongoDB via MongoSH
+	sudo mongosh admin -u admin -p
+
+	#listando as bases de dados no MongoDB
+	show dbs
+
+	#criando a base de dados robson
+	use robson
+
+	#criação a coleção e inserindo os documentos
+	db.cadastro.insertOne({ nome: "Robson", idade: 45 });
+
+	#visualizando os documentos da coleção cadastro
+	db.cadastro.find();
+
+	#saindo do MongoSH
+	exit
+
+#19_ DESAFIO-02: CONHECER O PROJETO: MongoDB Atlas, FAZER O CADASTRO NO SITE OFFICIAL PARA A 
+CRIAÇÃO DE UMA CONTA FREE NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A
+OPÇÃO: LEARN FREE, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO
+DE DADOS DO DESAFIO-O1, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. OBSERVAÇÃO: VEJA A
+DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: MongoDB for VS Code, CUIDADO PRINCIPALMENTE COM AS
+OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
+
+	#criando uma conta no MongoDB Atlas
+	Link: https://www.mongodb.com/cloud/atlas/register
+		OBSERVAÇÃO: UTILIZAR UMA CONTA DO GOOGLE OU FAZER A CRIAÇÃO DE UMA CONTA INDEPENDENTE,
+		CASO UTILIZE UMA CONTA DO GOOGLE A SENHA DO USUÁRIO SERÁ A MESMA SENHA DO GOOGLE PARA
+		SE AUTENTICAR NO MONGODB COMPASS OU NO VISUAL STUDIO.
+
+	#criando uma nova conexão com o MongoDB Server
+		<New connection+>
+			New Connection
+				URL: mongodb://172.16.120:27017
+			Advanced Connection Options
+				Connection String Scheme
+					mongodb
+				Host:
+					172.16.1.20:27017
+			Authentication
+				Username/Password
+					Username: admin
+					Password: pti@2018
+					Authentication Database: admin
+				Authentication Mechanism
+					Default
+			<Save & Connect>
+
+	#configurando a conexão com o MongoDB Server
+		VSCode
+			MongoDB
+				CONNECTIONS
+					Add Connection
+						Advanced Connection String: <Open From>
+							New Connection
+								General
+									Connection Type: Standalone
+									Hostname: 172.16.1.20
+									Port: 27017
+									Authentication: Username/Password
+										Username: admin
+										Password: pti@2018
+										Authentication Database: admin
+							<Connect>
+						<Close>
+
+#20_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
+GRUPO DO MONGODB PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO
+
+	#adicionando o usuário Admin e Robson ao grupo do MongoDB
+	sudo usermod -aG mongodb admin
+	sudo usermod -aG mongodb robson
+
+=========================================================================================<br>
+############################### 09-netdata.md CHALLENGES ################################<br>
+=========================================================================================<br>
+
+#13_ DESAFIO-01: FAZER A INTEGRAÇÃO DO NETDATA CLIENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE 
+INTEGRAÇÃO: 15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent, LINK:
+https://www.youtube.com/watch?v=5MrH8L5cSIU
+
+	Link para fazer o cadastro no Netdata Cloud: https://app.netdata.cloud/sign-in
+		OBSERVAÇÃO: Você pode utilizar uma conta do Google para criar seu conta no Netdata
+		Cloud, facilitando o acesso e gerenciamento dos Netdata Agentes instalados.
+	
+	#integração do Netdata Cloud com o Netdata Agent
+	Integrations
+		Operating System
+			Linux
+				Wget: COPIAR_O_CÓDIGO DE INTEGRAÇÃO_NETDATA_CLOUD
+
+	#acessar o ubuntu via SSH
+	ssh vaamonde@172.16.1.20
+
+	#colar o código de integração no terminal
+	CTRL + V ou CTRL + SHIFT + V ou BOTÃO DIREITO DO MOUSE: COLAR <ENTER>
+		OBSERVAÇÃO: INTEGRAÇÃO SERÁ FEITA AUTOMATICAMENTE COM BASE NO SEU TOLKEN DE ACESSO
+		AO PROJETO DO NETDATA CLOUD. O PROCESSO DE SINCRONISMO DEMORA UM POUCO.
+
+	#acessar novamente o Netdata Cloud para verificar a integração
+	Netdata Cloud
+		Home: Total nodes 1
+		Nodes: Live wsvaamonde.pti.intra
+
+#14_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
+GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+
+	#adicionando o usuário Admin e Robson ao grupo do Netdata
+	sudo usermod -aG netdata admin
+	sudo usermod -aG netdata robson
+
+#15_ DESAFIO-03: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL
+A TODOS OS DESAFIOS FEITO ATÉ AGORA.
+
+	#acessar o site Wordpress
+	http://172.16.1.20/wp/wp-login.php
+		Usuário: admim
+		Senha: pti@2018
+		<Acessar>
+
+		#personalizar a menu do tema do Wordpress
+		Painel
+			Aparência
+				Temas
+					Twenty Seventeen: <Personalizar>
+						Menus
+						<Adicionar Itens>
+							Links Personalizados
+								URL: http://172.16.1.20:19999
+								Texto do link: Projeto Netdata
+							<Adicionar ao menu>
+					<Publicar>
+
+=========================================================================================<br>
+################################ 10-webmin.md CHALLENGES ################################<br>
+=========================================================================================<br>
+
+#10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
+ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN
+GUI (Graphical User Interface) WEB PARA A ADMINISTRAÇÃO DO UBUNTU SERVER, COMENTAR NA
+DESCRIÇÃO DESSE VÍDEO.
+
+	#instalando o software Cockpit no Ubuntu Server
+	sudo apt update
+	sudo apt install --install-recommends cockpit
+
+	#habilitando serviço do cockpit
+	sudo systemctl daemon-reload
+	sudo systemctl status cockpit-service
+
+	#verificando a versão instalada do cockpit
+	sudo apt list --installed | grep -i cockpit 
+
+	#verificando a porta de conexão do cockpit
+	sudo lsof -nP -iTCP:'9090' -sTCP:LISTEN
+
+	#acessando o cockpit via navegador
+	http://172.16.1.20:9090
+		Nome do Usuário: vaamonde
+		Senha: pti@2018
+		<Entrar>
+
+#11_ DESAFIO-02: ADICIONAR O MONITORAMENTO DAS PORTAS DO WEBMIN E DO COCKPIT NO NETDATA.
+
+	#acessando o diretório do Netdata
+	cd /etc/netdata
+
+	#editando o arquivo de configuração do Port Check
+	sudo ./edit-config go.d/portcheck.conf
+
+		jobs:
+		  - name: wsvaamonde
+		    host: 172.16.1.20
+		    ports: [22, 80, 3306, 8080, 9090, 10000, 19999, 27017]
+	
+	#salvar e sair
+	CTRL + X
+		Y <Enter>
+	
+	#reiniciar o serviço do netdata
+	sudo systemctl restart netdata
+	sudo systemctl status netdata
+
+	#acessando o netdata para verificar o recurso do Port Check (8 Serviços)
+	http://172.16.1.20:19999
+
+#12_ DESAFIO-03: ESTUDAR O MATERIAL DE MONITORAMENTO DO HTTP ENDPOINT DO NETDATA PARA
+VERIFICAR OS STATUS DE PÁGINA DE TODOS OS SERVIÇOS CONFIGURADO ATÉ AGORA, VERIFICAR O
+LINK: https://learn.netdata.cloud/docs/data-collection/synthetic-checks/http-endpoints
+
+	#acessando o diretório do Netdata
+	cd /etc/netdata
+
+	#editando o arquivo de configuração do Port Check
+	sudo ./edit-config go.d/httpcheck.conf
+
+	jobs:
+	  - name: apache2
+	    url: http://172.16.1.20
+
+	  - name: wordpress
+	    url: http://172.16.1.20/wp
+
+	  - name: tomcat
+	    url: http://172.16.1.20:8080
+
+	  - name: netdata
+	    url: http://172.16.1.20:19999
+
+	  - name: webmin
+	    url: http://172.16.1.20:10000
+	    tls_skip_verify: yes
+
+	  - name: cockpit
+	    url: http://172.16.1.20:9090
+	    tls_skip_verify: yes
+
+	#salvar e sair
+	CTRL + X
+		Y <Enter>
+	
+	#reiniciar o serviço do netdata
+	sudo systemctl restart netdata
+	sudo systemctl status netdata
+
+	#acessando o netdata para verificar o recurso do Http Check (6 instances)
+	http://172.16.1.20:1999
+
+	#pausar o serviço de monitoramento em tempo real
+	<CLICK TO PAUSE>
+
+	#atualizar o cache da pagina
+	CTRL + R ou F5
+
+#13_ DESAFIO-04: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN E
+COCKPIT IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
+
+	#acessar o site Wordpress
+	http://172.16.1.20/wp/wp-login.php
+		Usuário: admim
+		Senha: pti@2018
+		<Acessar>
+
+		#personalizar a menu do tema do Wordpress
+		Painel
+			Aparência
+				Temas
+					Twenty Seventeen: <Personalizar>
+						Menus
+						<Adicionar Itens>
+							Links Personalizados
+								URL: https://172.16.1.20:10000
+								Texto do link: Projeto Webmin
+							<Adicionar ao menu>
+						<Adicionar Itens>
+							Links Personalizados
+								URL: https://172.16.1.20:9090
+								Texto do link: Projeto Cockpit
+							<Adicionar ao menu>
+					<Publicar>

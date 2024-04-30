@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 06/04/2023<br>
-#Versão: 0.09<br>
+#Data de atualização: 30/04/2023<br>
+#Versão: 0.10<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
@@ -157,8 +157,8 @@ DESCRIÇÃO DESSE VÍDEO.
 VERIFICAR OS STATUS DE PÁGINA DE TODOS OS SERVIÇOS CONFIGURADO ATÉ AGORA, VERIFICAR O
 LINK: https://learn.netdata.cloud/docs/data-collection/synthetic-checks/http-endpoints
 
-#13_ DESAFIO-04: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN, 
-IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
+#13_ DESAFIO-04: ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN E
+COCKPIT IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
 

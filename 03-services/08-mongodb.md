@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 30/04/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -300,6 +300,9 @@ DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: MongoDB for VS Code, CUIDADO PRINCIPAL
 OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 
 https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
+
+#20_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
+GRUPO DO MONGODB PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
 =========================================================================================
 
