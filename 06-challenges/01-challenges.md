@@ -1027,6 +1027,7 @@ OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 		SE AUTENTICAR NO MONGODB COMPASS OU NO VISUAL STUDIO.
 
 	#criando uma nova conexão com o MongoDB Server
+	MongoDB Compass
 		<New connection+>
 			New Connection
 				URL: mongodb://172.16.120:27017
@@ -1045,22 +1046,22 @@ OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 			<Save & Connect>
 
 	#configurando a conexão com o MongoDB Server
-		VSCode
-			MongoDB
-				CONNECTIONS
-					Add Connection
-						Advanced Connection String: <Open From>
-							New Connection
-								General
-									Connection Type: Standalone
-									Hostname: 172.16.1.20
-									Port: 27017
-									Authentication: Username/Password
-										Username: admin
-										Password: pti@2018
-										Authentication Database: admin
-							<Connect>
-						<Close>
+	VSCode
+		MongoDB
+			CONNECTIONS
+				Add Connection
+					Advanced Connection String: <Open From>
+						New Connection
+							General
+								Connection Type: Standalone
+								Hostname: 172.16.1.20
+								Port: 27017
+								Authentication: Username/Password
+									Username: admin
+									Password: pti@2018
+									Authentication Database: admin
+						<Connect>
+					<Close>
 
 #20_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O: seu_usuário CRIADOS NO DESAFIO DO OPENSSH NO
 GRUPO DO MONGODB PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO
