@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 17/04/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 01/05/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -236,8 +236,10 @@ exit
 	sudo systemctl start zabbix-server zabbix-agent
 
 	#analisando os Log's e mensagens de erro do Servidor do Zabbix (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: -t (identifier)
+	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+	sudo journalctl -xeu zabbix-server
 	sudo journalctl -t zabbix_agent2
+	sudo journalctl -xeu zabbix-agent2
 
 	#verificando a versão do Zabbix Server e Agent2
 	#opção do comando zabbix_server: -V (version)
