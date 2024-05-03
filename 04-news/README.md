@@ -145,3 +145,42 @@ Conteúdo estudado nessa implementação:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/03-prometheus.md
+
+## **🤩🤩 Implementação do InfluxDB2 e Telegraf no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de implementação do InfluxDB2 e Telegraf no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar a ferramenta de monitoramento de séries temporais de código aberto para gerenciar uma variedade de recursos e aplicativos do sistema.
+
+InfluxDB é um banco de dados de série temporal de código aberto desenvolvido pela empresa InfluxData. Ele é usado para armazenamento e recuperação de dados de séries temporais em áreas como monitoramento de operações, métricas de aplicativos, dados de sensores da Internet das Coisas e análises em tempo real.
+
+Telegraf - é um agente de coleta de métricas de código aberto para coleta e envio de dados e eventos de bancos de dados, sistemas e sensores IoT. Ele suporta vários plugins de saída, como InfluxDB, Graphite, Kafka, etc., para os quais pode enviar os dados coletados.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/14-influxdb.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Instalando as Dependências do InfluxDB2 e do Telegraf<br>
+#02_ Instalando a Chave GPG do InfluxDB2 e do Telegraf no Ubuntu Server<br>
+#03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server<br>
+#04_ Habilitando o Serviço do InfluxDB2<br>
+#05_ Verificando o Serviço e Versão do InfluxDB2<br>
+#06_ Verificando a Porta de Conexão do InfluxDB2<br>
+#07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf<br>
+#08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf<br>
+#09_ Configurando o InfluxDB2 via Navegador<br>
+#10_ Criando o Token de Integração do Telegraf com o InfluxDB<br>
+#11_ Editando o arquivo de configuração do Telegraf<br>
+#12_ Habilitando o Serviço do Telegraf<br>
+#13_ Verificando o Serviço e Versão do Telegraf<br>
+#14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
+#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows
+
+[![InfluxDB2](http://img.youtube.com/vi/yBmRjTRz2DU/0.jpg)](https://www.youtube.com/watch?v=yBmRjTRz2DU "InfluxDB2")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/04-influxdb.md

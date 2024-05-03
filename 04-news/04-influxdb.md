@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 21/04/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 02/05/2024<br>
+#Versão: 0.05<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
@@ -35,7 +35,8 @@ Conteúdo estudado nessa implementação:<br>
 #11_ Editando o arquivo de configuração do Telegraf<br>
 #12_ Habilitando o Serviço do Telegraf<br>
 #13_ Verificando o Serviço e Versão do Telegraf<br>
-#14_ Criando um Data Explorer do Telegraf no InfluxDB2
+#14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
+#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows
 
 Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
@@ -48,9 +49,9 @@ Telegraf - é um agente de coleta de métricas de código aberto para coleta e e
 e eventos de bancos de dados, sistemas e sensores IoT. Ele suporta vários plugins de saída,<br>
 como InfluxDB, Graphite, Kafka, etc., para os quais pode enviar os dados coletados.
 
-[![InfluxDB](http://img.youtube.com/vi//0.jpg)]( "InfluxDB")
+[![InfluxDB2](http://img.youtube.com/vi/yBmRjTRz2DU/0.jpg)](https://www.youtube.com/watch?v=yBmRjTRz2DU "InfluxDB2")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 
 #01_ Instalando as Dependências do InfluxDB2 e do Telegraf<br>
 
@@ -135,10 +136,13 @@ Link da vídeo aula:
 
 #08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf<br>
 
-	/etc/influxdb                <-- Diretório das configurações do InfluxDB2
-	/var/lib/influxdb/           <-- Diretório das bibliotecas do InfluxDB2
+	/etc/influxdb/*              <-- Diretório das configurações do InfluxDB2
+	/etc/iffluxdb/config.toml    <-- ARquivo de configuração do InfluxDB2
+	/var/lib/influxdb/*          <-- Diretório das bibliotecas e Banco de Dados do InfluxDB2
 	/etc/telegraf/*              <-- Diretório das configurações do Telegraf
 	/etc/telegraf/telegraf.conf  <-- Arquivo de configuração do Telegraf
+	/var/log/influxdb/*          <-- Diretório de Log do InfluxDB2
+	/var/log/telegraf/*          <-- Diretório de Log do Telegraf
 
 #09_ Configurando o InfluxDB2 via Navegador<br>
 
@@ -153,6 +157,12 @@ Link da vídeo aula:
 			Initial Bucket Name: pti
 		<CONTINUE>
 	
+	You are ready to go!
+		API Token now
+			<COPY TO CLIPBOARD>
+			#OBSERVAÇÃO: Copiar a salvar o primeiro Token criado pelo InfluxDB2
+		<CONFIGURE LATER>
+
 #10_ Criando o Token de Integração do Telegraf com o InfluxDB<br>
 
 	Load Data
@@ -171,6 +181,9 @@ Link da vídeo aula:
 	sudo vim /etc/telegraf/telegraf.conf
 	INSERT
 
+		#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+		#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+
 		#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
 		[[outputs.influxdb_v2]]
 
@@ -187,9 +200,10 @@ Link da vídeo aula:
 		bucket = "pti"
 
 		#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+		#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
 		
-		#configurações do Input Plugins a partir da linha: 4355
-		#métricas de Hardware da linha: 4360 até a linha: 4446
+		#configurações do Input Plugins a partir da linha: 4374
+		#métricas de Hardware da linha: 4379 até a linha: 4465
 	
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
@@ -221,12 +235,78 @@ Link da vídeo aula:
 #14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
 
 	Data Explorer
-		From: pti
-		Filter: _measurement (medição): CPU
-		Filter: _field (campo): usage_system
-		Filter: cpu: cpu-total
-		Filter: host: wsvaamonde.pti.intra
+		Graph: Gauge
+		Date Time: Local
+		Query 1:
+			From: pti
+			Filter: CPU: cpu-total
+			Filter: _field (campo): usage_system
+			Filter: _measurement: cpu
+			Filter: host: wsvaamonde.pti.intra
 	<SUBMIT>
+
+	#salvando o seu primeiro Dashboard
+	<SAVE AS>
+		Save As
+			Dashboard Cell
+				Target Dashboard(s): Name this Dashboard
+				New Dashboard Name: Dashboard Telegraf
+				Cell Name: Uso CPU System
+		<SAVE AS DASHBOARD CELL>
+	
+	#atualizando o Dashboard
+	<SET AUTO REFRESH>
+		Configure Auto Refresh
+			Refresh Dashboards Until
+				<CUSTOM>
+			Refresh Interval
+				How often your dashboards will refresh: 10S
+			Inactivity Timeout
+				When your dashboards refresh will timeout: 1 Hours
+	<CONFIRM> 
+
+#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows<br>
+
+	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
+	#Link de referência do download: https://github.com/influxdata/telegraf/releases
+
+	#link para download direto do Telegraf (link atualizado em: 02/05/2024)
+	https://dl.influxdata.com/telegraf/releases/telegraf-1.30.2_windows_amd64.zip
+
+	#descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
+	Pasta de Download
+		Botão direito do mouse sobre o arquivo: telegraf*.zip
+		Selecionar: Extrair Tudo
+			DEIXAR O PADRÃO: <EXTRAIR>
+	
+	#acessar o diretório criado e renomear a pasta do Telegraf (NÃO COMENTADO NO VÍDEO)
+	Pasta de Download
+		telegraf-*_windows_amd64
+			Botão direito do mouse em cimado do diretório: telegraf-*
+			Selecionar a opção: Renomear (OU PRESSIONAR F2)\
+			Renomear para: telegraf <ENTER>
+	
+	#copiar o diretório Telegraf para o diretório de Arquivos de Programas (NÃO COMENTADO NO VÍDEO)
+	Pasta de Download
+		telegraf-*_windows_amd64
+			Botão direito do mouse em cimado do diretório: telegraf-*
+			Selecionar a opção: Copiar (OU CTRL + C)
+
+	C:\ARQUIVOS DE PROGRAMAS
+		Botão direito do mouse e selecionar: Colar (OU CTRL + V)
+	
+	#OBSERVAÇÃO IMPORTANTE: fazer a configuração instalação do Telegraf utilizando o 
+	#Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
+
+	Menu
+		Powershell 
+			Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
+
+	#acessando o diretório do Telegraf (NÃO COMENTADO NO VÍDEO)
+	cd 'c:\program files\telegraf'
+
+	#
+
 
 =========================================================================================
 
