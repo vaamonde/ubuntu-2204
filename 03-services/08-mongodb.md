@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 30/04/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.20<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -179,7 +179,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	#essa falha foi corrigida adicionando essas "Roles" e também na conexão com o Banco de Dados
 	#foi adicionado a opção: ?authSource=admin 
 
-```json
+```javascript
 db.createUser(
 {
 	user: "admin",

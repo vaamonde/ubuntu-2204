@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 17/04/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -143,7 +143,7 @@ exit
 	#opção do comando mongosh: admin (database) -u (username), -p (password)
 	mongosh admin -u admin -p
 
-```json
+```javascript
 db.createUser({
 	"user": "netdata",
 	"pwd": "netdata",

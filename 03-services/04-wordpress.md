@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
@@ -273,9 +273,11 @@ ACONTECER QUE ELE NÃO VOLTE. PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO
 	cd /var/www/html/wp
 
 	#listar o arquivo de manutenção do Wordpress
+	#opção do comando ls: -l (list), -h (human-readable), -a (all)
 	ls -lha .maintenance
 
 	#remover o arquivo de manutenção do Wordpress
+	#opção do comando rm: -v (verbose)
 	sudo rm -v .maintenance
 
 	#fazer um Reload do serviço do Apache2

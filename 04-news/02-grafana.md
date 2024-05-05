@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 29/04/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -67,7 +67,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
 	#opção do comando tee: -a (append)
 	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
 
@@ -85,10 +85,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	INSERT
 
 		#principais variáveis do Grafana Server (padrão não alterar)
-		GRAFANA_USER=grafana		(usuário do serviço do Grafana Server)
-		GRAFANA_GROUP=grafana		(grupo do serviço do Grafana Server)
-		LOG_DIR=/var/log/grafana	(localização dos arquivos de Log do Grafana Server)
-		DATA_DIR=/var/lib/grafana	(localização do banco de dados do Grafana Server)
+		GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
+		GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
+		LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
+		DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
 
 	#salvar e sair do arquivo
 	ESC SHIFT : x <Enter>
@@ -97,13 +97,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	sudo vim /etc/grafana/grafana.ini
 	INSERT
 
-		#descomentar a variável protocol = na linha: 46
+		#descomentar a variável protocol = na linha: 32
 		protocol = http
 
-		#descomentar a variável ;http_port = na linha 45
+		#descomentar a variável ;http_port = na linha 41
 		http_port = 3000
 
-		#descomentar a variável ;domain = na linha 48
+		#descomentar a variável ;domain = na linha 44
 		domain = pti.intra
 
 	#salvar e sair do arquivo
@@ -168,7 +168,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	/etc/grafana/*               <-- Diretório das configurações do Grafana Server
 	/etc/grafana/grafana.ini     <-- Arquivo de Configuração e Inicialização do Grafana Server
 	/etc/default/grafana-server  <-- Arquivo de Configuração do Serviço do Grafana Server
-	/var/lib/grafana/plugins*  <-- Diretório dos Plugins do Grafana Server
+	/var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
 
 #10_ Configurando o Grafana Server via Navegador<br>
 

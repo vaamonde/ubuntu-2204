@@ -318,8 +318,8 @@ exit
 	#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO 
 	#ZABBIX AGENT.
 
-	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.13
-	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.13/zabbix_agent2-6.4.13-windows-amd64-openssl.msi
+	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.14 (ATUALIZADO NO DIA 05/05/2024)
+	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.14/zabbix_agent2-6.4.14-windows-amd64-openssl.msi
 
 	#Instalação Manual do Zabbix Agent 2 para Microsoft
 	Pasta de Download

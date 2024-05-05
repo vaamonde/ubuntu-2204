@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -187,8 +187,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	Windows
 		Pesquisa do Windows
 			Powershell
-
-	ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+				ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
 
 	#acessando via PuTTY
 	Windows

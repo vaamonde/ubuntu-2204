@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 17/04/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -138,8 +138,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 	#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 	#software no Link: https://github.com/prometheus/node_exporter/releases/
 
-	#download do Node Exporter do Github (Link atualizado no dia 12/03/2024)
-	wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+	#download do Node Exporter do Github (Link atualizado no dia 05/05/2024)
+	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.0/node_exporter-1.8.0.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Node Exporter
 	#opção do comando ls: -l (long listing), -h (human-readable)
@@ -384,8 +384,8 @@ scrape_configs:
 	#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 	#software no Link: https://github.com/prometheus/node_exporter/releases/
 
-	#download do Node Exporter do Github (Link atualizado no dia 12/03/2024)
-	wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+	#download do Node Exporter do Github (Link atualizado no dia 05/05/2024)
+	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.0/node_exporter-1.8.0.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Node Exporter
 	#opção do comando ls: -l (long listing), -h (human-readable)
