@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 02/05/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.06<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
@@ -283,7 +283,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 	Pasta de Download
 		telegraf-*_windows_amd64
 			Botão direito do mouse em cimado do diretório: telegraf-*
-			Selecionar a opção: Renomear (OU PRESSIONAR F2)\
+			Selecionar a opção: Renomear (OU PRESSIONAR F2)
 			Renomear para: telegraf <ENTER>
 	
 	#copiar o diretório Telegraf para o diretório de Arquivos de Programas (NÃO COMENTADO NO VÍDEO)
@@ -292,21 +292,150 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 			Botão direito do mouse em cimado do diretório: telegraf-*
 			Selecionar a opção: Copiar (OU CTRL + C)
 
-	C:\ARQUIVOS DE PROGRAMAS
+	C:\Arquivos de Programas
 		Botão direito do mouse e selecionar: Colar (OU CTRL + V)
+			<CONTINUAR>
 	
 	#OBSERVAÇÃO IMPORTANTE: fazer a configuração instalação do Telegraf utilizando o 
 	#Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
 
 	Menu
 		Powershell 
-			Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
+			Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+			<SIM>
 
 	#acessando o diretório do Telegraf (NÃO COMENTADO NO VÍDEO)
-	cd 'c:\program files\telegraf'
+	cd 'C:\Program Files\telegraf\'
 
-	#
+	#editando o arquivo de configuração do Telegraf (NÃO COMENTADO NO VÍDEO)
+	notepad.exe .\telegraf.conf
 
+		#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+		#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+
+		#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+		[[outputs.influxdb_v2]]
+
+		#descomentar e alterar a variável: urls na linha: 350
+		urls = ["http://172.16.1.20:8086"]
+
+		#descomentar e colar o Token na variável: token na linha: 353
+		token = "COLAR_SEU_TOKEN"
+
+		#descomentar e alterar o variável: organization na linha: 356
+		organization = "boraparapratica"
+
+		#descomentar e alterar a variável: bucket na linha: 359
+		bucket = "pti"
+
+		#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+		#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
+		
+		#configurações do Input Plugins a partir da linha: 4374
+		#métricas de Hardware da linha: 4379 até a linha: 4465	
+
+	#salvar e sair do arquivo
+	Arquivo
+		Salvar (CTRL+S)
+		Sair
+
+	#testando as configurações do Telegraf (NÃO COMENTADO NO VÍDEO)
+	.\telegraf.exe --test
+
+	#instalando o serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+	.\telegraf --service install --config-directory 'C:\Program Files\telegraf'
+
+	#iniciando o serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+	Start-Service telegraf
+
+	#verificando o status de serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+	Get-Service telegraf
+
+	#alterando a inicializando do serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+	Set-Service telegraf -StartupType Automatic
+
+	#verificando a versão do Telegraf
+	.\telegraf version
+
+	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO GNU/LINUX MINT (NÃO COMENTADO NO VÍDEO)
+	#Link de referência do download: https://github.com/influxdata/telegraf/releases
+
+	#atualizando as lista do apt (NÃO COMENTADO NO VÍDEO)
+	sudo apt update
+
+	#instalando as dependências do Telegraf (NÃO COMENTADO NO VÍDEO)
+	sudo apt install apt-transport-https software-properties-common git vim wget curl gnupg2
+
+	#baixando a Chave GPG do Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opção do comando wget: -q (quiet)
+	wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+	
+	#convertendo a chave GPG do Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opção do comando sha256sum: -c (check)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
+	echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /usr/share/keyrings/influxdb.gpg > /dev/null
+
+	#adicionando o Repositório do Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opção do comando tee: -a (append)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+	sudo echo "deb [signed-by=/usr/share/keyrings/influxdb.gpg] https://repos.influxdata.com/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list > /dev/null
+
+	#atualizando as listas do Apt com o novo repositório (NÃO COMENTADO NO VÍDEO)
+	sudo apt update
+
+	#instalando o Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+	sudo apt install --install-recommends telegraf
+
+	#adicionado o usuário local no grupo do Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+	sudo usermod -a -G telegraf $USER
+
+	#editando o arquivo de configuração do Telegraf (NÃO COMENTADO NO VÍDEO)
+	sudo vim /etc/telegraf/telegraf.conf
+	INSERT
+
+		#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+		#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+
+		#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+		[[outputs.influxdb_v2]]
+
+		#descomentar e alterar a variável: urls na linha: 350
+		urls = ["http://172.16.1.20:8086"]
+
+		#descomentar e colar o Token na variável: token na linha: 353
+		token = "COLAR_SEU_TOKEN"
+
+		#descomentar e alterar o variável: organization na linha: 356
+		organization = "boraparapratica"
+
+		#descomentar e alterar a variável: bucket na linha: 359
+		bucket = "pti"
+
+		#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+		#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
+		
+		#configurações do Input Plugins a partir da linha: 4374
+		#métricas de Hardware da linha: 4379 até a linha: 4465
+	
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#habilitando o serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+	sudo systemctl daemon-reload
+	sudo systemctl enable telegraf
+	sudo systemctl restart telegraf
+
+	#analisando os Log's e mensagens de erro do Servidor do Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+	sudo journalctl -t telegraf
+	sudo journalctl -xeu telegraf
+
+	#verificando a versão do Telegraf (NÃO COMENTADO NO VÍDEO)
+	#opção do comando grafana-server: --version (version)
+	sudo telegraf --version
 
 =========================================================================================
 
