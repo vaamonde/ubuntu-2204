@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
 #Data de atualização: 05/05/2024<br>
-#Versão: 0.20<br>
+#Versão: 0.21<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -177,15 +177,36 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	#vídeos, no momento do desenvolvimento de aplicações utilizando o Node.JS junto com o recurso
 	#de conexão com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão",
 	#essa falha foi corrigida adicionando essas "Roles" e também na conexão com o Banco de Dados
-	#foi adicionado a opção: ?authSource=admin 
+	#foi adicionado a opção: ?authSource=admin
+
+	#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
+	#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
+	#com a seguinte mensagem: Command "top" returned error "not authorized on admin to execute command 
+	#{ top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 
+	#2 problems. View all, para resolver essa e outras falhas foi adicionado mais Roles (Papéis)
+	#no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
 ```javascript
 db.createUser(
-{
-	user: "admin",
-	pwd: "pti@2018",
-	roles: [ "root", "userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase", "clusterAdmin" ]
-}
+  {
+    user: "admin",
+    pwd: "pti@2018",
+    roles: [
+      { role: 'root', db: 'admin' },
+      { role: 'read', db: 'admin' },
+      { role: 'hostManager', db: 'admin' },
+      { role: 'backup', db: 'admin' },
+      { role: 'dbAdmin', db: 'admin' },
+      { role: 'userAdmin', db: 'admin' },
+      { role: 'userAdminAnyDatabase', db: 'admin' },
+      { role: 'dbAdminAnyDatabase', db: 'admin' },
+      { role: 'readWriteAnyDatabase', db: 'admin' },
+      { role: 'readAnyDatabase', db: 'admin' },
+      { role: 'clusterAdmin', db: 'admin' },
+      { role: 'clusterMonitor', db: 'admin' },
+      { role: 'clusterManager', db: 'admin' }
+    ]
+  }
 )
 ```
 
