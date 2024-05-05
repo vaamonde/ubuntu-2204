@@ -265,7 +265,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 				When your dashboards refresh will timeout: 1 Hours
 	<CONFIRM> 
 
-#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows<br>
+#15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows<br>
 
 	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
 	#Link de referência do download: https://github.com/influxdata/telegraf/releases

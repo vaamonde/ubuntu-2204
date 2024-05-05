@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 28/04/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 05/05/2024<br>
+#Versão: 0.05<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
@@ -407,7 +407,7 @@ db.createUser({
 	sudo systemctl status rsyslog
 
 	#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
-	#baixando o software NXLog-CE do site oficial:
+	#baixando o software NXLog-CE (Community Edition) do site oficial:
 	Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
 		Available Downloads
 			Version: NXLog Community Edition
@@ -433,10 +433,10 @@ db.createUser({
 
 	Menu
 		Powershell 
-			Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
+			Clicar com o botão direito do mouse e selecionar: Executar como Administrador
 
 	#acessando o diretório de configuração do NXLog-CE
-	cd '.\Program Files\nxlog\conf\'
+	cd 'C:\Program Files\nxlog\conf\'
 
 	#editando o arquivo de configuração do NXLog-CE
 	notepad.exe .\nxlog.conf
@@ -444,7 +444,7 @@ db.createUser({
 	#copiar e colar o bloco de configuração abaixo no final do arquivo nxlog.conf
 
 ```xml
-#Habilitando o Módulo GElF do NXLog-CE
+#Habilitando o Módulo GElF (Graylog Extended Log Format) do NXLog-CE
 <Extension gelf>
     Module      xm_gelf
 </Extension>
@@ -480,6 +480,7 @@ db.createUser({
 	#fechar e salvar as mudanças do arquivo
 	<Fechar>
 		<Salvar>
+		<Sair>
 
 	#testando o arquivo de configuração do NXLog-CE
 	..\nxlog.exe -v
