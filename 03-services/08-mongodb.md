@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.21<br>
+#Data de atualização: 06/05/2024<br>
+#Versão: 0.22<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -63,8 +63,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 	#download da última versão do Libssl (link atualizado em 06/03/2024)
 	#OBSERVAÇÃO IMPORTANTE: o tempo todo a Biblioteca Libssl sofre alteração, antes de faze o download do 
 	#arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
-	#opção do comando dpkg: -i (install)
 	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+	
+	#instalando a biblioteca Libssl no Ubuntu Server
+	#opção do comando dpkg: -i (install)
 	sudo dpkg -i libssl*.deb
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
@@ -174,10 +176,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 	#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
 	#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
-	#vídeos, no momento do desenvolvimento de aplicações utilizando o Node.JS junto com o recurso
-	#de conexão com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão",
-	#essa falha foi corrigida adicionando essas "Roles" e também na conexão com o Banco de Dados
-	#foi adicionado a opção: ?authSource=admin
+	#vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão 
+	#com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão", essa falha 
+	#foi corrigida adicionando essas "Roles" e na conexão com o Banco de Dados foi adicionado a 
+	#opção: ?authSource=admin
 
 	#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
 	#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
