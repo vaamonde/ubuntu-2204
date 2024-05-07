@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 07/05/2024<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
@@ -36,7 +36,9 @@ Conteúdo estudado nessa implementação:<br>
 #12_ Habilitando o Serviço do Telegraf<br>
 #13_ Verificando o Serviço e Versão do Telegraf<br>
 #14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
-#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows
+#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows<br>
+#16_ Integrando o InfluxDB2 no Grafana<br>
+#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 
 Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
@@ -137,7 +139,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 #08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf<br>
 
 	/etc/influxdb/*              <-- Diretório das configurações do InfluxDB2
-	/etc/iffluxdb/config.toml    <-- ARquivo de configuração do InfluxDB2
+	/etc/iffluxdb/config.toml    <-- Arquivo de configuração do InfluxDB2
 	/var/lib/influxdb/*          <-- Diretório das bibliotecas e Banco de Dados do InfluxDB2
 	/etc/telegraf/*              <-- Diretório das configurações do Telegraf
 	/etc/telegraf/telegraf.conf  <-- Arquivo de configuração do Telegraf
@@ -289,7 +291,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 	#copiar o diretório Telegraf para o diretório de Arquivos de Programas (NÃO COMENTADO NO VÍDEO)
 	Pasta de Download
 		telegraf-*_windows_amd64
-			Botão direito do mouse em cimado do diretório: telegraf-*
+			Botão direito do mouse em cimado do diretório: telegraf
 			Selecionar a opção: Copiar (OU CTRL + C)
 
 	C:\Arquivos de Programas
@@ -437,7 +439,78 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 	#opção do comando grafana-server: --version (version)
 	sudo telegraf --version
 
-#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+#16_ Integrando o InfluxDB2 no Grafana<br>
+
+	#acessando o Grafana Server (NÃO COMENTADO NO VÍDEO)
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+
+	#criando um Data Sources do InfluxDB2 (NÃO COMENTADO NO VÍDEO)
+	Open Menu
+		Connections
+			Data Sources
+				<Add data source>
+					Filter by name or type: InfluxDB
+						Name: InfluxDB2-wsvaamonde
+						Query language: InfluxQL
+						HTTP
+							URL: http://172.16.1.20:8086
+						Auth
+							Basic auth: DISABLE
+						InfluxDB Details
+							Organization: boraparapratica
+							Token: COLAR_SEU_TOKEN
+							Default Bucket: pti
+				<Save & Test>
+
+	#acessando o InfluxDB2 para gerar o Filtro de integração com o Grafana (NÃO COMENTADO NO VÍDEO)
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8086
+
+	Data Explorer
+		Graph: Gauge
+		Date Time: Local
+		Query 1:
+			From: pti
+			Filter: CPU: cpu-total
+			Filter: _field (campo): usage_system
+			Filter: _measurement (medição): cpu
+			Filter: host (computador): wsvaamonde.pti.intra
+	<SUBMIT>
+
+	#copiando o script do Filtro do InfluxDB2
+	<SCRIPT EDITOR>
+		Query1: SELECIONAR TODO O CONTEÚDO E PRESSIONAR: CTRL+C
+
+```sql
+from(bucket: "pti")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["cpu"] == "cpu-total")
+  |> filter(fn: (r) => r["_field"] == "usage_system")
+  |> filter(fn: (r) => r["_measurement"] == "cpu")
+  |> filter(fn: (r) => r["host"] == "wsvaamonde.pti.intra")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+```
+	#criando o Dashboard do InfluxDB2 (NÃO COMENTADO NO VÍDEO)
+	Open Menu
+		Dashboards
+			<Create Dashboard>
+			<+ Add visualization>
+				Select data source
+					Data source: InfluxDB2-wsvaamonde
+						QUERY: COLOCAR O SCRIPT GERADO PELO INFLUXDB2
+					<Query inspector>
+				<Change Visualization>
+					Suggestions: Gauge
+						Panel options
+							Title: Uso Total da CPU
+							Description: Utilização Total da CPU
+						Standard options
+							Unit: Percent (0-100)
+							Min: 0
+							Max: 100
+			<Apply>
+
+#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
 
 	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 	sudo apt install stress-ng s-tui
