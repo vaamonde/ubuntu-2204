@@ -471,7 +471,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 		Query 1:
 			From: pti
 			Filter: CPU: cpu-total
-			Filter: _field (campo): usage_system
+			Filter: _field (campo): usage_system e usage_user
 			Filter: _measurement (medição): cpu
 			Filter: host (computador): wsvaamonde.pti.intra
 	<SUBMIT>
@@ -484,7 +484,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 from(bucket: "pti")
   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
   |> filter(fn: (r) => r["cpu"] == "cpu-total")
-  |> filter(fn: (r) => r["_field"] == "usage_system")
+  |> filter(fn: (r) => r["_field"] == "usage_system" or r["_field"] == "usage_user")
   |> filter(fn: (r) => r["_measurement"] == "cpu")
   |> filter(fn: (r) => r["host"] == "wsvaamonde.pti.intra")
   |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
@@ -502,8 +502,8 @@ from(bucket: "pti")
 				<Change Visualization>
 					Suggestions: Gauge
 						Panel options
-							Title: Uso Total da CPU
-							Description: Utilização Total da CPU
+							Title: Uso Total da CPU (System e User)
+							Description: Utilização Total da CPU do Sistema e Usuário
 						Standard options
 							Unit: Percent (0-100)
 							Min: 0
