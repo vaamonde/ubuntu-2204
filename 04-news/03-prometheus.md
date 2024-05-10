@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 10/05/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -298,6 +298,14 @@ scrape_configs:
 
 #22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
 
+	#OBSERVAÇÃO IMPORTANTE: Quando você acessa o Prometheus via Navegador e aparecer a seguinte mensagem
+	#de aviso em vermelho: Warning: Error fetching server time: Detected 65.21499991416931 seconds time 
+	#difference between your browser and the server. Prometheus relies on accurate time and time drift 
+	#might cause unexpected query results. Esse erro está associado a falha de sincronismo da Data e Hora
+	#em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os
+	#equipamentos ou utilizar o Protocolo NTP (Network Time Protocol) para sincronizar a data/hora de
+	#forma correta. 
+	
 	#acessando o Prometheus via navegador
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
@@ -522,7 +530,7 @@ scrape_configs:
 	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
 	sudo find / -name vaamonde*
 
-Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results.
+
 
 =========================================================================================
 
