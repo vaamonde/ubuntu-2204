@@ -522,6 +522,8 @@ scrape_configs:
 	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
 	sudo find / -name vaamonde*
 
+Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results.
+
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
