@@ -61,9 +61,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	#atualizando as lista do apt
 	sudo apt update
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK
-	#e do OpenJRE: 8, 11, 17, 18 e 19, cuidado na versão do Java que você está usando no seu
-	#projeto e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do 
+	#OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto
+	#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
 
 	#instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
 	sudo apt install git vim openjdk-17-jdk openjdk-17-jre software-properties-common build-essential
