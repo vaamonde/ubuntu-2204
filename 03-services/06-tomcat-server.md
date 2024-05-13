@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 13/05/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
@@ -66,7 +66,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
 
 	#instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
-	sudo apt install git vim openjdk-17-jdk openjdk-17-jre software-properties-common build-essential
+	sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-common build-essential
 
 #02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado<br>
 
@@ -129,6 +129,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 	wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 	
 	#download do arquivo de configuração da Inicialização do Tomcat
+	#OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
+	#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.X NO DIA: 13/05/2024
 	wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 
 #06_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x<br>
