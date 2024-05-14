@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 20/04/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 14/05/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM 
 A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
@@ -140,7 +140,36 @@ Link da vídeo aula:
 			nodejs-hello <OK>
 				Enter password for: vaamonde@172.16.1.20: pti@2018
 				(YES) Trust the authors of all files in the parent folder
-				
+
+#05_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
+
+	Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática SENAC)
+	Link: https://github.com/andradejao/outlawgames
+	Site: https://andradejao.github.io/outlawgames/
+
+	#fazendo um Fork (garfada) do Projeto
+	Repositório: https://github.com/andradejao/outlawgames
+		Clique em: Fork
+	
+	#acessando o diretório Raiz do Apache2 no Ubuntu Server
+	cd /var/www/html
+
+	#clonando o projeto do Github no Ubuntu Server
+	sudo git clone https://github.com/vaamonde/outlawgames
+
+	#alterando as permissões dos diretórios e arquivos
+	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
+	#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
+	#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
+	#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
+	#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
+	sudo chown -Rfv www-data.www-data /var/www/html/outlawgames/
+	sudo find /var/www/html/outlawgames/. -type d -exec chmod -v 2775 {} \;
+	sudo find /var/www/html/outlawgames/. -type f -exec chmod -v 2664 {} \;
+
+	#testando o site via navegador
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/outlawgames
+
 =========================================================================================
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM 
