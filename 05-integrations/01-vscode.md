@@ -143,11 +143,13 @@ Link da vídeo aula:
 
 #05_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
 
-	Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática SENAC)
-	Link: https://github.com/andradejao/outlawgames
+	Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática SENAC-SP)
+	LinkedIn: https://www.linkedin.com/in/jo%C3%A3o-vitor-andrade-289216271/
+	Github: https://github.com/andradejao/
+	Repositório: https://github.com/andradejao/outlawgames
 	Site: https://andradejao.github.io/outlawgames/
 
-	#fazendo um Fork (garfada) do Projeto
+	#fazendo um Fork (garfada) do Projeto do João Vitor Andrade
 	Repositório: https://github.com/andradejao/outlawgames
 		Clique em: Fork
 	
