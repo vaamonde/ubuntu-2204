@@ -34,6 +34,8 @@ O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft p
 
 A extensão Visual Studio Code Remote - SSH permite que você abra uma pasta remota em qualquer máquina remota, máquina virtual ou contêiner com um servidor SSH em execução e aproveite ao máximo o conjunto de recursos do VS Code. Uma vez conectado a um servidor, você pode interagir com arquivos e pastas em qualquer lugar do sistema de arquivos remoto.
 
+GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.
+
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VSCODE SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do VSCode realizado com sucesso!!! #BoraParaPrática
 
 COMPARTILHAR O SELO DA INTEGRAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA INTEGRAÇÃO ABAIXO: 
@@ -48,9 +50,10 @@ Conteúdo estudado nessa integração:<br>
 #03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows<br>
 #04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
 #05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
+#06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
 
-[![Integração VSCode](http://img.youtube.com/vi//0.jpg)]( "Integração VSCode")
+[![Integração VSCode](http://img.youtube.com/vi/V0Ddhelmi4Y/0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Integração VSCode")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 
-Link da documentação: 
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/05-integrations/01-vscode.md
