@@ -184,3 +184,50 @@ Conteúdo estudado nessa implementação:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/04-influxdb.md
+
+## **🤩🤩 Implementação do Graylog e NXLog no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de implementação do Graylog e NXLog no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar a ferramenta de centralização e gerenciamento de Logs multiplataforma.
+
+Graylog, Inc é uma empresa de software de gerenciamento de log e análise de segurança com sede em Houston, Texas. Seu principal produto é um software de gerenciamento de log, também chamado de Graylog.
+
+NXLog é uma solução de gerenciamento de logs multiplataforma que permite coletar logs de diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para diferentes destinos.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-graylog.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Instalando as Dependências do Graylog Server<br>
+#02_ Baixando e instalando a Chave GPG do OpenSearch<br>
+#03_ Instalando o OpenSearch no Ubuntu Server<br>
+#04_ Editando o arquivo de configuração do OpenSearch<br>
+#05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
+#06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
+#07_ Habilitando o Serviço do OpenSearch<br>
+#08_ Verificando o Serviço e Versão do OpenSearch<br>
+#09_ Verificando a Porta de Conexão do OpenSearch<br>
+#10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
+#11_ Instalando o Graylog Server no Ubuntu Server<br>
+#12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
+#13_ Editando o arquivo de configuração do Graylog Server<br>
+#14_ Criando o usuário de autenticação do MongoDB Server<br>
+#15_ Habilitando o Serviço do Graylog Server<br>
+#16_ Verificando o Serviço e Versão do Graylog Server<br>
+#17_ Verificando a Porta de Conexão do Graylog Server<br>
+#18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
+#19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
+#20_ Configurando o Graylog Server via Navegador<br>
+#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
+#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
+#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server
+
+[![Graylog](http://img.youtube.com/vi//0.jpg)]( "Graylog")
+
+Link da vídeo aula: 
+
+Link da documentação:

@@ -40,7 +40,7 @@ OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VSCODE SE VOCÊ CONSEGUIU INTEGRA
 
 COMPARTILHAR O SELO DA INTEGRAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA INTEGRAÇÃO ABAIXO: 
 
-LINK DO SELO: 
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/18-vscode.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver  #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiovscode #desafioremotessh
 

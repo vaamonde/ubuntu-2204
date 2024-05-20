@@ -16,7 +16,7 @@ A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaP
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-graylog.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/15-graylog.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
@@ -51,6 +51,10 @@ Site Oficial do Graylog: https://graylog.org/<br>
 Graylog, Inc é uma empresa de software de gerenciamento de log e análise de segurança<br>
 com sede em Houston, Texas. Seu principal produto é um software de gerenciamento de log,<br>
 também chamado de Graylog.
+
+NXLog é uma solução de gerenciamento de logs multiplataforma que permite coletar logs de<br>
+diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para<br>
+diferentes destinos.
 
 [![Graylog](http://img.youtube.com/vi//0.jpg)]( "Graylog")
 
@@ -530,7 +534,7 @@ A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaP
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-graylog.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/15-graylog.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearchh
