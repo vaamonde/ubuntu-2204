@@ -91,7 +91,8 @@ Link da vídeo aula:
 	#atualizando as listas do Apt com o Sources List do OpenSearch
 	sudo apt update
 
-	#OBSERVAÇÃO IMPORTANTE: o OpenSearch 2.12 e superior agora requer a configuração da #OPENSEARCH_INITIAL_ADMIN_PASSWORD variável de ambiente durante a instalação. A senha
+	#OBSERVAÇÃO IMPORTANTE: o OpenSearch 2.12 e superior agora requer a configuração da 
+	#OPENSEARCH_INITIAL_ADMIN_PASSWORD variável de ambiente durante a instalação. A senha
 	#deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra 
 	#minúscula, um número e um caractere especial.
 
@@ -155,14 +156,14 @@ Link da vídeo aula:
 
 #07_ Habilitando o Serviço do OpenSearch<br>
 
-	#habilitando o serviço do Telegraf
+	#habilitando o serviço do OpenSearch
 	sudo systemctl daemon-reload
 	sudo systemctl enable opensearch
 	sudo systemctl restart opensearch
 
 #08_ Verificando o Serviço e Versão do OpenSearch<br>
 
-	#verificando o serviço do Telegraf
+	#verificando o serviço do OpenSearch
 	sudo systemctl status opensearch
 	sudo systemctl restart opensearch
 	sudo systemctl stop opensearch
@@ -436,8 +437,8 @@ db.createUser({
 	#o Powershell em modo Administrador.
 
 	Menu
-		Powershell 
-			Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+	   Powershell 
+		   Clicar com o botão direito do mouse e selecionar: Executar como Administrador
 
 	#acessando o diretório de configuração do NXLog-CE
 	cd 'C:\Program Files\nxlog\conf\'
@@ -448,7 +449,7 @@ db.createUser({
 	#copiar e colar o bloco de configuração abaixo no final do arquivo nxlog.conf
 
 ```xml
-#Habilitando o Módulo GElF (Graylog Extended Log Format) do NXLog-CE
+#Habilitando o Módulo GELF (Graylog Extended Log Format) do NXLog-CE
 <Extension gelf>
     Module      xm_gelf
 </Extension>
