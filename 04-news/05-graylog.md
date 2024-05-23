@@ -56,9 +56,9 @@ NXLog é uma solução de gerenciamento de logs multiplataforma que permite cole
 diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para<br>
 diferentes destinos.
 
-[![Graylog](http://img.youtube.com/vi//0.jpg)]( "Graylog")
+[![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 #01_ Instalando as Dependências do Graylog Server<br>
 

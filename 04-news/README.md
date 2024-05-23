@@ -226,8 +226,6 @@ Conteúdo estudado nessa implementação:<br>
 #22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
 #23_ Criando um Input GELF UDP do Windows 10 no Graylog Server
 
-[![Graylog](http://img.youtube.com/vi//0.jpg)]( "Graylog")
+[![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
 
-Link da vídeo aula: 
-
-Link da documentação:
+Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
