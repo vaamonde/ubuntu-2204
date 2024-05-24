@@ -645,3 +645,82 @@ Conteúdo estudado nessa implementação:<br>
 Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/04-influxdb.md
+
+## **🤩🤩 Implementação do Graylog e NXLog no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de implementação do Graylog e NXLog no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar a ferramenta de centralização e gerenciamento de Logs multiplataforma.
+
+Graylog, Inc é uma empresa de software de gerenciamento de log e análise de segurança com sede em Houston, Texas. Seu principal produto é um software de gerenciamento de log, também chamado de Graylog.
+
+NXLog é uma solução de gerenciamento de logs multiplataforma que permite coletar logs de diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para diferentes destinos.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-graylog.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Instalando as Dependências do Graylog Server<br>
+#02_ Baixando e instalando a Chave GPG do OpenSearch<br>
+#03_ Instalando o OpenSearch no Ubuntu Server<br>
+#04_ Editando o arquivo de configuração do OpenSearch<br>
+#05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
+#06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
+#07_ Habilitando o Serviço do OpenSearch<br>
+#08_ Verificando o Serviço e Versão do OpenSearch<br>
+#09_ Verificando a Porta de Conexão do OpenSearch<br>
+#10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
+#11_ Instalando o Graylog Server no Ubuntu Server<br>
+#12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
+#13_ Editando o arquivo de configuração do Graylog Server<br>
+#14_ Criando o usuário de autenticação do MongoDB Server<br>
+#15_ Habilitando o Serviço do Graylog Server<br>
+#16_ Verificando o Serviço e Versão do Graylog Server<br>
+#17_ Verificando a Porta de Conexão do Graylog Server<br>
+#18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
+#19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
+#20_ Configurando o Graylog Server via Navegador<br>
+#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
+#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
+#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server
+
+[![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
+
+===================== INTEGRAÇÕES NO UBUNTU SERVER =====================
+
+## **🤩🤩 Integração do VSCode e Remote SSH no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+
+Vídeo de integração do Visual Studio Code VSCode utilizando a Extensão Remote SSH no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar a extensão de Acesso Remoto e Explorar de arquivos utilizando o SSH para editar arquivos remotamente no nosso servidor.
+
+O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, Linux e macOS. Ele inclui suporte para depuração, controle de versionamento Git incorporado, realce de sintaxe, complementação inteligente de código, snippets e refatoração de código.
+
+A extensão Visual Studio Code Remote - SSH permite que você abra uma pasta remota em qualquer máquina remota, máquina virtual ou contêiner com um servidor SSH em execução e aproveite ao máximo o conjunto de recursos do VS Code. Uma vez conectado a um servidor, você pode interagir com arquivos e pastas em qualquer lugar do sistema de arquivos remoto.
+
+GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VSCODE SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do VSCode realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA INTEGRAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA INTEGRAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/18-vscode.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver  #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiovscode #desafioremotessh
+
+Conteúdo estudado nessa integração:<br>
+#01_ Instalando as Dependências do Microsoft Visual Studio Code no Linux Mint<br>
+#02_ Download e Instalação do Microsoft Visual Studio Code no Linux Mint e Windows<br>
+#03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows<br>
+#04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
+#05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
+#06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
+
+[![Integração VSCode](http://img.youtube.com/vi/V0Ddhelmi4Y/0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Integração VSCode")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/05-integrations/01-vscode.md
