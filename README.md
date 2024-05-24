@@ -65,7 +65,7 @@ Depois todo o projeto será migrado para Serviços de Cloud utilizando tecnologi
 
 Link da vídeo aula: https://www.youtube.com/watch?v=kkhTHvZKQlM
 
-================ PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER ================
+# PRIMEIRA ETAPA: INSTALAÇÃO DO UBUNTU SERVER
 
 ## **🤩🤩 Instalação do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX Projeto Bora para Prática 🤩🤩**
 
@@ -77,7 +77,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/01-install/01-InstalacaoDoUbuntuServer-22.04-LTS.md
 
-=========== SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER ==========
+# SEGUNDA ETAPA: CONFIGURAÇÕES BÁSICAS DO UBUNTU SERVER
 
 # **🤩🤩 Atualização do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
@@ -129,7 +129,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-settings/05-HabilitandoUbuntuPro.md
 
-====== TERCEIRA ETAPA: INSTALAÇÃO DOS SERVIÇOS DE REDE NO UBUNTU SERVER ======
+# TERCEIRA ETAPA: INSTALAÇÃO DOS SERVIÇOS DE REDE NO UBUNTU SERVER
 
 # **🤩🤩 Configuração do OpenSSH Server no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
@@ -473,7 +473,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-services/10-webmin.md
 
-===================== FINALIZAÇÃO DO CURSO UBUNTU SERVER =====================
+# FINALIZAÇÃO DO CURSO UBUNTU SERVER
 
 ## **🤩🤩 Finalização do CURSO GRATUITO de Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
@@ -485,7 +485,7 @@ LINK PARA A GERAÇÃO DO CERTIFICADO DO CURSO: [Certificado do Curso](https://fo
 
 Link da vídeo aula: https://www.youtube.com/watch?v=0JB8GsmaVgQ
 
-===================== NOVOS VÍDEOS DO CURSO UBUNTU SERVER =====================
+# NOVOS VÍDEOS DO CURSO UBUNTU SERVER
 
 ## **🤩🤩 Implementação do Zabbix Server 7 e Agent 2 no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
@@ -691,7 +691,7 @@ Conteúdo estudado nessa implementação:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
-===================== INTEGRAÇÕES NO UBUNTU SERVER =====================
+# INTEGRAÇÕES NO UBUNTU SERVER
 
 ## **🤩🤩 Integração do VSCode e Remote SSH no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
