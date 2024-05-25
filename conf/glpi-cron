@@ -13,6 +13,6 @@
 #
 # Agendamento das atualização dos Registros do GLPI a cada 1 minuto, todos os dias
 # [minutos] [horas] [dias do mês] [mês] [dias da semana] [usuário] [comando]
-*/1 * * * * root /usr/bin/php8.1 /var/www/glpi/front/cron.php &> /dev/null
+*/1 * * * * root /usr/bin/php8.1 /var/www/html/glpi/front/cron.php &> /dev/null
 
 #Fim do agendamento, obrigatório ter uma linha em branco no final do arquivo para a execução correta.
