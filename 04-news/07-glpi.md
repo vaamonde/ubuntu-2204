@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 24/05/2024<br>
-#Versão: 0.01<br>
+#Data de atualização: 26/05/2024<br>
+#Versão: 0.02<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
@@ -137,12 +137,269 @@ exit
 	#opção do comando wget: -v (verbose), -O (output file)
 	
 	#download do arquivo de configuração do GLPI Help Desk
-	sudo wget -v -O /etc/apache2/conf-available/glpi.conf 
+	sudo wget -v -O /etc/apache2/conf-available/glpi.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/glpi.conf
 	
 	#download do arquivo de agendamento do CRON GLPI Help Desk
-	sudo wget -v -O /etc/cron.d/glpi-cron
+	sudo wget -v -O /etc/cron.d/glpi-cron https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/glpi-cron
 
-#06_ 
+#06_ Editando os arquivos de configuração do GLPI Help Desk<br>
+
+	#editando o arquivo de configuração do GLPI Help Desk utilizado pelo Apache2
+	sudo vim /etc/apache2/conf-available/glpi.conf
+	INSERT
+
+		#altere os valores das variáveis: <Directory> do GLPI Help Desk nas linhas:
+		16: <Directory /var/www/html/glpi>
+		21: <Directory /var/www/html/glpi/config>
+		26: <Directory /var/www/html/glpi/files>
+
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
+	#editando o arquivo de agendamento do GLPI Help Desk utilizado pelo CRON
+	sudo vim /etc/cron.d/glpi-cron
+	INSERT
+
+		#altere o caminho do PHP ou do GLPI Help Desk na linha: 16
+		*/1 * * * * root /usr/bin/php8.1 /var/www/html/glpi/front/cron.php &> /dev/null
+
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
+	#editando o arquivo de configuração do PHP
+	sudo vim /etc/php/8.1/apache2/php.ini
+	INSERT
+
+		#alterar o valor da variável session.cookie_httponly na linha: 1403
+		session.cookie_httponly = on
+
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
+#07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
+
+	#habilitando os módulos do Apache2 Server
+	sudo a2enmod rewrite 
+
+	#habilitando o arquivo de configuração do GLPI Help Desk
+	sudo a2enconf glpi.conf
+
+	#reiniciar o serviço do Apache2 Server
+	sudo systemctl restart apache2
+	sudo systemctl status apache2
+
+	#analisando os Log's e mensagens de erro do Servidor do Apache2 (NÃO COMENTADO NO VÍDEO)
+	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+	sudo journalctl -xeu apache2
+
+#08_ Acessando e configurando o GLPI Help Desk via navegador<br>
+
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/glpi
+
+	#Informações que serão solicitadas na configuração via Web do GLPI Help Desk
+	GLPI SETUP
+		Selecione seu idioma: Português Brasil <OK>
+		Licença: <Continuar>
+		Início da instalação: <Instalar>
+		Etapa 0: Verificando a compatibilidade do seu ambiente para a execução do GLPI: <Continuar>
+
+			#OBSERVAÇÃO IMPORTANTE: Configuração segura do diretório raiz da web
+			O diretório raiz do servidor web deve ser `/var/www/html/glpi/public` para garantir
+			que arquivos não públicos não possam ser acessados.
+			A configuração do diretório raiz do servidor da Web não é segura, pois permite acesso
+			a arquivos não públicos. Consulte a documentação de instalação para obter mais detalhes.
+
+			#OBSERVAÇÃO IMPORTANTE: Caminho seguro para diretórios de dados
+			Os diretórios de dados do GLPI deveriam ser colocados fora da raiz do diretório web. Isso
+			pode ser alcançado ao redefinir as constantes correspondentes. Consulte a documentação de
+			instalação para obter mais informações.
+			Os seguintes diretórios devem ser armazenados fora de "/var/www/html/glpi":
+			‣ "/var/www/html/glpi/files" ("GLPI_VAR_DIR")
+			Você pode ignorar esta sugestão se o diretório raiz do seu servidor web for 
+			"/var/www/html/glpi/public". 
+
+		Etapa 1: Instalação da conexão com o banco de dados
+			Endereço do servidor SQL (MariaDB ou MySQL): localhost
+			Usuário SQL: glpi10
+			Senha SQL: glpi10
+		<Continuar>
+		Etapa 2: Teste de conexão com o banco de dados
+			Por favor, selecione o banco de dados: 
+			On (Selecionar): glpi10
+		<Continuar>
+		Etapa 3: Iniciando banco de dados
+			OK - banco de dados inicializado
+			#OBSERVAÇÃO IMPORTANTE: o processo de criação das Tabelas e configuração base do
+			#GLPI Help Desk demora um pouco.
+		<Continuar>
+		Etapa 4: Coletar dados
+			On (Selecionar): Enviar "estatísticas de uso"
+		<Continuar>
+		Etapa 5: Uma última coisa antes de começar: <Continuar>
+		Etapa 6: A instalação foi concluída
+			Os usuários e senhas padrões são:
+			glpi/glpi para a conta do usuário administrador
+			tech/tech para a conta do usuário técnico
+			normal/normal para a conta do usuário normal
+			post-only/postonly para a conta do usuário postonly
+		<Usar GLPI>
+
+	#fazendo o Login na Tela Principal do GLPI Help Desk
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/glpi
+		Faça login para sua conta
+			Usuário: glpi
+			Senha: glpi
+			Origem de login: Banco de dados interno do GLPI
+			On (Selecionar): Lembrar de mim
+		<Entrar>
+
+	#removendo o arquivo Install pós instalação do GLPI Help Desk
+	sudo rm -v /var/www/html/glpi/install/install.php
+
+#09_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+
+	#habilitar o recurso de recebimento de inventário no GLPI Help Desk
+	Administração
+		Inventário
+			Configuração
+				Habilitar inventário: On (Enable)
+			<Salvar>
+	
+	#testando se o recurso de Inventário foi habilitado
+	#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/glpi/front/inventory.php
+
+#10_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
+
+	#instalação do Agent no Ubuntu Server
+	
+	#atualizando as lista do apt
+	sudo apt update
+
+	#instalando as dependências do Agent do GLPI Help Desk
+	sudo apt install libfile-which-perl liblwp-useragent-determined-perl libnet-ip-perl \
+	libtext-template-perl libuniversal-require-perl libxml-treepp-perl libcpanel-json-xs-perl \
+	libcompress-raw-zlib-perl libio-compress-perl libhttp-daemon-perl libio-socket-ssl-perl \
+	liblwp-protocol-https-perl libproc-daemon-perl libproc-pid-file-perl libnet-cups-perl \
+	libparse-edid-perl libdatetime-perl libthread-queue-any-perl libnet-nbname-perl libnet-snmp-perl \
+	libcrypt-des-perl libnet-write-perl libarchive-extract-perl libdigest-sha-perl \
+	libfile-copy-recursive-perl libjson-pp-perl liburi-escape-xs-perl libparallel-forkmanager-perl \
+	libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
+	hdparm 7zip
+
+	#baixando o Agent do GLPI do Github (link atualizado em: 25/05/2025)
+	wget https://github.com/glpi-project/glpi-agent/releases/download/1.8/glpi-agent_1.8-1_all.deb
+
+	#instalando o Agent do GLPI Help Desk no Ubuntu Server
+	#opção do comando dpkg: -i (install)
+	sudo dpkg -i glpi-agent*.deb
+
+	#editando o arquivo de configuração do Agent do GLPI Help Desk
+	sudo vim /etc/glpi-agent/agent.conf
+	INSERT
+
+		#alterar o valor da variável: server na linha: 12
+		server = http://172.16.1.20/glpi/front/inventory.php
+
+		#descomentar o valor da variavel: local na linha: 20
+		local = /tmp
+
+		#alterar o valor da variável: tag na linha: 127
+		tag = ServerLinux
+
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#reiniciando o serviço do Agent do GLPI Help Desk
+	sudo systemctl restart glpi-agent
+	sudo systemctl status glpi-agent
+
+	#testando o Agent do GLPI Help Desk via navegador
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
+
+	#forçando o envio do primeiro inventário do GLPI Help Desk
+	sudo glpi-agent 
+
+	#instalação do Agent no Linux Mint
+	
+	#atualizando as lista do apt
+	sudo apt update
+
+	#instalando as dependências do Agent do GLPI Help Desk
+	sudo apt install libfile-which-perl liblwp-useragent-determined-perl libnet-ip-perl \
+	libtext-template-perl libuniversal-require-perl libxml-treepp-perl libcpanel-json-xs-perl \
+	libcompress-raw-zlib-perl libio-compress-perl libhttp-daemon-perl libio-socket-ssl-perl \
+	liblwp-protocol-https-perl libproc-daemon-perl libproc-pid-file-perl libnet-cups-perl \
+	libparse-edid-perl libdatetime-perl libthread-queue-any-perl libnet-nbname-perl libnet-snmp-perl \
+	libcrypt-des-perl libnet-write-perl libarchive-extract-perl libdigest-sha-perl \
+	libfile-copy-recursive-perl libjson-pp-perl liburi-escape-xs-perl libparallel-forkmanager-perl \
+	libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
+	hdparm 7zip
+
+	#baixando o Agent do GLPI do Github (link atualizado em: 25/05/2025)
+	wget https://github.com/glpi-project/glpi-agent/releases/download/1.8/glpi-agent_1.8-1_all.deb
+
+	#instalando o Agent do GLPI Help Desk no Ubuntu Server
+	#opção do comando dpkg: -i (install)
+	sudo dpkg -i glpi-agent*.deb
+
+	#editando o arquivo de configuração do Agent do GLPI Help Desk
+	sudo vim /etc/glpi-agent/agent.conf
+	INSERT
+
+		#alterar o valor da variável: server na linha: 12
+		server = http://172.16.1.20/glpi/front/inventory.php
+
+		#descomentar o valor da variavel: local na linha: 20
+		local = /tmp
+
+		#alterar o valor da variável: tag na linha: 127
+		tag = DesktopLinux
+
+	#salvar e sair do arquivo
+	ESC SHIFT : x <Enter>
+
+	#reiniciando o serviço do Agent do GLPI Help Desk
+	sudo systemctl restart glpi-agent
+	sudo systemctl status glpi-agent
+
+	#testando o Agent do GLPI Help Desk via navegador
+	firefox ou google chrome: http://endereço_ipv4_linuxmint:62354/
+
+	#forçando o envio do primeiro inventário do GLPI Help Desk
+	sudo glpi-agent
+
+	#instalação do Agent no Windows 10
+
+	#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 25/05/2025)
+	Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.8/GLPI-Agent-1.8-x64.msi
+
+	#instalando o Agent GLPI Help Desk Windows 10
+	Download
+		Executar o software: GLPI-Agent-1.8-x64.msi
+
+	#editando o arquivo de configuração do Agent GLPI Help Desk via Powershell
+	Menu
+	   Powershell 
+		   Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+
+	#acessando o diretório de configuração do Agent GLPI Help Desk
+	cd 'C:\Program Files\'
+
+	#editando o arquivo de configuração do Agent GLPI Help Desk
+	notepad.exe .\
+
+	#fechar e salvar as mudanças do arquivo do Agent GLPI Help Desk
+	<Fechar>
+		<Salvar>
+		<Sair>
+
+	#reiniciar e verificar o serviço do Agent GLPI Help Desk
+	Restart-Service 
+	Get-Service 
+
+	#testando o Agent do GLPI Help Desk via navegador
+	firefox ou google chrome: http://endereço_ipv4_windows10:62354/
 
 =========================================================================================
 
