@@ -27,6 +27,11 @@ Conteúdo estudado nessa implementação:<br>
 #03_ Baixando o Projeto do GLPI Help Desk do Github<br>
 #04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server<br>
 #05_ Atualizando os Arquivos de Configuração do GLPI Help Desk<br>
+#06_ Editando os arquivos de configuração do GLPI Help Desk<br>
+#07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
+#08_ Acessando e configurando o GLPI Help Desk via navegador<br>
+#09_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+#10_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
 
 Site Oficial do GLPI Project: https://glpi-project.org/pt-br/<br>
 
@@ -57,12 +62,20 @@ Link da vídeo aula:
 
 #02_ Criando a Base de Dados do GLPI Help Desk<br>
 
+	#habilitando o recurso de TimeZone do GLPI no MySQL Server
+	#opções do comando mysql: -u (user), -p (password), mysql (database)
+	sudo mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root -p mysql
+	
+	#reiniciar o serviço do MySQL Server 
+	sudo systemctl restart mysql
+	sudo systemctl status mysql
+
 	#opções do comando mysql: -u (user), -p (password)
 	sudo mysql -u root -p
 
 ```sql
-/* Criando o Banco de Dados GLPI Help Desk */
-CREATE DATABASE glpi10;
+/* Criando o Banco de Dados GLPI Help Desk com suporte ao UTF8 */
+CREATE DATABASE glpi10 default CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 /* Criando o usuário da Base de Dados do GLPI Help Desk */
 CREATE USER 'glpi10' IDENTIFIED WITH mysql_native_password BY 'glpi10';
@@ -70,6 +83,15 @@ CREATE USER 'glpi10' IDENTIFIED WITH mysql_native_password BY 'glpi10';
 /* Aplicando as permissões de acesso do usuário GLPI Help Desk */
 GRANT USAGE ON *.* TO 'glpi10';
 GRANT ALL PRIVILEGES ON glpi10.* TO 'glpi10';
+FLUSH PRIVILEGES;
+
+/* Configurando o Recurso de TimeZine do Usuário GLPI Help Desk */
+GRANT SELECT ON mysql.time_zone_name TO 'glpi'@'localhost';
+SELECT NOW();
+SET @@global.time_zone = '+3:00';
+SELECT NOW();
+SET time_zone='America/Sao_Paulo';
+SELECT @@time_zone;
 FLUSH PRIVILEGES;
 
 /* Verificando o Usuário GLPI Help Desk criado no Banco de Dados MySQL Server*/
@@ -149,9 +171,11 @@ exit
 	INSERT
 
 		#altere os valores das variáveis: <Directory> do GLPI Help Desk nas linhas:
-		16: <Directory /var/www/html/glpi>
-		21: <Directory /var/www/html/glpi/config>
-		26: <Directory /var/www/html/glpi/files>
+		19: DocumentRoot /var/www/html/glpi/public
+		22: <Directory /var/www/html/glpi>
+		27: <Directory /var/www/html/glpi/config>
+		32: <Directory /var/www/html/glpi/files>
+		37: <Directory /var/www/html/glpi/public>
 
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
@@ -179,7 +203,7 @@ exit
 #07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
 
 	#habilitando os módulos do Apache2 Server
-	sudo a2enmod rewrite 
+	sudo a2enmod rewrite setenvif
 
 	#habilitando o arquivo de configuração do GLPI Help Desk
 	sudo a2enconf glpi.conf
