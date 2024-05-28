@@ -168,7 +168,7 @@ exit
 	sudo vim /etc/apache2/conf-available/glpi.conf
 	INSERT
 
-		#altere os valores das variáveis: <Directory> do GLPI Help Desk nas linhas:
+		#altere os valores das variáveis do GLPI Help Desk nas linhas:
 		16: <VirtualHost *:8888>
 		22: DocumentRoot /var/www/html/glpi/public
 		29: <Directory /var/www/html/glpi/public>
@@ -181,7 +181,7 @@ exit
 	INSERT
 
 		#altere o caminho do PHP ou do GLPI Help Desk na linha: 16
-		*/1 * * * * root /usr/bin/php8.1 /var/www/html/glpi/front/cron.php &> /dev/null
+		*/1 * * * * root /usr/bin/php8.1 /var/www/html/glpi/front/cron.php --debug &> /dev/null
 
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
@@ -386,7 +386,7 @@ exit
 		#alterar o valor da variável: server na linha: 12
 		server = http://172.16.1.20:8888/front/inventory.php
 
-		#descomentar o valor da variavel: local na linha: 20
+		#descomentar o valor da variável: local na linha: 20
 		local = /tmp
 
 		#alterar o valor da variável: tag na linha: 127
