@@ -439,7 +439,7 @@ exit
 			Choose Targets:
 				Local Target: C:\Program Files\GLPI-Agent\
 				Remote Targets: http://172.16.1.20:8888/front/inventory.php
-				Quick instalation: ON
+				Quick installation: ON
 			<Next>
 		<Install>
 		Completed the GLPI Agent 1.8 Setup Wizard: <Finish>
