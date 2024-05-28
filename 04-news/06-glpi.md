@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 26/05/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 28/05/2024<br>
+#Versão: 0.03<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
@@ -225,7 +225,17 @@ exit
 	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 	sudo journalctl -xeu apache2
 
-#08_ Acessando e configurando o GLPI Help Desk via navegador<br>
+#08_ Verificando a Porta de Conexão do GLPI Help Desk<br>
+
+	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+	sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
+
+#09_ Acessando e configurando o GLPI Help Desk via navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
 
@@ -289,7 +299,7 @@ exit
 	#removendo o arquivo Install pós instalação do GLPI Help Desk
 	sudo rm -v /var/www/html/glpi/install/install.php
 
-#09_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+#10_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
 
 	#habilitar o recurso de recebimento de inventário no GLPI Help Desk
 	Administração
@@ -302,7 +312,7 @@ exit
 	#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
 
-#10_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
+#11_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
 
 	#instalação do Agent no Ubuntu Server
 	
@@ -331,7 +341,7 @@ exit
 	sudo glpi-agent --version
 
 	#editando o arquivo de configuração do Agent do GLPI Help Desk
-	sudo vim /etc/glpi-agent/agent.conf
+	sudo vim /etc/glpi-agent/agent.cfg
 	INSERT
 
 		#alterar o valor da variável: server na linha: 12
@@ -349,6 +359,10 @@ exit
 	#reiniciando o serviço do Agent do GLPI Help Desk
 	sudo systemctl restart glpi-agent
 	sudo systemctl status glpi-agent
+
+	#verificando a porta de conexão do GLPI Agent
+	#opção do comando netstat: -a (all), -n (numeric), -p (program)
+	sudo netstat -anp | grep 62354 
 
 	#testando o Agent do GLPI Help Desk via navegador
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
@@ -380,7 +394,7 @@ exit
 	sudo dpkg -i glpi-agent*.deb
 
 	#editando o arquivo de configuração do Agent do GLPI Help Desk
-	sudo vim /etc/glpi-agent/agent.conf
+	sudo vim /etc/glpi-agent/agent.cfg
 	INSERT
 
 		#alterar o valor da variável: server na linha: 12
@@ -399,11 +413,15 @@ exit
 	sudo systemctl restart glpi-agent
 	sudo systemctl status glpi-agent
 
+	#verificando a porta de conexão do GLPI Agent
+	#opção do comando netstat: -a (all), -n (numeric), -p (program)
+	sudo netstat -anp | grep 62354 
+
 	#testando o Agent do GLPI Help Desk via navegador
-	firefox ou google chrome: http://endereço_ipv4_linuxmint:62354/
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
 
 	#forçando o envio do primeiro inventário do GLPI Help Desk
-	sudo glpi-agent
+	sudo glpi-agent 
 
 	#instalação do Agent no Windows 10
 
@@ -413,6 +431,18 @@ exit
 	#instalando o Agent GLPI Help Desk Windows 10
 	Download
 		Executar o software: GLPI-Agent-1.8-x64.msi
+		Welcome to the Setup Wizard for GLPI Agent 1.8: <Next>
+		End-User License Agreement: <Next>
+		Destination Folder: <Next>
+		Choose Setup Type: <Custom>
+			Custom Setup: <Next>
+			Choose Targets:
+				Local Target: C:\Program Files\GLPI-Agent\
+				Remote Targets: http://172.16.1.20:8888/front/inventory.php
+				Quick instalation: ON
+			<Next>
+		<Install>
+		Completed the GLPI Agent 1.8 Setup Wizard: <Finish>
 
 	#editando o arquivo de configuração do Agent GLPI Help Desk via Powershell
 	Menu
@@ -420,10 +450,19 @@ exit
 		   Clicar com o botão direito do mouse e selecionar: Executar como Administrador
 
 	#acessando o diretório de configuração do Agent GLPI Help Desk
-	cd 'C:\Program Files\'
+	cd 'C:\Program Files\GLPI-Agent\etc'
 
 	#editando o arquivo de configuração do Agent GLPI Help Desk
-	notepad.exe .\
+	notepad.exe .\agent.cfg
+
+		#alterar o valor da variável: server na linha: 12
+		server = http://172.16.1.20:8888/front/inventory.php
+
+		#descomentar o valor da variável: local na linha: 20
+		local = c:\temp
+
+		#alterar o valor da variável: tag na linha: 127
+		tag = DesktopLinux
 
 	#fechar e salvar as mudanças do arquivo do Agent GLPI Help Desk
 	<Fechar>
@@ -431,11 +470,22 @@ exit
 		<Sair>
 
 	#reiniciar e verificar o serviço do Agent GLPI Help Desk
-	Restart-Service 
-	Get-Service 
+	Restart-Service glpi-agent
+	Get-Service glpi-agent 
+
+	#verificando a porta de conexão do GLPI Agent
+	#opção do comando netstat: -a (all), -n (numeric)
+	netstat -an | findstr 62354 
 
 	#testando o Agent do GLPI Help Desk via navegador
 	firefox ou google chrome: http://endereço_ipv4_windows10:62354/
+
+	#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 25/05/2025)
+	Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.3.0/GLPI-AgentMonitor-x64.exe
+
+	#instalando o Agent Monitor GLPI Help Desk Windows 10
+	Download
+		Executar o software: GLPI-AgentMonitor-x64.exe
 
 =========================================================================================
 
