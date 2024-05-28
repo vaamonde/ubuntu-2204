@@ -51,6 +51,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
 #01_ Instalando as Dependências do Zabbix Server e Agent2<br>
 
+	#OBSERVAÇÃO IMPORTANTE: O ZABBIX POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER
+	#E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 
+	#SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+
 	#atualizando as lista do apt
 	sudo apt update
 

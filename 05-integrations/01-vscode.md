@@ -52,6 +52,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 
 #01_ Instalando as Dependências do Microsoft Visual Studio Code VSCode no Linux Mint<br>
 
+	#OBSERVAÇÃO IMPORTANTE: O RECURSO DO REMOTE SSH DO VSCODE POSSUI AS DEPENDÊNCIAS 
+	#DO OPENSSH SERVER, ESSE APLICATIVO JÁ FOI INSTALADA E CONFIGURADO NA ETAPA: 01 
+	#DO OPENSSH.
+
 	#instalando as dependências do VSCode no Linux Mint
 	sudo apt update
 	sudo apt install vim git python2 python3 cloc
