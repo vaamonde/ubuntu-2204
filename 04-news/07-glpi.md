@@ -86,11 +86,9 @@ GRANT ALL PRIVILEGES ON glpi10.* TO 'glpi10';
 FLUSH PRIVILEGES;
 
 /* Configurando o Recurso de TimeZine do Usuário GLPI Help Desk */
-GRANT SELECT ON mysql.time_zone_name TO 'glpi'@'localhost';
-SELECT NOW();
-SET @@global.time_zone = '+3:00';
-SELECT NOW();
+GRANT SELECT ON mysql.time_zone_name TO 'glpi10';
 SET time_zone='America/Sao_Paulo';
+SELECT NOW();
 SELECT @@time_zone;
 FLUSH PRIVILEGES;
 
@@ -171,11 +169,9 @@ exit
 	INSERT
 
 		#altere os valores das variáveis: <Directory> do GLPI Help Desk nas linhas:
-		19: DocumentRoot /var/www/html/glpi/public
-		22: <Directory /var/www/html/glpi>
-		27: <Directory /var/www/html/glpi/config>
-		32: <Directory /var/www/html/glpi/files>
-		37: <Directory /var/www/html/glpi/public>
+		16: <VirtualHost *:8888>
+		22: DocumentRoot /var/www/html/glpi/public
+		29: <Directory /var/www/html/glpi/public>
 
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
@@ -200,10 +196,23 @@ exit
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
 
+	#editando o arquivo de portas do Apache2 Server
+	sudo vim /etc/apache2/ports.conf
+	INSERT
+
+		#adicionar o valor da variável: listen na linha 6
+		Listen 8888
+
+	#salvar e sair do arquivo
+	ESC SHIFT :x <Enter>
+
 #07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
 
 	#habilitando os módulos do Apache2 Server
 	sudo a2enmod rewrite setenvif
+
+	#testando as configurações do Apache2 Server
+	sudo apachectl configtest
 
 	#habilitando o arquivo de configuração do GLPI Help Desk
 	sudo a2enconf glpi.conf
@@ -218,7 +227,7 @@ exit
 
 #08_ Acessando e configurando o GLPI Help Desk via navegador<br>
 
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/glpi
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
 
 	#Informações que serão solicitadas na configuração via Web do GLPI Help Desk
 	GLPI SETUP
@@ -269,7 +278,7 @@ exit
 		<Usar GLPI>
 
 	#fazendo o Login na Tela Principal do GLPI Help Desk
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/glpi
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
 		Faça login para sua conta
 			Usuário: glpi
 			Senha: glpi
@@ -291,7 +300,7 @@ exit
 	
 	#testando se o recurso de Inventário foi habilitado
 	#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/glpi/front/inventory.php
+	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
 
 #10_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
 
@@ -318,14 +327,17 @@ exit
 	#opção do comando dpkg: -i (install)
 	sudo dpkg -i glpi-agent*.deb
 
+	#verificando a versão do GLPI Help Desk no Ubuntu Server
+	sudo glpi-agent --version
+
 	#editando o arquivo de configuração do Agent do GLPI Help Desk
 	sudo vim /etc/glpi-agent/agent.conf
 	INSERT
 
 		#alterar o valor da variável: server na linha: 12
-		server = http://172.16.1.20/glpi/front/inventory.php
+		server = http://172.16.1.20:8888/front/inventory.php
 
-		#descomentar o valor da variavel: local na linha: 20
+		#descomentar o valor da variável: local na linha: 20
 		local = /tmp
 
 		#alterar o valor da variável: tag na linha: 127
@@ -372,7 +384,7 @@ exit
 	INSERT
 
 		#alterar o valor da variável: server na linha: 12
-		server = http://172.16.1.20/glpi/front/inventory.php
+		server = http://172.16.1.20:8888/front/inventory.php
 
 		#descomentar o valor da variavel: local na linha: 20
 		local = /tmp
