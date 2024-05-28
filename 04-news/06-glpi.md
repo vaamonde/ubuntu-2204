@@ -16,7 +16,7 @@ A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrá
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17.glpi.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-glpihelpdesk.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioglpi #desafioglpihelpdesk
@@ -495,7 +495,7 @@ A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrá
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17.glpi.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-glpihelpdesk.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioglpi #desafioglpihelpdesk

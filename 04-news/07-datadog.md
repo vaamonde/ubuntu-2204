@@ -16,7 +16,7 @@ A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaP
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-datadog.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent
@@ -155,7 +155,7 @@ A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaP
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
 MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-datadog.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent
