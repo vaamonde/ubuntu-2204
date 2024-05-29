@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 28/05/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
@@ -199,6 +199,7 @@ exit
 	INSERT
 
 		#alterar o valor da variável session.cookie_httponly na linha: 1403
+		#OBSERVAÇÃO IMPORTANTE: a opção: on tem que ser em: MINÚSCULA para funcionar.
 		session.cookie_httponly = on
 
 	#salvar e sair do arquivo
@@ -316,7 +317,7 @@ exit
 				Habilitar inventário: On (Enable)
 			<Salvar>
 	
-	#testando se o recurso de Inventário foi habilitado
+	#testando se o recurso de Inventário foi habilitado no GLPI Help Desk
 	#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
 
@@ -486,7 +487,7 @@ exit
 	#fechar e salvar as mudanças do arquivo do Agent GLPI Help Desk
 	<Fechar>
 		<Salvar>
-		<Sair>
+	<Sair>
 
 	#reiniciar e verificar o serviço do Agent GLPI Help Desk
 	Restart-Service glpi-agent
@@ -507,6 +508,18 @@ exit
 	#instalando o GLPI Agent Monitor no Microsoft Windows 10
 	Download
 		Executar o software: GLPI-AgentMonitor-x64.exe
+
+	#configuração do GLPI Agent Monitor no Microsoft Windows 10
+	#OBSERVAÇÃO IMPORTANTE: caso o ícone do GLPI Monitor não apareça na Barra de Tarefas
+	#do Windows 10 (System Tray Icon) clicar na opção: ^ Mostrar ícones ocultos e selecione o
+	#GLPI Monitor
+	GLPI Agent Monitor
+		<Stop Service>....: Parar o serviços do GLPI Aget;
+		<Force Inventory>.: Forçar o Inventário e envio para o GLPI Help Desk;
+		<New ticket>......: Abrir um novo Chamado Técnico no GLPI Help Desk;
+		<View agent logs>.: Visualizar os Logs de Eventos do GLPI Agent;
+		<Settings>........: Configuração da URL da Abertura de Chamado no GLPI Help Desk;
+		<Close>...........: Fechar o GLPI Agent Monitor.
 
 =========================================================================================
 
