@@ -96,7 +96,6 @@ exit
 	sudo mysql -u wordpress -p
 
 ```sql
-
 /* visualizando a base de dados do WordPress */
 SHOW DATABASES;
 USE wordpress;

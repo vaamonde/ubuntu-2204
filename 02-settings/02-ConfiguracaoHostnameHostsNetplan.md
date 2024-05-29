@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 26/03/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.05<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -122,7 +122,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 ```yaml
 network:
   ethernets:
-    #configuração da Interface Física
+    #configuração da Interface Física (Nome Lógico)
     enp0s3:
     #desabilitando o suporte ao DHCP Client
     dhcp4: false

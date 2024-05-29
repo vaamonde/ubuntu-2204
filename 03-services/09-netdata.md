@@ -121,7 +121,6 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 	sudo mysql -u root -p
 
 ```sql
-
 /* criando o usuário do Netdata no MySQL */
 CREATE USER 'netdata'@'localhost';
 

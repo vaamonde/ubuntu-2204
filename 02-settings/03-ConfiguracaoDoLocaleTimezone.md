@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 19/11/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.03<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -28,6 +28,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 
 #02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server<br>
 	
+	#OBSERVAÇÃO IMPORTANTE: pt_BR.UTF-8" é uma codificação de caractere que indica o uso
+	#da língua portuguesa (pt) como falada no Brasil (BR) com a codificação UTF-8. UTF-8 
+	#(Unicode Transformation Format - 8 bits) é uma codificação de caracteres que pode 
+	#representar qualquer caractere no conjunto Unicode, o que inclui praticamente todos 
+	#os caracteres de todas as línguas do mundo.
+
 	#gerando a localidade do Português do Brasil
 	sudo locale-gen pt_BR.UTF-8
 
@@ -65,9 +71,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 
 #05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server<br>
 
-	#O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo 
-	#UDP sob a porta 123. É utilizado para sincronização do relógio de um conjunto de computadores 
-	#e dispositivos em redes de dados com latência variável.
+	#O NTP é um protocolo para sincronização dos relógios dos computadores baseado no 
+	#protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um 
+	#conjunto de computadores e dispositivos em redes de dados com latência variável.
 	
 	#editando o arquivo de configuração timesyncd.conf
 	sudo vim /etc/systemd/timesyncd.conf

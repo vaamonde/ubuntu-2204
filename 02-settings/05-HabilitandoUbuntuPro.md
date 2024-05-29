@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 19/11/2023<br>
-#Versão: 0.04<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.05<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -42,6 +42,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 #03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
 
 	Acesse o site: https://login.ubuntu.com/
+
 	Clique em: I don’t have an Ubuntu One account
 	Preencha os campos: 
 		Please type your email: (DIGITE_SEU_EMAIL)
@@ -59,6 +60,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 #04_ Criando uma Assinatura do Ubuntu Pro Free para uso pessoal<br>
 
 	Acesse o site: https://ubuntu.com/pro/dashboard
+
 	Faça a autenticação com a sua conta criada no Ubuntu One;
 		Personal Data Request: <Yes, log me in>
 	
@@ -67,8 +69,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 #05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
 
-	OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
-	>= a versão 27.13.x
+	#OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
+	#>= a versão 27.13.x
 
 	#verificando a versão do cliente do Ubuntu Pro
 	sudo pro --version
@@ -94,9 +96,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 #08_ Habilitando outros Serviços do Ubuntu Pro<br>
 
-	OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais serviços 
-	são habilitados, sendo o ESM-INFRA e o Livepatch, caso queira habilitar mais serviços veja a 
-	lista abaixo:
+	#OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
+	#serviços são habilitados, sendo o ESM-INFRA e o Livepatch, caso queira habilitar mais 
+	#serviços veja a lista abaixo:
 
 	cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
 	cis.............: Ferramentas para conformidade automatizada com o Center of Internet Security 

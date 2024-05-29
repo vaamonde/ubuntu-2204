@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
@@ -65,9 +65,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 	#adicionando o Repositório do Grafana Server (versão BETA)
 	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
+	#OBSERVAÇÃO IMPORTANTE: na data de: 14/05/2024 a Versão BETA 11 do Grafana se tornou STABLE.
 	#opção do comando tee: -a (append)
 	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
 
@@ -268,7 +269,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 	sudo systemctl restart grafana-server
 	sudo systemctl status grafana-server
 
-	#criando usuário de autenticação no Zabbix Server
+	#criando o usuário de autenticação no Zabbix Server
 	#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
 	#Server: Admin acontecia o erro de autenticação, aparecendo sempre a mensagem de:
 	#Incorrect user name or password or account is temporarily blocked. Para corrigir

@@ -261,7 +261,7 @@ db.createUser(
 	#saindo do MongoDB Server
 	quit
 
-#16_ Integrando o MongoDB Server com o Compass GUI<br>
+#16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
 
 	Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 

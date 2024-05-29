@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 06/04/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
@@ -99,7 +99,6 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 #06_ Aplicando a segurança de acesso do usuário Root no MySQL Server<br>
 
 ```sql
-
 /* visualizando as bases de dados do MySQL */
 SHOW DATABASES;
 
@@ -133,7 +132,6 @@ exit
 #07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
 
 ```sql
-
 /* criando o usuário DBA Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
 CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
@@ -212,7 +210,6 @@ exit
 	sudo mysql -u root -p
 
 ```sql
-
 /* criando o usuário Root Remoto do MySQL Server */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
 CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';

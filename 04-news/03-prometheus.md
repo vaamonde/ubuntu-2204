@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 10/05/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
@@ -88,8 +88,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 	#alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 	#versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-	#download do Prometheus do Github (Link atualizado no dia 15/04/2024)
-	wget https://github.com/prometheus/prometheus/releases/download/v2.51.2/prometheus-2.51.2.linux-amd64.tar.gz
+	#download do Prometheus do Github (Link atualizado no dia 29/05/2024)
+	wget https://github.com/prometheus/prometheus/releases/download/v2.52.0/prometheus-2.52.0.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Prometheus
 	#opção do comando ls: -l (long listing), -h (human-readable)
@@ -138,8 +138,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 	#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 	#software no Link: https://github.com/prometheus/node_exporter/releases/
 
-	#download do Node Exporter do Github (Link atualizado no dia 05/05/2024)
-	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.0/node_exporter-1.8.0.linux-amd64.tar.gz
+	#download do Node Exporter do Github (Link atualizado no dia 29/05/2024)
+	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.1/node_exporter-1.8.1.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Node Exporter
 	#opção do comando ls: -l (long listing), -h (human-readable)
@@ -350,7 +350,7 @@ scrape_configs:
 	#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS
 	#Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
-	#link para download direto do Node Exporter (link atualizado em: 04/04/2024)
+	#link para download direto do Node Exporter (link atualizado em: 29/05/2024)
 	https://github.com/prometheus-community/windows_exporter/releases/download/v0.25.1/windows_exporter-0.25.1-amd64.msi
 
 	#OBSERVAÇÃO IMPORTANTE: fazer a instalação do Prometheus Windows Exporter utilizando 
@@ -392,8 +392,8 @@ scrape_configs:
 	#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 	#software no Link: https://github.com/prometheus/node_exporter/releases/
 
-	#download do Node Exporter do Github (Link atualizado no dia 05/05/2024)
-	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.0/node_exporter-1.8.0.linux-amd64.tar.gz
+	#download do Node Exporter do Github (Link atualizado no dia 29/05/2024)
+	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.1/node_exporter-1.8.1.linux-amd64.tar.gz
 
 	#listando o download do arquivo do Node Exporter
 	#opção do comando ls: -l (long listing), -h (human-readable)
@@ -529,8 +529,6 @@ scrape_configs:
 	#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
 	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
 	sudo find / -name vaamonde*
-
-
 
 =========================================================================================
 

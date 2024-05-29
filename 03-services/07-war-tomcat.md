@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
@@ -67,6 +67,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 		Em assets, clique em: agenda.war para fazer o Download.
 
 	LINK DE DOWNLOAD DO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
+
+		a) arquivo: agenda.war versão antiga atualizado pela Prof(a). Sirlene Sanches;<br>
+		b) arquivo: agenda_bootstrap.war versão nova atualizado pela Prof(a). Sirlene Sanches.
 
 #02_ Acessando o Apache TomCAT Server pelo Navegador<br>
 
@@ -134,7 +137,7 @@ exit
 	sudo mysql -u dbagenda -p
 
 ```sql
-#comandos básicos de verificação da base de dados e tabelas do MySQL
+/* comandos básicos de verificação da base de dados e tabelas do MySQL */
 SHOW DATABASES;
 USE dbagenda;
 SHOW TABLES;
@@ -164,15 +167,15 @@ exit
 	sudo mysql -u dbagenda -p
 
 ```sql
-#comandos básicos de verificação da base de dados e tabelas do MySQL
+/* comandos básicos de verificação da base de dados e tabelas do MySQL */
 SHOW DATABASES;
 USE dbagenda;
 SHOW TABLES;
 
-#verificando todos os registros da Tabela Contatos
+/* verificando todos os registros da Tabela Contatos */
 SELECT * FROM contatos;
 
-#removendo todos os registros da Tabela Contatos
+/* removendo todos os registros da Tabela Contatos */
 TRUNCATE TABLE contatos;
 SELECT * FROM contatos;
 exit
@@ -187,12 +190,12 @@ exit
 	sudo mysql -u dbagenda -p
 
 ```sql
-#comandos básicos de verificação da base de dados e tabelas do MySQL
+/* comandos básicos de verificação da base de dados e tabelas do MySQL */
 SHOW DATABASES;
 USE dbagenda;
 SHOW TABLES;
 
-#verificando todos os registros da Tabela Contatos
+/* verificando todos os registros da Tabela Contatos */
 SELECT * FROM contatos;
 exit
 ```

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 01/05/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 29/05/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
@@ -322,8 +322,8 @@ exit
 	#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO 
 	#ZABBIX AGENT.
 
-	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.14 (ATUALIZADO NO DIA 05/05/2024)
-	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.14/zabbix_agent2-6.4.14-windows-amd64-openssl.msi
+	Windows, Any, amd64, v6.4, OpenSSL, MSI: 6.4.14 (ATUALIZADO NO DIA 29/05/2024)
+	https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.15/zabbix_agent-6.4.15-windows-amd64-openssl.msi
 
 	#Instalação Manual do Zabbix Agent 2 para Microsoft
 	Pasta de Download

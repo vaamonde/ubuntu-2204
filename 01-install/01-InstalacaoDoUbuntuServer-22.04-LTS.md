@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 19/11/2023<br>
-Versão: 0.10<br>
+Data de atualização: 29/05/2024<br>
+Versão: 0.11<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
@@ -25,7 +25,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 
 01. Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
-02. Versão do download Ubuntu Server: ubuntu-22.04.3-live-server-amd64.iso (10/08/2023)
+02. Versão do download Ubuntu Server: ubuntu-22.04.4-live-server-amd64.iso (16/02/2024)
 03. Arquitetura do Ubuntu Server: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
 
@@ -99,11 +99,11 @@ Terceira etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar
 	
 	_ 03. Seletor de Discos Ópticos
 	_ 		Acrescentar
-	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.3-live-server-amd64.iso
+	_ 		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.4-live-server-amd64.iso
 	_ 	<Abrir>
 	
 	_ 04. Not Attached
-	_ 		Selecionar: ubuntu-22.04.3-live-server-amd64.iso
+	_ 		Selecionar: ubuntu-22.04.4-live-server-amd64.iso
 	_ 	<Escolher>
 	_ <Iniciar>
 
