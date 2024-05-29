@@ -197,7 +197,7 @@ OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEM
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-graylog.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/15-graylog.png
 
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
 
@@ -229,3 +229,33 @@ Conteúdo estudado nessa implementação:<br>
 [![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
+
+## **🤩🤩 Implementação do GLPI 10 Help Desk no Ubuntu Server 22.04 do Projeto Bora para Práticaa 🤩🤩**
+
+Vídeo de Implementação do GLPI 10 Help Desk no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o GLPI 10 Help Desk para centralizar e gerenciar todos os Chamados Técnicos, Inventário de Computadores e documentação da sua Infraestrutura de TI baseado em ITIL (Information Technology Infrastructure Library)
+
+GLPI é um sistema de código aberto para Gerenciamento de Ativos de TI, rastreamento de problemas e central de serviços. Este software é escrito em PHP e distribuído sob a GNU General Public License. Como uma tecnologia de código aberto, qualquer pessoa pode executar, modificar ou desenvolver o código.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-glpihelpdesk.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioglpi #desafioglpihelpdesk
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Instalando as Dependências do GLPI Help Desk<br>
+#02_ Criando a Base de Dados do GLPI Help Desk<br>
+#03_ Baixando o Projeto do GLPI Help Desk do Github<br>
+#04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server<br>
+#05_ Atualizando os Arquivos de Configuração do GLPI Help Desk<br>
+#06_ Editando os arquivos de configuração do GLPI Help Desk<br>
+#07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
+#08_ Acessando e configurando o GLPI Help Desk via navegador<br>
+#09_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+#10_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
+
+[![GLPI](http://img.youtube.com/vi/Et4Ac24vt6w/0.jpg)](https://www.youtube.com/watch?v=Et4Ac24vt6w "GLPI")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w

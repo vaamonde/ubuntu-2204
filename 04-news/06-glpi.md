@@ -40,9 +40,9 @@ problemas e central de serviços. Este software é escrito em PHP e distribuído
 General Public License. Como uma tecnologia de código aberto, qualquer pessoa pode executar,<br>
 modificar ou desenvolver o código.
 
-[![GLPI](http://img.youtube.com/vi//0.jpg)]( "GLPI")
+[![GLPI](http://img.youtube.com/vi/Et4Ac24vt6w/0.jpg)](https://www.youtube.com/watch?v=Et4Ac24vt6w "GLPI")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 #01_ Instalando as Dependências do GLPI Help Desk<br>
 
@@ -62,6 +62,10 @@ Link da vídeo aula:
 
 #02_ Criando a Base de Dados do GLPI Help Desk<br>
 
+	#OBSERVAÇÃO IMPORTANTE: O GLPI POSSUI AS DEPENDÊNCIAS DE TIMEZONE E DATA HORA
+	#CORRETA, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: 03 DO LOCATE E
+	#TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER.
+
 	#habilitando o recurso de TimeZone do GLPI no MySQL Server
 	#opções do comando mysql: -u (user), -p (password), mysql (database)
 	sudo mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root -p mysql
@@ -78,6 +82,9 @@ Link da vídeo aula:
 CREATE DATABASE glpi10 default CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 /* Criando o usuário da Base de Dados do GLPI Help Desk */
+/* OBSERVAÇÃO: caso queira criar um usuário local no MySQL para o GLPI
+utilize a opção: 'glpi10'@'localhost' para não permitir o acesso remoto
+do Usuário GLPI */
 CREATE USER 'glpi10' IDENTIFIED WITH mysql_native_password BY 'glpi10';
 
 /* Aplicando as permissões de acesso do usuário GLPI Help Desk */
@@ -85,7 +92,7 @@ GRANT USAGE ON *.* TO 'glpi10';
 GRANT ALL PRIVILEGES ON glpi10.* TO 'glpi10';
 FLUSH PRIVILEGES;
 
-/* Configurando o Recurso de TimeZine do Usuário GLPI Help Desk */
+/* Configurando o Recurso de TimeZone do Usuário GLPI Help Desk */
 GRANT SELECT ON mysql.time_zone_name TO 'glpi10';
 SET time_zone='America/Sao_Paulo';
 SELECT NOW();
@@ -143,8 +150,9 @@ exit
 	#alterando as permissões dos diretórios e arquivos do GLPI Help Desk
 	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 	#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
-	#opção do comando chmod: -v (verbose), 775 (Dono=RWX, Grupo=RWX, Outros=R-X)
+	#opção do comando chmod: -v (verbose), 755 (Dono=RWX, Grupo=R-X, Outros=R-X)
 	#opção do comando chmod: -v (verbose), 644 (Dono=RW-, Grupo=R--, Outros=R--)
+	#opção do comando chmod: -R (recursive), -v (verbose), 777 (Dono=RWX, Grupo=RWX, Outros=RWX)
 	#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
 	sudo chown -Rfv www-data.www-data /var/www/html/glpi/
 	sudo find /var/www/html/glpi/. -type d -exec chmod -v 755 {} \;
@@ -314,7 +322,7 @@ exit
 
 #11_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
 
-	#instalação do Agent no Ubuntu Server
+	#Instalação do GLPI Agent no Ubuntu Server
 	
 	#atualizando as lista do apt
 	sudo apt update
@@ -330,8 +338,10 @@ exit
 	libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
 	hdparm 7zip
 
-	#baixando o Agent do GLPI do Github (link atualizado em: 25/05/2025)
-	wget https://github.com/glpi-project/glpi-agent/releases/download/1.8/glpi-agent_1.8-1_all.deb
+	#baixando o Agent do GLPI do Github (link atualizado em: 28/05/2025)
+	#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
+	#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+	wget https://github.com/glpi-project/glpi-agent/releases/download/1.9/glpi-agent_1.9-1_all.deb
 
 	#instalando o Agent do GLPI Help Desk no Ubuntu Server
 	#opção do comando dpkg: -i (install)
@@ -370,7 +380,7 @@ exit
 	#forçando o envio do primeiro inventário do GLPI Help Desk
 	sudo glpi-agent 
 
-	#instalação do Agent no Linux Mint
+	#Instalação do GLPI Agent no Linux Mint
 	
 	#atualizando as lista do apt
 	sudo apt update
@@ -386,8 +396,10 @@ exit
 	libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
 	hdparm 7zip
 
-	#baixando o Agent do GLPI do Github (link atualizado em: 25/05/2025)
-	wget https://github.com/glpi-project/glpi-agent/releases/download/1.8/glpi-agent_1.8-1_all.deb
+	#baixando o Agent do GLPI do Github (link atualizado em: 28/05/2025)
+	#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
+	#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+	wget https://github.com/glpi-project/glpi-agent/releases/download/1.9/glpi-agent_1.9-1_all.deb
 
 	#instalando o Agent do GLPI Help Desk no Ubuntu Server
 	#opção do comando dpkg: -i (install)
@@ -418,20 +430,25 @@ exit
 	sudo netstat -anp | grep 62354 
 
 	#testando o Agent do GLPI Help Desk via navegador
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
+	firefox ou google chrome: http://endereço_ipv4_linuxmint:62354/
 
 	#forçando o envio do primeiro inventário do GLPI Help Desk
 	sudo glpi-agent 
 
-	#instalação do Agent no Windows 10
+	#Instalação do GLPI Agent no Microsoft Windows 10
 
-	#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 25/05/2025)
-	Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.8/GLPI-Agent-1.8-x64.msi
+	#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
+	#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
+	#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+	Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.9/GLPI-Agent-1.9-x64.msi
 
 	#instalando o Agent GLPI Help Desk Windows 10
 	Download
-		Executar o software: GLPI-Agent-1.8-x64.msi
-		Welcome to the Setup Wizard for GLPI Agent 1.8: <Next>
+		Executar o software: GLPI-Agent-1.9-x64.msi
+		O Windows protegeu o seu computador
+			Mais informações
+			<Executar assim mesmo> 
+		Welcome to the Setup Wizard for GLPI Agent 1.9: <Next>
 		End-User License Agreement: <Next>
 		Destination Folder: <Next>
 		Choose Setup Type: <Custom>
@@ -442,6 +459,8 @@ exit
 				Quick installation: ON
 			<Next>
 		<Install>
+		Deseja permitir que este aplicativo de um fornecedor desconhecido faça alterações no seu dispositivo?
+			<SIM>
 		Completed the GLPI Agent 1.8 Setup Wizard: <Finish>
 
 	#editando o arquivo de configuração do Agent GLPI Help Desk via Powershell
@@ -480,10 +499,12 @@ exit
 	#testando o Agent do GLPI Help Desk via navegador
 	firefox ou google chrome: http://endereço_ipv4_windows10:62354/
 
-	#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 25/05/2025)
+	#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
+	#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent Monitor sofre alteração, antes
+	#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
 	Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.3.0/GLPI-AgentMonitor-x64.exe
 
-	#instalando o Agent Monitor GLPI Help Desk Windows 10
+	#instalando o GLPI Agent Monitor no Microsoft Windows 10
 	Download
 		Executar o software: GLPI-AgentMonitor-x64.exe
 
