@@ -888,7 +888,7 @@ DROP DATABASE dbagenda;
 
 /* deletando o usuário DBAgenda */
 SELECT user,host FROM mysql.user WHERE user='dbagenda';
-DROP USER 'dbagenda'@'host';
+DROP USER 'dbagenda'@'localhost';
 
 /* recriando o Banco de Dados DBAgenda */
 CREATE DATABASE dbagenda;
