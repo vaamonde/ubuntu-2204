@@ -151,7 +151,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 	
 	#adicionando as informações de memória na inicialização do Kernel
 	#opção do comando tee: -a (append)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
 
 #07_ Habilitando o Serviço do OpenSearch<br>
@@ -170,7 +170,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 	sudo systemctl start opensearch
 
 	#analisando os Log's e mensagens de erro do Servidor do OpenSearch
-	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)nsearch
+	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
 	sudo journalctl -xeu opensearch
 
 	#verificando a versão do OpenSearch via Terminal ou Navegador
@@ -225,7 +225,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 	#opção do comando head: -1 (lines)
 	#opção do comando tr: -d (delete)
 	#opção do comando cut: -d (delimiter), -f (fields)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
 	echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
 		Enter Password: pti@2018
@@ -301,12 +301,12 @@ db.createUser({
 	sudo systemctl start graylog-server
 
 	#analisando os Log's e mensagens de erro do Servidor do Graylog Server
-	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)nsearch
+	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
 	sudo journalctl -xeu graylog-server
 
 	#verificando a versão do Graylog Server
 	#opção do comando grep: - i (ignore-case)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	sudo apt list | grep -i graylog
 
 #17_ Verificando a Porta de Conexão do Graylog Server<br>
@@ -367,6 +367,7 @@ db.createUser({
 	<Launch Input>
 
 	#verificando a porta de conexão do Input do Graylog
+	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
 	sudo lsof -nP -iUDP:'1514'
 
 	#configurando a exportação dos Logs do Rsyslog para o Graylog
@@ -512,6 +513,7 @@ db.createUser({
 	<Launch Input>
 
 	#verificando a porta de conexão do Input do Graylog
+	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
 	sudo lsof -nP -iUDP:'12201'
 
 #24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10<br>

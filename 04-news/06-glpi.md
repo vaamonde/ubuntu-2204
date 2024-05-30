@@ -30,8 +30,9 @@ Conteúdo estudado nessa implementação:<br>
 #06_ Editando os arquivos de configuração do GLPI Help Desk<br>
 #07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
 #08_ Acessando e configurando o GLPI Help Desk via navegador<br>
-#09_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
-#10_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
+#09_ Localização dos diretórios principais do GLPI Help Desk<br>
+#10_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+#11_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
 
 Site Oficial do GLPI Project: https://glpi-project.org/pt-br/<br>
 
@@ -68,6 +69,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 	#habilitando o recurso de TimeZone do GLPI no MySQL Server
 	#opções do comando mysql: -u (user), -p (password), mysql (database)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	sudo mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root -p mysql
 	
 	#reiniciar o serviço do MySQL Server 
@@ -198,9 +200,17 @@ exit
 	sudo vim /etc/php/8.1/apache2/php.ini
 	INSERT
 
-		#alterar o valor da variável session.cookie_httponly na linha: 1403
+		#descomentar e alterar o valor da variável: session.cookie_secure na linha: 1371
+		#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
+		session.cookie_secure = on
+
+		#alterar o valor da variável: session.cookie_httponly na linha: 1403
 		#OBSERVAÇÃO IMPORTANTE: a opção: on tem que ser em: MINÚSCULA para funcionar.
 		session.cookie_httponly = on
+
+		#alterar o valor da variável: session.cookie_samesite na linha: 1409
+		#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
+		session.cookie_samesite = on
 
 	#salvar e sair do arquivo
 	ESC SHIFT :x <Enter>
@@ -244,7 +254,16 @@ exit
 	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 	sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
 
-#09_ Acessando e configurando o GLPI Help Desk via navegador<br>
+#09_ Localização dos diretórios principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO)<br>
+
+	/etc/apache2/conf-available/*  <-- Diretório dos arquivos de configuração dos Sites do Apache2 Server;
+	/etc/cron.d/*                  <-- Diretório dos arquivos de agendamento diário do CRON;
+	/var/www/html/glpi/*           <-- Diretório dos arquivos e diretórios do GLPI Help Desk;
+	/var/www/html/glpi/public/*    <-- Diretório do DocumentRoot do Apache padrão do GLPI Help Desk;
+	/var/www/html/glpi/plugins/*   <-- Diretório dos Plugins do GLPI Help Desk;
+	/var/www/html/glpi/files/*     <-- Diretório dos Arquivos do GLPI Help Desk.
+
+#10_ Acessando e configurando o GLPI Help Desk via navegador<br>
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
 
@@ -306,9 +325,10 @@ exit
 		<Entrar>
 
 	#removendo o arquivo Install pós instalação do GLPI Help Desk
+	#opção do comando rm: -v (verbose)
 	sudo rm -v /var/www/html/glpi/install/install.php
 
-#10_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+#11_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
 
 	#habilitar o recurso de recebimento de inventário no GLPI Help Desk
 	Administração
@@ -321,7 +341,7 @@ exit
 	#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
 
-#11_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
+#12_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
 
 	#Instalação do GLPI Agent no Ubuntu Server
 	
@@ -329,6 +349,7 @@ exit
 	sudo apt update
 
 	#instalando as dependências do Agent do GLPI Help Desk
+	#opção da contra barra (\): criar uma quebra de linha no terminal
 	sudo apt install libfile-which-perl liblwp-useragent-determined-perl libnet-ip-perl \
 	libtext-template-perl libuniversal-require-perl libxml-treepp-perl libcpanel-json-xs-perl \
 	libcompress-raw-zlib-perl libio-compress-perl libhttp-daemon-perl libio-socket-ssl-perl \
@@ -373,6 +394,7 @@ exit
 
 	#verificando a porta de conexão do GLPI Agent
 	#opção do comando netstat: -a (all), -n (numeric), -p (program)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	sudo netstat -anp | grep 62354 
 
 	#testando o Agent do GLPI Help Desk via navegador
@@ -387,6 +409,7 @@ exit
 	sudo apt update
 
 	#instalando as dependências do Agent do GLPI Help Desk
+	#opção da contra barra (\): criar uma quebra de linha no terminal
 	sudo apt install libfile-which-perl liblwp-useragent-determined-perl libnet-ip-perl \
 	libtext-template-perl libuniversal-require-perl libxml-treepp-perl libcpanel-json-xs-perl \
 	libcompress-raw-zlib-perl libio-compress-perl libhttp-daemon-perl libio-socket-ssl-perl \
@@ -428,6 +451,7 @@ exit
 
 	#verificando a porta de conexão do GLPI Agent
 	#opção do comando netstat: -a (all), -n (numeric), -p (program)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	sudo netstat -anp | grep 62354 
 
 	#testando o Agent do GLPI Help Desk via navegador
@@ -495,6 +519,7 @@ exit
 
 	#verificando a porta de conexão do GLPI Agent
 	#opção do comando netstat: -a (all), -n (numeric)
+	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 	netstat -an | findstr 62354 
 
 	#testando o Agent do GLPI Help Desk via navegador
