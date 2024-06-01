@@ -7,8 +7,8 @@ Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 Github: https://github.com/vaamonde
 Data de criação: 02/05/2022
-Data de atualização: 16/03/2024
-Versão: 0.02
+Data de atualização: 01/06/2024
+Versão: 0.03
 Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 
 Network: 172.16.1.0/24
@@ -34,4 +34,8 @@ PROCEDIMENTO           PROTOCOLO/PORTA/SERVIÇO (Daemon)
 PROCEDIMENTO/EXTRA     PROTOCOLO/PORTA/SERVIÇO (Daemon)
 01-zabbix.md           TCP 80 (apache2 HTTP), TCP 443 (apache2 HTTPS), TCP 3306 (mysqld), TCP 10050 (zabbix_ag) e 10051 (zabbix_se)
 02-grafana.md          TCP 3000 (grafana-s HTTP)
-03-prometheus.md       TCP 9091 (prometheus HTTP), TCP 9100 (node_exporter HTTP), 
+03-prometheus.md       TCP 9091 (prometheus HTTP), TCP 9100 (node_exporter HTTP), TCP 9182 (node_exporter HTTP)
+04-influxdb.md         TCP 8086 (influxdb HTTP)
+05-graylog.md          TCP 9200 (opensearch HTTP), TCP 9000 (graylog HTTP), UDP 12201 (graylog GELF), UDP 1514 (graylog Syslog)
+06-glpi.md             TCP 8888 (apache2 HTTP), TCP 443 (apache2 HTTPS), TCP 3306 (mysqld), TCP 62354 (glpi-agent)
+07-datadog.md          TCP 5002 (agent-datadog)
