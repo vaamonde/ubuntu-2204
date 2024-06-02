@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 11/10/2021
-# Data de atualização: 19/03/2024
-# Versão: 0.10
+# Data de atualização: 02/06/2024
+# Versão: 0.11
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.9.x
 #
@@ -147,7 +147,14 @@ X11DisplayOffset 10
 #
 # Controla o suporte para o esquema de autenticação "keyboard-interactive" definido 
 # no RFC-4256. Utilizar um desafio para se autenticar, muito utilizado com QRCode
+# Mudar de: no para: yes se você estiver utilizando o 2FA ou Google Authenticator
 ChallengeResponseAuthentication no
+#
+# Para fornecer o mecanismo 2FA você deve instalar o Google Pluggable Authentication 
+# Module (PAM). A validação da autenticação é baseada em Time-Based One-Time Password 
+# (TOTP), um padrão aberto que alterna tokens seguros em blocos de tempo discretos – 
+# a cada 30 segundos.
+#auth required pam_google_authenticator.so
 #
 # Utilizar autenticação de usuário via PAM (Linux Pluggable Authentication), essa 
 # opção só vai funcionar se o Serviço do PAM esteja configurado no Servidor
