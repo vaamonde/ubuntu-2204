@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 04/06/2024<br>
+#Versão: 0.18<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -287,6 +287,17 @@ db.createUser({
 	#configuração do serviço de monitoramento das Portas TCP Endpoint
 	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
 	sudo ./edit-config go.d/portcheck.conf
+
+	#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente no arquivo:
+	#sudo cat -n /var/log/auth.log | grep ssh apresentou a seguinte mensagem de erro constante a
+	#cada 5 segundos: Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_
+	#identification: Connection closed by remote host. Esse error muitas vezes está associado a
+	#conexões remotas não autorizadas no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após
+	#pesquisar nos Fóruns foi identificado um Software Malicioso (Malware/Boot) de Força Bruta
+	#que fica escaneando servidores OpenSSH na Porta Padrão para implementação de Bots DDoS e
+	#CoinMiners, segue lista de alguns Bots: ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner
+	#Mirai, Gafgy e XorDDos, nesse cenário a falha está associada ao Monitoramento de Porta do SSH
+	#utilizado pelo Netdata, após remover a porta: 22 a falha dos Logs foi resolvida.
 
 	#editar as informações a partir da linha: 8
 	jobs:
