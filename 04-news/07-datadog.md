@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 23/04/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 04/07/2024<br>
+#Versão: 0.03<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
@@ -22,7 +22,8 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Instalando as Dependências do Graylog Server<br>
+#01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
+#02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
 
 Site Oficial do Datadog: https://www.datadoghq.com/<br>
 
