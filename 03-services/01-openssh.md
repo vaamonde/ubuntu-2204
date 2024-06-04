@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 03/06/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -180,6 +180,18 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
 	sudo journalctl -t sshd
 	sudo journalctl -xeu ssh
+
+	#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente no arquivo:
+	#sudo cat -n /var/log/auth.log | grep ssh apresentou a seguinte mensagem de erro em uma rede
+	#Microsoft: Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_
+	#identification: Connection closed by remote host. Esse error muitas vezes está associado a
+	#conexões remotas não autorizadas no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após
+	#pesquisar nos Fóruns foi identificado um Software Malicioso (Malware/Boot) de Força Bruta
+	#que fica escaneando servidores OpenSSH na Porta Padrão para implementação de Bots DDoS e
+	#CoinMiners, segue lista de alguns Bots: ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner
+	#Mirai, Gafgy e XorDDos, para resolver essa falha foi alterado a Porta Padrão do SSHD de: 22
+	#Para: 2222, a falha dos Logs foi resolvida, por motivos de segurança recomendo mudar a porta
+	#padrão se o seu servidor estiver publicado para fora (Internet).
 
 #07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
 
