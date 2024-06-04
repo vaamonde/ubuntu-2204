@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 14/05/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 04/06/2024<br>
+#Versão: 0.13<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM 
 A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
