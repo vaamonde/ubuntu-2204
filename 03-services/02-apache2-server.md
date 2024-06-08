@@ -170,23 +170,35 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 	INSERT
 
 ```html
+<!-- Início do código HTML: declaração do tipo de arquivo que será enviado para a navegador -->
 <!DOCTYPE html>
+	<!-- Tag HTML: Define a raiz de um documento HTML -->
 	<html lang="pt-br">
+		<!-- Tag HEAD: Define um cabeçalho para um documento ou seção -->
 		<head>
+			<!-- Tag TITLE: Define um título para o documento -->
 			<title>Teste da Linguagem HTML</title>
+			<!-- Tag META: Define metadados sobre um documento HTML -->
 			<meta charset="utf-8">
+		<!-- Fechamento da Tag: HEAD -->
 		</head>
+		<!-- Tag BODY: Define o corpo do documento -->
 		<body>
+			<!-- Tag H1: Define títulos HTML -->
+			<!-- Tag BR: Define uma única quebra de linha -->
 			<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>
 			Autor: Robson Vaamonde<br>
 			Editado por: SEU NOME AQUI<br>
+			<!-- Tag: A Define um hiperlink -->
 			Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
 			Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
 			Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
 			Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
 			Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
 			YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+		<!-- Fechamento da Tag: BODY -->
 		</body>
+	<!-- Fechamento da Tag: HTML -->
 	</html>
 ```
 	#salvar e sair do arquivo
@@ -204,7 +216,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 			<meta charset="utf-8">
 		</head>
 		<body>
+			<!-- Início do script PHP: ?php -->
 			<?php 
+				// Função ECHO: Imprimir uma ou mais strings na saída padrão
 				echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
 				echo 'Autor: Robson Vaamonde<br>';
 				echo 'Editado por: SEU NOME AQUI<br>';
@@ -214,6 +228,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 				echo 'Facebook: https://www.facebook.com/BoraParaPratica<br>';
 				echo 'Instagram: https://www.instagram.com/procedimentoem/<br>';
 				echo 'YouTube: https://youtube.com/BoraParaPratica<br>'; 
+			// Fechamento do Script PHP
 			?>
 		</body>
 	</html>
@@ -227,7 +242,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 ```php
 <?php
-	/** Função do PHP para gerar a página de documentação e parâmetros do PHP*/
+	// Função do PHP para gerar a página de documentação e parâmetros do PHP
 	phpinfo(); 
 ?>
 ```
