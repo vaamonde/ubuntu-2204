@@ -36,8 +36,9 @@ B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/w
 C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA
 
 	Oracle VirtualBOX.
+	
 	01. Ferramentas;
-		<Novo>
+	<Novo>
 
 	02. Nome e Sistema Operacional:
 		Nome: UbuntuWebserver
@@ -70,8 +71,9 @@ C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU
 #03_ Terceira Etapa: Configurações da Máquina Virtual UbuntuWebserver
 
 	Oracle VirtualBOX
-	01. UbuntuWebserver
-(		Propriedades/Configurações
+	
+	01. Selecionar a Maquina Virtual: UbuntuWebserver
+		Propriedades/Configurações
 
 	02. Sistema
 		Placa Mãe
@@ -80,7 +82,7 @@ C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU
 		Processador
 			Processadores: 02 CPUs
 			Recursos Estendidos: Habilitar PAE/NX
-									Habilitar VT-x/AMD-v Aninhado 
+			                     Habilitar VT-x/AMD-v Aninhado 
 
 	03. Monitor
 		Tela (S)
@@ -133,12 +135,12 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 		<Continue without updating>
 	
 	04. Keyboard configuration
-			Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
-			Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+		Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+		Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 	<Done>
 
 	05. Choose type of install
-			(X) Ubuntu Server
+		(X) Ubuntu Server
 	<Done>
 
 	06. Network connections
