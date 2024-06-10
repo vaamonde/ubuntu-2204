@@ -54,75 +54,87 @@ ESC SHIFT : x <Enter>
 
 #02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
 
-	#editando o arquivo de configuração do Hosts
-	sudo vim /etc/hosts
-	INSERT
-		
-		#adicionar o nome de domínio e apelido na linha 2 e 3
-		#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-		127.0.0.1    localhost.localdomain  localhost
-		127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
-		172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
+```bash
+#editando o arquivo de configuração do Hosts
+sudo vim /etc/hosts
+INSERT
 	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#adicionar o nome de domínio e apelido na linha 2 e 3
+	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+	127.0.0.1    localhost.localdomain  localhost
+	127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
+	172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
+
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #03_ Instalando os principais software de rede no Ubuntu Server<br>
 
-	#atualizando as lista do sources.list e instalando os pacotes
-	sudo apt update
-	sudo apt install bridge-utils ifenslave net-tools
+```bash
+#atualizando as lista do sources.list e instalando os pacotes e ferramentas de rede
+sudo apt update
+sudo apt install bridge-utils ifenslave net-tools
+```
 
 #04_ Verificando informações do Hardware de Rede no Ubuntu Server<br>
 
-	#verificando os dispositivos PCI de Placa de Rede instalados
-	#opções do comando lspci: -v (verbose), -s (show)
-	#opção do comando grep: -i (ignore-case)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	sudo lspci -v | grep -i ethernet
+```bash
+#verificando os dispositivos PCI de Placa de Rede instalados
+#opções do comando lspci: -v (verbose), -s (show)
+#opção do comando grep: -i (ignore-case)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+sudo lspci -v | grep -i ethernet
 
-	#verificando os detalhes do hardware de Placa de Rede instalada
-	sudo lshw -class network
+#verificando os detalhes do hardware de Placa de Rede instalada
+sudo lshw -class network
+```
 
 #05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
 
-	#verificando as configurações de endereçamento IP da Placa de Rede instalada
-	#opção do comando ifconfig: -a (all)
-	sudo ifconfig -a
-	sudo ip address show
-	
-	#verificando as configurações de Gateway (route)
-	#opção do comando route: -n (number)
-	sudo route -n
-	sudo ip route
-	
-	#verificando as informações de cache dos Servidores DNS (resolução de nomes)
-	sudo resolvectl
+```bash
+#verificando as configurações de endereçamento IP da Placa de Rede instalada
+#opção do comando ifconfig: -a (all)
+sudo ifconfig -a
+sudo ip address show
+
+#verificando as configurações de Gateway (route)
+#opção do comando route: -n (number)
+sudo route -n
+sudo ip route
+
+#verificando as informações de cache dos Servidores DNS (resolução de nomes)
+sudo resolvectl
+```
 
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 
-	#OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
-	#/etc/netplan/00-installer-config.yaml #Padrão do Ubuntu Server 22.04.x LTS
-	
-	#OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
-	#de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado 
-	#pela linguagem de programação Python, muito cuidado com o uso de espaços e 
-	#tabulação e principalmente sua indentação.
+```bash
+#OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
+#/etc/netplan/00-installer-config.yaml #Padrão do Ubuntu Server 22.04.x LTS
 
-	#listando o conteúdo do diretório do Netplan
-	#opção do comando ls: -l (long listing), -h (human-readable)
-	ls -lh /etc/netplan/
+#OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
+#de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado 
+#pela linguagem de programação Python, muito cuidado com o uso de espaços e 
+#tabulação e principalmente sua indentação.
 
-	#fazendo o backup do arquivo de configuração original do Netplan
-	#opção do comando cp: -v (verbose)
-	sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
+#listando o conteúdo do diretório do Netplan
+#opção do comando ls: -l (long listing), -h (human-readable)
+ls -lh /etc/netplan/
 
-	#editando o arquivo de configuração do Netplan
-	sudo vim /etc/netplan/00-installer-config.yaml
-	INSERT
+#fazendo o backup do arquivo de configuração original do Netplan
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
+
+#editando o arquivo de configuração do Netplan
+sudo vim /etc/netplan/00-installer-config.yaml
+INSERT
+```
 
 ```yaml
+#bloco de configuração da rede
 network:
+  #bloco de configuração do protocolo Ethernet
   ethernets:
     #configuração da Interface Física (Nome Lógico)
     enp0s3:
@@ -153,56 +165,63 @@ network:
       #alterar a pesquisa de domínio para o seu cenário
       #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
       search: [pti.intra]
+  #fim do bloco de configuração do protocolo Ethernet versão 2
   version: 2
 ```
 
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+```bash
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
 
-	#aplicando as mudanças do Netplan em modo Debug (detalhado)
-	sudo netplan --debug apply
+```bash
+#aplicando as mudanças do Netplan em modo Debug (detalhado)
+sudo netplan --debug apply
 
-	#OBSERVAÇÃO IMPORTANTE: você pode utilizar a opção: try que caso aconteça alguma
-	#falha na hora de configurar a placa de rede ele reverte a configuração
-	sudo netplan --debug try
+#OBSERVAÇÃO IMPORTANTE: você pode utilizar a opção: try que caso aconteça alguma
+#falha na hora de configurar a placa de rede ele reverte a configuração
+sudo netplan --debug try
 
-	#verificando o endereço IPv4 da Interface de Rede
-	sudo ifconfig
-	sudo ip address show
+#verificando o endereço IPv4 da Interface de Rede
+sudo ifconfig
+sudo ip address show
 
-	#verificando as informações de Gateway padrão
-	#opção do comando route: -n (numeric)
-	sudo route -n
-	sudo ip route
+#verificando as informações de Gateway padrão
+#opção do comando route: -n (numeric)
+sudo route -n
+sudo ip route
 
-	#verificando as informações dos Servidores DNS e Pesquisa de Domínio
-	sudo resolvectl
+#verificando as informações dos Servidores DNS e Pesquisa de Domínio
+sudo resolvectl
 
-	#testando a conexão com a Internet
-	ping 8.8.8.8
-	ping google.com
+#testando a conexão com a Internet
+ping 8.8.8.8
+ping google.com
 
-	#verificando as informações do nome do servidor Ubuntu Server
-	#opção do comando hostname: -A (all-fqdns), -d (domain), -i (ip address)
-	sudo hostname
-	sudo hostname -A
-	sudo hostname -d
-	sudo hostname -i
+#verificando as informações do nome do servidor Ubuntu Server
+#opção do comando hostname: -A (all-fqdns), -d (domain), -i (ip address)
+sudo hostname
+sudo hostname -A
+sudo hostname -d
+sudo hostname -i
+```
 
 #08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
-	#OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
-	#acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux
-	#ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
-	#fácil administrar e configurar os principais serviços de rede e forma remota.
+```bash
+#OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
+#acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux
+#ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
+#fácil administrar e configurar os principais serviços de rede e forma remota.
 
-	#testando a conexão com o Ubuntu Server
-	ping 172.16.1.20
+#testando a conexão com o Ubuntu Server
+ping 172.16.1.20
 
-	#acessando remotamente o Ubuntu Server
-	ssh vaamonde@172.16.1.20
+#acessando remotamente o Ubuntu Server
+ssh vaamonde@172.16.1.20
 
-	#confirmando a troca das chaves públicas e do fingerprint do SSH
-	Yes <Enter>
+#confirmando a troca das chaves públicas e do fingerprint do SSH
+Yes <Enter>
+```

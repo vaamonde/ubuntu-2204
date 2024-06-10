@@ -48,138 +48,150 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 #01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
 
-	#atualizando as listas do Apt
-	sudo apt update
-	
-	#OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
-	#o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
-	#instalado e pré-configurado.
+```bash
+#atualizando as listas do Apt
+sudo apt update
 
-	#instalando o OpenSSH Server e Client
-	sudo apt install openssh-server openssh-client openssl 
+#OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
+#o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
+#instalado e pré-configurado.
+
+#instalando o OpenSSH Server e Client
+sudo apt install openssh-server openssh-client openssl 
+```
 
 #02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
 
-	#verificando o serviço do OpenSSH Server
-	sudo systemctl status ssh
-	sudo systemctl restart ssh
-	sudo systemctl stop ssh
-	sudo systemctl start ssh
+```bash
+#verificando o serviço do OpenSSH Server
+sudo systemctl status ssh
+sudo systemctl restart ssh
+sudo systemctl stop ssh
+sudo systemctl start ssh
 
-	#verificando as versões do OpenSSH Server e Client
-	#opção do comando sshd e ssh: -V (version)
-	sudo sshd -V
-	sudo ssh -V
+#verificando as versões do OpenSSH Server e Client
+#opção do comando sshd e ssh: -V (version)
+sudo sshd -V
+sudo ssh -V
+```
 
 #03_ Verificando a Porta de Conexão do OpenSSH Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#verificando a porta padrão do OpenSSH Server
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
+#verificando a porta padrão do OpenSSH Server
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
+```
 
 #04_ Localização dos Arquivos de Configuração do OpenSSH Server<br>
 
-	/etc/ssh/             <-- Diretório de configuração do OpenSSH Server e Client
-	/etc/ssh/sshd_config  <-- Arquivo de configuração do OpenSSH Server
-	/etc/ssh/ssh_config   <-- Arquivo de configuração do OpenSSH Client
-	/etc/hosts.deny       <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Deny
-	/etc/hosts.allow      <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Allow
-	/etc/issue.net        <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
-	/var/log/             <-- Diretório de Logs do Sistema Operacional Ubuntu Server
-	/var/log/syslog       <-- Log principal do Sistema Operacional Ubuntu Server
-	/var/log/auth.log     <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
+```bash
+/etc/ssh/             <-- Diretório de configuração do OpenSSH Server e Client
+/etc/ssh/sshd_config  <-- Arquivo de configuração do OpenSSH Server
+/etc/ssh/ssh_config   <-- Arquivo de configuração do OpenSSH Client
+/etc/hosts.deny       <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Deny
+/etc/hosts.allow      <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Allow
+/etc/issue.net        <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
+/var/log/             <-- Diretório de Logs do Sistema Operacional Ubuntu Server
+/var/log/syslog       <-- Log principal do Sistema Operacional Ubuntu Server
+/var/log/auth.log     <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
+```
 
 #05_ Habilitando a segurança de acesso ao OpenSSH Server<br>
 
-	#editando o arquivo de configuração de Negação de Serviço e Host
-	sudo vim /etc/hosts.deny
-	
-	#mostrando o número de linha do arquivo hosts.deny
-	ESC SHIFT :set number <Enter>
-	INSERT
+```bash
+#editando o arquivo de configuração de Negação de Serviço e Host
+sudo vim /etc/hosts.deny
 
-		#inserir as informações na linha 17
-		#lista de serviço: lista de hosts: comando
-		ALL: ALL
+#mostrando o número de linha do arquivo hosts.deny
+ESC SHIFT :set number <Enter>
+INSERT
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+	#inserir as informações na linha 17
+	#lista de serviço: lista de hosts: comando
+	ALL: ALL
 
-	#editando o arquivo de configuração de Liberação de Serviço e Host
-	sudo vim /etc/hosts.allow
-	
-	#mostrando o número de linha do arquivo hosts.allow
-	ESC SHIFT :set number <Enter>
-	INSERT
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
 
-		#inserir as informações na linha 10
-		#lista de serviço: lista de hosts: comando
-		#OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-		sshd: 172.16.1.0/24
+#editando o arquivo de configuração de Liberação de Serviço e Host
+sudo vim /etc/hosts.allow
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+#mostrando o número de linha do arquivo hosts.allow
+ESC SHIFT :set number <Enter>
+INSERT
+
+	#inserir as informações na linha 10
+	#lista de serviço: lista de hosts: comando
+	#OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
+	sshd: 172.16.1.0/24
+
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
 
 #06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
 
-	#fazendo o backup do arquivo de configuração do OpenSSH Server
-	#opção do comando cp: -v (verbose)
-	sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
+```bash
+#fazendo o backup do arquivo de configuração do OpenSSH Server
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 
-	#atualizando o arquivo de configuração do OpenSSH Server
-	#opção do comando wget: -v (verbose), -O (output file)
-	sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
+#atualizando o arquivo de configuração do OpenSSH Server
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
 
-	#atualizando arquivo de configuração do Banner do Ubuntu Server
-	sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
+#atualizando arquivo de configuração do Banner do Ubuntu Server
+sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
 
-	#editando o arquivo de configuração do OpenSSH Server
-	sudo vim /etc/ssh/sshd_config
-	INSERT
+#editando o arquivo de configuração do OpenSSH Server
+sudo vim /etc/ssh/sshd_config
+INSERT
 
-		#alterar a variável ListenAddress na linha 27: ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
-		#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-		ListenAddress 172.16.1.20
+	#alterar a variável ListenAddress na linha 27: ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
+	#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
+	ListenAddress 172.16.1.20
 
-		#alterar a variável AllowUsers na linha 77:
-		#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
-		AllowUsers vaamonde
+	#alterar a variável AllowUsers na linha 77:
+	#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
+	AllowUsers vaamonde
 
-		#alterar a variável AllowGroups na linha 83:
-		#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
-		AllowGroups vaamonde
+	#alterar a variável AllowGroups na linha 83:
+	#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
+	AllowGroups vaamonde
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
 
-	#testando o arquivo de configuração do OpenSSH SERVER (NÃO COMENTADO NO VÍDEO)
-	#opção do comando sshd: -t (text mode check configuration)
-	sudo sshd -t
+#testando o arquivo de configuração do OpenSSH SERVER (NÃO COMENTADO NO VÍDEO)
+#opção do comando sshd: -t (text mode check configuration)
+sudo sshd -t
 
-	#editando o arquivo de configuração do Banner do Ubuntu Server
-	sudo vim /etc/issue.net
-	INSERT
+#editando o arquivo de configuração do Banner do Ubuntu Server
+sudo vim /etc/issue.net
+INSERT
 
-		#alterar a linha 5: Servidor e Admin
-		#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
-		Servidor: wsvaamonde - Admin: Robson Vaamonde
+	#alterar a linha 5: Servidor e Admin
+	#OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
+	Servidor: wsvaamonde - Admin: Robson Vaamonde
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
 
-	#reiniciar o serviço do OpenSSH Server
-	sudo systemctl restart ssh
-	sudo systemctl status ssh
+#reiniciar o serviço do OpenSSH Server
+sudo systemctl restart ssh
+sudo systemctl status ssh
 
-	#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
-	sudo journalctl -t sshd
-	sudo journalctl -xeu ssh
+#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+sudo journalctl -t sshd
+sudo journalctl -xeu ssh
+```
 
 #07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
 
@@ -214,51 +226,59 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 #08_ Criando um usuário Administrador no Ubuntu Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
-	#ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
-	#É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE
-	#USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO
-	#DE APRENDIZAGEM.
+```bash
+#OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
+#ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
+#É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE
+#USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO
+#DE APRENDIZAGEM.
 
-	#criando o usuário Admin
-	sudo adduser admin
-		New password: pti@2018
-		Retype new password: pti@2018
-			Full Name []: Admin Bora para Prática
-			Room Number []: <Enter>
-			Work Phone []: <Enter>
-			Home Phone []: <Enter>
-			Other []: <Enter>
-		Is the information correct? [Y/n] y <Enter>
-	
-	#listando o usuário criado no arquivo passwd
-	sudo cat /etc/passwd | grep admin
+#criando o usuário Admin
+sudo adduser admin
+	New password: pti@2018
+	Retype new password: pti@2018
+		Full Name []: Admin Bora para Prática
+		Room Number []: <Enter>
+		Work Phone []: <Enter>
+		Home Phone []: <Enter>
+		Other []: <Enter>
+	Is the information correct? [Y/n] y <Enter>
 
-	#listando o usuário criado com o comando getent
-	sudo getent passwd admin
+#listando o usuário criado no arquivo passwd
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+sudo cat /etc/passwd | grep admin
 
-	#listando o grupo criado no arquivo group
-	sudo cat /etc/group | grep admin
+#listando o usuário criado com o comando getent
+sudo getent passwd admin
 
-	#listando o grupo criado com o comando getent
-	sudo getent group admin
+#listando o grupo criado no arquivo group
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+sudo cat /etc/group | grep admin
+
+#listando o grupo criado com o comando getent
+sudo getent group admin
+```
 
 #09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)<br>
 
-	#adicionando o usuário Admin ao grupo do SUDO
-	#opção do comando usermod: -a (append), -G (groups)
-	sudo usermod -aG sudo admin
+```bash
+#adicionando o usuário Admin ao grupo do SUDO
+#opção do comando usermod: -a (append), -G (groups)
+sudo usermod -aG sudo admin
 
-	#verificando os grupos do usuário Admin
-	sudo groups admin
+#verificando os grupos do usuário Admin
+sudo groups admin
 
-	#verificando as identificações de grupos do usuário Admin
-	sudo id admin
+#verificando as identificações de grupos do usuário Admin
+sudo id admin
+```
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 
 	#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
 	#verificar se está tudo OK na criação do usuário admin.
+
+========================================DESAFIOS=========================================
 
 #11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
