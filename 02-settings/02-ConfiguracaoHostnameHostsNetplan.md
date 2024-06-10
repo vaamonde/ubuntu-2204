@@ -39,16 +39,18 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
 #01_ Alterando o nome FQDN do Ubuntu Server<br>
 
-	#editando o arquivo de configuração do Hostname
-	sudo vim /etc/hostname
-	INSERT
-		
-		#adicionar o nome de domínio na linha 1
-		#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-		wsvaamonde.pti.intra
+```bash
+#editando o arquivo de configuração do Hostname
+sudo vim /etc/hostname
+INSERT
 	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#adicionar o nome de domínio na linha 1
+	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
+	wsvaamonde.pti.intra
+
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
 
