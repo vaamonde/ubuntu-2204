@@ -27,7 +27,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
 #01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
 
+	#verificando as informações da identificação do Sistema Operacional
 	sudo cat /etc/os-release
+
+	#verificando as informações específicas do Sistema Operacional
 	sudo cat /etc/lsb-release
 
 #02_ Atualizando o Sistema Operacional Ubuntu Server<br>
@@ -57,7 +60,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 		Are you sure you want to confirm and validate this email address?
 		<Sem, tenho certeza>
 
-#04_ Criando uma Assinatura do Ubuntu Pro Free para uso pessoal<br>
+#04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
 
 	Acesse o site: https://ubuntu.com/pro/dashboard
 
@@ -94,10 +97,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 	#verificando as informações de Fix (correção) dos CVE (Common Vulnerabilities and Exposures)
 	sudo pro fix CVE-2023-23518
 
-#08_ Habilitando outros Serviços do Ubuntu Pro<br>
+#08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
 
 	#OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
-	#serviços são habilitados, sendo o ESM-INFRA e o Livepatch, caso queira habilitar mais 
+	#serviços são habilitados, sendo o: ESM-INFRA e o Livepatch, caso queira habilitar mais 
 	#serviços veja a lista abaixo:
 
 	cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
