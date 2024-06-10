@@ -52,19 +52,23 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
 #01_ Instalando as Dependências do WordPress<br>
 
-	#atualizando as listas do Apt
-	sudo apt update
-	
-	#instalando as dependências do WordPress
-	#opção da contra barra (\): criar uma quebra de linha no terminal
-	sudo apt install php8.1-bcmath php8.1-mbstring  php8.1-dev php8.1-curl php8.1-mysql \
-	php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
-	pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
+```bash
+#atualizando as listas do Apt
+sudo apt update
+
+#instalando as dependências do WordPress
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install php8.1-bcmath php8.1-mbstring  php8.1-dev php8.1-curl php8.1-mysql \
+php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
+pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
+```
 
 #02_ Criando a Base de Dados do WordPress no MySQL Server<br>
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+```bash
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
 
 ```sql
 /* Criando o Banco de Dados Wordpress */
@@ -91,9 +95,11 @@ USE wordpress;
 exit
 ```
 
-	#se logando com o usuário wordpress para testar a conexão com o MySQL Server
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u wordpress -p
+```bash
+#se logando com o usuário wordpress para testar a conexão com o MySQL Server
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u wordpress -p
+```
 
 ```sql
 /* visualizando a base de dados do WordPress */
@@ -104,42 +110,46 @@ exit
 
 #03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
 
-	#acessando diretório temporário do Ubuntu Server
-	cd /tmp
+```bash
+#acessando diretório temporário do Ubuntu Server
+cd /tmp
 
-	#fazendo o download do WordPress do site Oficial do Brasil
-	#opção do comando wget: -O (output-document)
-	wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
+#fazendo o download do WordPress do site Oficial do Brasil
+#opção do comando wget: -O (output-document)
+wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
 
-	#descompactando o arquivo do WordPress
-	unzip wordpress.zip
+#descompactando o arquivo do WordPress
+unzip wordpress.zip
 
-	#movendo o conteúdo do WordPress para o diretório do Apache2 Server
-	#opção do comando mv: -v (verbose)
-	sudo mv -v wordpress/ /var/www/html/wp/
+#movendo o conteúdo do WordPress para o diretório do Apache2 Server
+#opção do comando mv: -v (verbose)
+sudo mv -v wordpress/ /var/www/html/wp/
 
-	#alterando as permissões dos diretórios e arquivos do WordPress
-	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
-	#opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
-	#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
-	#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
-	#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
-	sudo chown -Rfv www-data.www-data /var/www/html/wp/
-	sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
-	sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
+#alterando as permissões dos diretórios e arquivos do WordPress
+#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
+#opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
+#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
+#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
+#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
+sudo chown -Rfv www-data.www-data /var/www/html/wp/
+sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
+sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
+```
 
 #04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
 
-	#acessando o diretório do WordPress
-	cd /var/www/html/wp/
+```bash
+#acessando o diretório do WordPress
+cd /var/www/html/wp/
 
-	#criando o arquivo de configuração do banco de dados do WordPress
-	#opção do comando cp: -v (verbose)
-	sudo cp -v wp-config-sample.php wp-config.php
+#criando o arquivo de configuração do banco de dados do WordPress
+#opção do comando cp: -v (verbose)
+sudo cp -v wp-config-sample.php wp-config.php
 
-	#editando o arquivo de configuração do WordPress
-	sudo vim wp-config.php
-	INSERT
+#editando o arquivo de configuração do WordPress
+sudo vim wp-config.php
+INSERT
+```
 
 ```php
 #alterar os valores das variáveis "define" a partir da linha: 23
@@ -160,21 +170,25 @@ define( 'DB_PASSWORD', 'wordpress' );
 #novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
 ```
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
 
 #05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
 
-	#habilitando os módulos do Apache2 Server
-	sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
+```bash
+#habilitando os módulos do Apache2 Server
+sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
 
-	#reiniciar o serviço do Apache2 Server
-	sudo systemctl restart apache2
-	sudo systemctl status apache2
+#reiniciar o serviço do Apache2 Server
+sudo systemctl reload apache2
+sudo systemctl status apache2
 
-	#analisando os Log's e mensagens de erro do Servidor do Apache2 (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-	sudo journalctl -xeu apache2
+#analisando os Log's e mensagens de erro do Servidor do Apache2 (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu apache2
+```
 
 #06_ Acessando e configurando o WordPress via navegador<br>
 
@@ -223,9 +237,11 @@ define( 'DB_PASSWORD', 'wordpress' );
 #Mais informações acesse o Link dos Desenvolvedores do Wordpress:
 Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
-	#se logando no MySQL Server com o usuário e senha Wordpress
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u wordpress -p
+```bash
+#se logando no MySQL Server com o usuário e senha Wordpress
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u wordpress -p
+```
 
 ```sql
 /* Utilizar o banco de dados do Wordpress */
@@ -242,6 +258,8 @@ UPDATE wp_postmeta SET meta_value = replace(meta_value,'IPv4.ANTIGO','IPv4.NOVO'
 exit
 ```
 
+========================================DESAFIOS=========================================
+
 #07_ DESAFIO-01: FAZER A INSTALAÇÃO DE UM NOVO TEMA DO WORDPRESS, FAZER A CRIAÇÃO DE 02 (DUAS)
 POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS UMA IMAGEM.
 
@@ -255,10 +273,10 @@ UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
 #10_ DESAFIO-04: FAZER A INSTALAÇÃO DE UM NOVO SITE WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
-A) Path New Site: /var/www/html/site<br>
-B) Database Name: newsite<br>
-C) User and Password Database: newsite<br>
-D) Wordpress Template Install: Astra
+A) Path New Site..............: /var/www/html/site<br>
+B) Database Name..............: newsite<br>
+C) User and Password Database.: newsite<br>
+D) Wordpress Template Install.: Astra
 
 OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS
 DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE
@@ -268,19 +286,21 @@ programada. Confira novamente em um minuto. ESSA FALHA ESTÁ ASSOCIADA NO MOMENT
 A ATUALIZAÇÃO O WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE
 ACONTECER QUE ELE NÃO VOLTE. PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO:
 
-	#acessar o diretório do site do Wordpress
-	cd /var/www/html/wp
+```bash
+#acessar o diretório do site do Wordpress
+cd /var/www/html/wp
 
-	#listar o arquivo de manutenção do Wordpress
-	#opção do comando ls: -l (list), -h (human-readable), -a (all)
-	ls -lha .maintenance
+#listar o arquivo de manutenção do Wordpress
+#opção do comando ls: -l (list), -h (human-readable), -a (all)
+ls -lha .maintenance
 
-	#remover o arquivo de manutenção do Wordpress
-	#opção do comando rm: -v (verbose)
-	sudo rm -v .maintenance
+#remover o arquivo de manutenção do Wordpress
+#opção do comando rm: -v (verbose)
+sudo rm -v .maintenance
 
-	#fazer um Reload do serviço do Apache2
-	sudo systemctl reload apache2
+#fazer um Reload do serviço do Apache2
+sudo systemctl reload apache2
+```
 
 	#testar novamente o Site, atualizar a página com Ctrl+R ou F5
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/

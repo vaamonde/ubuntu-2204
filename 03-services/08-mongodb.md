@@ -54,139 +54,165 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
 #01_ Instalando as Dependências do MongoDB Server<br>
 
-	#atualizando as lista do apt
-	sudo apt update
+```bash
+#atualizando as lista do apt
+sudo apt update
 
-	#instalando as dependências do MongoDB Server
-	sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
+#instalando as dependências do MongoDB Server
+sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 
-	#download da última versão do Libssl (link atualizado em 06/03/2024)
-	#OBSERVAÇÃO IMPORTANTE: o tempo todo a Biblioteca Libssl sofre alteração, antes de faze o download do 
-	#arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
-	wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
-	
-	#instalando a biblioteca Libssl no Ubuntu Server
-	#opção do comando dpkg: -i (install)
-	sudo dpkg -i libssl*.deb
+#download da última versão do Libssl (link atualizado em 06/03/2024)
+#OBSERVAÇÃO IMPORTANTE: o tempo todo a Biblioteca Libssl sofre alteração, antes de faze o download do 
+#arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
+wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+
+#instalando a biblioteca Libssl no Ubuntu Server
+#opção do comando dpkg: -i (install)
+sudo dpkg -i libssl*.deb
+```
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 
-	#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 7.0 EM: 06/04/2024)
-	#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as
-	#chaves GPG de cada versão acesse o link: https://www.mongodb.org/static/pgp/
-	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do comando gpg: -o (output)
-	curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg
+```bash
+#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 7.0 EM: 06/04/2024)
+#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as
+#chaves GPG de cada versão acesse o link: https://www.mongodb.org/static/pgp/
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando gpg: -o (output)
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg
+```
 
 #03_ Criando o repositório do MongoDB Server<br>
 
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+```bash
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+```
 
 #04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
 
-	#atualizando as listas do Apt
-	sudo apt update
+```bash
+#atualizando as listas do Apt
+sudo apt update
+```
 
 #05_ Instalando o MongoDB Server e Client<br>
 
-	#instalando o MongoDB Server e Client (Console)
-	sudo apt install mongodb-org
+```bash
+#instalando o MongoDB Server e Shell (Console)
+sudo apt install mongodb-org
+```
 
 #06_ Habilitando o Serviço do MongoDB Server<br>
 
-	#habilitando o serviço do MongoDB Server
-	sudo systemctl daemon-reload
-	sudo systemctl enable mongod
-	sudo systemctl start mongod
+```bash
+#habilitando o serviço do MongoDB Server
+sudo systemctl daemon-reload
+sudo systemctl enable mongod
+sudo systemctl start mongod
+```
 
 #07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
 
-	#verificando o serviço do MongoDB Server
-	sudo systemctl status mongod
-	sudo systemctl restart mongod
-	sudo systemctl stop mongod
-	sudo systemctl start mongod
+```bash
+#verificando o serviço do MongoDB Server
+sudo systemctl status mongod
+sudo systemctl restart mongod
+sudo systemctl stop mongod
+sudo systemctl start mongod
 
-	#analisando os Log's e mensagens de erro do Servidor do MongoDB (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
-	sudo journalctl -t mongod
-	sudo journalctl -xeu mongod
+#analisando os Log's e mensagens de erro do Servidor do MongoDB (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+sudo journalctl -t mongod
+sudo journalctl -xeu mongod
 
-	#verificando as versões do MongoDB Server e do Client
-	sudo mongod --version
-	sudo mongosh --version
+#verificando as versões do MongoDB Server e do Client
+sudo mongod --version
+sudo mongosh --version
+```
 
 #08_ Verificando a Porta de Conexão do MongoDB Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
+```
 
 #09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
 
-	/etc/mongod.conf  <-- arquivo de configuração do MongoDB Server
-	/var/log/mongodb  <-- diretório dos arquivos de Log do MongoDB Sever
-	/var/lib/mongodb  <-- diretório dos arquivos de Banco de Dados do MongoDB Server
+```bash
+/etc/mongod.conf  <-- arquivo de configuração do MongoDB Server
+/var/log/mongodb  <-- diretório dos arquivos de Log do MongoDB Sever
+/var/lib/mongodb  <-- diretório dos arquivos de Banco de Dados do MongoDB Server
+```
 
 #10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
 
-	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-	sudo usermod -a -G mongodb $USER
-	newgrp mongodb
-	id
-	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+sudo usermod -a -G mongodb $USER
+newgrp mongodb
+id
 
-#11_ Testando a Conexão Local com o MongoDB Server<br>
+#recomendado reinicializar a máquina para aplicar as permissões
+sudo reboot
+```
 
-	#acessando o MongoDB Server via Client (MongoDB Shell/Console)
-	mongosh
+#11_ Testando a Conexão Local com o MongoDB Server via Shell<br>
+
+```bash
+#acessando o MongoDB Server via Shell (MongoDB Shell/Console)
+mongosh
+```
 
 #12_ Comandos Básicos do MongoDB Server<br>
 
-	#exibindo os bancos de dados existentes no MongoDB
-	show dbs
+```bash
+#exibindo os bancos de dados existentes no MongoDB
+show dbs
 
-	#alterar o database informe no MongoDB
-	use admin
+#alterar o database informe no MongoDB
+use admin
 
-	#listar o database informe atual no MongoDB
-	db
+#listar o database informe atual no MongoDB
+db
 
-	#exibir os collections do database informe atual no MongoDB
-	show collections
+#exibir os collections do database informe atual no MongoDB
+show collections
 
-	#sair do MongoDB
-	quit
+#sair do MongoDB
+quit
+```
 
 #13_ Criando o usuário de administração do MongoDB Server<br>
 
-	#acessando o MongoDB Server via Client (MongoDB Shell/Console)
-	mongosh
-	
-	#alterar o database informe no MongoDB
-	use admin
+```bash
+#acessando o MongoDB Server via Shell (MongoDB Shell/Console)
+mongosh
 
-	#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
-	#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
-	#vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão 
-	#com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão", essa falha 
-	#foi corrigida adicionando essas "Roles" e na conexão com o Banco de Dados foi adicionado a 
-	#opção: ?authSource=admin
+#alterar o database informe no MongoDB
+use admin
 
-	#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
-	#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
-	#com a seguinte mensagem: Command "top" returned error "not authorized on admin to execute command 
-	#{ top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 
-	#2 problems. View all, para resolver essa e outras falhas foi adicionado mais Roles (Papéis)
-	#no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
+#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
+#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
+#vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão 
+#com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão", essa falha 
+#foi corrigida adicionando essas "Roles" e na conexão com o Banco de Dados foi adicionado a 
+#opção: ?authSource=admin
+
+#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
+#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
+#com a seguinte mensagem: Command "top" returned error "not authorized on admin to execute command 
+#{ top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 
+#2 problems. View all, para resolver essa e outras falhas foi adicionado mais Roles (Papéis)
+#no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
+```
 
 ```javascript
 db.createUser(
@@ -212,58 +238,65 @@ db.createUser(
 )
 ```
 
-	#visualizando os usuários do MongoDB
-	db.getUsers()
+```bash
+#visualizando os usuários do MongoDB
+db.getUsers()
 
-	#saindo do MongoDB
-	exit
+#saindo do MongoDB
+exit
+```
 
 #14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
 
-	#fazendo o backup do arquivo de configuração do MongoDB Server
-	#opção do comando cp: -v (verbose)
-	sudo cp -v etc/mongod.conf etc/mongod.conf.old
+```bash
+#fazendo o backup do arquivo de configuração do MongoDB Server
+#opção do comando cp: -v (verbose)
+sudo cp -v etc/mongod.conf etc/mongod.conf.old
 
-	#editando o arquivo de configuração do MongoDB Server
-	sudo vim /etc/mongod.conf
-	INSERT
-		
-		#habilitando o suporte remoto do MongoDB Server na linha: 18
-		#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
-		net:
-		  port: 27017
-		  bindIp: 0.0.0.0
-		
-		#habilitando o recurso de autenticação do MongoDB Server na linha: 28
-		#descomentar a linha: #security, adicionar o valor: authorization: enabled
-		security:
-		  authorization: enabled
+#editando o arquivo de configuração do MongoDB Server
+sudo vim /etc/mongod.conf
+INSERT
 	
-	#salvar e sair do arquivo
-	ESC SHIFT :x <ENTER>
+	#habilitando o suporte remoto do MongoDB Server na linha: 18
+	#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
+	net:
+		port: 27017
+		bindIp: 0.0.0.0
+	
+	#habilitando o recurso de autenticação do MongoDB Server na linha: 28
+	#descomentar a linha: #security, adicionar o valor: authorization: enabled
+	security:
+		authorization: enabled
 
-	#reiniciar o serviço do MongoDB Server
-	sudo systemctl restart mongod
-	sudo systemctl status mongod
+#salvar e sair do arquivo
+ESC SHIFT :x <ENTER>
+
+#reiniciar o serviço do MongoDB Server
+sudo systemctl restart mongod
+sudo systemctl status mongod
+```
 
 #15_ Acessando o MongoDB com e sem autenticação<br>
 
-	mongosh
+```bash
+#acessando novamente o console do MongoDB
+mongosh
 
-	#exibir os bancos de dados existentes no MongoDB
-	show dbs
+#exibir os bancos de dados existentes no MongoDB
+show dbs
 
-	#saindo do MongoDB Server
-	quit
-		
-	#opção do comando mongosh: admin (database) -u (username), -p (password)
-	mongosh admin -u admin -p
+#saindo do MongoDB Server
+quit
+	
+#opção do comando mongosh: admin (database) -u (username), -p (password)
+mongosh admin -u admin -p
 
-	#exibir os bancos de dados existentes no MongoDB
-	show dbs
+#exibir os bancos de dados existentes no MongoDB
+show dbs
 
-	#saindo do MongoDB Server
-	quit
+#saindo do MongoDB Server
+quit
+```
 
 #16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
 
@@ -313,6 +346,8 @@ db.createUser(
 									Authentication Database: admin
 						<Connect>
 					<Close>
+
+========================================DESAFIOS=========================================
 
 #18_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE BANCO 
 DE DADOS CRIAR UM COLLECTION CHAMADO: cadastro (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION

@@ -51,58 +51,68 @@ Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
 #01_ Instalando as Dependências do Zabbix Server e Agent2<br>
 
-	#OBSERVAÇÃO IMPORTANTE: O ZABBIX POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER
-	#E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 
-	#SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+```bash
+#OBSERVAÇÃO IMPORTANTE: O ZABBIX POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER
+#E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 
+#SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
 
-	#atualizando as lista do apt
-	sudo apt update
+#atualizando as lista do apt
+sudo apt update
 
-	#instalando as dependências do Zabbix
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	sudo apt install --install-recommends traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
-	software-properties-common git vim fping
+#instalando as dependências do Zabbix
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install --install-recommends traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
+software-properties-common git vim fping
+```
 
 #02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
 
-	#Link de referência do download: https://www.zabbix.com/download
-	
-	#OBSERVAÇÃO IMPORTANTE: NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0
-	#PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
+```bash
+#Link de referência do download: https://www.zabbix.com/download
 
-	#OBSERVAÇÃO IMPORTANTE: NO DIA 03/06/2024 FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.0
-	#PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+#OBSERVAÇÃO IMPORTANTE: NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0
+#PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
 
-	#OBSERVAÇÃO IMPORTANTE: NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER
-	#FOI SELECIONADO: 7.0 LTS, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL
-	#e Apache.
+#OBSERVAÇÃO IMPORTANTE: NO DIA 03/06/2024 FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.0
+#PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
 
-	#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 04/06/2024)
-	wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb
+#OBSERVAÇÃO IMPORTANTE: NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER
+#FOI SELECIONADO: 7.0 LTS, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL
+#e Apache.
 
-	#instalação do repositório do Zabbix Server
-	#opção do comando dpkg: -i (install)
-	sudo dpkg -i zabbix-release_7.0*.deb
+#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 04/06/2024)
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb
+
+#instalação do repositório do Zabbix Server
+#opção do comando dpkg: -i (install)
+sudo dpkg -i zabbix-release_7.0*.deb
+```
 
 #03_ Instalando o Zabbix Server, Frontend e Agent2<br>
 
-	#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server é necessário ter instalado e
-	#configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados
-	#MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade
-	#de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
+```bash
+#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server é necessário ter instalado e
+#configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados
+#MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade
+#de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
 
-	#atualizando as lista do Apt com o novo repositório do Zabbix Server
-	sudo apt update
+#atualizando as lista do Apt com o novo repositório do Zabbix Server
+sudo apt update
 
-	#instalando o Zabbix Server e Agent2
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
-	zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
+#instalando o Zabbix Server e Agent2
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
+zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
+```
 
 #04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+```bash
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
 
 ```sql
 /* Criando o Banco de Dados Zabbix Server */
@@ -129,8 +139,10 @@ exit
 
 #05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server<br>
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u zabbix -p
+```bash
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u zabbix -p
+```
 
 ```sql
 /* Listando os Bancos de Dados do MySQL */
@@ -145,17 +157,19 @@ exit
 
 #06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
 
-	#OBSERVAÇÃO IMPORTANTE: O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX
-	#SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
+```bash
+#OBSERVAÇÃO IMPORTANTE: O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX
+#SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
-	#importando o esquema e os dados iniciais do banco de dados do Zabbix Server
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	#opções do comando mysql: -u (user), -p (password), zabbix (database)
-	sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
-	-uzabbix -pzabbix zabbix 
+#importando o esquema e os dados iniciais do banco de dados do Zabbix Server
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opções do comando mysql: -u (user), -p (password), zabbix (database)
+sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
+-uzabbix -pzabbix zabbix 
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u zabbix -p
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u zabbix -p
+```
 
 ```sql
 /* Listando os Bancos de Dados do MySQL */
@@ -174,10 +188,12 @@ SELECT username,passwd FROM users;
 exit
 ```
 
-	#Desabilitando a opção de Criação de Função no MySQL Server
+```bash
+#Desabilitando a opção de Criação de Função no MySQL Server
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
 
 ```sql
 /* Desabilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
@@ -189,70 +205,76 @@ exit
 
 #07_ Editando os arquivos de Configuração do Zabbix Server e Agent<br>
 
-	#editando o arquivo de configuração do Zabbix Server
-	sudo vim /etc/zabbix/zabbix_server.conf
-	INSERT
+```bash
+#editando o arquivo de configuração do Zabbix Server
+sudo vim /etc/zabbix/zabbix_server.conf
+INSERT
 
-		#descomentar e alterar o valor da variável DBHost= na linha: 95
-		DBHost=localhost
+	#descomentar e alterar o valor da variável DBHost= na linha: 95
+	DBHost=localhost
 
-		#deixar o padrão da variável DBName= na linha: 107
-		DBName=zabbix
+	#deixar o padrão da variável DBName= na linha: 107
+	DBName=zabbix
 
-		#deixar o padrão da variável DBUser= na linha: 123
-		DBUser=zabbix
+	#deixar o padrão da variável DBUser= na linha: 123
+	DBUser=zabbix
 
-		#descomentar e alterar o valor da variável DBPassword= na linha: 131
-		DBPassword=zabbix
-	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#descomentar e alterar o valor da variável DBPassword= na linha: 131
+	DBPassword=zabbix
 
-	#editando o arquivo de configuração do Zabbix Agent2
-	sudo vim /etc/zabbix/zabbix_agent2.conf
-	INSERT
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
 
-		#alterar o valor da variável Server= na linha: 80
-		Server=172.16.1.20
+#editando o arquivo de configuração do Zabbix Agent2
+sudo vim /etc/zabbix/zabbix_agent2.conf
+INSERT
 
-		#alterar o valor da variável ServerActive= na linha: 133
-		ServerActive=172.16.1.20
+	#alterar o valor da variável Server= na linha: 80
+	Server=172.16.1.20
 
-		#alterar o valor da variável Hostname= na linha: 144
-		Hostname=wsvaamonde
+	#alterar o valor da variável ServerActive= na linha: 133
+	ServerActive=172.16.1.20
 
-		#descomentar o valor da variável RefreshActiveChecks= na linha 204
-		RefreshActiveChecks=5s
-	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#alterar o valor da variável Hostname= na linha: 144
+	Hostname=wsvaamonde
+
+	#descomentar o valor da variável RefreshActiveChecks= na linha 204
+	RefreshActiveChecks=5s
+
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #08_ Habilitando o Serviço do Zabbix Server e Agent2<br>
 
-	#habilitando o serviço do Zabbix Server e Agent2
-	sudo systemctl daemon-reload
-	sudo systemctl enable zabbix-server
-	sudo systemctl restart zabbix-server zabbix-agent2 apache2
+```bash
+#habilitando o serviço do Zabbix Server e Agent2
+sudo systemctl daemon-reload
+sudo systemctl enable zabbix-server
+sudo systemctl restart zabbix-server zabbix-agent2 apache2
+```
 
 #09_ Verificando o Serviço e Versão do Zabbix Server e Agent2<br>
 
-	#verificando o serviço do Zabbix Server e Agent2
-	sudo systemctl status zabbix-server zabbix-agent2
-	sudo systemctl restart zabbix-server zabbix-agent
-	sudo systemctl stop zabbix-server zabbix-agent
-	sudo systemctl start zabbix-server zabbix-agent
+```bash
+#verificando o serviço do Zabbix Server e Agent2
+sudo systemctl status zabbix-server zabbix-agent2
+sudo systemctl restart zabbix-server zabbix-agent
+sudo systemctl stop zabbix-server zabbix-agent
+sudo systemctl start zabbix-server zabbix-agent
 
-	#analisando os Log's e mensagens de erro do Servidor do Zabbix (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
-	sudo journalctl -xeu zabbix-server
-	sudo journalctl -t zabbix_agent2
-	sudo journalctl -xeu zabbix-agent2
+#analisando os Log's e mensagens de erro do Servidor do Zabbix (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -xeu zabbix-server
+sudo journalctl -t zabbix_agent2
+sudo journalctl -xeu zabbix-agent2
 
-	#verificando a versão do Zabbix Server e Agent2
-	#opção do comando zabbix_server: -V (version)
-	#opção do comando zabbix_agentd: -V (version)
-	sudo zabbix_server -V
-	sudo zabbix_agent2 -V
+#verificando a versão do Zabbix Server e Agent2
+#opção do comando zabbix_server: -V (version)
+#opção do comando zabbix_agentd: -V (version)
+sudo zabbix_server -V
+sudo zabbix_agent2 -V
+```
 
 #10_ Configurando o Zabbix Server via Navegador<br>
 
@@ -291,31 +313,37 @@ exit
 
 #11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN
+```
 
 #12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
 
-	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-	sudo usermod -a -G zabbix $USER
-	newgrp zabbix
-	id
-	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+sudo usermod -a -G zabbix $USER
+newgrp zabbix
+id
+
+#recomendado reinicializar a máquina para aplicar as permissões
+sudo reboot
+```
 
 #13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
 
-	/etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
-	/etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
-	/etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent
-	/var/log/zabbix*                <-- Diretório dos arquivos de Log's do serviço do Zabbix
-	/usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
+```bash
+/etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
+/etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
+/etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent
+/var/log/zabbix*                <-- Diretório dos arquivos de Log's do serviço do Zabbix
+/usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
+```
 
 #14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
 
@@ -361,56 +389,57 @@ exit
 		zabbix_agent2.conf
 
 	#Link de referência do download: https://www.zabbix.com/br/download
+
+```bash	
+#SELECIONAR: 7.0 LTS, Ubuntu, 22.04 (Jammy), Agent 2
+#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 04/06/2024)
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb
+
+#instalação do repositório do Zabbix Server
+#opção do comando dpkg: -i (install)
+sudo dpkg -i zabbix-release_7.0*.deb
+
+#atualizando as lista do Apt com o novo repositório do Zabbix Agent2
+sudo apt update
+
+#instalando as dependências do Zabbix Agent2
+sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
+software-properties-common git vim
+
+#instalando o Zabbix Agent2
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+sudo apt install --install-recommends zabbix-agent2 zabbix-agent2-plugin-*
+
+#editando o arquivo de configuração do Zabbix Agent2
+sudo vim /etc/zabbix/zabbix_agent2.conf
+INSERT
+
+	#alterar o valor da variável Server= na linha: 80
+	Server=172.16.1.20
+
+	#alterar o valor da variável ServerActive= na linha: 133
+	ServerActive=172.16.1.20
+
+	#alterar o valor da variável Hostname= na linha: 144
+	Hostname=linuxmint213
 	
-	SELECIONAR: 7.0 LTS, Ubuntu, 22.04 (Jammy), Agent 2
-	#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 04/06/2024)
-	wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu22.04_all.deb
+	#descomentar o valor da variável RefreshActiveChecks= na linha 204
+	RefreshActiveChecks=5s
 
-	#instalação do repositório do Zabbix Server
-	#opção do comando dpkg: -i (install)
-	sudo dpkg -i zabbix-release_7.0*.deb
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
 
+#habilitando o serviço do Zabbix Agent2
+sudo systemctl daemon-reload
+sudo systemctl enable zabbix-agent2
+sudo systemctl restart zabbix-agent2
 
-	#atualizando as lista do Apt com o novo repositório do Zabbix Agent2
-	sudo apt update
+#verificando o serviço do Zabbix Agent2
+sudo systemctl status zabbix-agent2
 
-	#instalando as dependências do Zabbix Agent2
-	sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
-	software-properties-common git vim
-
-	#instalando o Zabbix Agent2
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	sudo apt install --install-recommends zabbix-agent2 zabbix-agent2-plugin-*
-
-	#editando o arquivo de configuração do Zabbix Agent2
-	sudo vim /etc/zabbix/zabbix_agent2.conf
-	INSERT
-
-		#alterar o valor da variável Server= na linha: 80
-		Server=172.16.1.20
-
-		#alterar o valor da variável ServerActive= na linha: 133
-		ServerActive=172.16.1.20
-
-		#alterar o valor da variável Hostname= na linha: 144
-		Hostname=linuxmint213
-		
-		#descomentar o valor da variável RefreshActiveChecks= na linha 204
-		RefreshActiveChecks=5s
-	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
-	
-	#habilitando o serviço do Zabbix Agent2
-	sudo systemctl daemon-reload
-	sudo systemctl enable zabbix-agent2
-	sudo systemctl restart zabbix-agent2
-
-	#verificando o serviço do Zabbix Agent2
-	sudo systemctl status zabbix-agent2
-
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
+```
 
 #15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
 
@@ -461,34 +490,36 @@ exit
 
 #16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
 
-	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-	sudo apt install stress-ng s-tui
+```bash
+#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo apt install stress-ng s-tui
 
-	#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
-	sudo stress-ng --version
-	sudo s-tui --version
+#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
+sudo stress-ng --version
+sudo s-tui --version
 
-	#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
-	#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
-	sudo uptime
+#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
+sudo uptime
 
-	#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
-	sudo top
+#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+sudo top
 
-	#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
-	#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
-	#removing temporary files.), --io (start N workers continuously calling sync(2) to 
-	#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
-	#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
-	#for at least T seconds)
-	sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
+#removing temporary files.), --io (start N workers continuously calling sync(2) to 
+#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
+#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
+#for at least T seconds)
+sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
 
-	#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-	sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
 
-	#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
-	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
-	sudo find / -name vaamonde*
+#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
+#opção do comando find: -name (Base of file name), * (Qualquer coisa)
+sudo find / -name vaamonde*
+```
 
 =========================================================================================
 

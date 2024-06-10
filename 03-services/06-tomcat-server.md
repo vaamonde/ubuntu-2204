@@ -58,158 +58,184 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 #01_ Instalando as Dependências do Apache Tomcat Server<br>
 
-	#atualizando as lista do apt
-	sudo apt update
+```bash
+#atualizando as lista do apt
+sudo apt update
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do 
-	#OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto
-	#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do 
+#OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto
+#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
 
-	#instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
-	sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-common build-essential
+#instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
+sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-common build-essential
+```
 
 #02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado<br>
 
-	#verificando as versões de Java instalado
-	#opção do comando grep: -i (ignore-case)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	sudo java -version
-	sudo apt list --installed | grep -i openjdk
-	sudo update-alternatives --list java
-	sudo update-java-alternatives --list
+```bash
+#verificando as versões de Java instalado
+#opção do comando grep: -i (ignore-case)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+sudo java -version
+sudo apt list --installed | grep -i openjdk
+sudo update-alternatives --list java
+sudo update-java-alternatives --list
+```
 
 #03_ Download do Apache Tomcat Server 10.1.x do site Oficial<br>
 
-	#OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
-	#Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
-	
-	#Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
+```bash
+#OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
+#Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
 
-	#mudando para o usuário Root do Ubuntu Server
-	#opção do comando sudo: -i (login)
-	sudo -i
-	
-	#download da última versão do Apache TomCAT Server (link atualizado em 29/05/2024)
-	#OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
-	#de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
-	#opção do comando wget: -v (verbose), -O (output file)
-	wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.24/bin/apache-tomcat-10.1.24.tar.gz
+#Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
+
+#mudando para o usuário Root do Ubuntu Server
+#opção do comando sudo: -i (login)
+sudo -i
+
+#download da última versão do Apache TomCAT Server (link atualizado em 29/05/2024)
+#OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
+#de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
+#opção do comando wget: -v (verbose), -O (output file)
+wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.24/bin/apache-tomcat-10.1.24.tar.gz
+```
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
 
-	#descompactando o download do arquivo do Apache TomCAT
-	#opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
-	tar -xzvf /tmp/tomcat10.tar.gz -C /tmp
-	
-	#movendo o conteúdo do diretório do Apache TomCAT para o diretório /opt
-	#opção do comando mv: -v (verbose)
-	mv -v /tmp/apache-tomcat* /opt/tomcat
+```bash
+#descompactando o download do arquivo do Apache TomCAT
+#opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
+tar -xzvf /tmp/tomcat10.tar.gz -C /tmp
+
+#movendo o conteúdo do diretório do Apache TomCAT para o diretório /opt
+#opção do comando mv: -v (verbose)
+mv -v /tmp/apache-tomcat* /opt/tomcat
+```
 
 #05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x<br>
 
-	#download dos principais arquivos de configuração do Apache TomCAT Server
-	#opção do comando wget: -v (verbose), -O (output file)
-	
-	#download do arquivo de configuração do Servidor Tomcat
-	wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.xml
-	
-	#download do arquivo de configuração dos Usuários do Tomcat
-	wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
-	
-	#download do arquivo de configuração do Contexto do Tomcat
-	wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
-	
-	#download do arquivo de configuração do Meta Dados do Contexto Manager do Tomcat
-	wget -v -O /opt/tomcat/webapps/manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
-	
-	#download do arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
-	wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+```bash
+#download dos principais arquivos de configuração do Apache TomCAT Server
+#opção do comando wget: -v (verbose), -O (output file)
 
-	#download do arquivo de configuração do Meta Dados do Contexto Examples do Tomcat
-	wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
-	
-	#download do arquivo de configuração da Inicialização do Tomcat
-	#OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
-	#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.X NO DIA: 13/05/2024
-	wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
+#download do arquivo de configuração do Servidor Tomcat
+wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.xml
+
+#download do arquivo de configuração dos Usuários do Tomcat
+wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
+
+#download do arquivo de configuração do Contexto do Tomcat
+wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+
+#download do arquivo de configuração do Meta Dados do Contexto Manager do Tomcat
+wget -v -O /opt/tomcat/webapps/manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+
+#download do arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
+wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+
+#download do arquivo de configuração do Meta Dados do Contexto Examples do Tomcat
+wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
+
+#download do arquivo de configuração da Inicialização do Tomcat
+#OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
+#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.X NO DIA: 13/05/2024
+wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
+```
 
 #06_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x<br>
 
-	#criando o usuário de serviço do Apache TomCAT
-	#opção do comando useradd: -m (create-home), -d (home-dir), -U (user-group), -s (shell)
-	useradd -m -d /opt/tomcat -U -s /bin/false tomcat
+```bash
+#criando o usuário de serviço do Apache TomCAT
+#opção do comando useradd: -m (create-home), -d (home-dir), -U (user-group), -s (shell)
+useradd -m -d /opt/tomcat -U -s /bin/false tomcat
+```
 
 #07_ Alterando as Permissões do Diretório do Apache Tomcat Server 10.1.x<br>
 
-	#alterando as permissões de dono e grupo
-	#opção do comando chown: -R (recursive), -v (verbose), tomcat:tomcat (user and group)
-	chown -Rv tomcat:tomcat /opt/tomcat
+```bash
+#alterando as permissões de dono e grupo
+#opção do comando chown: -R (recursive), -v (verbose), tomcat:tomcat (user and group)
+chown -Rv tomcat:tomcat /opt/tomcat
 
-	#alterando as permissões de acesso a arquivos e diretórios
-	#opção do comando chmod: -R (recursive), -v (verbose), u+x (user added execute/search)
-	chmod -Rv u+x /opt/tomcat/bin
+#alterando as permissões de acesso a arquivos e diretórios
+#opção do comando chmod: -R (recursive), -v (verbose), u+x (user added execute/search)
+chmod -Rv u+x /opt/tomcat/bin
+```
 
 #08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x<br>
 
+```bash
 	#habilitando o serviço do Apache Tomcat Server
 	systemctl daemon-reload
 	systemctl enable tomcat10
 	systemctl start tomcat10
 	
-	#saindo do usuário Root
+	#saindo do perfil do usuário Root
 	exit
+```
 
 #09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
 
-	#verificando o serviço do Apache Tomcat Server
-	sudo systemctl status tomcat10
-	sudo systemctl restart tomcat10
-	sudo systemctl stop tomcat10
-	sudo systemctl start tomcat10
+```bash
+#verificando o serviço do Apache Tomcat Server
+sudo systemctl status tomcat10
+sudo systemctl restart tomcat10
+sudo systemctl stop tomcat10
+sudo systemctl start tomcat10
 
-	#analisando os Log's e mensagens de erro do Servidor do TomCAT (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-	sudo journalctl -xeu tomcat10
+#analisando os Log's e mensagens de erro do Servidor do TomCAT (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu tomcat10
 
-	#verificando a versão do Apache Tomcat Server
-	sudo bash /opt/tomcat/bin/version.sh
+#verificando a versão do Apache Tomcat Server
+sudo bash /opt/tomcat/bin/version.sh
+```
 
 #10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
+```
 
 #11_ Localização dos Arquivos de Configuração do Apache Tomcat Server<br>
 
-	/opt/tomcat                        <-- Diretório de configuração do Apache Tomcat Server
-	/opt/tomcat/bin                    <-- Diretório do binário (executável) do Apache Tomcat Server
-	/opt/tomcat/conf                   <-- Diretório das configurações do Apache Tomcat Server
-	/opt/tomcat/conf/server.xml        <-- Arquivo de configuração do Servidor do Apache Tomcat Server
-	/opt/tomcat/conf/tomcat-users.xml  <-- Arquivo de configuração dos Usuários do Apache Tomcat Server
-	/opt/tomcat/conf/context.xml       <-- Arquivo de configuração do Contexto do Apache Tomcat Server
-	/opt/tomcat/logs                   <-- Diretório dos Logs do Apache Tomcat Server
-	/opt/tomcat/webapps                <-- Diretório das Aplicações Web do Apache Tomcat Server
+```bash
+/opt/tomcat                        <-- Diretório de configuração do Apache Tomcat Server
+/opt/tomcat/bin                    <-- Diretório do binário (executável) do Apache Tomcat Server
+/opt/tomcat/conf                   <-- Diretório das configurações do Apache Tomcat Server
+/opt/tomcat/conf/server.xml        <-- Arquivo de configuração do Servidor do Apache Tomcat Server
+/opt/tomcat/conf/tomcat-users.xml  <-- Arquivo de configuração dos Usuários do Apache Tomcat Server
+/opt/tomcat/conf/context.xml       <-- Arquivo de configuração do Contexto do Apache Tomcat Server
+/opt/tomcat/logs                   <-- Diretório dos Logs do Apache Tomcat Server
+/opt/tomcat/webapps                <-- Diretório das Aplicações Web do Apache Tomcat Server
+```
 
 #12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server<br>
 
-	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-	sudo usermod -a -G tomcat $USER
-	newgrp tomcat
-	id
-	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+sudo usermod -a -G tomcat $USER
+newgrp tomcat
+id
+
+#recomendado reinicializar a máquina para aplicar as permissões
+sudo reboot
+```
 
 #13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server
 
-	#editando o arquivo de criação de usuários do Tomcat
-	sudo vim /opt/tomcat/conf/tomcat-users.xml
-	INSERT
+```bash
+#editando o arquivo de criação de usuários do Tomcat
+sudo vim /opt/tomcat/conf/tomcat-users.xml
+INSERT
+```
 
 ```xml
 <!-- alterar os valores das variável a partir da linha: 30 -->
@@ -219,12 +245,14 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 <user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 ```
 
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+```bash
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
 
-	#reiniciando e verificando o serviço do Apache Tomcat Server
-	sudo systemctl restart tomcat10
-	sudo systemctl status tomcat10
+#reiniciando e verificando o serviço do Apache Tomcat Server
+sudo systemctl restart tomcat10
+sudo systemctl status tomcat10
+```
 
 #14_ Testando o Apache Tomcat Server no navegador<br>
 
@@ -236,6 +264,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 		Usuário padrão: admin
 		Senha padrão..: pti@2018
 	<Fazer Login>
+
+========================================DESAFIOS=========================================
 
 #16_ DESAFIO-01: FAZER A CRIAÇÃO DE 02 (DOIS) NOVOS USUÁRIOS PARA ADMINISTRAR O APACHE TOMCAT SERVER
 PRIMEIRO USUÁRIO: tomcat10 (TUDO EM MINÚSCULO) SENHA: tomcat10, SEGUNDO USUÁRIO: seu_nome (TUDO EM 

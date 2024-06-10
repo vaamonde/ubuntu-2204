@@ -95,8 +95,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 #04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+```bash
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
 
 ```sql
 /* Criando o Banco de Dados DBAgenda */
@@ -133,8 +135,10 @@ exit
 
 #05_ Testando o acesso a Base de Dados DBAgenda com o usuário dbagenda<br>
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u dbagenda -p
+```bash
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u dbagenda -p
+```
 
 ```sql
 /* comandos básicos de verificação da base de dados e tabelas do MySQL */
@@ -151,20 +155,22 @@ exit
 
 #07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: para esse teste, recomendo adicionar vários registros no Banco
-	#de Dados do DBAgenda, para verificar os procedimentos de Dump do Banco e Restore das
-	#informações.
+```bash
+#OBSERVAÇÃO IMPORTANTE: para esse teste, recomendo adicionar vários registros no Banco
+#de Dados do DBAgenda, para verificar os procedimentos de Dump do Banco e Restore das
+#informações.
 
-	#fazendo o backup do banco de dados DBAgenda
-	#opções do comando mysqldump: -u (user), -p (password), database
-	#opção do redirecionador de saída >: Redireciona a saída padrão (STDOUT)
-	sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
+#fazendo o backup do banco de dados DBAgenda
+#opções do comando mysqldump: -u (user), -p (password), database
+#opção do redirecionador de saída >: Redireciona a saída padrão (STDOUT)
+sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
 
-	#verificando o conteúdo do arquivo backupeado 
-	sudo less bkp-dbagenda.sql
+#verificando o conteúdo do arquivo backupeado 
+sudo less bkp-dbagenda.sql
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u dbagenda -p
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u dbagenda -p
+```
 
 ```sql
 /* comandos básicos de verificação da base de dados e tabelas do MySQL */
@@ -181,13 +187,15 @@ SELECT * FROM contatos;
 exit
 ```
 
-	#restaurando o backup do banco de dados DBAgenda
-	#opções do comando mysql: -u (user), -p (password)
-	#opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
-	sudo mysql -u root -p dbagenda < bkp-dbagenda.sql
+```bash
+#restaurando o backup do banco de dados DBAgenda
+#opções do comando mysql: -u (user), -p (password)
+#opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
+sudo mysql -u root -p dbagenda < bkp-dbagenda.sql
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u dbagenda -p
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u dbagenda -p
+```
 
 ```sql
 /* comandos básicos de verificação da base de dados e tabelas do MySQL */
@@ -201,6 +209,8 @@ exit
 ```
 	#acessar novamente a aplicação para verificar se voltou os registros
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+========================================DESAFIOS=========================================
 
 #08_ DESAFIO-01: FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: Hello World DO PROJETO DO 
 GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO 

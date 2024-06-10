@@ -52,49 +52,59 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #01_ Instalando o MySQL Server e Client<br>
 
-	#atualizando as listas do Apt
-	sudo apt update
-	
-	#instalando o MySQL Server e Client
-	sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
+```bash	
+#atualizando as listas do Apt
+sudo apt update
+
+#instalando o MySQL Server e Client
+sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
+```
 
 #02_ Verificando o Serviço e Versão do MySQL Server<br>
 
-	#verificando o serviço do MySQL Server
-	sudo systemctl status mysql
-	sudo systemctl restart mysql
-	sudo systemctl stop mysql
-	sudo systemctl start mysql
+```bash
+#verificando o serviço do MySQL Server
+sudo systemctl status mysql
+sudo systemctl restart mysql
+sudo systemctl stop mysql
+sudo systemctl start mysql
 
-	#verificando as versões do MySQL Server e Client
-	sudo mysqld --version
-	sudo mysql --version
+#verificando as versões do MySQL Server e Client
+sudo mysqld --version
+sudo mysql --version
+```
 
 #03_ Verificando a Porta de Conexão do MySQL Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash	
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
+```
 
 #04_ Localização dos Arquivos de Configuração do MySQL Server<br>
 
-	/etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
-	/etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
-	/etc/mysql/mysql.conf.d/mysql.cnf   <-- Arquivo de configuração do Cliente SGBD do MySQL Client
-	/var/log/mysql                      <-- Diretório padrão dos Logs do SGBD Mysql Server
-	/var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
+```bash	
+/etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
+/etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
+/etc/mysql/mysql.conf.d/mysql.cnf   <-- Arquivo de configuração do Cliente SGBD do MySQL Client
+/var/log/mysql                      <-- Diretório padrão dos Logs do SGBD Mysql Server
+/var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
+```
 
 #05_ Acessando o MySQL Server utilizando o MySQL Client (Console)<br>
 
-	#OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
-	#se logar no MySQL Client Console.
+```bash	
+#OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
+#se logar no MySQL Client Console.
 
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
 
 #06_ Aplicando a segurança de acesso do usuário Root no MySQL Server<br>
 
@@ -124,10 +134,11 @@ FLUSH PRIVILEGES;
 /* saindo do MySQL Client Console */
 exit
 ```
-
-	#testando novamente o acesso ao MySQL Server agora com senha
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u root -p
+```bash	
+#testando novamente o acesso ao MySQL Server agora com senha
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
 
 #07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
 
@@ -148,13 +159,13 @@ SELECT user,host FROM mysql.user WHERE user='dba';
 /* saindo do MySQL Client Console */
 exit
 ```
-
-	#se logando com o usuário dba para testar a conexão com o MySQL Server
-	#opções do comando mysql: -u (user), -p (password)
-	sudo mysql -u dba -p
+```bash	
+#se logando com o usuário dba para testar a conexão com o MySQL Server
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u dba -p
+```
 
 ```sql
-
 /* visualizando as bases de dados do MySQL */
 SHOW DATABASES;
 
@@ -164,50 +175,54 @@ exit
 
 #08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server<br>
 
-	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-	sudo usermod -a -G mysql $USER
-	newgrp mysql
-	id
-	
-	#recomendo fazer logout do usuário para testar as permissões de grupos 
-	exit
+```bash	
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+sudo usermod -a -G mysql $USER
+newgrp mysql
+id
 
-	#opções do comando mysql: -u (user), -p (password)
-	mysql -u dba -p
+#recomendo fazer logout do usuário para testar as permissões de grupos 
+exit
+
+#opções do comando mysql: -u (user), -p (password)
+mysql -u dba -p
+```
 
 #09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
-	
-	#fazendo o backup do arquivo de configuração do MySQL Server
-	#opção do comando cp: -v (verbose)
-	sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
-	
-	#editar o arquivo de configuração do MySQL Server
-	sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
-	INSERT
-	
-		#alterar a linha: 31 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
-		bind-address = 0.0.0.0
 
-		#comentar a linha:32 da variável do: mysqlx-bind-address
-		#mysqlx-bind-address = 127.0.0.1
+```bash		
+#fazendo o backup do arquivo de configuração do MySQL Server
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
 
-	#salvar e sair do arquivo	
-	ESC SHIFT :x <Enter>
+#editar o arquivo de configuração do MySQL Server
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+INSERT
 
-	#testando o arquivo de configuração do MySQL SERVER (NÃO COMENTADO NO VÍDEO)
-	#opção do comando mysqld: --validate-config (checked for problems without running the server)
-	sudo mysqld --validate-config
+	#alterar a linha: 31 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
+	bind-address = 0.0.0.0
 
-	#reiniciar o serviço do MySQL Server
-	sudo systemctl restart mysql
-	sudo systemctl status mysql
+	#comentar a linha:32 da variável do: mysqlx-bind-address
+	#mysqlx-bind-address = 127.0.0.1
 
-	#analisando os Log's e mensagens de erro do Servidor do MySQL (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-	sudo journalctl -xeu mysql
+#salvar e sair do arquivo	
+ESC SHIFT :x <Enter>
 
-	#acessar o MySQL Server como Root
-	sudo mysql -u root -p
+#testando o arquivo de configuração do MySQL SERVER (NÃO COMENTADO NO VÍDEO)
+#opção do comando mysqld: --validate-config (checked for problems without running the server)
+sudo mysqld --validate-config
+
+#reiniciar o serviço do MySQL Server
+sudo systemctl restart mysql
+sudo systemctl status mysql
+
+#analisando os Log's e mensagens de erro do Servidor do MySQL (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu mysql
+
+#acessar o MySQL Server como Root
+sudo mysql -u root -p
+```
 
 ```sql
 /* criando o usuário Root Remoto do MySQL Server */
@@ -224,27 +239,29 @@ exit
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
-	#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
-	#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
-	#MySQL Server não são mostrados por motivo de segurança.
-	
-	#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
+```bash	
+#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
+#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
+#MySQL Server não são mostrados por motivo de segurança.
 
-	#conectando com o usuário Root do MySQL no Workbench
-	MySQL Connections: +
-		Connection Name: wsvaamonde
-		Connection Method: Standard (TCP/IP)
-		Parameters:
-			Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
-			Port: 3306
-			Username: root
-			Password:
-				Store in Keychain
-					Password: pti@2018 (alterar a senha do usuário root do seu servidor)
-				<OK>
-		<Test Connection>
+#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
+
+#conectando com o usuário Root Remoto do MySQL no Workbench
+MySQL Connections: +
+	Connection Name: wsvaamonde
+	Connection Method: Standard (TCP/IP)
+	Parameters:
+		Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+		Port: 3306
+		Username: root
+		Password:
+			Store in Keychain
+				Password: pti@2018 (alterar a senha do usuário root do seu servidor)
 			<OK>
+	<Test Connection>
 		<OK>
+	<OK>
+```
 
 #11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
 
@@ -271,6 +288,8 @@ exit
 						Username: root
 						Password: pti@2018 (alterar a senha do usuário root do seu servidor)
 				<Save>
+
+========================================DESAFIOS=========================================
 
 #12_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE 
 BANCO DE DADOS CRIAR UMA TABELA COM O: seu_nome (TUDO EM MINÚSCULO) COM AS SEGUINTES COLUNAS: 

@@ -45,71 +45,87 @@ Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 
 #01_ Instalando as Dependências do Webmin<br>
 
-	#atualizando as lista do apt
-	sudo apt update
+```bash
+#atualizando as lista do apt
+sudo apt update
 
-	#instalando as dependências do Webmin
-	sudo apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime \
-	libio-pty-perl apt-show-versions python2 python3 unzip apt-transport-https \
-	software-properties-common libdbi-perl libdbd-mysql-perl
+#instalando as dependências do Webmin
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime \
+libio-pty-perl apt-show-versions python2 python3 unzip apt-transport-https libdbi-perl \
+software-properties-common libdbd-mysql-perl
+```
 
 #02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
 
+```bash
 	#opção do comando curl: -o (output file)
 	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 
 	#executando o script de adicionar o repositório
 	sudo sh setup-repos.sh
 		Setup repository? (y/N) y <Enter>
+```
+
 
 #03_ Instalando o Webmin<br>
 
-	#atualizando as lista do apt com o novo repositório do Webmin
-	sudo apt update
+```bash
+#atualizando as lista do apt com o novo repositório do Webmin
+sudo apt update
 
-	#instalando o Webmin
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	sudo apt install --install-recommends webmin
+#instalando o Webmin
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+sudo apt install --install-recommends webmin
+```
 
 #04_ Habilitando o Serviço do Webmin<br>
 
-	#habilitando o serviço do Webmin
-	sudo systemctl daemon-reload
-	sudo systemctl enable webmin
-	sudo systemctl start webmin
+```bash
+#habilitando o serviço do Webmin
+sudo systemctl daemon-reload
+sudo systemctl enable webmin
+sudo systemctl start webmin
+```
 
 #05_ Verificando o Serviço e Versão do Webmin<br>
 
-	#verificando o serviço do Webmin
-	sudo systemctl status webmin
-	sudo systemctl restart webmin
-	sudo systemctl stop webmin
-	sudo systemctl start webmin
+```bash
+#verificando o serviço do Webmin
+sudo systemctl status webmin
+sudo systemctl restart webmin
+sudo systemctl stop webmin
+sudo systemctl start webmin
 
-	#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
-	sudo journalctl -t webmin
-	sudo journalctl -xeu webmin
+#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -t webmin
+sudo journalctl -xeu webmin
 
-	#verificando a versão do Webmin
-	#opção do comando grep: -i (ignore-case)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	sudo apt list --installed | grep -i webmin 
+#verificando a versão do Webmin
+#opção do comando grep: -i (ignore-case)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+sudo apt list --installed | grep -i webmin 
+```
 
 #06_ Verificando a Porta de Conexão do Webmin<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
+```
 
 #07_ Localização dos diretórios principais do Webmin<br>
 
-	/etc/webmin/*  <-- Diretório dos arquivos de Configuração do serviço do Webmin
-	/var/webmin/*  <-- Diretório dos arquivos de Log's do serviço do Webmin
+```bash
+/etc/webmin/*  <-- Diretório dos arquivos de Configuração do serviço do Webmin
+/var/webmin/*  <-- Diretório dos arquivos de Log's do serviço do Webmin
+```
 
 #08_ Testando o Webmin no navegador<br>
 
@@ -145,6 +161,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 				Senha: pti@2018
 				<Salvar>
 		
+========================================DESAFIOS=========================================
 
 #10_ DESAFIO-01: FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE COCKPIT NO UBUNTU SERVER,
 ANALISAR AS DIFERENÇAS ENTRE O WEBMIN E O COCKPIT OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN

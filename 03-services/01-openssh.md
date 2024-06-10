@@ -217,12 +217,14 @@ sudo journalctl -xeu ssh
 	Linux
 		Terminal: Ctrl + Alt + T
 			ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
-	
-	#verificando os usuários logados remotamente no Ubuntu Server
-	#opção do comando who: -H (heading), -a (all)
-	w
-	who -Ha
-	users
+
+```bash	
+#verificando os usuários logados remotamente no Ubuntu Server
+#opção do comando who: -H (heading), -a (all)
+w
+who -Ha
+users
+```
 
 #08_ Criando um usuário Administrador no Ubuntu Server<br>
 

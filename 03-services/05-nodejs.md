@@ -55,84 +55,94 @@ Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
 #01_ Instalando as Dependências do Node.JS<br>
 
-	#atualizando as listas do Apt
-	sudo apt update
-	
-	#instalando as dependências do Node.JS
-	#opção da contra barra (\): criar uma quebra de linha no terminal
-	sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
-	build-essential ca-certificates
+```bash
+#atualizando as listas do Apt
+sudo apt update
+
+#instalando as dependências do Node.JS
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
+build-essential ca-certificates
+```
 
 #02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
 
-	#adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
+```bash
+#adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
 
-	#Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
-	#utilizar esse script em servidores de produção.
-	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do comando sudo: -E (preserve-env)
-	#sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
-	
-	#Adicionando a Chave GPG do Node.JS via Nodesource
-	#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do comando gpg: -o (output file)
-	curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
-	
-	#Adicionando o Repositório do Node.JS no Ubuntu Server
-	#OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
-	#Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
-	#no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+#Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
+#utilizar esse script em servidores de produção.
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando sudo: -E (preserve-env)
+#sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
 
-	#Instalando o Node.JS e NPM (Node Package Manager)
-	sudo apt update
-	sudo apt install nodejs
+#Adicionando a Chave GPG do Node.JS via Nodesource
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando gpg: -o (output file)
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
+
+#Adicionando o Repositório do Node.JS no Ubuntu Server
+#OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
+#Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
+#no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+#Instalando o Node.JS e NPM (Node Package Manager)
+sudo apt update
+sudo apt install nodejs
+```
 
 #03_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
 
-	#opção do comando node: -v (version)
-	#opção do comando npm: -v (version)
-	sudo node -v
-	sudo npm -v
+```bash
+#opção do comando node: -v (version)
+#opção do comando npm: -v (version)
+sudo node -v
+sudo npm -v
+```
 
 #04_ Criando um Projeto Simples para Testar o Node.JS<br>
 
-	#criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
-	#opção do comando mkdir: -v (verbose)
-	mkdir -v nodejs-hello
-	
-	#acessando o diretório do projeto
-	cd nodejs-hello
-		
-		#Inicializando o diretório do Projeto do Node.JS
-		#opção do comando npm: init (create package.json file), -y (yes)
-		npm init -y
-		
-		#Instalando o Módulo/Pacote Express do Node.JS
-		#opção do comando npm: install (install package in directory)
-		npm install express
+```bash
+#criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
+#opção do comando mkdir: -v (verbose)
+mkdir -v nodejs-hello
 
-		#Listando o conteúdo do diretório do projeto do Node.JS
-		#opção do comando ls: -l (long listing), -h (human-readable), -a (all)
-		ls -lha
+#acessando o diretório do projeto
+cd nodejs-hello/
+	
+	#Inicializando o diretório do Projeto do Node.JS
+	#opção do comando npm: init (create package.json file), -y (yes)
+	npm init -y
+	
+	#Instalando o Módulo/Pacote Express do Node.JS
+	#opção do comando npm: install (install package in directory)
+	npm install express
+
+	#Listando o conteúdo do diretório do projeto do Node.JS
+	#opção do comando ls: -l (long listing), -h (human-readable), -a (all)
+	ls -lha
+```
 
 #05_ Criando um Projeto Simples do Node.JS<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
-	#colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
-	#PuTTY para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
+#colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
+#PuTTY para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
 
-	#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
-	#macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
-	#padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
-	#e modificação arquivos desse curso.
+#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
+#macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
+#padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
+#e modificação arquivos desse curso.
 
-	#Criando o arquivo index.js do projeto do Node.JS
-	vim index.js
-	INSERT
+#Criando o arquivo index.js do projeto do Node.JS
+vim index.js
+INSERT
+```
 
 ```js
 // Criando as variáveis do Express e do App do Node.JS
@@ -149,25 +159,32 @@ app.listen(3000, function() {
 	console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });
 ```
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
 
 #06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
 
-	#opção do comando &: background
-	#OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do
-	#caractere: & (E-Comercial) colocando a aplicação em background
-	node index.js &
+```bash
+#opção do comando &: background
+#OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
+#(E-Comercial) colocando a aplicação em background.
+node index.js &
+```
 
 #07_ Verificando a Porta de Conexão do Node.JS Express<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão..
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão..
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
+```
 
 #08_ Acessando o Projeto Simples do Node.JS<br>
 
@@ -175,26 +192,30 @@ app.listen(3000, function() {
 
 #09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
 
-	#verificando os processos em segundo plano (background)
-	jobs
-	
-	#trazendo o processo em segundo plano do Node.JS para o primeiro plano (foreground)
-	fg
+```bash
+#verificando os processos em segundo plano (background)
+jobs
 
-	#finalizando o processo do Node.JS Express
-	Ctrl + C
+#trazendo o processo em segundo plano do Node.JS para o primeiro plano (foreground)
+fg
 
-	#OBSERVAÇÃO IMPORTANTE: caso você não consiga trazer os processos que estão em Segundo
-	#Plano (Background) para o Primeiro Plano (Foreground) para finalizar o processo, você
-	#pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
-	#kill -9 PID
+#finalizando o processo do Node.JS Express
+Ctrl + C
 
-	#exemplo de finalizar o processo utilizando o comando ps para descobrir o PID
-	#opção do comando ps: -u (userlist)
-	ps -u
+#OBSERVAÇÃO IMPORTANTE: caso você não consiga trazer os processos que estão em Segundo
+#Plano (Background) para o Primeiro Plano (Foreground) para finalizar o processo, você
+#pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
+#kill -9 PID
 
-	#opção do comando kill: -9 (Kill all processes you can kill)
-	kill -9 15939
+#exemplo de finalizar o processo utilizando o comando ps para descobrir o PID
+#opção do comando ps: -u (userlist)
+ps -u
+
+#opção do comando kill: -9 (Kill all processes you can kill)
+kill -9 15939
+```
+
+========================================DESAFIOS=========================================
 
 #10_ DESAFIO-01: FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM:
 seu_nome (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: /home/seu_usuário, CRIAR UMA 
