@@ -198,21 +198,21 @@ mongosh
 
 #alterar o database informe no MongoDB
 use admin
-
-#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
-#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
-#vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão 
-#com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão", essa falha 
-#foi corrigida adicionando essas "Roles" e na conexão com o Banco de Dados foi adicionado a 
-#opção: ?authSource=admin
-
-#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
-#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
-#com a seguinte mensagem: Command "top" returned error "not authorized on admin to execute command 
-#{ top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 
-#2 problems. View all, para resolver essa e outras falhas foi adicionado mais Roles (Papéis)
-#no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 ```
+
+	#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
+	#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
+	#vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão 
+	#com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão", essa falha 
+	#foi corrigida adicionando essas "Roles" e na conexão com o Banco de Dados foi adicionado a 
+	#opção: ?authSource=admin
+
+	#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
+	#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
+	#com a seguinte mensagem: Command "top" returned error "not authorized on admin to execute command 
+	#{ top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 
+	#2 problems. View all, para resolver essa e outras falhas foi adicionado mais Roles (Papéis)
+	#no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
 ```javascript
 db.createUser(

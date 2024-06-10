@@ -148,7 +148,7 @@ FLUSH PRIVILEGES;
 /* verificando o usuário do Netdata criado no MySQL */
 SELECT user,host FROM mysql.user WHERE user="netdata";
 
- /* saindo do MySQL */
+/* saindo do MySQL */
 exit
 ```
 
@@ -215,134 +215,136 @@ sudo reboot
 
 #acessando o diretório de configuração do Netdata Server
 cd /etc/netdata/
+```
 
+```bash
 #configuração do serviço de monitoramento do Apache Server
 #https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
 sudo ./edit-config go.d/apache.conf
 
-	#editar as informações a partir da linha: 8
-	jobs:
-	  - name: wsvaamonde
-	    url: http://localhost/server-status?auto
+#editar as informações a partir da linha: 8
+jobs:
+	- name: wsvaamonde
+	url: http://localhost/server-status?auto
 
-	  - name: wsvaamonde
-	    url: http://127.0.0.1/server-status?auto
+	- name: wsvaamonde
+	url: http://127.0.0.1/server-status?auto
 
-	#salvar e sair do arquivo
-	Ctrl + X
-		Save modified buffer? Y
-		File Name to Write: <Enter>
+#salvar e sair do arquivo
+Ctrl + X
+	Save modified buffer? Y
+	File Name to Write: <Enter>
 ```
 
 ```bash
-	#configuração do serviço de monitoramento do Apache TomCAT Server
-	#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
-	sudo ./edit-config python.d/tomcat.conf
+#configuração do serviço de monitoramento do Apache TomCAT Server
+#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
+sudo ./edit-config python.d/tomcat.conf
 
-	#editar as informações a partir da linha: 79
-	localhost:
-	  name : 'wsvaamonde'
-	  url  : 'http://localhost:8080/manager/status?XML=true'
-	  user : 'admin'
-	  pass : 'pti@2018'
+#editar as informações a partir da linha: 79
+localhost:
+	name : 'wsvaamonde'
+	url  : 'http://localhost:8080/manager/status?XML=true'
+	user : 'admin'
+	pass : 'pti@2018'
 
-	localipv4:
-	  name : 'wsvaamonde'
-	  url  : 'http://127.0.0.1:8080/manager/status?XML=true'
-	  user : 'admin'
-	  pass : 'pti@2018'
+localipv4:
+	name : 'wsvaamonde'
+	url  : 'http://127.0.0.1:8080/manager/status?XML=true'
+	user : 'admin'
+	pass : 'pti@2018'
 
-	localipv6:
-	  name : 'wsvaamonde'
-	  url  : 'http://[::1]:8080/manager/status?XML=true'
-	  user : 'admin'
-	  pass : 'pti@2018'
+localipv6:
+	name : 'wsvaamonde'
+	url  : 'http://[::1]:8080/manager/status?XML=true'
+	user : 'admin'
+	pass : 'pti@2018'
 
-	#salvar e sair do arquivo
-	Ctrl + X
-		Save modified buffer? Y
-		File Name to Write: <Enter>
+#salvar e sair do arquivo
+Ctrl + X
+	Save modified buffer? Y
+	File Name to Write: <Enter>
 ```
 
 ```bash
-	#configuração do serviço de monitoramento do MySQL Server
-	#https://learn.netdata.cloud/docs/data-collection/databases/mysql
-	sudo ./edit-config go.d/mysql.conf
+#configuração do serviço de monitoramento do MySQL Server
+#https://learn.netdata.cloud/docs/data-collection/databases/mysql
+sudo ./edit-config go.d/mysql.conf
 
-	#editar as informações a partir da linha: 52
-	jobs:
-	  - name: wsvaamonde
-	    dsn: netdata@tcp(127.0.0.1:3306)/
+#editar as informações a partir da linha: 52
+jobs:
+	- name: wsvaamonde
+	dsn: netdata@tcp(127.0.0.1:3306)/
 
-	#salvar e sair do arquivo
-	Ctrl + X
-		Save modified buffer? Y
-		File Name to Write: <Enter>
+#salvar e sair do arquivo
+Ctrl + X
+	Save modified buffer? Y
+	File Name to Write: <Enter>
 ```
 
 ```bash
-	#configuração do serviço de monitoramento do MongoDB Server
-	#https://learn.netdata.cloud/docs/data-collection/databases/mongodb
-	sudo ./edit-config go.d/mongodb.conf
+#configuração do serviço de monitoramento do MongoDB Server
+#https://learn.netdata.cloud/docs/data-collection/databases/mongodb
+sudo ./edit-config go.d/mongodb.conf
 
-	#editar as informações a partir da linha: 8
-	jobs:
-	  - name: wsvaamonde
-	    uri: mongodb://netdata:netdata@localhost:27017
+#editar as informações a partir da linha: 8
+jobs:
+	- name: wsvaamonde
+	uri: mongodb://netdata:netdata@localhost:27017
 
-	#salvar e sair do arquivo
-	Ctrl + X
-		Save modified buffer? Y
-		File Name to Write: <Enter>
+#salvar e sair do arquivo
+Ctrl + X
+	Save modified buffer? Y
+	File Name to Write: <Enter>
 ```
 
 ```bash
-	#configuração do serviço de monitoramento do ICMP Ping
-	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
-	sudo ./edit-config go.d/ping.conf
+#configuração do serviço de monitoramento do ICMP Ping
+#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
+sudo ./edit-config go.d/ping.conf
 
-	#editar as informações a partir da linha: 10
-	jobs:
-	  - name: google 
-	    hosts:
-	      - 8.8.8.8
+#editar as informações a partir da linha: 10
+jobs:
+	- name: google 
+	hosts:
+		- 8.8.8.8
 
-	  - name: wsvaamonde 
-	    hosts:
-	      - 172.16.1.20
+	- name: wsvaamonde 
+	hosts:
+		- 172.16.1.20
 
-	#salvar e sair do arquivo
-	Ctrl + X
-		Save modified buffer? Y
-		File Name to Write: <Enter>
+#salvar e sair do arquivo
+Ctrl + X
+	Save modified buffer? Y
+	File Name to Write: <Enter>
 ```
 
 ```bash
-	#configuração do serviço de monitoramento das Portas TCP Endpoint
-	#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
-	sudo ./edit-config go.d/portcheck.conf
+#configuração do serviço de monitoramento das Portas TCP Endpoint
+#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
+sudo ./edit-config go.d/portcheck.conf
 
-	#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente no arquivo:
-	#sudo cat -n /var/log/auth.log | grep ssh apresentou a seguinte mensagem de erro constante a
-	#cada 5 segundos: Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_
-	#identification: Connection closed by remote host. Esse error muitas vezes está associado a
-	#conexões remotas não autorizadas no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após
-	#pesquisar nos Fóruns foi identificado um Software Malicioso (Malware/Boot) de Força Bruta
-	#que fica escaneando servidores OpenSSH na Porta Padrão para implementação de Bots DDoS e
-	#CoinMiners, segue lista de alguns Bots: ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner
-	#Mirai, Gafgy e XorDDos, nesse cenário a falha está associada ao Monitoramento de Porta do SSH
-	#utilizado pelo Netdata, após remover a porta: 22 a falha dos Logs foi resolvida.
+#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente no arquivo:
+#sudo cat -n /var/log/auth.log | grep ssh apresentou a seguinte mensagem de erro constante a
+#cada 5 segundos: Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_
+#identification: Connection closed by remote host. Esse error muitas vezes está associado a
+#conexões remotas não autorizadas no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após
+#pesquisar nos Fóruns foi identificado um Software Malicioso (Malware/Boot) de Força Bruta
+#que fica escaneando servidores OpenSSH na Porta Padrão para implementação de Bots DDoS e
+#CoinMiners, segue lista de alguns Bots: ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner
+#Mirai, Gafgy e XorDDos, nesse cenário a falha está associada ao Monitoramento de Porta do SSH
+#utilizado pelo Netdata, após remover a porta: 22 a falha dos Logs foi resolvida.
 
-	#editar as informações a partir da linha: 8
-	jobs:
-	  - name: wsvaamonde
-	    host: 172.16.1.20
-	    ports: [22, 80, 3306, 8080, 19999, 27017]
+#editar as informações a partir da linha: 8
+jobs:
+	- name: wsvaamonde
+	host: 172.16.1.20
+	ports: [22, 80, 3306, 8080, 19999, 27017]
 
-	#salvar e sair do arquivo
-	Ctrl + X
-		Save modified buffer? Y
-		File Name to Write: <Enter>
+#salvar e sair do arquivo
+Ctrl + X
+	Save modified buffer? Y
+	File Name to Write: <Enter>
 ```
 
 ```bash

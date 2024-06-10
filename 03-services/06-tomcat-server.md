@@ -119,25 +119,25 @@ mv -v /tmp/apache-tomcat* /opt/tomcat
 #download dos principais arquivos de configuração do Apache TomCAT Server
 #opção do comando wget: -v (verbose), -O (output file)
 
-#download do arquivo de configuração do Servidor Tomcat
+#download do arquivo de configuração do Servidor Apache Tomcat
 wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.xml
 
-#download do arquivo de configuração dos Usuários do Tomcat
+#download do arquivo de configuração dos Usuários do Apache Tomcat
 wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
 
-#download do arquivo de configuração do Contexto do Tomcat
+#download do arquivo de configuração do Contexto do Apache Tomcat
 wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Manager do Tomcat
+#download do arquivo de configuração do Meta Dados do Contexto Manager do Apache Tomcat
 wget -v -O /opt/tomcat/webapps/manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Host Manager do Tomcat
+#download do arquivo de configuração do Meta Dados do Contexto Host Manager do Apache Tomcat
 wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Examples do Tomcat
+#download do arquivo de configuração do Meta Dados do Contexto Examples do Apache Tomcat
 wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração da Inicialização do Tomcat
+#download do arquivo de configuração da Inicialização do Apache Tomcat
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
 #DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.X NO DIA: 13/05/2024
 wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
@@ -166,13 +166,13 @@ chmod -Rv u+x /opt/tomcat/bin
 #08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x<br>
 
 ```bash
-	#habilitando o serviço do Apache Tomcat Server
-	systemctl daemon-reload
-	systemctl enable tomcat10
-	systemctl start tomcat10
-	
-	#saindo do perfil do usuário Root
-	exit
+#habilitando o serviço do Apache Tomcat Server
+systemctl daemon-reload
+systemctl enable tomcat10
+systemctl start tomcat10
+
+#saindo do perfil do usuário Root
+exit
 ```
 
 #09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
