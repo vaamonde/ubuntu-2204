@@ -26,14 +26,16 @@ Link da vídeo aula: https://www.youtube.com/watch?v=B3FzV2bxjtw
 #01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
 
 ```bash
-	#Update é utilizado para baixar informações de pacotes de todas as fontes configuradas.
-	sudo apt update
+#Update é utilizado para baixar informações de pacotes de todas as fontes configuradas.
+sudo apt update
 ```
 
 #02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
 
-	#List é utilizado para listar todos os software que serão atualizados no sistema.
-	sudo apt list --upgradable
+```shell
+#List é utilizado para listar todos os software que serão atualizados no sistema.
+sudo apt list --upgradable
+```
 
 #03_ Atualizando todos os software no Ubuntu Server<br>
 
