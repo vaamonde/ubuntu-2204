@@ -224,11 +224,11 @@ sudo ./edit-config go.d/apache.conf
 
 #editar as informações a partir da linha: 8
 jobs:
-	- name: wsvaamonde
-	url: http://localhost/server-status?auto
+  - name: wsvaamonde
+    url: http://localhost/server-status?auto
 
-	- name: wsvaamonde
-	url: http://127.0.0.1/server-status?auto
+  - name: wsvaamonde
+    url: http://127.0.0.1/server-status?auto
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -243,22 +243,22 @@ sudo ./edit-config python.d/tomcat.conf
 
 #editar as informações a partir da linha: 79
 localhost:
-	name : 'wsvaamonde'
-	url  : 'http://localhost:8080/manager/status?XML=true'
-	user : 'admin'
-	pass : 'pti@2018'
+  name : 'wsvaamonde'
+  url  : 'http://localhost:8080/manager/status?XML=true'
+  user : 'admin'
+  pass : 'pti@2018'
 
 localipv4:
-	name : 'wsvaamonde'
-	url  : 'http://127.0.0.1:8080/manager/status?XML=true'
-	user : 'admin'
-	pass : 'pti@2018'
+  name : 'wsvaamonde'
+  url  : 'http://127.0.0.1:8080/manager/status?XML=true'
+  user : 'admin'
+  pass : 'pti@2018'
 
 localipv6:
-	name : 'wsvaamonde'
-	url  : 'http://[::1]:8080/manager/status?XML=true'
-	user : 'admin'
-	pass : 'pti@2018'
+  name : 'wsvaamonde'
+  url  : 'http://[::1]:8080/manager/status?XML=true'
+  user : 'admin'
+  pass : 'pti@2018'
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -273,8 +273,8 @@ sudo ./edit-config go.d/mysql.conf
 
 #editar as informações a partir da linha: 52
 jobs:
-	- name: wsvaamonde
-	dsn: netdata@tcp(127.0.0.1:3306)/
+  - name: wsvaamonde
+    dsn: netdata@tcp(127.0.0.1:3306)/
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -305,13 +305,13 @@ sudo ./edit-config go.d/ping.conf
 
 #editar as informações a partir da linha: 10
 jobs:
-	- name: google 
-	hosts:
-		- 8.8.8.8
+  - name: google 
+    hosts:
+      - 8.8.8.8
 
-	- name: wsvaamonde 
-	hosts:
-		- 172.16.1.20
+  - name: wsvaamonde 
+    hosts:
+      - 172.16.1.20
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -337,9 +337,9 @@ sudo ./edit-config go.d/portcheck.conf
 
 #editar as informações a partir da linha: 8
 jobs:
-	- name: wsvaamonde
-	host: 172.16.1.20
-	ports: [22, 80, 3306, 8080, 19999, 27017]
+  - name: wsvaamonde
+    host: 172.16.1.20
+    ports: [22, 80, 3306, 8080, 19999, 27017]
 
 #salvar e sair do arquivo
 Ctrl + X
