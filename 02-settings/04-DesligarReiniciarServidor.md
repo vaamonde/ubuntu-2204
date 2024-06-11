@@ -40,7 +40,13 @@ sudo poweroff --reboot
 ```bash
 #OBSERVAÇÃO: init é o primeiro processo iniciado durante a inicialização do sistema 
 #de computador. O init é um processo daemon que continua executando até o sistema 
-#ser desligado.
+#ser desligado. o init trabalha no conceito de Runlevel (níveis de execução), no
+#GNU/Linux temos basicamente 08 (oito) tipos de Runlevels: init 0 - Shutdown, init 
+#1 - Single user mode or emergency mode, init 2 - No network, init 3 - Network is 
+#present, init 4 It is similar to runlevel 3, init 5 - Network is present, init 6 
+#This runlevel is defined to system restart, init s - Tells the init command to 
+#enter the maintenance mode, init S - Same as init s, init m - Same as init s and 
+#init S e init M - Same as init s or init S or init m.
 
 #opção do comando init: 0 (halt), 6 (reboot)
 sudo init 0
@@ -62,6 +68,7 @@ sudo reboot
 #now (Shutdown immediately), 19:50 (Shutdown at 19:50 pm), +20 (Shutdown in 20 minutes)
 sudo shutdown -P
 sudo shutdown -h
+sudo shutdown -r
 sudo shutdown -h now
 sudo shutdown -r now
 

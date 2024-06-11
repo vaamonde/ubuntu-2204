@@ -151,10 +151,12 @@ sudo pro status
 #09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
 
 ```bash
+sudo apt clean
 sudo apt update
 sudo apt upgrade
 sudo apt full-upgrade
 sudo apt dist-upgrade
 sudo apt autoremove
 sudo apt autoclean
+sudo reboot
 ```

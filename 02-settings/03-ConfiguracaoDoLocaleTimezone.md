@@ -68,7 +68,8 @@ sudo timedatectl
 #OBSERVAÇÃO IMPORTANTE: geralmente mudar para o Time Zone de America/Sao_Paulo a hora
 #fica errada no sistema, nesse caso podemos mudar para America/Fortaleza ou America/Bahia
 #esse error e por causa do Fuso Horário em relação ao Horário de Verão que não existe 
-#mais no Brasil
+#mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado
+#no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
 #configurando o fuso horário de America São Paulo
 #OBSERVAÇÃO: ALTERAR CONFORME A SUA LOCALIDADE DO SEU SERVIDOR

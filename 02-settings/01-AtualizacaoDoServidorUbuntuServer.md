@@ -85,5 +85,7 @@ sudo apt autoclean
 ```bash
 #Clean limpa o repositório local de arquivos de pacotes recuperados
 sudo apt clean
+
+#Reiniciar o servidor para testar as atualizações
 sudo reboot
 ```

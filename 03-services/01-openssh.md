@@ -247,15 +247,17 @@ sudo adduser admin
 	Is the information correct? [Y/n] y <Enter>
 
 #listando o usuário criado no arquivo passwd
+#opção do comando cat: -n (number line)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-sudo cat /etc/passwd | grep admin
+sudo cat -n /etc/passwd | grep admin
 
 #listando o usuário criado com o comando getent
 sudo getent passwd admin
 
 #listando o grupo criado no arquivo group
+#opção do comando cat: -n (number line)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-sudo cat /etc/group | grep admin
+sudo cat -n /etc/group | grep admin
 
 #listando o grupo criado com o comando getent
 sudo getent group admin
@@ -277,16 +279,16 @@ sudo id admin
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server para
-	#verificar se está tudo OK na criação do usuário admin.
+#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
+#Virtual para verificar se está tudo OK na criação do usuário admin.
 
 ========================================DESAFIOS=========================================
 
-#11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
+#11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: **admin** SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
 SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
 
-#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO),
-FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: sudo E PERMITIR QUE O
+#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: **robson** (TUDO EM MINÚSCULO),
+FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: **sudo** E PERMITIR QUE O
 SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
 
 =========================================================================================

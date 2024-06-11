@@ -37,7 +37,7 @@ localizado em /etc/hosts
 
 Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
-#01_ Alterando o nome FQDN do Ubuntu Server<br>
+#01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
 
 ```bash
 #editando o arquivo de configuração do Hostname
@@ -181,7 +181,7 @@ ESC SHIFT : x <Enter>
 sudo netplan --debug apply
 
 #OBSERVAÇÃO IMPORTANTE: você pode utilizar a opção: try que caso aconteça alguma
-#falha na hora de configurar a placa de rede ele reverte a configuração
+#falha na hora de configurar a placa de rede ele reverte a configuração inicial
 sudo netplan --debug try
 
 #verificando o endereço IPv4 da Interface de Rede
@@ -214,7 +214,7 @@ sudo hostname -i
 #OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
 #acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux
 #ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
-#fácil administrar e configurar os principais serviços de rede e forma remota.
+#fácil administrar e configurar os principais serviços de rede de forma remota.
 
 #testando a conexão com o Ubuntu Server
 ping 172.16.1.20

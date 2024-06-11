@@ -176,7 +176,7 @@ cd /var/www/html
 #OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
 #macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
 #padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
-#e modificação arquivos desse curso.
+#e modificação dos arquivos desse curso.
 
 #criando o arquivo em HTML
 sudo vim seu_nome.html
@@ -278,17 +278,19 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 ```
 ========================================DESAFIOS=========================================
 
-#09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM: seu_nome (TUDO EM
-MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM HTML CHAMADA: index.html
-(TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR 02 (DUAS) IMAGENS 
-NA PÁGINA.
+#09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: **/var/www/html** COM: **seu_nome** 
+(TUDO EM MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM HTML 
+CHAMADA: **index.html** (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) 
+E COLOCAR **02 (DUAS) IMAGENS** NA PÁGINA.
 
-#10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: seunome.php, ADICIONAR MAIS
-OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK DAS PÁGINAS:
-index.html COM A PÁGINA PHP seunome.php PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE.
+#10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: **seunome.php**, ADICIONAR 
+**MAIS OPÇÕES DO PHP** (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK DAS 
+PÁGINAS: **index.html** COM A PÁGINA PHP **seunome.php** PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO 
+DE SITE.
 
-#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO SISTEMA NO GRUPO DO 
-APACHE2, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
+#11_ DESAFIO-03: ADICIONAR O USUÁRIO: **admin** E O USUÁRIO: **seu_usuário** CRIADOS NO SISTEMA NA ETAPA
+DE CONFIGURAÇÃO NO OPENSSH NO GRUPO DO **APACHE2**, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS 
+DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
 =========================================================================================
 

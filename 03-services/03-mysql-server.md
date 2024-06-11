@@ -240,29 +240,27 @@ exit
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
 
-```bash	
-#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
-#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
-#MySQL Server não são mostrados por motivo de segurança.
+	#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
+	#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
+	#MySQL Server não são mostrados por motivo de segurança.
 
-#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
+	#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
-#conectando com o usuário Root Remoto do MySQL no Workbench
-MySQL Connections: +
-	Connection Name: wsvaamonde
-	Connection Method: Standard (TCP/IP)
-	Parameters:
-		Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
-		Port: 3306
-		Username: root
-		Password:
-			Store in Keychain
-				Password: pti@2018 (alterar a senha do usuário root do seu servidor)
+	#conectando com o usuário Root Remoto do MySQL no Workbench
+	MySQL Connections: +
+		Connection Name: wsvaamonde
+		Connection Method: Standard (TCP/IP)
+		Parameters:
+			Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+			Port: 3306
+			Username: root
+			Password:
+				Store in Keychain
+					Password: pti@2018 (alterar a senha do usuário root do seu servidor)
+				<OK>
+		<Test Connection>
 			<OK>
-	<Test Connection>
 		<OK>
-	<OK>
-```
 
 #11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
 
@@ -292,25 +290,25 @@ MySQL Connections: +
 
 ========================================DESAFIOS=========================================
 
-#12_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE 
-BANCO DE DADOS CRIAR UMA TABELA COM O: seu_nome (TUDO EM MINÚSCULO) COM AS SEGUINTES COLUNAS: 
-Nome (Tipo Texto) e Idade (Tipo Numérico) (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM 
-REGISTRO COM: Seu Nome e Sua Idade (VEJA O SITE W3SCHOOLS). OBSERVAÇÃO IMPORTANTE: NÃO PRECISA 
-CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+#12_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: **seu_nome** (TUDO EM MINÚSCULO), DENTRO DESSE 
+BANCO DE DADOS CRIAR UMA TABELA COM O: **seu_nome** (TUDO EM MINÚSCULO) COM AS SEGUINTES COLUNAS: 
+**Nome (Tipo Texto) e Idade (Tipo Numérico)** (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM 
+REGISTRO COM: **Seu Nome e Sobreno e Sua Idade** (VEJA O SITE W3SCHOOLS). OBSERVAÇÃO IMPORTANTE: 
+NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
 
-#13_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO PROCEDIMENTO
-DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO MYSQL PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE 
+#13_ DESAFIO-02: ADICIONAR O USUÁRIO: **admin** E O USUÁRIO: **seu_usuário** CRIADOS NO PROCEDIMENTO
+DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO **MYSQL** PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE 
 DO COMANDO SUDO.
 
-#14_ DESAFIO-03: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: seu_nome, CONFIGURAR TODAS
-AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL.
+#14_ DESAFIO-03: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: **seu_nome**, CONFIGURAR TODAS
+AS PERMISSÕES IGUAIS AO USUÁRIO **DBA**, TESTAR A CONEXÃO NO TERMINAL.
 
-#15_ DESAFIO-04: CRIAR OS USUÁRIO: dba E SEU NOME: seu_nome, CONFIGURAR TODAS AS PERMISSÕES
-IGUAIS AO USUÁRIO ROOT REMOTO, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
+#15_ DESAFIO-04: CRIAR OS USUÁRIOS: **dba** E SEU NOME: **seu_nome**, CONFIGURAR TODAS AS PERMISSÕES
+IGUAIS AO USUÁRIO **ROOT REMOTO**, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
 
-#16_ DESAFIO-05: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO 
+#16_ DESAFIO-05: CONHECER O PROJETO: *DB4Free https://www.db4free.net/*, NA OPÇÃO DE BANCO 
 DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
-DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
+**DESAFIO-01 DA ETAPA: 12** E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 
 OBSERVAÇÃO IMPORTANTE: APÓS O CADASTRO NO SITE DO DB4FREE, DEPENDENDO DA CONTA DE EMAIL QUE
 VOCÊ ESTÁ UTILIZANDO, O RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO DE CADASTRO DEMORA OU PODE ESTÁ
