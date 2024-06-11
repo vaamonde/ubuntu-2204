@@ -268,10 +268,12 @@ exit
 
 **#10_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
-A) Path New Site				/var/www/html/site<br>
-B) Database Name				newsite<br>
-C) User and Password Database	newsite<br>
-D) Wordpress Template Install	Astra
+|         Descrição           |     Informação     |
+|-----------------------------|--------------------|
+| Path New Site               | /var/www/html/site |
+| Database Name               | newsite            |
+| User and Password Database  | newsite            |
+| Wordpress Template Install  | Astra              |
 
 **OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO O SISTEMA DO WORDPRESS ELE FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A MENSAGEM: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO O WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER QUE ELE NÃO VOLTE, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
 
