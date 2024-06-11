@@ -181,7 +181,8 @@ sudo usermod -a -G mysql $USER
 newgrp mysql
 id
 
-#recomendo fazer logout do usuário para testar as permissões de grupos 
+#recomendo fazer logout do usuário para testar as permissões de grupos
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
 exit
 
 #opções do comando mysql: -u (user), -p (password)

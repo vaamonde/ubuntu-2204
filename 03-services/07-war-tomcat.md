@@ -68,8 +68,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 	LINK DE DOWNLOAD DO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
-		a) arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;<br>
-		b) arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.
+	a) arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;<br>
+	b) arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.
 
 #02_ Acessando o Apache TomCAT Server pelo Navegador<br>
 

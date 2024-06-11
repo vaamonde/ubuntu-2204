@@ -160,8 +160,9 @@ sudo usermod -a -G mongodb $USER
 newgrp mongodb
 id
 
-#recomendado reinicializar a máquina para aplicar as permissões
-sudo reboot
+#recomendo fazer logout do usuário para testar as permissões de grupos
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+exit
 ```
 
 #11_ Testando a Conexão Local com o MongoDB Server via Shell<br>

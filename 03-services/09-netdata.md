@@ -188,8 +188,9 @@ sudo usermod -a -G netdata $USER
 newgrp netdata
 id
 
-#recomendado reinicializar a máquina para aplicar as permissões
-sudo reboot
+#recomendo fazer logout do usuário para testar as permissões de grupos
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+exit
 ```
 
 #10_ Localização dos Arquivos de Configuração do Netdata Server<br>

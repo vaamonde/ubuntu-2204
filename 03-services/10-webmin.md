@@ -59,14 +59,13 @@ software-properties-common libdbd-mysql-perl
 #02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
 
 ```bash
-	#opção do comando curl: -o (output file)
-	curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
+#opção do comando curl: -o (output file)
+curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 
-	#executando o script de adicionar o repositório
-	sudo sh setup-repos.sh
-		Setup repository? (y/N) y <Enter>
+#executando o script de adicionar o repositório
+sudo sh setup-repos.sh
+	Setup repository? (y/N) y <Enter>
 ```
-
 
 #03_ Instalando o Webmin<br>
 

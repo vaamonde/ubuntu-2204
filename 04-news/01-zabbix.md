@@ -331,8 +331,9 @@ sudo usermod -a -G zabbix $USER
 newgrp zabbix
 id
 
-#recomendado reinicializar a máquina para aplicar as permissões
-sudo reboot
+#recomendo fazer logout do usuário para testar as permissões de grupos
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+exit
 ```
 
 #13_ Localização dos diretórios principais do Zabbix Server e Agent<br>

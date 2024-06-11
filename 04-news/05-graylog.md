@@ -62,214 +62,243 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 #01_ Instalando as Dependências do Graylog Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL
-	#MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06
-	#DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 17) E NA ETAPA: 08 DO
-	#MONGODB (VERSÃO 7).
+```bash
+#OBSERVAÇÃO IMPORTANTE: O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL
+#MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06
+#DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 17) E NA ETAPA: 08 DO
+#MONGODB (VERSÃO 7).
 
-	#atualizando as lista do apt
-	sudo apt update
+#atualizando as lista do apt
+sudo apt update
 
-	#instalando as dependências do Graylog Server
-	sudo apt install apt-transport-https software-properties-common git vim wget curl \
-	gnupg2 uuid-runtime pwgen dirmngr
+#instalando as dependências do Graylog Server
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install apt-transport-https software-properties-common git vim wget curl \
+gnupg2 uuid-runtime pwgen dirmngr
+```
 
 #02_ Baixando e instalando a Chave GPG do OpenSearch<br>
 
-	#baixando a chave GPG do OpenSearch
-	#opção do comando curl: -o- (output file)
-	#opção do comando gpg: -o (output file)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/opensearch-keyring
+```bash
+#baixando a chave GPG do OpenSearch
+#opção do comando curl: -o- (output file)
+#opção do comando gpg: -o (output file)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/opensearch-keyring
 
-	#criando o repositório do OpenSearch
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee /etc/apt/sources.list.d/opensearch-2.x.list
+#criando o repositório do OpenSearch
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee /etc/apt/sources.list.d/opensearch-2.x.list
+```
 
 #03_ Instalando o OpenSearch no Ubuntu Server<br>
 
-	#atualizando as listas do Apt com o Sources List do OpenSearch
-	sudo apt update
+```bash
+#atualizando as listas do Apt com o Sources List do OpenSearch
+sudo apt update
 
-	#OBSERVAÇÃO IMPORTANTE: o OpenSearch 2.12 e superior agora requer a configuração da 
-	#OPENSEARCH_INITIAL_ADMIN_PASSWORD variável de ambiente durante a instalação. A senha
-	#deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra 
-	#minúscula, um número e um caractere especial.
+#OBSERVAÇÃO IMPORTANTE: o OpenSearch 2.12 e superior agora requer a configuração da 
+#OPENSEARCH_INITIAL_ADMIN_PASSWORD variável de ambiente durante a instalação. A senha
+#deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra 
+#minúscula, um número e um caractere especial.
 
-	#instalando o OpenSearch
-	#opção do comando tr: -d (delete), -c (complement)
-	#opção do comando head: -c (bytes)
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
-	#opção do bloco de agrupamento ${}: Agrupa comandos em um bloco
-	#opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
-	sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/urandom  | head -c${1:-32}) apt install --install-recommends opensearch
+#instalando o OpenSearch
+#opção do comando tr: -d (delete), -c (complement)
+#opção do comando head: -c (bytes)
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
+#opção do bloco de agrupamento ${}: Agrupa comandos em um bloco
+#opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
+sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/urandom  | head -c${1:-32}) apt install --install-recommends opensearch
+```
 
 #04_ Editando o arquivo de configuração do OpenSearch<br>
 
-	#editando o arquivo de configuração do OpenSearch
-	sudo vim /etc/opensearch/opensearch.yml
-	INSERT
+```bash
+#editando o arquivo de configuração do OpenSearch
+sudo vim /etc/opensearch/opensearch.yml
+INSERT
 
-		#descomentar e alterar o valor da variável cluster.name na linha: 17
-		cluster.name: graylog
+	#descomentar e alterar o valor da variável cluster.name na linha: 17
+	cluster.name: graylog
 
-		#descomentar e alterar o valor da variável node.name na linha: 23
-		node.name: wsvaamonde
+	#descomentar e alterar o valor da variável node.name na linha: 23
+	node.name: wsvaamonde
 
-		#descomentar e alterar o valor da variável network.host na linha: 55
-		network.host: 0.0.0.0
-		
-		#adicionar as opção abaixo no final do arquivo a partir da linha: 159
-		discovery.type: single-node
-		action.auto_create_index: false
-		plugins.security.disabled: true
+	#descomentar e alterar o valor da variável network.host na linha: 55
+	network.host: 0.0.0.0
 	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#adicionar as opção abaixo no final do arquivo a partir da linha: 159
+	discovery.type: single-node
+	action.auto_create_index: false
+	plugins.security.disabled: true
+
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
 
-	#editando o arquivo de configuração JVM (Java Virtual Machine)
-	sudo vim /etc/opensearch/jvm.options
-	INSERT
+```bash
+#editando o arquivo de configuração JVM (Java Virtual Machine)
+sudo vim /etc/opensearch/jvm.options
+INSERT
 
-		#manter o padrão das configurações do Heap Space a partir da linha: 22
-		#padrão do tamanho inicial e máximo da memória do JVM: 1GB
-		-Xms1g
-		-Xmx1g
+	#manter o padrão das configurações do Heap Space a partir da linha: 22
+	#padrão do tamanho inicial e máximo da memória do JVM: 1GB
+	-Xms1g
+	-Xmx1g
 
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
 
-	#alterando as opção do Sysctl de memória do JVM
-	#opção do comando sysctl: -w (write)
-	sudo sysctl -w vm.max_map_count=262144
-	
-	#adicionando as informações de memória na inicialização do Kernel
-	#opção do comando tee: -a (append)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
+```bash
+#alterando as opção do Sysctl de memória do JVM
+#opção do comando sysctl: -w (write)
+sudo sysctl -w vm.max_map_count=262144
+
+#adicionando as informações de memória na inicialização do Kernel
+#opção do comando tee: -a (append)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
+```
 
 #07_ Habilitando o Serviço do OpenSearch<br>
 
-	#habilitando o serviço do OpenSearch
-	sudo systemctl daemon-reload
-	sudo systemctl enable opensearch
-	sudo systemctl restart opensearch
+```bash
+#habilitando o serviço do OpenSearch
+sudo systemctl daemon-reload
+sudo systemctl enable opensearch
+sudo systemctl restart opensearch
+```
 
 #08_ Verificando o Serviço e Versão do OpenSearch<br>
 
-	#verificando o serviço do OpenSearch
-	sudo systemctl status opensearch
-	sudo systemctl restart opensearch
-	sudo systemctl stop opensearch
-	sudo systemctl start opensearch
+```bash
+#verificando o serviço do OpenSearch
+sudo systemctl status opensearch
+sudo systemctl restart opensearch
+sudo systemctl stop opensearch
+sudo systemctl start opensearch
 
-	#analisando os Log's e mensagens de erro do Servidor do OpenSearch
-	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
-	sudo journalctl -xeu opensearch
+#analisando os Log's e mensagens de erro do Servidor do OpenSearch
+#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -xeu opensearch
 
-	#verificando a versão do OpenSearch via Terminal ou Navegador
-	curl -X GET "http://localhost:9200"
+#verificando a versão do OpenSearch via Terminal ou Navegador
+curl -X GET "http://localhost:9200"
+```
 
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 
 #09_ Verificando a Porta de Conexão do OpenSearch<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
+```
 
 #10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
 
-	#baixando o repositório do Graylog Server
-	wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
+```bash
+#baixando o repositório do Graylog Server
+wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
 
-	#instalando o repositório do Graylog
-	#opção do comando dpkg: -i (install)
-	sudo dpkg -i graylog-*.deb
+#instalando o repositório do Graylog
+#opção do comando dpkg: -i (install)
+sudo dpkg -i graylog-*.deb
+```
 
 #11_ Instalando o Graylog Server no Ubuntu Server<br>
 
-	#atualizando as listas do Apt com o Sources List do Graylog Server
-	sudo apt update
+```bash
+#atualizando as listas do Apt com o Sources List do Graylog Server
+sudo apt update
 
-	#instalando o Graylog Server
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	sudo apt install --install-recommends graylog-server
+#instalando o Graylog Server
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+sudo apt install --install-recommends graylog-server
+```
 
 #12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
 
-	#gerando a senha aleatório da variável: password_secret
-	#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
-	#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
-	#opção do comando tr: -d (delete), -c (complement)
-	#opção do comando head: -c (bytes)
-	#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
-	#opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
-	< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
+```bash
+#gerando a senha aleatório da variável: password_secret
+#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
+#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
+#opção do comando tr: -d (delete), -c (complement)
+#opção do comando head: -c (bytes)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
+#opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
+< /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
 
-	#gerando a senha aleatório da variável: root_password_sha2
-	#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
-	#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
-	#opção do comando echo: -n (do not output the trailing newline)
-	#opção do comando head: -1 (lines)
-	#opção do comando tr: -d (delete)
-	#opção do comando cut: -d (delimiter), -f (fields)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
-	echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
-		Enter Password: pti@2018
-	
+#gerando a senha aleatório da variável: root_password_sha2
+#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
+#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
+#opção do comando echo: -n (do not output the trailing newline)
+#opção do comando head: -1 (lines)
+#opção do comando tr: -d (delete)
+#opção do comando cut: -d (delimiter), -f (fields)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
+echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
+	Enter Password: pti@2018
+```
+
 #13_ Editando o arquivo de configuração do Graylog Server<br>
 
-	#editando o arquivo de configuração do Graylog
-	sudo vim /etc/graylog/server/server.conf
-	INSERT
+```bash
+#editando o arquivo de configuração do Graylog
+sudo vim /etc/graylog/server/server.conf
+INSERT
 
-		#copiar e colar a senha da variável password_secret na linha: 57
-		password_secret = COLAR_SUA_SENHA_GERADA
+	#copiar e colar a senha da variável password_secret na linha: 57
+	password_secret = COLAR_SUA_SENHA_GERADA
 
-		#copiar e colar a senha da variável root_password_sha2 na linha: 68
-		root_password_sha2 = COLAR_SUA_SENHA_GERADA
+	#copiar e colar a senha da variável root_password_sha2 na linha: 68
+	root_password_sha2 = COLAR_SUA_SENHA_GERADA
 
-		#descomentar a alterar o valor da variável root_timezone na linha: 76
-		root_timezone = America/Sao_Paulo
+	#descomentar a alterar o valor da variável root_timezone na linha: 76
+	root_timezone = America/Sao_Paulo
 
-		#descomentar e alterar o valor da variável http_bind_address na linha: 104
-		http_bind_address = 0.0.0.0:9000
+	#descomentar e alterar o valor da variável http_bind_address na linha: 104
+	http_bind_address = 0.0.0.0:9000
 
-		#descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
-		elasticsearch_hosts = http://172.16.1.20:9200
+	#descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
+	elasticsearch_hosts = http://172.16.1.20:9200
 
-		#alterando o valor da variável mongodb_uri na linha: 576
-		#OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
-		#utilizando usuário e senha.
-		mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
+	#alterando o valor da variável mongodb_uri na linha: 576
+	#OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
+	#utilizando usuário e senha.
+	mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
 
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #14_ Criando o usuário de autenticação do MongoDB Server<br>
 
-	#acessando o MongoDB Shell
-	#opção do comando mongosh: admin (database) -u (username), -p (password)
-	sudo mongosh admin -u admin -p
+```bash
+#acessando o MongoDB Shell
+#opção do comando mongosh: admin (database) -u (username), -p (password)
+sudo mongosh admin -u admin -p
 
-	#criando a base de dados Graylog Server
-	use graylog;
+#criando a base de dados Graylog Server
+use graylog;
+```
 
-#criando o usuário e senha de acesso a base de dados do Graylog Server
 ```json
+//criando o usuário e senha de acesso a base de dados do Graylog Server
 db.createUser({
 	"user": "graylog",
 	"pwd": "graylog",
@@ -279,66 +308,79 @@ db.createUser({
 })
 ```
 
-	#verificando o usuário criado no MongoDB
-	db.getUser("graylog")
+```bash
+#verificando o usuário criado no MongoDB
+db.getUser("graylog")
 
-	#saindo do MongoDB
-	quit
+#saindo do MongoDB
+quit
+```
 
 #15_ Habilitando o Serviço do Graylog Server<br>
 
-	#habilitando o serviço do Graylog Server
-	sudo systemctl daemon-reload
-	sudo systemctl enable graylog-server
-	sudo systemctl restart graylog-server
+```bash
+#habilitando o serviço do Graylog Server
+sudo systemctl daemon-reload
+sudo systemctl enable graylog-server
+sudo systemctl restart graylog-server
+```
 
 #16_ Verificando o Serviço e Versão do Graylog Server<br>
 
-	#verificando o serviço do Graylog Server
-	sudo systemctl status graylog-server
-	sudo systemctl restart graylog-server
-	sudo systemctl stop graylog-server
-	sudo systemctl start graylog-server
+```bash
+#verificando o serviço do Graylog Server
+sudo systemctl status graylog-server
+sudo systemctl restart graylog-server
+sudo systemctl stop graylog-server
+sudo systemctl start graylog-server
 
-	#analisando os Log's e mensagens de erro do Servidor do Graylog Server
-	#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
-	sudo journalctl -xeu graylog-server
+#analisando os Log's e mensagens de erro do Servidor do Graylog Server
+#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -xeu graylog-server
 
-	#verificando a versão do Graylog Server
-	#opção do comando grep: - i (ignore-case)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	sudo apt list | grep -i graylog
+#verificando a versão do Graylog Server
+#opção do comando grep: - i (ignore-case)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+sudo apt list | grep -i graylog
+```
 
 #17_ Verificando a Porta de Conexão do Graylog Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
+```
 
 #18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
 
-	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-	sudo usermod -a -G opensearch $USER
-	sudo usermod -a -G graylog $USER
-	newgrp graylog
-	id
-	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+sudo usermod -a -G opensearch $USER
+sudo usermod -a -G graylog $USER
+newgrp graylog
+id
+
+#recomendo fazer logout do usuário para testar as permissões de grupos
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+exit
+```
 
 #19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
 
-	/etc/opensearch/*                <-- Diretório das configurações do OpenSearch
-	/etc/opensearch/opensearch.yml   <-- Arquivo de configuração do Serviço do OpenSearch
-	/etc/opensearch/jvm.options      <-- Arquivo de configuração do JVM do OpenSearch
-	/etc/graylog/*                   <-- Diretório das configurações do Graylog Server
-	/etc/graylog/server/server.conf  <-- Arquivo de configuração do Graylog Server
-	/var/log/opensearch/*            <-- Diretório dos Logs do OpenSearch
-	/var/log/graylog/*               <-- Diretório dos Logs do Graylog Server
+```bash
+/etc/opensearch/*                <-- Diretório das configurações do OpenSearch
+/etc/opensearch/opensearch.yml   <-- Arquivo de configuração do Serviço do OpenSearch
+/etc/opensearch/jvm.options      <-- Arquivo de configuração do JVM do OpenSearch
+/etc/graylog/*                   <-- Diretório das configurações do Graylog Server
+/etc/graylog/server/server.conf  <-- Arquivo de configuração do Graylog Server
+/var/log/opensearch/*            <-- Diretório dos Logs do OpenSearch
+/var/log/graylog/*               <-- Diretório dos Logs do Graylog Server
+```
 
 #20_ Configurando o Graylog Server via Navegador<br>
 
@@ -366,51 +408,55 @@ db.createUser({
 		Encoding (optional): UTF-8
 	<Launch Input>
 
-	#verificando a porta de conexão do Input do Graylog
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
-	sudo lsof -nP -iUDP:'1514'
+```bash
+#verificando a porta de conexão do Input do Graylog
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
+sudo lsof -nP -iUDP:'1514'
 
-	#configurando a exportação dos Logs do Rsyslog para o Graylog
-	#verificando o status de serviço do Rsyslog
-	sudo systemctl status rsyslog
+#configurando a exportação dos Logs do Rsyslog para o Graylog
+#verificando o status de serviço do Rsyslog
+sudo systemctl status rsyslog
 
-	#criando o arquivo de exportação dos Logs
-	sudo vim /etc/rsyslog.d/70-graylog.conf
-	INSERT
+#criando o arquivo de exportação dos Logs
+sudo vim /etc/rsyslog.d/70-graylog.conf
+INSERT
 
-		#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-		*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
-	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
+	*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
 
-	#reiniciar e verificar o serviço do Rsyslog
-	sudo systemctl restart rsyslog
-	sudo systemctl status rsyslog
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+
+#reiniciar e verificar o serviço do Rsyslog
+sudo systemctl restart rsyslog
+sudo systemctl status rsyslog
+```
 
 #22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
 
-	#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP
-	#CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER
-	#OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
+```bash
+#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP
+#CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER
+#OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
 
-	#configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog
-	#verificando o status de serviço do Rsyslog
-	sudo systemctl status rsyslog
+#configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog
+#verificando o status de serviço do Rsyslog
+sudo systemctl status rsyslog
 
-	#criando o arquivo de exportação dos Logs
-	sudo vim /etc/rsyslog.d/70-graylog.conf
-	INSERT
+#criando o arquivo de exportação dos Logs
+sudo vim /etc/rsyslog.d/70-graylog.conf
+INSERT
 
-		#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-		*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
-	
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+	#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
+	*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
 
-	#reiniciar e verificar o serviço do Rsyslog
-	sudo systemctl restart rsyslog
-	sudo systemctl status rsyslog
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+
+#reiniciar e verificar o serviço do Rsyslog
+sudo systemctl restart rsyslog
+sudo systemctl status rsyslog
+```
 
 	#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
 	#baixando o software NXLog-CE (Community Edition) do site oficial:

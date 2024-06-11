@@ -52,13 +52,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 
 #01_ Instalando as Dependências do Microsoft Visual Studio Code VSCode no Linux Mint<br>
 
-	#OBSERVAÇÃO IMPORTANTE: O RECURSO DO REMOTE SSH DO VSCODE POSSUI AS DEPENDÊNCIAS 
-	#DO OPENSSH SERVER, ESSE APLICATIVO JÁ FOI INSTALADA E CONFIGURADO NA ETAPA: 01 
-	#DO OPENSSH.
+```bash
+#OBSERVAÇÃO IMPORTANTE: O RECURSO DO REMOTE SSH DO VSCODE POSSUI AS DEPENDÊNCIAS 
+#DO OPENSSH SERVER, ESSE APLICATIVO JÁ FOI INSTALADA E CONFIGURADO NA ETAPA: 01 
+#DO OPENSSH.
 
-	#instalando as dependências do VSCode no Linux Mint
-	sudo apt update
-	sudo apt install vim git python2 python3 cloc
+#instalando as dependências do VSCode no Linux Mint
+sudo apt update
+sudo apt install vim git python2 python3 cloc
+```
 
 #02_ Download e Instalação do Microsoft Visual Studio Code VSCode no Linux Mint e Windows<br>
 
@@ -83,32 +85,34 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 
 #04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
 
-	#editando o arquivo de configuração do OpenSSH Server
-	sudo vim /etc/ssh/sshd_config
-	INSERT
+```bash
+#editando o arquivo de configuração do OpenSSH Server
+sudo vim /etc/ssh/sshd_config
+INSERT
 
-		#comentar as variáveis: ClientAliveInterval e ClientAliveCountMax a partir da linha: 104
-		#ClientAliveInterval 1800
-		#ClientAliveCountMax 3
+	#comentar as variáveis: ClientAliveInterval e ClientAliveCountMax a partir da linha: 104
+	#ClientAliveInterval 1800
+	#ClientAliveCountMax 3
 
-		#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 136
-		AllowTcpForwarding yes
-	
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+	#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 136
+	AllowTcpForwarding yes
 
-	#testando o arquivo de configuração do OpenSSH SERVER
-	#opção do comando sshd: -t (text mode check configuration)
-	sudo sshd -t
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
 
-	#reiniciar o serviço do OpenSSH Server
-	sudo systemctl restart ssh
-	sudo systemctl status ssh
+#testando o arquivo de configuração do OpenSSH SERVER
+#opção do comando sshd: -t (text mode check configuration)
+sudo sshd -t
 
-	#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
-	#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
-	sudo journalctl -t sshd
-	sudo journalctl -xeu ssh
+#reiniciar o serviço do OpenSSH Server
+sudo systemctl restart ssh
+sudo systemctl status ssh
+
+#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+sudo journalctl -t sshd
+sudo journalctl -xeu ssh
+```
 
 #05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
 
@@ -166,28 +170,30 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 				Description: Esse é o repositório que hospedará o meu primeiro site criado (FORK)
 				Copy the main branch only: ON (Enable)
 			<Create Fork>
-	
-	#acessando o diretório Raiz do Apache2 no Ubuntu Server
-	cd /var/www/html
 
-	#clonando o projeto do Github no Ubuntu Server
-	sudo git clone https://github.com/vaamonde/outlawgames
+```bash
+#acessando o diretório Raiz do Apache2 no Ubuntu Server
+cd /var/www/html
 
-	#alterando as permissões dos diretórios e arquivos
-	#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
-	#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
-	#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
-	#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
-	#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
-	sudo chown -Rfv www-data.www-data /var/www/html/outlawgames/
-	sudo find /var/www/html/outlawgames/. -type d -exec chmod -v 2775 {} \;
-	sudo find /var/www/html/outlawgames/. -type f -exec chmod -v 2664 {} \;
+#clonando o projeto do Github no Ubuntu Server
+sudo git clone https://github.com/vaamonde/outlawgames
 
-	#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM
-	#PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
-	#APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
-	#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR ATUALIZAÇÕES REMOTAS.
-	git config --global --add safe.directory /var/www/html/outlawgames
+#alterando as permissões dos diretórios e arquivos
+#opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
+#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
+#opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
+#opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
+#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
+sudo chown -Rfv www-data.www-data /var/www/html/outlawgames/
+sudo find /var/www/html/outlawgames/. -type d -exec chmod -v 2775 {} \;
+sudo find /var/www/html/outlawgames/. -type f -exec chmod -v 2664 {} \;
+
+#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM
+#PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
+#APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
+#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR ATUALIZAÇÕES REMOTAS.
+git config --global --add safe.directory /var/www/html/outlawgames
+```
 
 	#testando o site via navegador
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/outlawgames

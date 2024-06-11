@@ -82,20 +82,22 @@ Link da vídeo aula:
 			DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 	<Finish>
 
-	#verificando o serviços do Datadog Agent no Ubuntu Server
-	sudo systemctl status datadog-agent
+```bash
+#verificando o serviços do Datadog Agent no Ubuntu Server
+sudo systemctl status datadog-agent
 
-	#verificando a versão do Datadog Agent no Ubuntu Server
-	sudo datadog-agent version
+#verificando a versão do Datadog Agent no Ubuntu Server
+sudo datadog-agent version
 
-	#verificando o status de conexão do Datadog Agent no Ubuntu Server
-	sudo datadog-agent status
+#verificando o status de conexão do Datadog Agent no Ubuntu Server
+sudo datadog-agent status
 
-	#checando as informações do Datadog Agent no Ubuntu Server
-	sudo datadog-agent diagnose
+#checando as informações do Datadog Agent no Ubuntu Server
+sudo datadog-agent diagnose
 
-	#OBSERVAÇÃO IMPORTANTE: Após alguns minutos e mostrado o Host (Computador) no Dashboard
-	#padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
+#OBSERVAÇÃO IMPORTANTE: Após alguns minutos e mostrado o Host (Computador) no Dashboard
+#padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
+```
 
 #02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10<br>
 
@@ -105,18 +107,20 @@ Link da vídeo aula:
 			Agent
 				Run this command to install or update...
 				DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
-	
-	#verificando o serviços do Datadog Agent no Linux Mint
-	sudo systemctl status datadog-agent
 
-	#verificando a versão do Datadog Agent no Linux Mint
-	sudo datadog-agent version
+```bash
+#verificando o serviços do Datadog Agent no Linux Mint
+sudo systemctl status datadog-agent
 
-	#verificando o status de conexão do Datadog Agent no Linux Mint
-	sudo datadog-agent status
+#verificando a versão do Datadog Agent no Linux Mint
+sudo datadog-agent version
 
-	#checando as informações do Datadog Agent no Linux Mint
-	sudo datadog-agent diagnose
+#verificando o status de conexão do Datadog Agent no Linux Mint
+sudo datadog-agent status
+
+#checando as informações do Datadog Agent no Linux Mint
+sudo datadog-agent diagnose
+```
 
 	#instalando o Agent no Windows 10 do site do Datadog
 	Datadog

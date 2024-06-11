@@ -49,127 +49,146 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 #01_ Instalando as Dependências do Grafana Server<br>
 
-	#atualizando as lista do apt
-	sudo apt update
+```bash
+#atualizando as lista do apt
+sudo apt update
 
-	#instalando as dependências do Grafana Server
-	sudo apt install apt-transport-https software-properties-common git vim
+#instalando as dependências do Grafana Server
+sudo apt install apt-transport-https software-properties-common git vim
+```
 
 #02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server<br>
 
-	#baixando a Chave GPG do Grafana Server
-	#opção do comando wget: -q (quiet), -O (output-document)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
-	sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
+```bash
+#baixando a Chave GPG do Grafana Server
+#opção do comando wget: -q (quiet), -O (output-document)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
+sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
 
-	#adicionando o Repositório do Grafana Server (versão BETA)
-	#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
-	#OBSERVAÇÃO IMPORTANTE: na data de: 14/05/2024 a Versão BETA 11 do Grafana se tornou STABLE.
-	#opção do comando tee: -a (append)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+#adicionando o Repositório do Grafana Server (versão BETA)
+#OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
+#OBSERVAÇÃO IMPORTANTE: na data de: 14/05/2024 a Versão BETA 11 do Grafana se tornou STABLE.
+#opção do comando tee: -a (append)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+```
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
 
-	#atualizando as listas do Apt com o novo repositório
-	sudo apt update
+```bash
+#atualizando as listas do Apt com o novo repositório
+sudo apt update
 
-	#instalando o Grafana
-	#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
-	sudo apt install --install-recommends grafana
+#instalando o Grafana
+#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+sudo apt install --install-recommends grafana
+```
 
 #04_ Editando os arquivos de configuração do Grafana Server<br>
 
-	#editando o arquivo de configuração do Grafana Server
-	sudo vim /etc/default/grafana-server
-	INSERT
+```bash
+#editando o arquivo de configuração do Grafana Server
+sudo vim /etc/default/grafana-server
+INSERT
 
-		#principais variáveis do Grafana Server (padrão não alterar)
-		GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
-		GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
-		LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
-		DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
+	#principais variáveis do Grafana Server (padrão não alterar)
+	GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
+	GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
+	LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
+	DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
 
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
 
-	#editando o arquivo de inicialização do Grafana Server
-	sudo vim /etc/grafana/grafana.ini
-	INSERT
+#editando o arquivo de inicialização do Grafana Server
+sudo vim /etc/grafana/grafana.ini
+INSERT
 
-		#descomentar a variável protocol = na linha: 32
-		protocol = http
+	#descomentar a variável protocol = na linha: 32
+	protocol = http
 
-		#descomentar a variável ;http_port = na linha 41
-		http_port = 3000
+	#descomentar a variável ;http_port = na linha 41
+	http_port = 3000
 
-		#descomentar a variável ;domain = na linha 44
-		domain = pti.intra
+	#descomentar a variável ;domain = na linha 44
+	domain = pti.intra
 
-	#salvar e sair do arquivo
-	ESC SHIFT : x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
+```
 
 #05_ Habilitando o Serviço do Grafana Server<br>
 
-	#habilitando o serviço do Grafana Server
-	sudo systemctl daemon-reload
-	sudo systemctl enable grafana-server
-	sudo systemctl restart grafana-server
+```bash
+#habilitando o serviço do Grafana Server
+sudo systemctl daemon-reload
+sudo systemctl enable grafana-server
+sudo systemctl restart grafana-server
+```
 
 #06_ Verificando o Serviço e Versão do Grafana Server<br>
 
-	#verificando o serviço do Grafana Server
-	sudo systemctl status grafana-server
-	sudo systemctl restart grafana-server
-	sudo systemctl stop grafana-server
-	sudo systemctl start grafana-server
+```bash
+#verificando o serviço do Grafana Server
+sudo systemctl status grafana-server
+sudo systemctl restart grafana-server
+sudo systemctl stop grafana-server
+sudo systemctl start grafana-server
 
-	#analisando os Log's e mensagens de erro do Servidor do Grafana
-	#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
-	sudo journalctl -t grafana
-	sudo journalctl -xeu grafana-server
+#analisando os Log's e mensagens de erro do Servidor do Grafana
+#opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -t grafana
+sudo journalctl -xeu grafana-server
 
-	#verificando a versão do Grafana Server
-	#opção do comando grafana-server: -v (version)
-	#opção do comando grafana-cli: -v (version)
-	sudo grafana-server -v
-	sudo grafana-cli -v
+#verificando a versão do Grafana Server
+#opção do comando grafana-server: -v (version)
+#opção do comando grafana-cli: -v (version)
+sudo grafana-server -v
+sudo grafana-cli -v
+```
 
 #07_ Verificando a Porta de Conexão do Grafana Server<br>
 
-	#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-	#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-	#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-	#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+```bash
+#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
+#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
+#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
+#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-	#OBSERVAÇÃO IMPORTANTE: CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O NODE.JS E
-	#OS SEUS DESAFIOS, POR PADRÃO A PRIMEIRA APLICAÇÃO EM JAVASCRIPT FEITA UTILIZANDO O
-	#RECURSO DE EXPRESS ESTÁ NA PORTA 3000, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU
-	#DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
+#OBSERVAÇÃO IMPORTANTE: CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O NODE.JS E
+#OS SEUS DESAFIOS, POR PADRÃO A PRIMEIRA APLICAÇÃO EM JAVASCRIPT FEITA UTILIZANDO O
+#RECURSO DE EXPRESS ESTÁ NA PORTA 3000, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU
+#DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
 
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-	sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
+```
 
 #08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
 
-	#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-	sudo usermod -a -G grafana $USER
-	newgrp grafana
-	id
-	
-	#recomendado reinicializar a máquina para aplicar as permissões
-	sudo reboot
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+sudo usermod -a -G grafana $USER
+newgrp grafana
+id
+
+#recomendo fazer logout do usuário para testar as permissões de grupos
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+exit
+```
 
 #09_ Localização dos diretórios principais do Grafana Server<br>
 
-	/usr/share/grafana*          <-- Diretório do Site do Grafava Server
-	/var/log/grafana*            <-- Diretório dos arquivos de Log's do serviço do Grafana Server
-	/var/lib/grafana*            <-- Diretório dos banco de dados do Grafana Server
-	/etc/grafana/*               <-- Diretório das configurações do Grafana Server
-	/etc/grafana/grafana.ini     <-- Arquivo de Configuração e Inicialização do Grafana Server
-	/etc/default/grafana-server  <-- Arquivo de Configuração do Serviço do Grafana Server
-	/var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
+```bash
+/usr/share/grafana*          <-- Diretório do Site do Grafava Server
+/var/log/grafana*            <-- Diretório dos arquivos de Log's do serviço do Grafana Server
+/var/lib/grafana*            <-- Diretório dos banco de dados do Grafana Server
+/etc/grafana/*               <-- Diretório das configurações do Grafana Server
+/etc/grafana/grafana.ini     <-- Arquivo de Configuração e Inicialização do Grafana Server
+/etc/default/grafana-server  <-- Arquivo de Configuração do Serviço do Grafana Server
+/var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
+```
 
 #10_ Configurando o Grafana Server via Navegador<br>
 
@@ -262,12 +281,14 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 #13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana<br>
 
-	#instalando o Plugin do Zabbix Server no Grafana
-	sudo grafana-cli plugins install alexanderzobnin-zabbix-app
+```bash
+#instalando o Plugin do Zabbix Server no Grafana
+sudo grafana-cli plugins install alexanderzobnin-zabbix-app
 
-	#reiniciar o serviço do Grafana Server
-	sudo systemctl restart grafana-server
-	sudo systemctl status grafana-server
+#reiniciar o serviço do Grafana Server
+sudo systemctl restart grafana-server
+sudo systemctl status grafana-server
+```
 
 	#criando o usuário de autenticação no Zabbix Server
 	#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
@@ -331,34 +352,36 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 #14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
 
-	#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-	sudo apt install stress-ng s-tui
+```bash
+#instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo apt install stress-ng s-tui
 
-	#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
-	sudo stress-ng --version
-	sudo s-tui --version
+#verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
+sudo stress-ng --version
+sudo s-tui --version
 
-	#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
-	#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
-	sudo uptime
+#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
+sudo uptime
 
-	#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
-	sudo top
+#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+sudo top
 
-	#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
-	#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
-	#removing temporary files.), --io (start N workers continuously calling sync(2) to 
-	#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
-	#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
-	#for at least T seconds)
-	sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+#opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
+#removing temporary files.), --io (start N workers continuously calling sync(2) to 
+#commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
+#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
+#for at least T seconds)
+sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
 
-	#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-	sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+#parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
 
-	#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
-	#opção do comando find: -name (Base of file name), * (Qualquer coisa)
-	sudo find / -name vaamonde*
+#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
+#opção do comando find: -name (Base of file name), * (Qualquer coisa)
+sudo find / -name vaamonde*
+```
 
 =========================================================================================
 
