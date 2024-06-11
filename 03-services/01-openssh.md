@@ -279,8 +279,8 @@ sudo id admin
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 
-#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
-#Virtual para verificar se está tudo OK na criação do usuário admin.
+	#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
+	#Virtual para verificar se está tudo OK na criação do usuário admin.
 
 ========================================DESAFIOS=========================================
 
