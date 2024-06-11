@@ -49,12 +49,12 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 #01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
 
 ```bash
-#atualizando as listas do Apt
-sudo apt update
-
 #OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
 #o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
 #instalado e pré-configurado.
+
+#atualizando as listas do Apt
+sudo apt update
 
 #instalando o OpenSSH Server e Client
 sudo apt install openssh-server openssh-client openssl 

@@ -228,14 +228,14 @@ sudo journalctl -xeu apache2
 	#Tela do site do WordPress
 	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
-#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em uma rede Local ou Cloud,
-#e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
-#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
-#configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
-#conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
+	#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em uma rede Local ou Cloud,
+	#e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
+	#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
+	#configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
+	#conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
 
-#Mais informações acesse o Link dos Desenvolvedores do Wordpress:
-Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
+	#Mais informações acesse o Link dos Desenvolvedores do Wordpress:
+	Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
 ```bash
 #se logando no MySQL Server com o usuário e senha Wordpress
@@ -268,10 +268,10 @@ exit
 
 **#10_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
-A) Path New Site..............: /var/www/html/site<br>
-B) Database Name..............: newsite<br>
-C) User and Password Database.: newsite<br>
-D) Wordpress Template Install.: Astra
+A) Path New Site				/var/www/html/site<br>
+B) Database Name				newsite<br>
+C) User and Password Database	newsite<br>
+D) Wordpress Template Install	Astra
 
 **OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO O SISTEMA DO WORDPRESS ELE FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A MENSAGEM: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO O WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER QUE ELE NÃO VOLTE, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
 
