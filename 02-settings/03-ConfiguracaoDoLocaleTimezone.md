@@ -110,7 +110,7 @@ sudo systemctl status systemd-timesyncd.service
 sudo timedatectl
 ```
 
-#07_ Configuração de Data e Hora manualmente do Sistema Operacional Ubuntu Server
+#07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server
 
 ```bash
 #OBSERVAÇÃO IMPORTANTE: só utilizar as configurações de Data e Hora em modo manual caso
