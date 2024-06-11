@@ -289,8 +289,8 @@ sudo ./edit-config go.d/mongodb.conf
 
 #editar as informações a partir da linha: 8
 jobs:
-	- name: wsvaamonde
-	uri: mongodb://netdata:netdata@localhost:27017
+  - name: wsvaamonde
+    uri: mongodb://netdata:netdata@localhost:27017
 
 #salvar e sair do arquivo
 Ctrl + X
