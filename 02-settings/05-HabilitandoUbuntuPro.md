@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 29/05/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 21/06/2024<br>
+#Versão: 0.06<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -38,6 +38,8 @@ sudo cat /etc/lsb-release
 #02_ Atualizando o Sistema Operacional Ubuntu Server<br>
 
 ```bash
+#OBSERVAÇÃO IMPORTANTE: recomendo fazer um upgrade completo no servidor antes de
+#adicionar a Licença do Ubuntu Pro.
 sudo apt update
 sudo apt upgrade
 sudo apt full-upgrade
@@ -62,7 +64,7 @@ sudo apt autoclean
 	
 	Finalize os procedimentos acessando seu email para ativar a sua conta no Ubuntu One.
 		Are you sure you want to confirm and validate this email address?
-		<Sem, tenho certeza>
+	<Sim, tenho certeza>
 
 #04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
 
@@ -72,7 +74,7 @@ sudo apt autoclean
 		Personal Data Request: <Yes, log me in>
 	
 	Será mostrado no campo Free Personal Token o seu token;
-	Copiar o seu Token no campo: Token.
+		Copiar o seu Token no campo: Token.
 
 #05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
 
@@ -80,7 +82,7 @@ sudo apt autoclean
 #OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
 #>= a versão 27.13.x
 
-#verificando a versão do cliente do Ubuntu Pro
+#verificando a versão do cliente do Ubuntu Pro Client
 sudo pro --version
 ```
 
@@ -100,7 +102,7 @@ sudo pro status
 #verificando os status dos pacotes de segurança do Ubuntu Pro
 sudo pro security-status
 
-#verificando os status dos pacotes de segurança ESM (Enterprise Service Manger) do Ubuntu Pro
+#verificando os status dos pacotes de segurança ESM (Enterprise Service Manager) do Ubuntu Pro
 sudo pro security-status --esm-apps
 
 #verificando as informações de Fix (correção) dos CVE (Common Vulnerabilities and Exposures)
@@ -151,6 +153,8 @@ sudo pro status
 #09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
 
 ```bash
+#OBSERVAÇÃO IMPORTANTE: após adicionar a licença do Ubuntu Pro é recomendado fazer
+#um upgrade completo do sistema para testar o Token e as novas listas do sources.list
 sudo apt clean
 sudo apt update
 sudo apt upgrade

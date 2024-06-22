@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 03/06/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 21/06/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -112,7 +112,7 @@ sudo vim /etc/hosts.deny
 ESC SHIFT :set number <Enter>
 INSERT
 
-	#inserir as informações na linha 17
+	#inserir as informações na linha: 17
 	#lista de serviço: lista de hosts: comando
 	ALL: ALL
 
@@ -126,7 +126,7 @@ sudo vim /etc/hosts.allow
 ESC SHIFT :set number <Enter>
 INSERT
 
-	#inserir as informações na linha 10
+	#inserir as informações na linha: 10
 	#lista de serviço: lista de hosts: comando
 	#OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 	sshd: 172.16.1.0/24
@@ -142,26 +142,27 @@ ESC SHIFT :x <Enter>
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 
-#atualizando o arquivo de configuração do OpenSSH Server
+#atualizando o arquivo de configuração do OpenSSH Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
 
-#atualizando arquivo de configuração do Banner do Ubuntu Server
+#atualizando arquivo de configuração do Banner do Ubuntu Server do Github
 sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
 
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
 INSERT
 
-	#alterar a variável ListenAddress na linha 27: ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
+	#alterar a variável ListenAddress na linha: 27 
+	#ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
 	#OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 	ListenAddress 172.16.1.20
 
-	#alterar a variável AllowUsers na linha 77:
+	#alterar a variável AllowUsers na linha: 77
 	#OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
 	AllowUsers vaamonde
 
-	#alterar a variável AllowGroups na linha 83:
+	#alterar a variável AllowGroups na linha: 83
 	#OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
 	AllowGroups vaamonde
 
@@ -219,10 +220,26 @@ sudo journalctl -xeu ssh
 			ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
 
 ```bash	
+#verificando informações detalhadas dos usuários logados no Ubuntu Server
+#OBSERVAÇÃO IMPORTANTE 01: no comando: w ele mostra na primeira linhas as
+#informações de: Data e Hora Atual do Sistema, Período de Tempo Ativo, Número
+#de Usuários Logados e as Médias de Cargas do Sistema (1, 5 e 15 minutos).
+#OBSERVAÇÃO IMPORTANTE 02: no comando: w ele mostra as informações separadas
+#por colunas: USER (usuário logado), TTY (terminal do usuário), FROM (origem
+#da conexão), LOGIN@ (hora do login do usuário), IDLE (tempo ocioso do usuário), 
+#JCPU (tempo de CPU dos processo do TTY), PCPU (tempo de CPU do processo do
+#último comando o usuário), WHAT (processo atual do usuário).
+sudo w
+
 #verificando os usuários logados remotamente no Ubuntu Server
+#OBSERVAÇÃO IMPORTANTE: no comando: who ele mostra as informações separadas
+#por colunas: NAME (usuário logado), LINE (terminal do usuário), TIME (data e 
+#hora do login do usuário), IDLE (tempo ocioso do usuário), PID (identificação 
+#do processo), COMMENT (origem da conexão do usuário), EXIT ().
 #opção do comando who: -H (heading), -a (all)
-w
-who -Ha
+sudo who -Ha
+
+#verificando os usuários logados no Ubuntu Server
 users
 ```
 
@@ -235,7 +252,7 @@ users
 #USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO
 #DE APRENDIZAGEM.
 
-#criando o usuário Admin
+#criando o usuário Admin local no Ubuntu Server
 sudo adduser admin
 	New password: pti@2018
 	Retype new password: pti@2018
@@ -280,7 +297,7 @@ sudo id admin
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 
 	#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
-	#Virtual para verificar se está tudo OK na criação do usuário admin.
+	#Virtual para verificar se está tudo OK na autenticação do usuário admin.
 
 ========================================DESAFIOS=========================================
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 29/05/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 21/06/2024<br>
+#Versão: 0.06<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -148,9 +148,9 @@ network:
     #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
     addresses: [172.16.1.20/24]
     #alterar o gateway padrão para o seu cenário
-    #gateway4: 172.16.1.254
     #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
     #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
+    #gateway4: 172.16.1.254
     routes:
       #configuração da rota padrão (cuidado com o traço antes do to)
       - to: default
@@ -160,7 +160,8 @@ network:
     nameservers:
       #alterar os servidores DNS para o seu cenário
       #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
-      #por vírgula
+      #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou 
+	  #somente o endereço do Servidor de DNS Local d Rede.
       addresses: [8.8.8.8, 8.8.4.4]
       #alterar a pesquisa de domínio para o seu cenário
       #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes

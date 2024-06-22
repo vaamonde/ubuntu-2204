@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 29/05/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 21/06/2024<br>
+#Versão: 0.04<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -22,9 +22,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 #01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server<br>
 
 ```bash	
-#verificando as informações de localidade do sistema
-#opção do comando locale: -a (all-locales)
+#verificando as informações detalhas de localidade do sistema
 sudo localectl
+
+#verificando as informações de localidades instaladas no sistema 
+#opção do comando locale: -a (all-locales)
 sudo locale -a
 ```
 
@@ -50,6 +52,7 @@ sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 #recomendado rebootar o sistema para testar as localidades
 sudo reboot
 
+#verificando as mudanças de localidades do sistema
 #opção do comando locale: -a (all-locales)
 sudo localectl
 sudo locale -a
@@ -58,8 +61,12 @@ sudo locale -a
 #03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server<br>
 
 ```bash
-#verificando as informações de fuso horário
+#verificando as informações de fuso horário do sistema
 sudo timedatectl
+
+#OBSERVAÇÃO IMPORTANTE: no sistema operacional Ubuntu Server temos basicamente 03 (três)
+#configurações de hora (time): Local time (Hora Local), Universal time (Hora Universal)
+#e RTC (Real-time clock) time (Relógio de Tempo Real - BIOS).
 ```
 
 #04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server<br>
@@ -72,9 +79,12 @@ sudo timedatectl
 #no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
 #configurando o fuso horário de America São Paulo
-#OBSERVAÇÃO: ALTERAR CONFORME A SUA LOCALIDADE DO SEU SERVIDOR
+#OBSERVAÇÃO: ALTERAR CONFORME A SUA LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE
+#TIMEZONE ACESSE: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 #opção do comando timedatectl: set-timezone (set the system time zone to the specified value)
 sudo timedatectl set-timezone "America/Sao_Paulo"
+
+#verificando as mudanças do Timezone
 sudo timedatectl
 ```
 
@@ -89,7 +99,9 @@ sudo timedatectl
 sudo vim /etc/systemd/timesyncd.conf
 INSERT
 	
-	#descomentar e alterar os valores das variáveis a partir da linha 14
+	#descomentar e alterar os valores das variáveis a partir da linha: 14
+	#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/
+	#para o sincronismo de Data e Hora.
 	[Time]
 	NTP=a.st1.ntp.br
 	FallbackNTP=a.ntp.br

@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 10/06/2024<br>
-Versão: 0.12<br>
+Data de atualização: 21/06/2024<br>
+Versão: 0.13<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
@@ -35,66 +35,61 @@ A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downlo
 B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
 C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA
 
-	Oracle VirtualBOX.
+	Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 	
-	01. Ferramentas;
+	01. Ferramentas;	
 	<Novo>
 
-	02. Nome e Sistema Operacional:
-		Nome: UbuntuWebserver
-		Pasta da Máquina: #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
+	02. Nome da Máquina Virtual e Sistema Operacional:
+		Nome: UbuntuWebserver (altere conforme a sua necessidade)
+		Pasta (F): #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
+		Imagem ISO: <não selecionar>
+		Edição: (sem informação)
 		Tipo: Linux
 		Versão: Ubuntu (64-bit)
 	<Próximo>
 
-	03. Tamanho da memória:
-		Tamanho: 4096MB (altere conforme a sua necessidade, mínimo 2048MB)
+	03. Hardware:
+		Memória Base: 4096MB (altere conforme a sua necessidade, mínimo 2048MB)
+		Processadores: 02 CPU (altere conforme a sua necessidade, mínimo 2 CPU)
+		Habilitar EFI (SOs especiais apenas): OFF (Desligado)
 	<Próximo>
 
-	04. Disco Rígido:
-		Criar um novo disco rígido virtual agora
-	<Criar>
-
-	05. Tipo de arquivo de disco rígido
-		VDI (VirtualBOX Disk Image)
+	04. Disco Rígido Virtual:
+		Criar um novo disco rígido virtual agora: ON (Selecionar)
+			Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
+		Pré-alocar Tamanho Total (F): OFF (Desativado) 
 	<Próximo>
 
-	06. Armazenamento em disco rígido físico
-		Dinamicamente alocado
-	<Próximo>
-
-	07. Localização e tamanho do arquivo
-		Localização: (deixar o padrão do sistema)
-		Tamanho do disco: 50GB (altere conforme a sua necessidade, mínimo 50GB)
-	<Criar>
+	05. Sumário
+	<Finalizar>
 
 #03_ Terceira Etapa: Configurações da Máquina Virtual UbuntuWebserver
 
-	Oracle VirtualBOX
+	Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 	
-	01. Selecionar a Maquina Virtual: UbuntuWebserver
-		Propriedades/Configurações
+	01. Selecionar a Máquina Virtual: UbuntuWebserver
+	<Configurações>
 
 	02. Sistema
-		Placa Mãe
+		Placa-Mãe
 			Recurso Estendidos
-				Relógio da máquina retorno hora UTC: Off (Desabilitar)
+				Relógio da máquina retorno hora UTC: OFF (Desabilitar)
 		Processador
-			Processadores: 02 CPUs
 			Recursos Estendidos: Habilitar PAE/NX
 			                     Habilitar VT-x/AMD-v Aninhado 
 
 	03. Monitor
 		Tela (S)
 			Memória de Vídeo: 128MB
-			Aceleração: On (Habilitar) Habilitar Aceleração 3D
+			Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
 
 	04. Áudio
-		Habilitar Áudio: Off (Desabilitar)
+		Habilitar Áudio: OFF (Desabilitar)
 
 	05. Rede
 		Adaptador 1 (LAN)
-			Habilitar Placa de Rede: On (Habilitar)
+			Habilitar Placa de Rede: ON (Habilitar)
 			Conectado a: Placa em modo Bridge
 			Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
 			OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
@@ -104,21 +99,15 @@ C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU
 
 #04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
 
-	01. VM UbuntuWebserver: 
-		<Iniciar>
-	
-	02. Selecione o disco rígido de boot
-		Selecionar um arquivo de disco óptico virtual
-	
-	03. Seletor de Discos Ópticos
-		Acrescentar
-		Selecione o arquivo de disco óptico virtual: ubuntu-22.04.4-live-server-amd64.iso
-	<Abrir>
-	
-	04. Not Attached
-		Selecionar: ubuntu-22.04.4-live-server-amd64.iso
-	<Escolher>
+	Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
+
+	01. Selecionar a Máquina Virtual: UbuntuWebserver: 
 	<Iniciar>
+	
+	02. VirtualBOX VM	
+		DVD: <Outro>
+		LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
+	<Montar e Tentar Novo Boot>
 
 #05 Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 
@@ -130,40 +119,43 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	02. Use UP, DOWN and ENTER keys to select your language
 		English (recomendado utilizar sempre a opção em Inglês)
 	<Enter>
-	
-	03. Installer update available
-		<Continue without updating>
-	
-	04. Keyboard configuration
+
+	03. Keyboard configuration
 		Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 		Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 	<Done>
 
-	05. Choose type of install
-		(X) Ubuntu Server
+	04. Choose type of install
+		(X) Ubuntu Server (DEFAULT - Selecionado)
+		( ) Ubuntu Server (minimized)
+		Additional options
+			[ ] Search for third-party drivers
 	<Done>
 
-	06. Network connections
+	05. Network connections
 		enp0s3 eth (o nome lógico da placa de rede muda de equipamento para equipamento)
 		DHCPv4 172.16.1.XXX/24 (altere conforme a sua necessidade)
 		OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA REDE 
 		INTERNA PARA ADAPTAR NO SEU CENÁRIO.
 	<Done>
 	
-	07. Configure proxy
+	06. Configure proxy
+		Proxy address: (Default)
 	<Done>
 	
-	08. Configure Ubuntu archive mirror
+	07. Configure Ubuntu archive mirror
 		Mirror: http://br.archive.ubuntu.com/ubuntu
 		OBSERVAÇÃO IMPORTANTE: CASO QUEIRA TROCAR O MIRROR DO UBUNTU DO BRASIL PARA O
 		OFICIAL NO US, SUBSTITUA A URL DE: http://br.archive.ubuntu.com/ubuntu PARA A
 		URL: http://us.archive.ubuntu.com/ubuntu
 	<Done>
 
+	08. 
+
 	09. Guided storage configuration
-		(X) Use an entire disk
+		(X) Use an entire disk (Default)
 			[VBOX_HARDISK local disk 50.000G]
-			(X) Set up this disk as an LVM group
+			(X) Set up this disk as an LVM group (Default)
 	<Done>
 	
 	10. Storage configuration
@@ -189,12 +181,12 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	<Done>
 	
 	12. Upgrade to Ubuntu Pro
-		(X) Skip for now
+		(X) Skip Ubuntu Pro setup for now
 	<Continue>
 	
 	13. SSH Setup
 		Install OpenSSH server: ON (Habilitar) <Space>
-		Import SSH identity: No
+		Import SSH identity: No (Default)
 	<Done>
 	
 	14. Featured Server Snaps

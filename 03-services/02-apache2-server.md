@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 06/04/2023<br>
-#Versão: 0.15<br>
+#Data de atualização: 21/06/2023<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
@@ -123,6 +123,8 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```bash
 #adicionando o seu usuário no grupo do Apache2
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema.
 sudo usermod -a -G www-data $USER
 
 #fazendo login em um novo grupo do Apache2
@@ -132,7 +134,7 @@ newgrp www-data
 id
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
-#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl+D
 exit
 
 #OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utilize os caracteres de escape para 
@@ -204,7 +206,7 @@ INSERT
 			Autor: Robson Vaamonde<br>
 			Editado por: SEU NOME AQUI<br>
 			<!-- Tag: A Define um hiperlink -->
-			Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
+			LinkedIn: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
 			Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
 			Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
 			Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
@@ -238,7 +240,7 @@ INSERT
 				echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
 				echo 'Autor: Robson Vaamonde<br>';
 				echo 'Editado por: SEU NOME AQUI<br>';
-				echo 'Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
+				echo 'LinkedIn: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
 				echo 'Site: http://procedimentosemti.com.br/<br>';
 				echo 'Facebook: https://www.facebook.com/ProcedimentosEmTI<br>';
 				echo 'Facebook: https://www.facebook.com/BoraParaPratica<br>';
