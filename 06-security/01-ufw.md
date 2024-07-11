@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 01/07/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 11/07/2024<br>
+#Versão: 0.03<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
@@ -35,18 +35,64 @@ interface de linha de comandos, e usa iptables para configuração.
 
 Link da vídeo aula: 
 
-#01_ <br>
+#01_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
 
-#Configuração das regras básicas de Firewall
+```bash
+#Verificando a versão do UFW
+sudo ufw version
 
+#Verificando o status do UFW
+sudo ufw status
+```
+
+#02_ Habilitando o Firewall UFW no Ubuntu Server<br>
+```bash
 #Iniciando o Firewall UFW
 sudo ufw enable
 
+#Verificando o status do UFW
+sudo ufw status
+```
+
+#03_ Verificando as Políticas de Entrada e Saída padrão do UFW no Ubuntu Server<br>
+```bash
+#Políticas padrão do UFW
+sudo ufw status verbose
+```
+
+#04_ Habilitando as Política de Bloqueio (DROP) padrão de Entrada do UFW no Ubuntu Server<br>
+```bash
 #Habilitando a Política Padrão de Negação de Entrada
 sudo ufw default deny incoming
 
+#Políticas padrão do UFW
+sudo ufw status verbose
+```
+#05_ Habilitando as Políticas de Bloqueio (DROP) padrão de Saída do UFW no Ubuntu Server<br>
+```bash
 #Habilitando a Política Padrão de Liberação de Saída
 sudo ufw default allow outgoing
+
+#Políticas padrão do UFW
+sudo ufw status verbose
+```
+
+#06_ Testando as conexões de Entrada e Saída no Ubuntu Server<br>
+```bash
+#Pingando o endereço IPv4 do Google
+ping 8.8.8.8
+
+#Resolvendo o nome do Google
+nslookup google.com
+
+#Pingando o endereço IPv4 do Ubuntu Server
+ping 172.16.1.20
+
+#Testado o acesso remoto via SSH no Ubuntu Server
+ssh vaamonde@172.16.1.20
+```
+
+#07_ Liberando as Entradas e Saídas Básicas (ALLOW) do UFW no Ubuntu Server<br>
 
 #Liberando os Protocolos de Entrada Utilizados no Ubuntu Server
 sudo ufw allow in 80/tcp
