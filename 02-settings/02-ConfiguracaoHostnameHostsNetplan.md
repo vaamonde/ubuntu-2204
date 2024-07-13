@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 21/06/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 13/07/2024<br>
+#Versão: 0.07<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -61,7 +61,7 @@ INSERT
 	
 	#adicionar o nome de domínio e apelido na linha 2 e 3
 	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-	127.0.0.1    localhost.localdomain  localhost
+	127.0.0.1    localhost.pti.intra    localhost
 	127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
 	172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
 
@@ -136,7 +136,7 @@ INSERT
 network:
   #bloco de configuração do protocolo Ethernet
   ethernets:
-    #configuração da Interface Física (Nome Lógico)
+    #configuração da Interface Física (Nome Lógico comando lshw)
     enp0s3:
     #desabilitando o suporte ao DHCP Client
     dhcp4: false
