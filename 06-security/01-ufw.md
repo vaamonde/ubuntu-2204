@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 11/07/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 13/07/2024<br>
+#Versão: 0.04<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
@@ -54,31 +54,44 @@ sudo ufw enable
 sudo ufw status
 ```
 
-#03_ Verificando as Políticas de Entrada e Saída padrão do UFW no Ubuntu Server<br>
+#03_ Verificando as Políticas de Entrada (INPUT) e Saída (OUTPUT) padrão do UFW no Ubuntu Server<br>
 ```bash
-#Políticas padrão do UFW
+#Verificando as Políticas padrão do UFW
 sudo ufw status verbose
 ```
 
-#04_ Habilitando as Política de Bloqueio (DROP) padrão de Entrada do UFW no Ubuntu Server<br>
+#04_ Habilitando as Política de Bloqueio (DROP) padrão de Entrada (INPUT) do UFW no Ubuntu Server<br>
 ```bash
 #Habilitando a Política Padrão de Negação de Entrada
 sudo ufw default deny incoming
 
-#Políticas padrão do UFW
-sudo ufw status verbose
-```
-#05_ Habilitando as Políticas de Bloqueio (DROP) padrão de Saída do UFW no Ubuntu Server<br>
-```bash
-#Habilitando a Política Padrão de Liberação de Saída
-sudo ufw default allow outgoing
-
-#Políticas padrão do UFW
+#Verificando as Políticas padrão do UFW
 sudo ufw status verbose
 ```
 
-#06_ Testando as conexões de Entrada e Saída no Ubuntu Server<br>
+#05_ Habilitando as Políticas de Bloqueio (DROP) padrão de Saída (OUTPUT) do UFW no Ubuntu Server<br>
 ```bash
+#Habilitando a Política Padrão de Negação de Saída
+sudo ufw default deny outgoing
+
+#Verificando as Políticas padrão do UFW
+sudo ufw status verbose
+```
+
+#06_ Habilitando o Recurso de Log do UFW no Ubuntu Server<br>
+```bash
+#Habilitando os Logs das Regras do UFW
+sudo ufw logging on
+
+#Verificando as Políticas padrão do UFW
+sudo ufw status verbose
+```
+
+#07_ Testando as conexões de Entrada (INPUT) e Saída (OUTPUT) no Ubuntu Server<br>
+```bash
+#Pingando o endereço IPv4 de Loopback
+ping 127.0.0.1
+
 #Pingando o endereço IPv4 do Google
 ping 8.8.8.8
 
@@ -92,7 +105,19 @@ ping 172.16.1.20
 ssh vaamonde@172.16.1.20
 ```
 
-#07_ Liberando as Entradas e Saídas Básicas (ALLOW) do UFW no Ubuntu Server<br>
+#08_ Liberando a Entrada (INPUT) e Saída (OUTPUT) da Interface de Loopback do UFW no Ubuntu Server<br>
+```bash
+#Liberando a Entrada (INPUT) da Interface Loopback
+ufw allow in on lo
+
+#Liberando a Saída (OUTPUT) da Interface Loopback
+ufw allow out on lo
+
+#Verificando as Políticas padrão do UFW
+sudo ufw status verbose
+```
+
+#09_ Liberando as Entradas e Saídas Básicas (ALLOW) do UFW no Ubuntu Server<br>
 
 #Liberando os Protocolos de Entrada Utilizados no Ubuntu Server
 sudo ufw allow in 80/tcp
@@ -110,7 +135,7 @@ sudo ufw status
 sudo ufw status verbose
 sudo ufw status numbered
 sudo ufw delete number
-sudo ufw logging on 
+
 
 Melhor How-To: https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
 
