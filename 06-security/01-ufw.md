@@ -60,7 +60,6 @@ sudo update-alternatives --config iptables
 ```
 
 #02_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
-
 ```bash
 #Verificando a versão do UFW
 sudo ufw version
@@ -80,7 +79,6 @@ sudo ufw status
 ```
 
 #04_ Verificando o Serviço do UFW no Ubuntu Server<br>
-
 ```bash
 #verificando o serviço do UFW
 sudo systemctl status ufw
@@ -90,7 +88,6 @@ sudo systemctl start ufw
 ```
 
 #05_ Localização dos Arquivos e Diretório de Configuração do UFW no Ubuntu Server<br>
-
 ```bash
 /etc/default/ufw   <-- Arquivo de configuração padrão do UFW
 /etc/ufw/*         <-- Diretório padrão das configurações de regras do UFW
@@ -132,7 +129,7 @@ sudo ufw default deny outgoing
 sudo ufw status verbose
 ```
 
-#09_ Habilitando e Alterando o Tipo do Nível do Log do UFW no Ubuntu Server<br>
+#09_ Habilitando e Alterando o Tipo do Nível de Log do UFW no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no UFW temos basicamente 05 (cinco) níveis de Log: off (desligado),
 #low (baixo), medium (médio), high (alto) e full (completo).
@@ -185,10 +182,10 @@ nmap -p- 172.16.1.20 -sS -sU
 #OBSERVAÇÃO IMPORTANTE: por padrão o UFW no Ubuntu Server adiciona automaticamente regras
 #de IPv6 para a Interface Loopback.
 
-#Liberando a Entrada (INCOMING) da Interface Loopback
+#Liberando (ALLOW) a Entrada (IN) da Interface (ON) Loopback (LO)
 sudo ufw allow in on lo
 
-#Liberando a Saída (OUTGOING) da Interface Loopback
+#Liberando (ALLOW) a Saída (OUT) da Interface (ON) Loopback (LO)
 sudo ufw allow out on lo
 
 #Verificando as Políticas padrão do UFW
@@ -237,6 +234,7 @@ INSERT
 
 	#inserir as informações na linha: 39
 	#liberando a saída do protocolo ICMP
+	#opções do comando iptables usadas pelo UFW: -A (append), -p (protocol), -j (jump target)
 	# ok icmp codes for OUTPUT
 	-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
 	-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
@@ -292,10 +290,10 @@ ssh vaamonde@172.16.1.20
 #OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
 #recomendo não utilizar acentuação.
 
-#liberando (ALLOW) a Sub-rede 172.16.1.0/24 (FROM) acessar o serviço (TO) do Grafana Server na porta 3000 via HTTP (proto tcp)
+#liberando (ALLOW) a Sub-rede 172.16.1.0/24 (FROM) acessar o serviço (TO) do Grafana Server na porta (PORT) 3000 via protocolo HTTP (proto tcp)
 sudo ufw allow from 172.16.1.0/24 to 172.16.1.20 port 3000 proto tcp comment 'Liberando a sub-rede para acessar o Grafana Server'
 
-#liberando (ALLOW) o IPv4 172.16.1.114 (FROM) acessar o serviço (TO) do Webmin na porta 10000 via HTTPS (proto tcp)
+#liberando (ALLOW) o IPv4 172.16.1.114 (FROM) acessar o serviço (TO) do Webmin na porta (PORT) 10000 via protocolo HTTPS (proto tcp)
 sudo ufw allow from 172.16.1.114 to 172.16.1.20 port 10000 proto tcp comment 'Liberando o IP para acessar o Webmin'
 
 #Verificando as Políticas padrão do UFW
@@ -309,7 +307,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
 ```
 
-#16_ Removendo (DELETE) regras do UFW no Ubuntu Server<br>
+#16_ Removendo (DELETE) regras de firewall do UFW no Ubuntu Server<br>
 ```bash
 #Verificando as Políticas padrão do UFW
 sudo ufw status verbose
@@ -336,7 +334,7 @@ sudo ufw status verbose
 
 #18_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
 ```bash
-#OBSERVAÇÃO IMPORTANTE: desabilitar o firewall UFW não pede as regras criadas.
+#OBSERVAÇÃO IMPORTANTE: se você desabilitar o firewall UFW, não perderá as regras criadas.
 
 #Desabilitando (DISABLE) o Firewall UFW
 sudo ufw disable
