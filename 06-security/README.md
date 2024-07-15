@@ -45,27 +45,29 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/19-ufw.png
 Conteúdo estudado nessa implementação:<br>
 #01_ Verificando qual o Sistema de Firewall padrão do Ubuntu Server<br>
 #02_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
-#03_ Habilitando (ENABLED) o Firewall UFW no Ubuntu Server<br>
-#04_ Verificando (STATUS) o Serviço do UFW no Ubuntu Server<br>
+#03_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
+#04_ Verificando o Serviço do UFW no Ubuntu Server<br>
 #05_ Localização dos Arquivos e Diretório de Configuração do UFW no Ubuntu Server<br>
-#06_ Verificando as Políticas de Entrada (INCOMING) e Saída (OUTGOING) padrão (DEFAULT) do UFW no Ubuntu Server<br>
-#07_ Configurando a Política de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) do UFW no Ubuntu Server<br>
-#08_ Configurando a Política de Bloqueio (DENY) padrão (DEFAULT) de Saída (OUTGOING) do UFW no Ubuntu Server<br>
-#09_ Configurando o Nível do Log (LOGGING) do UFW no Ubuntu Server<br>
+#06_ Verificando as Regras (RULES) de Entrada (INCOMING) e Saída (OUTGOING) padrão do UFW no Ubuntu Server<br>
+#07_ Configurando a Regras (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) do UFW no Ubuntu Server<br>
+#08_ Configurando a Regra (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Saída (OUTGOING) do UFW no Ubuntu Server<br>
+#09_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
 #10_ Testando as conexões de Entrada (INCOMING) e Saída (OUTGOING) no Ubuntu Server<br>
 #11_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
 #12_ Liberando (ALLOW) as Saídas (OUTGOING) Básicas do UFW no Ubuntu Server<br>
 #13_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
 #14_ Liberando (ALLOW) as Entradas (INCOMING) Básicas do UFW no Ubuntu Server<br>
 #15_ Liberando (ALLOW) as Entradas (INCOMING) por Sub-rede ou Endereço IPv4 do UFW no Ubuntu Server<br>
-#16_ Removendo (DELETE) regras do UFW no Ubuntu Server<br>
+#16_ Removendo (DELETE) Regras (RULES) de firewall do UFW no Ubuntu Server<br>
 #17_ Reiniciando (RELOAD) as Regras de Firewall do UFW no Ubuntu Server<br>
 #18_ Entendo o Log (LOGGING) do Firewall UFW no Ubuntu Server<br>
-#19_ Criando regras baseadas em Aplicações (APP) do UFW no Ubuntu Server<br>
+#19_ Criando regras (RULES) baseadas em Aplicações (APP) do UFW no Ubuntu Server<br>
 #20_ Liberando (ALLOW) um Faixa (Range) de Portas do UFW no Ubuntu Server<br>
 #21_ Limitando (LIMIT) uma conexão de Entrada (INCOMING) do UFW no Ubuntu Server<br>
-#22_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
-#23_ Resetando (RESET) das Regras de Firewall do UFW no Ubuntu Server<br>
+#22_ Rejeitando (REJECT) uma Conexão de Entrada (INCOMING) do UFW no Ubuntu Server<br>
+#23_ Adicionando (INSERT) uma Regra (RULES) do UFW no Ubuntu Server<br>
+#24_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
+#25_ Resetando (RESET) das Regras de Firewall do UFW no Ubuntu Server<br>
 
 [![Configuração UFW](http://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Configuração UFW")
 
