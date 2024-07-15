@@ -26,34 +26,49 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/ubuntu-2204/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/ubuntu-2204?color=2b9348" alt="License Badge"/></a>
 </div>
 
-## **🤩🤩 Integração do VSCode e Remote SSH no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
+## **🤩🤩 Configurando do UFW (Uncomplicated Firewall) no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
-Vídeo de integração do Visual Studio Code VSCode utilizando a Extensão Remote SSH no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar a extensão de Acesso Remoto e Explorar de arquivos utilizando o SSH para editar arquivos remotamente no nosso servidor.
+Vídeo de configuração do UFW (Uncomplicated Firewall) no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para configurar as principais regras de firewall para promover a segurança básica de acesso os principais servidores implementado no nosso servidor.
 
-O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, Linux e macOS. Ele inclui suporte para depuração, controle de versionamento Git incorporado, realce de sintaxe, complementação inteligente de código, snippets e refatoração de código.
+UFW (Uncomplicated Firewall) é uma firewall desenhada para ser de fácil utilização. Utiliza uma interface de linha de comandos, e usa iptables para configuração.
 
-A extensão Visual Studio Code Remote - SSH permite que você abra uma pasta remota em qualquer máquina remota, máquina virtual ou contêiner com um servidor SSH em execução e aproveite ao máximo o conjunto de recursos do VS Code. Uma vez conectado a um servidor, você pode interagir com arquivos e pastas em qualquer lugar do sistema de arquivos remoto.
+O iptables é um programa escrito em C, utilizado como ferramenta que configura regras para o protocolo de internet IPv4 na tabela de filtragem de pacotes, utilizando os módulos e framework do kernel Linux (versão 2.3.15 ou posteiro).
 
-GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VSCODE SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do VSCode realizado com sucesso!!! #BoraParaPrática
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
-COMPARTILHAR O SELO DA INTEGRAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA INTEGRAÇÃO ABAIXO: 
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/19-ufw.png
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/18-vscode.png
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiofirewall #desafioufw
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver  #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiovscode #desafioremotessh
+Conteúdo estudado nessa implementação:<br>
+#01_ Verificando qual o Sistema de Firewall padrão do Ubuntu Server<br>
+#02_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
+#03_ Habilitando (ENABLED) o Firewall UFW no Ubuntu Server<br>
+#04_ Verificando (STATUS) o Serviço do UFW no Ubuntu Server<br>
+#05_ Localização dos Arquivos e Diretório de Configuração do UFW no Ubuntu Server<br>
+#06_ Verificando as Políticas de Entrada (INCOMING) e Saída (OUTGOING) padrão (DEFAULT) do UFW no Ubuntu Server<br>
+#07_ Configurando a Política de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) do UFW no Ubuntu Server<br>
+#08_ Configurando a Política de Bloqueio (DENY) padrão (DEFAULT) de Saída (OUTGOING) do UFW no Ubuntu Server<br>
+#09_ Configurando o Nível do Log (LOGGING) do UFW no Ubuntu Server<br>
+#10_ Testando as conexões de Entrada (INCOMING) e Saída (OUTGOING) no Ubuntu Server<br>
+#11_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
+#12_ Liberando (ALLOW) as Saídas (OUTGOING) Básicas do UFW no Ubuntu Server<br>
+#13_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
+#14_ Liberando (ALLOW) as Entradas (INCOMING) Básicas do UFW no Ubuntu Server<br>
+#15_ Liberando (ALLOW) as Entradas (INCOMING) por Sub-rede ou Endereço IPv4 do UFW no Ubuntu Server<br>
+#16_ Removendo (DELETE) regras do UFW no Ubuntu Server<br>
+#17_ Reiniciando (RELOAD) as Regras de Firewall do UFW no Ubuntu Server<br>
+#18_ Entendo o Log (LOGGING) do Firewall UFW no Ubuntu Server<br>
+#19_ Criando regras baseadas em Aplicações (APP) do UFW no Ubuntu Server<br>
+#20_ Liberando (ALLOW) um Faixa (Range) de Portas do UFW no Ubuntu Server<br>
+#21_ Limitando (LIMIT) uma conexão de Entrada (INCOMING) do UFW no Ubuntu Server<br>
+#22_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
+#23_ Resetando (RESET) das Regras de Firewall do UFW no Ubuntu Server<br>
 
-Conteúdo estudado nessa integração:<br>
-#01_ Instalando as Dependências do Microsoft Visual Studio Code no Linux Mint<br>
-#02_ Download e Instalação do Microsoft Visual Studio Code no Linux Mint e Windows<br>
-#03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows<br>
-#04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
-#05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
-#06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
+[![Configuração UFW](http://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Configuração UFW")
 
-[![Integração VSCode](http://img.youtube.com/vi/V0Ddhelmi4Y/0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Integração VSCode")
+Link da vídeo aula: 
 
-Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
-
-Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/05-integrations/01-vscode.md
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/06-security/01-ufw.md
