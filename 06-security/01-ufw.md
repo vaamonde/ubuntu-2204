@@ -71,10 +71,10 @@ Link da vídeo aula:
 #01_ Verificando qual o Sistema de Firewall padrão do Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server temos dois tipos de sistema de Firewall padrão o:
-#iptables-nft (nftables) e: iptables-legacy (legado), nftables: É um subsistema de filtragem 
+#iptables-nft (nftables) e: iptables-legacy (legado), nftables é um subsistema de filtragem 
 #de pacotes no kernel Linux, introduzido para substituir o iptables e outros módulos 
 #anteriores. Ele oferece uma estrutura mais flexível e eficiente para configurar regras de 
-#firewall, NAT (Network Address Translation) e roteamento no Linux
+#firewall, NAT (Network Address Translation) e roteamento no Linux.
 
 #Verificando qual o sistema de Firewall padrão configurado no Ubuntu Server
 sudo update-alternatives --config iptables 
@@ -190,7 +190,7 @@ sudo ufw status verbose
 #10_ Testando as conexões de Entrada (INCOMING) e Saída (OUTGOING) no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão o UFW permiti o protocolo ICMP (Internet Control Message
-#Protocol) para o endereço IPv4 de Loopback e o endereço externo/remoto do Ubuntu Server.
+#Protocol) para o endereço IPv4 de Loopback e o endereço interno/remoto do Ubuntu Server.
 
 #Pingando o endereço IPv4 da Loopback/Localhost
 ping 127.0.0.1
@@ -351,7 +351,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 
 #15_ Liberando (ALLOW) as Entradas (INCOMING) por Sub-rede ou Endereço IPv4 do UFW no Ubuntu Server<br>
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão, o UFW no Ubuntu Server não adiciona automaticamente 
+#OBSERVAÇÃO IMPORTANTE: por padrão, o UFW no Ubuntu Server "NÃO" adiciona automaticamente 
 #regras de IPv6 para as regras criadas de forma avançada ou complexa
 
 #OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
@@ -380,8 +380,8 @@ firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
 #16_ Removendo (DELETE) Regras (RULES) de firewall do UFW no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: você pode remover as regras do UFW de duas formas, primeira é utilizar
-#nome da regra criada exemplo: sudo ufw delete out 53/udp ou utilizar o número da regra que é
-#mais simples.
+#o sintaxe da regra criada exemplo: sudo ufw delete out 53/udp ou utilizar o número da regra 
+#que é mais simples.
 
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
@@ -517,10 +517,10 @@ sudo ufw status verbose
 #tentou iniciar 6 (seis) ou mais conexões simultâneas nos últimos 30 (trinta) segundos, essa 
 #opção é muito útil para o serviço do OpenSSH, usamos para proteger nosso servidor contra 
 #ataques de força bruta (Brute Force). Para alterar os Limites do UFW é necessário editar os
-#arquivos de configuração em: /etc/ufw/user.rules ou /etc/ufw/user6.rules e depois digitar o
+#arquivos de configuração em: /etc/ufw/user.rules ou /etc/ufw/user6.rules, depois digitar o
 #comando: sudo ufw reload para aplicar as novas políticas.
 
-#Verificando as Políticas padrão do UFW em modo Numerado
+#Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
 #Removendo (DELETE) a Regra (RULES) de Acesso ao SSH IPv4 (8) e IPv6 (17)
@@ -579,7 +579,8 @@ sudo cat -n /var/log/ufw.log | grep -i dpt=8888
 
 #23_ Adicionando (INSERT) uma Regra (RULES) do UFW no Ubuntu Server<br>
 ```bash
-#OBSERVAÇÃO IMPORTANTE:
+#OBSERVAÇÃO IMPORTANTE: a opção INSERT permite que você insira uma nova regra em uma 
+#posição específica da lista de regras existentes. 
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
@@ -596,13 +597,14 @@ sudo ufw status numbered
 
 #24_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
 ```bash
-#OBSERVAÇÃO IMPORTANTE: se você desabilitar o firewall UFW, não perderá as regras criadas.
+#OBSERVAÇÃO IMPORTANTE: se você desabilitar o firewall UFW, as regras criadas não serão
+#perdidas.
 
 #Desabilitando (DISABLE) o Firewall UFW
 sudo ufw disable
 	Firewall stopped and disabled on system startup
 
-#Verificando o status detalhado do UFW
+#Verificando o Regras Detalhadas do UFW
 sudo ufw status verbose
 
 #Habilitando (ENABLE) o Firewall UFW
@@ -637,7 +639,7 @@ sudo ufw default allow outgoing
 	Default outgoing policy changed to 'allow'
 	(be sure to update your rules accordingly)
 
-#Verificando o status detalhado do UFW
+#Verificando o Regras Detalhadas do UFW
 sudo ufw status verbose
 
 #Desativando o Firewall UFW
