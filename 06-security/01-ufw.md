@@ -54,16 +54,21 @@ Site Oficial do Descomplicando o Ubuntu UFW: https://wiki.ubuntu.com/Uncomplicat
 Site Oficial do Debian UFW: https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29<br>
 Site Oficial do IPTables: http://git.netfilter.org/iptables/
 
-Uncomplicated Firewall é uma firewall desenhada para ser de fácil utilização. Utiliza uma<br>
-interface de linha de comandos, e usa iptables para configuração. 
+Uncomplicated Firewall é uma firewall desenhado para ser de fácil utilização. Utiliza uma<br>
+interface de linha de comandos simple e de fácil entendimento, e usa o iptables como base<br>
+para a sua configuração. 
 
-O iptables é um programa escrito em C, utilizado como ferramenta que configura regras para<br>
-o protocolo de internet IPv4 na tabela de filtragem de pacotes, utilizando os módulos e <br>
-framework do kernel Linux (versão 2.3.15 ou posteiro).
+O iptables é um programa escrito em C, utilizado como ferramenta para configurar as regras<br>
+do protocolo de internet IPv4 na tabela de filtragem de pacotes, utilizando vários módulos e<br>
+o framework do kernel Linux (versão 2.3.15 ou posteiro).
 
-O netfilter é um módulo que fornece ao sistema operacional Linux as funções de firewall, <br>
-NAT e log dos dados que trafegam por rede de computadores. iptables é o nome da ferramenta <br>
+O netfilter é um módulo que fornece ao sistema operacional Linux as funções de firewall,<br>
+NAT e log dos dados que trafegam na rede de computadores. iptables é o nome da ferramenta <br>
 do espaço do usuário que permite a criação de regras de firewall e NATs.
+
+O nftables é um subsistema do kernel Linux que fornece filtragem e classificação de pacotes<br>
+de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de<br>
+janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
 
 [![Firewall UFW](http://img.youtube.com/vi//0.jpg)]( "Firewall UFW")
 
@@ -141,7 +146,7 @@ sudo journalctl -xeu ufw
 
 #06_ Verificando as Regras (RULES) de Entrada (INCOMING) e Saída (OUTGOING) padrão do UFW no Ubuntu Server<br>
 ```bash
-#Verificando as Regras Detalhadas do UFW
+#Verificando o Status das Regras (RULES) Detalhadas (VERBOSE) do UFW
 sudo ufw status verbose
 
 #Entendo o Status das Regras (RULES) padrão (DEFAULT) do UFW
@@ -169,8 +174,8 @@ sudo ufw status verbose
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão as regras de Firewall geralmente Bloqueia (DENY)
 #toda a Entrada (INCOMING) para o servidor e Permite (ALLOW) toda a Saída (OUTGOING),
-#bloquear a Entrada e Saída pode deixar a Segurança mais Restritiva, precisando criar 
-#regras (RULES) para cada serviço de rede que você precisa acessar.
+#bloquear a Entrada e Saída pode deixar a Segurança mais Restritiva (RIGOROSA/EXATA), 
+#precisando criar regras (RULES) para cada serviço de rede que você precisa acessar.
 
 #Configurando a Regra Padrão de Bloqueio de Saída
 sudo ufw default deny outgoing
@@ -201,7 +206,8 @@ sudo ufw status verbose
 #10_ Testando as conexões de Entrada (INCOMING) e Saída (OUTGOING) no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão o UFW permiti o protocolo ICMP (Internet Control Message
-#Protocol) para o endereço IPv4 de Loopback e o endereço interno/remoto do Ubuntu Server.
+#Protocol) para o endereço IPv4 de Loopback e o endereço interno/remoto do Ubuntu Server na
+#opção de Entrada (INCOMING).
 
 #Pingando o endereço IPv4 da Loopback/Localhost
 ping 127.0.0.1
@@ -229,8 +235,8 @@ ssh vaamonde@172.16.1.20
 #Verificando as Portas Abertas do Ubuntu Server
 #OBSERVAÇÃO: esse processo demora um pouco, caso você não tenha o comando: nmap
 #instalado no seu equipamento digite o comando: sudo apt install nmap
-#opção do comando nmap: -p- (port ranges all) -sS (scan TCP SYN), -sU (scans UDP)
-sudo nmap -p- 172.16.1.20 -sS -sU
+#opção do comando nmap: -p- (port ranges all)
+sudo nmap -p- 172.16.1.20
 ```
 
 #11_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
@@ -247,7 +253,7 @@ sudo ufw allow out on lo
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
 
-#Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+#Verificando o Status das Regras (RULES) Numeradas (NUMBERED) do UFW
 sudo ufw status numbered
 ```
 
@@ -258,6 +264,17 @@ sudo ufw status numbered
 
 #OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
 #recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
+
+#OBSERVAÇÃO IMPORTANTE: muito cuidado na hora de configurar a Sequência de Regras do
+#UFW, ele segue o padrão de: Primeira Regra Correspondente (de cima para baixo), Ação
+#da Regra (allow, deny, reject), Regras Subsequentes (continua se não encontrar uma
+#regra) e Regra Padrão (default).
+
+#OBSERVAÇÃO IMPORTANTE: o UFW também processa as regas da seguinte forma: Regras de 
+#Porta Específica (maior prioridade), Regras de Protocolo e Porta (alta prioridade),
+#Regras de Aplicação de Serviço (prioridade intermediaria), Regras de Subnet (menor
+#prioridade), Regras de Interface (menor prioridade) e Regras de App Profile (essa
+#regra tem menor prioridade e sem fica por último).
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (53/udp)
 sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
@@ -331,7 +348,7 @@ ping google.com
 
 #OBSERVAÇÃO IMPORTANTE: mesmo quando você habilita os recursos de Log do UFW, nem todos os
 #Logs são registrado no arquivo: /var/log/ufw.log, para resolver esse problema você pode 
-#adicionar as opções: log (logar) ou log-all (logar tudo) nas regras de firewall.
+#adicionar as opções: log (LOGAR) ou log-all (LOGAR TUDO) nas regras de firewall.
 
 #Regra de liberação (ALLOW) de Entrada (IN) Logando Tudo (LOG-ALL) do Protocolo SSH (22/tcp)
 sudo ufw allow in log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
@@ -372,7 +389,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 
 #OBSERVAÇÃO IMPORTANTE: nas opções FROM (ORIGEM/DE) e TO (DESTINO/PARA) você pode usar
 #a opção ANY (QUALQUER) para configurar a regra de firewall menos restritiva, um exemplo
-#seria do procolo HTTP na porta 80: sudo ufw allow proto tcp from any to any port 80 ou
+#seria do procolo HTTP na porta 80: sudo ufw allow from any to any port 80 proto tcp ou
 #utilizar a Interface de entrada: sudo ufw allow in on enp3s0 to any port 80 proto tcp
 
 #Liberando (ALLOW) a Sub-rede 172.16.1.0/24 (FROM) acessar o servidor (TO) do Grafana Server na porta (PORT) 3000 via protocolo HTTP (proto tcp)
@@ -436,7 +453,7 @@ sudo cat -n /var/log/ufw.log | less
 a) NUMBER........: número do log do UFW;
 b) DATE..........: data e hora do registro do evento no log do UFW;
 c) SRV...........: nome do servidor que está configurado o UFW;
-d) KERNEL........: origem do evento no kernel do sistema operacional
+d) KERNEL........: origem do evento no kernel do sistema operacional;
 e) [KERNEL BOOT].: tempo desde o boot do sistema em segundos e microssegundos;
 f) [UFW BLOCK]...: tipo de registro de evento do log do UFW (AUDIT, ALLOW, DENY, INBOUND, LIMIT, OUTBOUND e REJECT);
 g) IN=...........: entrada do tráfego e interface;
@@ -508,7 +525,7 @@ sudo ufw allow in log-all MySQL comment 'Liberando o acesso o App MySQL Server'
 sudo ufw status verbose
 ```
 
-#20_ Liberando (ALLOW) um Faixa (Range) de Portas do UFW no Ubuntu Server<br>
+#20_ Liberando (ALLOW) uma Faixa (Range) de Portas do UFW no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão o UFW no Ubuntu Server adiciona automaticamente regras
 #de IPv6 para as regras criadas de forma Simples/Básica.
