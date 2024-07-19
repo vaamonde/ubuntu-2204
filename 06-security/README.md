@@ -69,8 +69,8 @@ Conteúdo estudado nessa implementação:<br>
 #24_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
 #25_ Resetando (RESET) das Regras de Firewall do UFW no Ubuntu Server<br>
 
-[![Configuração UFW](http://img.youtube.com/vi//0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Configuração UFW")
+[![Firewall UFW](http://img.youtube.com/vi/PuahiojOEGA/0.jpg)](https://www.youtube.com/watch?v=PuahiojOEGA "Firewall UFW")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/06-security/01-ufw.md

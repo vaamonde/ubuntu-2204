@@ -70,9 +70,9 @@ O nftables é um subsistema do kernel Linux que fornece filtragem e classificaç
 de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de<br>
 janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
 
-[![Firewall UFW](http://img.youtube.com/vi//0.jpg)]( "Firewall UFW")
+[![Firewall UFW](http://img.youtube.com/vi/PuahiojOEGA/0.jpg)](https://www.youtube.com/watch?v=PuahiojOEGA "Firewall UFW")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
 #01_ Verificando qual o Sistema de Firewall padrão do Ubuntu Server<br>
 ```bash
