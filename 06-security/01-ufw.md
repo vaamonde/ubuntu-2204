@@ -223,7 +223,7 @@ sudo host -v -t A localhost
 #Pingando o endereço IPv4 de DNS do Google
 ping 8.8.8.8
 
-#Resolvendo o nome do Google
+#Resolvendo o nome de DNS do Google
 nslookup google.com
 
 #Pingando o endereço IPv4 Remoto do Ubuntu Server
@@ -291,8 +291,11 @@ sudo ufw status verbose
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
-#Resolvendo o nome do Google
+#Resolvendo o nome DNS do Google
 nslookup google.com
+
+#Pingando o nome DNS do Google
+ping google.com
 
 #Atualizando as Listas do Sources.List do Apt
 sudo apt update
@@ -449,6 +452,11 @@ sudo ufw status verbose
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat -n /var/log/ufw.log | less
 
+#Saída padrão dos Logs do UFW no arquivo ufw.log
+1343 Jul 18 12:54:15 wsvaamonde kernel: [ 7898.809280] [UFW BLOCK] IN= OUT=enp0s3 SRC=172.16.1.20
+DST=172.16.1.135 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=24251 DF PROTO=TCP SPT=54900 DPT=9100 
+WINDOW=64240 RES=0x00 SYN URGP=0
+
 #Entendo as entradas e registros no Log do UFW
 a) NUMBER........: número do log do UFW;
 b) DATE..........: data e hora do registro do evento no log do UFW;
@@ -502,7 +510,7 @@ sudo tail -f /var/log/ufw.log
 sudo ufw app list
 
 #Obtendo informações do aplicativo Apache no UFW
-sudo ufw app info Apache
+sudo ufw app info 'Apache Full'
 
 #Baixando um modelo de aplicativo do MySQL do Github
 #opção do comando wget: -O (out document file)
@@ -563,7 +571,7 @@ sudo ufw status verbose
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
-#Removendo (DELETE) a Regra (RULES) de Acesso ao SSH IPv4 (6) e IPv6 (18)
+#Removendo (DELETE) a Regra (RULES) de Acesso ao SSH IPv4 (6) e IPv6 (16)
 sudo ufw delete 6
 	Deleting:
 	allow log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
@@ -573,7 +581,7 @@ sudo ufw delete 6
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
-sudo ufw delete 18
+sudo ufw delete 16
 	Deleting:
 	allow log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
 	Proceed with operation (y|n)? y <Enter>
@@ -608,10 +616,17 @@ sudo cat -n /var/log/ufw.log | grep -i dpt=22
 #sem aviso, enquanto REJECT envia uma resposta de rejeição explícita ao remetente.
 
 #Rejeitando (REJECT) e Logando Tudo (LOG-ALL) do Endereço IPv4 172.16.1.115 (FROM) acessar o servidor (TO) do GLPI Help Desk na porta (PORT) 8888 via protocolo TCP (PROTO TCP)
-sudo ufw reject log-all from 172.16.1.115 to 172.16.1.20 port 8888 proto tcp comment 'Rejeitando um host para acessar o GLPI Help Desk'
+sudo ufw reject log-all from 172.16.1.113 to 172.16.1.20 port 8888 proto tcp comment 'Rejeitando um host para acessar o GLPI Help Desk'
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
+
+#Testando o acesso via Navegador do protocolo HTTP
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
+
+#Testando a porta de conexão remota HTTP via NC
+#opção do comando nc: -v (verbose)
+nc -v 172.16.1.20 8888
 
 #Verificando o arquivo de Log do UFW
 #opção do comando cat: -n (numeric)
@@ -628,10 +643,10 @@ sudo cat -n /var/log/ufw.log | grep -i dpt=8888
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
-#Removendo (DELETE) a Regra (RULES) de Acesso ao HTTP IPv4 (4) e IPv6 (18)
+#Removendo (DELETE) a Regra (RULES) de Acesso ao HTTP IPv4 (4) e IPv6 (15)
 sudo ufw delete 4
 sudo ufw status numbered
-sudo ufw delete 19
+sudo ufw delete 15
 
 #Inserindo (INSERT) novamente a Regra (RULES) de Liberação (ALLOW) de Saída (OUT) do Protocolo HTTP (80/tcp)
 sudo ufw insert 4 allow out 80/tcp comment 'Liberando a saida para navegação do HTTP'
