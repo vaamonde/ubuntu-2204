@@ -81,7 +81,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/01-ins
 
 # **🤩🤩 Atualização do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de atualização do Ubuntu Server 22.04.x LTS no Oracl VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para manter o seu servidor Ubuntu sempre atualizado antes de começar a instalar e configurar os principais serviços de rede.
+Vídeo de atualização do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para manter o seu servidor Ubuntu sempre atualizado antes de começar a instalar e configurar os principais serviços de rede.
 
 [![Atualização Ubuntu Server](http://img.youtube.com/vi/B3FzV2bxjtw/0.jpg)](https://www.youtube.com/watch?v=B3FzV2bxjtw "Atualização Ubuntu Server")
 
@@ -487,6 +487,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=0JB8GsmaVgQ
 
 # NOVOS VÍDEOS DO CURSO UBUNTU SERVER
 
+# PRIMEIRA ETAPA: INSTALAÇÃO E CONFIGURAÇÃO DOS SERVIÇOS DE MONITORAMENTO
+
 ## **🤩🤩 Implementação do Zabbix Server 7 e Agent 2 no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
 Vídeo de implementação do Zabbix Server 7 no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Monitoramento em Tempo Real do Zabbix Server e Agent para obter as principais métricas do nosso servidor.
@@ -725,7 +727,33 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/06-glpi.md
 
+## **🤩🤩 Implementação do Datadog no Ubuntu Server 22.04 do Projeto Bora para Práticaa 🤩🤩**
+
+Vídeo de Implementação do Datadog no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Monitoramento em Tempo Real em Cloud (Nuvem) do Datadog e Agent para obter as principais métricas do nosso servidor.
+
+A Datadog é uma empresa de software que fornece um SaaS de observabilidade para serviços em nuvem amplamente utilizado. Foi fundada em 2010 por Olivier Pomel e Alexis Lê-Quôc em Nova Iorque.
+
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
+
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog.png
+
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver  #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent
+
+Conteúdo estudado nessa implementação:<br>
+#01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
+#02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
+
+[![Datadog](http://img.youtube.com/vi//0.jpg)]( "Datadog")
+
+Link da vídeo aula: 
+
+Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/07-datadog.md
+
 # INTEGRAÇÕES NO UBUNTU SERVER
+
+# PRIMEIRA ETAPA: INTEGRAÇÃO DO VSCODE COM O UBUNTU SERVER 
 
 ## **🤩🤩 Integração do VSCode e Remote SSH no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
@@ -760,6 +788,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/05-integrations/01-vscode.md
 
 # SEGURANÇA NO UBUNTU SERVER
+
+# PRIMEIRA ETAPA: CONFIGURAÇÃO DAS REGRAS DE FIREWALL 
 
 ## **🤩🤩 Configurando do UFW (Uncomplicated Firewall) no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 

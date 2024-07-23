@@ -48,7 +48,6 @@ fontes de dados suportadas. É expansível através de um sistema de plug-in.
 Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
 #01_ Instalando as Dependências do Grafana Server<br>
-
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -58,7 +57,6 @@ sudo apt install apt-transport-https software-properties-common git vim
 ```
 
 #02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server<br>
-
 ```bash
 #baixando a Chave GPG do Grafana Server
 #opção do comando wget: -q (quiet), -O (output-document)
@@ -75,7 +73,6 @@ echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com st
 ```
 
 #03_ Instalando o Grafana Server no Ubuntu Server<br>
-
 ```bash
 #atualizando as listas do Apt com o novo repositório
 sudo apt update
@@ -86,7 +83,6 @@ sudo apt install --install-recommends grafana
 ```
 
 #04_ Editando os arquivos de configuração do Grafana Server<br>
-
 ```bash
 #editando o arquivo de configuração do Grafana Server
 sudo vim /etc/default/grafana-server
@@ -119,7 +115,6 @@ ESC SHIFT : x <Enter>
 ```
 
 #05_ Habilitando o Serviço do Grafana Server<br>
-
 ```bash
 #habilitando o serviço do Grafana Server
 sudo systemctl daemon-reload
@@ -128,7 +123,6 @@ sudo systemctl restart grafana-server
 ```
 
 #06_ Verificando o Serviço e Versão do Grafana Server<br>
-
 ```bash
 #verificando o serviço do Grafana Server
 sudo systemctl status grafana-server
@@ -149,7 +143,6 @@ sudo grafana-cli -v
 ```
 
 #07_ Verificando a Porta de Conexão do Grafana Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -166,7 +159,6 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
 #08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
-
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G grafana $USER
@@ -179,7 +171,6 @@ exit
 ```
 
 #09_ Localização dos diretórios principais do Grafana Server<br>
-
 ```bash
 /usr/share/grafana*          <-- Diretório do Site do Grafava Server
 /var/log/grafana*            <-- Diretório dos arquivos de Log's do serviço do Grafana Server
@@ -191,96 +182,99 @@ exit
 ```
 
 #10_ Configurando o Grafana Server via Navegador<br>
+```bash
+#acessar via navegador o Grafana
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+#configurações iniciais do Grafana Server
+Welcome to Grafana
+	Email or username: admin
+	Password: admin 
+<Log In>
 
-	#configurações iniciais do Grafana Server
-	Welcome to Grafana
-		Email or username: admin
-		Password: admin 
-	<Log In>
-	
-	Update your password
-		New password: pti@2018
-		Confirm new password: pti@2018 
-	<Submit>
+Update your password
+	New password: pti@2018
+	Confirm new password: pti@2018 
+<Submit>
+```
 
 #11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
-
-	#criando um Data Sources do Banco de Dados DBAgenda do MySQL Server
-	Open Menu
-		Connections
-			Data Sources
-				<Add data source>
-					Filter by name or type: MySQL
-						Select: MySQL (Data Source for MySQL databases)
-							Name: MySQL-DBAgenda - Default (Enable)
-							MySQL Connection
-								Host URL: localhost:3306
-								Database name: dbagenda
-								Username: dbagenda
-								Password: dbagenda
-						<Save & Test>
-			Data Sources
+```bash
+#criando um Data Sources do Banco de Dados DBAgenda do MySQL Server
+Open Menu
+	Connections
+		Data Sources
+			<Add data source>
+				Filter by name or type: MySQL
+					Select: MySQL (Data Source for MySQL databases)
+						Name: MySQL-DBAgenda - Default (Enable)
+						MySQL Connection
+							Host URL: localhost:3306
+							Database name: dbagenda
+							Username: dbagenda
+							Password: dbagenda
+					<Save & Test>
+		Data Sources
+```
 
 #12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
+```bash
+#criando o Dashboard do Banco de Dados DBAgenda
+Open Menu
+	Dashboards
+		<Create Dashboard>
+		<+ Add visualization>
+			Select data source
+				Data source: MySQL-DBAgenda
+			
+			#primeira etapa: criar o Dataset do Banco, Tabela e Coluna
+			Builder
+				Dataset: dbagenda   Tabela: contatos
+				Columm: nome   Aggregation: COUNT (Contar)   Alias: Choose (Default)
+			<Run query>
+			
+			#segunda etapa: criar a visualização dos dados no painel
+			Panel Title
+				<Open visualization suggestions>
+					Suggestions: Gauge
+						Panel options
+							Tile: Total de Contatos
+							Description: Total de Contatos cadastrados no banco DBAgenda
+						Standard Option
+							Min: 1
+							Max: 20
+					<Save>
 
-	#criando o Dashboard do Banco de Dados DBAgenda
-	Open Menu
-		Dashboards
-			<Create Dashboard>
-			<+ Add visualization>
-				Select data source
-					Data source: MySQL-DBAgenda
-				
-				#primeira etapa: criar o Dataset do Banco, Tabela e Coluna
+			#terceira etapa: salvando as mudanças do Dashboard		
+			Details
+				Title: DBAgenda
+				Description: Dashboard DBAgenda
+				Folder: Dashboard
+			<Save>
+			
+		#quarta etapa: adicionando mais um painel no Dashboard DBAgenda
+		<Add>
+			Visualization
 				Builder
 					Dataset: dbagenda   Tabela: contatos
-					Columm: nome   Aggregation: COUNT (Contar)   Alias: Choose (Default)
+					Columm: nome   Aggregation: Choose (Default)   Alias: Choose (Default)
+					
+					#habilitar a opção: Order (Enable) no painel da Builder
+					Order by: idcon
+					Sort by: descending
+					Limit: 10
 				<Run query>
 				
-				#segunda etapa: criar a visualização dos dados no painel
 				Panel Title
-					<Open visualization suggestions>
-						Suggestions: Gauge
-							Panel options
-								Tile: Total de Contatos
-								Description: Total de Contatos cadastrados no banco DBAgenda
-							Standard Option
-								Min: 1
-								Max: 20
-						<Save>
-
-				#terceira etapa: salvando as mudanças do Dashboard		
-				Details
-					Title: DBAgenda
-					Description: Dashboard DBAgenda
-					Folder: Dashboard
-				<Save>
-				
-			#quarta etapa: adicionando mais um painel no Dashboard DBAgenda
-			<Add>
-				Visualization
-					Builder
-						Dataset: dbagenda   Tabela: contatos
-						Columm: nome   Aggregation: Choose (Default)   Alias: Choose (Default)
-						
-						#habilitar a opção: Order (Enable) no painel da Builder
-						Order by: idcon
-						Sort by: descending
-						Limit: 10
-					<Run query>
-					
-					Panel Title
-						<Switch to table>
-							Panel options
-								Tile: Últimos Contatos do DBAgenda
-								Description: Nome dos últimos contatos do banco DBAgenda
-						<Save> - <Save>
-					<Apply>
+					<Switch to table>
+						Panel options
+							Tile: Últimos Contatos do DBAgenda
+							Description: Nome dos últimos contatos do banco DBAgenda
+					<Save> - <Save>
+				<Apply>
+```
 
 #13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana<br>
-
 ```bash
 #instalando o Plugin do Zabbix Server no Grafana
 sudo grafana-cli plugins install alexanderzobnin-zabbix-app
@@ -288,70 +282,69 @@ sudo grafana-cli plugins install alexanderzobnin-zabbix-app
 #reiniciar o serviço do Grafana Server
 sudo systemctl restart grafana-server
 sudo systemctl status grafana-server
+
+#criando o usuário de autenticação no Zabbix Server
+#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
+#Server: Admin acontecia o erro de autenticação, aparecendo sempre a mensagem de:
+#Incorrect user name or password or account is temporarily blocked. Para corrigir
+#essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
+
+#acessando o Zabbix Server via Navegador
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
+
+#criação do usuário para a integração com o Grafana Server
+Zabbix
+	Users
+		Users
+			<Create User>
+				User
+					Username: vaamonde
+					Name: Robson Vaamonde
+					Password: pti@2018
+					Password (once again): pti@2018
+				Permission
+					Role: <Select>
+						Super admin role
+			<Add>
+
+#habilitando o Plugin do Zabbix Server no Grafana Server
+Open Menu
+	Administration
+		Plugins and data
+			Plugins
+				Search: Zabbix (clicar)
+				<Enabled>
+
+#criando o Data Source da Zabbix Server
+Open Menu
+	Connections
+		Data sources
+			<+ Add new data source>
+				Filter: Zabbix (select)
+					Name: wsvaamonde
+					Connection: http://172.16.1.20/zabbix/api_jsonrpc.php
+					Zabbix Connection
+						Auth type: User and password
+						Username: vaamonde
+						Password: pti@2018
+			<Save and test>
+
+#criando o Dashboard padrão do Zabbix Server
+Open Menu
+	New Dashboard
+		<+ Add visualization>
+			Select data source: wsvaamonde (Zabbix Server)
+
+			#gráfico de utilização da CPU
+
+			#gráfico de utilização da RAM
+
+			#gráfico de utilização do DISK
+
+			#gráfico de utilização da NETWORK
 ```
 
-	#criando o usuário de autenticação no Zabbix Server
-	#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
-	#Server: Admin acontecia o erro de autenticação, aparecendo sempre a mensagem de:
-	#Incorrect user name or password or account is temporarily blocked. Para corrigir
-	#essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
-
-	#acessando o Zabbix Server via Navegador
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
-
-	#criação do usuário para a integração com o Grafana Server
-	Zabbix
-		Users
-			Users
-				<Create User>
-					User
-						Username: vaamonde
-						Name: Robson Vaamonde
-						Password: pti@2018
-						Password (once again): pti@2018
-					Permission
-						Role: <Select>
-							Super admin role
-				<Add>
-
-	#habilitando o Plugin do Zabbix Server no Grafana Server
-	Open Menu
-		Administration
-			Plugins and data
-				Plugins
-					Search: Zabbix (clicar)
-					<Enabled>
-
-	#criando o Data Source da Zabbix Server
-	Open Menu
-		Connections
-			Data sources
-				<+ Add new data source>
-					Filter: Zabbix (select)
-						Name: wsvaamonde
-						Connection: http://172.16.1.20/zabbix/api_jsonrpc.php
-						Zabbix Connection
-							Auth type: User and password
-							Username: vaamonde
-							Password: pti@2018
-				<Save and test>
-	
-	#criando o Dashboard padrão do Zabbix Server
-	Open Menu
-		New Dashboard
-			<+ Add visualization>
-				Select data source: wsvaamonde (Zabbix Server)
-
-				#gráfico de utilização da CPU
-
-				#gráfico de utilização da RAM
-
-				#gráfico de utilização do DISK
-
-				#gráfico de utilização da NETWORK
-
 #14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
-
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo apt install stress-ng s-tui

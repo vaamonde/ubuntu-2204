@@ -517,41 +517,41 @@ ESC SHIFT : x <Enter>
 #verificando o serviço do Prometheus
 sudo systemctl restart prometheus
 sudo systemctl status prometheus
+
+#acessando o Prometheus via navegador
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
+
+#verificando os alvos monitorados do Prometheus
+Status
+	Targets
 ```
 
-	#acessando o Prometheus via navegador
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
-
-	#verificando os alvos monitorados do Prometheus
-	Status
-		Targets
-
 #25_ Integrando o Prometheus no Grafana<br>
+```bash
+#acessando o Grafana Server
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
-	#acessando o Grafana Server
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+#criando um Data Sources do Prometheus
+Open Menu
+	Connections
+		Data Sources
+			<Add data source>
+				Filter by name or type: Prometheus
+					Name: prometheus-wsvaamonde
+					Connection
+						Prometheus server URL: http://172.16.1.20:9091
+			<Save & Test>
 
-	#criando um Data Sources do Prometheus
-	Open Menu
-		Connections
-			Data Sources
-				<Add data source>
-					Filter by name or type: Prometheus
-						Name: prometheus-wsvaamonde
-						Connection
-							Prometheus server URL: http://172.16.1.20:9091
-				<Save & Test>
-
-	#criando o Dashboard do Prometheus
-	Open Menu
-		Dashboards
-			<Create Dashboard>
-			<+ Add visualization>
-				Select data source
-					Data source: prometheus-wsvaamonde
+#criando o Dashboard do Prometheus
+Open Menu
+	Dashboards
+		<Create Dashboard>
+		<+ Add visualization>
+			Select data source
+				Data source: prometheus-wsvaamonde
+```
 
 #26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
-
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo apt install stress-ng s-tui

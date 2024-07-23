@@ -256,15 +256,17 @@ sudo systemctl status tomcat10
 ```
 
 #14_ Testando o Apache Tomcat Server no navegador<br>
-
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
+```bash
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
+```
 
 #15_ Administrando o Apache Tomcat Server<br>
-
-	Clique em: Manager App
-		Usuário padrão: admin
-		Senha padrão..: pti@2018
-	<Fazer Login>
+```bash
+Clique em: Manager App
+	Usuário padrão: admin
+	Senha padrão..: pti@2018
+<Fazer Login>
+```
 
 ========================================DESAFIOS=========================================
 

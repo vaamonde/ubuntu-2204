@@ -46,7 +46,6 @@ modificar ou desenvolver o código.
 Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 #01_ Instalando as Dependências do GLPI Help Desk<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER
 #E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 
@@ -64,7 +63,6 @@ php-zip php-bz2
 ```
 
 #02_ Criando a Base de Dados do GLPI Help Desk<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: O GLPI POSSUI AS DEPENDÊNCIAS DE TIMEZONE E DATA HORA
 #CORRETA, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: 03 DO LOCATE E
@@ -82,7 +80,6 @@ sudo systemctl status mysql
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
-
 ```sql
 /* Criando o Banco de Dados GLPI Help Desk com suporte ao UTF8 */
 CREATE DATABASE glpi10 default CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
@@ -117,13 +114,11 @@ USE glpi10;
 /* Saindo do Banco de Dados */
 exit
 ```
-
 ```bash
 #se logando com o usuário glpi10 para testar a conexão com o MySQL Server
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u glpi10 -p
 ```
-
 ```sql
 /* visualizando a base de dados do GLPI Help Desk */
 SHOW DATABASES;
@@ -132,7 +127,6 @@ exit
 ```
 
 #03_ Baixando o Projeto do GLPI Help Desk do Github<br>
-
 ```bash
 #Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/
 
@@ -147,7 +141,6 @@ wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.
 ```
 
 #04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server<br>
-
 ```bash
 #descompactando o download do arquivo do GLPI Help Desk
 #opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
@@ -171,7 +164,6 @@ sudo chmod -Rv 777 /var/www/html/glpi/files/_log
 ```
 
 #05_ Atualizando os Arquivos de Configuração do GLPI Help Desk<br>
-
 ```bash
 #download dos principais arquivos de configuração do GLPI Help Desk
 #opção do comando wget: -v (verbose), -O (output file)
@@ -184,7 +176,6 @@ sudo wget -v -O /etc/cron.d/glpi-cron https://raw.githubusercontent.com/vaamonde
 ```
 
 #06_ Editando os arquivos de configuração do GLPI Help Desk<br>
-
 ```bash
 #editando o arquivo de configuração do GLPI Help Desk utilizado pelo Apache2
 sudo vim /etc/apache2/conf-available/glpi.conf
@@ -239,7 +230,6 @@ ESC SHIFT :x <Enter>
 ```
 
 #07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
-
 ```bash
 #habilitando os módulos do Apache2 Server
 sudo a2enmod rewrite setenvif
@@ -260,7 +250,6 @@ sudo journalctl -xeu apache2
 ```
 
 #08_ Verificando a Porta de Conexão do GLPI Help Desk<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -272,7 +261,6 @@ sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
 ```
 
 #09_ Localização dos diretórios principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO)<br>
-
 ```bash
 /etc/apache2/conf-available/*  <-- Diretório dos arquivos de configuração dos Sites do Apache2 Server;
 /etc/cron.d/*                  <-- Diretório dos arquivos de agendamento diário do CRON;
@@ -283,87 +271,87 @@ sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
 ```
 
 #10_ Acessando e configurando o GLPI Help Desk via navegador<br>
-
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
-
-	#Informações que serão solicitadas na configuração via Web do GLPI Help Desk
-	GLPI SETUP
-		Selecione seu idioma: Português Brasil <OK>
-		Licença: <Continuar>
-		Início da instalação: <Instalar>
-		Etapa 0: Verificando a compatibilidade do seu ambiente para a execução do GLPI: <Continuar>
-
-			#OBSERVAÇÃO IMPORTANTE: Configuração segura do diretório raiz da web
-			O diretório raiz do servidor web deve ser `/var/www/html/glpi/public` para garantir
-			que arquivos não públicos não possam ser acessados.
-			A configuração do diretório raiz do servidor da Web não é segura, pois permite acesso
-			a arquivos não públicos. Consulte a documentação de instalação para obter mais detalhes.
-
-			#OBSERVAÇÃO IMPORTANTE: Caminho seguro para diretórios de dados
-			Os diretórios de dados do GLPI deveriam ser colocados fora da raiz do diretório web. Isso
-			pode ser alcançado ao redefinir as constantes correspondentes. Consulte a documentação de
-			instalação para obter mais informações.
-			Os seguintes diretórios devem ser armazenados fora de "/var/www/html/glpi":
-			‣ "/var/www/html/glpi/files" ("GLPI_VAR_DIR")
-			Você pode ignorar esta sugestão se o diretório raiz do seu servidor web for 
-			"/var/www/html/glpi/public". 
-
-		Etapa 1: Instalação da conexão com o banco de dados
-			Endereço do servidor SQL (MariaDB ou MySQL): localhost
-			Usuário SQL: glpi10
-			Senha SQL: glpi10
-		<Continuar>
-		Etapa 2: Teste de conexão com o banco de dados
-			Por favor, selecione o banco de dados: 
-			On (Selecionar): glpi10
-		<Continuar>
-		Etapa 3: Iniciando banco de dados
-			OK - banco de dados inicializado
-			#OBSERVAÇÃO IMPORTANTE: o processo de criação das Tabelas e configuração base do
-			#GLPI Help Desk demora um pouco.
-		<Continuar>
-		Etapa 4: Coletar dados
-			On (Selecionar): Enviar "estatísticas de uso"
-		<Continuar>
-		Etapa 5: Uma última coisa antes de começar: <Continuar>
-		Etapa 6: A instalação foi concluída
-			Os usuários e senhas padrões são:
-			glpi/glpi para a conta do usuário administrador
-			tech/tech para a conta do usuário técnico
-			normal/normal para a conta do usuário normal
-			post-only/postonly para a conta do usuário postonly
-		<Usar GLPI>
-
-	#fazendo o Login na Tela Principal do GLPI Help Desk
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
-		Faça login para sua conta
-			Usuário: glpi
-			Senha: glpi
-			Origem de login: Banco de dados interno do GLPI
-			On (Selecionar): Lembrar de mim
-		<Entrar>
-
 ```bash
+#acessar via navegador o GLPI
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
+
+#Informações que serão solicitadas na configuração via Web do GLPI Help Desk
+GLPI SETUP
+	Selecione seu idioma: Português Brasil <OK>
+	Licença: <Continuar>
+	Início da instalação: <Instalar>
+	Etapa 0: Verificando a compatibilidade do seu ambiente para a execução do GLPI: <Continuar>
+
+		#OBSERVAÇÃO IMPORTANTE: Configuração segura do diretório raiz da web
+		O diretório raiz do servidor web deve ser `/var/www/html/glpi/public` para garantir
+		que arquivos não públicos não possam ser acessados.
+		A configuração do diretório raiz do servidor da Web não é segura, pois permite acesso
+		a arquivos não públicos. Consulte a documentação de instalação para obter mais detalhes.
+
+		#OBSERVAÇÃO IMPORTANTE: Caminho seguro para diretórios de dados
+		Os diretórios de dados do GLPI deveriam ser colocados fora da raiz do diretório web. Isso
+		pode ser alcançado ao redefinir as constantes correspondentes. Consulte a documentação de
+		instalação para obter mais informações.
+		Os seguintes diretórios devem ser armazenados fora de "/var/www/html/glpi":
+		‣ "/var/www/html/glpi/files" ("GLPI_VAR_DIR")
+		Você pode ignorar esta sugestão se o diretório raiz do seu servidor web for 
+		"/var/www/html/glpi/public". 
+
+	Etapa 1: Instalação da conexão com o banco de dados
+		Endereço do servidor SQL (MariaDB ou MySQL): localhost
+		Usuário SQL: glpi10
+		Senha SQL: glpi10
+	<Continuar>
+	Etapa 2: Teste de conexão com o banco de dados
+		Por favor, selecione o banco de dados: 
+		On (Selecionar): glpi10
+	<Continuar>
+	Etapa 3: Iniciando banco de dados
+		OK - banco de dados inicializado
+		#OBSERVAÇÃO IMPORTANTE: o processo de criação das Tabelas e configuração base do
+		#GLPI Help Desk demora um pouco.
+	<Continuar>
+	Etapa 4: Coletar dados
+		On (Selecionar): Enviar "estatísticas de uso"
+	<Continuar>
+	Etapa 5: Uma última coisa antes de começar: <Continuar>
+	Etapa 6: A instalação foi concluída
+		Os usuários e senhas padrões são:
+		glpi/glpi para a conta do usuário administrador
+		tech/tech para a conta do usuário técnico
+		normal/normal para a conta do usuário normal
+		post-only/postonly para a conta do usuário postonly
+	<Usar GLPI>
+
+#fazendo o Login na Tela Principal do GLPI Help Desk
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
+	Faça login para sua conta
+		Usuário: glpi
+		Senha: glpi
+		Origem de login: Banco de dados interno do GLPI
+		On (Selecionar): Lembrar de mim
+	<Entrar>
+
 #removendo o arquivo Install pós instalação do GLPI Help Desk
 #opção do comando rm: -v (verbose)
 sudo rm -v /var/www/html/glpi/install/install.php
 ```
 
 #11_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+```bash
+#habilitar o recurso de recebimento de inventário no GLPI Help Desk
+Administração
+	Inventário
+		Configuração
+			Habilitar inventário: On (Enable)
+		<Salvar>
 
-	#habilitar o recurso de recebimento de inventário no GLPI Help Desk
-	Administração
-		Inventário
-			Configuração
-				Habilitar inventário: On (Enable)
-			<Salvar>
-	
-	#testando se o recurso de Inventário foi habilitado no GLPI Help Desk
-	#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
+#testando se o recurso de Inventário foi habilitado no GLPI Help Desk
+#OBSERVAÇÃO: não pode aparecer a mensagem: Inventory is disabled
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
+```
 
 #12_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
-
 ```bash
 #Instalação do GLPI Agent no Ubuntu Server
 
@@ -387,7 +375,6 @@ hdparm 7zip
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.9/glpi-agent_1.9-1_all.deb
 
-#instalando o Agent do GLPI Help Desk no Ubuntu Server
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
 
@@ -418,12 +405,10 @@ sudo systemctl status glpi-agent
 #opção do comando netstat: -a (all), -n (numeric), -p (program)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo netstat -anp | grep 62354 
-```
 
-	#testando o Agent do GLPI Help Desk via navegador
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
+#testando o Agent do GLPI Help Desk via navegador
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
 
-```bash
 #forçando o envio do primeiro inventário do GLPI Help Desk
 sudo glpi-agent 
 
@@ -449,7 +434,6 @@ hdparm 7zip
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.9/glpi-agent_1.9-1_all.deb
 
-#instalando o Agent do GLPI Help Desk no Ubuntu Server
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
 
@@ -477,102 +461,99 @@ sudo systemctl status glpi-agent
 #opção do comando netstat: -a (all), -n (numeric), -p (program)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo netstat -anp | grep 62354 
+
+#testando o Agent do GLPI Help Desk via navegador
+firefox ou google chrome: http://endereço_ipv4_linuxmint:62354/
+
+#forçando o envio do primeiro inventário do GLPI Help Desk
+sudo glpi-agent 
+
+#Instalação do GLPI Agent no Microsoft Windows 10
+
+#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
+#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
+#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.9/GLPI-Agent-1.9-x64.msi
+
+#instalando o Agent GLPI Help Desk Windows 10
+Download
+	Executar o software: GLPI-Agent-1.9-x64.msi
+	O Windows protegeu o seu computador
+		Mais informações
+		<Executar assim mesmo> 
+	Welcome to the Setup Wizard for GLPI Agent 1.9: <Next>
+	End-User License Agreement: <Next>
+	Destination Folder: <Next>
+	Choose Setup Type: <Custom>
+		Custom Setup: <Next>
+		Choose Targets:
+			Local Target: C:\Program Files\GLPI-Agent\
+			Remote Targets: http://172.16.1.20:8888/front/inventory.php
+			Quick installation: ON
+		<Next>
+	<Install>
+	Deseja permitir que este aplicativo de um fornecedor desconhecido faça alterações no seu dispositivo?
+		<SIM>
+	Completed the GLPI Agent 1.8 Setup Wizard: <Finish>
+
+#editando o arquivo de configuração do Agent GLPI Help Desk via Powershell
+Menu
+	Powershell 
+		Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+
+#acessando o diretório de configuração do Agent GLPI Help Desk
+cd 'C:\Program Files\GLPI-Agent\etc'
+
+#editando o arquivo de configuração do Agent GLPI Help Desk
+notepad.exe .\agent.cfg
+
+	#alterar o valor da variável: server na linha: 12
+	server = http://172.16.1.20:8888/front/inventory.php
+
+	#descomentar o valor da variável: local na linha: 20
+	local = c:\temp
+
+	#alterar o valor da variável: tag na linha: 127
+	tag = DesktopLinux
+
+#fechar e salvar as mudanças do arquivo do Agent GLPI Help Desk
+<Fechar>
+	<Salvar>
+<Sair>
+
+#reiniciar e verificar o serviço do Agent GLPI Help Desk
+Restart-Service glpi-agent
+Get-Service glpi-agent 
+
+#verificando a porta de conexão do GLPI Agent
+#opção do comando netstat: -a (all), -n (numeric)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+netstat -an | findstr 62354 
+
+#testando o Agent do GLPI Help Desk via navegador
+firefox ou google chrome: http://endereço_ipv4_windows10:62354/
+
+#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
+#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent Monitor sofre alteração, antes
+#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
+Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.3.0/GLPI-AgentMonitor-x64.exe
+
+#instalando o GLPI Agent Monitor no Microsoft Windows 10
+Download
+	Executar o software: GLPI-AgentMonitor-x64.exe
+
+#configuração do GLPI Agent Monitor no Microsoft Windows 10
+#OBSERVAÇÃO IMPORTANTE: caso o ícone do GLPI Monitor não apareça na Barra de Tarefas
+#do Windows 10 (System Tray Icon) clicar na opção: ^ Mostrar ícones ocultos e selecione o
+#GLPI Monitor
+GLPI Agent Monitor
+	<Stop Service>....: Parar o serviços do GLPI Aget;
+	<Force Inventory>.: Forçar o Inventário e envio para o GLPI Help Desk;
+	<New ticket>......: Abrir um novo Chamado Técnico no GLPI Help Desk;
+	<View agent logs>.: Visualizar os Logs de Eventos do GLPI Agent;
+	<Settings>........: Configuração da URL da Abertura de Chamado no GLPI Help Desk;
+	<Close>...........: Fechar o GLPI Agent Monitor.
 ```
-
-	#testando o Agent do GLPI Help Desk via navegador
-	firefox ou google chrome: http://endereço_ipv4_linuxmint:62354/
-
-
-```bash
-	#forçando o envio do primeiro inventário do GLPI Help Desk
-	sudo glpi-agent 
-```
-
-	#Instalação do GLPI Agent no Microsoft Windows 10
-
-	#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
-	#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
-	#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-	Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.9/GLPI-Agent-1.9-x64.msi
-
-	#instalando o Agent GLPI Help Desk Windows 10
-	Download
-		Executar o software: GLPI-Agent-1.9-x64.msi
-		O Windows protegeu o seu computador
-			Mais informações
-			<Executar assim mesmo> 
-		Welcome to the Setup Wizard for GLPI Agent 1.9: <Next>
-		End-User License Agreement: <Next>
-		Destination Folder: <Next>
-		Choose Setup Type: <Custom>
-			Custom Setup: <Next>
-			Choose Targets:
-				Local Target: C:\Program Files\GLPI-Agent\
-				Remote Targets: http://172.16.1.20:8888/front/inventory.php
-				Quick installation: ON
-			<Next>
-		<Install>
-		Deseja permitir que este aplicativo de um fornecedor desconhecido faça alterações no seu dispositivo?
-			<SIM>
-		Completed the GLPI Agent 1.8 Setup Wizard: <Finish>
-
-	#editando o arquivo de configuração do Agent GLPI Help Desk via Powershell
-	Menu
-	   Powershell 
-		   Clicar com o botão direito do mouse e selecionar: Executar como Administrador
-
-	#acessando o diretório de configuração do Agent GLPI Help Desk
-	cd 'C:\Program Files\GLPI-Agent\etc'
-
-	#editando o arquivo de configuração do Agent GLPI Help Desk
-	notepad.exe .\agent.cfg
-
-		#alterar o valor da variável: server na linha: 12
-		server = http://172.16.1.20:8888/front/inventory.php
-
-		#descomentar o valor da variável: local na linha: 20
-		local = c:\temp
-
-		#alterar o valor da variável: tag na linha: 127
-		tag = DesktopLinux
-
-	#fechar e salvar as mudanças do arquivo do Agent GLPI Help Desk
-	<Fechar>
-		<Salvar>
-	<Sair>
-
-	#reiniciar e verificar o serviço do Agent GLPI Help Desk
-	Restart-Service glpi-agent
-	Get-Service glpi-agent 
-
-	#verificando a porta de conexão do GLPI Agent
-	#opção do comando netstat: -a (all), -n (numeric)
-	#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-	netstat -an | findstr 62354 
-
-	#testando o Agent do GLPI Help Desk via navegador
-	firefox ou google chrome: http://endereço_ipv4_windows10:62354/
-
-	#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
-	#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent Monitor sofre alteração, antes
-	#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
-	Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.3.0/GLPI-AgentMonitor-x64.exe
-
-	#instalando o GLPI Agent Monitor no Microsoft Windows 10
-	Download
-		Executar o software: GLPI-AgentMonitor-x64.exe
-
-	#configuração do GLPI Agent Monitor no Microsoft Windows 10
-	#OBSERVAÇÃO IMPORTANTE: caso o ícone do GLPI Monitor não apareça na Barra de Tarefas
-	#do Windows 10 (System Tray Icon) clicar na opção: ^ Mostrar ícones ocultos e selecione o
-	#GLPI Monitor
-	GLPI Agent Monitor
-		<Stop Service>....: Parar o serviços do GLPI Aget;
-		<Force Inventory>.: Forçar o Inventário e envio para o GLPI Help Desk;
-		<New ticket>......: Abrir um novo Chamado Técnico no GLPI Help Desk;
-		<View agent logs>.: Visualizar os Logs de Eventos do GLPI Agent;
-		<Settings>........: Configuração da URL da Abertura de Chamado no GLPI Help Desk;
-		<Close>...........: Fechar o GLPI Agent Monitor.
 
 =========================================================================================
 

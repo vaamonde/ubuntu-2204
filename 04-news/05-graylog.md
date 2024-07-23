@@ -61,7 +61,6 @@ diferentes destinos.
 Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 #01_ Instalando as Dependências do Graylog Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL
 #MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06
@@ -78,7 +77,6 @@ gnupg2 uuid-runtime pwgen dirmngr
 ```
 
 #02_ Baixando e instalando a Chave GPG do OpenSearch<br>
-
 ```bash
 #baixando a chave GPG do OpenSearch
 #opção do comando curl: -o- (output file)
@@ -92,7 +90,6 @@ echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.o
 ```
 
 #03_ Instalando o OpenSearch no Ubuntu Server<br>
-
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
 sudo apt update
@@ -114,7 +111,6 @@ sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/uran
 ```
 
 #04_ Editando o arquivo de configuração do OpenSearch<br>
-
 ```bash
 #editando o arquivo de configuração do OpenSearch
 sudo vim /etc/opensearch/opensearch.yml
@@ -139,7 +135,6 @@ ESC SHIFT : x <Enter>
 ```
 
 #05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
-
 ```bash
 #editando o arquivo de configuração JVM (Java Virtual Machine)
 sudo vim /etc/opensearch/jvm.options
@@ -155,7 +150,6 @@ ESC SHIFT : x <Enter>
 ```
 
 #06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
-
 ```bash
 #alterando as opção do Sysctl de memória do JVM
 #opção do comando sysctl: -w (write)
@@ -168,7 +162,6 @@ echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
 ```
 
 #07_ Habilitando o Serviço do OpenSearch<br>
-
 ```bash
 #habilitando o serviço do OpenSearch
 sudo systemctl daemon-reload
@@ -177,7 +170,6 @@ sudo systemctl restart opensearch
 ```
 
 #08_ Verificando o Serviço e Versão do OpenSearch<br>
-
 ```bash
 #verificando o serviço do OpenSearch
 sudo systemctl status opensearch
@@ -191,12 +183,12 @@ sudo journalctl -xeu opensearch
 
 #verificando a versão do OpenSearch via Terminal ou Navegador
 curl -X GET "http://localhost:9200"
+
+#acessar via navegador o OpenSearch
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 ```
 
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
-
 #09_ Verificando a Porta de Conexão do OpenSearch<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -208,7 +200,6 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 ```
 
 #10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
-
 ```bash
 #baixando o repositório do Graylog Server
 wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
@@ -219,7 +210,6 @@ sudo dpkg -i graylog-*.deb
 ```
 
 #11_ Instalando o Graylog Server no Ubuntu Server<br>
-
 ```bash
 #atualizando as listas do Apt com o Sources List do Graylog Server
 sudo apt update
@@ -230,7 +220,6 @@ sudo apt install --install-recommends graylog-server
 ```
 
 #12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
-
 ```bash
 #gerando a senha aleatório da variável: password_secret
 #OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
@@ -256,7 +245,6 @@ echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut
 ```
 
 #13_ Editando o arquivo de configuração do Graylog Server<br>
-
 ```bash
 #editando o arquivo de configuração do Graylog
 sudo vim /etc/graylog/server/server.conf
@@ -287,7 +275,6 @@ ESC SHIFT : x <Enter>
 ```
 
 #14_ Criando o usuário de autenticação do MongoDB Server<br>
-
 ```bash
 #acessando o MongoDB Shell
 #opção do comando mongosh: admin (database) -u (username), -p (password)
@@ -296,7 +283,6 @@ sudo mongosh admin -u admin -p
 #criando a base de dados Graylog Server
 use graylog;
 ```
-
 ```json
 //criando o usuário e senha de acesso a base de dados do Graylog Server
 db.createUser({
@@ -307,7 +293,6 @@ db.createUser({
 	]
 })
 ```
-
 ```bash
 #verificando o usuário criado no MongoDB
 db.getUser("graylog")
@@ -317,7 +302,6 @@ quit
 ```
 
 #15_ Habilitando o Serviço do Graylog Server<br>
-
 ```bash
 #habilitando o serviço do Graylog Server
 sudo systemctl daemon-reload
@@ -326,7 +310,6 @@ sudo systemctl restart graylog-server
 ```
 
 #16_ Verificando o Serviço e Versão do Graylog Server<br>
-
 ```bash
 #verificando o serviço do Graylog Server
 sudo systemctl status graylog-server
@@ -345,7 +328,6 @@ sudo apt list | grep -i graylog
 ```
 
 #17_ Verificando a Porta de Conexão do Graylog Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -357,7 +339,6 @@ sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ```
 
 #18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
-
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G opensearch $USER
@@ -371,7 +352,6 @@ exit
 ```
 
 #19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
-
 ```bash
 /etc/opensearch/*                <-- Diretório das configurações do OpenSearch
 /etc/opensearch/opensearch.yml   <-- Arquivo de configuração do Serviço do OpenSearch
@@ -383,32 +363,33 @@ exit
 ```
 
 #20_ Configurando o Graylog Server via Navegador<br>
+```bash
+#acessar via navegador o Graylog
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
 
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
-
-	Welcome to Graylog
-		Username: admim
-		Password: pti@2018
-	<Sign In>
+Welcome to Graylog
+	Username: admim
+	Password: pti@2018
+<Sign In>
+```
 
 #21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
-
-	#criando um Input no Graylog Server
-	Welcome
-		System
-			Inputs
-				Select input: Syslog UDP <Launch new input>
-	
-	#configurando o Input do Syslog UDP
-	Launch new Syslog UDP input
-		Node: XXXX/wsvaamonde.pti.intra
-		Title: wsvaamonde
-		Bind Address: 172.16.1.20
-		Port: 1514
-		Encoding (optional): UTF-8
-	<Launch Input>
-
 ```bash
+#criando um Input no Graylog Server
+Welcome
+	System
+		Inputs
+			Select input: Syslog UDP <Launch new input>
+
+#configurando o Input do Syslog UDP
+Launch new Syslog UDP input
+	Node: XXXX/wsvaamonde.pti.intra
+	Title: wsvaamonde
+	Bind Address: 172.16.1.20
+	Port: 1514
+	Encoding (optional): UTF-8
+<Launch Input>
+
 #verificando a porta de conexão do Input do Graylog
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
 sudo lsof -nP -iUDP:'1514'
@@ -433,7 +414,6 @@ sudo systemctl status rsyslog
 ```
 
 #22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP
 #CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER
@@ -456,45 +436,44 @@ ESC SHIFT : x <Enter>
 #reiniciar e verificar o serviço do Rsyslog
 sudo systemctl restart rsyslog
 sudo systemctl status rsyslog
+
+#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
+#baixando o software NXLog-CE (Community Edition) do site oficial:
+Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
+	Available Downloads
+		Version: NXLog Community Edition
+		Platform: Windows
+		#download da versão atualizada em: 28/04/2024
+		Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
+	<Download>
+	<No thanks, just starts my download>
+
+#instalando o NXLog-CE no Windows 10
+Download
+	Executar o software: nxlog-ce-3.2.2329.msi
+	Welcome to the NXLog-CE Setup Wizard: <Next>
+	End-User License Agreement: (ON) I Accept the terms in the License Agreement <Next>
+	Destination Folder: Default <Next>
+	Ready to install NXLog-CE: <Install>
+		Controle de Conta do Usuário: <Sim>
+	Completed the NXLog-CE Setup Wizard: <Finish>
+
+#editando o arquivo de configuração do NXLog-CE via Powershell
+#OBSERVAÇÃO IMPORTANTE: fazer a instalação do NXLog-CE Windows utilizando 
+#o Powershell em modo Administrador.
+
+Menu
+	Powershell 
+		Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+
+#acessando o diretório de configuração do NXLog-CE
+cd 'C:\Program Files\nxlog\conf\'
+
+#editando o arquivo de configuração do NXLog-CE
+notepad.exe .\nxlog.conf
+
+#copiar e colar o bloco de configuração abaixo no final do arquivo nxlog.conf
 ```
-
-	#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
-	#baixando o software NXLog-CE (Community Edition) do site oficial:
-	Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
-		Available Downloads
-			Version: NXLog Community Edition
-			Platform: Windows
-			#download da versão atualizada em: 28/04/2024
-			Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
-		<Download>
-		<No thanks, just starts my download>
-
-	#instalando o NXLog-CE no Windows 10
-	Download
-		Executar o software: nxlog-ce-3.2.2329.msi
-		Welcome to the NXLog-CE Setup Wizard: <Next>
-		End-User License Agreement: (ON) I Accept the terms in the License Agreement <Next>
-		Destination Folder: Default <Next>
-		Ready to install NXLog-CE: <Install>
-			Controle de Conta do Usuário: <Sim>
-		Completed the NXLog-CE Setup Wizard: <Finish>
-	
-	#editando o arquivo de configuração do NXLog-CE via Powershell
-	#OBSERVAÇÃO IMPORTANTE: fazer a instalação do NXLog-CE Windows utilizando 
-	#o Powershell em modo Administrador.
-
-	Menu
-	   Powershell 
-		   Clicar com o botão direito do mouse e selecionar: Executar como Administrador
-
-	#acessando o diretório de configuração do NXLog-CE
-	cd 'C:\Program Files\nxlog\conf\'
-
-	#editando o arquivo de configuração do NXLog-CE
-	notepad.exe .\nxlog.conf
-	
-	#copiar e colar o bloco de configuração abaixo no final do arquivo nxlog.conf
-
 ```xml
 #Habilitando o Módulo GELF (Graylog Extended Log Format) do NXLog-CE
 <Extension gelf>
@@ -528,52 +507,55 @@ sudo systemctl status rsyslog
     Path        in => out
 </Route>
 ```
+```bash
+#fechar e salvar as mudanças do arquivo
+<Fechar>
+	<Salvar>
+	<Sair>
 
-	#fechar e salvar as mudanças do arquivo
-	<Fechar>
-		<Salvar>
-		<Sair>
+#testando o arquivo de configuração do NXLog-CE
+..\nxlog.exe -v
 
-	#testando o arquivo de configuração do NXLog-CE
-	..\nxlog.exe -v
-
-	#reiniciar e verificar o serviço do NXLog-CE
-	Restart-Service nxlog
-	Get-Service nxlog
+#reiniciar e verificar o serviço do NXLog-CE
+Restart-Service nxlog
+Get-Service nxlog
+```
 
 #23_ Criando um Input GELF UDP do Windows 10 no Graylog Server<br>
+```bash
+#criando um Input GELF (Graylog Extended Log Format) UDP no Graylog Server
+Welcome
+	System
+		Inputs
+			Select input: GELF UDP <Launch new input>
 
-	#criando um Input GELF (Graylog Extended Log Format) UDP no Graylog Server
-	Welcome
-		System
-			Inputs
-				Select input: GELF UDP <Launch new input>
-	
-	#configurando o Input do GELF UDP
-	Launch new GELF UDP input
-		Node: XXXX/wsvaamonde.pti.intra
-		Title: windows10
-		Bind Address: 172.16.1.20
-		Port: 12201
-		Encoding (optional): UTF-8
-	<Launch Input>
+#configurando o Input do GELF UDP
+Launch new GELF UDP input
+	Node: XXXX/wsvaamonde.pti.intra
+	Title: windows10
+	Bind Address: 172.16.1.20
+	Port: 12201
+	Encoding (optional): UTF-8
+<Launch Input>
 
-	#verificando a porta de conexão do Input do Graylog
-	#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
-	sudo lsof -nP -iUDP:'12201'
+#verificando a porta de conexão do Input do Graylog
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
+sudo lsof -nP -iUDP:'12201'
+```
 
 #24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10<br>
+```bash
+Graylog
+	Search
+		Select time range: 30 minutes
+		(Play) Every 1 second
 
-	Graylog
-		Search
+Graylog
+	Dashboard
+		Sources
 			Select time range: 30 minutes
 			(Play) Every 1 second
-	
-	Graylog
-		Dashboard
-			Sources
-				Select time range: 30 minutes
-				(Play) Every 1 second
+```
 
 =========================================================================================
 

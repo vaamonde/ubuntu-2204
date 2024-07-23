@@ -47,7 +47,6 @@ exibi-las em gráficos ao vivo e fáceis de interpretar.
 Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
 #01_ Instalando as Dependências do Netdata Server<br>
-
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -63,7 +62,6 @@ python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap
 ```
 
 #02_ Clonando o projeto do Netdata Server do Github<br>
-
 ```bash
 #clonando o projeto do Github do Netdata
 #opção do comando git clone: --recurse-submodules (initialize and clone submodules within based 
@@ -73,7 +71,6 @@ git clone --recurse-submodules https://github.com/netdata/netdata --depth=100
 ```
 
 #03_ Compilando e Instalando o Netdata Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: o processo de compilação e instalação do Netdata demora
 #bastante, dependendo do seu hardware pode demorar mais de 30 minutos para baixar
@@ -87,7 +84,6 @@ cd ..
 ```
 
 #04_ Verificando o Serviço e Versão do Netdata Server<br>
-
 ```bash
 #verificando o serviço do Netdata Server
 sudo systemctl status netdata
@@ -105,7 +101,6 @@ sudo netdata -v
 ```
 
 #05_ Verificando a Porta de Conexão do Netdata Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -117,7 +112,6 @@ sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ```
 
 #06_ Habilitando as atualizações do Netdata Server<br>
-
 ```bash
 #habilitando o suporte para atualização do Netdata Server
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
@@ -129,12 +123,10 @@ sudo /usr/libexec/netdata/./netdata-updater.sh
 ```
 
 #07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server<br>
-
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
-
 ```sql
 /* criando o usuário do Netdata no MySQL */
 CREATE USER 'netdata'@'localhost';
@@ -153,12 +145,10 @@ exit
 ```
 
 #08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server<br>
-
 ```bash
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 ```
-
 ```javascript
 db.createUser({
 	"user": "netdata",
@@ -170,7 +160,6 @@ db.createUser({
 	]
 })
 ``` 
-
 ```bash
 #verificando o usuário criado no MongoDB do Netdata
 db.getUsers()
@@ -181,7 +170,6 @@ quit
 ```
 
 #09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
-
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G netdata $USER
@@ -194,7 +182,6 @@ exit
 ```
 
 #10_ Localização dos Arquivos de Configuração do Netdata Server<br>
-
 ```bash
 /etc/netdata/netdata.conf           <-- arquivo de configuração do serviço do Netdata Server
 /etc/netdata/apps_groups.conf       <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
@@ -207,7 +194,6 @@ exit
 ```
 
 #11_ Configurando os Serviços de Monitoramento do Netdata Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
 #Netdata Server, os arquivos de configuração são baseados na Linguagem de Programação
@@ -217,7 +203,6 @@ exit
 #acessando o diretório de configuração do Netdata Server
 cd /etc/netdata/
 ```
-
 ```bash
 #configuração do serviço de monitoramento do Apache Server
 #https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
@@ -236,7 +221,6 @@ Ctrl + X
 	Save modified buffer? Y
 	File Name to Write: <Enter>
 ```
-
 ```bash
 #configuração do serviço de monitoramento do Apache TomCAT Server
 #https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
@@ -266,7 +250,6 @@ Ctrl + X
 	Save modified buffer? Y
 	File Name to Write: <Enter>
 ```
-
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
 #https://learn.netdata.cloud/docs/data-collection/databases/mysql
@@ -282,7 +265,6 @@ Ctrl + X
 	Save modified buffer? Y
 	File Name to Write: <Enter>
 ```
-
 ```bash
 #configuração do serviço de monitoramento do MongoDB Server
 #https://learn.netdata.cloud/docs/data-collection/databases/mongodb
@@ -298,7 +280,6 @@ Ctrl + X
 	Save modified buffer? Y
 	File Name to Write: <Enter>
 ```
-
 ```bash
 #configuração do serviço de monitoramento do ICMP Ping
 #https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
@@ -319,7 +300,6 @@ Ctrl + X
 	Save modified buffer? Y
 	File Name to Write: <Enter>
 ```
-
 ```bash
 #configuração do serviço de monitoramento das Portas TCP Endpoint
 #https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
@@ -347,7 +327,6 @@ Ctrl + X
 	Save modified buffer? Y
 	File Name to Write: <Enter>
 ```
-
 ```bash
 #verificando os arquivos de configuração do monitoramento criados
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -380,8 +359,10 @@ sudo lsof -nP -iTCP:'22,80,3306,8080,19999,27017' -sTCP:LISTEN
 ```
 
 #12_ Acessando e configurando o Netdata Server no navegador<br>
-
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
+```bash
+#acessar via navegador o Netdata
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
+```
 
 ========================================DESAFIOS=========================================
 
