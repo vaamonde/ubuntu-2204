@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 16/07/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 30/07/2024<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
@@ -284,6 +284,9 @@ sudo ufw allow out 80/tcp comment 'Liberando a saida para navegação do HTTP'
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Navegação do Protocolo HTTPS (443/tcp)
 sudo ufw allow out 443/tcp comment 'Liberando a saida para navegação do HTTPS'
+
+#Regra de liberação (ALLOW) de Saída (OUT) do Protocolo NTP (123/udp)
+sudo ufw allow out 123/udp comment 'Liberando a saida para sincronismo do NTP'
 
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose

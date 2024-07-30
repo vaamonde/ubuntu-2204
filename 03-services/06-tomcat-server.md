@@ -57,7 +57,6 @@ Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Soft
 Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 #01_ Instalando as Dependências do Apache Tomcat Server<br>
-
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -71,7 +70,6 @@ sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-commo
 ```
 
 #02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado<br>
-
 ```bash
 #verificando as versões de Java instalado
 #opção do comando grep: -i (ignore-case)
@@ -83,7 +81,6 @@ sudo update-java-alternatives --list
 ```
 
 #03_ Download do Apache Tomcat Server 10.1.x do site Oficial<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
 #Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
@@ -102,7 +99,6 @@ wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.
 ```
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
-
 ```bash
 #descompactando o download do arquivo do Apache TomCAT
 #opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
@@ -114,7 +110,6 @@ mv -v /tmp/apache-tomcat* /opt/tomcat
 ```
 
 #05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x<br>
-
 ```bash
 #download dos principais arquivos de configuração do Apache TomCAT Server
 #opção do comando wget: -v (verbose), -O (output file)
@@ -144,7 +139,6 @@ wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.co
 ```
 
 #06_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x<br>
-
 ```bash
 #criando o usuário de serviço do Apache TomCAT
 #opção do comando useradd: -m (create-home), -d (home-dir), -U (user-group), -s (shell)
@@ -152,7 +146,6 @@ useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 ```
 
 #07_ Alterando as Permissões do Diretório do Apache Tomcat Server 10.1.x<br>
-
 ```bash
 #alterando as permissões de dono e grupo
 #opção do comando chown: -R (recursive), -v (verbose), tomcat:tomcat (user and group)
@@ -164,7 +157,6 @@ chmod -Rv u+x /opt/tomcat/bin
 ```
 
 #08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x<br>
-
 ```bash
 #habilitando o serviço do Apache Tomcat Server
 systemctl daemon-reload
@@ -176,7 +168,6 @@ exit
 ```
 
 #09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x<br>
-
 ```bash
 #verificando o serviço do Apache Tomcat Server
 sudo systemctl status tomcat10
@@ -193,7 +184,6 @@ sudo bash /opt/tomcat/bin/version.sh
 ```
 
 #10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -205,7 +195,6 @@ sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 ```
 
 #11_ Localização dos Arquivos de Configuração do Apache Tomcat Server<br>
-
 ```bash
 /opt/tomcat                        <-- Diretório de configuração do Apache Tomcat Server
 /opt/tomcat/bin                    <-- Diretório do binário (executável) do Apache Tomcat Server
@@ -218,7 +207,6 @@ sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 ```
 
 #12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server<br>
-
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G tomcat $USER
@@ -231,13 +219,11 @@ exit
 ```
 
 #13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server
-
 ```bash
 #editando o arquivo de criação de usuários do Tomcat
 sudo vim /opt/tomcat/conf/tomcat-users.xml
 INSERT
 ```
-
 ```xml
 <!-- alterar os valores das variável a partir da linha: 30 -->
 <!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Web Tomcat -->
@@ -245,7 +231,6 @@ INSERT
 <!-- na próxima linha alterando o nome, senha e papeis do novo usuário -->
 <user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 ```
-
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>

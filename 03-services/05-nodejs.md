@@ -45,16 +45,16 @@ Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/
 
-Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do<br>
-Google e que permite a execução de códigos JavaScript fora de um navegador web. A principal<br>
-característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
+O QUE É E PARA QUE SERVER NODE.JS: O Node.js é um software de código aberto, multiplataforma,<br>
+baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de<br>
+um navegador web. A principal característica do Node.js é sua arquitetura assíncrona e orientada<br>
+por eventos.
 
 [![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
 #01_ Instalando as Dependências do Node.JS<br>
-
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -66,7 +66,6 @@ build-essential ca-certificates
 ```
 
 #02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
-
 ```bash
 #adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
 
@@ -96,7 +95,6 @@ sudo apt install nodejs
 ```
 
 #03_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
-
 ```bash
 #opção do comando node: -v (version)
 #opção do comando npm: -v (version)
@@ -105,7 +103,6 @@ sudo npm -v
 ```
 
 #04_ Criando um Projeto Simples para Testar o Node.JS<br>
-
 ```bash
 #criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 #opção do comando mkdir: -v (verbose)
@@ -128,7 +125,6 @@ cd nodejs-hello/
 ```
 
 #05_ Criando um Projeto Simples do Node.JS<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
 #colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
@@ -143,7 +139,6 @@ cd nodejs-hello/
 vim index.js
 INSERT
 ```
-
 ```js
 // Criando as variáveis do Express e do App do Node.JS
 var express = require ('express'); 
@@ -166,7 +161,6 @@ ESC SHIFT :x <Enter>
 ```
 
 #06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
-
 ```bash
 #opção do comando &: background
 #OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
@@ -175,7 +169,6 @@ node index.js &
 ```
 
 #07_ Verificando a Porta de Conexão do Node.JS Express<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -187,11 +180,11 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
 #08_ Acessando o Projeto Simples do Node.JS<br>
-
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+```bash
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+```
 
 #09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
-
 ```bash
 #verificando os processos em segundo plano (background)
 jobs
