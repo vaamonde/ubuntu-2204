@@ -338,7 +338,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/03-ser
 
 # **🤩🤩 Configuração do Webmin no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de configuração do Webmin no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de gerenciamento via Web do nosso servidor utilizando o Webm.
+Vídeo de configuração do Webmin no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de gerenciamento via Web do nosso servidor utilizando o Webmin.
 
 O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.
 

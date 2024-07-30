@@ -28,7 +28,7 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 
 # **🤩🤩 Atualização do Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de atualização do Ubuntu Server 22.04.x LTS no Oracl VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para manter o seu servidor Ubuntu sempre atualizado antes de começar a instalar e configurar os principais serviços de rede.
+Vídeo de atualização do Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para manter o seu servidor Ubuntu sempre atualizado antes de começar a instalar e configurar os principais serviços de rede.
 
 [![Atualização Ubuntu Server](http://img.youtube.com/vi/B3FzV2bxjtw/0.jpg)](https://www.youtube.com/watch?v=B3FzV2bxjtw "Atualização Ubuntu Server")
 
@@ -68,7 +68,7 @@ Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/02-set
 
 # **🤩🤩 Habilitando a Licença Ubuntu Pro Free no Ubuntu Server 22.04.x LTS Projeto Bora para Prática 🤩🤩**
 
-Vídeo de configuração da Licença do Ubuntu Pro Free no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para habilitar o suporte ao Ubuntu Pro Free no Ubuntu Server, esse recurso permiti manter o nosso servidor sempre atualizado com os novos patchs de segurança e garante o suporte até 10 anos de uso da plataforma para Canonical.
+Vídeo de configuração da Licença do Ubuntu Pro Free no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para habilitar o suporte ao Ubuntu Pro Free no Ubuntu Server, esse recurso permiti manter o nosso servidor sempre atualizado com os novos patch's de segurança e garante o suporte até 10 anos de uso da plataforma para Canonical.
 
 [![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
