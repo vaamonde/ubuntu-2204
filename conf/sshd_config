@@ -125,6 +125,9 @@ AddressFamily inet
 #
 # Não ler os arquivos de configurações ~/.rhosts e ~/.shosts
 IgnoreRhosts yes
+#
+# A autenticação baseada em host é um método de autenticação que permite que um servidor SSH 
+# confie em outro servidor para autenticar os usuários.
 HostbasedAuthentication no
 #
 # Não permitir que usuários sem senhas se autentique remotamente no Servidor de OpenSSH
