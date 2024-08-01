@@ -232,7 +232,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/05-graylog.md
 
-## **🤩🤩 Implementação do GLPI 10 Help Desk no Ubuntu Server 22.04 do Projeto Bora para Práticaa 🤩🤩**
+## **🤩🤩 Implementação do GLPI 10 Help Desk no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
 Vídeo de Implementação do GLPI 10 Help Desk no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o GLPI 10 Help Desk para centralizar e gerenciar todos os Chamados Técnicos, Inventário de Computadores e documentação da sua Infraestrutura de TI baseado em ITIL (Information Technology Infrastructure Library)
 
@@ -264,7 +264,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/06-glpi.md
 
-## **🤩🤩 Implementação do Datadog no Ubuntu Server 22.04 do Projeto Bora para Práticaa 🤩🤩**
+## **🤩🤩 Implementação do Datadog no Ubuntu Server 22.04 do Projeto Bora para Prática 🤩🤩**
 
 Vídeo de Implementação do Datadog no Ubuntu Server 22.04.x LTS no Oracle VirtualBOX, nesse vídeo você vai aprender todos os procedimentos para instalar e configurar o sistema de Monitoramento em Tempo Real em Cloud (Nuvem) do Datadog e Agent para obter as principais métricas do nosso servidor.
 
@@ -282,8 +282,8 @@ Conteúdo estudado nessa implementação:<br>
 #01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
 #02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
 
-[![Datadog](http://img.youtube.com/vi//0.jpg)]( "Datadog")
+[![Datadog](http://img.youtube.com/vi/tmcyPRGSHf4/0.jpg)](https://www.youtube.com/watch?v=tmcyPRGSHf4 "Datadog")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/07-datadog.md

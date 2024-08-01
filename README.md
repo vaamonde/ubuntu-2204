@@ -745,9 +745,9 @@ Conteúdo estudado nessa implementação:<br>
 #01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
 #02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
 
-[![Datadog](http://img.youtube.com/vi//0.jpg)]( "Datadog")
+[![Datadog](http://img.youtube.com/vi/tmcyPRGSHf4/0.jpg)](https://www.youtube.com/watch?v=tmcyPRGSHf4 "Datadog")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
 Link da documentação: https://github.com/vaamonde/ubuntu-2204/blob/main/04-news/07-datadog.md
 

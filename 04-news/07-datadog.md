@@ -31,9 +31,9 @@ A Datadog é uma empresa de software que fornece um SaaS de observabilidade para
 em nuvem amplamente utilizado. Foi fundada em 2010 por Olivier Pomel e Alexis Lê-Quôc em<br>
 Nova Iorque.
 
-[![Datadog](http://img.youtube.com/vi//0.jpg)]( "Datadog")
+[![Datadog](http://img.youtube.com/vi/tmcyPRGSHf4/0.jpg)](https://www.youtube.com/watch?v=tmcyPRGSHf4 "Datadog")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
 #01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
 ```bash
