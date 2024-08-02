@@ -110,18 +110,18 @@ mkdir -v nodejs-hello
 
 #acessando o diretório do projeto
 cd nodejs-hello/
-	
-	#Inicializando o diretório do Projeto do Node.JS
-	#opção do comando npm: init (create package.json file), -y (yes)
-	npm init -y
-	
-	#Instalando o Módulo/Pacote Express do Node.JS
-	#opção do comando npm: install (install package in directory)
-	npm install express
 
-	#Listando o conteúdo do diretório do projeto do Node.JS
-	#opção do comando ls: -l (long listing), -h (human-readable), -a (all)
-	ls -lha
+#Inicializando o diretório do Projeto do Node.JS
+#opção do comando npm: init (create package.json file), -y (yes)
+npm init -y
+
+#Instalando o Módulo/Pacote Express do Node.JS
+#opção do comando npm: install (install package in directory)
+npm install express
+
+#Listando o conteúdo do diretório do projeto do Node.JS
+#opção do comando ls: -l (long listing), -h (human-readable), -a (all)
+ls -lha
 ```
 
 #05_ Criando um Projeto Simples do Node.JS<br>
@@ -154,7 +154,6 @@ app.listen(3000, function() {
 	console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });
 ```
-
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
@@ -181,6 +180,7 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 
 #08_ Acessando o Projeto Simples do Node.JS<br>
 ```bash
+#utilizar os navegadores para testar o Node.JS
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 

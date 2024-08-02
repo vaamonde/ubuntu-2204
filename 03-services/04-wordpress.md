@@ -51,7 +51,6 @@ para a criação de páginas eletrônicas e blogs online.
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
 #01_ Instalando as Dependências do WordPress<br>
-
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -64,12 +63,10 @@ pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
 ```
 
 #02_ Criando a Base de Dados do WordPress no MySQL Server<br>
-
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
-
 ```sql
 /* Criando o Banco de Dados Wordpress */
 CREATE DATABASE wordpress;
@@ -94,13 +91,11 @@ USE wordpress;
 /* Saindo do Banco de Dados */
 exit
 ```
-
 ```bash
 #se logando com o usuário wordpress para testar a conexão com o MySQL Server
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u wordpress -p
 ```
-
 ```sql
 /* visualizando a base de dados do WordPress */
 SHOW DATABASES;
@@ -109,7 +104,6 @@ exit
 ```
 
 #03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
-
 ```bash
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
@@ -137,7 +131,6 @@ sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 ```
 
 #04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
-
 ```bash
 #acessando o diretório do WordPress
 cd /var/www/html/wp/
@@ -150,7 +143,6 @@ sudo cp -v wp-config-sample.php wp-config.php
 sudo vim wp-config.php
 INSERT
 ```
-
 ```php
 #alterar os valores das variáveis "define" a partir da linha: 23
 
@@ -169,14 +161,12 @@ define( 'DB_PASSWORD', 'wordpress' );
 #OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 53 até: 60 antes de copiar/colar as
 #novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
 ```
-
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 ```
 
 #05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
-
 ```bash
 #habilitando os módulos do Apache2 Server
 sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
@@ -191,58 +181,57 @@ sudo journalctl -xeu apache2
 ```
 
 #06_ Acessando e configurando o WordPress via navegador<br>
+```bash
+#utilizar os navegadores para testar o acesso ao Wordpress
+firefox ou google chrome: http://endereço_ipv4_ubuntuserverwp
 
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
+#Informações que serão solicitadas na configuração via Web do WordPress
+Português do Brasil: Continuar;
+Informação necessária
+	Título do site: Seu Nome e Sobrenome;
+	Nome de usuário: admin;
+	Senha: pti@2018;
+	Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
+	O seu e-mail: admin@ptin.intra; 
+<Instalar WordPress>
+<Acessar>
 
-	#Informações que serão solicitadas na configuração via Web do WordPress
-	Português do Brasil: Continuar;
-	Informação necessária
-		Título do site: Seu Nome e Sobrenome;
-		Nome de usuário: admin;
-		Senha: pti@2018;
-		Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
-		O seu e-mail: admin@ptin.intra; 
-	<Instalar WordPress>
+#Tela de login do WordPress
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
+	Nome de usuário ou endereço de email: admin
+	Senha: pti@2018
+	Lembrar-me: On (Habilitado)
 	<Acessar>
 
-	#Tela de login do WordPress
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
-		Nome de usuário ou endereço de email: admin
-		Senha: pti@2018
-		Lembrar-me: On (Habilitado)
-		<Acessar>
-	
-	#OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
-	#é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos
-	#uma falha de JSON na hora de salvar as mudanças dos Posts no Wordpress.
-	
-	#Configuração dos Links Permanentes do WordPress
-	Configurações
-		Links permanentes
-			Configurações de Links Permanentes
-				Configurações Comuns
-					Estrutura de Links Permanentes
-						ON (Selecionar): Padrão (http://172.16.1.20/wp/?=123)
-		<Salvar Alterações>
+#OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
+#é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos
+#uma falha de JSON na hora de salvar as mudanças dos Posts no Wordpress.
 
-	#Tela do site do WordPress
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
+#Configuração dos Links Permanentes do WordPress
+Configurações
+	Links permanentes
+		Configurações de Links Permanentes
+			Configurações Comuns
+				Estrutura de Links Permanentes
+					ON (Selecionar): Padrão (http://172.16.1.20/wp/?=123)
+	<Salvar Alterações>
 
-	#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em uma rede Local ou Cloud,
-	#e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
-	#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
-	#configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
-	#conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
+#Tela do site do WordPress
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
-	#Mais informações acesse o Link dos Desenvolvedores do Wordpress:
-	Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
+#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em uma rede Local ou Cloud,
+#e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
+#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
+#configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
+#conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
 
-```bash
+#Mais informações acesse o Link dos Desenvolvedores do Wordpress:
+Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
+
 #se logando no MySQL Server com o usuário e senha Wordpress
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u wordpress -p
 ```
-
 ```sql
 /* Utilizar o banco de dados do Wordpress */
 USE wordpress;
@@ -291,10 +280,10 @@ sudo rm -v .maintenance
 
 #fazer um Reload do serviço do Apache2
 sudo systemctl reload apache2
-```
 
-	#testar novamente o Site, atualizar a página com Ctrl+R ou F5
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
+#testar novamente o Site, atualizar a página com Ctrl+R ou F5
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
+```
 
 =========================================================================================
 

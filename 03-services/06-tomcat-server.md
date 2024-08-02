@@ -134,7 +134,7 @@ wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubu
 
 #download do arquivo de configuração da Inicialização do Apache Tomcat
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
-#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.X NO DIA: 13/05/2024
+#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.x NO DIA: 13/05/2024
 wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 ```
 
@@ -242,6 +242,7 @@ sudo systemctl status tomcat10
 
 #14_ Testando o Apache Tomcat Server no navegador<br>
 ```bash
+#utilizar os navegadores para testar o Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```
 
