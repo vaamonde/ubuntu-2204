@@ -320,7 +320,7 @@ sudo ./edit-config go.d/portcheck.conf
 jobs:
   - name: wsvaamonde
     host: 172.16.1.20
-    ports: [22, 80, 3306, 8080, 19999, 27017]
+    ports: [80, 3306, 8080, 19999, 27017]
 
 #salvar e sair do arquivo
 Ctrl + X
