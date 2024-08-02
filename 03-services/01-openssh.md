@@ -47,7 +47,6 @@ em sessões de comunicações em uma rede de computadores usando o protocolo SSH
 Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 #01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
 #o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
@@ -61,7 +60,6 @@ sudo apt install openssh-server openssh-client openssl
 ```
 
 #02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
-
 ```bash
 #verificando o serviço do OpenSSH Server
 sudo systemctl status ssh
@@ -76,7 +74,6 @@ sudo ssh -V
 ```
 
 #03_ Verificando a Porta de Conexão do OpenSSH Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -89,7 +86,6 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 ```
 
 #04_ Localização dos Arquivos de Configuração do OpenSSH Server<br>
-
 ```bash
 /etc/ssh/             <-- Diretório de configuração do OpenSSH Server e Client
 /etc/ssh/sshd_config  <-- Arquivo de configuração do OpenSSH Server
@@ -103,7 +99,6 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 ```
 
 #05_ Habilitando a segurança de acesso ao OpenSSH Server<br>
-
 ```bash
 #editando o arquivo de configuração de Negação de Serviço e Host
 sudo vim /etc/hosts.deny
@@ -136,7 +131,6 @@ ESC SHIFT :x <Enter>
 ```
 
 #06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
-
 ```bash
 #fazendo o backup do arquivo de configuração do OpenSSH Server
 #opção do comando cp: -v (verbose)
@@ -195,31 +189,30 @@ sudo journalctl -xeu ssh
 ```
 
 #07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
+```bash
+#acessando o OpenSSH via Powershell
+Windows
+	Pesquisa do Windows
+		Powershell
+			ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
 
-	#acessando via Powershell
-	Windows
-		Pesquisa do Windows
-			Powershell
-				ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+#acessando o OpenSSH via PuTTY
+Windows
+	Pesquisa do Windows
+		PuTTY
 
-	#acessando via PuTTY
-	Windows
-		Pesquisa do Windows
-			PuTTY
+Category
+	Session
+		Host Name (or IP address): vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+		Port: 22
+		SSH: On
+<Open>
 
-	Category
-		Session
-			Host Name (or IP address): vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
-			Port: 22
-			SSH: On
-	<Open>
+#acessando o OpenSSH via Terminal no Linux Mint
+Linux
+	Terminal: Ctrl + Alt + T
+		ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
 
-	#acessando via Terminal no Linux Mint
-	Linux
-		Terminal: Ctrl + Alt + T
-			ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
-
-```bash	
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
 #OBSERVAÇÃO IMPORTANTE 01: no comando: w ele mostra na primeira linhas as
 #informações de: Data e Hora Atual do Sistema, Período de Tempo Ativo, Número
@@ -244,7 +237,6 @@ users
 ```
 
 #08_ Criando um usuário Administrador no Ubuntu Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
 #ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
@@ -281,7 +273,6 @@ sudo getent group admin
 ```
 
 #09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)<br>
-
 ```bash
 #adicionando o usuário Admin ao grupo do SUDO
 #opção do comando usermod: -a (append), -G (groups)
@@ -295,10 +286,10 @@ sudo id admin
 ```
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
-
-	#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
-	#Virtual para verificar se está tudo OK na autenticação do usuário admin.
-
+```bash
+#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
+#Virtual para verificar se está tudo OK na autenticação do usuário admin.
+```
 ========================================DESAFIOS=========================================
 
 **#11_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.

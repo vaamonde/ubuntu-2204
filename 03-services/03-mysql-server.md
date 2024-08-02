@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 29/05/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 02/08/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
@@ -51,7 +51,6 @@ da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
 Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
 #01_ Instalando o MySQL Server e Client<br>
-
 ```bash	
 #atualizando as listas do Apt
 sudo apt update
@@ -61,7 +60,6 @@ sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0
 ```
 
 #02_ Verificando o Serviço e Versão do MySQL Server<br>
-
 ```bash
 #verificando o serviço do MySQL Server
 sudo systemctl status mysql
@@ -75,7 +73,6 @@ sudo mysql --version
 ```
 
 #03_ Verificando a Porta de Conexão do MySQL Server<br>
-
 ```bash	
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -87,7 +84,6 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 ```
 
 #04_ Localização dos Arquivos de Configuração do MySQL Server<br>
-
 ```bash	
 /etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
 /etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
@@ -97,7 +93,6 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 ```
 
 #05_ Acessando o MySQL Server utilizando o MySQL Client (Console)<br>
-
 ```bash	
 #OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
 #se logar no MySQL Client Console.
@@ -107,14 +102,13 @@ sudo mysql -u root -p
 ```
 
 #06_ Aplicando a segurança de acesso do usuário Root no MySQL Server<br>
-
 ```sql
 /* visualizando as bases de dados do MySQL */
 SHOW DATABASES;
 
 /* utilizando a base de dados mysql */
 USE mysql;
-	
+
 /* mostrando as tabelas criadas na base de dados mysql */
 SHOW TABLES;
 
@@ -134,14 +128,13 @@ FLUSH PRIVILEGES;
 /* saindo do MySQL Client Console */
 exit
 ```
-```bash	
+```bash
 #testando novamente o acesso ao MySQL Server agora com senha
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
 
 #07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
-
 ```sql
 /* criando o usuário DBA Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
@@ -164,7 +157,6 @@ exit
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dba -p
 ```
-
 ```sql
 /* visualizando as bases de dados do MySQL */
 SHOW DATABASES;
@@ -174,8 +166,7 @@ exit
 ```
 
 #08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server<br>
-
-```bash	
+```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G mysql $USER
 newgrp mysql
@@ -190,8 +181,7 @@ mysql -u dba -p
 ```
 
 #09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
-
-```bash		
+```bash
 #fazendo o backup do arquivo de configuração do MySQL Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
@@ -224,7 +214,6 @@ sudo journalctl -xeu mysql
 #acessar o MySQL Server como Root
 sudo mysql -u root -p
 ```
-
 ```sql
 /* criando o usuário Root Remoto do MySQL Server */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
@@ -239,54 +228,56 @@ exit
 ```
 
 #10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
+```bash
+#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
+#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
+#MySQL Server não são mostrados por motivo de segurança.
 
-	#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
-	#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
-	#MySQL Server não são mostrados por motivo de segurança.
+#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
-	#Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
-
-	#conectando com o usuário Root Remoto do MySQL no Workbench
-	MySQL Connections: +
-		Connection Name: wsvaamonde
-		Connection Method: Standard (TCP/IP)
-		Parameters:
-			Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
-			Port: 3306
-			Username: root
-			Password:
-				Store in Keychain
-					Password: pti@2018 (alterar a senha do usuário root do seu servidor)
-				<OK>
-		<Test Connection>
+#conectando com o usuário Root Remoto do MySQL no Workbench
+MySQL Connections: +
+	Connection Name: wsvaamonde
+	Connection Method: Standard (TCP/IP)
+	Parameters:
+		Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+		Port: 3306
+		Username: root
+		Password:
+			Store in Keychain
+				Password: pti@2018 (alterar a senha do usuário root do seu servidor)
 			<OK>
+	<Test Connection>
 		<OK>
+	<OK>
+```
 
 #11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
+```bash
+#OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE
+#NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO,
+#POR MOTIVO DE SEGURANÇA.
 
-	#OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE
-	#NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO,
-	#POR MOTIVO DE SEGURANÇA.
+#instalando a Extensão do MySQL Server
+VSCode
+	Extensões
+		Pesquisar
+			MySQL (Database manager for MySQL/MariaDB, PostgreSQL, SQLite, Redis and ElasticSearch)
+				Instalar
 
-	#instalando a Extensão do MySQL Server
-	VSCode
-		Extensões
-			Pesquisar
-				MySQL (Database manager for MySQL/MariaDB, PostgreSQL, SQLite, Redis and ElasticSearch)
-					Instalar
-
-	#configurando a conexão com o MySQL Server
-	VSCode
-		Database
-			<Create Connection>
-				Name: UbuntuServer
-				Server Type:
-					MySQL
-						Host: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
-						Port: 3306
-						Username: root
-						Password: pti@2018 (alterar a senha do usuário root do seu servidor)
-				<Save>
+#configurando a conexão com o MySQL Server
+VSCode
+	Database
+		<Create Connection>
+			Name: UbuntuServer
+			Server Type:
+				MySQL
+					Host: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+					Port: 3306
+					Username: root
+					Password: pti@2018 (alterar a senha do usuário root do seu servidor)
+			<Save>
+```
 
 ========================================DESAFIOS=========================================
 
@@ -303,6 +294,14 @@ exit
 **OBSERVAÇÃO IMPORTANTE:** APÓS O CADASTRO NO SITE DO DB4FREE, DEPENDENDO DA CONTA DE EMAIL QUE VOCÊ ESTÁ UTILIZANDO, O RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO DE CADASTRO DEMORA OU PODE ESTÁ NA CAIXA DE SPAM DA SUA CONTA, VERIFICAR ANTES DE TENTAR O CADASTRO NOVAMENTE.
 
 **OBSERVAÇÃO IMPORTANTE:** APÓS VÁRIOS TESTES FEITO NO DB4FREE O MESMO APRESENTOU UM GRANDE DELAY NAS CONEXÕES, NO MYSQL WORKBENCH E NA EXTENSÃO DO VSCODE MUITAS VEZES É NECESSÁRIO ATUALIZAR VÁRIAS VEZES PARA MOSTRAR A BASE DE DADOS E AS TABELAS CRIADAS. PARA CORRIGIR ESSA FALHA NO VSCODE E NO MYSQL WORKBENCH RECOMENDO AUMENTAR O PARÂMETRO DE: Connect Timeout PARA 100000.
+
+**OBSERVAÇÃO IMPORTANTE:** APÓS VÁRIOS RELATOS DOS ALUNOS REFERENTE A DEMORA OU NÃO RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO
+DO SITE DB4FREE, PESQUISANDO NA INTERNET ENCONTREI OS PROJETOS ABAIXO PARA TESTE (EM FASE DE TESTES E HOMOLOGAÇÃO): 
+
+01) *Free MySQL Hosting: https://www.freemysqlhosting.net/*<br>
+02) *Remote MySQL: https://remotemysql.com*<br>
+03) *Free SQL Database: https://www.freesqldatabase.com/*<br>
+04) *Free DB: https://freedb.tech*
 
 =========================================================================================
 

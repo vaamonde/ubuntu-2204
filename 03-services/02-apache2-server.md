@@ -56,7 +56,6 @@ World Wide Web.
 Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
 #01_ Instalando o Apache2 Server e PHP 8.x<br>
-
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -73,7 +72,6 @@ libapache2-mod-php8.1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap
 ```
 
 #02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
-
 ```bash
 #verificando o serviço do Apache2 Server
 sudo systemctl status apache2
@@ -94,7 +92,6 @@ sudo php -v
 ```
 
 #03_ Verificando a Porta de Conexão do Apache2 Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -106,7 +103,6 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
 #04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
-
 ```bash
 /etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
 /etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
@@ -119,7 +115,6 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
 #05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server<br>
-
 ```bash
 #adicionando o seu usuário no grupo do Apache2
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
@@ -144,7 +139,6 @@ exit
 ```
 
 #06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server<br>
-
 ```bash
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
 cd /var/www/html
@@ -166,7 +160,6 @@ cd /var/www/html
 ```
 
 #07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar os arquivos teste.html, teste.php e phpinfo.php 
 #utilizando o Editor de Texto em Linha de Comando Vim.
@@ -184,7 +177,6 @@ cd /var/www/html
 sudo vim seu_nome.html
 INSERT
 ```
-
 ```html
 <!-- Início do código HTML: declaração do tipo de arquivo que será enviado para a navegador -->
 <!DOCTYPE html>
@@ -225,7 +217,6 @@ ESC SHIFT :x <Enter>
 sudo vim seu_nome.php
 INSERT
 ```
-
 ```php
 <!DOCTYPE html>
 	<html lang="pt-br">
@@ -259,7 +250,6 @@ ESC SHIFT :x <Enter>
 sudo vim phpinfo.php
 INSERT
 ```
-
 ```php
 <?php
 	// Função do PHP para gerar a página de documentação e parâmetros do PHP
@@ -272,7 +262,6 @@ ESC SHIFT :x <Enter>
 ```
 
 #08_ Testando o Apache2 Server e o PHP no navegador<br>
-
 ```bash
 #utilizar os navegadores para testar suas páginas
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
