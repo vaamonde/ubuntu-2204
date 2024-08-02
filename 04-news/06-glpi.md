@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 29/05/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 02/08/2024<br>
+#Versão: 0.05<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
 A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
@@ -133,11 +133,11 @@ exit
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
 
-#download da última versão do GLPI Help Desk (link atualizado em 24/05/2024)
+#download da última versão do GLPI Help Desk (link atualizado em 02/08/2024)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Help Desk sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.15/glpi-10.0.15.tgz
+wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.16/glpi-10.0.16.tgz
 ```
 
 #04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server<br>
@@ -370,10 +370,10 @@ libfile-copy-recursive-perl libjson-pp-perl liburi-escape-xs-perl libparallel-fo
 libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
 hdparm 7zip
 
-#baixando o Agent do GLPI do Github (link atualizado em: 28/05/2025)
+#baixando o Agent do GLPI do Github (link atualizado em: 02/08/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.9/glpi-agent_1.9-1_all.deb
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.10/glpi-agent_1.10-1_all.deb
 
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
@@ -429,10 +429,10 @@ libfile-copy-recursive-perl libjson-pp-perl liburi-escape-xs-perl libparallel-fo
 libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
 hdparm 7zip
 
-#baixando o Agent do GLPI do Github (link atualizado em: 28/05/2025)
+#baixando o Agent do GLPI do Github (link atualizado em: 02/08/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.9/glpi-agent_1.9-1_all.deb
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.10/glpi-agent_1.10-1_all.deb
 
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
@@ -470,14 +470,14 @@ sudo glpi-agent
 
 #Instalação do GLPI Agent no Microsoft Windows 10
 
-#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
+#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 02/08/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.9/GLPI-Agent-1.9-x64.msi
+Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.10/GLPI-Agent-1.10-x64.msi
 
 #instalando o Agent GLPI Help Desk Windows 10
 Download
-	Executar o software: GLPI-Agent-1.9-x64.msi
+	Executar o software: GLPI-Agent-1.10-x64.msi
 	O Windows protegeu o seu computador
 		Mais informações
 		<Executar assim mesmo> 
@@ -533,10 +533,10 @@ netstat -an | findstr 62354
 #testando o Agent do GLPI Help Desk via navegador
 firefox ou google chrome: http://endereço_ipv4_windows10:62354/
 
-#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 28/05/2025)
+#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 02/08/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent Monitor sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
-Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.3.0/GLPI-AgentMonitor-x64.exe
+Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.3.1/GLPI-AgentMonitor-x64.exe
 
 #instalando o GLPI Agent Monitor no Microsoft Windows 10
 Download
