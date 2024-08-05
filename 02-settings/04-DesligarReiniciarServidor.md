@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 19/11/2023<br>
-#Versão: 0.02<br>
+#Data de atualização: 05/08/2024<br>
+#Versão: 0.04<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -20,7 +20,6 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
 
 #01_ Desligando e reinicializando o servidor com halt no Ubuntu Server<br>
-
 ```bash
 #opção do comando halt: -p (poweroff)
 sudo halt -p
@@ -28,7 +27,6 @@ sudo halt --reboot
 ```
 
 #02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server<br>
-
 ```bash
 #opção do comando poweroff: --reboot (reboot host)
 sudo poweroff
@@ -36,7 +34,6 @@ sudo poweroff --reboot
 ```
 
 #03_ Desligando e reinicializando o servidor com init no Ubuntu Server<br>
-
 ```bash
 #OBSERVAÇÃO: init é o primeiro processo iniciado durante a inicialização do sistema 
 #de computador. O init é um processo daemon que continua executando até o sistema 
@@ -54,7 +51,6 @@ sudo init 6
 ```
 
 #04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server<br>
-
 ```bash
 #opção do comando reboot: --halt (shutdown host)
 sudo reboot --halt
@@ -62,7 +58,6 @@ sudo reboot
 ```
 
 #05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
-
 ```bash
 #opção do comando shutdown: -P (poweroff), -h (halt 60 second), -r (reboot), -c (cancel)
 #now (Shutdown immediately), 19:50 (Shutdown at 19:50 pm), +20 (Shutdown in 20 minutes)

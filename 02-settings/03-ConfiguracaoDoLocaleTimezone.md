@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 21/06/2024<br>
-#Versão: 0.04<br>
+#Data de atualização: 05/08/2024<br>
+#Versão: 0.05<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -20,8 +20,7 @@ Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 
 #01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server<br>
-
-```bash	
+```bash
 #verificando as informações detalhas de localidade do sistema
 sudo localectl
 
@@ -31,7 +30,6 @@ sudo locale -a
 ```
 
 #02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: pt_BR.UTF-8" é uma codificação de caractere que indica o uso
 #da língua portuguesa (pt) como falada no Brasil (BR) com a codificação UTF-8. UTF-8 
@@ -59,7 +57,6 @@ sudo locale -a
 ```
 
 #03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server<br>
-
 ```bash
 #verificando as informações de fuso horário do sistema
 sudo timedatectl
@@ -70,7 +67,6 @@ sudo timedatectl
 ```
 
 #04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: geralmente mudar para o Time Zone de America/Sao_Paulo a hora
 #fica errada no sistema, nesse caso podemos mudar para America/Fortaleza ou America/Bahia
@@ -89,7 +85,6 @@ sudo timedatectl
 ```
 
 #05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server<br>
-
 ```bash
 #O NTP é um protocolo para sincronização dos relógios dos computadores baseado no 
 #protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um 
@@ -111,7 +106,6 @@ ESC SHIFT : x <Enter>
 ```
 
 #06_ Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora) no Ubuntu Server<br>
-
 ```bash
 #reiniciar o serviço do Timesyncd
 sudo systemctl restart systemd-timesyncd.service
@@ -124,7 +118,6 @@ sudo timedatectl
 ```
 
 #07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: só utilizar as configurações de Data e Hora em modo manual caso
 #as configurações de sincronismo automático não funcione de forma adequada, não recomendo
@@ -140,7 +133,6 @@ sudo date -s 13:30:00
 ```
 
 #08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server<br>
-
 ```bash
 #OBSERVAÇÃO IMPORTANTE: mesmo cenário da utilização do comando date, da Data e hora da BIOS
 #do Hardware e mantida pela CMOS e Bateria que mantém essa hora armazenada, caso a Data e
