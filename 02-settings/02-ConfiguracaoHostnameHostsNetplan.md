@@ -154,7 +154,7 @@ network:
       #alterar os servidores DNS para o seu cenário
       #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
       #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou 
-	  #somente o endereço do Servidor de DNS Local d Rede.
+      #somente o endereço do Servidor de DNS Local d Rede.
       addresses: [8.8.8.8, 8.8.4.4]
       #alterar a pesquisa de domínio para o seu cenário
       #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes

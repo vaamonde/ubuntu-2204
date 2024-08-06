@@ -75,7 +75,7 @@ sudo timedatectl
 #no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
 #configurando o fuso horário de America São Paulo
-#OBSERVAÇÃO: ALTERAR CONFORME A SUA LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE
+#OBSERVAÇÃO: ALTERAR CONFORME A LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE
 #TIMEZONE ACESSE: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 #opção do comando timedatectl: set-timezone (set the system time zone to the specified value)
 sudo timedatectl set-timezone "America/Sao_Paulo"
