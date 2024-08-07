@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 21/06/2023<br>
-#Versão: 0.16<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
@@ -119,7 +119,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 #adicionando o seu usuário no grupo do Apache2
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema.
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G www-data $USER
 
 #fazendo login em um novo grupo do Apache2
@@ -127,6 +127,9 @@ newgrp www-data
 
 #verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo WWW-DATA
+sudo getent groups www-data
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl+D
@@ -143,20 +146,20 @@ exit
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
 cd /var/www/html
 
-	#criando o diretório de teste das páginas HTML e PHP
-	#opção do comando mkdir: -v (verbose)
-	sudo mkdir -v teste
-	
-	#alterando as permissões do diretório de teste
-	#opção do comando chmod: -R (recursive), -v (verbose), 2775 (Set-GID=2,User=RWX,Group=RWS,Other=R-X)
-	sudo chmod -Rv 2775 teste/
-	
-	#alterando o dono e grupo do diretório de teste
-	#opção do comando chown: -R (recursive), -v (verbose), root (User), . (separate), www-date (group)
-	sudo chown -Rv root.www-data teste/
-	
-	#acessando o diretório criado de teste
-	cd teste
+#criando o diretório de teste das páginas HTML e PHP
+#opção do comando mkdir: -v (verbose)
+sudo mkdir -v teste
+
+#alterando as permissões do diretório de teste
+#opção do comando chmod: -R (recursive), -v (verbose), 2775 (Set-GID=2,User=RWX,Group=RWS,Other=R-X)
+sudo chmod -Rv 2775 teste/
+
+#alterando o dono e grupo do diretório de teste
+#opção do comando chown: -R (recursive), -v (verbose), root (User), . (separate), www-date (group)
+sudo chown -Rv root.www-data teste/
+
+#acessando o diretório criado de teste
+cd teste
 ```
 
 #07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
@@ -165,15 +168,16 @@ cd /var/www/html
 #utilizando o Editor de Texto em Linha de Comando Vim.
 
 #OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e colar
-#o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY 
-#para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+#o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY ou
+#Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
 
-#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
+#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no
 #macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
 #padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
 #e modificação dos arquivos desse curso.
 
 #criando o arquivo em HTML
+#OBSERVAÇÃO: ALTERAR O NOME DO ARQUIVO PARA O SEU PRIMEIRO NOME TUDO EM MINÚSCULO
 sudo vim seu_nome.html
 INSERT
 ```
@@ -214,6 +218,7 @@ INSERT
 ESC SHIFT :x <Enter>
 
 #criando o arquivo em PHP
+#OBSERVAÇÃO: ALTERAR O NOME DO ARQUIVO PARA O SEU PRIMEIRO NOME TUDO EM MINÚSCULO
 sudo vim seu_nome.php
 INSERT
 ```
@@ -269,9 +274,9 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 ```
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seu_nome`__ (TUDO EM MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
+**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seu_nome`__ (TUDO EM MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
 
-**#10_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE.
+**#10_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. DICA: RECOMENDO PESQUISAR A FUNÇÃO DE DATA HORA DO PHP PARA ADICIONAR NA PÁGINA OU OUTRA FUNÇÃO DO SEU INTERESSE.
 
 **#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO NO OPENSSH NO GRUPO DO __`APACHE2`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 

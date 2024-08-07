@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 29/05/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
@@ -66,10 +66,10 @@ Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 Clique em: Releases
 	Em assets, clique em: agenda.war para fazer o Download.
 
-LINK DE DOWNLOAD DO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
+LINK DE DOWNLOAD DO NOVO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
-a) arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;<br>
-b) arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.
+A) arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;
+B) arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.
 ```
 
 #02_ Acessando o Apache TomCAT Server pelo Navegador<br>
@@ -90,7 +90,7 @@ Localize o arquivo WAR na pasta: Download clique em: <Abrir>
 Finalize clicando em: <Deploy>
 
 Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso será: 
-	firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 #OBSERVAÇÃO IMPORTANTE: acessando a aplicação Agenda pela primeira vez será apresentado
 #uma mensagem de erro, esse erro está associado ao Banco de Dados que ainda não foi
@@ -187,6 +187,10 @@ SELECT * FROM contatos;
 exit
 ```
 ```bash
+#OBSERVAÇÃO IMPORTANTE: ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA
+#VERIFICAR QUE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
 #restaurando o backup do banco de dados DBAgenda
 #opções do comando mysql: -u (user), -p (password)
 #opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
@@ -218,7 +222,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 **#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`dbagenda`__ E FAZER O DEPLOY NOVAMENTE, VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
 
-**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO WAR TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDAS ATÉ AGORA.
+**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO WAR TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
 
 =========================================================================================
 

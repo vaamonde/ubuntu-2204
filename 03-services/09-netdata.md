@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 04/06/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
@@ -77,9 +77,13 @@ git clone --recurse-submodules https://github.com/netdata/netdata --depth=100
 #as dependências, compilar e instalar o Netdata.
 
 #acessando o diretório clonado e instalando o Netdata Server
-#opção do ./: execução de script desenvolvido em Shell Script .sh
 cd netdata/
-	sudo ./netdata-installer.sh
+
+#iniciando a instalação do Netdata Server
+#opção do ./: execução de script desenvolvido em Shell Script .sh
+sudo ./netdata-installer.sh
+
+#saindo do diretório clonado do Netdata Server
 cd ..
 ```
 
@@ -111,7 +115,7 @@ sudo netdata -v
 sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ```
 
-#06_ Habilitando as atualizações do Netdata Server<br>
+#06_ Habilitando as atualizações automática do Netdata Server<br>
 ```bash
 #habilitando o suporte para atualização do Netdata Server
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
@@ -172,9 +176,18 @@ quit
 #09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G netdata $USER
+
+#fazendo login em um novo grupo do NETDATA
 newgrp netdata
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo NETDATA
+sudo getent groups netdata
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
@@ -198,12 +211,15 @@ exit
 #OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
 #Netdata Server, os arquivos de configuração são baseados na Linguagem de Programação
 #Python utilizando o conceito do YAML (YAML Ain't Markup Language), não se utiliza TAB
-#sempre utilizar 02 (dois) espaços para endentar o código.
+#sempre utilizar 02 (dois) espaços para indentar o código.
 
 #acessando o diretório de configuração do Netdata Server
 cd /etc/netdata/
 ```
 ```bash
+#OBSERVAÇÃO IMPORTANTE: POR PADRÃO O COMANDO ./edit-config UTILIZA O EDITOR DE TEXTO
+#NANO, SEUS COMANDO E TECLAS SÃO DIFERENTES DO EDITOR DE TEXTO VIM, CUIDADO!!!!.
+
 #configuração do serviço de monitoramento do Apache Server
 #https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
 sudo ./edit-config go.d/apache.conf
@@ -305,7 +321,7 @@ Ctrl + X
 #https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
 sudo ./edit-config go.d/portcheck.conf
 
-#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente no arquivo:
+#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente do arquivo:
 #sudo cat -n /var/log/auth.log | grep ssh apresentou a seguinte mensagem de erro constante a
 #cada 5 segundos: Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_
 #identification: Connection closed by remote host. Esse error muitas vezes está associado a
@@ -343,8 +359,9 @@ sudo systemctl status netdata
 #or ACTIVE states)
 sudo systemctl list-units --type=service --state=running
 
-#OBSERVAÇÃO IMPORTANTE: no vídeo as portas listadas com o comando: nmap só listou
-#as portas conhecidas, para listar todas as portas adicionei a opção: -p-
+#OBSERVAÇÃO IMPORTANTE: no vídeo as portas listadas com o comando: nmap só listou as portas 
+#conhecidas, para listar todas as portas adicionei a opção: -p- (OBSERVAÇÃO: COM ESSA OPÇÃO
+#HABILITADO O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
 
 #verificando todas as portas abertas no Ubuntu Server
 #opção do comando nmap: -p- (port ranges all) -sS (scan TCP SYN), -sU (scans UDP)

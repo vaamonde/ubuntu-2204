@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 02/08/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
@@ -95,7 +95,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 #05_ Acessando o MySQL Server utilizando o MySQL Client (Console)<br>
 ```bash	
 #OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
-#se logar no MySQL Client Console.
+#se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança.
 
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -168,9 +168,18 @@ exit
 #08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server<br>
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G mysql $USER
+
+#fazendo login em um novo grupo do MySQL
 newgrp mysql
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo MYSQL
+sudo getent groups mysql
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
@@ -128,7 +128,8 @@ ls -lha
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
 #colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
-#PuTTY para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+#PuTTY ou Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha 
+#não acontece.
 
 #OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
 #macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
@@ -163,7 +164,7 @@ ESC SHIFT :x <Enter>
 ```bash
 #opção do comando &: background
 #OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
-#(E-Comercial) colocando a aplicação em background.
+#(E-Comercial) colocando a aplicação em background e liberando o terminal.
 node index.js &
 ```
 
@@ -200,7 +201,7 @@ Ctrl + C
 #pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
 #kill -9 PID
 
-#exemplo de finalizar o processo utilizando o comando ps para descobrir o PID
+#exemplo de finalizar o processo utilizando o comando ps para descobrir o PID (Process ID)
 #opção do comando ps: -u (userlist)
 ps -u
 

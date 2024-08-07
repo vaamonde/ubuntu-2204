@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 02/08/2024<br>
-#Versão: 0.24<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.25<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
@@ -73,8 +73,9 @@ sudo dpkg -i libssl*.deb
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 ```bash
 #download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 7.0 EM: 06/04/2024)
-#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as
-#chaves GPG de cada versão acesse o link: https://www.mongodb.org/static/pgp/
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
+#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as chaves GPG 
+#de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
@@ -146,9 +147,18 @@ sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 #10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G mongodb $USER
+
+#fazendo login em um novo grupo do MONGODB
 newgrp mongodb
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo MONGODB
+sudo getent groups mongodb
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
@@ -245,13 +255,13 @@ INSERT
 	#habilitando o suporte remoto do MongoDB Server na linha: 18
 	#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
 	net:
-		port: 27017
-		bindIp: 0.0.0.0
+	  port: 27017
+	  bindIp: 0.0.0.0
 	
 	#habilitando o recurso de autenticação do MongoDB Server na linha: 28
 	#descomentar a linha: #security, adicionar o valor: authorization: enabled
 	security:
-		authorization: enabled
+	  authorization: enabled
 
 #salvar e sair do arquivo
 ESC SHIFT :x <ENTER>
@@ -261,7 +271,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-#15_ Acessando o MongoDB com e sem autenticação<br>
+#15_ Acessando o MongoDB COM e SEM autenticação<br>
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -271,7 +281,7 @@ show dbs
 
 #saindo do MongoDB Server
 quit
-	
+
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 
@@ -294,11 +304,11 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 		Connection String Scheme
 			mongodb
 		Host:
-			172.16.1.20:27017
+			172.16.1.20:27017 (alterar o endereço IPv4 do seu servidor)
 	Authentication
 		Username/Password
-			Username: admin
-			Password: pti@2018
+			Username: admin 
+			Password: pti@2018 (alterar a senha do usuário admin do seu servidor)
 			Authentication Database: admin
 		Authentication Mechanism
 			Default
@@ -309,28 +319,28 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 ```bash
 #instalando a Extensão do MongoDB
 VSCode
-	Extensões
-		Pesquisar
-			MongoDB for VS Code
-				Instalar
+  Extensões
+    Pesquisar
+      MongoDB for VS Code
+        Instalar
 
 #configurando a conexão com o MongoDB Server
 VSCode
-	MongoDB
-		CONNECTIONS
-			Add Connection
-				Advanced Connection String: <Open From>
-					New Connection
-						General
-							Connection Type: Standalone
-							Hostname: 172.16.1.20
-							Port: 27017
-							Authentication: Username/Password
-								Username: admin
-								Password: pti@2018
-								Authentication Database: admin
-					<Connect>
-				<Close>
+  MongoDB
+    CONNECTIONS
+      Add Connection
+        Advanced Connection String: <Open From>
+          New Connection
+            General
+              Connection Type: Standalone
+              Hostname: 172.16.1.20 
+              Port: 27017
+              Authentication: Username/Password
+                Username: admin
+                Password: pti@2018
+                Authentication Database: admin
+           <Connect>
+        <Close>
 ```
 
 ========================================DESAFIOS=========================================

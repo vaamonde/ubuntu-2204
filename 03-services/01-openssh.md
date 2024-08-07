@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 21/06/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
@@ -109,6 +109,7 @@ INSERT
 
 	#inserir as informações na linha: 17
 	#lista de serviço: lista de hosts: comando
+	#OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIO TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
 	ALL: ALL
 
 #salvar e sair do arquivo
@@ -192,26 +193,26 @@ sudo journalctl -xeu ssh
 ```bash
 #acessando o OpenSSH via Powershell
 Windows
-	Pesquisa do Windows
-		Powershell
-			ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+  Pesquisa do Windows
+    Powershell
+      ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
 
 #acessando o OpenSSH via PuTTY
 Windows
-	Pesquisa do Windows
-		PuTTY
+  Pesquisa do Windows
+    PuTTY
 
 Category
-	Session
-		Host Name (or IP address): vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
-		Port: 22
-		SSH: On
+  Session
+    Host Name (or IP address): vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+    Port: 22
+    SSH: On
 <Open>
 
 #acessando o OpenSSH via Terminal no Linux Mint
 Linux
-	Terminal: Ctrl + Alt + T
-		ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
+  Terminal: Ctrl + Alt + T
+    ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
 
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
 #OBSERVAÇÃO IMPORTANTE 01: no comando: w ele mostra na primeira linhas as
@@ -245,6 +246,7 @@ users
 #DE APRENDIZAGEM.
 
 #criando o usuário Admin local no Ubuntu Server
+#OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ADMIN CONFORME SUA NECESSIDADE
 sudo adduser admin
 	New password: pti@2018
 	Retype new password: pti@2018
@@ -283,6 +285,9 @@ sudo groups admin
 
 #verificando as identificações de grupos do usuário Admin
 sudo id admin
+
+#verificando informações do grupo SUDO
+sudo getent groups sudo
 ```
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>

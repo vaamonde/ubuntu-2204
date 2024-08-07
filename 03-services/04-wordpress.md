@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 07/08/2024<br>
+#Versão: 0.18<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
 A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
@@ -68,13 +68,16 @@ pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
 sudo mysql -u root -p
 ```
 ```sql
-/* Criando o Banco de Dados Wordpress */
+/* Criando o Banco de Dados com o nome Wordpress */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
 CREATE DATABASE wordpress;
 
-/* Criando o usuário da Base de Dados do WordPress */
+/* Criando o usuário e senha da Base de Dados do WordPress */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
 CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
 
 /* Aplicando as permissões de acesso do usuário WordPress */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO CONFORME NECESSIDADE */
 GRANT USAGE ON *.* TO 'wordpress';
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';
 FLUSH PRIVILEGES;
@@ -115,10 +118,12 @@ wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
 #descompactando o arquivo do WordPress
 unzip wordpress.zip
 
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DO DESTINO CONFORME NECESSIDADE
 #movendo o conteúdo do WordPress para o diretório do Apache2 Server
 #opção do comando mv: -v (verbose)
 sudo mv -v wordpress/ /var/www/html/wp/
 
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME NECESSIDADE
 #alterando as permissões dos diretórios e arquivos do WordPress
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
@@ -157,8 +162,8 @@ define( 'DB_PASSWORD', 'wordpress' );
 
 #configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
 #mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
-#copiar o conteúdo do Salt e colocar a partir da linha: 53
-#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 53 até: 60 antes de copiar/colar as
+#copiar o conteúdo do Salt e colocar a partir da linha: 51
+#OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 51 até: 58 antes de copiar/colar as
 #novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
 ```
 ```bash
@@ -169,7 +174,9 @@ ESC SHIFT :x <Enter>
 #05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
 ```bash
 #habilitando os módulos do Apache2 Server
-sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex negotiation setenvif
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite \
+autoindex negotiation setenvif
 
 #reiniciar o serviço do Apache2 Server
 sudo systemctl reload apache2
@@ -209,12 +216,12 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
 
 #Configuração dos Links Permanentes do WordPress
 Configurações
-	Links permanentes
-		Configurações de Links Permanentes
-			Configurações Comuns
-				Estrutura de Links Permanentes
-					ON (Selecionar): Padrão (http://172.16.1.20/wp/?=123)
-	<Salvar Alterações>
+  Links permanentes
+    Configurações de Links Permanentes
+      Configurações Comuns
+        Estrutura de Links Permanentes
+          ON (Selecionar): Padrão (http://172.16.1.20/wp/?=123)
+  <Salvar Alterações>
 
 #Tela do site do WordPress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
@@ -249,9 +256,9 @@ exit
 
 ========================================DESAFIOS=========================================
 
-**#07_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`UMA IMAGEM`__.
+**#07_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`DUAS IMAGEM`__ EM CADA POSTAGEM.
 
-**#08_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__.
+**#08_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
 
 **#09_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS __`ÍCONES DO GITHUB, LINKEDIN E FACEBOOK`__, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO __`APACHE2`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
@@ -265,17 +272,16 @@ exit
 | User and Password Wordpress | super              |
 | Wordpress Template Install  | Astra              |
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER QUE ELE NÃO VOLTE, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
-
+**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
 ```bash
 #acessar o diretório do site do Wordpress
 cd /var/www/html/wp
 
-#listar o arquivo de manutenção do Wordpress
+#listar o arquivo oculto de manutenção do Wordpress
 #opção do comando ls: -l (list), -h (human-readable), -a (all)
 ls -lha .maintenance
 
-#remover o arquivo de manutenção do Wordpress
+#remover o arquivo oculto de manutenção do Wordpress
 #opção do comando rm: -v (verbose)
 sudo rm -v .maintenance
 
