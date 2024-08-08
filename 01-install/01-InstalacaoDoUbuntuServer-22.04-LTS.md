@@ -9,9 +9,15 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 05/08/2024<br>
-Versão: 0.14<br>
+Data de atualização: 08/08/2024<br>
+Versão: 0.15<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
+
+Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
+Release Ubuntu Server 22.04.3: https://fridge.ubuntu.com/2023/08/11/ubuntu-22-04-3-lts-released/<br>
+Release Ubuntu Server 22.04.2: https://fridge.ubuntu.com/2023/02/24/ubuntu-22-04-2-lts-released/<br>
+Release Ubuntu Server 22.04.1: https://fridge.ubuntu.com/2022/08/12/ubuntu-22-04-1-lts-released/<br>
+Release Ubuntu Server 22.04: https://fridge.ubuntu.com/2022/04/01/ubuntu-22-04-jammy-jellyfish-final-beta-released/
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -58,7 +64,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
 04) Disco Rígido Virtual:
 	Criar um novo disco rígido virtual agora: ON (Selecionar)
-		Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
+	  Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
 	Pré-alocar Tamanho Total (F): OFF (Desativado) 
 <Próximo>
 
@@ -75,28 +81,28 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
 02) Sistema
 	Placa-Mãe
-		Recurso Estendidos
-			Relógio da máquina retorno hora UTC: OFF (Desabilitar)
+	  Recurso Estendidos
+	    Relógio da máquina retorno hora UTC: OFF (Desabilitar)
 	Processador
-        Recursos Estendidos: Habilitar PAE/NX
-                             Habilitar VT-x/AMD-v Aninhado 
+      Recursos Estendidos: Habilitar PAE/NX
+                           Habilitar VT-x/AMD-v Aninhado 
 
 03) Monitor
 	Tela (S)
-		Memória de Vídeo: 128MB
-		Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
+	  Memória de Vídeo: 128MB
+	  Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
 
 04) Áudio
 	Habilitar Áudio: OFF (Desabilitar)
 
 05) Rede
 	Adaptador 1 (LAN)
-		Habilitar Placa de Rede: ON (Habilitar)
-		Conectado a: Placa em modo Bridge
-		Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
-		#OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
-		#QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
-		#SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
+	  Habilitar Placa de Rede: ON (Habilitar)
+	  Conectado a: Placa em modo Bridge
+	  Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
+	  #OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
+	  #QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
+	  #SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
 <OK>
 ```
 
@@ -124,59 +130,62 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 	English (recomendado utilizar sempre a opção em Inglês)
 <Enter>
 
-03) Keyboard configuration
+03) Installer update available
+	Version 24.04.1 of the installer is now available (24.02.1 is currently running)
+<Continue without updating>
+
+04) Keyboard configuration
 	Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 	Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 <Done>
 
-04) Choose type of install
+05) Choose type of install
 	(X) Ubuntu Server (DEFAULT - Selecionado)
 	( ) Ubuntu Server (minimized)
 	Additional options
-		[ ] Search for third-party drivers
+	  [ ] Search for third-party drivers
 <Done>
 
-05) Network connections
-	enp0s3 eth (o nome lógico da placa de rede muda de equipamento para equipamento)
+06) Network connections
+	enp0s3 eth - (o nome lógico da placa de rede muda de equipamento para equipamento)
 	DHCPv4 172.16.1.XXX/24 (altere conforme a sua necessidade)
 	#OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA REDE 
 	#INTERNA PARA ADAPTAR NO SEU CENÁRIO.
 <Done>
 
-06) Configure proxy
+07) Configure proxy
 	Proxy address: (Default)
 <Done>
 
-07) Configure Ubuntu archive mirror
-	Mirror: http://br.archive.ubuntu.com/ubuntu
+08) Configure Ubuntu archive mirror
+	Mirror: http://archive.ubuntu.com/ubuntu
 	#OBSERVAÇÃO IMPORTANTE: CASO QUEIRA TROCAR O MIRROR DO UBUNTU DO BRASIL PARA O
 	#OFICIAL NO US, SUBSTITUA A URL DE: http://br.archive.ubuntu.com/ubuntu PARA A
 	#URL: http://us.archive.ubuntu.com/ubuntu
 <Done>
 
-08) 
-
 09) Guided storage configuration
 	(X) Use an entire disk (Default)
-		[VBOX_HARDISK local disk 50.000G]
-		(X) Set up this disk as an LVM group (Default)
+	  [VBOX_HARDISK-XXXX local disk 50.000G]
+	    (X) Set up this disk as an LVM group (Default)
+	      [] Encrypt the LVM group with LUKS (Default - No (Não))
 <Done>
 
 10) Storage configuration
 	USED DEVICES
-		ubuntu-lv	new, to be formatted as ext4, mounted at /	24G <Enter>
-			Edit <Enter>
-				Name: ubuntu-lv
-				Size (max 47.996G): 47.996G
-				Format: ext4
-				Mount: /
-			<Save>
+	  ubuntu-lv	new, to be formatted as ext4, mounted at /	24G <Enter>
+	    Edit <Enter>
+	      Name: ubuntu-lv
+	      Size (max 47.996G): 47.996G
+	      Format: ext4
+	      Mount: /
+	    <Save>
 <Done>
 	Confirm destructive action
 <Continue>
 
 11) Profile setup
-	OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
+	#OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
 	Your name: Seu Nome e Sobrenome <Tab>
 	Your servers name: wsvaamonde <Tab>
 	Pick a username: vaamonde <Tab>
@@ -189,7 +198,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 <Continue>
 
 13) SSH Setup
-	Install OpenSSH server: ON (Habilitar) <Space>
+	[X] Install OpenSSH server: ON (Habilitar - pressione <Space> para selecionar)
 	Import SSH identity: No (Default)
 <Done>
 
