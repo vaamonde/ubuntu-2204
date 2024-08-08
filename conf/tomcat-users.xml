@@ -28,7 +28,7 @@
 	<role rolename="tomcat"/>
 	<role rolename="role1"/>
 	<!-- Configuração do Usuário, Senha e Papéis do administrador do Servidor Web Tomcat -->
-	<!-- Para criar novos usuários no Apache TomCAT Server copiar a linha abaixo e colar -->
+	<!-- Para criar novos usuários no Apache TomCAT Server só copiar a linha abaixo e colar -->
 	<!-- na próxima linha alterando o nome, senha e papeis do usuário -->
 	<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 </tomcat-users>
