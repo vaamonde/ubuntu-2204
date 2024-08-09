@@ -287,7 +287,7 @@ sudo groups admin
 sudo id admin
 
 #verificando informações do grupo SUDO
-sudo getent groups sudo
+sudo getent group sudo
 ```
 
 #10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>

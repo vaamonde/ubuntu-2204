@@ -129,7 +129,7 @@ newgrp www-data
 id
 
 #verificando informações do grupo WWW-DATA
-sudo getent groups www-data
+sudo getent group www-data
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl+D

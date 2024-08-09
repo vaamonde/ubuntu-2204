@@ -222,7 +222,7 @@ newgrp tomcat
 id
 
 #verificando informações do grupo TOMCAT
-sudo getent groups tomcat
+sudo getent group tomcat
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D

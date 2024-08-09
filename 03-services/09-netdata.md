@@ -187,7 +187,7 @@ newgrp netdata
 id
 
 #verificando informações do grupo NETDATA
-sudo getent groups netdata
+sudo getent group netdata
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D

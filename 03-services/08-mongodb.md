@@ -158,7 +158,7 @@ newgrp mongodb
 id
 
 #verificando informações do grupo MONGODB
-sudo getent groups mongodb
+sudo getent group mongodb
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
