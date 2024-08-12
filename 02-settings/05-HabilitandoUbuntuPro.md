@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 05/08/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.08<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -20,6 +20,8 @@ Site Oficial dos Procedimentos do Ubuntu Pro: https://ubuntu.com/pro/tutorial<br
 Site Oficial do Ubuntu One: https://login.ubuntu.com/<br>
 Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
+
+O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
 [![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 

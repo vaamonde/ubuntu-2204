@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 28/04/2024<br>
-#Data de atualização: 28/04/2024<br>
-#Versão: 0.02<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.03<br>
 
 =========================================================================================<br>
 ############################### 01-openssh.md CHALLENGES ################################<br>
@@ -181,6 +181,54 @@ DOS SITES CRIADOS.
 	#adicionando o usuário Admin e Robson ao grupo do Apache2
 	sudo usermod -aG www-data admin
 	sudo usermod -aG www-data robson
+
+#12_ #12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA 
+CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS DESAFIO-01 
+E 02 NO SITE ON-LINE (CLOUD).
+
+	#acessando o site do InfinityFree
+	https://www.infinityfree.com/
+
+	#criando uma conta no InfinityFree
+	<Register>
+
+	#criando o cadastro no Site do InfinityFree
+	Email address: SEU_EMAIL
+	Password: SUA_SENHA
+	Confirm Password: CONFIRMA_SUA_SENHA
+	(X) Ive read and agree to the terms of service
+	(X) Confirme que é humano (CloudFlare)
+	<Sign Up>
+
+	#validando o email recebido da InfinityFree
+	Clique no Link: <Verify Email Address>
+
+	#criando um nova conta de site na InfinityFree
+	<Create Account>
+
+	#configuração da conta na InfinityFree
+	Step 1: Choose Hosting Plan: InfinityFree <Create Now>
+	Step 2: Domain Name:
+	  Domain Type: Subdomain
+	  Subdomain: vaamonde
+	  Domain Extension: infinityfreeapp.com
+	<Check Availability>
+	Step 3: Additional Information
+	  Account Label: Primeiro Site do Vaamonde
+	  Account Username: (generated automatically)
+	  Account Password: SUA_SENHA_SEGURA
+	  Email Consent: I Approved
+	  (X) Confirme que é humano (CloudFlare)
+	<Create Account>
+	Step 4: Done
+	<Finish>
+
+	#email da confirmação do site do InfinityFree
+	Domínio: vaamonde.infinityfreeapp.com
+
+	#OBSERVAÇÃO IMPORTANTE: A CRIAÇÃO DO SITE E LIBERAÇÃO DO ENDEREÇO IP PÚBLICO PODE
+	#DEMORA CERCA DE 72HS, AGUARDE PARA QUE O SEU DOMÍNIO SEJA LIBERADO O ACESSO E VOCÊ
+	#CONSIGA CRIAR SUAS PÁGINAS.
 
 =========================================================================================<br>
 ############################# 02-mysql-server.md CHALLENGES #############################<br>

@@ -190,7 +190,7 @@ sudo journalctl -xeu apache2
 #06_ Acessando e configurando o WordPress via navegador<br>
 ```bash
 #utilizar os navegadores para testar o acesso ao Wordpress
-firefox ou google chrome: http://endereço_ipv4_ubuntuserverwp
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
 
 #Informações que serão solicitadas na configuração via Web do WordPress
 Português do Brasil: Continuar;
@@ -220,7 +220,7 @@ Configurações
     Configurações de Links Permanentes
       Configurações Comuns
         Estrutura de Links Permanentes
-          ON (Selecionar): Padrão (http://172.16.1.20/wp/?=123)
+          ON (Selecionar): Padrão (http://endereço_ipv4_ubuntuserver/wp/?=123)
   <Salvar Alterações>
 
 #Tela do site do WordPress
