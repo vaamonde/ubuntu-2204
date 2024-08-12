@@ -7,19 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 02/08/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.18<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix
 
 Conteúdo estudado nessa implementação:<br>
 #01_ Instalando as Dependências do Zabbix Server e Agent<br>
@@ -41,9 +38,7 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
-Traduzido do inglês-O Zabbix é uma ferramenta de software de código aberto para monitorar<br>
-a infraestrutura de TI, como redes, servidores, máquinas virtuais e serviços em nuvem. O <br>
-Zabbix coleta e exibe métricas básicas.
+Traduzido do inglês-O Zabbix é uma ferramenta de software de código aberto para monitorar a infraestrutura de TI, como redes, servidores, máquinas virtuais e serviços em nuvem. O Zabbix coleta e exibe métricas básicas.
 
 [![Zabbix Server](http://img.youtube.com/vi/ms5_qLThRTg/0.jpg)](https://www.youtube.com/watch?v=ms5_qLThRTg "Zabbix Server")
 
@@ -366,13 +361,13 @@ Pasta de Download
 #Verificação da instalação do Zabbix Agent 2 no Powershell
 #opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 Powershell
-	hostname
-	Get-Service 'Zabbix Agent 2'
-	netstat -an | findstr 10050
+  hostname
+  Get-Service 'Zabbix Agent 2'
+  netstat -an | findstr 10050
 
 #Localização do arquivo de configuração do Zabbix Agent 2
 C:\Program Files\Zabbix Agent 2\
-	zabbix_agent2.conf
+  zabbix_agent2.conf
 
 #Link de referência do download: https://www.zabbix.com/br/download
 
@@ -508,13 +503,10 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix 
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix 

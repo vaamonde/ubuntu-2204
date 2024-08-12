@@ -7,14 +7,12 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 04/07/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.06<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog.png
 
@@ -27,9 +25,7 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Datadog: https://www.datadoghq.com/<br>
 
-A Datadog é uma empresa de software que fornece um SaaS de observabilidade para serviços<br>
-em nuvem amplamente utilizado. Foi fundada em 2010 por Olivier Pomel e Alexis Lê-Quôc em<br>
-Nova Iorque.
+A Datadog é uma empresa de software que fornece um SaaS de observabilidade para serviços em nuvem amplamente utilizado. Foi fundada em 2010 por Olivier Pomel e Alexis Lê-Quôc em Nova Iorque.
 
 [![Datadog](http://img.youtube.com/vi/tmcyPRGSHf4/0.jpg)](https://www.youtube.com/watch?v=tmcyPRGSHf4 "Datadog")
 
@@ -152,13 +148,10 @@ netstat -an | findstr 5002
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent

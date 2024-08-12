@@ -7,19 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 02/08/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.10<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/14-influxdb.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
 
 Conteúdo estudado nessa implementação:<br>
 #01_ Instalando as Dependências do InfluxDB2 e do Telegraf<br>
@@ -42,14 +39,9 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
-InfluxDB é um banco de dados de série temporal de código aberto desenvolvido pela empresa<br>
-InfluxData. Ele é usado para armazenamento e recuperação de dados de séries temporais em<br>
-áreas como monitoramento de operações, métricas de aplicativos, dados de sensores da Internet<br>
-das Coisas e análises em tempo real.
+InfluxDB é um banco de dados de série temporal de código aberto desenvolvido pela empresa InfluxData. Ele é usado para armazenamento e recuperação de dados de séries temporais em áreas como monitoramento de operações, métricas de aplicativos, dados de sensores da Internet das Coisas e análises em tempo real.
 
-Telegraf - é um agente de coleta de métricas de código aberto para coleta e envio de dados<br>
-e eventos de bancos de dados, sistemas e sensores IoT. Ele suporta vários plugins de saída,<br>
-como InfluxDB, Graphite, Kafka, etc., para os quais pode enviar os dados coletados.
+Telegraf - é um agente de coleta de métricas de código aberto para coleta e envio de dados e eventos de bancos de dados, sistemas e sensores IoT. Ele suporta vários plugins de saída, como InfluxDB, Graphite, Kafka, etc., para os quais pode enviar os dados coletados.
 
 [![InfluxDB2](http://img.youtube.com/vi/yBmRjTRz2DU/0.jpg)](https://www.youtube.com/watch?v=yBmRjTRz2DU "InfluxDB2")
 
@@ -288,8 +280,8 @@ Data Explorer
 #OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
 #Link de referência do download: https://github.com/influxdata/telegraf/releases
 
-#link para download direto do Telegraf (link atualizado em: 02/08/2024)
-https://dl.influxdata.com/telegraf/releases/telegraf-1.31.2_windows_amd64.zip
+#link para download direto do Telegraf (link atualizado em: 12/08/2024)
+https://dl.influxdata.com/telegraf/releases/telegraf-1.31.3_windows_amd64.zip
 
 #descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download
@@ -563,13 +555,10 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/14-influxdb.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf

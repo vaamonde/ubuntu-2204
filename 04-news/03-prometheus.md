@@ -7,19 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 02/08/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.16<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
 
 Conteúdo estudado nessa implementação:<br>
 #01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
@@ -51,11 +48,7 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
-Prometheus é um aplicativo de software livre usado para monitoramento de eventos e alertas.<br>
-Ele registra métricas em tempo real em um banco de dados de séries temporais (permitindo alta<br>
-dimensionalidade) construído usando um modelo HTTP pull, com consultas flexíveis e alertas em<br>
-tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012 e agora é<br>
-mantido independentemente de qualquer empresa. 
+Prometheus é um aplicativo de software livre usado para monitoramento de eventos e alertas. Ele registra métricas em tempo real em um banco de dados de séries temporais (permitindo alta dimensionalidade) construído usando um modelo HTTP pull, com consultas flexíveis e alertas em tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012 e agora é mantido independentemente de qualquer empresa. 
 
 [![Prometheus](http://img.youtube.com/vi/0h6le4K6uEQ/0.jpg)](https://www.youtube.com/watch?v=0h6le4K6uEQ "Prometheus")
 
@@ -90,8 +83,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 #alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 #versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-#download do Prometheus do Github (Link atualizado no dia 02/08/2024)
-wget https://github.com/prometheus/prometheus/releases/download/v2.53.1/prometheus-2.53.1.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 12/08/2024)
+wget https://github.com/prometheus/prometheus/releases/download/v2.54.0/prometheus-2.54.0.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -145,7 +138,7 @@ sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 #o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 #software no Link: https://github.com/prometheus/node_exporter/releases/
 
-#download do Node Exporter do Github (Link atualizado no dia 02/08/2024)
+#download do Node Exporter do Github (Link atualizado no dia 12/08/2024)
 wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
@@ -373,8 +366,8 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 #OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS
 #Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
-#link para download direto do Node Exporter (link atualizado em: 02/08/2024)
-https://github.com/prometheus-community/windows_exporter/releases/download/v0.26.1/windows_exporter-0.26.1-amd64.msi
+#link para download direto do Node Exporter (link atualizado em: 12/08/2024)
+https://github.com/prometheus-community/windows_exporter/releases/download/v0.27.0/windows_exporter-0.27.0-amd64.msi
 
 #OBSERVAÇÃO IMPORTANTE: fazer a instalação do Prometheus Windows Exporter utilizando 
 #o Powershell em modo Administrador.
@@ -415,7 +408,7 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 #o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 #software no Link: https://github.com/prometheus/node_exporter/releases/
 
-#download do Node Exporter do Github (Link atualizado no dia 29/05/2024)
+#download do Node Exporter do Github (Link atualizado no dia 12/08/2024)
 wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
@@ -559,13 +552,10 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE:  Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometheus.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter

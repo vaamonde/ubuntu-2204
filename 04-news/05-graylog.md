@@ -7,19 +7,16 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 05/05/2024<br>
-#Versão: 0.05<br>
+#Data de atualização: 12/08/2024<br>
+#Versão: 0.06<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/15-graylog.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
 
 Conteúdo estudado nessa implementação:<br>
 #01_ Instalando as Dependências do Graylog Server<br>
@@ -48,13 +45,9 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Graylog: https://graylog.org/<br>
 
-Graylog, Inc é uma empresa de software de gerenciamento de log e análise de segurança<br>
-com sede em Houston, Texas. Seu principal produto é um software de gerenciamento de log,<br>
-também chamado de Graylog.
+Graylog, Inc é uma empresa de software de gerenciamento de log e análise de segurança com sede em Houston, Texas. Seu principal produto é um software de gerenciamento de log, também chamado de Graylog.
 
-NXLog é uma solução de gerenciamento de logs multiplataforma que permite coletar logs de<br>
-diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para<br>
-diferentes destinos.
+NXLog é uma solução de gerenciamento de logs multiplataforma que permite coletar logs de diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para diferentes destinos.
 
 [![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
 
@@ -64,7 +57,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 ```bash
 #OBSERVAÇÃO IMPORTANTE: O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL
 #MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06
-#DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 17) E NA ETAPA: 08 DO
+#DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO
 #MONGODB (VERSÃO 7).
 
 #atualizando as lista do apt
@@ -201,7 +194,7 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 
 #10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
 ```bash
-#baixando o repositório do Graylog Server
+#baixando o repositório do Graylog Server (Link atualizado no dia 12/08/2024)
 wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
 
 #instalando o repositório do Graylog
@@ -443,14 +436,14 @@ Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
 	Available Downloads
 		Version: NXLog Community Edition
 		Platform: Windows
-		#download da versão atualizada em: 28/04/2024
+		#download da versão atualizada em: 12/08/2024
 		Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
 	<Download>
 	<No thanks, just starts my download>
 
 #instalando o NXLog-CE no Windows 10
 Download
-	Executar o software: nxlog-ce-3.2.2329.msi
+	Executar o software: nxlog-ce-*.msi
 	Welcome to the NXLog-CE Setup Wizard: <Next>
 	End-User License Agreement: (ON) I Accept the terms in the License Agreement <Next>
 	Destination Folder: Default <Next>
@@ -559,13 +552,10 @@ Graylog
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM 
-A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/15-graylog.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearchh
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearchh
