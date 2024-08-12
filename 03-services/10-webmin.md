@@ -10,16 +10,13 @@
 #Data de atualização: 07/08/2024<br>
 #Versão: 0.11<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-webmin.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando a Dependências do Webmin<br>
@@ -35,9 +32,7 @@ Conteúdo estudado nesse desafio:<br>
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
-O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas<br>
-operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via<br>
-navegador, não precisando de conhecimentos avanças em Bash/Shell.
+O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
 [![Webmin](http://img.youtube.com/vi/QEpOrGZbEl8/0.jpg)](https://www.youtube.com/watch?v=QEpOrGZbEl8 "Webmin")
 
@@ -133,27 +128,27 @@ Password: pti@2018
 ```bash
 #Atualizando o Módulos de Serviços do Web
 Webmin
-	Refresh Modules
+  Refresh Modules
 
 #Alterando a Linguagem do Webmin
 Webmin
-	Webmin Configuration
-		Language and Locale
-			Language: português (Brasil)
-			Locale: português (Brasil)
-		<Change Language>
+  Webmin Configuration
+    Language and Locale
+      Language: português (Brasil)
+      Locale: português (Brasil)
+    <Change Language>
 
 #Alterando o Tema para Night/Black do Webmin
 Webmin
-	Ícone: Day/night mode toggle (atalho: Alt + L)
+  Ícone: Day/night mode toggle (atalho: Alt + L)
 
 #Conectando no Banco de Dados MySQL Server
 Webmin
-	Servidores
-		Servidor de base de dados MySQL
-			Usuário: root
-			Senha: pti@2018
-			<Salvar>
+  Servidores
+    Servidor de base de dados MySQL
+      Usuário: root
+      Senha: pti@2018
+    <Salvar>
 ```
 
 ========================================DESAFIOS=========================================
@@ -168,13 +163,10 @@ Webmin
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM 
-A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
+COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-webmin.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
