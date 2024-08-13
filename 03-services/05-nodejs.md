@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 13/08/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
 
@@ -19,18 +19,17 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/05-nodejs.
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionodejs #desafiojavascript
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado as Dependências do Node.JS;<br>
-#02_ Instalando o Node.JS no Ubuntu Server;<br>
-#03_ Verificando as Versões do Node.JS e NPM;<br>
-#04_ Criando o diretório do Projeto do Node.JS;<br>
-#05_ Inicializando o Projeto do Node.JS e Instalando o Express;<br>
-#06_ Criando o Arquivos INDEX.JS do Node.JS;<br>
-#07_ Criando o Primeiro Código em JavaScript do Node.JS;<br>
-#08_ Executando uma Aplicação Node.JS via Terminal;<br>
-#09_ Verificando a Porta de Conexão da Aplicação Node.JS;<br>
-#10_ Testando a Aplicação via Navegador;<br>
-#11_ Gerenciando Processos do Node.JS no Ubuntu Server;<br>
-#12_ Desafio de uma Nova Aplicação do Node.JS.
+#01_ Instalando as Dependências do Node.JS<br>
+#02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)<br>
+#03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
+#04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
+#05_ Criando um Projeto Simples para Testar o Node.JS<br>
+#06_ Criando um Projeto Simples do Node.JS<br>
+#07_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
+#08_ Verificando a Porta de Conexão do Node.JS Express<br>
+#09_ Acessando o Projeto Simples do Node.JS<br>
+#10_ Finalizando a Execução do Projeto Simples do Node.JS<br>
+#11_ Desafio de uma Nova Aplicação do Node.JS.
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
@@ -59,7 +58,7 @@ sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
 build-essential ca-certificates
 ```
 
-#02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
+#02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)<br>
 ```bash
 #adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
 
@@ -74,21 +73,28 @@ build-essential ca-certificates
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output file)
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
+#opção da contra barra (\): criar uma quebra de linha no terminal
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o \ 
+/usr/share/keyrings/nodesource.gpg
 
 #Adicionando o Repositório do Node.JS no Ubuntu Server
 #OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
 #Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
 #no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+#opção da contra barra (\): criar uma quebra de linha no terminal
+echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" \
+| sudo tee /etc/apt/sources.list.d/nodesource.list
+```
 
+#03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
+```bash
 #Instalando o Node.JS e NPM (Node Package Manager)
 sudo apt update
 sudo apt install nodejs
 ```
 
-#03_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
+#04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
 ```bash
 #opção do comando node: -v (version)
 #opção do comando npm: -v (version)
@@ -96,13 +102,17 @@ sudo node -v
 sudo npm -v
 ```
 
-#04_ Criando um Projeto Simples para Testar o Node.JS<br>
+#05_ Criando um Projeto Simples para Testar o Node.JS<br>
 ```bash
 #criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 #opção do comando mkdir: -v (verbose)
 mkdir -v nodejs-hello
 
-#acessando o diretório do projeto
+#Listando o diretório criado do projeto do Node.JS
+#opção do comando ls: -l (long listing), -h (human-readable)
+ls -lh
+
+#acessando o diretório do projeto do Node.JS
 cd nodejs-hello/
 
 #Inicializando o diretório do Projeto do Node.JS
@@ -118,7 +128,7 @@ npm install express
 ls -lha
 ```
 
-#05_ Criando um Projeto Simples do Node.JS<br>
+#06_ Criando um Projeto Simples do Node.JS<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
 #colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
@@ -154,7 +164,7 @@ app.listen(3000, function() {
 ESC SHIFT :x <Enter>
 ```
 
-#06_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
+#07_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
 ```bash
 #opção do comando &: background
 #OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
@@ -162,7 +172,7 @@ ESC SHIFT :x <Enter>
 node index.js &
 ```
 
-#07_ Verificando a Porta de Conexão do Node.JS Express<br>
+#08_ Verificando a Porta de Conexão do Node.JS Express<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -173,13 +183,13 @@ node index.js &
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
-#08_ Acessando o Projeto Simples do Node.JS<br>
+#09_ Acessando o Projeto Simples do Node.JS<br>
 ```bash
 #utilizar os navegadores para testar o Node.JS
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-#09_ Finalizando a Execução do Projeto Simples do Node.JS<br>
+#10_ Finalizando a Execução do Projeto Simples do Node.JS<br>
 ```bash
 #verificando os processos em segundo plano (background)
 jobs
@@ -205,7 +215,7 @@ kill -9 15939
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ E ADICIONAR MAIS ALGUM RECURSO DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS)
+**#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ E ADICIONAR MAIS ALGUM RECURSO DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS)
 
 **#11_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO DESAFIO-03 DO WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
