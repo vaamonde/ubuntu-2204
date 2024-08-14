@@ -185,6 +185,12 @@ exit
 
 #opções do comando mysql: -u (user), -p (password)
 mysql -u dba -p
+
+#testar os direitos do usuário DBA no MySQL Server
+SHOW DATABASES;
+USE mysql;
+SHOW TABLES;
+exit
 ```
 
 #09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
