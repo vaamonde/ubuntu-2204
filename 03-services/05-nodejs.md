@@ -135,10 +135,10 @@ ls -lha
 #PuTTY ou Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha 
 #não acontece.
 
-#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou no
-#macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
-#padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
-#e modificação arquivos desse curso.
+#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou
+#no macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, 
+#por padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando 
+#a criação e modificação arquivos desse curso.
 
 #Criando o arquivo index.js do projeto do Node.JS
 vim index.js

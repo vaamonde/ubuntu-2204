@@ -58,8 +58,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 #o ambiente mais bonito.
 
 Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
+
 Clique em: Releases
-	Em assets, clique em: agenda.war para fazer o Download.
+  Em assets, clique em: agenda.war para fazer o Download.
 
 LINK DE DOWNLOAD DO NOVO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
@@ -76,15 +77,16 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 #03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache TomCAT Server<br>
 ```bash
 Clique em: Manager App
-	Usuário padrão: admin
-	Senha padrão..: pti@2018
+  Usuário padrão: admin
+  Senha padrão..: pti@2018
 <Fazer Login>
 
-Em: WAR file to deploy clique em: <Escolher arquivo>
-Localize o arquivo WAR na pasta: Download clique em: <Abrir>
-Finalize clicando em: <Deploy>
+A) Em: WAR file to deploy clique em: <Escolher arquivo>
+B) Localize o arquivo WAR na pasta: Download clique em: <Abrir>
+C) Finalize clicando em: <Deploy>
 
-Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso será: 
+Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso será:
+
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 #OBSERVAÇÃO IMPORTANTE: acessando a aplicação Agenda pela primeira vez será apresentado
@@ -149,7 +151,7 @@ exit
 
 #06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros<br>
 ```bash
-#utilizar os navegadores para testar o Apache TomCAT
+#utilizar os navegadores para testar o WAR do Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 ```
 

@@ -150,7 +150,7 @@ SELECT user,host FROM mysql.user WHERE user='dba';
 /* saindo do MySQL Client Console */
 exit
 ```
-```bash	
+```bash
 #se logando com o usuário dba para testar a conexão com o MySQL Server
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dba -p
@@ -268,25 +268,25 @@ MySQL Connections: +
 #NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO,
 #POR MOTIVO DE SEGURANÇA.
 
-#instalando a Extensão do MySQL Server
+#instalando a Extensão do MySQL Server no VSCode
 VSCode
   Extensões
     Pesquisar
       MySQL (Database manager for MySQL/MariaDB, PostgreSQL, SQLite, Redis and ElasticSearch)
         Instalar
 
-#configurando a conexão com o MySQL Server
+#configurando a conexão com o MySQL Server no VSCode
 VSCode
-	Database
-		<Create Connection>
-			Name: UbuntuServer
-			Server Type:
-				MySQL
-					Host: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
-					Port: 3306
-					Username: root
-					Password: pti@2018 (alterar a senha do usuário root do seu servidor)
-			<Save>
+  Database
+    <Create Connection>
+      Name: UbuntuServer
+      Server Type:
+        MySQL
+          Host: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+          Port: 3306
+          Username: root
+          Password: pti@2018 (alterar a senha do usuário root do seu servidor)
+    <Save>
 ```
 
 ========================================DESAFIOS=========================================

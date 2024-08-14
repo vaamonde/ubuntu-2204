@@ -193,20 +193,20 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
 #Informações que serão solicitadas na configuração via Web do WordPress
 Português do Brasil: Continuar;
 Informação necessária
-	Título do site: Seu Nome e Sobrenome;
-	Nome de usuário: admin;
-	Senha: pti@2018;
-	Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
-	O seu e-mail: admin@ptin.intra; 
+  Título do site: Seu Nome e Sobrenome;
+  Nome de usuário: admin;
+  Senha: pti@2018;
+  Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
+  O seu e-mail: admin@ptin.intra; 
 <Instalar WordPress>
 <Acessar>
 
 #Tela de login do WordPress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
-	Nome de usuário ou endereço de email: admin
-	Senha: pti@2018
-	Lembrar-me: On (Habilitado)
-	<Acessar>
+  Nome de usuário ou endereço de email: admin
+  Senha: pti@2018
+  Lembrar-me: On (Habilitado)
+  <Acessar>
 
 #OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
 #é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos

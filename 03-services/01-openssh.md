@@ -244,14 +244,14 @@ users
 #criando o usuário Admin local no Ubuntu Server
 #OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ADMIN CONFORME SUA NECESSIDADE
 sudo adduser admin
-	New password: pti@2018
-	Retype new password: pti@2018
-		Full Name []: Admin Bora para Prática
-		Room Number []: <Enter>
-		Work Phone []: <Enter>
-		Home Phone []: <Enter>
-		Other []: <Enter>
-	Is the information correct? [Y/n] y <Enter>
+  New password: pti@2018
+  Retype new password: pti@2018
+    Full Name []: Admin Bora para Prática
+    Room Number []: <Enter>
+    Work Phone []: <Enter>
+    Home Phone []: <Enter>
+    Other []: <Enter>
+  Is the information correct? [Y/n] y <Enter>
 
 #listando o usuário criado no arquivo passwd
 #opção do comando cat: -n (number line)
