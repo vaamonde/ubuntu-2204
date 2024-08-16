@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 16/08/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
 
@@ -104,8 +104,8 @@ sudo ufw status
 
 #Habilitando e iniciando o Firewall UFW
 sudo ufw enable
-	Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
-	Firewall is active and enabled on system startup
+  Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
+  Firewall is active and enabled on system startup
 
 #Verificando o status do UFW (Status padrão após habilitar o UFW: active - ativo/ativado)
 sudo ufw status
@@ -152,8 +152,8 @@ New profiles: skip  <-- PERFIL PADRÃO (SKIP - PULAR/NÃO UTILIZADO)
 
 #Configurando a Regra Padrão de Bloqueio de Entrada
 sudo ufw default deny incoming
-	Default incoming policy changed to 'deny'
-	(be sure to update your rules accordingly)
+  Default incoming policy changed to 'deny'
+  (be sure to update your rules accordingly)
 
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
@@ -168,8 +168,8 @@ sudo ufw status verbose
 
 #Configurando a Regra Padrão de Bloqueio de Saída
 sudo ufw default deny outgoing
-	Default outgoing policy changed to 'deny'
-	(be sure to update your rules accordingly)
+  Default outgoing policy changed to 'deny'
+  (be sure to update your rules accordingly)
 
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
@@ -182,11 +182,11 @@ sudo ufw status verbose
 
 #Habilitando os Logs das Regras do UFW
 sudo ufw logging on
-	Logging enabled
+  Logging enabled
 
 #Configurando o Nível de Log de Baixo (LOW) para Médio (MEDIUM)
 sudo ufw logging medium
-	Logging enabled
+  Logging enabled
 
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
@@ -263,7 +263,7 @@ sudo ufw status numbered
 #Porta Específica (maior prioridade), Regras de Protocolo e Porta (alta prioridade),
 #Regras de Aplicação de Serviço (prioridade intermediaria), Regras de Subnet (menor
 #prioridade), Regras de Interface (menor prioridade) e Regras de App Profile (essa
-#regra tem menor prioridade e sem fica por último).
+#regra tem menor prioridade e sempre fica por último).
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (53/udp)
 sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
@@ -324,7 +324,7 @@ ESC SHIFT :x <Enter>
 
 #Reiniciar as regras de firewall do UFW
 sudo ufw reload
-	Firewall reloaded
+  Firewall reloaded
 
 #Pingando o endereço IPv4 do Google
 ping 8.8.8.8
@@ -418,10 +418,10 @@ sudo ufw status numbered
 
 #Removendo (DELETE) a Regra (RULES) de Acesso ao Webmin (9) do endereço IPv4 172.16.1.114
 sudo ufw delete 9
-	Deleting:
-		allow from 172.16.1.114 to 172.16.1.20 port 10000 proto tcp comment 'Liberando o IP para acessar o Webmin'
-	Proceed with operation (y|n)? y
-	Rule deleted
+  Deleting:
+    allow from 172.16.1.114 to 172.16.1.20 port 10000 proto tcp comment 'Liberando o IP para acessar o Webmin'
+  Proceed with operation (y|n)? y
+  Rule deleted
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
@@ -431,7 +431,7 @@ sudo ufw status numbered
 ```bash
 #Reiniciando as regras de firewall do UFW
 sudo ufw reload
-	Firewall reloaded
+  Firewall reloaded
 
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
@@ -565,19 +565,19 @@ sudo ufw status numbered
 
 #Removendo (DELETE) a Regra (RULES) de Acesso ao SSH IPv4 (6) e IPv6 (16)
 sudo ufw delete 6
-	Deleting:
-	allow log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
-	Proceed with operation (y|n)? y <Enter>
-	Rule deleted (v4)
+  Deleting:
+    allow log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
+    Proceed with operation (y|n)? y <Enter>
+    Rule deleted (v4)
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
 sudo ufw delete 16
-	Deleting:
-	allow log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
-	Proceed with operation (y|n)? y <Enter>
-	Rule deleted (v6)
+  Deleting:
+    allow log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
+    Proceed with operation (y|n)? y <Enter>
+    Rule deleted (v6)
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
@@ -681,15 +681,15 @@ sudo ufw show added
 
 #Desabilitando (DISABLE) o Firewall UFW
 sudo ufw disable
-	Firewall stopped and disabled on system startup
+  Firewall stopped and disabled on system startup
 
 #Verificando o Regras Detalhadas do UFW
 sudo ufw status verbose
 
 #Habilitando (ENABLE) o Firewall UFW
 sudo ufw enable 
-	Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
-	Firewall is active and enabled on system startup
+  Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
+  Firewall is active and enabled on system startup
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
@@ -703,27 +703,27 @@ sudo ufw status numbered
 
 #Resetando (RESET) as regras de Firewall do UFW
 sudo ufw reset 
-	Resetting all rules to installed defaults. This may disrupt existing ssh
-	connections. Proceed with operation (y|n)? y <Enter>
+  Resetting all rules to installed defaults. This may disrupt existing ssh
+  connections. Proceed with operation (y|n)? y <Enter>
 
-	Backing up 'user.rules' to '/etc/ufw/user.rules.20240715_002334'
-	Backing up 'before.rules' to '/etc/ufw/before.rules.20240715_002334'
-	Backing up 'after.rules' to '/etc/ufw/after.rules.20240715_002334'
-	Backing up 'user6.rules' to '/etc/ufw/user6.rules.20240715_002334'
-	Backing up 'before6.rules' to '/etc/ufw/before6.rules.20240715_002334'
-	Backing up 'after6.rules' to '/etc/ufw/after6.rules.20240715_002334'
+  Backing up 'user.rules' to '/etc/ufw/user.rules.20240715_002334'
+  Backing up 'before.rules' to '/etc/ufw/before.rules.20240715_002334'
+  Backing up 'after.rules' to '/etc/ufw/after.rules.20240715_002334'
+  Backing up 'user6.rules' to '/etc/ufw/user6.rules.20240715_002334'
+  Backing up 'before6.rules' to '/etc/ufw/before6.rules.20240715_002334'
+  Backing up 'after6.rules' to '/etc/ufw/after6.rules.20240715_002334'
 
 #Liberando (ALLOW) a Saída (OUTGOING) padrão (DEFAULT) do UFW
 sudo ufw default allow outgoing
-	Default outgoing policy changed to 'allow'
-	(be sure to update your rules accordingly)
+  Default outgoing policy changed to 'allow'
+  (be sure to update your rules accordingly)
 
 #Verificando o Regras Detalhadas do UFW
 sudo ufw status verbose
 
 #Desativando o Firewall UFW
 sudo ufw disable
-	Firewall stopped and disabled on system startup
+  Firewall stopped and disabled on system startup
 ```
 
 =========================================================================================

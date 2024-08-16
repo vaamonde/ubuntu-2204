@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 16/08/2024<br>
+#Versão: 0.15<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
 
@@ -56,23 +56,23 @@ sudo apt install vim git python2 python3 cloc
 ```bash
 #link de download no Linux Mint
 https://code.visualstudio.com/download
-	Versão: .deb (Debian, Ubuntu 64 Bits)
-		Salvar aquivo
+  Versão: .deb (Debian, Ubuntu 64 Bits)
+    Salvar aquivo
 
 #link de download no Microsoft Windows
 https://code.visualstudio.com/download
-	Versão: Windows (Windows 10, 11)
-		Salvar aquivo
+  Versão: Windows (Windows 10, 11)
+    Salvar aquivo
 ```
 
 #03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows<br>
 ```bash
 #adicionado as extensões do Remote SSH e Explorer no VSCode
 vscode
-	Extensões
-		Pesquisar:
-			Remote - SSH (Instalar)
-			Remote Explorer (Instalar)
+  Extensões
+    Pesquisar:
+      Remote - SSH (Instalar)
+      Remote Explorer (Instalar)
 ```
 
 #04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
@@ -109,41 +109,41 @@ sudo journalctl -xeu ssh
 ```bash
 #configurando a integração com o Ubuntu Server no Linux Mint
 Remote Explorer
-	Remotes (Tunnels/SSH)
-		SSH: +(New Remote)
-			Enter SSH Connection Command: vaamonde@172.16.1.20
-			Select SSH configuration file to update: /home/SEU_USUÁRIO/.ssh/config
-		<Refresh>
+  Remotes (Tunnels/SSH)
+    SSH: +(New Remote)
+      Enter SSH Connection Command: vaamonde@172.16.1.20
+      Select SSH configuration file to update: /home/SEU_USUÁRIO/.ssh/config
+    <Refresh>
 
-		SSH:
-			172.16.1.20 (Connect in Current Windows)
-			Enter password for: vaamonde@172.16.1.20: pti@2018
-		<Dont Show Again>
+    SSH:
+      172.16.1.20 (Connect in Current Windows)
+      Enter password for: vaamonde@172.16.1.20: pti@2018
+    <Dont Show Again>
 
 <Open Folder>
-	/home/vaamonde/nodejs-hello <OK>
-		Enter password for: vaamonde@172.16.1.20: pti@2018
-		(YES) Trust the authors of all files in the parent folder
-		<Yes, I trust the authors>
+  /home/vaamonde/nodejs-hello <OK>
+    Enter password for: vaamonde@172.16.1.20: pti@2018
+    (YES) Trust the authors of all files in the parent folder
+    <Yes, I trust the authors>
 
 #configurando a integração com o Ubuntu Server no Windows 10
 Remote Explorer
-	Remotes (Tunnels/SSH)
-		SSH: +(New Remote)
-			Enter SSH Connection Command: vaamonde@172.16.1.20
-			Select SSH configuration file to update: C:\Users\SEU_USUÁRIO\.ssh\config
-		<Refresh>
-		
-		SSH:
-			172.16.1.20 (Connect in Current Windows)
-			Select the platform of the remote host: Linux
-			Enter password for: vaamonde@172.16.1.20: pti@2018
+  Remotes (Tunnels/SSH)
+    SSH: +(New Remote)
+      Enter SSH Connection Command: vaamonde@172.16.1.20
+      Select SSH configuration file to update: C:\Users\SEU_USUÁRIO\.ssh\config
+    <Refresh>
+
+    SSH:
+      172.16.1.20 (Connect in Current Windows)
+      Select the platform of the remote host: Linux
+      Enter password for: vaamonde@172.16.1.20: pti@2018
 
 <Open Folder>
-	/home/vaamonde/nodejs-hello <OK>
-		Enter password for: vaamonde@172.16.1.20: pti@2018
-		(YES) Trust the authors of all files in the parent folder
-		<Yes, I trust the authors>
+  /home/vaamonde/nodejs-hello <OK>
+    Enter password for: vaamonde@172.16.1.20: pti@2018
+    (YES) Trust the authors of all files in the parent folder
+    <Yes, I trust the authors>
 ```
 
 #06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
@@ -156,12 +156,12 @@ Site: https://andradejao.github.io/outlawgames/
 
 #fazendo um Fork (garfada) do Projeto do João Vitor Andrade
 Repositório: https://github.com/andradejao/outlawgames
-	Clique em: Fork
-		Create a new Fork
-			Owner: vaamonde/ Repository name: outlawgames
-			Description: Esse é o repositório que hospedará o meu primeiro site criado (FORK)
-			Copy the main branch only: ON (Enable)
-		<Create Fork>
+  Clique em: Fork
+    Create a new Fork
+      Owner: vaamonde/ Repository name: outlawgames
+      Description: Esse é o repositório que hospedará o meu primeiro site criado (FORK)
+      Copy the main branch only: ON (Enable)
+    <Create Fork>
 
 #acessando o diretório Raiz do Apache2 no Ubuntu Server
 cd /var/www/html
@@ -169,7 +169,7 @@ cd /var/www/html
 #clonando o projeto do Github no Ubuntu Server
 sudo git clone https://github.com/vaamonde/outlawgames
 
-#alterando as permissões dos diretórios e arquivos
+#alterando as permissões dos diretórios e arquivos do site Clonado
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
@@ -183,6 +183,10 @@ sudo find /var/www/html/outlawgames/. -type f -exec chmod -v 2664 {} \;
 #PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
 #APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
 #E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR ATUALIZAÇÕES REMOTAS.
+#opções do comando git: config (Get and set repository or global options), --global 
+#(write to global ~/.gitconfig), --add (Adds a new line to the option without altering 
+#any existing values), safe.directory (These config entries specify Git-tracked directories 
+#that are considered safe even if they are owned by someone other than the current user)
 git config --global --add safe.directory /var/www/html/outlawgames
 
 #testando o site via navegador
@@ -199,12 +203,12 @@ Site: https://camilajodai.github.io/protectpetz/
 
 #fazendo um Fork (garfada) do Projeto da Camila Jodai
 Repositório: https://github.com/camilajodai/protectpetz
-	Clique em: Fork
-		Create a new Fork
-			Owner: vaamonde/ Repository name: protectpetz
-			Description: Esse é o repositório que hospedará o meu segundo site criado (FORK)
-			Copy the main branch only: ON (Enable)
-		<Create Fork>
+  Clique em: Fork
+    Create a new Fork
+      Owner: vaamonde/ Repository name: protectpetz
+      Description: Esse é o repositório que hospedará o meu segundo site criado (FORK)
+      Copy the main branch only: ON (Enable)
+    <Create Fork>
 
 #acessando o diretório Raiz do Apache2 no Ubuntu Server
 cd /var/www/html
@@ -212,7 +216,7 @@ cd /var/www/html
 #clonando o projeto do Github no Ubuntu Server
 sudo git clone https://github.com/vaamonde/protectpetz
 
-#alterando as permissões dos diretórios e arquivos
+#alterando as permissões dos diretórios e arquivos do site Clonado
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
@@ -226,6 +230,10 @@ sudo find /var/www/html/protectpetz/. -type f -exec chmod -v 2664 {} \;
 #PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
 #APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
 #E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR ATUALIZAÇÕES REMOTAS.
+#opções do comando git: config (Get and set repository or global options), --global 
+#(write to global ~/.gitconfig), --add (Adds a new line to the option without altering 
+#any existing values), safe.directory (These config entries specify Git-tracked directories 
+#that are considered safe even if they are owned by someone other than the current user)
 git config --global --add safe.directory /var/www/html/protectpetz
 
 #testando o site via navegador
@@ -234,13 +242,10 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/protectpetz
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM 
-A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
+OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
 
-COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)
-MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
+COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/18-vscode.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver 
-#ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiovscode #integracaovscode
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiovscode #integracaovscode
