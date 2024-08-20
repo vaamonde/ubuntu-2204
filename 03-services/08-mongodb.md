@@ -91,6 +91,18 @@ sudo apt update
 
 #05_ Instalando o MongoDB Server e Client<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: 
+#https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E
+#INCOMPATIBILIDADE EM PROCESSADORES INTEL OU AMD QUE NÃO TEM OS PRINCIPAIS RECURSOS OU
+#TECNOLOGIAS QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO
+#DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO
+#FÓRUM DO MONGODB PARA MAIS DETALHES: 
+#https://www.mongodb.com/pt-br/docs/manual/administration/production-notes/
+#https://pt.wikipedia.org/wiki/Advanced_Vector_Extensions
+#https://www.mongodb.com/community/forums/t/mongo-db-failed-unable-to-start-mongodb/124039
+#https://www.mongodb.com/community/forums/t/setting-up-mongodb-v5-0-on-ubuntu-20-core-dump-status-4-ill/120705
+#https://www.mongodb.com/community/forums/t/installing-mongodb-5-0-on-a-qemu-vm/166192
+
 #instalando o MongoDB Server e Shell (Console)
 sudo apt install mongodb-org
 ```
@@ -168,6 +180,20 @@ mongosh
 
 #12_ Comandos Básicos do MongoDB Server<br>
 ```bash
+#OBSERVAÇÃO IMPORTANTE: Diferente do MySQL Server o MongoDB Server é um Banco de Dados
+#não Relacional (No-SQL), seu conceito e diferente do Banco de Dados Relacional e os
+#nomes muda um pouco (SÓ FAZER O DE-PARA):
+
+#   Banco de Dados Relacional MySQL   |   Banco de Dados Não Relacional MongoDB
+#      Database (Banco de Dados)      |         Database (Banco de Dados)
+#          Tables (Tabelas)           |          Collections (Coleções)
+#         Index  (Indexação)          |             Index (Indexação)
+#             Row (Linhas)            |         Documents (Documentação)
+#          Columns (Colunas)          |             Fields (Campos)
+#            Join  (Juntar)           |           Linking  (Vinculação)
+#     Primary Key (Chave Primária)    |       Primary Key (Chave Primária)
+#        Group By (Agrupar Por)       |         Aggregation  (Agregação)
+
 #exibindo os bancos de dados existentes no MongoDB
 show dbs
 
