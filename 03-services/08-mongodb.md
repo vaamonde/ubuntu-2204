@@ -195,9 +195,9 @@ mongosh
 #     Primary Key (Chave Primária)    |       Primary Key (Chave Primária)
 #        Group By (Agrupar Por)       |         Aggregation (Agregação)
 
-#OBSERVAÇÃO IMPORTANTE: No MySQL como no MongoDB temos o Conceito do CRUD (Create,Read
-#Update e Delete), seu conceito é o mesmo só mudando a forma como trabalhando com os
-#dados/informações no Banco.
+#OBSERVAÇÃO IMPORTANTE: No MySQL como no MongoDB temos o Conceito do CRUD (Create, Read
+#Update e Delete), seu conceito é o mesmo só mudando a forma como trabalhamos com  os
+#dados/informações em cada Banco de Dados.
 
 #   CRUD      T-SQL (MySQL)     |   No-SQL (MongoDB)
 # Database:   CREATE DATABASE   |   use database
