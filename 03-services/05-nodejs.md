@@ -74,8 +74,7 @@ build-essential ca-certificates
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output file)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o \ 
-/usr/share/keyrings/nodesource.gpg
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
 
 #Adicionando o Repositório do Node.JS no Ubuntu Server
 #OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
@@ -83,8 +82,7 @@ curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg 
 #no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção da contra barra (\): criar uma quebra de linha no terminal
-echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" \
-| sudo tee /etc/apt/sources.list.d/nodesource.list
+echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 ```
 
 #03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
