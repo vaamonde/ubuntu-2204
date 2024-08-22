@@ -332,21 +332,21 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 
 #criando uma nova conexão com o MongoDB Server
 <New connection+>
-	New Connection
-		URL: mongodb://172.16.120:27017
-	Advanced Connection Options
-		Connection String Scheme
-			mongodb
-		Host:
-			172.16.1.20:27017 (alterar o endereço IPv4 do seu servidor)
-	Authentication
-		Username/Password
-			Username: admin 
-			Password: pti@2018 (alterar a senha do usuário admin do seu servidor)
-			Authentication Database: admin
-		Authentication Mechanism
-			Default
-	<Save & Connect>
+  New Connection
+    URL: mongodb://172.16.120:27017
+  Advanced Connection Options
+    Connection String Scheme
+      mongodb
+        Host:
+          172.16.1.20:27017 (alterar o endereço IPv4 do seu servidor)
+  Authentication
+    Username/Password
+      Username: admin 
+      Password: pti@2018 (alterar a senha do usuário admin do seu servidor)
+      Authentication Database: admin
+    Authentication Mechanism
+      Default
+<Save & Connect>
 ```
 
 #17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
@@ -379,9 +379,9 @@ VSCode
 
 ========================================DESAFIOS=========================================
 
-**#18_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO COMPASS (VEJA O SITE W3SCHOOLS).
+**#18_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO COMPASS (VEJA O SITE W3SCHOOLS).
 
-**#19_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO DESAFIO-01, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. OBSERVAÇÃO: VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
+**#19_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO DESAFIO-01, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. **OBSERVAÇÃO:** VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 
 https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
 
