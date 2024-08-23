@@ -58,12 +58,12 @@ sudo apt install vim git python2 python3 cloc
 #link de download no Linux Mint
 https://code.visualstudio.com/download
   Versão: .deb (Debian, Ubuntu 64 Bits)
-    Salvar aquivo
+    Salvar arquivo
 
 #link de download no Microsoft Windows
 https://code.visualstudio.com/download
   Versão: Windows (Windows 10, 11)
-    Salvar aquivo
+    Salvar arquivo
 ```
 
 #03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows<br>
