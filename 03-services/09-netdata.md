@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.20<br>
+#Data de atualização: 23/08/2024<br>
+#Versão: 0.21<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
 
@@ -127,13 +127,13 @@ sudo /usr/libexec/netdata/./netdata-updater.sh
 sudo mysql -u root -p
 ```
 ```sql
-/* criando o usuário do Netdata no MySQL */
+/* criando o usuário de monitoramento do Netdata no MySQL */
 CREATE USER 'netdata'@'localhost';
 
 /* aplicando as permissões do usuário do Netdata no MySQL */
 GRANT USAGE, REPLICATION CLIENT ON *.* TO 'netdata'@'localhost';
 
-/* fazendo o flush das permissões e saindo do MySQL */
+/* fazendo o flush das permissões */
 FLUSH PRIVILEGES;
 
 /* verificando o usuário do Netdata criado no MySQL */
@@ -149,6 +149,7 @@ exit
 mongosh admin -u admin -p
 ```
 ```javascript
+// criando o usuário de monitoramento do Netdata
 db.createUser({
 	"user": "netdata",
 	"pwd": "netdata",
@@ -213,7 +214,7 @@ cd /etc/netdata/
 ```
 ```bash
 #OBSERVAÇÃO IMPORTANTE: POR PADRÃO O COMANDO ./edit-config UTILIZA O EDITOR DE TEXTO
-#NANO, SEUS COMANDO E TECLAS SÃO DIFERENTES DO EDITOR DE TEXTO VIM, CUIDADO!!!!.
+#NANO, SEUS COMANDOS E TECLAS SÃO DIFERENTES DO EDITOR DE TEXTO VIM, CUIDADO!!!!.
 
 #configuração do serviço de monitoramento do Apache Server
 #https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
@@ -356,7 +357,7 @@ sudo systemctl list-units --type=service --state=running
 
 #OBSERVAÇÃO IMPORTANTE: no vídeo as portas listadas com o comando: nmap só listou as portas 
 #conhecidas, para listar todas as portas adicionei a opção: -p- (OBSERVAÇÃO: COM ESSA OPÇÃO
-#HABILITADO O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
+#HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
 
 #verificando todas as portas abertas no Ubuntu Server
 #opção do comando nmap: -p- (port ranges all) -sS (scan TCP SYN), -sU (scans UDP)

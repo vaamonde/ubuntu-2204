@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 16/08/2024<br>
-#Versão: 0.15<br>
+#Data de atualização: 23/08/2024<br>
+#Versão: 0.16<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
 
@@ -25,6 +25,7 @@ Conteúdo estudado nessa implementação:<br>
 #04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
 #05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
 #06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
+#07_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
 
 Site Oficial do Visual Studio Code: https://code.visualstudio.com/<br>
 Site Oficial do Visual Studio Code Web: https://vscode.dev/<br>
@@ -111,7 +112,9 @@ sudo journalctl -xeu ssh
 Remote Explorer
   Remotes (Tunnels/SSH)
     SSH: +(New Remote)
+      #altere o usuário e senha conforme a sua necessidade
       Enter SSH Connection Command: vaamonde@172.16.1.20
+      #altere o caminho do arquivo de configuração conforme a sua necessidade
       Select SSH configuration file to update: /home/SEU_USUÁRIO/.ssh/config
     <Refresh>
 
@@ -130,7 +133,9 @@ Remote Explorer
 Remote Explorer
   Remotes (Tunnels/SSH)
     SSH: +(New Remote)
+      #altere o usuário e senha conforme a sua necessidade
       Enter SSH Connection Command: vaamonde@172.16.1.20
+      #altere o caminho do arquivo de configuração conforme a sua necessidade
       Select SSH configuration file to update: C:\Users\SEU_USUÁRIO\.ssh\config
     <Refresh>
 
@@ -148,7 +153,7 @@ Remote Explorer
 
 #06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
 ```bash
-Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática SENAC-SP)
+Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática Tarde SENAC-SP Tatuapé)
 LinkedIn: https://www.linkedin.com/in/jo%C3%A3o-vitor-andrade-289216271/
 Github: https://github.com/andradejao/
 Repositório: https://github.com/andradejao/outlawgames
@@ -193,9 +198,9 @@ git config --global --add safe.directory /var/www/html/outlawgames
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/outlawgames
 ```
 
-#06_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
+#07_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
 ```bash
-Conhecendo o Projeto do Aluno: Camila Jodai (Técnico em Informática SENAC-SP)
+Conhecendo o Projeto do Aluno: Camila Jodai (Técnico em Informática Tarde SENAC-SP Tatuapé)
 LinkedIn: https://www.linkedin.com/in/camila-jodai-330676271/
 Github: https://github.com/camilajodai
 Repositório: https://github.com/camilajodai/protectpetz

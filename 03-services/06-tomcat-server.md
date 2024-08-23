@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 15/08/2024<br>
-#Versão: 0.21<br>
+#Data de atualização: 23/08/2024<br>
+#Versão: 0.22<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
 
@@ -117,6 +117,9 @@ wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamond
 wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
 
 #download do arquivo de configuração do Contexto do Apache Tomcat
+#OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO A PARTIR DA LINHA: 36 FICA TODAS AS LIBERAÇÕES
+#DE REDES QUE PODE ACESSAR O SERVIDOR APACHE TOMCAT, FOI ADICIONADO SOMENTE AS REDES
+#LOCAIS PRIVADAS CONFORME RFC-1918.
 wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
 #download do arquivo de configuração do Meta Dados do Contexto Manager do Apache Tomcat

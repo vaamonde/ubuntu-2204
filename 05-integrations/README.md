@@ -51,6 +51,7 @@ Conteúdo estudado nessa integração:<br>
 #04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
 #05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
 #06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
+#07_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
 
 [![Integração VSCode](http://img.youtube.com/vi/V0Ddhelmi4Y/0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Integração VSCode")
 

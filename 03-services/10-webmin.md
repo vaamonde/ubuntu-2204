@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 07/08/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 23/08/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Webmin realizado com sucesso!!! #BoraParaPrática
 
@@ -110,8 +110,8 @@ sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
 
 #07_ Localização dos diretórios principais do Webmin<br>
 ```bash
-/etc/webmin/*  <-- Diretório dos arquivos de Configuração do serviço do Webmin
-/var/webmin/*  <-- Diretório dos arquivos de Log's do serviço do Webmin
+/etc/webmin/*   <-- Diretório dos arquivos de Configuração do serviço do Webmin
+/var/webmin/*   <-- Diretório dos arquivos de Log's do serviço do Webmin
 ```
 
 #08_ Testando o Webmin no navegador<br>

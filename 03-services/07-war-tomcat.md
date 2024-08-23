@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 23/08/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
 
@@ -59,9 +59,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 
+#Download do arquivo WAR (DESCONTINUADO)
 Clique em: Releases
   Em assets, clique em: agenda.war para fazer o Download.
 
+#Download dos arquivos WAR (ATUALIZADOS)
 LINK DE DOWNLOAD DO NOVO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
 A) arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;
@@ -103,6 +105,9 @@ sudo mysql -u root -p
 /* Criando o Banco de Dados DBAgenda */
 CREATE DATABASE dbagenda;
 
+/* Verificando a criação do Banco de Dados DBAgenda */
+SHOW DATABASES;
+
 /* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
 /* OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO LOCALHOST NO
 BANCO DE DADOS MYSQL, USUÁRIOS REMOTOS SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO 
@@ -127,8 +132,10 @@ CREATE TABLE contatos (
 	PRIMARY KEY (idcon)
 );
 
-/* Verificando as informações das Tabelas */
+/* Verificando a Tabela criada */
 SHOW TABLES;
+
+/* Verificando as informações detalhadas da Tabela*/
 DESC contatos;
 
 /* Saindo do Banco de Dados */
@@ -190,6 +197,9 @@ exit
 #OBSERVAÇÃO IMPORTANTE: ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA
 #VERIFICAR QUE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+#OBSERVAÇÃO IMPORTANTE: PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA
+#TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
 
 #restaurando o backup do banco de dados DBAgenda
 #opções do comando mysql: -u (user), -p (password)
