@@ -281,7 +281,7 @@ exit
 ```bash
 #fazendo o backup do arquivo de configuração do MongoDB Server
 #opção do comando cp: -v (verbose)
-sudo cp -v etc/mongod.conf etc/mongod.conf.old
+sudo cp -v /etc/mongod.conf /etc/mongod.conf.old
 
 #editando o arquivo de configuração do MongoDB Server
 sudo vim /etc/mongod.conf
