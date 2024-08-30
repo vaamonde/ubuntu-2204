@@ -61,7 +61,7 @@ sudo apt install git vim build-essential software-properties-common gnupg apt-tr
 wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
 
 #instalando a biblioteca Libssl no Ubuntu Server
-#opção do comando dpkg: -i (install)
+#opção do comando dpkg: -i (install), * (all - Qualquer coisa)
 sudo dpkg -i libssl*.deb
 ```
 
