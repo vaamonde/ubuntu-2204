@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 23/08/2024<br>
-#Versão: 0.27<br>
+#Data de atualização: 01/09/2024<br>
+#Versão: 0.28<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
@@ -179,7 +179,7 @@ exit
 mongosh
 ```
 
-#12_ Comandos Básicos do MongoDB Server<br>
+#12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: Diferente do MySQL Server o MongoDB Server é um Banco de Dados
 #não Relacional (No-SQL), seu conceito e diferente do Banco de Dados Relacional e os
@@ -206,6 +206,11 @@ mongosh
 # Read....:   SELECT            |   db.collection.find()
 # Update..:   UPDATE            |   db.collection.updateOne()
 # Delete..:   DELETE            |   db.collection.deleteOne()
+
+#OBSERVAÇÃO IMPORTANTE: No MySQL como no MongoDB temos o Conceito de DDL (Data Definition 
+#Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data 
+#Query Language) e DCL (Data Control Language), seu conceito é o mesmo só mudando a forma
+#como trabalhamos com os dados/informações em cada Banco de Dados
 
 #exibindo os bancos de dados existentes no MongoDB
 show dbs
@@ -246,10 +251,10 @@ use admin
 #no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 ```
 ```javascript
-// altere a senha conforme a sua necessidade
 db.createUser(
   {
     user: "admin",
+    // altere a senha conforme a sua necessidade
     pwd: "pti@2018",
     roles: [
       { role: 'root', db: 'admin' },
@@ -380,7 +385,7 @@ VSCode
 
 ========================================DESAFIOS=========================================
 
-**#18_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO COMPASS (VEJA O SITE W3SCHOOLS).
+**#18_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO MONGODB COMPASS (VEJA O SITE W3SCHOOLS).
 
 **#19_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO DESAFIO-01, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. **OBSERVAÇÃO:** VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 
