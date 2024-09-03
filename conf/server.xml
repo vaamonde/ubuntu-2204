@@ -11,7 +11,7 @@
 #LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 #Data de criação: 19/01/2023
 #Data de atualização: 03/09/2024
-#Versão: 0.06
+#Versão: 0.07
 -->
 <Server port="-1" shutdown="SHUTDOWN">
   <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
@@ -44,24 +44,24 @@
     # e Certificados Assinados utilizando o OpenSSL
     # Comando para a geração do certificado do Tomcat SSL/TLS não assinado pela CA
     # keytool -genkey -alias tomcat -keyalg RSA -keystore /opt/tomcat/conf/tomcat10.jks 
-	# Descomentar as linhas abaixo depois de configurar o TLS/SSL do Apache Tomcat
+    # Descomentar as linhas abaixo depois de configurar o TLS/SSL do Apache Tomcat
     -->
-    <!--	
-	<Connector 
-		port="8443" 
-		protocol="org.apache.coyote.http11.Http11NioProtocol" 
-		maxThreads="150" 
-		SSLEnabled="true">
-		<SSLHostConfig>
-			<Certificate 
-				type="RSA"
-				certificateKeystoreFile="/opt/tomcat/conf/tomcat10.jks"
-				certificateKeystorePassword="pti@2018" />
-		</SSLHostConfig>
-	</Connector> 
-	-->
+    <!--
+    <Connector 
+        port="8443" 
+        protocol="org.apache.coyote.http11.Http11NioProtocol" 
+        maxThreads="150" 
+        SSLEnabled="true">
+        <SSLHostConfig>
+            <Certificate 
+                type="RSA"
+                certificateKeystoreFile="/opt/tomcat/conf/tomcat10.jks"
+                certificateKeystorePassword="pti@2018" />
+        </SSLHostConfig>
+    </Connector> 
+    -->
 
-	<Engine name="Catalina" defaultHost="localhost">
+    <Engine name="Catalina" defaultHost="localhost">
       <Realm className="org.apache.catalina.realm.LockOutRealm">
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
