@@ -383,6 +383,49 @@ VSCode
         <Close>
 ```
 
+#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)<br>
+```bash
+#utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows
+Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
+
+#String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
+mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
+
+#OBSERVAÇÃO IMPORTANTE: UTILIZAR A APLICAÇÃO PARA FAZER A CRIAÇÃO DE VÁRIOS DOCUMENTS NO 
+#COLLECTIONS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E RESTAURAR
+#APÓS A VERIFICAÇÃO.
+
+#criando o backup da base de dados Agenda 
+#opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
+mongodump --uri "mongodb://ip_do_server:27017" --gzip -d agenda
+
+#limpando os documents do collection da base de dados Agenda
+#opção do comando mongosh: admin (database) -u (username), -p (password)
+mongosh admin -u admin -p
+
+#exibir os bancos de dados existentes no MongoDB
+show dbs
+
+#usando a base de dados Agenda
+use agenda
+
+#exibir os collections do database informe atual no MongoDB
+show collections
+
+#exibindo todos os documents do collection do database informe Agenda
+db.collection.find()
+
+#removendo todos os documents do collection do database informe Agenda
+db.collection.deleteMany()
+
+#
+exit
+
+#restaurando o backup da base de dados Agenda
+#opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
+mongorestore --uri "mongodb://ip_do_server:27017" --gzip ./dump/agenda -d agenda
+```
+
 ========================================DESAFIOS=========================================
 
 **#18_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO MONGODB COMPASS (VEJA O SITE W3SCHOOLS).
