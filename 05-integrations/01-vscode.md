@@ -86,7 +86,7 @@ INSERT
 	#ClientAliveInterval 1800
 	#ClientAliveCountMax 3
 
-	#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 136
+	#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 138
 	AllowTcpForwarding yes
 
 #salvar e sair do arquivo

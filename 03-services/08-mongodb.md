@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 01/09/2024<br>
-#Versão: 0.28<br>
+#Data de atualização: 03/09/2024<br>
+#Versão: 0.29<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
@@ -388,6 +388,10 @@ VSCode
 #utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows
 Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
 
+#OBSERVAÇÃO IMPORTANTE: LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA
+#SENHA DO USUÁRIO, POR PADRÃO NÃO E PERMITIDO EM STRINGS DE CONEXÃO O USO DE ALGUNS
+#CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO.
+
 #String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
 mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 
@@ -409,16 +413,19 @@ show dbs
 #usando a base de dados Agenda
 use agenda
 
-#exibir os collections do database informe atual no MongoDB
+#exibir os collections da base de dados Agenda
 show collections
 
-#exibindo todos os documents do collection do database informe Agenda
-db.collection.find()
+#exibindo todos os documents do collection da base de dados Agenda
+db.contatos.find()
 
-#removendo todos os documents do collection do database informe Agenda
-db.collection.deleteMany()
+#removendo todos os documents do collection a base de dados Agenda
+db.contatos.drop()
 
-#
+#exibindo todos os documents do collection da base de dados Agenda
+db.contatos.find()
+
+#saindo o MongoDB Server
 exit
 
 #restaurando o backup da base de dados Agenda
