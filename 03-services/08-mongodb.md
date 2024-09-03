@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
 #Data de atualização: 03/09/2024<br>
-#Versão: 0.29<br>
+#Versão: 0.30<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
@@ -20,19 +20,23 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/08-mongodb
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependências do MongoDB Server<br>
-#02_ Adicionando o Repositório do MongoDB Server<br>
-#03_ Instalando o MongoDB Server no Ubuntu Server<br>
-#04_ Verificando o Serviço e Versão do MongoDB Server<br>
-#05_ Verificando a Porta de Conexão do MongoDB Server<br>
-#06_ Diretórios e Arquivos de Configuração do MongoDB Server<br>
-#07_ Adicionando o Usuário Local no Grupo do MongoDB Server<br>
-#08_ Acessando o Console do MongoDB Server<br>
-#09_ Comandos Básicos do MongoDB Server<br>
-#10_ Criando o Usuário de Administração do MongoDB Server<br>
-#11_ Configurando o Acesso Remoto do MongoDB com Autenticação<br>
-#12_ Acessando o MongoDB Server com Compass GUI<br>
-#13_ Acessando o MongoDB Server com Visual Studio Code VSCode<br>
-#14_ Desafios do Banco de Dados MongoDB Server.
+#02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
+#03_ Criando o repositório do MongoDB Server<br>
+#04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
+#05_ Instalando o MongoDB Server e Client<br>
+#06_ Habilitando o Serviço do MongoDB Server<br>
+#07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
+#08_ Verificando a Porta de Conexão do MongoDB Server<br>
+#09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
+#10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
+#11_ Testando a Conexão Local com o MongoDB Server via Shell<br>
+#12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server<br>
+#13_ Criando o usuário de administração do MongoDB Server<br>
+#14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
+#15_ Acessando o MongoDB COM e SEM autenticação<br>
+#16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
+#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
+#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass<br>
@@ -401,7 +405,11 @@ mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 
 #criando o backup da base de dados Agenda 
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
-mongodump --uri "mongodb://ip_do_server:27017" --gzip -d agenda
+mongodump --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" --gzip -d agenda
+
+#listando o diretório do Backup (Dump) da base de dados Agenda
+#opção do comando ls: -l (long listing format), -h (human-readable)
+ls -lh dump/
 
 #limpando os documents do collection da base de dados Agenda
 #opção do comando mongosh: admin (database) -u (username), -p (password)
@@ -430,7 +438,7 @@ exit
 
 #restaurando o backup da base de dados Agenda
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
-mongorestore --uri "mongodb://ip_do_server:27017" --gzip ./dump/agenda -d agenda
+mongorestore --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" --gzip ./dump/agenda -d agenda
 ```
 
 ========================================DESAFIOS=========================================
