@@ -393,17 +393,17 @@ VSCode
 Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
 
 #OBSERVAÇÃO IMPORTANTE: LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA
-#SENHA DO USUÁRIO, POR PADRÃO NÃO E PERMITIDO EM STRINGS DE CONEXÃO O USO DE ALGUNS
-#CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO.
+#SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM STRINGS DE CONEXÃO O USO DE ALGUNS
+#CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO UNICODE.
 
 #String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
 mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 
 #OBSERVAÇÃO IMPORTANTE: UTILIZAR A APLICAÇÃO PARA FAZER A CRIAÇÃO DE VÁRIOS DOCUMENTS NO 
-#COLLECTIONS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E RESTAURAR
-#APÓS A VERIFICAÇÃO.
+#COLLECTION CONTATOS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E 
+#RESTAURAR APÓS A VERIFICAÇÃO.
 
-#criando o backup da base de dados Agenda 
+#criando o backup (dump) da base de dados Agenda 
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
 mongodump --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" --gzip -d agenda
 
@@ -424,14 +424,14 @@ use agenda
 #exibir os collections da base de dados Agenda
 show collections
 
-#exibindo todos os documents do collection da base de dados Agenda
+#exibindo todos os documents do collection Contatos da base de dados Agenda
 db.contatos.find()
 
-#removendo todos os documents do collection a base de dados Agenda
+#removendo todos os documents do collection Contatos da base de dados Agenda
 db.contatos.drop()
 
-#exibindo todos os documents do collection da base de dados Agenda
-db.contatos.find()
+#exibir os collections da base de dados Agenda
+show collections
 
 #saindo o MongoDB Server
 exit
