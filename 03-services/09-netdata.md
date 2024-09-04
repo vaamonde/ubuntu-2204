@@ -53,7 +53,7 @@ ca-certificates zlib1g-dev gcc make git autoconf autogen automake pkg-config uui
 python3-mysqldb python3-pip python3-dev libmysqlclient-dev libuv1-dev netcat libwebsockets16 \
 libwebsockets-dev libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev \
 autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 \
-python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap libuuid1 libcurl libyaml-dev \
+python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap libuuid1 libcurl4 libyaml-dev \
 libcurl4-openssl-dev
 ```
 
