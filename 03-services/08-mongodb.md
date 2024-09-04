@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 03/09/2024<br>
-#Versão: 0.30<br>
+#Data de atualização: 04/09/2024<br>
+#Versão: 0.31<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
@@ -411,14 +411,14 @@ mongodump --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" -
 #opção do comando ls: -l (long listing format), -h (human-readable)
 ls -lh dump/
 
-#limpando os documents do collection da base de dados Agenda
+#limpando os documents do collection Contatos da base de dados Agenda
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 
 #exibir os bancos de dados existentes no MongoDB
 show dbs
 
-#usando a base de dados Agenda
+#usar a base de dados Agenda
 use agenda
 
 #exibir os collections da base de dados Agenda
@@ -432,6 +432,10 @@ db.contatos.drop()
 
 #exibir os collections da base de dados Agenda
 show collections
+
+#OBSERVAÇÃO IMPORTANTE: No MongoDB, se uma Base de Dados não possuir Collections ela 
+#será removida automaticamente do servidor, se você digitar o comando: show dbs não
+#existi mais a Base de Dados Agenda.
 
 #saindo o MongoDB Server
 exit
