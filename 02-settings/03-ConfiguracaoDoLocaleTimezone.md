@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.07<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -101,14 +101,16 @@ sudo timedatectl
 #editando o arquivo de configuração timesyncd.conf
 sudo vim /etc/systemd/timesyncd.conf
 INSERT
-	
-	#descomentar e alterar os valores das variáveis a partir da linha: 14
-	#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/
-	#para o sincronismo de Data e Hora.
-	[Time]
-	NTP=a.st1.ntp.br
-	FallbackNTP=a.ntp.br
-
+```
+```bash
+#descomentar e alterar os valores das variáveis a partir da linha: 14
+#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/
+#para o sincronismo de Data e Hora.
+[Time]
+NTP=a.st1.ntp.br
+FallbackNTP=a.ntp.br
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.09<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.10<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -32,11 +32,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
 INSERT
-	
-	#alterar o nome de domínio FQDN na linha 1
-	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-	wsvaamonde.pti.intra
-
+```
+```bash
+#alterar o nome de domínio FQDN na linha 1
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
+wsvaamonde.pti.intra
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
@@ -46,13 +48,15 @@ ESC SHIFT : x <Enter>
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
 INSERT
-	
-	#adicionar o nome de domínio e apelido nas linhas 2 e 3
-	#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-	127.0.0.1    localhost.pti.intra    localhost
-	127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
-	172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
-
+```
+```bash
+#adicionar o nome de domínio e apelido nas linhas 2 e 3
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+127.0.0.1    localhost.pti.intra    localhost
+127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
+172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```

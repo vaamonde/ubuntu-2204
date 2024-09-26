@@ -295,18 +295,20 @@ sudo cp -v /etc/mongod.conf /etc/mongod.conf.old
 #editando o arquivo de configuração do MongoDB Server
 sudo vim /etc/mongod.conf
 INSERT
-	
-	#habilitando o suporte remoto do MongoDB Server na linha: 18
-	#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
-	net:
-	  port: 27017
-	  bindIp: 0.0.0.0
-	
-	#habilitando o recurso de autenticação do MongoDB Server na linha: 28
-	#descomentar a linha: #security, adicionar o valor: authorization: enabled
-	security:
-	  authorization: enabled
+```
+```bash
+#habilitando o suporte remoto do MongoDB Server na linha: 18
+#alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
+net:
+    port: 27017
+    bindIp: 0.0.0.0
 
+#habilitando o recurso de autenticação do MongoDB Server na linha: 28
+#descomentar a linha: #security, adicionar o valor: authorization: enabled
+security:
+    authorization: enabled
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <ENTER>
 

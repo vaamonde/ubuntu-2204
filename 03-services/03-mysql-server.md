@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
 
@@ -203,13 +203,15 @@ sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 #editar o arquivo de configuração do MySQL Server
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 INSERT
+```
+```bash
+#alterar a linha: 31 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
+bind-address = 0.0.0.0
 
-	#alterar a linha: 31 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
-	bind-address = 0.0.0.0
-
-	#comentar a linha:32 da variável do: mysqlx-bind-address
-	#mysqlx-bind-address = 127.0.0.1
-
+#comentar a linha:32 da variável do: mysqlx-bind-address
+#mysqlx-bind-address = 127.0.0.1
+```
+```bash
 #salvar e sair do arquivo	
 ESC SHIFT :x <Enter>
 

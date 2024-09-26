@@ -9,10 +9,11 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 08/08/2024<br>
-Versão: 0.15<br>
+Data de atualização: 26/09/2024<br>
+Versão: 0.16<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
+Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
 Release Ubuntu Server 22.04.3: https://fridge.ubuntu.com/2023/08/11/ubuntu-22-04-3-lts-released/<br>
 Release Ubuntu Server 22.04.2: https://fridge.ubuntu.com/2023/02/24/ubuntu-22-04-2-lts-released/<br>
@@ -31,7 +32,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 #01_ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 ```bash
 A) Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
-B) Versão do download Ubuntu Server: ubuntu-22.04.4-live-server-amd64.iso (Link atualizado em 16/02/2024)
+B) Versão do download Ubuntu Server: ubuntu-22.04.5-live-server-amd64.iso (Link atualizado em 12/09/2024)
 C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 D) Tipo de instalação: DVD Image (ISO) Installer
 ```
@@ -48,24 +49,24 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Novo>
 
 02) Nome da Máquina Virtual e Sistema Operacional:
-	Nome: UbuntuWebserver (altere conforme a sua necessidade)
-	Pasta (F): #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
-	Imagem ISO: <não selecionar>
-	Edição: (sem informação)
-	Tipo: Linux
-	Versão: Ubuntu (64-bit)
+    Nome: UbuntuWebserver (altere conforme a sua necessidade)
+    Pasta (F): #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
+    Imagem ISO: <não selecionar>
+    Edição: (sem informação)
+    Tipo: Linux
+    Versão: Ubuntu (64-bit)
 <Próximo>
 
 03) Hardware:
-	Memória Base: 4096MB (altere conforme a sua necessidade, mínimo 2048MB)
-	Processadores: 02 CPU (altere conforme a sua necessidade, mínimo 2 CPU)
-	Habilitar EFI (SOs especiais apenas): OFF (Desligado)
+    Memória Base: 4096MB (altere conforme a sua necessidade, mínimo 2048MB)
+    Processadores: 02 CPU (altere conforme a sua necessidade, mínimo 2 CPU)
+    Habilitar EFI (SOs especiais apenas): OFF (Desligado)
 <Próximo>
 
 04) Disco Rígido Virtual:
-	Criar um novo disco rígido virtual agora: ON (Selecionar)
-	  Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
-	Pré-alocar Tamanho Total (F): OFF (Desativado) 
+    Criar um novo disco rígido virtual agora: ON (Selecionar)
+        Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
+    Pré-alocar Tamanho Total (F): OFF (Desativado) 
 <Próximo>
 
 05) Sumário
@@ -80,29 +81,29 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Configurações>
 
 02) Sistema
-	Placa-Mãe
-	  Recurso Estendidos
-	    Relógio da máquina retorno hora UTC: OFF (Desabilitar)
-	Processador
-      Recursos Estendidos: Habilitar PAE/NX
-                           Habilitar VT-x/AMD-v Aninhado 
+    Placa-Mãe
+        Recurso Estendidos
+        Relógio da máquina retorno hora UTC: OFF (Desabilitar)
+    Processador
+        Recursos Estendidos: Habilitar PAE/NX
+                            Habilitar VT-x/AMD-v Aninhado 
 
 03) Monitor
-	Tela (S)
-	  Memória de Vídeo: 128MB
-	  Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
+    Tela (S)
+        Memória de Vídeo: 128MB
+        Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
 
 04) Áudio
-	Habilitar Áudio: OFF (Desabilitar)
+    Habilitar Áudio: OFF (Desabilitar)
 
 05) Rede
-	Adaptador 1 (LAN)
-	  Habilitar Placa de Rede: ON (Habilitar)
-	  Conectado a: Placa em modo Bridge
-	  Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
-	  #OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
-	  #QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
-	  #SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
+    Adaptador 1 (LAN)
+        Habilitar Placa de Rede: ON (Habilitar)
+        Conectado a: Placa em modo Bridge
+        Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
+        #OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
+        #QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
+        #SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
 <OK>
 ```
 
@@ -114,8 +115,8 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Iniciar>
 
 02. VirtualBOX VM	
-	DVD: <Outro>
-	LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
+    DVD: <Outro>
+    LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
 <Montar e Tentar Novo Boot>
 ```
 
@@ -127,79 +128,79 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 <Enter>
 
 02) Use UP, DOWN and ENTER keys to select your language
-	English (recomendado utilizar sempre a opção em Inglês)
+    English (recomendado utilizar sempre a opção em Inglês)
 <Enter>
 
 03) Installer update available
-	Version 24.04.1 of the installer is now available (24.02.1 is currently running)
+    Version 24.08.1 of the installer is now available (24.02.1 is currently running)
 <Continue without updating>
 
 04) Keyboard configuration
-	Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
-	Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+    Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+    Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
 <Done>
 
 05) Choose type of install
-	(X) Ubuntu Server (DEFAULT - Selecionado)
-	( ) Ubuntu Server (minimized)
-	Additional options
-	  [ ] Search for third-party drivers
+    (X) Ubuntu Server (DEFAULT - Selecionado)
+    ( ) Ubuntu Server (minimized)
+    Additional options
+        [ ] Search for third-party drivers
 <Done>
 
 06) Network connections
-	enp0s3 eth - (o nome lógico da placa de rede muda de equipamento para equipamento)
-	DHCPv4 172.16.1.XXX/24 (altere conforme a sua necessidade)
-	#OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA REDE 
-	#INTERNA PARA ADAPTAR NO SEU CENÁRIO.
+    enp0s3 eth - (o nome lógico da placa de rede muda de equipamento para equipamento)
+    DHCPv4 172.16.1.XXX/24 (altere conforme a sua necessidade)
+    #OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA REDE 
+    #INTERNA PARA ADAPTAR NO SEU CENÁRIO.
 <Done>
 
 07) Configure proxy
-	Proxy address: (Default)
+    Proxy address: (Default)
 <Done>
 
 08) Configure Ubuntu archive mirror
-	Mirror: http://archive.ubuntu.com/ubuntu
-	#OBSERVAÇÃO IMPORTANTE: CASO QUEIRA TROCAR O MIRROR DO UBUNTU DO BRASIL PARA O
-	#OFICIAL NO US, SUBSTITUA A URL DE: http://br.archive.ubuntu.com/ubuntu PARA A
-	#URL: http://us.archive.ubuntu.com/ubuntu
+    Mirror: http://archive.ubuntu.com/ubuntu
+    #OBSERVAÇÃO IMPORTANTE: CASO QUEIRA TROCAR O MIRROR DO UBUNTU DO BRASIL PARA O
+    #OFICIAL NO US, SUBSTITUA A URL DE: http://br.archive.ubuntu.com/ubuntu PARA A
+    #URL: http://us.archive.ubuntu.com/ubuntu
 <Done>
 
 09) Guided storage configuration
-	(X) Use an entire disk (Default)
-	  [VBOX_HARDISK-XXXX local disk 50.000G]
-	    (X) Set up this disk as an LVM group (Default)
-	      [] Encrypt the LVM group with LUKS (Default - No (Não))
+    (X) Use an entire disk (Default)
+        [VBOX_HARDISK-XXXX local disk 50.000G]
+        (X) Set up this disk as an LVM group (Default)
+            [] Encrypt the LVM group with LUKS (Default - No (Não))
 <Done>
 
 10) Storage configuration
-	USED DEVICES
-	  ubuntu-lv	new, to be formatted as ext4, mounted at /	24G <Enter>
-	    Edit <Enter>
-	      Name: ubuntu-lv
-	      Size (max 47.996G): 47.996G
-	      Format: ext4
-	      Mount: /
-	    <Save>
+    USED DEVICES
+        ubuntu-lv	new, to be formatted as ext4, mounted at /	24G <Enter>
+        Edit <Enter>
+            Name: ubuntu-lv
+            Size (max 47.996G): 47.996G
+            Format: ext4
+            Mount: /
+        <Save>
 <Done>
-	Confirm destructive action
+    Confirm destructive action
 <Continue>
 
 11) Profile setup
-	#OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
-	Your name: Seu Nome e Sobrenome <Tab>
-	Your servers name: wsvaamonde <Tab>
-	Pick a username: vaamonde <Tab>
-	Choose a passwords: pti@2018 <Tab>
-	Confirm your passwords: pti@2018
+    #OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
+    Your name: Seu Nome e Sobrenome <Tab>
+    Your servers name: wsvaamonde <Tab>
+    Pick a username: vaamonde <Tab>
+    Choose a passwords: pti@2018 <Tab>
+    Confirm your passwords: pti@2018
 <Done>
 
 12) Upgrade to Ubuntu Pro
-	(X) Skip Ubuntu Pro setup for now
+    (X) Skip Ubuntu Pro setup for now
 <Continue>
 
 13) SSH Setup
-	[X] Install OpenSSH server: ON (Habilitar - pressione <Space> para selecionar)
-	Import SSH identity: No (Default)
+    [X] Install OpenSSH server: ON (Habilitar - pressione <Space> para selecionar)
+    Import SSH identity: No (Default)
 <Done>
 
 14) Featured Server Snaps
@@ -218,6 +219,6 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
 01) Tela de Login do Ubuntu Server
-	wsvaamonde login: vaamonde <Enter> (altere para o seu usuário)
-	Password: pti@2018 <Enter> (altere para o seu usuário)
+    wsvaamonde login: vaamonde <Enter> (altere para o seu usuário)
+    Password: pti@2018 <Enter> (altere para o seu usuário)
 ```

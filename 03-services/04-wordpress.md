@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.20<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
 
@@ -50,11 +50,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 #atualizando as listas do Apt
 sudo apt update
 
+#OBSERVAÇÃO IMPORTANTE: POR MOTIVOS DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
+#NO PROCEDIMENTO, NESSE CENÁRIO AGORA SERÁ INSTALADO SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
+#VERSÃO ATUALIZADO DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
+
 #instalando as dependências do WordPress
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install php8.1-bcmath php8.1-mbstring  php8.1-dev php8.1-curl php8.1-mysql \
-php8.1-xml php8.1-zip php8.1-soap php8.1-imagick php8.1-intl php-json php-pear unzip \
-pwgen libmcrypt-dev ghostscript libapache2-mod-php zlib1g zlib1g-dev
+sudo apt install php-bcmath php-mbstring php-dev php-curl php-mysql php-xml php-zip \
+php-soap php-imagick php-intl php-json php-pear unzip pwgen libmcrypt-dev ghostscript \
+libapache2-mod-php zlib1g zlib1g-dev
 ```
 
 #02_ Criando a Base de Dados do WordPress no MySQL Server<br>
@@ -173,8 +177,8 @@ ESC SHIFT :x <Enter>
 ```bash
 #habilitando os módulos do Apache2 Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite \
-autoindex negotiation setenvif
+sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex \
+negotiation setenvif
 
 #reiniciar o serviço do Apache2 Server
 sudo systemctl reload apache2

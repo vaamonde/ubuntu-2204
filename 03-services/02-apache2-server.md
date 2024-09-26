@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.18<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
 
@@ -58,12 +58,16 @@ sudo apt update
 #instalando as dependências do Apache2 Server
 sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-dev apt-transport-https
 
+#OBSERVAÇÃO IMPORTANTE: POR MOTIVOS DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
+#NO PROCEDIMENTO, NESSE CENÁRIO AGORA SERÁ INSTALADO SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
+#VERSÃO ATUALIZADO DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
+
 #instalando o Apache2 Server e PHP 8.x
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install apache2 apache2-utils apache2-bin apache2-data php8.1 php8.1-cli php8.1-common \
-php8.1-mysql php8.1-opcache php8.1-readline php8.1-common php8.1-bcmath php8.1-curl php8.1-intl \
-php8.1-mbstring php8.1-xml php8.1-zip php8.1-soap php-imagick php-json libapache2-mod-php libapr1 \
-libapache2-mod-php8.1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap
+sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common \
+php-mysql php-opcache php-readline php-common php-bcmath php-curl php-intl php-mbstring \
+php-xml php-zip php-soap php-imagick php-json libapache2-mod-php libapr1 libaprutil1-ldap \
+libapache2-mod-php libaprutil1 libaprutil1-dbd-sqlite3
 ```
 
 #02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
@@ -179,34 +183,34 @@ INSERT
 ```html
 <!-- Início do código HTML: declaração do tipo de arquivo que será enviado para a navegador -->
 <!DOCTYPE html>
-	<!-- Tag HTML: Define a raiz de um documento HTML -->
-	<html lang="pt-br">
-		<!-- Tag HEAD: Define um cabeçalho para um documento ou seção -->
-		<head>
-			<!-- Tag TITLE: Define um título para o documento -->
-			<title>Teste da Linguagem HTML</title>
-			<!-- Tag META: Define metadados sobre um documento HTML -->
-			<meta charset="utf-8">
-		<!-- Fechamento da Tag: HEAD -->
-		</head>
-		<!-- Tag BODY: Define o corpo do documento -->
-		<body>
-			<!-- Tag H1: Define títulos HTML -->
-			<!-- Tag BR: Define uma única quebra de linha -->
-			<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>
-			Autor: Robson Vaamonde<br>
-			Editado por: SEU NOME AQUI<br>
-			<!-- Tag: A Define um hiperlink -->
-			LinkedIn: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
-			Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
-			Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
-			Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
-			Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
-			YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
-		<!-- Fechamento da Tag: BODY -->
-		</body>
-	<!-- Fechamento da Tag: HTML -->
-	</html>
+    <!-- Tag HTML: Define a raiz de um documento HTML -->
+    <html lang="pt-br">
+        <!-- Tag HEAD: Define um cabeçalho para um documento ou seção -->
+        <head>
+            <!-- Tag TITLE: Define um título para o documento -->
+            <title>Teste da Linguagem HTML</title>
+            <!-- Tag META: Define metadados sobre um documento HTML -->
+            <meta charset="utf-8">
+        <!-- Fechamento da Tag: HEAD -->
+        </head>
+        <!-- Tag BODY: Define o corpo do documento -->
+        <body>
+            <!-- Tag H1: Define títulos HTML -->
+            <!-- Tag BR: Define uma única quebra de linha -->
+            <h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>
+            Autor: Robson Vaamonde<br>
+            Editado por: SEU NOME AQUI<br>
+            <!-- Tag: A Define um hiperlink -->
+            LinkedIn: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
+            Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
+            Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
+            Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
+            Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
+            YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+        <!-- Fechamento da Tag: BODY -->
+        </body>
+    <!-- Fechamento da Tag: HTML -->
+    </html>
 ```
 ```bash
 #salvar e sair do arquivo
@@ -219,28 +223,28 @@ INSERT
 ```
 ```php
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<title>Teste da Linguagem PHP</title>
-			<meta charset="utf-8">
-		</head>
-		<body>
-			<!-- Início do script PHP: ?php -->
-			<?php 
-				// Função ECHO: Imprimir uma ou mais strings na saída padrão
-				echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
-				echo 'Autor: Robson Vaamonde<br>';
-				echo 'Editado por: SEU NOME AQUI<br>';
-				echo 'LinkedIn: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
-				echo 'Site: http://procedimentosemti.com.br/<br>';
-				echo 'Facebook: https://www.facebook.com/ProcedimentosEmTI<br>';
-				echo 'Facebook: https://www.facebook.com/BoraParaPratica<br>';
-				echo 'Instagram: https://www.instagram.com/procedimentoem/<br>';
-				echo 'YouTube: https://youtube.com/BoraParaPratica<br>'; 
-			// Fechamento do Script PHP
-			?>
-		</body>
-	</html>
+    <html lang="pt-br">
+        <head>
+            <title>Teste da Linguagem PHP</title>
+            <meta charset="utf-8">
+        </head>
+        <body>
+            <!-- Início do script PHP: ?php -->
+            <?php 
+                // Função ECHO: Imprimir uma ou mais strings na saída padrão
+                echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
+                echo 'Autor: Robson Vaamonde<br>';
+                echo 'Editado por: SEU NOME AQUI<br>';
+                echo 'LinkedIn: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
+                echo 'Site: http://procedimentosemti.com.br/<br>';
+                echo 'Facebook: https://www.facebook.com/ProcedimentosEmTI<br>';
+                echo 'Facebook: https://www.facebook.com/BoraParaPratica<br>';
+                echo 'Instagram: https://www.instagram.com/procedimentoem/<br>';
+                echo 'YouTube: https://youtube.com/BoraParaPratica<br>'; 
+            // Fechamento do Script PHP
+            ?>
+        </body>
+    </html>
 ```
 ```bash
 #salvar e sair do arquivo
@@ -252,8 +256,8 @@ INSERT
 ```
 ```php
 <?php
-	// Função do PHP para gerar a página de documentação e parâmetros do PHP
-	phpinfo(); 
+// Função do PHP para gerar a página de documentação e parâmetros do PHP
+phpinfo(); 
 ?>
 ```
 ```bash

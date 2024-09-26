@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.09<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -54,16 +54,16 @@ Acesse o site: https://login.ubuntu.com/
 
 01) Clique em: I don’t have an Ubuntu One account
 Preencha os campos: 
-	Please type your email: (DIGITE_SEU_EMAIL)
-	Full name: (DIGITE SEU NOME COMPLETO)
-	Username: (DIGITE O SEU USUÁRIO)
-	Choose password: (DIGITE SUA SENHA)
-	Re-type password: (CONFIRME SUA SENHA)
-	Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
-	Clique em: <Create account>
+    Please type your email: (DIGITE_SEU_EMAIL)
+    Full name: (DIGITE SEU NOME COMPLETO)
+    Username: (DIGITE O SEU USUÁRIO)
+    Choose password: (DIGITE SUA SENHA)
+    Re-type password: (CONFIRME SUA SENHA)
+    Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
+    Clique em: <Create account>
 
 02) Finalize os procedimentos acessando seu email para ativar a sua conta no Ubuntu One.
-	Are you sure you want to confirm and validate this email address?
+    Are you sure you want to confirm and validate this email address?
 <Sim, tenho certeza>
 ```
 
@@ -72,10 +72,10 @@ Preencha os campos:
 Acesse o site: https://ubuntu.com/pro/dashboard
 
 01) Faça a autenticação com a sua conta criada no Ubuntu One;
-	Personal Data Request: <Yes, log me in>
+    Personal Data Request: <Yes, log me in>
 
 02) Será mostrado no campo Free Personal Token o seu token;
-	Copiar o seu Token no campo: Token.
+    Copiar o seu Token no campo: Token.
 ```
 
 #05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
@@ -116,30 +116,20 @@ sudo pro fix CVE-2023-23518
 #serviços veja a lista abaixo:
 
 01) cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
-
 02) cis.............: Ferramentas para conformidade automatizada com o Center of Internet 
-Security (CIS) e seus benchmarks;
-
+                      Security (CIS) e seus benchmarks;
 03) esm-infra.......: Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos
-de atualizações de segurança para versões LTS;
-
+                      de atualizações de segurança para versões LTS;
 04) esm-apps........: ESM do Ubuntu, mas para aplicativos.
-
 05) fips............: Relacionado à conformidade com os Padrões Federais de Processamento de 
-Informações (FIPS);
-
+                      Informações (FIPS);
 06) fips-updates....: Atualizações de segurança para fips;
-
 07) livepatch.......: Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch);
-
 08) realtime-kernel.: Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente
-não precisa dele);
-
+                      não precisa dele);
 09) ros.............: Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional 
-de Robô;
-
+                      de Robô;
 10) ros-updates.....: Atualizações de segurança para o sistema operacional do robô;
-
 11) usg.............: Ferramentas para conformidade de segurança e auditoria do sistema.
 
 #habilitando o suporte ao ESM-APPS no Ubuntu Pro

@@ -81,14 +81,16 @@ vscode
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
 INSERT
+```
+```bash
+#comentar as variáveis: ClientAliveInterval e ClientAliveCountMax a partir da linha: 104
+#ClientAliveInterval 1800
+#ClientAliveCountMax 3
 
-	#comentar as variáveis: ClientAliveInterval e ClientAliveCountMax a partir da linha: 104
-	#ClientAliveInterval 1800
-	#ClientAliveCountMax 3
-
-	#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 138
-	AllowTcpForwarding yes
-
+#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 138
+AllowTcpForwarding yes
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 

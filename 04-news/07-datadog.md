@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 26/09/2024<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
 
@@ -39,7 +39,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
 #criando uma Conta Free no Datadog
 Link dos valores de contas: https://www.datadoghq.com/pricing/
-	Clique em: Free - Starting At $0 <START FREE TRIAL>
+    Clique em: Free - Starting At $0 <START FREE TRIAL>
 
 #OBSERVAÇÃO: a conta Free do Datadog permite manter as métricas dos servidores por apenas
 #1 (um) dia e conectar apenas 05 (cinco) Agentes (Hosts) de Monitoramento, para uma empresa
@@ -47,19 +47,19 @@ Link dos valores de contas: https://www.datadoghq.com/pricing/
 
 #criando o cadastro no Site do Datadog (NÃO PRECISA DE CARTÃO DE CRÉDITO)
 Get Started with Datadog
-	Region:
-		Where do you want your data housed?: United Stated (US5-Central)
-	Email: SEU_EMAIL@SEU_PROVEDOR
-	Full Name: SEU NOME COMPLETO
-	Company: NOME DA SUA EMPRESA
-	Password: SEU_PASSWORD
-	Phone: SEU_TELEFONE (NÃO É OBRIGATÓRIO)
+    Region:
+        Where do you want your data housed?: United Stated (US5-Central)
+    Email: SEU_EMAIL@SEU_PROVEDOR
+    Full Name: SEU NOME COMPLETO
+    Company: NOME DA SUA EMPRESA
+    Password: SEU_PASSWORD
+    Phone: SEU_TELEFONE (NÃO É OBRIGATÓRIO)
 <Sign Up>
 
 #OBSERVAÇÃO IMPORTANTE: Será enviado para o seu e-mail o código de verificação do
 #cadastro no site do Datadog, copiar o código e colar no campo de verificação.
 Please Confirm Your Email
-	Email Verification Code: COPIAR O SEU CÓDIGO ENVIADO POR EMAIL E COLAR NO CAMPO DE VERIFICAÇÃO
+    Email Verification Code: COPIAR O SEU CÓDIGO ENVIADO POR EMAIL E COLAR NO CAMPO DE VERIFICAÇÃO
 <Submit>
 
 #OBSERVAÇÃO IMPORTANTE: Você pode prosseguir com as configuração de Stack (Pilha)
@@ -73,9 +73,9 @@ Tell us about your stack
 #forma mais simples utilizar o recurso de instalação automática. Nesse método é
 #adicionado automaticamente a Key (Chave) de integração com o site do Datadog.
 Install your first Datadog Agent
-	Ubuntu
-		Install or Update to the latest Agent 7 version on Ubuntu
-		DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
+    Ubuntu
+        Install or Update to the latest Agent 7 version on Ubuntu
+        DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 <Finish>
 
 #verificando o serviços do Datadog Agent no Ubuntu Server
@@ -98,10 +98,10 @@ sudo datadog-agent diagnose
 ```bash
 #instalando o Agent no Linux Mint do site do Datadog
 Datadog
-	Integrations
-		Agent
-			Run this command to install or update...
-			DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
+    Integrations
+        Agent
+            Run this command to install or update...
+            DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 
 #verificando o serviços do Datadog Agent no Linux Mint
 sudo systemctl status datadog-agent
@@ -117,24 +117,24 @@ sudo datadog-agent diagnose
 
 #instalando o Agent no Windows 10 do site do Datadog
 Datadog
-	Integrations
-		Agent
-			Installing on Windows
-				<Download the Datadog Agent installer>
-			Copiar sua KEY em: Follow the prompts, accept the license agreement, and enter your Datadog API key
-			Copiar seu Datadog Region: us5.datadoghq.com
+    Integrations
+        Agent
+            Installing on Windows
+                <Download the Datadog Agent installer>
+            Copiar sua KEY em: Follow the prompts, accept the license agreement, and enter your Datadog API key
+            Copiar seu Datadog Region: us5.datadoghq.com
 
 #instalando o Datadog Agent no Windows 10
 Download
-	Executar o software: datadog-agent-7-latest.amd64.msi
-	Welcome to the Datadog Agent Setup Wizard <Next>
-	Software Licensing: (ON) I accept the therms in the license agreement. <Next>
-	Custom Setup: <Next>
-	Datadog API Key: COLAR_SUA_API_KEY <Next>
-	Datadog Region: us5.datadoghq.com <Next>
-	Datadog Agent User Account: <Next>
-	Ready to install Datadog Agent: <Install>
-	Completed the Datadog Agent Setup Wizard: <Finish>
+    Executar o software: datadog-agent-7-latest.amd64.msi
+    Welcome to the Datadog Agent Setup Wizard <Next>
+    Software Licensing: (ON) I accept the therms in the license agreement. <Next>
+    Custom Setup: <Next>
+    Datadog API Key: COLAR_SUA_API_KEY <Next>
+    Datadog Region: us5.datadoghq.com <Next>
+    Datadog Agent User Account: <Next>
+    Ready to install Datadog Agent: <Install>
+    Completed the Datadog Agent Setup Wizard: <Finish>
 
 #verificando o serviço do Datadog Agent
 firefox ou google chrome: http://127.0.0.1:5002/

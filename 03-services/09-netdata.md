@@ -152,13 +152,13 @@ mongosh admin -u admin -p
 ```javascript
 // criando o usuário de monitoramento do Netdata
 db.createUser({
-	"user": "netdata",
-	"pwd": "netdata",
-	"roles" : [
-	{role: 'read', db: 'admin' },
-	{role: 'clusterMonitor', db: 'admin'},
-	{role: 'read', db: 'local' }
-	]
+    "user": "netdata",
+    "pwd": "netdata",
+    "roles" : [
+    {role: 'read', db: 'admin' },
+    {role: 'clusterMonitor', db: 'admin'},
+    {role: 'read', db: 'local' }
+    ]
 })
 ``` 
 ```bash
@@ -231,8 +231,8 @@ jobs:
 
 #salvar e sair do arquivo
 Ctrl + X
-	Save modified buffer? Y
-	File Name to Write: <Enter>
+    Save modified buffer? Y
+    File Name to Write: <Enter>
 ```
 ```bash
 #configuração do serviço de monitoramento do Apache TomCAT Server
@@ -260,8 +260,8 @@ localipv6:
 
 #salvar e sair do arquivo
 Ctrl + X
-	Save modified buffer? Y
-	File Name to Write: <Enter>
+    Save modified buffer? Y
+    File Name to Write: <Enter>
 ```
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
@@ -275,8 +275,8 @@ jobs:
 
 #salvar e sair do arquivo
 Ctrl + X
-	Save modified buffer? Y
-	File Name to Write: <Enter>
+    Save modified buffer? Y
+    File Name to Write: <Enter>
 ```
 ```bash
 #configuração do serviço de monitoramento do MongoDB Server
@@ -290,8 +290,8 @@ jobs:
 
 #salvar e sair do arquivo
 Ctrl + X
-	Save modified buffer? Y
-	File Name to Write: <Enter>
+    Save modified buffer? Y
+    File Name to Write: <Enter>
 ```
 ```bash
 #configuração do serviço de monitoramento do ICMP Ping
@@ -310,8 +310,8 @@ jobs:
 
 #salvar e sair do arquivo
 Ctrl + X
-	Save modified buffer? Y
-	File Name to Write: <Enter>
+    Save modified buffer? Y
+    File Name to Write: <Enter>
 ```
 ```bash
 #configuração do serviço de monitoramento das Portas TCP Endpoint
@@ -337,8 +337,8 @@ jobs:
 
 #salvar e sair do arquivo
 Ctrl + X
-	Save modified buffer? Y
-	File Name to Write: <Enter>
+    Save modified buffer? Y
+    File Name to Write: <Enter>
 ```
 ```bash
 #verificando os arquivos de configuração do monitoramento criados

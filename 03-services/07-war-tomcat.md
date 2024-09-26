@@ -125,11 +125,11 @@ USE dbagenda;
 
 /* Criando a Tabela Contatos no Banco de Dados DBAgenda */
 CREATE TABLE contatos (
-	idcon int NOT NULL AUTO_INCREMENT,
-	nome varchar(50) NOT NULL,
-	fone varchar(15) NOT NULL,
-	email varchar(50) DEFAULT NULL,
-	PRIMARY KEY (idcon)
+    idcon int NOT NULL AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    fone varchar(15) NOT NULL,
+    email varchar(50) DEFAULT NULL,
+    PRIMARY KEY (idcon)
 );
 
 /* Verificando a Tabela criada */
