@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 04/09/2024<br>
-#Versão: 0.22<br>
+#Data de atualização: 03/10/2024<br>
+#Versão: 0.23<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
 
@@ -36,6 +36,8 @@ Conteúdo estudado nesse desafio:<br>
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
+
+## OBSERVAÇÃO IMPORTANTE: A PARTIR DA VERSÃO DO NETDATA v1.90.x NÃO É MAIS NECESSÁRIO FAZER O PROCEDIMENTO DESSE VÍDEO DE BAIXAR O AGENTE VIA GITHUB, COMPILAR E INSTALAR, HOJE ACESSAMOS APENAS O NETDATA CLOUD: https://app.netdata.cloud/, COPIAMOS A CHAVE DE INTEGRAÇÃO DO AGENTE E COLAMOS NO TERMINAL, SÓ SEGUIR OS PROCEDIMENTOS NA TELA QUE JÁ ESTÁ FEITO A INTEGRAÇÃO, AINDA É POSSÍVEL UTILIZAR OS RECURSOS DE CONFIGURAÇÃO DE SERVIÇOS A SEREM MONITORADOS, MUITO MAIS SIMPLES.
 
 [![Netdata Server](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Server")
 
