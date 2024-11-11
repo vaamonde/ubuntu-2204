@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 26/09/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
 
@@ -101,6 +101,8 @@ sudo vim /etc/hosts.deny
 
 #mostrando o número de linha do arquivo hosts.deny
 ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
@@ -118,6 +120,8 @@ sudo vim /etc/hosts.allow
 
 #mostrando o número de linha do arquivo hosts.allow
 ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
@@ -146,6 +150,8 @@ sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu
 
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
@@ -172,6 +178,8 @@ sudo sshd -t
 
 #editando o arquivo de configuração do Banner do Ubuntu Server
 sudo vim /etc/issue.net
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
@@ -183,7 +191,7 @@ Servidor: wsvaamonde - Admin: Robson Vaamonde
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
-#reiniciar o serviço do OpenSSH Server
+#reiniciar e verificar o status do serviço do OpenSSH Server
 sudo systemctl restart ssh
 sudo systemctl status ssh
 
@@ -219,7 +227,7 @@ Linux
     ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
 
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
-#OBSERVAÇÃO IMPORTANTE 01: no comando: w ele mostra na primeira linhas as
+#OBSERVAÇÃO IMPORTANTE 01: no comando: w ele mostra na primeira linha as
 #informações de: Data e Hora Atual do Sistema, Período de Tempo Ativo, Número
 #de Usuários Logados e as Médias de Cargas do Sistema (1, 5 e 15 minutos).
 #OBSERVAÇÃO IMPORTANTE 02: no comando: w ele mostra as informações separadas

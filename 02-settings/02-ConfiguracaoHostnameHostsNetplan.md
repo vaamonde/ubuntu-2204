@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 26/09/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.11<br>
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -31,6 +31,8 @@ Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 ```bash
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
@@ -47,11 +49,13 @@ ESC SHIFT : x <Enter>
 ```bash
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
-#OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+#OBSERVAÇÃO IMPORTANTE: ALTERAR IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
 127.0.0.1    localhost.pti.intra    localhost
 127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
 172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
@@ -63,8 +67,10 @@ ESC SHIFT : x <Enter>
 
 #03_ Instalando os principais software de rede no Ubuntu Server<br>
 ```bash
-#atualizando as lista do sources.list e instalando os pacotes e ferramentas de rede
+#atualizando as lista do sources.list
 sudo apt update
+
+#instalando os pacotes e ferramentas de rede
 sudo apt install bridge-utils ifenslave net-tools
 ```
 
@@ -99,8 +105,8 @@ sudo resolvectl
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
-#/etc/netplan/00-installer-config.yaml #Padrão do Ubuntu Server 22.04.x LTS, no
-#Ubuntu Server 24.04.x LTS tem o nome: /etc/netplan/50-cloud-init.yaml, sempre 
+#/etc/netplan/00-installer-config.yaml e o Padrão do Ubuntu Server 22.04.x LTS, 
+#no Ubuntu Server 24.04.x LTS tem o nome: /etc/netplan/50-cloud-init.yaml, sempre 
 #digita o comando: ls -lh /etc/netplan antes de editar o arquivo Netplan.
 
 #OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
@@ -118,6 +124,8 @@ sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-confi
 
 #editando o arquivo de configuração do Netplan
 sudo vim /etc/netplan/00-installer-config.yaml
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```yaml
@@ -184,7 +192,7 @@ sudo ip route
 #verificando as informações dos Servidores DNS e Pesquisa de Domínio
 sudo resolvectl
 
-#testando a conexão com a Internet
+#testando a conexão com a Internet e Resolução de nomes de DNS
 ping 8.8.8.8
 ping google.com
 

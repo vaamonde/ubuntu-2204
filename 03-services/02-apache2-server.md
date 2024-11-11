@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 26/09/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
 
@@ -60,7 +60,7 @@ sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-de
 
 #OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
 #NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
-#VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
+#VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: 8.1 (ATUALIZADO EM: 26/09/2024).
 
 #instalando o Apache2 Server e PHP 8.x
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -178,6 +178,8 @@ cd teste
 #criando o arquivo em HTML
 #OBSERVAÇÃO: ALTERAR O NOME DO ARQUIVO PARA O SEU PRIMEIRO NOME TUDO EM MINÚSCULO
 sudo vim seu_nome.html
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```html
@@ -219,6 +221,8 @@ ESC SHIFT :x <Enter>
 #criando o arquivo em PHP
 #OBSERVAÇÃO: ALTERAR O NOME DO ARQUIVO PARA O SEU PRIMEIRO NOME TUDO EM MINÚSCULO
 sudo vim seu_nome.php
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```php
@@ -252,6 +256,8 @@ ESC SHIFT :x <Enter>
 
 #criando o arquivo de informações do PHP
 sudo vim phpinfo.php
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```php

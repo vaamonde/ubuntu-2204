@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 26/09/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.20<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
 
@@ -202,6 +202,8 @@ sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 #editar o arquivo de configuração do MySQL Server
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash

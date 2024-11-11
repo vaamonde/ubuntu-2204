@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 26/09/2024<br>
-#Versão: 0.20<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.21<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
 
@@ -148,6 +148,8 @@ sudo cp -v wp-config-sample.php wp-config.php
 
 #editando o arquivo de configuração do WordPress
 sudo vim wp-config.php
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```php

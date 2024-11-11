@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 13/08/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.20<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
 
@@ -87,8 +87,10 @@ echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.
 
 #03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
 ```bash
-#Instalando o Node.JS e NPM (Node Package Manager)
+#atualizando as listas do Apt com o novo repositório do Node.JS
 sudo apt update
+
+#Instalando o Node.JS e NPM (Node Package Manager)
 sudo apt install nodejs
 ```
 
@@ -140,6 +142,8 @@ ls -lha
 
 #Criando o arquivo index.js do projeto do Node.JS
 vim index.js
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```js
