@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.06<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.07<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
 
@@ -107,21 +107,23 @@ sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/uran
 ```bash
 #editando o arquivo de configuração do OpenSearch
 sudo vim /etc/opensearch/opensearch.yml
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#descomentar e alterar o valor da variável cluster.name na linha: 17
-	cluster.name: graylog
+  #descomentar e alterar o valor da variável cluster.name na linha: 17
+  cluster.name: graylog
 
-	#descomentar e alterar o valor da variável node.name na linha: 23
-	node.name: wsvaamonde
+  #descomentar e alterar o valor da variável node.name na linha: 23
+  node.name: wsvaamonde
 
-	#descomentar e alterar o valor da variável network.host na linha: 55
-	network.host: 0.0.0.0
-	
-	#adicionar as opção abaixo no final do arquivo a partir da linha: 159
-	discovery.type: single-node
-	action.auto_create_index: false
-	plugins.security.disabled: true
+  #descomentar e alterar o valor da variável network.host na linha: 55
+  network.host: 0.0.0.0
+
+  #adicionar as opção abaixo no final do arquivo a partir da linha: 159
+  discovery.type: single-node
+  action.auto_create_index: false
+  plugins.security.disabled: true
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -131,12 +133,14 @@ ESC SHIFT : x <Enter>
 ```bash
 #editando o arquivo de configuração JVM (Java Virtual Machine)
 sudo vim /etc/opensearch/jvm.options
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#manter o padrão das configurações do Heap Space a partir da linha: 22
-	#padrão do tamanho inicial e máximo da memória do JVM: 1GB
-	-Xms1g
-	-Xmx1g
+  #manter o padrão das configurações do Heap Space a partir da linha: 22
+  #padrão do tamanho inicial e máximo da memória do JVM: 1GB
+  -Xms1g
+  -Xmx1g
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -175,6 +179,7 @@ sudo systemctl start opensearch
 sudo journalctl -xeu opensearch
 
 #verificando a versão do OpenSearch via Terminal ou Navegador
+#opção do comando curl: -X (request method), GET (method)
 curl -X GET "http://localhost:9200"
 
 #acessar via navegador o OpenSearch
@@ -194,7 +199,7 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 
 #10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
 ```bash
-#baixando o repositório do Graylog Server (Link atualizado no dia 12/08/2024)
+#baixando o repositório do Graylog Server (Link atualizado no dia 11/11/2024)
 wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
 
 #instalando o repositório do Graylog
@@ -234,34 +239,36 @@ sudo apt install --install-recommends graylog-server
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
-	Enter Password: pti@2018
+  Enter Password: pti@2018
 ```
 
 #13_ Editando o arquivo de configuração do Graylog Server<br>
 ```bash
 #editando o arquivo de configuração do Graylog
 sudo vim /etc/graylog/server/server.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#copiar e colar a senha da variável password_secret na linha: 57
-	password_secret = COLAR_SUA_SENHA_GERADA
+  #copiar e colar a senha da variável password_secret na linha: 57
+  password_secret = COLAR_SUA_SENHA_GERADA
 
-	#copiar e colar a senha da variável root_password_sha2 na linha: 68
-	root_password_sha2 = COLAR_SUA_SENHA_GERADA
+  #copiar e colar a senha da variável root_password_sha2 na linha: 68
+  root_password_sha2 = COLAR_SUA_SENHA_GERADA
 
-	#descomentar a alterar o valor da variável root_timezone na linha: 76
-	root_timezone = America/Sao_Paulo
+  #descomentar a alterar o valor da variável root_timezone na linha: 76
+  root_timezone = America/Sao_Paulo
 
-	#descomentar e alterar o valor da variável http_bind_address na linha: 104
-	http_bind_address = 0.0.0.0:9000
+  #descomentar e alterar o valor da variável http_bind_address na linha: 104
+  http_bind_address = 0.0.0.0:9000
 
-	#descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
-	elasticsearch_hosts = http://172.16.1.20:9200
+  #descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
+  elasticsearch_hosts = http://172.16.1.20:9200
 
-	#alterando o valor da variável mongodb_uri na linha: 576
-	#OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
-	#utilizando usuário e senha.
-	mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
+  #alterando o valor da variável mongodb_uri na linha: 576
+  #OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
+  #utilizando usuário e senha.
+  mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -279,11 +286,11 @@ use graylog;
 ```json
 //criando o usuário e senha de acesso a base de dados do Graylog Server
 db.createUser({
-	"user": "graylog",
-	"pwd": "graylog",
-	"roles" : [
-	{ role: 'root', db: 'admin' }
-	]
+  "user": "graylog",
+  "pwd": "graylog",
+  "roles" : [
+  { role: 'root', db: 'admin' }
+  ]
 })
 ```
 ```bash
@@ -361,8 +368,8 @@ exit
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
 
 Welcome to Graylog
-	Username: admim
-	Password: pti@2018
+  Username: admim
+  Password: pti@2018
 <Sign In>
 ```
 
@@ -370,17 +377,17 @@ Welcome to Graylog
 ```bash
 #criando um Input no Graylog Server
 Welcome
-	System
-		Inputs
-			Select input: Syslog UDP <Launch new input>
+  System
+    Inputs
+      Select input: Syslog UDP <Launch new input>
 
 #configurando o Input do Syslog UDP
 Launch new Syslog UDP input
-	Node: XXXX/wsvaamonde.pti.intra
-	Title: wsvaamonde
-	Bind Address: 172.16.1.20
-	Port: 1514
-	Encoding (optional): UTF-8
+  Node: XXXX/wsvaamonde.pti.intra
+  Title: wsvaamonde
+  Bind Address: 172.16.1.20
+  Port: 1514
+  Encoding (optional): UTF-8
 <Launch Input>
 
 #verificando a porta de conexão do Input do Graylog
@@ -393,10 +400,12 @@ sudo systemctl status rsyslog
 
 #criando o arquivo de exportação dos Logs
 sudo vim /etc/rsyslog.d/70-graylog.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-	*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+  #copiar a colar a exportação dos Logs do Rsyslog para o Graylog
+  *.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -418,10 +427,12 @@ sudo systemctl status rsyslog
 
 #criando o arquivo de exportação dos Logs
 sudo vim /etc/rsyslog.d/70-graylog.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-	*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+  #copiar a colar a exportação dos Logs do Rsyslog para o Graylog
+  *.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -433,31 +444,31 @@ sudo systemctl status rsyslog
 #configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
 #baixando o software NXLog-CE (Community Edition) do site oficial:
 Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
-	Available Downloads
-		Version: NXLog Community Edition
-		Platform: Windows
-		#download da versão atualizada em: 12/08/2024
-		Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
-	<Download>
-	<No thanks, just starts my download>
+  Available Downloads
+    Version: NXLog Community Edition
+    Platform: Windows
+    #download da versão atualizada em: 11/11/2024
+    Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
+  <Download>
+  <No thanks, just starts my download>
 
 #instalando o NXLog-CE no Windows 10
 Download
-	Executar o software: nxlog-ce-*.msi
-	Welcome to the NXLog-CE Setup Wizard: <Next>
-	End-User License Agreement: (ON) I Accept the terms in the License Agreement <Next>
-	Destination Folder: Default <Next>
-	Ready to install NXLog-CE: <Install>
-		Controle de Conta do Usuário: <Sim>
-	Completed the NXLog-CE Setup Wizard: <Finish>
+  Executar o software: nxlog-ce-*.msi
+  Welcome to the NXLog-CE Setup Wizard: <Next>
+  End-User License Agreement: (ON) I Accept the terms in the License Agreement <Next>
+  Destination Folder: Default <Next>
+  Ready to install NXLog-CE: <Install>
+    Controle de Conta do Usuário: <Sim>
+  Completed the NXLog-CE Setup Wizard: <Finish>
 
 #editando o arquivo de configuração do NXLog-CE via Powershell
 #OBSERVAÇÃO IMPORTANTE: fazer a instalação do NXLog-CE Windows utilizando 
 #o Powershell em modo Administrador.
 
 Menu
-	Powershell 
-		Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+  Powershell 
+    Clicar com o botão direito do mouse e selecionar: Executar como Administrador
 
 #acessando o diretório de configuração do NXLog-CE
 cd 'C:\Program Files\nxlog\conf\'
@@ -503,8 +514,8 @@ notepad.exe .\nxlog.conf
 ```bash
 #fechar e salvar as mudanças do arquivo
 <Fechar>
-	<Salvar>
-	<Sair>
+  <Salvar>
+  <Sair>
 
 #testando o arquivo de configuração do NXLog-CE
 ..\nxlog.exe -v
@@ -518,17 +529,17 @@ Get-Service nxlog
 ```bash
 #criando um Input GELF (Graylog Extended Log Format) UDP no Graylog Server
 Welcome
-	System
-		Inputs
-			Select input: GELF UDP <Launch new input>
+  System
+    Inputs
+      Select input: GELF UDP <Launch new input>
 
 #configurando o Input do GELF UDP
 Launch new GELF UDP input
-	Node: XXXX/wsvaamonde.pti.intra
-	Title: windows10
-	Bind Address: 172.16.1.20
-	Port: 12201
-	Encoding (optional): UTF-8
+  Node: XXXX/wsvaamonde.pti.intra
+  Title: windows10
+  Bind Address: 172.16.1.20
+  Port: 12201
+  Encoding (optional): UTF-8
 <Launch Input>
 
 #verificando a porta de conexão do Input do Graylog
@@ -539,15 +550,15 @@ sudo lsof -nP -iUDP:'12201'
 #24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10<br>
 ```bash
 Graylog
-	Search
-		Select time range: 30 minutes
-		(Play) Every 1 second
+  Search
+    Select time range: 30 minutes
+    (Play) Every 1 second
 
 Graylog
-	Dashboard
-		Sources
-			Select time range: 30 minutes
-			(Play) Every 1 second
+  Dashboard
+    Sources
+      Select time range: 30 minutes
+      (Play) Every 1 second
 ```
 
 =========================================================================================

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 16/08/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.12<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
 
@@ -306,6 +306,8 @@ ping google.com
 #Editando o arquivo de configuração before.rules (ANTES DAS REGRAS) do UFW
 sudo vim /etc/ufw/before.rules
 ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash

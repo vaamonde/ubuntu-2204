@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 04/09/2024<br>
-#Versão: 0.31<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.32<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
@@ -294,6 +294,8 @@ sudo cp -v /etc/mongod.conf /etc/mongod.conf.old
 
 #editando o arquivo de configuração do MongoDB Server
 sudo vim /etc/mongod.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash

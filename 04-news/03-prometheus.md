@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
 
@@ -83,8 +83,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 #alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 #versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-#download do Prometheus do Github (Link atualizado no dia 12/08/2024)
-wget https://github.com/prometheus/prometheus/releases/download/v2.54.0/prometheus-2.54.0.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 11/11/2024)
+wget https://github.com/prometheus/prometheus/releases/download/v2.55.1/prometheus-2.55.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -234,6 +234,8 @@ sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 
 #arquivo de configuração padrão do Prometheus
 sudo vim /etc/prometheus/prometheus.yml
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```yaml
@@ -326,11 +328,11 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
 #verificando os alvos monitorados do Prometheus
 Status
-	Targets
-		Prometheus
-			Endpoint: http://172.16.1.20:9091/metrics
-		wsvaamonde
-			Endpoint: http://172.16.1.20:9100/metrics
+  Targets
+    Prometheus
+      Endpoint: http://172.16.1.20:9091/metrics
+    wsvaamonde
+      Endpoint: http://172.16.1.20:9100/metrics
 
 #verificando a versões do Sistema Operacional
 a) Expression: node_os_info{job="wsvaamonde"} <Execute>
@@ -366,15 +368,15 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 #OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS
 #Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
-#link para download direto do Node Exporter (link atualizado em: 12/08/2024)
-https://github.com/prometheus-community/windows_exporter/releases/download/v0.27.0/windows_exporter-0.27.0-amd64.msi
+#link para download direto do Node Exporter (link atualizado em: 11/11/2024)
+https://github.com/prometheus-community/windows_exporter/releases/download/v0.28.2/windows_exporter-0.28.2-amd64.msi
 
 #OBSERVAÇÃO IMPORTANTE: fazer a instalação do Prometheus Windows Exporter utilizando 
 #o Powershell em modo Administrador.
 
 Menu
-	Powershell 
-		Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
+  Powershell 
+    Clicar com o botão direito do mouse e selecionar: Abrir como Administrador
 
 #acessando o diretório de Download do Perfil do Usuário
 cd c:\user\vaamonde\Download
@@ -408,7 +410,7 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 #o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 #software no Link: https://github.com/prometheus/node_exporter/releases/
 
-#download do Node Exporter do Github (Link atualizado no dia 12/08/2024)
+#download do Node Exporter do Github (Link atualizado no dia 11/112024)
 wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
@@ -462,6 +464,8 @@ sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 ```bash
 #arquivo de configuração padrão do Prometheus
 sudo vim /etc/prometheus/prometheus.yml
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```yaml
@@ -490,7 +494,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
 #verificando os alvos monitorados do Prometheus
 Status
-	Targets
+  Targets
 ```
 
 #25_ Integrando o Prometheus no Grafana<br>
@@ -500,22 +504,22 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
 #criando um Data Sources do Prometheus
 Open Menu
-	Connections
-		Data Sources
-			<Add data source>
-				Filter by name or type: Prometheus
-					Name: prometheus-wsvaamonde
-					Connection
-						Prometheus server URL: http://172.16.1.20:9091
-			<Save & Test>
+  Connections
+    Data Sources
+      <Add data source>
+        Filter by name or type: Prometheus
+          Name: prometheus-wsvaamonde
+          Connection
+            Prometheus server URL: http://172.16.1.20:9091
+      <Save & Test>
 
 #criando o Dashboard do Prometheus
 Open Menu
-	Dashboards
-		<Create Dashboard>
-		<+ Add visualization>
-			Select data source
-				Data source: prometheus-wsvaamonde
+  Dashboards
+    <Create Dashboard>
+    <+ Add visualization>
+      Select data source
+        Data source: prometheus-wsvaamonde
 ```
 
 #26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>

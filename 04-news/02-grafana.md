@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.13<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.14<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
 
@@ -81,28 +81,32 @@ sudo apt install --install-recommends grafana
 ```bash
 #editando o arquivo de configuração do Grafana Server
 sudo vim /etc/default/grafana-server
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#principais variáveis do Grafana Server (padrão não alterar)
-	GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
-	GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
-	LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
-	DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
+  #principais variáveis do Grafana Server (padrão não alterar)
+  GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
+  GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
+  LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
+  DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
 #editando o arquivo de inicialização do Grafana Server
 sudo vim /etc/grafana/grafana.ini
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#descomentar a variável protocol = na linha: 32
-	protocol = http
+  #descomentar a variável protocol = na linha: 32
+  protocol = http
 
-	#descomentar a variável ;http_port = na linha 41
-	http_port = 3000
+  #descomentar a variável ;http_port = na linha 41
+  http_port = 3000
 
-	#descomentar a variável ;domain = na linha 44
+  #descomentar a variável ;domain = na linha 44
 	domain = pti.intra
 
 #salvar e sair do arquivo
@@ -183,13 +187,13 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
 #configurações iniciais do Grafana Server
 Welcome to Grafana
-	Email or username: admin
-	Password: admin 
+  Email or username: admin
+  Password: admin 
 <Log In>
 
 Update your password
-	New password: pti@2018
-	Confirm new password: pti@2018 
+  New password: pti@2018
+  Confirm new password: pti@2018 
 <Submit>
 ```
 
@@ -197,76 +201,76 @@ Update your password
 ```bash
 #criando um Data Sources do Banco de Dados DBAgenda do MySQL Server
 Open Menu
-	Connections
-		Data Sources
-			<Add data source>
-				Filter by name or type: MySQL
-					Select: MySQL (Data Source for MySQL databases)
-						Name: MySQL-DBAgenda - Default (Enable)
-						MySQL Connection
-							Host URL: localhost:3306
-							Database name: dbagenda
-							Username: dbagenda
-							Password: dbagenda
-					<Save & Test>
-		Data Sources
+  Connections
+    Data Sources
+      <Add data source>
+        Filter by name or type: MySQL
+          Select: MySQL (Data Source for MySQL databases)
+            Name: MySQL-DBAgenda - Default (Enable)
+            MySQL Connection
+              Host URL: localhost:3306
+              Database name: dbagenda
+              Username: dbagenda
+              Password: dbagenda
+          <Save & Test>
+    Data Sources
 ```
 
 #12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
 ```bash
 #criando o Dashboard do Banco de Dados DBAgenda
 Open Menu
-	Dashboards
-		<Create Dashboard>
-		<+ Add visualization>
-			Select data source
-				Data source: MySQL-DBAgenda
-			
-			#primeira etapa: criar o Dataset do Banco, Tabela e Coluna
-			Builder
-				Dataset: dbagenda   Tabela: contatos
-				Columm: nome   Aggregation: COUNT (Contar)   Alias: Choose (Default)
-			<Run query>
-			
-			#segunda etapa: criar a visualização dos dados no painel
-			Panel Title
-				<Open visualization suggestions>
-					Suggestions: Gauge
-						Panel options
-							Tile: Total de Contatos
-							Description: Total de Contatos cadastrados no banco DBAgenda
-						Standard Option
-							Min: 1
-							Max: 20
-					<Save>
+  Dashboards
+    <Create Dashboard>
+    <+ Add visualization>
+      Select data source
+        Data source: MySQL-DBAgenda
 
-			#terceira etapa: salvando as mudanças do Dashboard		
-			Details
-				Title: DBAgenda
-				Description: Dashboard DBAgenda
-				Folder: Dashboard
-			<Save>
-			
-		#quarta etapa: adicionando mais um painel no Dashboard DBAgenda
-		<Add>
-			Visualization
-				Builder
-					Dataset: dbagenda   Tabela: contatos
-					Columm: nome   Aggregation: Choose (Default)   Alias: Choose (Default)
-					
-					#habilitar a opção: Order (Enable) no painel da Builder
-					Order by: idcon
-					Sort by: descending
-					Limit: 10
-				<Run query>
-				
-				Panel Title
-					<Switch to table>
-						Panel options
-							Tile: Últimos Contatos do DBAgenda
-							Description: Nome dos últimos contatos do banco DBAgenda
-					<Save> - <Save>
-				<Apply>
+      #primeira etapa: criar o Dataset do Banco, Tabela e Coluna
+      Builder
+        Dataset: dbagenda   Tabela: contatos
+        Columm: nome   Aggregation: COUNT (Contar)   Alias: Choose (Default)
+      <Run query>
+
+      #segunda etapa: criar a visualização dos dados no painel
+      Panel Title
+        <Open visualization suggestions>
+          Suggestions: Gauge
+            Panel options
+              Tile: Total de Contatos
+              Description: Total de Contatos cadastrados no banco DBAgenda
+            Standard Option
+              Min: 1
+              Max: 20
+          <Save>
+
+      #terceira etapa: salvando as mudanças do Dashboard		
+      Details
+        Title: DBAgenda
+        Description: Dashboard DBAgenda
+        Folder: Dashboard
+      <Save>
+
+    #quarta etapa: adicionando mais um painel no Dashboard DBAgenda
+    <Add>
+      Visualization
+        Builder
+          Dataset: dbagenda   Tabela: contatos
+          Columm: nome   Aggregation: Choose (Default)   Alias: Choose (Default)
+
+          #habilitar a opção: Order (Enable) no painel da Builder
+          Order by: idcon
+          Sort by: descending
+          Limit: 10
+        <Run query>
+
+        Panel Title
+          <Switch to table>
+            Panel options
+              Tile: Últimos Contatos do DBAgenda
+              Description: Nome dos últimos contatos do banco DBAgenda
+          <Save> - <Save>
+        <Apply>
 ```
 
 #13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana<br>
@@ -289,54 +293,54 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
 
 #criação do usuário para a integração com o Grafana Server
 Zabbix
-	Users
-		Users
-			<Create User>
-				User
-					Username: vaamonde
-					Name: Robson Vaamonde
-					Password: pti@2018
-					Password (once again): pti@2018
-				Permission
-					Role: <Select>
-						Super admin role
-			<Add>
+  Users
+    Users
+      <Create User>
+        User
+          Username: vaamonde
+          Name: Robson Vaamonde
+          Password: pti@2018
+          Password (once again): pti@2018
+        Permission
+          Role: <Select>
+            Super admin role
+      <Add>
 
 #habilitando o Plugin do Zabbix Server no Grafana Server
 Open Menu
-	Administration
-		Plugins and data
-			Plugins
-				Search: Zabbix (clicar)
-				<Enabled>
+  Administration
+    Plugins and data
+      Plugins
+        Search: Zabbix (clicar)
+        <Enabled>
 
 #criando o Data Source da Zabbix Server
 Open Menu
-	Connections
-		Data sources
-			<+ Add new data source>
-				Filter: Zabbix (select)
-					Name: wsvaamonde
-					Connection: http://172.16.1.20/zabbix/api_jsonrpc.php
-					Zabbix Connection
-						Auth type: User and password
-						Username: vaamonde
-						Password: pti@2018
-			<Save and test>
+  Connections
+    Data sources
+      <+ Add new data source>
+        Filter: Zabbix (select)
+          Name: wsvaamonde
+          Connection: http://172.16.1.20/zabbix/api_jsonrpc.php
+          Zabbix Connection
+            Auth type: User and password
+            Username: vaamonde
+            Password: pti@2018
+      <Save and test>
 
 #criando o Dashboard padrão do Zabbix Server
 Open Menu
-	New Dashboard
-		<+ Add visualization>
-			Select data source: wsvaamonde (Zabbix Server)
+  New Dashboard
+    <+ Add visualization>
+      Select data source: wsvaamonde (Zabbix Server)
 
-			#gráfico de utilização da CPU
+      #gráfico de utilização da CPU
 
-			#gráfico de utilização da RAM
+      #gráfico de utilização da RAM
 
-			#gráfico de utilização do DISK
+      #gráfico de utilização do DISK
 
-			#gráfico de utilização da NETWORK
+      #gráfico de utilização da NETWORK
 ```
 
 #14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>

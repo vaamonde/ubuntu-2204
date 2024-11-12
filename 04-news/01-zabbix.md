@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.18<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.19<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
 
@@ -74,12 +74,12 @@ software-properties-common git vim fping
 #FOI SELECIONADO: 7.0 LTS, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL
 #e Apache.
 
-#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 02/08/2024)
-wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu22.04_all.deb
+#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 11/11/2024)
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Server
 #opção do comando dpkg: -i (install)
-sudo dpkg -i zabbix-release_7.0*.deb
+sudo dpkg -i zabbix-release_latest*.deb
 ```
 
 #03_ Instalando o Zabbix Server, Frontend e Agent2<br>
@@ -191,38 +191,42 @@ exit
 ```bash
 #editando o arquivo de configuração do Zabbix Server
 sudo vim /etc/zabbix/zabbix_server.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#descomentar e alterar o valor da variável DBHost= na linha: 95
-	DBHost=localhost
+  #descomentar e alterar o valor da variável DBHost= na linha: 95
+  DBHost=localhost
 
-	#deixar o padrão da variável DBName= na linha: 107
-	DBName=zabbix
+  #deixar o padrão da variável DBName= na linha: 107
+  DBName=zabbix
 
-	#deixar o padrão da variável DBUser= na linha: 123
-	DBUser=zabbix
+  #deixar o padrão da variável DBUser= na linha: 123
+  DBUser=zabbix
 
-	#descomentar e alterar o valor da variável DBPassword= na linha: 131
-	DBPassword=zabbix
+  #descomentar e alterar o valor da variável DBPassword= na linha: 131
+  DBPassword=zabbix
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
 #editando o arquivo de configuração do Zabbix Agent2
 sudo vim /etc/zabbix/zabbix_agent2.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#alterar o valor da variável Server= na linha: 80
-	Server=172.16.1.20
+  #alterar o valor da variável Server= na linha: 80
+  Server=172.16.1.20
 
-	#alterar o valor da variável ServerActive= na linha: 133
-	ServerActive=172.16.1.20
+  #alterar o valor da variável ServerActive= na linha: 133
+  ServerActive=172.16.1.20
 
-	#alterar o valor da variável Hostname= na linha: 144
-	Hostname=wsvaamonde
+  #alterar o valor da variável Hostname= na linha: 144
+  Hostname=wsvaamonde
 
-	#descomentar o valor da variável RefreshActiveChecks= na linha 204
-	RefreshActiveChecks=5s
+  #descomentar o valor da variável RefreshActiveChecks= na linha 204
+  RefreshActiveChecks=5s
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -264,28 +268,28 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
 
 #Configuração inicial do Zabbix Server
 Welcome to Zabbix 7.0
-	Default language: English (en_US)
-		<Next step>
-	Check of pre-requisites
-		<Next step>
-	Configure DB connection
-		Database type: MySQL
-		Database host: localhost
-		Database port: 0 (use default port)
-		Database name: zabbix
-		Store credentials in: Plain text
-		User: zabbix
-		Password: zabbix
-		<Next step>
-	Settings
-		Zabbix server name: wsvaamonde
-		Default time zone: (UTC-03:00) America/Sao_Paulo
-		Default theme: Dark
-		<Next step>
-	Pre-installation summary
-		<Next step>
-	Install
-		<Finish>
+  Default language: English (en_US)
+    <Next step>
+  Check of pre-requisites
+    <Next step>
+  Configure DB connection
+    Database type: MySQL
+    Database host: localhost
+    Database port: 0 (use default port)
+    Database name: zabbix
+    Store credentials in: Plain text
+    User: zabbix
+    Password: zabbix
+    <Next step>
+  Settings
+    Zabbix server name: wsvaamonde
+    Default time zone: (UTC-03:00) America/Sao_Paulo
+    Default theme: Dark
+    <Next step>
+  Pre-installation summary
+    <Next step>
+  Install
+    <Finish>
 
 #Acessando o Painel de Gerenciamento do Zabbix Server
 Username: Admin
@@ -337,26 +341,26 @@ exit
 #OBSERVAÇÃO IMPORTANTE: NO DIA 03/06/2024 FOI LANÇADO A VERSÃO 7.0 OFICIAL DO
 #AGENT PARA MICROSOFT WINDOWS.
 
-Windows, Any, amd64, v6.4, OpenSSL, MSI: 7.0.0 (ATUALIZADO NO DIA 02/08/2024)
-https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.2/zabbix_agent2-7.0.2-windows-amd64-openssl.msi
+Windows, Any, amd64, v6.4, OpenSSL, MSI: 7.0.0 (ATUALIZADO NO DIA 11/11/2024)
+https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.5/zabbix_agent2-7.0.5-windows-amd64-openssl.msi
 
 #Instalação Manual do Zabbix Agent 2 para Microsoft
 Pasta de Download
-	Welcome to the Zabbix Agent 2 (64-bit) Setup Wizard <Next>
-	End-User License Agreement
-		(On) I accept the therms in the License Agreement <Next>
-	Custom Setup
-		(On) Zabbix Agent 2 (64-bit) <Next>
-	Zabbix Agent service configuration
-		Host name: windows10
-		Zabbix server IP/DNS: 172.16.1.20
-		Agent listen port: 10050
-		Server or Proxy for active checks: 172.16.1.20
-		(Off) Enable PSK
-		(On) Add agent location to the PATH <Next>
-	Ready to install Zabbix Agent 2 (64-bit) <Install>
-		Zabbix Agent 2 MSI package (64)-bit <Sim>
-	Completed the Zabbix Agent 2 (64-bit) <Finish>
+  Welcome to the Zabbix Agent 2 (64-bit) Setup Wizard <Next>
+  End-User License Agreement
+    (On) I accept the therms in the License Agreement <Next>
+  Custom Setup
+    (On) Zabbix Agent 2 (64-bit) <Next>
+  Zabbix Agent service configuration
+    Host name: windows10
+    Zabbix server IP/DNS: 172.16.1.20
+    Agent listen port: 10050
+    Server or Proxy for active checks: 172.16.1.20
+    (Off) Enable PSK
+    (On) Add agent location to the PATH <Next>
+  Ready to install Zabbix Agent 2 (64-bit) <Install>
+    Zabbix Agent 2 MSI package (64)-bit <Sim>
+  Completed the Zabbix Agent 2 (64-bit) <Finish>
 
 #Verificação da instalação do Zabbix Agent 2 no Powershell
 #opção do comando netstat: -a (All connections), -n (addresses and port numbers)
@@ -372,12 +376,12 @@ C:\Program Files\Zabbix Agent 2\
 #Link de referência do download: https://www.zabbix.com/br/download
 
 #SELECIONAR: 7.0 LTS, Ubuntu, 22.04 (Jammy), Agent 2
-#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 02/08/2024)
-wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-2+ubuntu22.04_all.deb
+#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 11/11/2024)
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Server
 #opção do comando dpkg: -i (install)
-sudo dpkg -i zabbix-release_7.0*.deb
+sudo dpkg -i zabbix-release_latest*.deb
 
 #atualizando as lista do Apt com o novo repositório do Zabbix Agent2
 sudo apt update
@@ -392,19 +396,21 @@ sudo apt install --install-recommends zabbix-agent2 zabbix-agent2-plugin-*
 
 #editando o arquivo de configuração do Zabbix Agent2
 sudo vim /etc/zabbix/zabbix_agent2.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#alterar o valor da variável Server= na linha: 80
-	Server=172.16.1.20
+  #alterar o valor da variável Server= na linha: 80
+  Server=172.16.1.20
 
-	#alterar o valor da variável ServerActive= na linha: 133
-	ServerActive=172.16.1.20
+  #alterar o valor da variável ServerActive= na linha: 133
+  ServerActive=172.16.1.20
 
-	#alterar o valor da variável Hostname= na linha: 144
-	Hostname=linuxmint213
-	
-	#descomentar o valor da variável RefreshActiveChecks= na linha 204
-	RefreshActiveChecks=5s
+  #alterar o valor da variável Hostname= na linha: 144
+  Hostname=linuxmint213
+
+  #descomentar o valor da variável RefreshActiveChecks= na linha 204
+  RefreshActiveChecks=5s
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -425,48 +431,48 @@ sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
 ```bash
 #Criação dos Host GNU/Linux e Microsoft Windows no Zabbix Server
 Data collection
-	Hosts
-		<Create host>
-			Host
-				Host name: linuxmint213
-				Visible name: linuxmint213
-				Templates: <Select>
-					Template group: <Select>
-						Templates/Operating systems
-						Linux by Zabbix agent <Select>
-				Host groups: <select>
-					Discovered hosts <Select>
-				Interfaces: Add:
-					Agent: 
-						DNS name: 172.16.1.110
-						Connect to: IP
-						Port: 10050
-				Description: Desktop Linux Mint 21.3
-				Monitored by proxy: (no proxy)
-				Enable: On
-			<Add>
+  Hosts
+    <Create host>
+      Host
+        Host name: linuxmint213
+        Visible name: linuxmint213
+        Templates: <Select>
+          Template group: <Select>
+            Templates/Operating systems
+            Linux by Zabbix agent <Select>
+        Host groups: <select>
+          Discovered hosts <Select>
+        Interfaces: Add:
+          Agent: 
+            DNS name: 172.16.1.110
+            Connect to: IP
+            Port: 10050
+        Description: Desktop Linux Mint 21.3
+        Monitored by proxy: (no proxy)
+        Enable: On
+      <Add>
 
 Data collection
-	Hosts
-		<Create host>
-			Host
-				Host name: windows10
-				Visible name: windows10
-				Templates: <Select>
-					Template group: <Select>
-						Templates/Operating systems
-						Windows by Zabbix agent <Select>
-				Host groups: <select>
-					Discovered hosts <Select>
-				Interfaces: Add:
-					Agent: 
-						DNS name: 172.16.1.193
-						Connect to: IP
-						Port: 10050
-				Description: Desktop Microsoft Windows 10
-				Monitored by proxy: (no proxy)
-				Enable: On
-			<Add>
+  Hosts
+    <Create host>
+      Host
+        Host name: windows10
+        Visible name: windows10
+        Templates: <Select>
+          Template group: <Select>
+            Templates/Operating systems
+            Windows by Zabbix agent <Select>
+        Host groups: <select>
+          Discovered hosts <Select>
+        Interfaces: Add:
+          Agent: 
+            DNS name: 172.16.1.193
+            Connect to: IP
+            Port: 10050
+        Description: Desktop Microsoft Windows 10
+        Monitored by proxy: (no proxy)
+        Enable: On
+      <Add>
 ```
 
 #16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>

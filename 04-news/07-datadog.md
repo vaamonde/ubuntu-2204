@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 26/09/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.08<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
 
@@ -66,7 +66,7 @@ Please Confirm Your Email
 #de serviços de rede a serem monitorados, esses recursos podem ser configurados
 #depois.
 Tell us about your stack
-	<Next>
+  <Next>
 
 #OBSERVAÇÃO IMPORTANTE: Para você prosseguir e necessário fazer a instalação do
 #Agent do Datadog copiando as informações de como instalar no GNU/Linux, sendo a

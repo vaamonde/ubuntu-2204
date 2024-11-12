@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 23/08/2024<br>
-#Versão: 0.16<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.17<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
 
@@ -48,8 +48,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 #DO OPENSSH SERVER, ESSE APLICATIVO JÁ FOI INSTALADA E CONFIGURADO NA ETAPA: 01 
 #DO OPENSSH.
 
-#instalando as dependências do VSCode no Linux Mint
+#atualizando as listas do Apt
 sudo apt update
+
+#instalando as dependências do VSCode no Linux Mint
 sudo apt install vim git python2 python3 cloc
 ```
 
@@ -80,6 +82,8 @@ vscode
 ```bash
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash

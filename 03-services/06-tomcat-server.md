@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 28/08/2024<br>
-#Versão: 0.23<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.24<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
 
@@ -234,6 +234,8 @@ exit
 ```bash
 #editando o arquivo de criação de usuários do Tomcat
 sudo vim /opt/tomcat/conf/tomcat-users.xml
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```xml
@@ -261,8 +263,8 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 #15_ Administrando o Apache Tomcat Server<br>
 ```bash
 Clique em: Manager App
-	Usuário padrão: admin
-	Senha padrão..: pti@2018
+  Usuário padrão: admin
+  Senha padrão..: pti@2018
 <Fazer Login>
 ```
 

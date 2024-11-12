@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 11/11/2024<br>
+#Versão: 0.11<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
 
@@ -153,29 +153,29 @@ exit
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8086
 
 Welcome to InfluxDB
-	<GET STARTED>
-		Username: vaamonde
-		Password: pti@2018
-		Confirm Password: pti@2018
-		Initial Organization Name: boraparapratica
-		Initial Bucket Name: pti
-	<CONTINUE>
+  <GET STARTED>
+    Username: vaamonde
+    Password: pti@2018
+    Confirm Password: pti@2018
+    Initial Organization Name: boraparapratica
+    Initial Bucket Name: pti
+  <CONTINUE>
 
 You are ready to go!
-	API Token now
-		<COPY TO CLIPBOARD>
-		#OBSERVAÇÃO: Copiar a salvar o primeiro Token criado pelo InfluxDB2
-	<CONFIGURE LATER>
+  API Token now
+    <COPY TO CLIPBOARD>
+    #OBSERVAÇÃO: Copiar a salvar o primeiro Token criado pelo InfluxDB2
+  <CONFIGURE LATER>
 ```
 
 #10_ Criando o Token de Integração do Telegraf com o InfluxDB<br>
 ```bash
 Load Data
-	API Tokens
-		<GENERATE API TOKEN>
-			All Access API Token
-				Description: telegraf
-		<SAVE>
+  API Tokens
+    <GENERATE API TOKEN>
+      All Access API Token
+        Description: telegraf
+    <SAVE>
 
 #OBSERVAÇÃO IMPORTANTE: COPIAR O TOKEN GERADO PARA ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO
 #DO TELEGRAF, ELE TAMBÉM SERÁ UTILIZADO NA INTEGRAÇÃO COM O GRAFANA: <COPY TO CLIPBOARD>
@@ -185,31 +185,33 @@ Load Data
 ```bash
 #editando o arquivo de configuração do Telegraf
 sudo vim /etc/telegraf/telegraf.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
 
-	#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
-	#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+  #OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+  #OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
 
-	#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
-	[[outputs.influxdb_v2]]
+  #descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+  [[outputs.influxdb_v2]]
 
-	#descomentar e alterar a variável: urls na linha: 350
-	urls = ["http://172.16.1.20:8086"]
+  #descomentar e alterar a variável: urls na linha: 350
+  urls = ["http://172.16.1.20:8086"]
 
-	#descomentar e colar o Token na variável: token na linha: 353
-	token = "COLAR_SEU_TOKEN"
+  #descomentar e colar o Token na variável: token na linha: 353
+  token = "COLAR_SEU_TOKEN"
 
-	#descomentar e alterar o variável: organization na linha: 356
-	organization = "boraparapratica"
+  #descomentar e alterar o variável: organization na linha: 356
+  organization = "boraparapratica"
 
-	#descomentar e alterar a variável: bucket na linha: 359
-	bucket = "pti"
+  #descomentar e alterar a variável: bucket na linha: 359
+  bucket = "pti"
 
-	#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
-	#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
-	
-	#configurações do Input Plugins a partir da linha: 4374
-	#métricas de Hardware da linha: 4379 até a linha: 4465
+  #OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+  #EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
+
+  #configurações do Input Plugins a partir da linha: 4374
+  #métricas de Hardware da linha: 4379 até a linha: 4465
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -244,34 +246,34 @@ sudo telegraf --version
 #14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
 ```bash
 Data Explorer
-	Graph: Gauge
-	Date Time: Local
-	Query 1:
-		From: pti
-		Filter: CPU: cpu-total
-		Filter: _field (campo): usage_system
-		Filter: _measurement: cpu
-		Filter: host: wsvaamonde.pti.intra
+  Graph: Gauge
+  Date Time: Local
+  Query 1:
+    From: pti
+    Filter: CPU: cpu-total
+    Filter: _field (campo): usage_system
+    Filter: _measurement: cpu
+    Filter: host: wsvaamonde.pti.intra
 <SUBMIT>
 
 #salvando o seu primeiro Dashboard
 <SAVE AS>
-	Save As
-		Dashboard Cell
-			Target Dashboard(s): Name this Dashboard
-			New Dashboard Name: Dashboard Telegraf
-			Cell Name: Uso CPU System
-	<SAVE AS DASHBOARD CELL>
+  Save As
+    Dashboard Cell
+      Target Dashboard(s): Name this Dashboard
+      New Dashboard Name: Dashboard Telegraf
+      Cell Name: Uso CPU System
+  <SAVE AS DASHBOARD CELL>
 
 #atualizando o Dashboard
 <SET AUTO REFRESH>
-	Configure Auto Refresh
-		Refresh Dashboards Until
-			<CUSTOM>
-		Refresh Interval
-			How often your dashboards will refresh: 10S
-		Inactivity Timeout
-			When your dashboards refresh will timeout: 1 Hours
+  Configure Auto Refresh
+    Refresh Dashboards Until
+      <CUSTOM>
+    Refresh Interval
+      How often your dashboards will refresh: 10S
+    Inactivity Timeout
+      When your dashboards refresh will timeout: 1 Hours
 <CONFIRM> 
 ```
 
@@ -280,39 +282,39 @@ Data Explorer
 #OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
 #Link de referência do download: https://github.com/influxdata/telegraf/releases
 
-#link para download direto do Telegraf (link atualizado em: 12/08/2024)
-https://dl.influxdata.com/telegraf/releases/telegraf-1.31.3_windows_amd64.zip
+#link para download direto do Telegraf (link atualizado em: 11/11/2024)
+https://dl.influxdata.com/telegraf/releases/telegraf-1.32.2_windows_amd64.zip
 
 #descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download
-	Botão direito do mouse sobre o arquivo: telegraf*.zip
-	Selecionar: Extrair Tudo
-		DEIXAR O PADRÃO: <EXTRAIR>
+  Botão direito do mouse sobre o arquivo: telegraf*.zip
+  Selecionar: Extrair Tudo
+    DEIXAR O PADRÃO: <EXTRAIR>
 
 #acessar o diretório criado e renomear a pasta do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download
-	telegraf-*_windows_amd64
-		Botão direito do mouse em cimado do diretório: telegraf-*
-		Selecionar a opção: Renomear (OU PRESSIONAR F2)
-		Renomear para: telegraf <ENTER>
+  telegraf-*_windows_amd64
+    Botão direito do mouse em cimado do diretório: telegraf-*
+    Selecionar a opção: Renomear (OU PRESSIONAR F2)
+    Renomear para: telegraf <ENTER>
 
 #copiar o diretório Telegraf para o diretório de Arquivos de Programas (NÃO COMENTADO NO VÍDEO)
 Pasta de Download
-	telegraf-*_windows_amd64
-		Botão direito do mouse em cimado do diretório: telegraf
-		Selecionar a opção: Copiar (OU CTRL + C)
+  telegraf-*_windows_amd64
+    Botão direito do mouse em cimado do diretório: telegraf
+    Selecionar a opção: Copiar (OU CTRL + C)
 
 C:\Arquivos de Programas
-	Botão direito do mouse e selecionar: Colar (OU CTRL + V)
-		<CONTINUAR>
+  Botão direito do mouse e selecionar: Colar (OU CTRL + V)
+    <CONTINUAR>
 
 #OBSERVAÇÃO IMPORTANTE: fazer a configuração e instalação do Telegraf utilizando o 
 #Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
 
 Menu
-	Powershell 
-		Clicar com o botão direito do mouse e selecionar: Executar como Administrador
-		<SIM>
+  Powershell 
+    Clicar com o botão direito do mouse e selecionar: Executar como Administrador
+    <SIM>
 
 #acessando o diretório do Telegraf (NÃO COMENTADO NO VÍDEO)
 cd 'C:\Program Files\telegraf\'
@@ -320,34 +322,34 @@ cd 'C:\Program Files\telegraf\'
 #editando o arquivo de configuração do Telegraf (NÃO COMENTADO NO VÍDEO)
 notepad.exe .\telegraf.conf
 
-	#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
-	#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+  #OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+  #OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
 
-	#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
-	[[outputs.influxdb_v2]]
+  #descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+  [[outputs.influxdb_v2]]
 
-	#descomentar e alterar a variável: urls na linha: 350
-	urls = ["http://172.16.1.20:8086"]
+  #descomentar e alterar a variável: urls na linha: 350
+  urls = ["http://172.16.1.20:8086"]
 
-	#descomentar e colar o Token na variável: token na linha: 353
-	token = "COLAR_SEU_TOKEN"
+  #descomentar e colar o Token na variável: token na linha: 353
+  token = "COLAR_SEU_TOKEN"
 
-	#descomentar e alterar o variável: organization na linha: 356
-	organization = "boraparapratica"
+  #descomentar e alterar o variável: organization na linha: 356
+  organization = "boraparapratica"
 
-	#descomentar e alterar a variável: bucket na linha: 359
-	bucket = "pti"
+  #descomentar e alterar a variável: bucket na linha: 359
+  bucket = "pti"
 
-	#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
-	#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
-	
-	#configurações do Input Plugins a partir da linha: 4374
-	#métricas de Hardware da linha: 4379 até a linha: 4465	
+  #OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+  #EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
+
+  #configurações do Input Plugins a partir da linha: 4374
+  #métricas de Hardware da linha: 4379 até a linha: 4465	
 
 #salvar e sair do arquivo
 Arquivo
-	Salvar (CTRL+S)
-	Sair
+  Salvar (CTRL+S)
+  Sair
 
 #testando as configurações do Telegraf (NÃO COMENTADO NO VÍDEO)
 .\telegraf.exe --test
@@ -406,29 +408,29 @@ sudo usermod -a -G telegraf $USER
 sudo vim /etc/telegraf/telegraf.conf
 INSERT
 
-	#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
-	#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+  #OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+  #OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
 
-	#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
-	[[outputs.influxdb_v2]]
+  #descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+  [[outputs.influxdb_v2]]
 
-	#descomentar e alterar a variável: urls na linha: 350
-	urls = ["http://172.16.1.20:8086"]
+  #descomentar e alterar a variável: urls na linha: 350
+  urls = ["http://172.16.1.20:8086"]
 
-	#descomentar e colar o Token na variável: token na linha: 353
-	token = "COLAR_SEU_TOKEN"
+  #descomentar e colar o Token na variável: token na linha: 353
+  token = "COLAR_SEU_TOKEN"
 
-	#descomentar e alterar o variável: organization na linha: 356
-	organization = "boraparapratica"
+  #descomentar e alterar o variável: organization na linha: 356
+  organization = "boraparapratica"
 
-	#descomentar e alterar a variável: bucket na linha: 359
-	bucket = "pti"
+  #descomentar e alterar a variável: bucket na linha: 359
+  bucket = "pti"
 
-	#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
-	#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
-	
-	#configurações do Input Plugins a partir da linha: 4374
-	#métricas de Hardware da linha: 4379 até a linha: 4465
+  #OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+  #EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
+
+  #configurações do Input Plugins a partir da linha: 4374
+  #métricas de Hardware da linha: 4379 até a linha: 4465
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -455,39 +457,39 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
 #criando um Data Sources do InfluxDB2 (NÃO COMENTADO NO VÍDEO)
 Open Menu
-	Connections
-		Data Sources
-			<Add data source>
-				Filter by name or type: InfluxDB
-					Name: InfluxDB2-wsvaamonde
-					Query language: InfluxQL
-					HTTP
-						URL: http://172.16.1.20:8086
-					Auth
-						Basic auth: DISABLE
-					InfluxDB Details
-						Organization: boraparapratica
-						Token: COLAR_SEU_TOKEN
-						Default Bucket: pti
-			<Save & Test>
+  Connections
+    Data Sources
+      <Add data source>
+        Filter by name or type: InfluxDB
+          Name: InfluxDB2-wsvaamonde
+          Query language: InfluxQL
+          HTTP
+            URL: http://172.16.1.20:8086
+          Auth
+            Basic auth: DISABLE
+          InfluxDB Details
+            Organization: boraparapratica
+            Token: COLAR_SEU_TOKEN
+            Default Bucket: pti
+      <Save & Test>
 
 #acessando o InfluxDB2 para gerar o Filtro de integração com o Grafana (NÃO COMENTADO NO VÍDEO)
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8086
 
 Data Explorer
-	Graph: Gauge
-	Date Time: Local
-	Query 1:
-		From: pti
-		Filter: CPU: cpu-total
-		Filter: _field (campo): usage_system e usage_user
-		Filter: _measurement (medição): cpu
-		Filter: host (computador): wsvaamonde.pti.intra
+  Graph: Gauge
+  Date Time: Local
+  Query 1:
+    From: pti
+    Filter: CPU: cpu-total
+    Filter: _field (campo): usage_system e usage_user
+    Filter: _measurement (medição): cpu
+    Filter: host (computador): wsvaamonde.pti.intra
 <SUBMIT>
 
 #copiando o script do Filtro do InfluxDB2
 <SCRIPT EDITOR>
-	Query1: SELECIONAR TODO O CONTEÚDO E PRESSIONAR: CTRL+C
+  Query1: SELECIONAR TODO O CONTEÚDO E PRESSIONAR: CTRL+C
 ```
 ```sql
 from(bucket: "pti")
@@ -502,23 +504,23 @@ from(bucket: "pti")
 ```bash
 #criando o Dashboard do InfluxDB2 (NÃO COMENTADO NO VÍDEO)
 Open Menu
-	Dashboards
-		<Create Dashboard>
-		<+ Add visualization>
-			Select data source
-				Data source: InfluxDB2-wsvaamonde
-					QUERY: COLOCAR O SCRIPT GERADO PELO INFLUXDB2
-				<Query inspector>
-			<Change Visualization>
-				Suggestions: Gauge
-					Panel options
-						Title: Uso Total da CPU (System e User)
-						Description: Utilização Total da CPU do Sistema e Usuário
-					Standard options
-						Unit: Percent (0-100)
-						Min: 0
-						Max: 100
-		<Apply>
+  Dashboards
+    <Create Dashboard>
+    <+ Add visualization>
+      Select data source
+        Data source: InfluxDB2-wsvaamonde
+          QUERY: COLOCAR O SCRIPT GERADO PELO INFLUXDB2
+        <Query inspector>
+      <Change Visualization>
+        Suggestions: Gauge
+          Panel options
+            Title: Uso Total da CPU (System e User)
+            Description: Utilização Total da CPU do Sistema e Usuário
+          Standard options
+            Unit: Percent (0-100)
+            Min: 0
+            Max: 100
+    <Apply>
 ```
 
 #17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
