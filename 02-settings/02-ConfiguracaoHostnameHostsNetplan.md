@@ -120,10 +120,11 @@ ls -lh /etc/netplan/
 
 #fazendo o backup do arquivo de configuração original do Netplan
 #opção do comando cp: -v (verbose)
-sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
+#sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
+sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
 #editando o arquivo de configuração do Netplan
-sudo vim /etc/netplan/00-installer-config.yaml
+sudo vim /etc/netplan/50-cloud-init.yaml
 
 #entrando no modo de edição do editor de texto VIM
 INSERT

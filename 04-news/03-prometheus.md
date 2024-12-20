@@ -83,8 +83,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 #alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 #versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-#download do Prometheus do Github (Link atualizado no dia 11/11/2024)
-wget https://github.com/prometheus/prometheus/releases/download/v2.55.1/prometheus-2.55.1.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 20/12/2024)
+wget https://github.com/prometheus/prometheus/releases/download/v3.0.1/prometheus-3.0.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)

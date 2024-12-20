@@ -282,8 +282,8 @@ Data Explorer
 #OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
 #Link de referência do download: https://github.com/influxdata/telegraf/releases
 
-#link para download direto do Telegraf (link atualizado em: 11/11/2024)
-https://dl.influxdata.com/telegraf/releases/telegraf-1.32.2_windows_amd64.zip
+#link para download direto do Telegraf (link atualizado em: 20/12/2024)
+https://dl.influxdata.com/telegraf/releases/telegraf-1.33.0_windows_amd64.zip
 
 #descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download

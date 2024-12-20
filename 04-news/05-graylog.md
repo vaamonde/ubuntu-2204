@@ -199,8 +199,8 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 
 #10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
 ```bash
-#baixando o repositório do Graylog Server (Link atualizado no dia 11/11/2024)
-wget https://packages.graylog2.org/repo/packages/graylog-6.0-repository_latest.deb
+#baixando o repositório do Graylog Server (Link atualizado no dia 20/12/2024)
+wget https://packages.graylog2.org/repo/packages/graylog-6.1-repository_latest.deb
 
 #instalando o repositório do Graylog
 #opção do comando dpkg: -i (install)

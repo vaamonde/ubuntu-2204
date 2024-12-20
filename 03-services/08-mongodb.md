@@ -71,20 +71,20 @@ sudo dpkg -i libssl*.deb
 
 #02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 ```bash
-#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 7.0 EM: 06/04/2024)
+#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 20/12/2024)
 #Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
 #OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as chaves GPG 
 #de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-7.0.gpg
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
 ```
 
 #03_ Criando o repositório do MongoDB Server<br>
 ```bash
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
 #04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>

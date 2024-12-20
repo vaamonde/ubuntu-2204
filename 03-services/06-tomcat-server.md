@@ -87,11 +87,11 @@ sudo update-java-alternatives --list
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 07/08/2024)
+#download da última versão do Apache TomCAT Server (link atualizado em 20/12/2024)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.28/bin/apache-tomcat-10.1.28.tar.gz
+wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.34/bin/apache-tomcat-10.1.34.tar.gz
 ```
 
 #04_ Descompactando e instalando o Apache Tomcat 10.1.x<br>
