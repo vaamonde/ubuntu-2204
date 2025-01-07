@@ -62,9 +62,12 @@ sudo systemctl restart mysql
 sudo systemctl stop mysql
 sudo systemctl start mysql
 
-#verificando as versões do MySQL Server e Client
-sudo mysqld --version
-sudo mysql --version
+#verificando as versões do MySQL Server e do MySQL Client
+#opção do comando mysqld: --version (check version daemon service)
+mysqld --version
+
+#opção do comando mysqld: --version (check version client)
+mysql --version
 ```
 
 #03_ Verificando a Porta de Conexão do MySQL Server<br>

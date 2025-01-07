@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 07/12/2025<br>
+#Versão: 0.20<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
 
@@ -56,18 +56,34 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 sudo apt update
 
 #instalando as dependências do Apache2 Server
-sudo apt install git vim perl python2 python3 unzip ghostscript zlib1g zlib1g-dev apt-transport-https
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
+zlib1g-dev apt-transport-https
 
 #OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
 #NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
 #VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: 8.1 (ATUALIZADO EM: 26/09/2024).
 
+#OBSERVAÇÃO IMPORTANTE: FOI ADICIONAR MAIS DEPENDÊNCIAS DOS PACOTES DO PHP, CONFORME VÁRIOS RELATOS
+#NO GITHUB E NO CANAL DO YOUTUBE, AS DEPENDÊNCIAS DO WORDPRESS E DO GLPI HELP DESK FORAM ADICIONADAS
+#NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS
+#AINDA CONTINUA AS DEPENDÊNCIAS.
+
 #instalando o Apache2 Server e PHP 8.x
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common \
-php-mysql php-opcache php-readline php-common php-bcmath php-curl php-intl php-mbstring \
-php-xml php-zip php-soap php-imagick php-json libapache2-mod-php libapr1 libaprutil1-ldap \
-libapache2-mod-php libaprutil1 libaprutil1-dbd-sqlite3
+php-mysql php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip \
+php-soap php-imagick php-json libapache2-mod-php libapr1 libaprutil1-ldap libaprutil1 \
+libaprutil1-dbd-sqlite3 php-dev php-pear libmcrypt-dev php-gd php-imap php-memcache \
+php-pspell php-tidy php-xmlrpc php-ldap php-cas php-apcu xmlrpc-api-utils php-bz2
+
+#habilitando os módulos do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex \
+negotiation setenvif
+
+#reiniciar o serviço do Apache2 Server
+sudo systemctl restart apache2
 ```
 
 #02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
@@ -85,8 +101,9 @@ sudo journalctl -xeu apache2
 
 #verificando as versões do Apache2 Server e do PHP
 #opção do comando apache2ctl: -V (version)
-#opção do comando php: -v (version)
 sudo apache2ctl -V
+
+#opção do comando php: -v (version)
 sudo php -v
 ```
 

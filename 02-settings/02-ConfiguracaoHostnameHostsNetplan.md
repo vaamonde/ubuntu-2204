@@ -107,7 +107,7 @@ sudo resolvectl
 #OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
 #/etc/netplan/00-installer-config.yaml e o Padrão do Ubuntu Server 22.04.x LTS, 
 #no Ubuntu Server 24.04.x LTS tem o nome: /etc/netplan/50-cloud-init.yaml, sempre 
-#digita o comando: ls -lh /etc/netplan antes de editar o arquivo Netplan.
+#digitar o comando: ls -lh /etc/netplan antes de editar o arquivo Netplan.
 
 #OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
 #de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 07/12/2025<br>
+#Versão: 0.09<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
 
@@ -222,7 +222,27 @@ session.cookie_httponly = on
 
 #alterar o valor da variável: session.cookie_samesite na linha: 1409
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
-session.cookie_samesite = on
+session.cookie_samesite = Lax
+
+#descomentar e alterar o valor da variável: opcache.enable na linha: 1767
+#habilitando o suporte ao Zend OpCache
+#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
+opcache.enable = 1
+
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1773
+#Máximo de memória que poderá ser utilizado pelo opcache
+#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
+opcache.memory_consumption = 1024
+
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1780
+#Define a quantidade máximas de arquivos PHP que poderão ser salvos no Cache.
+#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
+opcache.max_accelerated_files = 20000
+
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1795
+#Define com que frequência, em segundos, os arquivos em cache deverão expirar
+#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
+opcache.revalidate_freq = 0
 ```
 ```bash
 #salvar e sair do arquivo
