@@ -184,6 +184,9 @@ sudo journalctl -xeu tomcat10
 
 #verificando a versão do Apache Tomcat Server
 sudo bash /opt/tomcat/bin/version.sh
+
+#verificando os arquivos de configuração do Apache Tomcat Server (NÃO COMENTADO NO VÍDEO)
+sudo bash /opt/tomcat/bin/configtest.sh
 ```
 
 #10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x<br>
@@ -248,6 +251,9 @@ INSERT
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
+
+#verificando os arquivos de configuração do Apache Tomcat Server (NÃO COMENTADO NO VÍDEO)
+sudo bash /opt/tomcat/bin/configtest.sh
 
 #reiniciando e verificando o serviço do Apache Tomcat Server
 sudo systemctl restart tomcat10

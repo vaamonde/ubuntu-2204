@@ -71,7 +71,7 @@ sudo timedatectl
 
 #OBSERVAÇÃO IMPORTANTE: no sistema operacional Ubuntu Server temos basicamente 03 (três)
 #configurações de hora (time): Local time (Hora Local), Universal time (Hora Universal)
-#e RTC (Real-time clock) time (Relógio de Tempo Real - BIOS).
+#e RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
 ```
 
 #04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server<br>

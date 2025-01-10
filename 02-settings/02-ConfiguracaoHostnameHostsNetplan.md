@@ -59,6 +59,14 @@ INSERT
 127.0.0.1    localhost.pti.intra    localhost
 127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
 172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
+
+#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
 ```
 ```bash
 #salvar e sair do arquivo
@@ -68,13 +76,15 @@ ESC SHIFT : x <Enter>
 #03_ Instalando os principais software de rede no Ubuntu Server<br>
 ```bash
 #atualizando as lista do sources.list
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando os pacotes e ferramentas de rede
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install bridge-utils ifenslave net-tools
 ```
 
-#04_ Verificando informações do Hardware de Rede no Ubuntu Server<br>
+#04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
 ```bash
 #verificando os dispositivos PCI de Placa de Rede instalados
 #opções do comando lspci: -v (verbose), -s (show)
@@ -90,11 +100,13 @@ sudo lshw -class network
 ```bash
 #verificando as configurações de endereçamento IP da Placa de Rede instalada
 #opção do comando ifconfig: -a (all)
+#opções do comando ip: address (Protocol (IP or IPv6) address on a device)
 sudo ifconfig -a
 sudo ip address show
 
 #verificando as configurações de Gateway (route)
 #opção do comando route: -n (number)
+#opções do comando ip: route (Routing table entry)
 sudo route -n
 sudo ip route
 
@@ -120,6 +132,8 @@ ls -lh /etc/netplan/
 
 #fazendo o backup do arquivo de configuração original do Netplan
 #opção do comando cp: -v (verbose)
+#OBSERVAÇÃO IMPORTANTE: ARQUIVO ANTIGO DA VERSÃO 22.04, A PARTIR DA VERSÃO
+#22.04.3 O NOME DO ARQUIVO MUDOU PARA: 50-cloud-init.yaml
 #sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
 sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
@@ -136,9 +150,9 @@ network:
   ethernets:
     #configuração da Interface Física (Nome Lógico comando lshw)
     enp0s3:
-      #desabilitando o suporte ao DHCP Client
+      #desabilitando o suporte ao DHCP Client IPv4
       dhcp4: false
-      #desativando o suporte ao IPv6
+      #desativando o suporte da configuração automática do IPv6
       #OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
       #na sua rede o recurso do IPv6
       link-local: []
@@ -159,7 +173,7 @@ network:
         #alterar os servidores DNS para o seu cenário
         #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
         #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou 
-        #somente o endereço do Servidor de DNS Local d Rede.
+        #somente o endereço do Servidor de DNS Local da Rede.
         addresses: [8.8.8.8, 8.8.4.4]
         #alterar a pesquisa de domínio para o seu cenário
         #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes

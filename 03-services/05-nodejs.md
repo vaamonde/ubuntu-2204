@@ -76,13 +76,13 @@ build-essential ca-certificates
 #opção da contra barra (\): criar uma quebra de linha no terminal
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
 
-#Adicionando o Repositório do Node.JS no Ubuntu Server
+#Adicionando o Repositório do Node.JS no Ubuntu Server (link atualizado em 10/01/2025)
 #OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
 #Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
 #no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção da contra barra (\): criar uma quebra de linha no terminal
-echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 ```
 
 #03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
@@ -153,12 +153,12 @@ var app = express();
 
 // Mensagem que será mostrada no browser (navegador) 
 app.get('/', function (req, res) {
-	res.send('Seu Nome e Sobrenome #BoraParaPrática!!!');
+  res.send('Seu Nome e Sobrenome #BoraParaPrática!!!');
 });
 
 // Porta padrão utilizada pela aplicação do Node.JS
 app.listen(3000, function() {
-	console.log('Aplicativo de exemplo ouvindo na porta 3000');
+  console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });
 ```
 ```bash
@@ -219,7 +219,7 @@ kill -9 15939
 
 **#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ E ADICIONAR MAIS ALGUM RECURSO DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), ADICIONAR 01 (UMA) IMAGEM E FAZER O HYPER LINK PARA O WORDPRESS.
 
-**#11_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO DESAFIO-03 DO WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
+**#12_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO DESAFIO-03 DO WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
 =========================================================================================
 

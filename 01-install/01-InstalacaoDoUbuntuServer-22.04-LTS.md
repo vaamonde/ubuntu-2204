@@ -86,7 +86,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
         Relógio da máquina retorno hora UTC: OFF (Desabilitar)
     Processador
         Recursos Estendidos: Habilitar PAE/NX
-                            Habilitar VT-x/AMD-v Aninhado 
+                             Habilitar VT-x/AMD-v Aninhado 
 
 03) Monitor
     Tela (S)
@@ -174,7 +174,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 10) Storage configuration
     USED DEVICES
-        ubuntu-lv	new, to be formatted as ext4, mounted at /	24G <Enter>
+        ubuntu-lv  new, to be formatted as ext4, mounted at /  24G <Enter>
         Edit <Enter>
             Name: ubuntu-lv
             Size (max 47.996G): 47.996G
@@ -191,7 +191,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
     Your servers name: wsvaamonde <Tab>
     Pick a username: vaamonde <Tab>
     Choose a passwords: pti@2018 <Tab>
-    Confirm your passwords: pti@2018
+    Confirm your passwords: pti@2018 <Tab>
 <Done>
 
 12) Upgrade to Ubuntu Pro

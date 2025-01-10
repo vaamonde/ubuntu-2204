@@ -19,15 +19,14 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/04-wordpre
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado as Dependências do WordPress;<br>
-#02_ Criando a Base de Dados e Usuário no MySQL Server;<br>
-#03_ Baixando o WordPress do Site Oficial;<br>
-#04_ Descompactando e Movendo o conteúdo do Site para o Apache2;<br>
-#05_ Alterando as Permissões de Arquivos e Diretórios do WordPress;<br>
-#06_ Configurando o Arquivo WP-CONFIG.PHP do WordPress;<br>
-#07_ Habilitado os Módulos do Apache2;<br>
-#08_ Acessando o WordPress e fazendo sua Pré-Configuração;<br>
-#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
+#01_ Instalando as Dependências do WordPress<br>
+#02_ Criando a Base de Dados do WordPress no MySQL Server<br>
+#03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
+#04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
+#05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
+#06_ Acessando e configurando o WordPress via navegador<br>
+#07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
+#08_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -213,7 +212,10 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
   Senha: pti@2018
   Lembrar-me: On (Habilitado)
   <Acessar>
+```
 
+#07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
+```bash
 #OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
 #é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos
 #uma falha de JSON (JavaScript Object Notation) na hora de salvar as mudanças no Wordpress.
@@ -260,13 +262,13 @@ exit
 
 ========================================DESAFIOS=========================================
 
-**#07_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`DUAS IMAGEM`__ EM CADA POSTAGEM.
+**#08_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`DUAS IMAGEM`__ EM CADA POSTAGEM.
 
-**#08_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
+**#09_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
 
-**#09_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS __`ÍCONES DO GITHUB, LINKEDIN E FACEBOOK`__, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO __`APACHE2`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
+**#10_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS __`ÍCONES DO GITHUB, LINKEDIN E FACEBOOK`__, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO __`APACHE2`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
-**#10_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
+**#11_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
 |         Descrição           |     Informação     |
 |-----------------------------|--------------------|

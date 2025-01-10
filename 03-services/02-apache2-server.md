@@ -40,9 +40,15 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-O Servidor HTTP (Hypertext Transfer Protocol) Apache ou Servidor Apache ou HTTP Daemon Apache ou somente Apache, é o servidor web livre criado em 1995 por um grupo de desenvolvedores da NCSA, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
+O Servidor HTTP (Hypertext Transfer Protocol) Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em 1995 por um grupo de desenvolvedores da NCSA (National Center for Supercomputing Applications), tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
+
+HTTP (Hyper Text Transfer Protocol) é um padrão de mensagens que permite a comunicação entre navegadores e servidores web. Ele é a base da internet e é usado para transferir dados, como o conteúdo de sites e chamadas de API (Application Programming Interface), utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 80.
+
+HTTPS (Hyper Text Transfer Protocol Secure) é uma versão segura do protocolo HTTP. Ele é usado para criptografar a comunicação entre um site e um navegador web, utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 443.
 
 HTML (Hypertext Markup Language) é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML. HyTime é um padrão para a representação estruturada de hipermídia e conteúdo baseado em tempo.
+
+CSS (Cascading Style Sheets) é um mecanismo para adicionar estilos (cores, fontes, espaçamento, etc.) a uma página web aplicado diretamente nas tags HTML ou ficar contido dentro dessas tags. Também é possível, adicionar estilos adicionando um link para um arquivo CSS que contém os estilos.
 
 PHP (Hypertext Preprocessor, originalmente Personal Home Page) é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na World Wide Web.
 
@@ -71,11 +77,11 @@ zlib1g-dev apt-transport-https
 
 #instalando o Apache2 Server e PHP 8.x
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common \
-php-mysql php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip \
-php-soap php-imagick php-json libapache2-mod-php libapr1 libaprutil1-ldap libaprutil1 \
-libaprutil1-dbd-sqlite3 php-dev php-pear libmcrypt-dev php-gd php-imap php-memcache \
-php-pspell php-tidy php-xmlrpc php-ldap php-cas php-apcu xmlrpc-api-utils php-bz2
+sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \
+php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \
+php-imagick libapache2-mod-php libapr1 libaprutil1-ldap libaprutil1 libaprutil1-dbd-sqlite3 php-dev \
+php-pear libmcrypt-dev php-gd php-imap php-memcache php-pspell php-tidy php-xmlrpc php-ldap php-cas \
+php-apcu xmlrpc-api-utils php-bz2
 
 #habilitando os módulos do Apache2 Server (NÃO COMENTADO NO VÍDEO)
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -102,6 +108,10 @@ sudo journalctl -xeu apache2
 #verificando as versões do Apache2 Server e do PHP
 #opção do comando apache2ctl: -V (version)
 sudo apache2ctl -V
+
+#verificando os arquivos de configuração do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando apache2ctl: configtest ( Run  a configuration file syntax test)
+sudo apache2ctl configtest 
 
 #opção do comando php: -v (version)
 sudo php -v
