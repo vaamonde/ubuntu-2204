@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 26/09/2024<br>
-Versão: 0.16<br>
+Data de atualização: 16/01/2025<br>
+Versão: 0.17<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -45,7 +45,7 @@ C) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU
 
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
-01) Ferramentas;	
+01) Ferramentas;
 <Novo>
 
 02) Nome da Máquina Virtual e Sistema Operacional:
@@ -65,7 +65,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
 04) Disco Rígido Virtual:
     Criar um novo disco rígido virtual agora: ON (Selecionar)
-        Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
+      Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
     Pré-alocar Tamanho Total (F): OFF (Desativado) 
 <Próximo>
 
@@ -82,28 +82,28 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
 02) Sistema
     Placa-Mãe
-        Recurso Estendidos
-        Relógio da máquina retorno hora UTC: OFF (Desabilitar)
+      Recurso Estendidos
+      Relógio da máquina retorno hora UTC: OFF (Desabilitar)
     Processador
-        Recursos Estendidos: Habilitar PAE/NX
-                             Habilitar VT-x/AMD-v Aninhado 
+      Recursos Estendidos: Habilitar PAE/NX
+                           Habilitar VT-x/AMD-v Aninhado 
 
 03) Monitor
     Tela (S)
-        Memória de Vídeo: 128MB
-        Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
+      Memória de Vídeo: 128MB
+      Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
 
 04) Áudio
     Habilitar Áudio: OFF (Desabilitar)
 
 05) Rede
     Adaptador 1 (LAN)
-        Habilitar Placa de Rede: ON (Habilitar)
-        Conectado a: Placa em modo Bridge
-        Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
-        #OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
-        #QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
-        #SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
+      Habilitar Placa de Rede: ON (Habilitar)
+      Conectado a: Placa em modo Bridge
+      Nome: Intel(R) Ethernet Connection (Placa de Rede On-Board)
+      #OBSERVAÇÃO: VERIFIQUE QUAL PLACA DE REDE VOCÊ ESTÁ USANDO NO SEU EQUIPAMENTO
+      #QUE ESTÁ CONECTADO NA SUA REDE LOCAL, PODE SER PLACA DE REDE CABEADA OU PLACA
+      #SEM-FIO (RECOMENDO SEMPRE PLACA DE REDE CABEADA, MELHOR DESEMPENHO).
 <OK>
 ```
 
@@ -116,7 +116,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
 02. VirtualBOX VM	
     DVD: <Outro>
-    LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
+      LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
 <Montar e Tentar Novo Boot>
 ```
 
@@ -144,7 +144,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
     (X) Ubuntu Server (DEFAULT - Selecionado)
     ( ) Ubuntu Server (minimized)
     Additional options
-        [ ] Search for third-party drivers
+      [ ] Search for third-party drivers
 <Done>
 
 06) Network connections
@@ -167,20 +167,20 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 09) Guided storage configuration
     (X) Use an entire disk (Default)
-        [VBOX_HARDISK-XXXX local disk 50.000G]
-        (X) Set up this disk as an LVM group (Default)
-            [] Encrypt the LVM group with LUKS (Default - No (Não))
+      [VBOX_HARDISK-XXXX local disk 50.000G]
+      (X) Set up this disk as an LVM group (Default)
+          [] Encrypt the LVM group with LUKS (Default - No (Não))
 <Done>
 
 10) Storage configuration
     USED DEVICES
-        ubuntu-lv  new, to be formatted as ext4, mounted at /  24G <Enter>
-        Edit <Enter>
-            Name: ubuntu-lv
-            Size (max 47.996G): 47.996G
-            Format: ext4
-            Mount: /
-        <Save>
+      ubuntu-lv  new, to be formatted as ext4, mounted at /  24G <Enter>
+      Edit <Enter>
+          Name: ubuntu-lv
+          Size (max 47.996G): 47.996G
+          Format: ext4
+          Mount: /
+      <Save>
 <Done>
     Confirm destructive action
 <Continue>

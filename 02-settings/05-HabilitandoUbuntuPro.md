@@ -7,8 +7,15 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.10<br>
+#Data de atualização: 16/01/2025<br>
+#Versão: 0.11<br>
+
+Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
+Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
+Release Ubuntu Server 22.04.3: https://fridge.ubuntu.com/2023/08/11/ubuntu-22-04-3-lts-released/<br>
+Release Ubuntu Server 22.04.2: https://fridge.ubuntu.com/2023/02/24/ubuntu-22-04-2-lts-released/<br>
+Release Ubuntu Server 22.04.1: https://fridge.ubuntu.com/2022/08/12/ubuntu-22-04-1-lts-released/<br>
+Release Ubuntu Server 22.04: https://fridge.ubuntu.com/2022/04/01/ubuntu-22-04-jammy-jellyfish-final-beta-released/
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
@@ -21,7 +28,18 @@ Site Oficial do Ubuntu One: https://login.ubuntu.com/<br>
 Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
-O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
+Conteúdo estudado nessa configuração:<br>
+#01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
+#02_ Atualizando o Sistema Operacional Ubuntu Server<br>
+#03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
+#04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
+#05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
+#06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
+#07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
+#08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
+#09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+
+O QUE É E PARA QUE SERVER O UBUNTU PRO: O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
 [![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
@@ -53,14 +71,14 @@ sudo apt autoclean
 Acesse o site: https://login.ubuntu.com/
 
 01) Clique em: I don’t have an Ubuntu One account
-Preencha os campos: 
-    Please type your email: (DIGITE_SEU_EMAIL)
-    Full name: (DIGITE SEU NOME COMPLETO)
-    Username: (DIGITE O SEU USUÁRIO)
-    Choose password: (DIGITE SUA SENHA)
-    Re-type password: (CONFIRME SUA SENHA)
-    Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
-    Clique em: <Create account>
+    Preencha os campos:
+      Please type your email: (DIGITE_SEU_EMAIL)
+      Full name: (DIGITE SEU NOME COMPLETO)
+      Username: (DIGITE O SEU USUÁRIO)
+      Choose password: (DIGITE SUA SENHA)
+      Re-type password: (CONFIRME SUA SENHA)
+      Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
+      Clique em: <Create account>
 
 02) Finalize os procedimentos acessando seu email para ativar a sua conta no Ubuntu One.
     Are you sure you want to confirm and validate this email address?

@@ -57,7 +57,8 @@ sudo apt update
 
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do 
 #OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto
-#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK e OpenJRE.
+#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK (Java Development Kit) e 
+#OpenJRE (Java Runtime Environment).
 
 #instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
 #OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle

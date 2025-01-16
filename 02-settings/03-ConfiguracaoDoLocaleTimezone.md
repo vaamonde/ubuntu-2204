@@ -7,21 +7,38 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 16/01/2025<br>
+#Versão: 0.09<br>
+
+Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
+Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
+Release Ubuntu Server 22.04.3: https://fridge.ubuntu.com/2023/08/11/ubuntu-22-04-3-lts-released/<br>
+Release Ubuntu Server 22.04.2: https://fridge.ubuntu.com/2023/02/24/ubuntu-22-04-2-lts-released/<br>
+Release Ubuntu Server 22.04.1: https://fridge.ubuntu.com/2022/08/12/ubuntu-22-04-1-lts-released/<br>
+Release Ubuntu Server 22.04: https://fridge.ubuntu.com/2022/04/01/ubuntu-22-04-jammy-jellyfish-final-beta-released/
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-Locale é uma combinação de geografia, idioma e cultura. Para entender Localidade, considere a diferença entre os Estados Unidos e o Reino Unido. Ambos compartilham um idioma comum, mas usam unidades de medida completamente diferentes. Os Estados Unidos usam o idioma inglês, mas usam milhas, graus Fahrenheit e galões, enquanto o Reino Unido usa quilômetros, graus Celsius e litros.
+Conteúdo estudado nessa configuração:<br>
+#01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server<br>
+#02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server<br>
+#03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server<br>
+#04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server<br>
+#05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server<br>
+#06_ Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora) no Ubuntu Server<br>
+#07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server<br>
+#08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server<br>
 
-Timezone ou fuso horário é uma área que observa um tempo padrão uniforme para propósitos legais, comerciais e sociais. Os fusos horários tendem a seguir os limites entre países e suas subdivisões em vez de seguir estritamente a longitude, porque é conveniente para áreas em comunicação frequente manter o mesmo horário.
+O QUE É E PARA QUE SERVER O LOCALE: O Locale é uma combinação de geografia, idioma e cultura. Para entender Localidade, considere a diferença entre os Estados Unidos e o Reino Unido. Ambos compartilham um idioma comum, mas usam unidades de medida completamente diferentes. Os Estados Unidos usam o idioma inglês, mas usam milhas, graus Fahrenheit e galões, enquanto o Reino Unido usa quilômetros, graus Celsius e litros.
 
-O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
+O QUE É E PARA QUE SERVER O TIMEZONE: O Timezone ou fuso horário é uma área que observa um tempo padrão uniforme para propósitos legais, comerciais e sociais. Os fusos horários tendem a seguir os limites entre países e suas subdivisões em vez de seguir estritamente a longitude, porque é conveniente para áreas em comunicação frequente manter o mesmo horário.
 
-O NTP.br tem por objetivo oferecer condições para que os servidores da Internet no Brasil estejam sincronizados com a Horal Legal Brasileira. Para isso foi firmado um acordo entre o Observatório Nacional (ON) e o NIC.br. 
+O QUE É E PARA QUE SERVER O NTP: O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
+
+O QUE É E PARA QUE SERVER O NTP.BR: O NTP.br tem por objetivo oferecer condições para que os servidores da Internet no Brasil estejam sincronizados com a Horal Legal Brasileira. Para isso foi firmado um acordo entre o Observatório Nacional (ON) e o NIC.br. 
 
 [![Data e Hora Ubuntu Server](http://img.youtube.com/vi/Szt6egOsKxE/0.jpg)](https://www.youtube.com/watch?v=Szt6egOsKxE "Data e Hora Ubuntu Server")
 
@@ -129,7 +146,7 @@ sudo systemctl status systemd-timesyncd.service
 sudo timedatectl
 ```
 
-#07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server
+#07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: só utilizar as configurações de Data e Hora em modo manual caso
 #as configurações de sincronismo automático não funcione de forma adequada, não recomendo

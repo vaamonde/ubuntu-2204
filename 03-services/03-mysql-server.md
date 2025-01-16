@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.20<br>
+#Data de atualização: 16/01/2025<br>
+#Versão: 0.21<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
 
@@ -39,7 +39,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
-O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo. 
+O MySQL Server é um sistema de gerenciamento de banco de dados relacional (RDBMS - Relational Database Management System) de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
 
 [![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
 

@@ -41,7 +41,9 @@ Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/
 
-O QUE É E PARA QUE SERVER NODE.JS: O Node.js é um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web. A principal característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
+O Node.js é um ambiente de execução de código JavaScript no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
+
+O JavaScript é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
 
 [![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 

@@ -7,17 +7,32 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 05/08/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 16/01/2025<br>
+#Versão: 0.04<br>
+
+Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
+Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
+Release Ubuntu Server 22.04.3: https://fridge.ubuntu.com/2023/08/11/ubuntu-22-04-3-lts-released/<br>
+Release Ubuntu Server 22.04.2: https://fridge.ubuntu.com/2023/02/24/ubuntu-22-04-2-lts-released/<br>
+Release Ubuntu Server 22.04.1: https://fridge.ubuntu.com/2022/08/12/ubuntu-22-04-1-lts-released/<br>
+Release Ubuntu Server 22.04: https://fridge.ubuntu.com/2022/04/01/ubuntu-22-04-jammy-jellyfish-final-beta-released/
 
 Release Notes Ubuntu Server 22.04.x: https://discourse.ubuntu.com/t/jammy-jellyfish-release-notes/24668<br>
 Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-Apt-Get ou Apt A ferramenta de pacote avançada, é uma interface de usuário de software<br>
-livre que funciona com bibliotecas centrais para lidar com a instalação e remoção de<br>
-software no Debian e em distribuições Linux baseadas nele.
+Conteúdo estudado nessa atualização:<br>
+#01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
+#02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
+#03_ Atualizando todos os software no Ubuntu Server<br>
+#04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server<br>
+#05_ Forçando uma atualização e remoção de software desnecessários no Ubuntu Server<br>
+#06_ Removendo pacotes desnecessários no Ubuntu Server<br>
+#07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
+#08_ Limpando o cache local do sources.list no Ubuntu Server<br>
+
+O QUE É E PARA QUE SERVER O APT-GET OU APT: O apt-get e o apt são ferramentas de linha de comando no sistema operacional Ubuntu (e outras distribuições baseadas em Debian) para gerenciar pacotes de software. Ambos são usados para instalar, atualizar, remover e consultar pacotes de software no sistema.
 
 [![Atualização Ubuntu Server](http://img.youtube.com/vi/B3FzV2bxjtw/0.jpg)](https://www.youtube.com/watch?v=B3FzV2bxjtw "Atualização Ubuntu Server")
 

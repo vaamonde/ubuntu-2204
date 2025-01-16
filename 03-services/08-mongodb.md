@@ -217,7 +217,7 @@ mongosh
 #OBSERVAÇÃO IMPORTANTE: No MySQL como no MongoDB temos o Conceito de DDL (Data Definition 
 #Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data 
 #Query Language) e DCL (Data Control Language), seu conceito é o mesmo só mudando a forma
-#como trabalhamos com os dados/informações em cada Banco de Dados
+#como trabalhamos com os dados/informações em cada Banco de Dados.
 
 #exibindo os bancos de dados existentes no MongoDB
 show dbs
@@ -305,13 +305,13 @@ INSERT
 #habilitando o suporte remoto do MongoDB Server na linha: 18
 #alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
 net:
-    port: 27017
-    bindIp: 0.0.0.0
+  port: 27017
+  bindIp: 0.0.0.0
 
 #habilitando o recurso de autenticação do MongoDB Server na linha: 28
 #descomentar a linha: #security, adicionar o valor: authorization: enabled
 security:
-    authorization: enabled
+  authorization: enabled
 ```
 ```bash
 #salvar e sair do arquivo

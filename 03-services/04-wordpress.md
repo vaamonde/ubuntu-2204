@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.21<br>
+#Data de atualização: 16/01/2025<br>
+#Versão: 0.22<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
 
@@ -38,7 +38,9 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-WordPress é um sistema livre e aberto de gestão de conteúdo para internet, baseado em PHP com banco de dados MySQL, executado em um servidor interpretador, voltado principalmente para a criação de páginas eletrônicas e blogs online.
+O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
+
+O CMS (Content Management System), ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, sem a necessidade de conhecimento técnico avançado em programação. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
 
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 

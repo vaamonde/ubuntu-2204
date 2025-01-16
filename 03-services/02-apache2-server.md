@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 07/12/2025<br>
-#Versão: 0.20<br>
+#Data de atualização: 16/01/2025<br>
+#Versão: 0.21<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
 
@@ -73,7 +73,7 @@ zlib1g-dev apt-transport-https
 #OBSERVAÇÃO IMPORTANTE: FOI ADICIONAR MAIS DEPENDÊNCIAS DOS PACOTES DO PHP, CONFORME VÁRIOS RELATOS
 #NO GITHUB E NO CANAL DO YOUTUBE, AS DEPENDÊNCIAS DO WORDPRESS E DO GLPI HELP DESK FORAM ADICIONADAS
 #NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS
-#AINDA CONTINUA AS DEPENDÊNCIAS.
+#AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
 #instalando o Apache2 Server e PHP 8.x
 #opção da contra barra (\): criar uma quebra de linha no terminal

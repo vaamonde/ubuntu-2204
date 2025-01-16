@@ -36,7 +36,7 @@ Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
-OpenSSH é um conjunto de utilitários de rede relacionado à segurança que provém a criptografia em sessões de comunicações em uma rede de computadores usando o protocolo SSH.
+O QUE É E PARA QUE SERVER O OPENSSH: O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o protocolo SSH (Secure Shell), permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 
