@@ -40,7 +40,7 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 
-Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribuir uma coleção de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas e outros recursos que, juntos, constituem uma aplicação web.
+O QUE É E PARA QUE SERVER O ARQUIVO WAR: Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribuir uma coleção de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas e outros recursos que, juntos, constituem uma aplicação web.
 
 [![WAR TomCAT](http://img.youtube.com/vi/DTduw0NKQvo/0.jpg)](https://www.youtube.com/watch?v=DTduw0NKQvo "WAR TomCAT")
 

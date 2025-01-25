@@ -108,7 +108,7 @@ INSERT
 ```bash
 #inserir as informações na linha: 17
 #lista de serviço: lista de hosts: comando
-#OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIO TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
+#OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
 ALL: ALL
 ```
 ```bash
@@ -233,7 +233,7 @@ Linux
 #OBSERVAÇÃO IMPORTANTE 02: no comando: w ele mostra as informações separadas
 #por colunas: USER (usuário logado), TTY (terminal do usuário), FROM (origem
 #da conexão), LOGIN@ (hora do login do usuário), IDLE (tempo ocioso do usuário), 
-#JCPU (tempo de CPU dos processo do TTY), PCPU (tempo de CPU do processo do
+#JCPU (tempo de CPU dos processos do TTY), PCPU (tempo de CPU do processo do
 #último comando o usuário), WHAT (processo atual do usuário).
 sudo w
 
@@ -241,7 +241,7 @@ sudo w
 #OBSERVAÇÃO IMPORTANTE: no comando: who ele mostra as informações separadas
 #por colunas: NAME (usuário logado), LINE (terminal do usuário), TIME (data e 
 #hora do login do usuário), IDLE (tempo ocioso do usuário), PID (identificação 
-#do processo), COMMENT (origem da conexão do usuário), EXIT ().
+#do processo), COMMENT (origem da conexão do usuário), EXIT (saída do processo).
 #opção do comando who: -H (heading), -a (all)
 sudo who -Ha
 

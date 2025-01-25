@@ -46,7 +46,7 @@ Site Oficial da MongoDB Atlas: https://www.mongodb.com/atlas/database
 Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/<br>
 Site Oficial do W3C School JSON: https://www.w3schools.com/js/js_json.asp
 
-MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
+O QUE É E PARA QUE SERVER O MONGODB SERVER: MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 [![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
 

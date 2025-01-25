@@ -39,7 +39,7 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp
 
-O MySQL Server é um sistema de gerenciamento de banco de dados relacional (RDBMS - Relational Database Management System) de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
+O QUE É E PARA QUE SERVER O MYSQL SERVER: O MySQL Server é um sistema de gerenciamento de banco de dados relacional (RDBMS - Relational Database Management System) de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
 
 [![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
 

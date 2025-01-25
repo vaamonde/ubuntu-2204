@@ -38,9 +38,9 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
+O QUE É E PARA QUE SERVER O WORDPRESS: O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
 
-O CMS (Content Management System), ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, sem a necessidade de conhecimento técnico avançado em programação. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
+O QUE É E PARA QUE SERVER O CMS: O CMS (Content Management System), ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, sem a necessidade de conhecimento técnico avançado em programação. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
 
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 
