@@ -75,7 +75,7 @@ zlib1g-dev apt-transport-https
 #NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS
 #AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
-#instalando o Apache2 Server e PHP 8.x
+#instalando o Apache2 Server e PHP 8.x e suas dependências
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \
 php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \
@@ -110,7 +110,7 @@ sudo journalctl -xeu apache2
 sudo apache2ctl -V
 
 #verificando os arquivos de configuração do Apache2 Server (NÃO COMENTADO NO VÍDEO)
-#opção do comando apache2ctl: configtest ( Run  a configuration file syntax test)
+#opção do comando apache2ctl: configtest (Run a configuration file syntax test)
 sudo apache2ctl configtest 
 
 #opção do comando php: -v (version)
@@ -135,7 +135,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 /etc/apache2/sites-available/  <-- Diretório padrão dos Sites Acessíveis do Apache 2 Server
 /etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache 2 Server
 /etc/php/                      <-- Diretório de configuração do PHP 7.x ou 8.x
-/etc/php/8.1/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache 2 Server
+/etc/php/8.x/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache 2 Server
 /var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
 /var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 ```
@@ -289,7 +289,7 @@ INSERT
 ```
 ```php
 <?php
-// Função do PHP para gerar a página de documentação e parâmetros do PHP
+// Função do PHP para gerar a página de documentação e parâmetros do PHP e do Apache2 Server
 phpinfo(); 
 ?>
 ```

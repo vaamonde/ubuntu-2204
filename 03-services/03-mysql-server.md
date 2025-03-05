@@ -82,7 +82,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 ```
 
 #04_ Localização dos Arquivos de Configuração do MySQL Server<br>
-```bash	
+```bash
 /etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
 /etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
 /etc/mysql/mysql.conf.d/mysql.cnf   <-- Arquivo de configuração do Cliente SGBD do MySQL Client

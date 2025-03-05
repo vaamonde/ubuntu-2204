@@ -146,6 +146,7 @@ sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
 sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
 
 #atualizando arquivo de configuração do Banner do Ubuntu Server do Github
+#opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
 
 #editando o arquivo de configuração do OpenSSH Server
