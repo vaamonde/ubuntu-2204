@@ -41,6 +41,12 @@ Conteúdo estudado nessa configuração:<br>
 
 O QUE É E PARA QUE SERVER O UBUNTU PRO: O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
+O QUE É E PARA QUE SERVER O ESM (Enterprise Service Manager): é um serviço da Canonical que estende as atualizações de segurança para versões LTS do Ubuntu após o fim do suporte oficial.
+
+O QUE É E PARA QUE SERVER O LTS (Long-Term Support): é uma versão de software que recebe suporte estendido por um longo período, geralmente 5 anos ou mais. Esse tipo de versão é comum em sistemas operacionais, como o Ubuntu LTS, e em softwares empresariais que exigem estabilidade e suporte prolongado. 
+
+O QUE É E PARA QUE SERVER O CVE (Common Vulnerabilities and Exposures): é um sistema de identificação e catalogação de vulnerabilidades de segurança conhecidas em softwares e hardware. Ele é gerenciado pela organização MITRE Corporation e utilizado globalmente para rastrear e reportar falhas de segurança de forma padronizada.
+
 [![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
