@@ -33,21 +33,21 @@ Conteúdo estudado desses comandos:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
 
-#01_ Desligando e reinicializando o servidor com halt no Ubuntu Server<br>
+## 01_ Desligando e reinicializando o servidor com halt no Ubuntu Server<br>
 ```bash
 #opção do comando halt: -p (poweroff)
 sudo halt -p
 sudo halt --reboot
 ```
 
-#02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server<br>
+## 02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server<br>
 ```bash
 #opção do comando poweroff: --reboot (reboot host)
 sudo poweroff
 sudo poweroff --reboot
 ```
 
-#03_ Desligando e reinicializando o servidor com init no Ubuntu Server<br>
+## 03_ Desligando e reinicializando o servidor com init no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO: init é o primeiro processo iniciado durante a inicialização do sistema 
 #de computador. O init é um processo daemon que continua executando até o sistema 
@@ -64,14 +64,14 @@ sudo init 0
 sudo init 6
 ```
 
-#04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server<br>
+## 04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server<br>
 ```bash
 #opção do comando reboot: --halt (shutdown host)
 sudo reboot --halt
 sudo reboot
 ```
 
-#05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
+## 05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
 ```bash
 #opção do comando shutdown: -P (poweroff), -h (halt 60 second), -r (reboot), -c (cancel)
 #now (Shutdown immediately), 19:50 (Shutdown at 19:50 pm), +20 (Shutdown in 20 minutes)

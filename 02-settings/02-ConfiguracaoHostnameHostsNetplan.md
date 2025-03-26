@@ -44,7 +44,7 @@ O QUE É E PARA QUE SERVER O HOSTS: O arquivo Hosts faz a pesquisa na tabela est
 
 Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
-#01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
+## 01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
 ```bash
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
@@ -62,7 +62,7 @@ wsvaamonde.pti.intra
 ESC SHIFT : x <Enter>
 ```
 
-#02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
+## 02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
 ```bash
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
@@ -72,7 +72,7 @@ INSERT
 ```
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
-#OBSERVAÇÃO IMPORTANTE: ALTERAR IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O ENDEREÇO IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
 127.0.0.1    localhost.pti.intra    localhost
 127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
 172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
@@ -90,7 +90,7 @@ ff02::2 ip6-allrouters
 ESC SHIFT : x <Enter>
 ```
 
-#03_ Instalando os principais software de rede no Ubuntu Server<br>
+## 03_ Instalando os principais software de rede no Ubuntu Server<br>
 ```bash
 #atualizando as lista do sources.list
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -101,7 +101,7 @@ sudo apt update
 sudo apt install bridge-utils ifenslave net-tools
 ```
 
-#04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
+## 04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
 ```bash
 #verificando os dispositivos PCI de Placa de Rede instalados
 #opções do comando lspci: -v (verbose), -s (show)
@@ -113,7 +113,7 @@ sudo lspci -v | grep -i ethernet
 sudo lshw -class network
 ```
 
-#05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
+## 05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
 ```bash
 #verificando as configurações de endereçamento IP da Placa de Rede instalada
 #opção do comando ifconfig: -a (all)
@@ -131,7 +131,7 @@ sudo ip route
 sudo resolvectl
 ```
 
-#06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
+## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
 #/etc/netplan/00-installer-config.yaml e o Padrão do Ubuntu Server 22.04.x LTS, 
@@ -203,7 +203,7 @@ network:
 ESC SHIFT : x <Enter>
 ```
 
-#07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
+## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
 ```bash
 #aplicando as mudanças do Netplan em modo Debug (detalhado)
 sudo netplan --debug apply
@@ -236,7 +236,7 @@ sudo hostname -d
 sudo hostname -i
 ```
 
-#08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
+## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 ```bash
 #OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
 #acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux

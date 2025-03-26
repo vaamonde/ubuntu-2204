@@ -38,40 +38,40 @@ O QUE É E PARA QUE SERVER O APT-GET OU APT: O apt-get e o apt são ferramentas 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=B3FzV2bxjtw
 
-# 01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
+## 01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
 ```bash
 #Update é utilizado para baixar informações de pacotes de todas as fontes configuradas.
 sudo apt update
 ```
 
-# 02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
+## 02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
 ```bash
 #List é utilizado para listar todos os software que serão atualizados no sistema.
 sudo apt list --upgradable
 ```
 
-# 03_ Atualizando todos os software no Ubuntu Server<br>
+## 03_ Atualizando todos os software no Ubuntu Server<br>
 ```bash
 #Upgrade é utilizado para instalar atualizações disponíveis de todos os pacotes atualmente 
 #instalados no sistema a partir das fontes configuradas via sources.list
 sudo apt upgrade
 ```
 
-# 04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server<br>
+## 04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server<br>
 ```bash
 #Dist-Upgrade além de executar a função de atualização, também lida de forma inteligente 
 #com as novas dependências das novas versões de pacotes
 sudo apt dist-upgrade
 ```
 
-# 05_ Forçando uma atualização e remoção de software desnecessários no Ubuntu Server<br>
+## 05_ Forçando uma atualização e remoção de software desnecessários no Ubuntu Server<br>
 ```bash
 #Full-Upgrade executa a função de atualização, mas removerá os pacotes atualmente 
 #instalados se isso for necessário para atualizar o sistema como um todo
 sudo apt full-upgrade
 ```
 
-# 06_ Removendo pacotes desnecessários no Ubuntu Server<br>
+## 06_ Removendo pacotes desnecessários no Ubuntu Server<br>
 ```bash
 #Autoremove é utilizado para remover pacotes que foram instalados automaticamente para 
 #satisfazer dependências de outros pacotes e agora não são mais necessários, pois as 
@@ -80,7 +80,7 @@ sudo apt full-upgrade
 sudo apt autoremove
 ```
 
-# 07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
+## 07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
 ```bash
 #Autoclean como Clean, o autoclean limpa o repositório local de arquivos de pacotes 
 #recuperados. A diferença é que ele remove apenas arquivos de pacotes que não podem 
@@ -88,7 +88,7 @@ sudo apt autoremove
 sudo apt autoclean
 ```
 
-# 08_ Limpando o cache local do sources.list no Ubuntu Server<br> 
+## 08_ Limpando o cache local do sources.list no Ubuntu Server<br> 
 ```bash
 #Clean limpa o repositório local de arquivos de pacotes recuperados
 sudo apt clean
