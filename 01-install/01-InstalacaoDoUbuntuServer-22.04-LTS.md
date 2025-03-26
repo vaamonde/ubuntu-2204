@@ -31,7 +31,7 @@ O QUE É E PARA QUE SERVER O UBUNTU SERVER: é uma versão do sistema operaciona
 
 Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 
-#01_ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
+# 01_ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS
 ```bash
 A) Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
 B) Versão do download Ubuntu Server: ubuntu-22.04.5-live-server-amd64.iso (Link atualizado em 12/09/2024)
@@ -39,7 +39,7 @@ C) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 D) Tipo de instalação: DVD Image (ISO) Installer
 ```
 
-#02_ Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX<br>
+# 02_ Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX<br>
 ```bash
 A) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 B) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU
@@ -75,7 +75,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Finalizar>
 ```
 
-#03_ Terceira Etapa: Configurações da Máquina Virtual UbuntuWebserver
+# 03_ Terceira Etapa: Configurações da Máquina Virtual UbuntuWebserver
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -109,7 +109,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <OK>
 ```
 
-#04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
+# 04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -122,7 +122,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Montar e Tentar Novo Boot>
 ```
 
-#05 Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+# 05 Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 ```bash
 A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
@@ -215,7 +215,7 @@ A) Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 <Enter>
 ```
 
-#06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez<br>
+# 06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez<br>
 ```bash
 #AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
