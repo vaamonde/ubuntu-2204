@@ -42,7 +42,7 @@ O QUE É E PARA QUE SERVER O OPENSSH: O OpenSSH (Open Secure Shell) é um conjun
 
 Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
-#01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
+## 01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
 #o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
@@ -55,7 +55,7 @@ sudo apt update
 sudo apt install openssh-server openssh-client openssl 
 ```
 
-#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
+## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
 ```bash
 #verificando o serviço do OpenSSH Server
 sudo systemctl status ssh
@@ -69,7 +69,7 @@ sudo sshd -V
 sudo ssh -V
 ```
 
-#03_ Verificando a Porta de Conexão do OpenSSH Server<br>
+## 03_ Verificando a Porta de Conexão do OpenSSH Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -81,7 +81,7 @@ sudo ssh -V
 sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 ```
 
-#04_ Localização dos Arquivos de Configuração do OpenSSH Server<br>
+## 04_ Localização dos Arquivos de Configuração do OpenSSH Server<br>
 ```bash
 /etc/ssh/             <-- Diretório de configuração do OpenSSH Server e Client
 /etc/ssh/sshd_config  <-- Arquivo de configuração do OpenSSH Server
@@ -94,7 +94,7 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 /var/log/auth.log     <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
 ```
 
-#05_ Habilitando a segurança de acesso ao OpenSSH Server<br>
+## 05_ Habilitando a segurança de acesso ao OpenSSH Server<br>
 ```bash
 #editando o arquivo de configuração de Negação de Serviço e Host
 sudo vim /etc/hosts.deny
@@ -135,7 +135,7 @@ sshd: 172.16.1.0/24
 ESC SHIFT :x <Enter>
 ```
 
-#06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
+## 06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
 ```bash
 #fazendo o backup do arquivo de configuração do OpenSSH Server
 #opção do comando cp: -v (verbose)
@@ -250,7 +250,7 @@ sudo who -Ha
 users
 ```
 
-#08_ Criando um usuário Administrador no Ubuntu Server<br>
+## 08_ Criando um usuário Administrador no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
 #ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
@@ -287,7 +287,7 @@ sudo cat -n /etc/group | grep admin
 sudo getent group admin
 ```
 
-#09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)<br>
+## 09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)<br>
 ```bash
 #adicionando o usuário Admin ao grupo do SUDO
 #opção do comando usermod: -a (append), -G (groups)
@@ -303,7 +303,7 @@ sudo id admin
 sudo getent group sudo
 ```
 
-#10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
+## 10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
 #Virtual para verificar se está tudo OK na autenticação do usuário admin.

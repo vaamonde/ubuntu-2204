@@ -59,7 +59,7 @@ wsvaamonde.pti.intra
 ```
 ```bash
 #salvar e sair do arquivo
-ESC SHIFT : x <Enter>
+ESC SHIFT :x <Enter>
 ```
 
 ## 02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
@@ -87,7 +87,7 @@ ff02::2 ip6-allrouters
 ```
 ```bash
 #salvar e sair do arquivo
-ESC SHIFT : x <Enter>
+ESC SHIFT :x <Enter>
 ```
 
 ## 03_ Instalando os principais software de rede no Ubuntu Server<br>
@@ -200,7 +200,7 @@ network:
 ```
 ```bash
 #salvar e sair do arquivo
-ESC SHIFT : x <Enter>
+ESC SHIFT :x <Enter>
 ```
 
 ## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
@@ -243,10 +243,10 @@ sudo hostname -i
 #ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
 #fácil administrar e configurar os principais serviços de rede de forma remota.
 
-#testando a conexão com o Ubuntu Server
+#testando a conexão com o Ubuntu Server (alterar o Endereço IPv4 para o seu cenário)
 ping 172.16.1.20
 
-#acessando remotamente o Ubuntu Server
+#acessando remotamente o Ubuntu Server (alterar o Nome e Endereço IPv4 para o seu cenário)
 ssh vaamonde@172.16.1.20
 
 #confirmando a troca das chaves públicas e do fingerprint do SSH

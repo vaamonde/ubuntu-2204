@@ -56,7 +56,7 @@ O QUE É E PARA QUE SERVER O PHP: O PHP (Hypertext Preprocessor, originalmente P
 
 Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
-#01_ Instalando o Apache2 Server e PHP 8.x<br>
+## 01_ Instalando o Apache2 Server e PHP 8.x<br>
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -92,7 +92,7 @@ negotiation setenvif
 sudo systemctl restart apache2
 ```
 
-#02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
+## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
 ```bash
 #verificando o serviço do Apache2 Server
 sudo systemctl status apache2
@@ -117,7 +117,7 @@ sudo apache2ctl configtest
 sudo php -v
 ```
 
-#03_ Verificando a Porta de Conexão do Apache2 Server<br>
+## 03_ Verificando a Porta de Conexão do Apache2 Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -128,7 +128,7 @@ sudo php -v
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
-#04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
+## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
 ```bash
 /etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
 /etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
@@ -140,7 +140,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 /var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 ```
 
-#05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server<br>
+## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server<br>
 ```bash
 #adicionando o seu usuário no grupo do Apache2
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
@@ -167,7 +167,7 @@ exit
 ~.
 ```
 
-#06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server<br>
+## 06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server<br>
 ```bash
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
 cd /var/www/html
@@ -188,7 +188,7 @@ sudo chown -Rv root.www-data teste/
 cd teste
 ```
 
-#07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
+## 07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar os arquivos teste.html, teste.php e phpinfo.php 
 #utilizando o Editor de Texto em Linha de Comando Vim.
@@ -298,12 +298,13 @@ phpinfo();
 ESC SHIFT :x <Enter>
 ```
 
-#08_ Testando o Apache2 Server e o PHP no navegador<br>
+## 08_ Testando o Apache2 Server e o PHP no navegador<br>
 ```bash
 #utilizar os navegadores para testar suas páginas
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 ```
+
 ========================================DESAFIOS=========================================
 
 **#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
@@ -312,7 +313,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
 **#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO NO OPENSSH NO GRUPO DO __`APACHE2`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
-**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIO-01 E 02`__ NO SITE ON-LINE (CLOUD). 
+**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS-01 E 02`__ NO SITE ON-LINE (CLOUD). 
 
 =========================================================================================
 

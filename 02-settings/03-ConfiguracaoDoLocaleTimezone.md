@@ -87,8 +87,11 @@ sudo locale -a
 sudo timedatectl
 
 #OBSERVAÇÃO IMPORTANTE: no sistema operacional Ubuntu Server temos basicamente 03 (três)
-#configurações de hora (time): Local time (Hora Local), Universal time (Hora Universal)
-#e RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
+#configurações de hora (time) sendo elas: 
+
+A) Local time (Hora Local)
+B) Universal time (Hora Universal)
+C) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
 ```
 
 ## 04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server<br>
@@ -123,8 +126,8 @@ INSERT
 ```
 ```bash
 #descomentar e alterar os valores das variáveis a partir da linha: 14
-#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/
-#para o sincronismo de Data e Hora.
+#OBSERVAÇÃO IMPORTANTE: no Brasil sempre utilizar o site: https://ntp.br/ para o sincronismo
+#de Data e Hora de forma correta nos servidores.
 [Time]
 NTP=a.st1.ntp.br
 FallbackNTP=a.ntp.br

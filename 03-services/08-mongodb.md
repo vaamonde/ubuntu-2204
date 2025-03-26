@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.32<br>
+#Data de atualização: 26/03/2025<br>
+#Versão: 0.33<br>
 
 OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
 
@@ -52,7 +52,7 @@ O QUE É E PARA QUE SERVER O MONGODB SERVER: MongoDB é um software de banco de 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
-#01_ Instalando as Dependências do MongoDB Server<br>
+## 01_ Instalando as Dependências do MongoDB Server<br>
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -60,17 +60,17 @@ sudo apt update
 #instalando as dependências do MongoDB Server
 sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 
-#download da última versão do Libssl (link atualizado em 02/08/2024)
+#download da última versão do Libssl (link atualizado em 26/03/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo a Biblioteca Libssl sofre alteração, antes de faze o download do 
 #arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
-wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
+wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb
 
 #instalando a biblioteca Libssl no Ubuntu Server
 #opção do comando dpkg: -i (install), * (all - Qualquer coisa)
 sudo dpkg -i libssl*.deb
 ```
 
-#02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
+## 02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
 ```bash
 #download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 20/12/2024)
 #Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
@@ -82,19 +82,19 @@ sudo dpkg -i libssl*.deb
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
 ```
 
-#03_ Criando o repositório do MongoDB Server<br>
+## 03_ Criando o repositório do MongoDB Server<br>
 ```bash
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
-#04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
+## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
 ```bash
 #atualizando as listas do Apt
 sudo apt update
 ```
 
-#05_ Instalando o MongoDB Server e Client<br>
+## 05_ Instalando o MongoDB Server e Client<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: 
 #https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E
@@ -113,7 +113,7 @@ sudo apt update
 sudo apt install mongodb-org
 ```
 
-#06_ Habilitando o Serviço do MongoDB Server<br>
+## 06_ Habilitando o Serviço do MongoDB Server<br>
 ```bash
 #habilitando o serviço do MongoDB Server
 sudo systemctl daemon-reload
@@ -121,7 +121,7 @@ sudo systemctl enable mongod
 sudo systemctl start mongod
 ```
 
-#07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
+## 07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
 ```bash
 #verificando o serviço do MongoDB Server
 sudo systemctl status mongod
@@ -139,7 +139,7 @@ sudo mongod --version
 sudo mongosh --version
 ```
 
-#08_ Verificando a Porta de Conexão do MongoDB Server<br>
+## 08_ Verificando a Porta de Conexão do MongoDB Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -150,14 +150,14 @@ sudo mongosh --version
 sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 ```
 
-#09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
+## 09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
 ```bash
 /etc/mongod.conf  <-- arquivo de configuração do MongoDB Server
 /var/log/mongodb  <-- diretório dos arquivos de Log do MongoDB Sever
 /var/lib/mongodb  <-- diretório dos arquivos de Banco de Dados do MongoDB Server
 ```
 
-#10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
+## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -178,20 +178,20 @@ sudo getent group mongodb
 exit
 ```
 
-#11_ Testando a Conexão Local com o MongoDB Server via Shell<br>
+## 11_ Testando a Conexão Local com o MongoDB Server via Shell<br>
 ```bash
 #acessando o MongoDB Server via Shell (MongoDB Shell/Console)
 mongosh
 ```
 
-#12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server<br>
+## 12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: Diferente do MySQL Server o MongoDB Server é um Banco de Dados
 #não Relacional (No-SQL), seu conceito e diferente do Banco de Dados Relacional e os
 #nomes muda um pouco (SÓ FAZER O DE-PARA):
 
 
-#                DE T-SQL             |                PARA NO-SQL
+#               DE T-SQL              |                PARA NO-SQL
 #   Banco de Dados Relacional MySQL   |   Banco de Dados Não Relacional MongoDB
 #      Database (Banco de Dados)      |         Database (Banco de Dados)
 #          Tables (Tabelas)           |          Collections (Coleções)
@@ -206,7 +206,7 @@ mongosh
 #Update e Delete), seu conceito é o mesmo só mudando a forma como trabalhamos com  os
 #dados/informações em cada Banco de Dados.
 
-#   CRUD      T-SQL (MySQL)     |   No-SQL (MongoDB)
+#   CRUD        T-SQL (MySQL)   |      No-SQL (MongoDB)
 # Database:   CREATE DATABASE   |   use database
 # Tables..:   CREATE TABLES     |   db.createCollection()
 # Create..:   INSERT            |   db.collection.insertOne()
@@ -235,7 +235,7 @@ show collections
 quit
 ```
 
-#13_ Criando o usuário de administração do MongoDB Server<br>
+## 13_ Criando o usuário de administração do MongoDB Server<br>
 ```bash
 #acessando o MongoDB Server via Shell (MongoDB Shell/Console)
 mongosh
@@ -289,7 +289,7 @@ db.getUsers()
 exit
 ```
 
-#14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
+## 14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
 ```bash
 #fazendo o backup do arquivo de configuração do MongoDB Server
 #opção do comando cp: -v (verbose)
@@ -322,7 +322,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-#15_ Acessando o MongoDB COM e SEM autenticação<br>
+## 15_ Acessando o MongoDB COM e SEM autenticação<br>
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -343,10 +343,11 @@ show dbs
 quit
 ```
 
-#16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
-```bash
+## 16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
+
 Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 
+```bash
 #criando uma nova conexão com o MongoDB Server
 <New connection+>
   New Connection
@@ -366,7 +367,7 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 <Save & Connect>
 ```
 
-#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
+## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
 ```bash
 #instalando a Extensão do MongoDB
 VSCode
@@ -394,7 +395,7 @@ VSCode
         <Close>
 ```
 
-#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)<br>
+## 18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)<br>
 ```bash
 #utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows
 Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases

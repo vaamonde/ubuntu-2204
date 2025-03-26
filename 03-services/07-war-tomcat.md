@@ -46,7 +46,7 @@ O QUE É E PARA QUE SERVER O ARQUIVO WAR: Em engenharia de software, um arquivo 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
-#01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
+## 01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: o projeto da Agenda desenvolvida em JavaEE do Prof.
 #José de Assis no seu Github está desatualizado, o projeto que está no Github
@@ -66,17 +66,17 @@ Clique em: Releases
 #Download dos arquivos WAR (ATUALIZADOS)
 LINK DE DOWNLOAD DO NOVO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
-A) arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;
-B) arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.
+A) Arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;
+B) Arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.
 ```
 
-#02_ Acessando o Apache TomCAT Server pelo Navegador<br>
+## 02_ Acessando o Apache TomCAT Server pelo Navegador<br>
 ```bash
 #utilizar os navegadores para testar o WAR TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```
 
-#03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache TomCAT Server<br>
+## 03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache TomCAT Server<br>
 ```bash
 Clique em: Manager App
   Usuário padrão: admin
@@ -96,7 +96,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 #criado no MySQL, após a sua criação o sistema irá funcionar perfeitamente.
 ```
 
-#04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>
+## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE<br>
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -142,7 +142,7 @@ DESC contatos;
 exit
 ```
 
-#05_ Testando o acesso a Base de Dados DBAgenda com o usuário dbagenda<br>
+## 05_ Testando o acesso a Base de Dados DBAgenda com o usuário dbagenda<br>
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dbagenda -p
@@ -156,13 +156,13 @@ DESC contatos;
 exit
 ```
 
-#06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros<br>
+## 06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros<br>
 ```bash
 #utilizar os navegadores para testar o WAR do Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 ```
 
-#07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server<br>
+## 07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: para esse teste, recomendo adicionar vários registros no Banco
 #de Dados do DBAgenda, para verificar os procedimentos de Dump do Banco e Restore das

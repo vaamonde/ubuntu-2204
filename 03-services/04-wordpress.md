@@ -36,7 +36,8 @@ Site Oficial do WordPress: https://br.wordpress.org/
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
-Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
+Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
+Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
 O QUE É E PARA QUE SERVER O WORDPRESS: O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
 
@@ -46,7 +47,7 @@ O QUE É E PARA QUE SERVER O CMS: O CMS (Content Management System), ou Sistema 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
-#01_ Instalando as Dependências do WordPress<br>
+## 01_ Instalando as Dependências do WordPress<br>
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -62,7 +63,7 @@ php-soap php-imagick php-intl php-json php-pear unzip pwgen libmcrypt-dev ghosts
 libapache2-mod-php zlib1g zlib1g-dev
 ```
 
-#02_ Criando a Base de Dados do WordPress no MySQL Server<br>
+## 02_ Criando a Base de Dados do WordPress no MySQL Server<br>
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -109,7 +110,7 @@ USE wordpress;
 exit
 ```
 
-#03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
+## 03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
 ```bash
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
@@ -138,7 +139,7 @@ sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 ```
 
-#04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
+## 04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
 ```bash
 #acessando o diretório do WordPress
 cd /var/www/html/wp/
@@ -176,7 +177,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 ESC SHIFT :x <Enter>
 ```
 
-#05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
+## 05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
 ```bash
 #habilitando os módulos do Apache2 Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -192,7 +193,7 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
-#06_ Acessando e configurando o WordPress via navegador<br>
+## 06_ Acessando e configurando o WordPress via navegador<br>
 ```bash
 #utilizar os navegadores para testar o acesso ao Wordpress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
@@ -216,7 +217,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
   <Acessar>
 ```
 
-#07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
+## 07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
 #é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos
