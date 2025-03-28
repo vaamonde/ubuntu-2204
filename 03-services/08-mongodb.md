@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 26/03/2025<br>
-#Versão: 0.33<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.34<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -46,7 +46,7 @@ Site Oficial da MongoDB Atlas: https://www.mongodb.com/atlas/database
 Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/<br>
 Site Oficial do W3C School JSON: https://www.w3schools.com/js/js_json.asp
 
-O QUE É E PARA QUE SERVER O MONGODB SERVER: MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
+**O QUE É E PARA QUE SERVER O MONGODB SERVER:** MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 [![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
 
@@ -95,20 +95,16 @@ sudo apt update
 ```
 
 ## 05_ Instalando o MongoDB Server e Client<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: 
-#https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E
-#INCOMPATIBILIDADE EM PROCESSADORES INTEL OU AMD QUE NÃO TEM OS PRINCIPAIS RECURSOS OU
-#TECNOLOGIAS QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO
-#DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO
-#FÓRUM DO MONGODB PARA MAIS DETALHES: 
-#
-#https://www.mongodb.com/pt-br/docs/manual/administration/production-notes/
-#https://pt.wikipedia.org/wiki/Advanced_Vector_Extensions
-#https://www.mongodb.com/community/forums/t/mongo-db-failed-unable-to-start-mongodb/124039
-#https://www.mongodb.com/community/forums/t/setting-up-mongodb-v5-0-on-ubuntu-20-core-dump-status-4-ill/120705
-#https://www.mongodb.com/community/forums/t/installing-mongodb-5-0-on-a-qemu-vm/166192
 
+**OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E INCOMPATIBILIDADE EM PROCESSADORES INTEL OU AMD QUE NÃO TEM OS PRINCIPAIS RECURSOS OU TECNOLOGIAS QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
+
+1. https://www.mongodb.com/pt-br/docs/manual/administration/production-notes/
+2. https://pt.wikipedia.org/wiki/Advanced_Vector_Extensions
+3. https://www.mongodb.com/community/forums/t/mongo-db-failed-unable-to-start-mongodb/124039
+4. https://www.mongodb.com/community/forums/t/setting-up-mongodb-v5-0-on-ubuntu-20-core-dump-status-4-ill/120705
+5. https://www.mongodb.com/community/forums/t/installing-mongodb-5-0-on-a-qemu-vm/166192
+
+```bash
 #instalando o MongoDB Server e Shell (Console)
 sudo apt install mongodb-org
 ```
@@ -242,27 +238,18 @@ mongosh
 
 #alterar o database informe no MongoDB
 use admin
-
-#OBSERVAÇÃO IMPORTANTE: na gravação do vídeo não consta os dois papeis que foram adicionados
-#posteriormente na linha roles: "root" e "clusterAdmin", conforme testes e comentários nos
-#vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão 
-#com o MongoDB utilizando o Mongoose acontecia uma falha de: "Erro de permissão", essa falha 
-#foi corrigida adicionando essas "Roles" e na conexão com o Banco de Dados foi adicionado a 
-#opção: ?authSource=admin
-
-#OBSERVAÇÃO IMPORTANTE: No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux
-#ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada
-#com a seguinte mensagem: Command "top" returned error "not authorized on admin to execute command 
-#{ top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 
-#2 problems. View all, para resolver essa e outras falhas foi adicionado mais Roles (Papéis)
-#no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 ```
+
+**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão com o MongoDB utilizando o Mongoose acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
+
+**OBSERVAÇÃO IMPORTANTE:** No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
+
 ```javascript
 db.createUser(
   {
     user: "admin",
     // altere a senha conforme a sua necessidade
-    pwd: "pti@2018",
+    pwd: "sua_senha",
     roles: [
       { role: 'root', db: 'admin' },
       { role: 'read', db: 'admin' },
@@ -351,16 +338,16 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 #criando uma nova conexão com o MongoDB Server
 <New connection+>
   New Connection
-    URL: mongodb://172.16.120:27017
+    URL: mongodb://SEU_ENDEREÇO_IPV4:27017
   Advanced Connection Options
     Connection String Scheme
       mongodb
         Host:
-          172.16.1.20:27017 (alterar o endereço IPv4 do seu servidor)
+          SEU_ENDEREÇO_IPV4:27017 (alterar o endereço IPv4 do seu servidor)
   Authentication
     Username/Password
       Username: admin 
-      Password: pti@2018 (alterar a senha do usuário admin do seu servidor)
+      Password: sua_senha (alterar a senha do usuário admin do seu servidor)
       Authentication Database: admin
     Authentication Mechanism
       Default
@@ -385,11 +372,11 @@ VSCode
           New Connection
             General
               Connection Type: Standalone
-              Hostname: 172.16.1.20 
+              Hostname: SEU_ENDEREÇO_IPV4 
               Port: 27017
               Authentication: Username/Password
                 Username: admin
-                Password: pti@2018
+                Password: sua_senha
                 Authentication Database: admin
            <Connect>
         <Close>
@@ -465,7 +452,7 @@ https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-i
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 

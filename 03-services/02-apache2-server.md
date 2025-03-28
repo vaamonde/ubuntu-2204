@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 20/01/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.23<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -40,17 +40,17 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-O QUE É E PARA QUE SERVER O APACHE2 SERVER: O Servidor HTTP (Hypertext Transfer Protocol) Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em 1995 por um grupo de desenvolvedores da NCSA (National Center for Supercomputing Applications), tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
+**O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor HTTP (Hypertext Transfer Protocol) Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em 1995 por um grupo de desenvolvedores da NCSA (National Center for Supercomputing Applications), tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
 
-O QUE É E PARA QUE SERVER O HTTP: O HTTP (Hyper Text Transfer Protocol) é um padrão de mensagens que permite a comunicação entre navegadores e servidores web. Ele é a base da internet e é usado para transferir dados, como o conteúdo de sites e chamadas de API (Application Programming Interface), utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 80.
+**O QUE É E PARA QUE SERVER O HTTP:** O HTTP (Hyper Text Transfer Protocol) é um padrão de mensagens que permite a comunicação entre navegadores e servidores web. Ele é a base da internet e é usado para transferir dados, como o conteúdo de sites e chamadas de API (Application Programming Interface), utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 80.
 
-O QUE É E PARA QUE SERVER O HTTPS: O HTTPS (Hyper Text Transfer Protocol Secure) é uma versão segura do protocolo HTTP. Ele é usado para criptografar a comunicação entre um site e um navegador web, utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 443.
+**O QUE É E PARA QUE SERVER O HTTPS:** O HTTPS (Hyper Text Transfer Protocol Secure) é uma versão segura do protocolo HTTP. Ele é usado para criptografar a comunicação entre um site e um navegador web, utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 443.
 
-O QUE É E PARA QUE SERVER O HTML: O HTML (Hypertext Markup Language) é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML. HyTime é um padrão para a representação estruturada de hipermídia e conteúdo baseado em tempo.
+**O QUE É E PARA QUE SERVER O HTML:** O HTML (Hypertext Markup Language) é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML. HyTime é um padrão para a representação estruturada de hipermídia e conteúdo baseado em tempo.
 
-O QUE É E PARA QUE SERVER O CSS: O CSS (Cascading Style Sheets) é um mecanismo para adicionar estilos (cores, fontes, espaçamento, etc.) a uma página web aplicado diretamente nas tags HTML ou ficar contido dentro dessas tags. Também é possível, adicionar estilos adicionando um link para um arquivo CSS que contém os estilos.
+**O QUE É E PARA QUE SERVER O CSS:** O CSS (Cascading Style Sheets) é um mecanismo para adicionar estilos (cores, fontes, espaçamento, etc.) a uma página web aplicado diretamente nas tags HTML ou ficar contido dentro dessas tags. Também é possível, adicionar estilos adicionando um link para um arquivo CSS que contém os estilos.
 
-O QUE É E PARA QUE SERVER O PHP: O PHP (Hypertext Preprocessor, originalmente Personal Home Page) é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na World Wide Web.
+**O QUE É E PARA QUE SERVER O PHP:** O PHP (Hypertext Preprocessor, originalmente Personal Home Page) é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na World Wide Web.
 
 [![Apache2 Server](http://img.youtube.com/vi/p6fnF1fZ1j4/0.jpg)](https://www.youtube.com/watch?v=p6fnF1fZ1j4 "Apache2 Server")
 
@@ -317,7 +317,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 16/01/2025<br>
-#Versão: 0.11<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.12<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -39,13 +39,13 @@ Conteúdo estudado nessa configuração:<br>
 #08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
 #09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
 
-O QUE É E PARA QUE SERVER O UBUNTU PRO: O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
+**O QUE É E PARA QUE SERVER O UBUNTU PRO:** O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
-O QUE É E PARA QUE SERVER O ESM (Enterprise Service Manager): é um serviço da Canonical que estende as atualizações de segurança para versões LTS do Ubuntu após o fim do suporte oficial.
+**O QUE É E PARA QUE SERVER O ESM (Enterprise Service Manager):** é um serviço da Canonical que estende as atualizações de segurança para versões LTS do Ubuntu após o fim do suporte oficial.
 
-O QUE É E PARA QUE SERVER O LTS (Long-Term Support): é uma versão de software que recebe suporte estendido por um longo período, geralmente 5 anos ou mais. Esse tipo de versão é comum em sistemas operacionais, como o Ubuntu LTS, e em softwares empresariais que exigem estabilidade e suporte prolongado. 
+**O QUE É E PARA QUE SERVER O LTS (Long-Term Support):** é uma versão de software que recebe suporte estendido por um longo período, geralmente 5 anos ou mais. Esse tipo de versão é comum em sistemas operacionais, como o Ubuntu LTS, e em softwares empresariais que exigem estabilidade e suporte prolongado. 
 
-O QUE É E PARA QUE SERVER O CVE (Common Vulnerabilities and Exposures): é um sistema de identificação e catalogação de vulnerabilidades de segurança conhecidas em softwares e hardware. Ele é gerenciado pela organização MITRE Corporation e utilizado globalmente para rastrear e reportar falhas de segurança de forma padronizada.
+**O QUE É E PARA QUE SERVER O CVE (Common Vulnerabilities and Exposures):** é um sistema de identificação e catalogação de vulnerabilidades de segurança conhecidas em softwares e hardware. Ele é gerenciado pela organização MITRE Corporation e utilizado globalmente para rastrear e reportar falhas de segurança de forma padronizada.
 
 [![Ubuntu Pro Free](http://img.youtube.com/vi/SW9JzwjGdkM/0.jpg)](https://www.youtube.com/watch?v=SW9JzwjGdkM "Ubuntu Pro Free")
 
@@ -83,7 +83,7 @@ Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
     Preencha os campos:
       Please type your email: (DIGITE_SEU_EMAIL)
       Full name: (DIGITE SEU NOME COMPLETO)
-      Username: (DIGITE O SEU USUÁRIO)
+      Username: (DIGITE O NOME DO SEU USUÁRIO)
       Choose password: (DIGITE SUA SENHA)
       Re-type password: (CONFIRME SUA SENHA)
       Marque a opção: I have read and accept the Ubuntu One terms of service, data privacy policy and Canonical SSO privacy notice.
@@ -96,7 +96,7 @@ Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
 
 ## 04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
 
-Link para o Dashboard oficial: Acesse o site: https://ubuntu.com/pro/dashboard
+Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/pro/dashboard
 
 ```bash
 01) Faça a autenticação com a sua conta criada no Ubuntu One;
@@ -107,10 +107,10 @@ Link para o Dashboard oficial: Acesse o site: https://ubuntu.com/pro/dashboard
 ```
 
 ## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: a Canonical recomenda que a versão do Ubuntu Pro Client seja 
-#>= a versão 27.13.x
 
+**OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja *>= a versão 27.13.x*
+
+```bash
 #verificando a versão do cliente do Ubuntu Pro Client
 #opção do comado pro: --version ou version (Show version of the Ubuntu Pro package)
 sudo pro --version
@@ -145,7 +145,7 @@ sudo pro security-status --esm-apps
 sudo pro fix CVE-2023-23518
 ```
 
-## 08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
+## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
 #serviços são habilitados, sendo o: ESM-INFRA e o Livepatch, caso queira habilitar mais 

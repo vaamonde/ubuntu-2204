@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 19/03/2025<br>
-Versão: 0.18<br>
+Data de atualização: 28/03/2025<br>
+Versão: 0.19<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -25,7 +25,7 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-O QUE É E PARA QUE SERVER O UBUNTU SERVER: é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e otimizado para oferecer desempenho, segurança e estabilidade em ambientes de produção.
+**O QUE É E PARA QUE SERVER O UBUNTU SERVER:** é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e otimizado para oferecer desempenho, segurança e estabilidade em ambientes de produção.
 
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")
 
@@ -119,7 +119,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 01. Selecionar a Máquina Virtual: UbuntuWebserver: 
 <Iniciar>
 
-02. VirtualBOX VM	
+02. VirtualBOX VM
     DVD: <Outro>
       LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
 <Montar e Tentar Novo Boot>
@@ -194,10 +194,10 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 11) Profile setup
     #OBSERVAÇÃO: ALTERAR OS DADOS DO NOME DO SERVIDOR, USUÁRIO E SENHA PARA O SEU CENÁRIO.
     Your name: Seu Nome e Sobrenome <Tab>
-    Your servers name: wsvaamonde <Tab>
-    Pick a username: vaamonde <Tab>
-    Choose a passwords: pti@2018 <Tab>
-    Confirm your passwords: pti@2018 <Tab>
+    Your servers name: wsseunome <Tab>
+    Pick a username: seu_usuário <Tab>
+    Choose a passwords: sua_senha <Tab>
+    Confirm your passwords: sua_senha <Tab>
 <Done>
 
 12) Upgrade to Ubuntu Pro
@@ -225,6 +225,6 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
 01) Tela de Login do Ubuntu Server
-    wsvaamonde login: vaamonde <Enter> (altere para o seu usuário)
-    Password: pti@2018 <Enter> (altere para a sua senha)
+    wsseunome login: seu_usuário <Enter> (altere para o seu usuário)
+    Password: sua_senha <Enter> (altere para a sua senha)
 ```

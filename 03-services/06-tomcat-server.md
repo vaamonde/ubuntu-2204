@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 26/03/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.26<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -44,21 +44,19 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
-O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER: O Apache Tomcat é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
+**O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O Apache Tomcat é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
 
 [![Apache TomCAT](http://img.youtube.com/vi/TcC7cijfub0/0.jpg)](https://www.youtube.com/watch?v=TcC7cijfub0 "Apache TomCAT")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 ## 01_ Instalando as Dependências do Apache Tomcat Server<br>
+
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment).
+
 ```bash
 #atualizando as lista do apt
 sudo apt update
-
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do 
-#OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto
-#e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK (Java Development Kit) e 
-#OpenJRE (Java Runtime Environment).
 
 #instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
 #OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle
@@ -78,12 +76,12 @@ sudo update-java-alternatives --list
 ```
 
 ## 03_ Download do Apache Tomcat Server 10.1.x do site Oficial<br>
+
+**OBSERVAÇÃO IMPORTANTE:** recomendo que o procedimento abaixo seja feito utilizando o usuário: Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
+
+Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: recomendo que o procedimento abaixo seja feito utilizando o usuário: 
-#Root do Ubuntu para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
-
-#Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
-
 #mudando para o usuário Root do Ubuntu Server
 #opção do comando sudo: -i (login)
 sudo -i
@@ -247,7 +245,7 @@ INSERT
 <!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Web Tomcat -->
 <!-- Para criar novos usuários no Apache TomCAT Server é só copiar a linha abaixo e colar -->
 <!-- na próxima linha alterando o nome, senha e papeis do novo usuário -->
-<user username="admin" password="pti@2018" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
+<user username="admin" password="sua_senha" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
 ```
 ```bash
 #salvar e sair do arquivo
@@ -271,7 +269,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```bash
 Clique em: Manager App
   Usuário padrão: admin
-  Senha padrão..: pti@2018
+  Senha padrão..: sua_senha
 <Fazer Login>
 ```
 
@@ -283,7 +281,7 @@ Clique em: Manager App
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 

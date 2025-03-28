@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.20<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.21<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -42,9 +42,9 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp<br>
 Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/<br>
 
-O QUE É E PARA QUE SERVER O NODE.JS: O Node.js é um ambiente de execução de código JavaScript no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
+**O QUE É E PARA QUE SERVER O NODE.JS:** O Node.js é um ambiente de execução de código JavaScript no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
 
-O QUE É E PARA QUE SERVER O JAVASCRIPT: O JavaScript é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
+**O QUE É E PARA QUE SERVER O JAVASCRIPT:** O JavaScript é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
 
 [![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 
@@ -131,7 +131,7 @@ npm install express
 ls -lha
 ```
 
-## 06_ Criando um Projeto Simples do Node.JS<br>
+## 06_ Criando um Projeto Simples do Node.JS no Ubuntu Server<br>
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
 #colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
@@ -226,7 +226,7 @@ kill -9 15939
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

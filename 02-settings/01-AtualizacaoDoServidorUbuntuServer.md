@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 16/01/2025<br>
-#Versão: 0.04<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.05<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -32,7 +32,7 @@ Conteúdo estudado nessa atualização:<br>
 #07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
 #08_ Limpando o cache local do sources.list no Ubuntu Server<br>
 
-O QUE É E PARA QUE SERVER O APT-GET OU APT: O apt-get e o apt são ferramentas de linha de comando no sistema operacional Ubuntu (e outras distribuições baseadas em Debian) para gerenciar pacotes de software. Ambos são usados para instalar, atualizar, remover e consultar pacotes de software no sistema.
+**O QUE É E PARA QUE SERVER O APT-GET OU APT:** O apt-get e o apt são ferramentas de linha de comando no sistema operacional Ubuntu (e outras distribuições baseadas em Debian) para gerenciar pacotes de software. Ambos são usados para instalar, atualizar, remover e consultar pacotes de software no sistema.
 
 [![Atualização Ubuntu Server](http://img.youtube.com/vi/B3FzV2bxjtw/0.jpg)](https://www.youtube.com/watch?v=B3FzV2bxjtw "Atualização Ubuntu Server")
 
@@ -45,7 +45,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=B3FzV2bxjtw
 sudo apt update
 ```
 
-## 02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
+## 02_ Verificando todos os pacotes a serem atualizados no Ubuntu Server<br>
 ```bash
 #List é utilizado para listar todos os software que serão atualizados no sistema.
 #opção do comando apt: list (list is used to display a list of packages), --upgradable (shows a 
@@ -80,7 +80,7 @@ sudo apt dist-upgrade
 sudo apt full-upgrade
 ```
 
-## 06_ Removendo pacotes desnecessários no Ubuntu Server<br>
+## 06_ Removendo todos os pacotes desnecessários no Ubuntu Server<br>
 ```bash
 #Autoremove é utilizado para remover pacotes que foram instalados automaticamente para 
 #satisfazer dependências de outros pacotes e agora não são mais necessários, pois as 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 16/01/2025<br>
-#Versão: 0.05<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.06<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -48,17 +48,21 @@ sudo poweroff --reboot
 ```
 
 ## 03_ Desligando e reinicializando o servidor com init no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO: init é o primeiro processo iniciado durante a inicialização do sistema 
-#de computador. O init é um processo daemon que continua executando até o sistema 
-#ser desligado. o init trabalha no conceito de Runlevel (níveis de execução), no
-#GNU/Linux temos basicamente 08 (oito) tipos de Runlevels: init 0 - Shutdown, init 
-#1 - Single user mode or emergency mode, init 2 - No network, init 3 - Network is 
-#present, init 4 It is similar to runlevel 3, init 5 - Network is present, init 6 
-#This runlevel is defined to system restart, init s - Tells the init command to 
-#enter the maintenance mode, init S - Same as init s, init m - Same as init s and 
-#init S e init M - Same as init s or init S or init m.
 
+**OBSERVAÇÃO:** init é o primeiro processo iniciado durante a inicialização do sistema de computador. O init é um processo daemon que continua executando até o sistema ser desligado. o init trabalha no conceito de Runlevel (níveis de execução), no GNU/Linux temos basicamente 08 (oito) tipos de Runlevels: 
+
+1. init 0 - Shutdown;
+2. init 1 - Single user mode or emergency mode; 
+3. init 2 - No network;
+4. init 3 - Network is present;
+5. init 4 - It is similar to runlevel 3;
+6. init 5 - Network is present;
+7. init 6 - This runlevel is defined to system restart;
+8. init s - Tells the init command to enter the maintenance mode;
+9. init S - Same as init s; 
+10. init m - Same as init s and init S e init M - Same as init s or init S or init m.
+
+```bash
 #opção do comando init: 0 (halt), 6 (reboot)
 sudo init 0
 sudo init 6

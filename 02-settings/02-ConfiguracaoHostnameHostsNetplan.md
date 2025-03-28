@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 16/01/2025<br>
-#Versão: 0.12<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.13<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -32,13 +32,13 @@ Conteúdo estudado nessa configuração:<br>
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
 #08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
-O QUE É E PARA QUE SERVER O NETPLAN: O Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
+**O QUE É E PARA QUE SERVER O NETPLAN:** O Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
-O QUE É E PARA QUE SERVER O HOSTNAME: O arquivo Hostname é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name)
+**O QUE É E PARA QUE SERVER O HOSTNAME:** O arquivo Hostname é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name)
 
-O QUE É E PARA QUE SERVER O FQDN: Algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
+**O QUE É E PARA QUE SERVER O FQDN:** Algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
 
-O QUE É E PARA QUE SERVER O HOSTS: O arquivo Hosts faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
+**O QUE É E PARA QUE SERVER O HOSTS:** O arquivo Hosts faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
 
 [![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
 
@@ -55,7 +55,7 @@ INSERT
 ```bash
 #alterar o nome de domínio FQDN na linha 1
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO DOMÍNIO PARA O SEU CENÁRIO
-wsvaamonde.pti.intra
+wsseunome.seu.domínio
 ```
 ```bash
 #salvar e sair do arquivo
@@ -73,9 +73,9 @@ INSERT
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O ENDEREÇO IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-127.0.0.1    localhost.pti.intra    localhost
-127.0.1.1    wsvaamonde.pti.intra   wsvaamonde
-172.16.1.20  wsvaamonde.pti.intra   wsvaamonde
+127.0.0.1      localhost.pti.intra     localhost
+127.0.1.1      wsseunome.seu.domínio   wsseunome
+SUA_REDE_IPV4  wsseunome.seu.domínio   wsseunome
 
 #OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
 # The following lines are desirable for IPv6 capable hosts
@@ -194,7 +194,7 @@ network:
         addresses: [8.8.8.8, 8.8.4.4]
         #alterar a pesquisa de domínio para o seu cenário
         #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
-        search: [pti.intra]
+        search: [seu.domínio]
   #fim do bloco de configuração do protocolo Ethernet versão 2
   version: 2
 ```
@@ -244,10 +244,10 @@ sudo hostname -i
 #fácil administrar e configurar os principais serviços de rede de forma remota.
 
 #testando a conexão com o Ubuntu Server (alterar o Endereço IPv4 para o seu cenário)
-ping 172.16.1.20
+ping SEU_ENDEREÇO_IPV4
 
 #acessando remotamente o Ubuntu Server (alterar o Nome e Endereço IPv4 para o seu cenário)
-ssh vaamonde@172.16.1.20
+ssh seu_usuário@SEU_ENDEREÇO_IPV4
 
 #confirmando a troca das chaves públicas e do fingerprint do SSH
 Yes <Enter>

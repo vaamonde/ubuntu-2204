@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.20<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.21<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -40,25 +40,21 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 
-O QUE É E PARA QUE SERVER O ARQUIVO WAR: Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribuir uma coleção de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas e outros recursos que, juntos, constituem uma aplicação web.
+**O QUE É E PARA QUE SERVER O ARQUIVO WAR:** Em engenharia de software, um arquivo WAR é um arquivo JAR usado para distribuir uma coleção de JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas e outros recursos que, juntos, constituem uma aplicação web.
 
 [![WAR TomCAT](http://img.youtube.com/vi/DTduw0NKQvo/0.jpg)](https://www.youtube.com/watch?v=DTduw0NKQvo "WAR TomCAT")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 ## 01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: o projeto da Agenda desenvolvida em JavaEE do Prof.
-#José de Assis no seu Github está desatualizado, o projeto que está no Github
-#foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse
-#problema ele compilou um no WAR que está no meu Github para essa aula.
 
-#OBSERVAÇÃO: esse novo WAR do Projeto da Agenda foi customizado e melhorado
-#pela Prof(a). Sirlene Sanches, criando uma nova estrutura em CSS para deixar
-#o ambiente mais bonito.
+**OBSERVAÇÃO IMPORTANTE:** o projeto da Agenda desenvolvida em JavaEE do *Prof.José de Assis* no seu Github está desatualizado, o projeto que está no Github foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse problema ele compilou um novo WAR que está no meu repositório do Github para essa aula.
+
+**OBSERVAÇÃO:** esse novo WAR do Projeto da Agenda foi customizado e melhorado pela *Prof(a). Sirlene Sanches*, criando uma nova estrutura em CSS para deixar o ambiente mais bonito.
 
 Acesse o Repositório: https://github.com/professorjosedeassis/javaEE
 
+```bash
 #Download do arquivo WAR (DESCONTINUADO)
 Clique em: Releases
   Em assets, clique em: agenda.war para fazer o Download.
@@ -80,7 +76,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```bash
 Clique em: Manager App
   Usuário padrão: admin
-  Senha padrão..: pti@2018
+  Senha padrão..: sua_senha
 <Fazer Login>
 
 A) Em: WAR file to deploy clique em: <Escolher arquivo>
@@ -236,7 +232,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 

@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 16/01/2025<br>
-#Versão: 0.21<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.22<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -40,11 +40,11 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
-O QUE É E PARA QUE SERVER O MYSQL SERVER: O MySQL Server é um sistema de gerenciamento de banco de dados relacional (RDBMS - Relational Database Management System) de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
+**O QUE É E PARA QUE SERVER O MYSQL SERVER:** O MySQL Server é um sistema de gerenciamento de banco de dados relacional (RDBMS - Relational Database Management System) de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
 
-O QUE É E PARA QUE SERVER O RDBMS: RDBMS (Relational Database Management System) é um Sistema de Gerenciamento de Banco de Dados Relacional. Ele serve para armazenar, organizar e manipular dados de forma estruturada, usando tabelas que se relacionam entre si por meio de chaves primárias e estrangeiras, como por exemplo dos Banco de Dados: MySQL, PostgreSQL, MariaDB, Microsoft SQL Server ou Oracle Database.
+**O QUE É E PARA QUE SERVER O RDBMS:** RDBMS (Relational Database Management System) é um Sistema de Gerenciamento de Banco de Dados Relacional. Ele serve para armazenar, organizar e manipular dados de forma estruturada, usando tabelas que se relacionam entre si por meio de chaves primárias e estrangeiras, como por exemplo dos Banco de Dados: MySQL, PostgreSQL, MariaDB, Microsoft SQL Server ou Oracle Database.
 
-O QUE É E PARA QUE SERVER O DBA: O DBA desempenha um papel essencial na administração de sistemas de banco de dados, garantindo que as informações sejam armazenadas, acessadas e protegidas corretamente, fazendo as funções de: Instalação, Configuração, Monitoramento, Desempenho, Backup/Restaure, Segurança, Gerenciamento, Planejamento, Automação, etc.
+**O QUE É E PARA QUE SERVER O DBA:** O DBA desempenha um papel essencial na administração de sistemas de banco de dados, garantindo que as informações sejam armazenadas, acessadas e protegidas corretamente, fazendo as funções de: Instalação, Configuração, Monitoramento, Desempenho, Backup/Restaure, Segurança, Gerenciamento, Planejamento, Automação, etc.
 
 [![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
 
@@ -69,10 +69,10 @@ sudo systemctl start mysql
 
 #verificando as versões do MySQL Server e do MySQL Client
 #opção do comando mysqld: --version (check version daemon service)
-mysqld --version
+sudo mysqld --version
 
 #opção do comando mysqld: --version (check version client)
-mysql --version
+sudo mysql --version
 ```
 
 ## 03_ Verificando a Porta de Conexão do MySQL Server<br>
@@ -123,7 +123,7 @@ SELECT user,host FROM user;
 
 /* alterando a senha do usuário Root Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 
 /* alterando as permissões do usuário Root Localhost */
 GRANT ALL ON *.* TO 'root'@'localhost';
@@ -144,7 +144,7 @@ sudo mysql -u root -p
 ```sql
 /* criando o usuário DBA Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
-CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 
 /* alterando as permissões do usuário DBA Localhost */
 GRANT ALL ON *.* TO 'dba'@'localhost';
@@ -246,7 +246,7 @@ sudo mysql -u root -p
 ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE QUALQUER ORIGEM, DIFERENTE DA
 OPÇÃO LOCALHOST QUE SÓ PERMITE O ACESSO LOCAL. CUIDADO COM ESSA OPÇÃO */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
-CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
+CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 GRANT ALL ON *.* TO 'root'@'%';
 FLUSH PRIVILEGES;
 
@@ -267,15 +267,15 @@ Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench
 
 #conectando com o usuário Root Remoto do MySQL no Workbench
 MySQL Connections: +
-  Connection Name: wsvaamonde
+  Connection Name: wsseunome
   Connection Method: Standard (TCP/IP)
   Parameters:
-    Hostname: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+    Hostname: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
     Port: 3306
     Username: root
     Password:
       Store in Keychain
-        Password: pti@2018 (alterar a senha do usuário root do seu servidor)
+        Password: sua_senha (alterar a senha do usuário root do seu servidor)
     <OK>
   <Test Connection>
     <OK>
@@ -302,10 +302,10 @@ VSCode
       Name: UbuntuServer
       Server Type:
         MySQL
-          Host: 172.16.1.20 (alterar o endereço IPv4 do seu servidor)
+          Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
           Port: 3306
           Username: root
-          Password: pti@2018 (alterar a senha do usuário root do seu servidor)
+          Password: sua_senha (alterar a senha do usuário root do seu servidor)
     <Save>
 ```
 
@@ -334,7 +334,7 @@ VSCode
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Mysql realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

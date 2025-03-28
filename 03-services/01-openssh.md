@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.20<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -36,7 +36,7 @@ Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
-O QUE É E PARA QUE SERVER O OPENSSH: O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o protocolo SSH (Secure Shell), permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o protocolo SSH (Secure Shell), permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 
@@ -128,7 +128,7 @@ INSERT
 #inserir as informações na linha: 10
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-sshd: 172.16.1.0/24
+sshd: SUA_REDE/SEU_CIDR
 ```
 ```bash
 #salvar e sair do arquivo
@@ -159,15 +159,15 @@ INSERT
 #alterar a variável ListenAddress na linha: 27 
 #ListenAddress 172.16.1.xxx para: SEU_ENDEREÇO_IPV4_DO_UBUNTU
 #OBSERVAÇÃO: ALTERAR O ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
-ListenAddress 172.16.1.20
+ListenAddress SEU_ENDEREÇO_IPV4_DO_UBUNTU
 
 #alterar a variável AllowUsers na linha: 77
 #OBSERVAÇÃO: ALTERAR O USUÁRIO DE ACESSO CONFORME A SUA NECESSIDADE
-AllowUsers vaamonde
+AllowUsers SEU_USUÁRIO
 
 #alterar a variável AllowGroups na linha: 83
 #OBSERVAÇÃO: ALTERAR O GRUPO DE ACESSO CONFORME A SUA NECESSIDADE
-AllowGroups vaamonde
+AllowGroups SEU_GRUPO_DO_USUÁRIO
 ```
 ```bash
 #salvar e sair do arquivo
@@ -186,7 +186,7 @@ INSERT
 ```bash
 #alterar a linha 5: Servidor e Admin
 #OBSERVAÇÃO: ALTERAR O BANNER CONFORME A SUA NECESSIDADE
-Servidor: wsvaamonde - Admin: Robson Vaamonde
+Servidor: wsseunome - Admin: SEU NOME E SOBRENOME
 ```
 ```bash
 #salvar e sair do arquivo
@@ -208,7 +208,7 @@ sudo journalctl -xeu ssh
 Windows
   Pesquisa do Windows
     Powershell
-      ssh vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+      ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar para o endereço IPv4 do seu servidor)
 
 #acessando o OpenSSH via PuTTY
 Windows
@@ -217,7 +217,7 @@ Windows
 
 Category
   Session
-    Host Name (or IP address): vaamonde@172.16.1.20 (alterar para o endereço IPv4 do seu servidor)
+    Host Name (or IP address): seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar para o endereço IPv4 do seu servidor)
     Port: 22
     SSH: On
 <Open>
@@ -225,7 +225,7 @@ Category
 #acessando o OpenSSH via Terminal no Linux Mint
 Linux
   Terminal: Ctrl + Alt + T
-    ssh vaamonde@172.16.1.20 (alterar o usuário e endereço IPv4 do seu servidor)
+    ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar o usuário e endereço IPv4 do seu servidor)
 
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
 #OBSERVAÇÃO IMPORTANTE 01: no comando: w ele mostra na primeira linha as
@@ -261,9 +261,9 @@ users
 #criando o usuário Admin local no Ubuntu Server
 #OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ADMIN CONFORME SUA NECESSIDADE
 sudo adduser admin
-  New password: pti@2018
-  Retype new password: pti@2018
-    Full Name []: Admin Bora para Prática
+  New password: sua_senha
+  Retype new password: sua_senha
+    Full Name []: Admin Sua Empresa
     Room Number []: <Enter>
     Work Phone []: <Enter>
     Home Phone []: <Enter>
@@ -316,7 +316,7 @@ sudo getent group sudo
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 

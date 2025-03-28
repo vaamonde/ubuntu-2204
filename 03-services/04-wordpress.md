@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 16/01/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.23<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -39,15 +39,15 @@ Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
-O QUE É E PARA QUE SERVER O WORDPRESS: O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
+**O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
 
-O QUE É E PARA QUE SERVER O CMS: O CMS (Content Management System), ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, sem a necessidade de conhecimento técnico avançado em programação. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
+**O QUE É E PARA QUE SERVER O CMS:** O CMS (Content Management System), ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, sem a necessidade de conhecimento técnico avançado em programação. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
 
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
-## 01_ Instalando as Dependências do WordPress<br>
+## 01_ Instalando as Dependências do CMS WordPress<br>
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -203,16 +203,16 @@ Português do Brasil: Continuar;
 Informação necessária
   Título do site: Seu Nome e Sobrenome;
   Nome de usuário: admin;
-  Senha: pti@2018;
+  Senha: sua_Senha;
   Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
-  O seu e-mail: admin@ptin.intra; 
+  O seu e-mail: admin@seu.domínio; 
 <Instalar WordPress>
 <Acessar>
 
 #Tela de login do WordPress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
   Nome de usuário ou endereço de email: admin
-  Senha: pti@2018
+  Senha: sua_senha
   Lembrar-me: On (Habilitado)
   <Acessar>
 ```
@@ -303,7 +303,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do WordPress realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
