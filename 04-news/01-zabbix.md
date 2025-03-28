@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.19<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.20<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -38,18 +38,17 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
-Traduzido do inglês-O Zabbix é uma ferramenta de software de código aberto para monitorar a infraestrutura de TI, como redes, servidores, máquinas virtuais e serviços em nuvem. O Zabbix coleta e exibe métricas básicas.
+**O QUE É E PARA QUE SERVER O ZABBIX:** O Zabbix é uma plataforma open-source de monitoramento de redes, servidores, aplicações e serviços. Ele permite acompanhar o desempenho e a disponibilidade dos dispositivos em tempo real, ajudando a detectar falhas antes que impactem os usuários.
 
 [![Zabbix Server](http://img.youtube.com/vi/ms5_qLThRTg/0.jpg)](https://www.youtube.com/watch?v=ms5_qLThRTg "Zabbix Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
-#01_ Instalando as Dependências do Zabbix Server e Agent2<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: O ZABBIX POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER
-#E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 
-#SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+## 01_ Instalando as Dependências do Zabbix Server e Agent2
 
+**OBSERVAÇÃO IMPORTANTE:** O ZABBIX POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+
+```bash
 #atualizando as lista do apt
 sudo apt update
 
@@ -60,23 +59,19 @@ sudo apt install --install-recommends traceroute nmap snmp snmpd snmp-mibs-downl
 software-properties-common git vim fping
 ```
 
-#02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
+## 02_ Adicionando o Repositório do Zabbix no Ubuntu Server
+
+Link de referência do download Oficial do Zabbix: https://www.zabbix.com/download
+
+**OBSERVAÇÃO IMPORTANTE:** NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0 PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
+
+**OBSERVAÇÃO IMPORTANTE:** NO DIA *03/06/2024* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.0 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+
+**OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.2 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+
+**OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO: 7.0 LTS, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL e Apache.
+
 ```bash
-#Link de referência do download: https://www.zabbix.com/download
-
-#OBSERVAÇÃO IMPORTANTE: NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0
-#PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
-
-#OBSERVAÇÃO IMPORTANTE: NO DIA 03/06/2024 FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.0
-#PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
-
-#OBSERVAÇÃO IMPORTANTE: NO DIA 10/12/2024 FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.2
-#PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
-
-#OBSERVAÇÃO IMPORTANTE: NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER
-#FOI SELECIONADO: 7.0 LTS, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL
-#e Apache.
-
 #download do repositório do Zabbix Server LTS 7.2 (LINK ATUALIZADO EM: 20/12/2024)
 wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu22.04_all.deb
 
@@ -85,13 +80,11 @@ wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-releas
 sudo dpkg -i zabbix-release_latest*.deb
 ```
 
-#03_ Instalando o Zabbix Server, Frontend e Agent2<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: para a instalação do Zabbix Server é necessário ter instalado e
-#configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados
-#MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade
-#de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
+## 03_ Instalando o Zabbix Server, Frontend e Agent2
 
+**OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
+
+```bash
 #atualizando as lista do Apt com o novo repositório do Zabbix Server
 sudo apt update
 
@@ -102,7 +95,7 @@ sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php za
 zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
 ```
 
-#04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
+## 04_ Criando a Base de Dados do Zabbix Server no MySQL Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -130,7 +123,7 @@ SELECT user,host FROM mysql.user WHERE user='zabbix';
 exit
 ```
 
-#05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server<br>
+## 05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u zabbix -p
@@ -146,11 +139,11 @@ USE zabbix;
 exit
 ```
 
-#06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX
-#SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
+##06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
 
+**OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
+
+```bash
 #importando o esquema e os dados iniciais do banco de dados do Zabbix Server
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opções do comando mysql: -u (user), -p (password), zabbix (database)
@@ -190,7 +183,7 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 exit
 ```
 
-#07_ Editando os arquivos de Configuração do Zabbix Server e Agent<br>
+## 07_ Editando os arquivos de Configuração do Zabbix Server e Agent
 ```bash
 #editando o arquivo de configuração do Zabbix Server
 sudo vim /etc/zabbix/zabbix_server.conf
@@ -235,7 +228,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-#08_ Habilitando o Serviço do Zabbix Server e Agent2<br>
+## 08_ Habilitando o Serviço do Zabbix Server e Agent2
 ```bash
 #habilitando o serviço do Zabbix Server e Agent2
 sudo systemctl daemon-reload
@@ -243,7 +236,7 @@ sudo systemctl enable zabbix-server
 sudo systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 
-#09_ Verificando o Serviço e Versão do Zabbix Server e Agent2<br>
+## 09_ Verificando o Serviço e Versão do Zabbix Server e Agent2
 ```bash
 #verificando o serviço do Zabbix Server e Agent2
 sudo systemctl status zabbix-server zabbix-agent2
@@ -264,7 +257,7 @@ sudo zabbix_server -V
 sudo zabbix_agent2 -V
 ```
 
-#10_ Configurando o Zabbix Server via Navegador<br>
+## 10_ Configurando o Zabbix Server via Navegador
 ```bash
 #acessar via navegador o Zabbix
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
@@ -301,7 +294,7 @@ Yes: Remember me for 30 days
 <Sign in>
 ```
 
-#11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
+## 11_ Verificando a Porta de Conexão do Zabbix Server e Agent
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -312,7 +305,7 @@ Yes: Remember me for 30 days
 sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN
 ```
 
-#12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
+## 12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G zabbix $USER
@@ -320,11 +313,11 @@ newgrp zabbix
 id
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
-#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
+#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl+D
 exit
 ```
 
-#13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
+## 13_ Localização dos diretórios principais do Zabbix Server e Agent
 ```bash
 /etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
 /etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
@@ -333,21 +326,18 @@ exit
 /usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
 ```
 
-#14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
+## 14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10
+
+Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download_agents
+
+**OBSERVAÇÃO IMPORTANTE:** ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO ZABBIX AGENT.
+
+**OBSERVAÇÃO IMPORTANTE:** NO DIA *03/06/2024* FOI LANÇADO A VERSÃO 7.0 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+
+**OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO 7.2 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+
 ```bash
-#Link de referência do download: https://www.zabbix.com/br/download_agents
-
-#OBSERVAÇÃO IMPORTANTE: ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O
-#SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO 
-#ZABBIX AGENT.
-
-#OBSERVAÇÃO IMPORTANTE: NO DIA 03/06/2024 FOI LANÇADO A VERSÃO 7.0 OFICIAL DO
-#AGENT PARA MICROSOFT WINDOWS.
-
-#OBSERVAÇÃO IMPORTANTE: NO DIA 10/12/2024 FOI LANÇADO A VERSÃO 7.2 OFICIAL DO
-#AGENT PARA MICROSOFT WINDOWS.
-
-Windows, Any, amd64, v7.2, OpenSSL, MSI: Zabbix agent 2 v7.2.0 (ATUALIZADO NO DIA 20/12/2024)
+#Windows, Any, amd64, v7.2, OpenSSL, MSI: Zabbix agent 2 v7.2.0 (ATUALIZADO NO DIA 20/12/2024)
 https://cdn.zabbix.com/zabbix/binaries/stable/7.2/7.2.0/zabbix_agent2-7.2.0-windows-amd64-openssl.msi
 
 #Instalação Manual do Zabbix Agent 2 para Microsoft
@@ -378,9 +368,11 @@ Powershell
 #Localização do arquivo de configuração do Zabbix Agent 2
 C:\Program Files\Zabbix Agent 2\
   zabbix_agent2.conf
+```
 
-#Link de referência do download: https://www.zabbix.com/br/download
+Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download
 
+```bash
 #SELECIONAR: 7.2 LTS, Ubuntu, 22.04 (Jammy), Agent 2
 #download do repositório do Zabbix Server LTS 7.2 (LINK ATUALIZADO EM: 20/12/2024)
 wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu22.04_all.deb
@@ -433,7 +425,7 @@ sudo systemctl status zabbix-agent2
 sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
 ```
 
-#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server<br>
+## 15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server
 ```bash
 #Criação dos Host GNU/Linux e Microsoft Windows no Zabbix Server
 Data collection
@@ -481,7 +473,7 @@ Data collection
       <Add>
 ```
 
-#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+## 16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo apt install stress-ng s-tui
@@ -515,7 +507,7 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
