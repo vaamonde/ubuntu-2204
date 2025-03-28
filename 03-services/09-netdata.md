@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 03/10/2024<br>
-#Versão: 0.23<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.24<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -35,9 +35,9 @@ Conteúdo estudado nesse desafio:<br>
 
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
-O QUE É E PARA QUE SERVER O NETDATA: Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
+**O QUE É E PARA QUE SERVER O NETDATA:** Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
 
-## OBSERVAÇÃO IMPORTANTE: A PARTIR DA VERSÃO DO NETDATA v1.90.x NÃO É MAIS NECESSÁRIO FAZER O PROCEDIMENTO DESSE VÍDEO DE BAIXAR O AGENTE VIA GITHUB, COMPILAR E INSTALAR, HOJE ACESSAMOS APENAS O NETDATA CLOUD: https://app.netdata.cloud/, COPIAMOS A CHAVE DE INTEGRAÇÃO DO AGENTE E COLAMOS NO TERMINAL, SÓ SEGUIR OS PROCEDIMENTOS NA TELA QUE JÁ ESTÁ FEITO A INTEGRAÇÃO, AINDA É POSSÍVEL UTILIZAR OS RECURSOS DE CONFIGURAÇÃO DE SERVIÇOS A SEREM MONITORADOS, MUITO MAIS SIMPLES.
+**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA VERSÃO DO *NETDATA v1.90.x* NÃO É MAIS NECESSÁRIO FAZER O PROCEDIMENTO DESSE VÍDEO DE BAIXAR O AGENTE VIA GITHUB, COMPILAR E INSTALAR, HOJE ACESSAMOS APENAS O NETDATA CLOUD: https://app.netdata.cloud/, COPIAMOS A CHAVE DE INTEGRAÇÃO DO AGENTE E COLAMOS NO TERMINAL, SÓ SEGUIR OS PROCEDIMENTOS NA TELA QUE JÁ ESTÁ FEITO A INTEGRAÇÃO, AINDA É POSSÍVEL UTILIZAR OS RECURSOS DE CONFIGURAÇÃO DE SERVIÇOS A SEREM MONITORADOS, MUITO MAIS SIMPLES.
 
 [![Netdata Server](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Server")
 
@@ -225,10 +225,10 @@ sudo ./edit-config go.d/apache.conf
 
 #editar as informações a partir da linha: 8
 jobs:
-  - name: wsvaamonde
+  - name: wsseunome
     url: http://localhost/server-status?auto
 
-  - name: wsvaamonde
+  - name: wsseunome
     url: http://127.0.0.1/server-status?auto
 
 #salvar e sair do arquivo
@@ -243,22 +243,22 @@ sudo ./edit-config python.d/tomcat.conf
 
 #editar as informações a partir da linha: 79
 localhost:
-  name : 'wsvaamonde'
+  name : 'wsseunome'
   url  : 'http://localhost:8080/manager/status?XML=true'
   user : 'admin'
-  pass : 'pti@2018'
+  pass : 'sua_senha'
 
 localipv4:
-  name : 'wsvaamonde'
+  name : 'wsseunome'
   url  : 'http://127.0.0.1:8080/manager/status?XML=true'
   user : 'admin'
-  pass : 'pti@2018'
+  pass : 'sua_senha'
 
 localipv6:
-  name : 'wsvaamonde'
+  name : 'wsseunome'
   url  : 'http://[::1]:8080/manager/status?XML=true'
   user : 'admin'
-  pass : 'pti@2018'
+  pass : 'seu_senha'
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -272,7 +272,7 @@ sudo ./edit-config go.d/mysql.conf
 
 #editar as informações a partir da linha: 52
 jobs:
-  - name: wsvaamonde
+  - name: wsseunome
     dsn: netdata@tcp(127.0.0.1:3306)/
 
 #salvar e sair do arquivo
@@ -287,7 +287,7 @@ sudo ./edit-config go.d/mongodb.conf
 
 #editar as informações a partir da linha: 8
 jobs:
-  - name: wsvaamonde
+  - name: wsseunome
     uri: mongodb://netdata:netdata@localhost:27017
 
 #salvar e sair do arquivo
@@ -306,9 +306,9 @@ jobs:
     hosts:
       - 8.8.8.8
 
-  - name: wsvaamonde 
+  - name: wsseunome 
     hosts:
-      - 172.16.1.20
+      - SEU_ENDEREÇO_IPV4
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -333,8 +333,8 @@ sudo ./edit-config go.d/portcheck.conf
 
 #editar as informações a partir da linha: 8
 jobs:
-  - name: wsvaamonde
-    host: 172.16.1.20
+  - name: wsseunome
+    host: SEU_ENDEREÇO_IPV4
     ports: [80, 3306, 8080, 19999, 27017]
 
 #salvar e sair do arquivo
@@ -367,7 +367,7 @@ sudo systemctl list-units --type=service --state=running
 #opção do comando grep: -i (ignore-case)
 #opção do comando cat: -n (number line)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-sudo nmap -p- 172.16.1.20 -sS -sU | grep -i open | cat -n
+sudo nmap -p- SEU_ENDEREÇO_IPV4 -sS -sU | grep -i open | cat -n
 
 #verificando todas as portas de serviços no Ubuntu Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -390,7 +390,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: Desafio do Netdata realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
