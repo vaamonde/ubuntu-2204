@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.12<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.13<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -51,26 +51,23 @@ Site Oficial do Descomplicando o Ubuntu UFW: https://wiki.ubuntu.com/Uncomplicat
 Site Oficial do Debian UFW: https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29<br>
 Site Oficial do IPTables: http://git.netfilter.org/iptables/
 
-Uncomplicated Firewall é uma firewall desenhado para ser de fácil utilização. Utiliza uma interface de linha de comandos simple e de fácil entendimento, e usa o iptables como base para a sua configuração. 
+**O QUE É E PARA QUE SERVER O UFW:** Uncomplicated Firewall é uma firewall desenhado para ser de fácil utilização. Utiliza uma interface de linha de comandos simple e de fácil entendimento, e usa o iptables como base para a sua configuração. 
 
-O iptables é um programa escrito em C, utilizado como ferramenta para configurar as regras do protocolo de internet IPv4 na tabela de filtragem de pacotes, utilizando vários módulos e o framework do kernel Linux (versão 2.3.15 ou posteiro).
+**O QUE É E PARA QUE SERVER O IPTABLES:** O iptables é um programa escrito em C, utilizado como ferramenta para configurar as regras do protocolo de internet IPv4 na tabela de filtragem de pacotes, utilizando vários módulos e o framework do kernel Linux (versão 2.3.15 ou posteiro).
 
-O netfilter é um módulo que fornece ao sistema operacional Linux as funções de firewall, NAT e log dos dados que trafegam na rede de computadores. iptables é o nome da ferramenta do espaço do usuário que permite a criação de regras de firewall e NATs.
+**O QUE É E PARA QUE SERVER O NETFILTER:** O netfilter é um módulo que fornece ao sistema operacional Linux as funções de firewall, NAT e log dos dados que trafegam na rede de computadores. iptables é o nome da ferramenta do espaço do usuário que permite a criação de regras de firewall e NATs.
 
-O nftables é um subsistema do kernel Linux que fornece filtragem e classificação de pacotes de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
+**O QUE É E PARA QUE SERVER O NFTABLES:** O nftables é um subsistema do kernel Linux que fornece filtragem e classificação de pacotes de rede /datagramas/quadros. Ele está disponível desde o kernel Linux 3.13 lançado em 19 de janeiro de 2014. nftables substitui as partes legadas do iptables do Netfilter.
 
 [![Firewall UFW](http://img.youtube.com/vi/PuahiojOEGA/0.jpg)](https://www.youtube.com/watch?v=PuahiojOEGA "Firewall UFW")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
-#01_ Verificando qual o Sistema de Firewall padrão do Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server temos dois tipos de sistema de Firewall padrão o:
-#iptables-nft (nftables) e: iptables-legacy (legado), nftables é um subsistema de filtragem 
-#de pacotes no kernel Linux, introduzido para substituir o iptables e outros módulos 
-#anteriores. Ele oferece uma estrutura mais flexível e eficiente para configurar regras de 
-#firewall, NAT (Network Address Translation) e roteamento no Linux.
+## 01_ Verificando qual o Sistema de Firewall padrão do Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server temos dois tipos de sistema de Firewall padrão o: *iptables-nft (nftables)* e: *iptables-legacy (legado)*, nftables é um subsistema de filtragem de pacotes no kernel Linux, introduzido para substituir o iptables e outros módulos anteriores. Ele oferece uma estrutura mais flexível e eficiente para configurar regras de firewall, NAT (Network Address Translation) e roteamento no Linux.
+
+```bash
 #Verificando qual o sistema de Firewall padrão configurado no Ubuntu Server
 sudo update-alternatives --config iptables
 
@@ -85,7 +82,7 @@ Seleção        Caminho                     Prioridade Estado
 Pressione <enter> para manter a escolha actual[*], ou digite o número da seleção: <Enter>
 ```
 
-#02_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server<br>
+## 02_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server
 ```bash
 #Verificando a versão do UFW
 sudo ufw version
@@ -94,14 +91,11 @@ sudo ufw version
 sudo ufw status
 ```
 
-#03_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: CUIDADO QUANDO VOCÊ HABILITAR O UFW UTILIZANDO UMA CONEXÃO REMOTA,
-#APÓS DIGITAR O COMANDO: sudo ufw enable A SEGUINTE MENSAGEM É MOSTRADA: Command may disrupt 
-#existing ssh connections (O comando pode interromper as conexões ssh existentes), EM ALGUNS
-#CENÁRIOS PODE ACONTECER A QUEDA (DESCONECTAR) DA CONEXÃO E VOCÊ NÃO CONSEGUIR MAIS ACESSAR
-#O SERVIDOR REMOTAMENTE.
+## 03_ Habilitando (ENABLE) o Firewall UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** CUIDADO QUANDO VOCÊ HABILITAR O UFW UTILIZANDO UMA CONEXÃO REMOTA, APÓS DIGITAR O COMANDO: *sudo ufw enable* A SEGUINTE MENSAGEM É MOSTRADA: *Command may disrupt existing ssh connections (O comando pode interromper as conexões ssh existentes)*, EM ALGUNS CENÁRIOS PODE ACONTECER A QUEDA (DESCONECTAR) DA CONEXÃO E VOCÊ NÃO CONSEGUIR MAIS ACESSAR O SERVIDOR REMOTAMENTE.
+
+```bash
 #Habilitando e iniciando o Firewall UFW
 sudo ufw enable
   Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
@@ -111,7 +105,7 @@ sudo ufw enable
 sudo ufw status
 ```
 
-#04_ Verificando o Serviço do UFW no Ubuntu Server<br>
+## 04_ Verificando o Serviço do UFW no Ubuntu Server
 ```bash
 #Verificando o serviço do UFW
 sudo systemctl status ufw
@@ -124,7 +118,7 @@ sudo systemctl start ufw
 sudo journalctl -xeu ufw
 ```
 
-#05_ Localização dos Arquivos e Diretório de Configuração do UFW no Ubuntu Server<br>
+## 05_ Localização dos Arquivos e Diretório de Configuração do UFW no Ubuntu Server
 ```bash
 /etc/default/ufw   <-- Arquivo de inicialização padrão do UFW
 /etc/ufw/*         <-- Diretório padrão das configurações das regras do UFW
@@ -133,7 +127,7 @@ sudo journalctl -xeu ufw
 /var/log/kern.log  <-- Logs do UFW no Kernel (usar o filtro: cat /var/log/syslog | grep -i ufw)
 ```
 
-#06_ Verificando as Regras (RULES) de Entrada (INCOMING) e Saída (OUTGOING) padrão do UFW no Ubuntu Server<br>
+## 06_ Verificando as Regras (RULES) de Entrada (INCOMING) e Saída (OUTGOING) padrão do UFW no Ubuntu Server
 ```bash
 #Verificando o Status das Regras (RULES) Detalhadas (VERBOSE) do UFW
 sudo ufw status verbose
@@ -145,7 +139,7 @@ Default: deny (incoming), allow (outgoing), disabled (routed)  <-- POLÍTICA PAD
 New profiles: skip  <-- PERFIL PADRÃO (SKIP - PULAR/NÃO UTILIZADO)
 ```
 
-#07_ Configurando a Regra (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) do UFW no Ubuntu Server<br>
+## 07_ Configurando a Regra (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) do UFW no Ubuntu Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão no UFW temos basicamente 05 (cinco) regras/políticas padrão:
 #allow (liberação), deny (negação), limit (limitação), reject (rejeição) e disable (desabilitado).
@@ -159,13 +153,11 @@ sudo ufw default deny incoming
 sudo ufw status verbose
 ```
 
-#08_ Configurando a Regra (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Saída (OUTGOING) do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão as regras de Firewall geralmente Bloqueia (DENY)
-#toda a Entrada (INCOMING) para o servidor e Permite (ALLOW) toda a Saída (OUTGOING),
-#bloquear a Entrada e Saída pode deixar a Segurança mais Restritiva (RIGOROSA/EXATA), 
-#precisando criar regras (RULES) para cada serviço de rede que você precisa acessar.
+## 08_ Configurando a Regra (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Saída (OUTGOING) do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** por padrão as regras de Firewall geralmente Bloqueia (DENY) toda a Entrada (INCOMING) para o servidor e Permite (ALLOW) toda a Saída (OUTGOING), bloquear a Entrada e Saída pode deixar a Segurança mais Restritiva (RIGOROSA/EXATA), precisando criar regras (RULES) para cada serviço de rede que você precisa acessar.
+
+```bash
 #Configurando a Regra Padrão de Bloqueio de Saída
 sudo ufw default deny outgoing
   Default outgoing policy changed to 'deny'
@@ -175,11 +167,11 @@ sudo ufw default deny outgoing
 sudo ufw status verbose
 ```
 
-#09_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no UFW temos basicamente 05 (cinco) níveis de Log: off (desligado),
-#low (baixo), medium (médio), high (alto) e full (completo/debug).
+## 09_ Configurando o Nível de Log (LOGGING) do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** no UFW temos basicamente 05 (cinco) níveis de Log: off (desligado), low (baixo), medium (médio), high (alto) e full (completo/debug).
+
+```bash
 #Habilitando os Logs das Regras do UFW
 sudo ufw logging on
   Logging enabled
@@ -192,12 +184,11 @@ sudo ufw logging medium
 sudo ufw status verbose
 ```
 
-#10_ Testando as conexões de Entrada (INCOMING) e Saída (OUTGOING) no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão o UFW permiti o protocolo ICMP (Internet Control Message
-#Protocol) para o endereço IPv4 de Loopback e o endereço interno/remoto do Ubuntu Server na
-#opção de Entrada (INCOMING).
+## 10_ Testando as conexões de Entrada (INCOMING) e Saída (OUTGOING) no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** por padrão o UFW permiti o protocolo ICMP (Internet Control Message Protocol) para o endereço IPv4 de Loopback e o endereço interno/remoto do Ubuntu Server na opção de Entrada (INCOMING).
+
+```bash
 #Pingando o endereço IPv4 da Loopback/Localhost
 ping 127.0.0.1
 
@@ -228,11 +219,11 @@ ssh vaamonde@172.16.1.20
 sudo nmap -p- 172.16.1.20
 ```
 
-#11_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão, o UFW no Ubuntu Server adiciona automaticamente regras 
-#de IPv6 para regras da Interface de Loopback.
+## 11_ Liberando (ALLOW) a Entrada (INCOMING) e Saída (OUTGOING) da Interface de Loopback do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** por padrão, o UFW no Ubuntu Server adiciona automaticamente regras de IPv6 para regras da Interface de Loopback.
+
+```bash
 #Liberando (ALLOW) a Entrada (IN) da Interface (ON) Loopback (LO)
 sudo ufw allow in on lo
 
@@ -246,25 +237,17 @@ sudo ufw status verbose
 sudo ufw status numbered
 ```
 
-#12_ Liberando (ALLOW) as Saídas (OUTGOING) Básicas do UFW no Ubuntu Server<br>
+## 12_ Liberando (ALLOW) as Saídas (OUTGOING) Básicas do UFW no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** por padrão, o UFW no Ubuntu Server adiciona automaticamente regras de IPv6 para regras criadas de forma simples ou básica.
+
+**OBSERVAÇÃO IMPORTANTE:** quando você utilizar a opção: comment (comentário) do UFW é recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
+
+**OBSERVAÇÃO IMPORTANTE:** muito cuidado na hora de configurar a Sequência de Regras do UFW, ele segue o padrão de: Primeira Regra Correspondente (de cima para baixo), Ação da Regra (allow, deny, reject), Regras Subsequentes (continua se não encontrar uma regra) e Regra Padrão (default).
+
+**OBSERVAÇÃO IMPORTANTE:** o UFW também processa as regas da seguinte forma: Regras de Porta Específica (maior prioridade), Regras de Protocolo e Porta (alta prioridade), Regras de Aplicação de Serviço (prioridade intermediaria), Regras de Subnet (menor prioridade), Regras de Interface (menor prioridade) e Regras de App Profile (essa regra tem menor prioridade e sempre fica por último).
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão, o UFW no Ubuntu Server adiciona automaticamente regras 
-#de IPv6 para regras criadas de forma simples ou básica.
-
-#OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
-#recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
-
-#OBSERVAÇÃO IMPORTANTE: muito cuidado na hora de configurar a Sequência de Regras do
-#UFW, ele segue o padrão de: Primeira Regra Correspondente (de cima para baixo), Ação
-#da Regra (allow, deny, reject), Regras Subsequentes (continua se não encontrar uma
-#regra) e Regra Padrão (default).
-
-#OBSERVAÇÃO IMPORTANTE: o UFW também processa as regas da seguinte forma: Regras de 
-#Porta Específica (maior prioridade), Regras de Protocolo e Porta (alta prioridade),
-#Regras de Aplicação de Serviço (prioridade intermediaria), Regras de Subnet (menor
-#prioridade), Regras de Interface (menor prioridade) e Regras de App Profile (essa
-#regra tem menor prioridade e sempre fica por último).
-
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (53/udp)
 sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
 
@@ -293,12 +276,11 @@ ping google.com
 sudo apt update
 ```
 
-#13_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão a regra de ICMP (Internet Control Message Protocol) de
-#Entrada (INCOMING) e Liberada (ACCEPT), caso queira Bloquear (DROP) e só alterar o opção
-#de ACCEPT para DROP nas configurações correspondente a partir da linha: 33
+## 13_ Liberando (ALLOW) a Saída (OUTGOING) do Protocolo ICMP do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** por padrão a regra de ICMP (Internet Control Message Protocol) de Entrada (INCOMING) e Liberada (ACCEPT), caso queira Bloquear (DROP) e só alterar o opção de ACCEPT para DROP nas configurações correspondente a partir da linha: 33
+
+```bash
 #Pingando o endereço IPv4 e Nome do Google
 ping 8.8.8.8
 ping google.com
@@ -335,18 +317,15 @@ ping 8.8.8.8
 ping google.com
 ```
 
-#14_ Liberando (ALLOW) as Entradas (INCOMING) Básicas do UFW no Ubuntu Server<br>
+## 14_ Liberando (ALLOW) as Entradas (INCOMING) Básicas do UFW no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** por padrão, o UFW no Ubuntu Server adiciona automaticamente regras de IPv6 para regras criadas de forma simples ou básica.
+
+**OBSERVAÇÃO IMPORTANTE:** quando você utilizar a opção: comment (comentário) do UFW é recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
+
+**OBSERVAÇÃO IMPORTANTE:** mesmo quando você habilita os recursos de Log do UFW, nem todos os Logs são registrado no arquivo: /var/log/ufw.log, para resolver esse problema você pode adicionar as opções: log (LOGAR) ou log-all (LOGAR TUDO) nas regras de firewall.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão, o UFW no Ubuntu Server adiciona automaticamente regras 
-#de IPv6 para regras criadas de forma simples ou básica.
-
-#OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
-#recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
-
-#OBSERVAÇÃO IMPORTANTE: mesmo quando você habilita os recursos de Log do UFW, nem todos os
-#Logs são registrado no arquivo: /var/log/ufw.log, para resolver esse problema você pode 
-#adicionar as opções: log (LOGAR) ou log-all (LOGAR TUDO) nas regras de firewall.
-
 #Regra de liberação (ALLOW) de Entrada (IN) Logando Tudo (LOG-ALL) do Protocolo SSH (22/tcp)
 sudo ufw allow in log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
 
@@ -376,19 +355,15 @@ ssh vaamonde@172.16.1.20
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 ```
 
-#15_ Liberando (ALLOW) as Entradas (INCOMING) por Sub-rede ou Endereço IPv4 do UFW no Ubuntu Server<br>
+## 15_ Liberando (ALLOW) as Entradas (INCOMING) por Sub-rede ou Endereço IPv4 do UFW no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** por padrão, o UFW no Ubuntu Server "NÃO" adiciona automaticamente regras de IPv6 para as regras criadas de forma avançada ou complexa
+
+**OBSERVAÇÃO IMPORTANTE:** quando você utilizar a opção: comment (comentário) do UFW é recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
+
+**OBSERVAÇÃO IMPORTANTE:** nas opções FROM (ORIGEM/DE) e TO (DESTINO/PARA) você pode usar a opção ANY (QUALQUER) para configurar a regra de firewall menos restritiva, um exemplo seria do procolo HTTP na porta 80: sudo ufw allow from any to any port 80 proto tcp ou utilizar a Interface de entrada: sudo ufw allow in on enp3s0 to any port 80 proto tcp
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão, o UFW no Ubuntu Server "NÃO" adiciona automaticamente 
-#regras de IPv6 para as regras criadas de forma avançada ou complexa
-
-#OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
-#recomendo não utilizar acentuação e sempre dentro de Aspas Simples (não crase).
-
-#OBSERVAÇÃO IMPORTANTE: nas opções FROM (ORIGEM/DE) e TO (DESTINO/PARA) você pode usar
-#a opção ANY (QUALQUER) para configurar a regra de firewall menos restritiva, um exemplo
-#seria do procolo HTTP na porta 80: sudo ufw allow from any to any port 80 proto tcp ou
-#utilizar a Interface de entrada: sudo ufw allow in on enp3s0 to any port 80 proto tcp
-
 #Liberando (ALLOW) a Sub-rede 172.16.1.0/24 (FROM) acessar o servidor (TO) do Grafana Server na porta (PORT) 3000 via protocolo HTTP (proto tcp)
 sudo ufw allow from 172.16.1.0/24 to 172.16.1.20 port 3000 proto tcp comment 'Liberando a Sub-Rede para acessar o Grafana Server'
 
@@ -406,12 +381,11 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
 ```
 
-#16_ Removendo (DELETE) Regras (RULES) de firewall do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: você pode remover as regras do UFW de duas formas, primeira é utilizar
-#o sintaxe da regra criada exemplo: sudo ufw delete out 53/udp ou utilizar o número da regra 
-#que é mais simples.
+## 16_ Removendo (DELETE) Regras (RULES) de firewall do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** você pode remover as regras do UFW de duas formas, primeira é utilizar o sintaxe da regra criada exemplo: sudo ufw delete out 53/udp ou utilizar o número da regra que é mais simples.
+
+```bash
 #Verificando as Regras Detalhadas padrão do UFW
 sudo ufw status verbose
 
@@ -429,7 +403,7 @@ sudo ufw delete 9
 sudo ufw status numbered
 ```
 
-#17_ Reiniciando (RELOAD) as Regras de Firewall do UFW no Ubuntu Server<br>
+## 17_ Reiniciando (RELOAD) as Regras de Firewall do UFW no Ubuntu Server
 ```bash
 #Reiniciando as regras de firewall do UFW
 sudo ufw reload
@@ -439,7 +413,7 @@ sudo ufw reload
 sudo ufw status verbose
 ```
 
-#18_ Entendo o Log (LOGGING) do Firewall UFW no Ubuntu Server<br>
+## 18_ Entendo o Log (LOGGING) do Firewall UFW no Ubuntu Server
 ```bash
 #Listando o conteúdo do arquivo de Log do UFW
 #opção do comando cat: -n (numeric)
@@ -481,25 +455,20 @@ w) ACK SYN URGP=.: conexão requer um handshake de três vias, URGP significa re
 sudo tail -f /var/log/ufw.log 
 ```
 
-#19_ Criando regras (RULES) baseadas em Aplicações (APP) do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: você pode criar regras de Entrada (INCOMING) ou Saída (OUTGOING)
-#utilizando a Porta e Protocolo ou somente o nome da aplicação utilizando a Lista de App
-#(aplicativos) do UFW que utiliza como base o arquivo: /etc/services e os aplicativos
-#instalados no servidor (OBS: nem todos os aplicativos são reconhecidos na lista), para
-#criar aplicativos personalizados, no diretório: /etc/ufw/applications.d/ é só criar o
-#arquivo com o nome do aplicativo e adicionar as informações abaixo de exemplo:
-#
-# [Nginx]
-# title=Servidor Web (Nginx HTTP)
-# description=Servidor web pequeno, mas muito poderoso e eficiente
-# ports=80/tcp
-#
-#após a criação digite o comando: sudo ufw app update Nginx para adicionar o App a lista,
-#você pode baixar vários aplicativos do projeto do Github ufw-application-profiles, apenas
-#digitando o comando: git clone https://github.com/ageis/ufw-application-profiles e depois
-#copiar o conteúdo do diretório: applications.d/ para: /etc/ufw/applications.d/.
+## 19_ Criando regras (RULES) baseadas em Aplicações (APP) do UFW no Ubuntu ServeR
 
+**OBSERVAÇÃO IMPORTANTE:** você pode criar regras de Entrada (INCOMING) ou Saída (OUTGOING) utilizando a Porta e Protocolo ou somente o nome da aplicação utilizando a Lista de App (aplicativos) do UFW que utiliza como base o arquivo: */etc/services* e os aplicativos instalados no servidor (OBS: nem todos os aplicativos são reconhecidos na lista), para criar aplicativos personalizados, no diretório: */etc/ufw/applications.d/* é só criar o arquivo com o nome do aplicativo e adicionar as informações abaixo de exemplo:
+
+```bash
+[Nginx]
+title=Servidor Web (Nginx HTTP)
+description=Servidor web pequeno, mas muito poderoso e eficiente
+ports=80/tcp
+```
+
+Após a criação do arquivo digite o comando: *sudo ufw app update Nginx* para adicionar o App a lista, você pode baixar vários aplicativos do projeto do Github ufw-application-profiles, apenas digitando o comando: git clone https://github.com/ageis/ufw-application-profiles e depois copiar o conteúdo do diretório: applications.d/ para: /etc/ufw/applications.d/.
+
+```bash
 #Listando os aplicativos disponíveis no UFW
 sudo ufw app list
 
@@ -527,22 +496,17 @@ sudo ufw allow in log-all MySQL comment 'Liberando o acesso o App MySQL Server'
 sudo ufw status verbose
 ```
 
-#20_ Liberando (ALLOW) uma Faixa (Range) de Portas do UFW no Ubuntu Server<br>
+## 20_ Liberando (ALLOW) uma Faixa (Range) de Portas do UFW no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** por padrão o UFW no Ubuntu Server adiciona automaticamente regras de IPv6 para as regras criadas de forma Simples/Básica.
+
+**OBSERVAÇÃO IMPORTANTE:** quando você utilizar a opção: comment (comentário) do UFW é recomendo não utilizar acentuação.
+
+**OBSERVAÇÃO IMPORTANTE:** você pode liberar uma faixa de portas utilizando os caracteres : (dois pontos) que é utilizado para especificar uma faixa (início - fim / entre) ou o caractere , (vírgula) que é utilizado para especificar intervalos.
+
+**OBSERVAÇÃO IMPORTANTE:** se você precisa liberar uma Faixa de Endereços IPv4/IPv4 ou apenas alguns endereços é recomendo utilizar a Conotação CIDR (Classless Inter-Domain Routing) ou criar regras para cada endereço que você precisa liberar ou negar.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão o UFW no Ubuntu Server adiciona automaticamente regras
-#de IPv6 para as regras criadas de forma Simples/Básica.
-
-#OBSERVAÇÃO IMPORTANTE: quando você utilizar a opção: comment (comentário) do UFW é
-#recomendo não utilizar acentuação.
-
-#OBSERVAÇÃO IMPORTANTE: você pode liberar uma faixa de portas utilizando os caracteres
-#: (dois pontos) que é utilizado para especificar uma faixa (início - fim / entre) ou
-#o caractere , (vírgula) que é utilizado para especificar intervalos.
-
-#OBSERVAÇÃO IMPORTANTE: se você precisa liberar uma Faixa de Endereços IPv4/IPv4 ou
-#apenas alguns endereços é recomendo utilizar a Conotação CIDR (Classless Inter-Domain 
-#Routing) ou criar regras para cada endereço que você precisa liberar ou negar.
-
 #Regra de liberação (ALLOW) de Entrada (IN) da Faixa (RANGE) de Portas (1000:2000/tcp)
 sudo ufw allow in 1000:2000/tcp comment 'Liberando uma faixa de portas'
 
@@ -553,15 +517,11 @@ sudo ufw allow in 10050,10051/tcp comment 'Liberando as portas de conexão do Za
 sudo ufw status verbose
 ```
 
-#21_ Limitando (LIMIT) uma conexão de Entrada (INCOMING) do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: com esta opção você pode negar conexões de um endereço IPv4/IPv6 que 
-#tentou iniciar 6 (seis) ou mais conexões simultâneas nos últimos 30 (trinta) segundos, essa 
-#opção é muito útil para o serviço do OpenSSH, usamos para proteger nosso servidor contra 
-#ataques de força bruta (Brute Force). Para alterar os Limites do UFW é necessário editar os
-#arquivos de configuração em: /etc/ufw/user.rules ou /etc/ufw/user6.rules, depois digitar o
-#comando: sudo ufw reload para aplicar as novas políticas.
+## 21_ Limitando (LIMIT) uma conexão de Entrada (INCOMING) do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** com esta opção você pode negar conexões de um endereço IPv4/IPv6 que tentou iniciar 6 (seis) ou mais conexões simultâneas nos últimos 30 (trinta) segundos, essa opção é muito útil para o serviço do OpenSSH, usamos para proteger nosso servidor contra ataques de força bruta (Brute Force). Para alterar os Limites do UFW é necessário editar os arquivos de configuração em: /etc/ufw/user.rules ou /etc/ufw/user6.rules, depois digitar o comando: sudo ufw reload para aplicar as novas políticas.
+
+```bash
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
@@ -603,12 +563,11 @@ bash openssh.sh
 sudo cat -n /var/log/ufw.log | grep -i dpt=22
 ```
 
-#22_ Rejeitando (REJECT) uma Conexão de Entrada (INCOMING) do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: as opções DENY e REJECT são usadas para controlar como o firewall
-#responde a conexões indesejadas ou não autorizadas, DENY simplesmente descarta os pacotes
-#sem aviso, enquanto REJECT envia uma resposta de rejeição explícita ao remetente.
+## 22_ Rejeitando (REJECT) uma Conexão de Entrada (INCOMING) do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** as opções DENY e REJECT são usadas para controlar como o firewall responde a conexões indesejadas ou não autorizadas, DENY simplesmente descarta os pacotes sem aviso, enquanto REJECT envia uma resposta de rejeição explícita ao remetente.
+
+```bash
 #Rejeitando (REJECT) e Logando Tudo (LOG-ALL) do Endereço IPv4 172.16.1.115 (FROM) acessar o servidor (TO) do GLPI Help Desk na porta (PORT) 8888 via protocolo TCP (PROTO TCP)
 sudo ufw reject log-all from 172.16.1.113 to 172.16.1.20 port 8888 proto tcp comment 'Rejeitando um host para acessar o GLPI Help Desk'
 
@@ -629,11 +588,11 @@ nc -v 172.16.1.20 8888
 sudo cat -n /var/log/ufw.log | grep -i dpt=8888
 ```
 
-#23_ Adicionando (INSERT) uma Regra (RULES) do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: a opção INSERT permite que você insira uma nova regra em uma 
-#posição específica da lista de regras existentes. 
+## 23_ Adicionando (INSERT) uma Regra (RULES) do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** a opção INSERT permite que você insira uma nova regra em uma posição específica da lista de regras existentes. 
+
+```bash
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
 sudo ufw status numbered
 
@@ -649,7 +608,7 @@ sudo ufw insert 4 allow out 80/tcp comment 'Liberando a saida para navegação d
 sudo ufw status numbered
 ```
 
-#24_ Visualizando (SHOW) informações detalhadas (REPORT) do UFW no Ubuntu Server<br>
+## 24_ Visualizando (SHOW) informações detalhadas (REPORT) do UFW no Ubuntu Server
 ```bash
 #Relatório detalhado em RAW (Raw Data)
 sudo ufw show raw
@@ -676,11 +635,11 @@ sudo ufw show listening
 sudo ufw show added
 ```
 
-#25_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: se você desabilitar o firewall UFW, as regras criadas não serão
-#perdidas.
+## 25_ Desativando (DISABLE) e Ativando (ENABLE) o UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** se você desabilitar o firewall UFW, as regras criadas não serão perdidas.
+
+```bash
 #Desabilitando (DISABLE) o Firewall UFW
 sudo ufw disable
   Firewall stopped and disabled on system startup
@@ -697,12 +656,11 @@ sudo ufw enable
 sudo ufw status numbered
 ```
 
-#26_ Resetando (RESET) das Regras de Firewall do UFW no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: antes de resetar as regras de firewall do UFW no Ubuntu Server, recomendo
-#fazer o backup dos arquivos no diretório: /etc/ufw - principalmente dos arquivos: /etc/ufw/user.rules, 
-#/etc/ufw-user6.rules (arquivos da regras de usuário) e /etc/ufw/before.rules (regras antes).
+## 26_ Resetando (RESET) das Regras de Firewall do UFW no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** antes de resetar as regras de firewall do UFW no Ubuntu Server, recomendo fazer o backup dos arquivos no diretório: /etc/ufw - principalmente dos arquivos: /etc/ufw/user.rules, /etc/ufw-user6.rules (arquivos da regras de usuário) e /etc/ufw/before.rules (regras antes).
+
+```bash
 #Resetando (RESET) as regras de Firewall do UFW
 sudo ufw reset 
   Resetting all rules to installed defaults. This may disrupt existing ssh
@@ -730,7 +688,7 @@ sudo ufw disable
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

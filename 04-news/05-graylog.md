@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.07<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.08<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -45,21 +45,19 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Graylog: https://graylog.org/<br>
 
-Graylog, Inc é uma empresa de software de gerenciamento de log e análise de segurança com sede em Houston, Texas. Seu principal produto é um software de gerenciamento de log, também chamado de Graylog.
+**O QUE É E PARA QUE SERVER O GRAYLOG:** O Graylog é uma plataforma open-source de gerenciamento e análise de logs usada para coletar, processar, armazenar e visualizar logs de sistemas, servidores, aplicações e redes. Ele é amplamente utilizado para monitoramento de segurança, auditoria e troubleshooting.
 
-NXLog é uma solução de gerenciamento de logs multiplataforma que permite coletar logs de diversas fontes, filtrar eventos de log, transformar dados de log e encaminhá-los para diferentes destinos.
+**O QUE É E PARA QUE SERVER O NXLOG:** O NXLog é uma ferramenta avançada para coleta, processamento e envio de logs em ambientes Windows, Linux e Unix. Ele é usado para centralizar logs de sistemas, aplicações e dispositivos de rede, oferecendo suporte a diversos formatos e protocolos.
 
 [![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
-#01_ Instalando as Dependências do Graylog Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL
-#MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06
-#DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO
-#MONGODB (VERSÃO 7).
+## 01_ Instalando as Dependências do Graylog Server
 
+**OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06 DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO MONGODB (VERSÃO 7).
+
+```bash
 #atualizando as lista do apt
 sudo apt update
 
@@ -69,7 +67,7 @@ sudo apt install apt-transport-https software-properties-common git vim wget cur
 gnupg2 uuid-runtime pwgen dirmngr
 ```
 
-#02_ Baixando e instalando a Chave GPG do OpenSearch<br>
+## 02_ Baixando e instalando a Chave GPG do OpenSearch
 ```bash
 #baixando a chave GPG do OpenSearch
 #opção do comando curl: -o- (output file)
@@ -82,15 +80,13 @@ curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo gpg -
 echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee /etc/apt/sources.list.d/opensearch-2.x.list
 ```
 
-#03_ Instalando o OpenSearch no Ubuntu Server<br>
+## 03_ Instalando o OpenSearch no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** o OpenSearch 2.12 e superior agora requer a configuração da *OPENSEARCH_INITIAL_ADMIN_PASSWORD* variável de ambiente durante a instalação. A senha deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
+
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
 sudo apt update
-
-#OBSERVAÇÃO IMPORTANTE: o OpenSearch 2.12 e superior agora requer a configuração da 
-#OPENSEARCH_INITIAL_ADMIN_PASSWORD variável de ambiente durante a instalação. A senha
-#deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra 
-#minúscula, um número e um caractere especial.
 
 #instalando o OpenSearch
 #opção do comando tr: -d (delete), -c (complement)
@@ -103,7 +99,7 @@ sudo apt update
 sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/urandom  | head -c${1:-32}) apt install --install-recommends opensearch
 ```
 
-#04_ Editando o arquivo de configuração do OpenSearch<br>
+## 04_ Editando o arquivo de configuração do OpenSearch
 ```bash
 #editando o arquivo de configuração do OpenSearch
 sudo vim /etc/opensearch/opensearch.yml
@@ -129,7 +125,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-#05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
+## 05_ Editando o arquivo de configuração JVM (Java Virtual Machine)
 ```bash
 #editando o arquivo de configuração JVM (Java Virtual Machine)
 sudo vim /etc/opensearch/jvm.options
@@ -146,7 +142,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-#06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
+## 06_ Alterando as opções de inicialização do Kernel do Ubuntu Server
 ```bash
 #alterando as opção do Sysctl de memória do JVM
 #opção do comando sysctl: -w (write)
@@ -158,7 +154,7 @@ sudo sysctl -w vm.max_map_count=262144
 echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
 ```
 
-#07_ Habilitando o Serviço do OpenSearch<br>
+## 07_ Habilitando o Serviço do OpenSearch
 ```bash
 #habilitando o serviço do OpenSearch
 sudo systemctl daemon-reload
@@ -166,7 +162,7 @@ sudo systemctl enable opensearch
 sudo systemctl restart opensearch
 ```
 
-#08_ Verificando o Serviço e Versão do OpenSearch<br>
+## 08_ Verificando o Serviço e Versão do OpenSearch
 ```bash
 #verificando o serviço do OpenSearch
 sudo systemctl status opensearch
@@ -186,7 +182,7 @@ curl -X GET "http://localhost:9200"
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 ```
 
-#09_ Verificando a Porta de Conexão do OpenSearch<br>
+## 09_ Verificando a Porta de Conexão do OpenSearch
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -197,17 +193,21 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 ```
 
-#10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
+## 10_ Adicionando o Repositório do Graylog Server no Ubuntu Server
 ```bash
-#baixando o repositório do Graylog Server (Link atualizado no dia 20/12/2024)
-wget https://packages.graylog2.org/repo/packages/graylog-6.1-repository_latest.deb
+#OBSERVAÇÃO IMPORTANTE: o executável e os arquivos de configuração do Graylog sofre
+#alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última
+#versão do software no Link: https://packages.graylog2.org/packages
+
+#baixando o repositório do Graylog Server (Link atualizado no dia 28/03/2025)
+wget https://packages.graylog2.org/repo/packages/graylog-6.2-repository_latest.deb
 
 #instalando o repositório do Graylog
 #opção do comando dpkg: -i (install)
 sudo dpkg -i graylog-*.deb
 ```
 
-#11_ Instalando o Graylog Server no Ubuntu Server<br>
+## 11_ Instalando o Graylog Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o Sources List do Graylog Server
 sudo apt update
@@ -217,7 +217,7 @@ sudo apt update
 sudo apt install --install-recommends graylog-server
 ```
 
-#12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
+## 12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server
 ```bash
 #gerando a senha aleatório da variável: password_secret
 #OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
@@ -242,7 +242,7 @@ echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut
   Enter Password: pti@2018
 ```
 
-#13_ Editando o arquivo de configuração do Graylog Server<br>
+## 13_ Editando o arquivo de configuração do Graylog Server
 ```bash
 #editando o arquivo de configuração do Graylog
 sudo vim /etc/graylog/server/server.conf
@@ -274,7 +274,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-#14_ Criando o usuário de autenticação do MongoDB Server<br>
+## 14_ Criando o usuário de autenticação do MongoDB Server
 ```bash
 #acessando o MongoDB Shell
 #opção do comando mongosh: admin (database) -u (username), -p (password)
@@ -301,7 +301,7 @@ db.getUser("graylog")
 quit
 ```
 
-#15_ Habilitando o Serviço do Graylog Server<br>
+## 15_ Habilitando o Serviço do Graylog Server
 ```bash
 #habilitando o serviço do Graylog Server
 sudo systemctl daemon-reload
@@ -309,7 +309,7 @@ sudo systemctl enable graylog-server
 sudo systemctl restart graylog-server
 ```
 
-#16_ Verificando o Serviço e Versão do Graylog Server<br>
+## 16_ Verificando o Serviço e Versão do Graylog Server
 ```bash
 #verificando o serviço do Graylog Server
 sudo systemctl status graylog-server
@@ -327,7 +327,7 @@ sudo journalctl -xeu graylog-server
 sudo apt list | grep -i graylog
 ```
 
-#17_ Verificando a Porta de Conexão do Graylog Server<br>
+## 17_ Verificando a Porta de Conexão do Graylog Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -338,7 +338,7 @@ sudo apt list | grep -i graylog
 sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ```
 
-#18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
+## 18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G opensearch $USER
@@ -351,7 +351,7 @@ id
 exit
 ```
 
-#19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
+## 19_ Localização dos diretórios principais do OpenSearch e do Graylog Server
 ```bash
 /etc/opensearch/*                <-- Diretório das configurações do OpenSearch
 /etc/opensearch/opensearch.yml   <-- Arquivo de configuração do Serviço do OpenSearch
@@ -362,7 +362,7 @@ exit
 /var/log/graylog/*               <-- Diretório dos Logs do Graylog Server
 ```
 
-#20_ Configurando o Graylog Server via Navegador<br>
+## 20_ Configurando o Graylog Server via Navegador
 ```bash
 #acessar via navegador o Graylog
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9000
@@ -373,7 +373,7 @@ Welcome to Graylog
 <Sign In>
 ```
 
-#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
+## 21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server
 ```bash
 #criando um Input no Graylog Server
 Welcome
@@ -415,12 +415,11 @@ sudo systemctl restart rsyslog
 sudo systemctl status rsyslog
 ```
 
-#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP
-#CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER
-#OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
+## 22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10
 
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
+
+```bash
 #configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog
 #verificando o status de serviço do Rsyslog
 sudo systemctl status rsyslog
@@ -525,7 +524,7 @@ Restart-Service nxlog
 Get-Service nxlog
 ```
 
-#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server<br>
+## 23_ Criando um Input GELF UDP do Windows 10 no Graylog Server
 ```bash
 #criando um Input GELF (Graylog Extended Log Format) UDP no Graylog Server
 Welcome
@@ -547,7 +546,7 @@ Launch new GELF UDP input
 sudo lsof -nP -iUDP:'12201'
 ```
 
-#24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10<br>
+## 24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10
 ```bash
 Graylog
   Search
@@ -563,7 +562,7 @@ Graylog
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Graylog realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

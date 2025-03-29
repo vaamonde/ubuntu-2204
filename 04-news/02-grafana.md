@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.14<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.15<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -36,13 +36,13 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Grafana: https://grafana.com/<br>
 
-Grafana é uma aplicação web de análise de código aberto multiplataforma e visualização interativa da web. Ele fornece tabelas, gráficos e alertas para a Web quando conectado a fontes de dados suportadas. É expansível através de um sistema de plug-in.
+O QUE É E PARA QUE SERVER O GRAFANA: O Grafana é uma plataforma open-source para visualização, monitoramento e análise de dados em tempo real. Ele permite criar dashboards interativos que exibem métricas coletadas de diversas fontes, como bancos de dados, sistemas de monitoramento, IoT e aplicações.
 
 [![Grafana](http://img.youtube.com/vi/vD1aFVcgdlo/0.jpg)](https://www.youtube.com/watch?v=vD1aFVcgdlo "Grafana")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
-#01_ Instalando as Dependências do Grafana Server<br>
+## 01_ Instalando as Dependências do Grafana Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -51,7 +51,7 @@ sudo apt update
 sudo apt install apt-transport-https software-properties-common git vim
 ```
 
-#02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server<br>
+## 02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server
 ```bash
 #baixando a Chave GPG do Grafana Server
 #opção do comando wget: -q (quiet), -O (output-document)
@@ -67,7 +67,7 @@ sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /us
 echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 ```
 
-#03_ Instalando o Grafana Server no Ubuntu Server<br>
+## 03_ Instalando o Grafana Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório
 sudo apt update
@@ -77,7 +77,7 @@ sudo apt update
 sudo apt install --install-recommends grafana
 ```
 
-#04_ Editando os arquivos de configuração do Grafana Server<br>
+## 04_ Editando os arquivos de configuração do Grafana Server
 ```bash
 #editando o arquivo de configuração do Grafana Server
 sudo vim /etc/default/grafana-server
@@ -107,13 +107,14 @@ INSERT
   http_port = 3000
 
   #descomentar a variável ;domain = na linha 44
+  #altere o nome de domínio conforme o seu cenário
 	domain = pti.intra
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
 
-#05_ Habilitando o Serviço do Grafana Server<br>
+## 05_ Habilitando o Serviço do Grafana Server
 ```bash
 #habilitando o serviço do Grafana Server
 sudo systemctl daemon-reload
@@ -121,7 +122,7 @@ sudo systemctl enable grafana-server
 sudo systemctl restart grafana-server
 ```
 
-#06_ Verificando o Serviço e Versão do Grafana Server<br>
+## 06_ Verificando o Serviço e Versão do Grafana Server
 ```bash
 #verificando o serviço do Grafana Server
 sudo systemctl status grafana-server
@@ -141,7 +142,7 @@ sudo grafana-server -v
 sudo grafana-cli -v
 ```
 
-#07_ Verificando a Porta de Conexão do Grafana Server<br>
+## 07_ Verificando a Porta de Conexão do Grafana Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -157,7 +158,7 @@ sudo grafana-cli -v
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
-#08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
+## 08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G grafana $USER
@@ -169,7 +170,7 @@ id
 exit
 ```
 
-#09_ Localização dos diretórios principais do Grafana Server<br>
+## 09_ Localização dos diretórios principais do Grafana Server
 ```bash
 /usr/share/grafana*          <-- Diretório do Site do Grafava Server
 /var/log/grafana*            <-- Diretório dos arquivos de Logs do serviço do Grafana Server
@@ -180,7 +181,7 @@ exit
 /var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
 ```
 
-#10_ Configurando o Grafana Server via Navegador<br>
+## 10_ Configurando o Grafana Server via Navegador
 ```bash
 #acessar via navegador o Grafana
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
@@ -197,7 +198,7 @@ Update your password
 <Submit>
 ```
 
-#11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
+## 11_ Criando um Data Sources do MySQL Server no Grafana Server
 ```bash
 #criando um Data Sources do Banco de Dados DBAgenda do MySQL Server
 Open Menu
@@ -216,7 +217,7 @@ Open Menu
     Data Sources
 ```
 
-#12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
+## 12_ Criando um Dashboard do Banco de Dados DBAgenda
 ```bash
 #criando o Dashboard do Banco de Dados DBAgenda
 Open Menu
@@ -273,7 +274,7 @@ Open Menu
         <Apply>
 ```
 
-#13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana<br>
+## 13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana
 ```bash
 #instalando o Plugin do Zabbix Server no Grafana
 sudo grafana-cli plugins install alexanderzobnin-zabbix-app
@@ -343,7 +344,7 @@ Open Menu
       #gráfico de utilização da NETWORK
 ```
 
-#14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+## 14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo apt install stress-ng s-tui
@@ -377,7 +378,7 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Grafana realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

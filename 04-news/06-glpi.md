@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 07/12/2025<br>
-#Versão: 0.09<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.10<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -33,25 +33,24 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do GLPI Project: https://glpi-project.org/pt-br/<br>
 
-GLPI é um sistema de código aberto para Gerenciamento de Ativos de TI, rastreamento de problemas e central de serviços. Este software é escrito em PHP e distribuído sob a GNU General Public License. Como uma tecnologia de código aberto, qualquer pessoa pode executar, modificar ou desenvolver o código.
+**O QUE É E PARA QUE SERVER O GLPI:** O GLPI (Gestionnaire Libre de Parc Informatique) é uma plataforma open-source de ITSM (IT Service Management) usada para gerenciamento de ativos de TI, help desk, inventário e controle de chamados. Ele é amplamente utilizado por equipes de suporte técnico e departamentos de TI para otimizar o gerenciamento de infraestrutura e serviços.
 
 [![GLPI](http://img.youtube.com/vi/Et4Ac24vt6w/0.jpg)](https://www.youtube.com/watch?v=Et4Ac24vt6w "GLPI")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
-#01_ Instalando as Dependências do GLPI Help Desk<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER
-#E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 
-#SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+## 01_ Instalando as Dependências do GLPI Help Desk
 
+**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+
+```bash
 #atualizando as lista do apt
 sudo apt update
+```
 
-#OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
-#NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
-#VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU. VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
 
+```bash
 #instalando as dependências do GLPI Help Desk
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install php-curl php-gd php-intl php-pear php-imagick php-imap php-memcache php-pspell \
@@ -60,12 +59,11 @@ libapache2-mod-php xmlrpc-api-utils xz-utils bzip2 unzip curl php-soap php-commo
 php-zip php-bz2
 ```
 
-#02_ Criando a Base de Dados do GLPI Help Desk<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: O GLPI POSSUI AS DEPENDÊNCIAS DE TIMEZONE E DATA HORA
-#CORRETA, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: 03 DO LOCATE E
-#TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER.
+## 02_ Criando a Base de Dados do GLPI Help Desk
 
+**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DE TIMEZONE E DATA HORA CORRETA, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: 03 DO LOCATE E TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER.
+
+```bash
 #habilitando o recurso de TimeZone do GLPI no MySQL Server
 #opções do comando mysql: -u (user), -p (password), mysql (database)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
@@ -124,21 +122,22 @@ USE glpi10;
 exit
 ```
 
-#03_ Baixando o Projeto do GLPI Help Desk do Github<br>
-```bash
-#Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/
+## 03_ Baixando o Projeto do GLPI Help Desk do Github
 
+**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Help Desk sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
+
+Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/
+
+```bash
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
 
-#download da última versão do GLPI Help Desk (link atualizado em 11/11/2024)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Help Desk sofre alteração, antes
-#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
+#download da última versão do GLPI Help Desk (link atualizado em 28/03/2025)
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
+wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.18/glpi-10.0.18.tgz
 ```
 
-#04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server<br>
+## 04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server
 ```bash
 #descompactando o download do arquivo do GLPI Help Desk
 #opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
@@ -161,7 +160,7 @@ sudo find /var/www/html/glpi/. -type f -exec chmod -v 644 {} \;
 sudo chmod -Rv 777 /var/www/html/glpi/files/_log
 ```
 
-#05_ Atualizando os Arquivos de Configuração do GLPI Help Desk<br>
+## 05_ Atualizando os Arquivos de Configuração do GLPI Help Desk
 ```bash
 #download dos principais arquivos de configuração do GLPI Help Desk
 #opção do comando wget: -v (verbose), -O (output file)
@@ -173,7 +172,7 @@ sudo wget -v -O /etc/apache2/conf-available/glpi.conf https://raw.githubusercont
 sudo wget -v -O /etc/cron.d/glpi-cron https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/glpi-cron
 ```
 
-#06_ Editando os arquivos de configuração do GLPI Help Desk<br>
+## 06_ Editando os arquivos de configuração do GLPI Help Desk
 ```bash
 #editando o arquivo de configuração do GLPI Help Desk utilizado pelo Apache2
 sudo vim /etc/apache2/conf-available/glpi.conf
@@ -263,7 +262,7 @@ Listen 8888
 ESC SHIFT :x <Enter>
 ```
 
-#07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
+## 07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk
 ```bash
 #habilitando os módulos do Apache2 Server
 sudo a2enmod rewrite setenvif
@@ -283,7 +282,7 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
-#08_ Verificando a Porta de Conexão do GLPI Help Desk<br>
+## 08_ Verificando a Porta de Conexão do GLPI Help Desk
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -294,7 +293,7 @@ sudo journalctl -xeu apache2
 sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
 ```
 
-#09_ Localização dos diretórios principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO)<br>
+## 09_ Localização dos diretórios principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO)
 ```bash
 /etc/apache2/conf-available/*  <-- Diretório dos arquivos de configuração dos Sites do Apache2 Server;
 /etc/cron.d/*                  <-- Diretório dos arquivos de agendamento diário do CRON;
@@ -304,7 +303,7 @@ sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
 /var/www/html/glpi/files/*     <-- Diretório dos Arquivos do GLPI Help Desk.
 ```
 
-#10_ Acessando e configurando o GLPI Help Desk via navegador<br>
+## 10_ Acessando e configurando o GLPI Help Desk via navegador
 ```bash
 #acessar via navegador o GLPI
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
@@ -371,7 +370,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888
 sudo rm -v /var/www/html/glpi/install/install.php
 ```
 
-#11_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
+## 11_ Habilitando o Recurso de Inventário do GLPI Help Desk
 ```bash
 #habilitar o recurso de recebimento de inventário no GLPI Help Desk
 Administração
@@ -385,10 +384,11 @@ Administração
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventory.php
 ```
 
-#12_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
-```bash
-#Instalação do GLPI Agent no Ubuntu Server
+## 12_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops Linux e Windows
 
+### Instalação do GLPI Agent no Ubuntu Server
+
+```bash
 #atualizando as lista do apt
 sudo apt update
 
@@ -403,11 +403,13 @@ libcrypt-des-perl libnet-write-perl libarchive-extract-perl libdigest-sha-perl \
 libfile-copy-recursive-perl libjson-pp-perl liburi-escape-xs-perl libparallel-forkmanager-perl \
 libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
 hdparm 7zip
+```
 
-#baixando o Agent do GLPI do Github (link atualizado em: 11/11/2024)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
-#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent_1.11-1_all.deb
+**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+
+```bash
+#baixando o Agent do GLPI do Github (link atualizado em: 28/03/2025)
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.13/glpi-agent_1.13-1_all.deb
 
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
@@ -449,9 +451,11 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:62354/
 
 #forçando o envio do primeiro inventário do GLPI Help Desk
 sudo glpi-agent 
+```
 
-#Instalação do GLPI Agent no Linux Mint
+### Instalação do GLPI Agent no Linux Mint
 
+```bash
 #atualizando as lista do apt
 sudo apt update
 
@@ -466,11 +470,13 @@ libcrypt-des-perl libnet-write-perl libarchive-extract-perl libdigest-sha-perl \
 libfile-copy-recursive-perl libjson-pp-perl liburi-escape-xs-perl libparallel-forkmanager-perl \
 libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-perl dmidecode \
 hdparm 7zip
+```
 
-#baixando o Agent do GLPI do Github (link atualizado em: 11/11/2025)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
-#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent_1.11-1_all.deb
+**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+
+```bash
+#baixando o Agent do GLPI do Github (link atualizado em: 28/03/2025)
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.13/glpi-agent_1.13-1_all.deb
 
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
@@ -509,13 +515,15 @@ firefox ou google chrome: http://endereço_ipv4_linuxmint:62354/
 
 #forçando o envio do primeiro inventário do GLPI Help Desk
 sudo glpi-agent 
+```
 
-#Instalação do GLPI Agent no Microsoft Windows 10
+### Instalação do GLPI Agent no Microsoft Windows 10
 
-#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 11/11/2024)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent sofre alteração, antes
-#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
-Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.11/GLPI-Agent-1.11-x64.msi
+**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+
+```bash
+#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 28/03/2025)
+Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.13/GLPI-Agent-1.13-x64.msi
 
 #instalando o Agent GLPI Help Desk Windows 10
 Download
@@ -576,10 +584,12 @@ netstat -an | findstr 62354
 
 #testando o Agent do GLPI Help Desk via navegador
 firefox ou google chrome: http://endereço_ipv4_windows10:62354/
+```
 
-#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 11/11/2024)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo o GLPI Agent Monitor sofre alteração, antes
-#de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
+**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent Monitor sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
+
+```bash
+#baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 28/03/2025)
 Link de download: https://github.com/glpi-project/glpi-agentmonitor/releases/download/1.4.0/GLPI-AgentMonitor-x64.exe
 
 #instalando o GLPI Agent Monitor no Microsoft Windows 10
@@ -601,7 +611,7 @@ GLPI Agent Monitor
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do GLPI realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

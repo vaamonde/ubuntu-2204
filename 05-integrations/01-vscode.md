@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.18<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: *Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM)MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -31,23 +31,21 @@ Site Oficial do Visual Studio Code: https://code.visualstudio.com/<br>
 Site Oficial do Visual Studio Code Web: https://vscode.dev/<br>
 Link do Marketplace: https://marketplace.visualstudio.com/VSCode
 
-O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, Linux e macOS. Ele inclui suporte para depuração, controle de versionamento Git incorporado, realce de sintaxe, complementação inteligente de código, snippets e refatoração de código.
+**O QUE É E PARA QUE SERVER O VSCODE:** O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft para Windows, Linux e macOS. Ele inclui suporte para depuração, controle de versionamento Git incorporado, realce de sintaxe, complementação inteligente de código, snippets e refatoração de código.
 
-A extensão Visual Studio Code Remote - SSH permite que você abra uma pasta remota em qualquer máquina remota, máquina virtual ou contêiner com um servidor SSH em execução e aproveite ao máximo o conjunto de recursos do VS Code. Uma vez conectado a um servidor, você pode interagir com arquivos e pastas em qualquer lugar do sistema de arquivos remoto.
+**O QUE É E PARA QUE SERVER O AS EXTENSÕES DO VSCODE:** A extensão Visual Studio Code Remote - SSH permite que você abra uma pasta remota em qualquer máquina remota, máquina virtual ou contêiner com um servidor SSH em execução e aproveite ao máximo o conjunto de recursos do VS Code. Uma vez conectado a um servidor, você pode interagir com arquivos e pastas em qualquer lugar do sistema de arquivos remoto.
 
-GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.
+**O QUE É E PARA QUE SERVER O GITHUB:** GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo.
 
 [![Integração VSCode](http://img.youtube.com/vi/V0Ddhelmi4Y/0.jpg)](https://www.youtube.com/watch?v=V0Ddhelmi4Y "Integração VSCode")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 
-#01_ Instalando as Dependências do Microsoft Visual Studio Code VSCode no Linux Mint<br>
+## 01_ Instalando as Dependências do Microsoft Visual Studio Code VSCode no Linux Mint
+
+**OBSERVAÇÃO IMPORTANTE:** O RECURSO DO REMOTE SSH DO VSCODE POSSUI AS DEPENDÊNCIAS DO OPENSSH SERVER, ESSE APLICATIVO JÁ FOI INSTALADA E CONFIGURADO NA ETAPA: 01 DO OPENSSH.
 
 ```bash
-#OBSERVAÇÃO IMPORTANTE: O RECURSO DO REMOTE SSH DO VSCODE POSSUI AS DEPENDÊNCIAS 
-#DO OPENSSH SERVER, ESSE APLICATIVO JÁ FOI INSTALADA E CONFIGURADO NA ETAPA: 01 
-#DO OPENSSH.
-
 #atualizando as listas do Apt
 sudo apt update
 
@@ -55,7 +53,7 @@ sudo apt update
 sudo apt install vim git python2 python3 cloc
 ```
 
-#02_ Download e Instalação do Microsoft Visual Studio Code VSCode no Linux Mint e Windows<br>
+## 02_ Download e Instalação do Microsoft Visual Studio Code VSCode no Linux Mint e Windows
 ```bash
 #link de download no Linux Mint
 https://code.visualstudio.com/download
@@ -68,7 +66,7 @@ https://code.visualstudio.com/download
     Salvar arquivo
 ```
 
-#03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows<br>
+## 03_ Instalando a Extensão do Remote SSH e Explorer no Linux Mint e Windows
 ```bash
 #adicionado as extensões do Remote SSH e Explorer no VSCode
 vscode
@@ -78,7 +76,7 @@ vscode
       Remote Explorer (Instalar)
 ```
 
-#04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server<br>
+## 04_ Habilitando o Suporte ao Encaminhamento de Portas no OpenSSH Server
 ```bash
 #editando o arquivo de configuração do OpenSSH Server
 sudo vim /etc/ssh/sshd_config
@@ -112,7 +110,7 @@ sudo journalctl -t sshd
 sudo journalctl -xeu ssh
 ```
 
-#05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows<br>
+## 05_ Configurando a Extensão do Remote SSH no Linux Mint e Windows
 ```bash
 #configurando a integração com o Ubuntu Server no Linux Mint
 Remote Explorer
@@ -157,14 +155,15 @@ Remote Explorer
     <Yes, I trust the authors>
 ```
 
-#06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
-```bash
-Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática Tarde SENAC-SP Tatuapé)
-LinkedIn: https://www.linkedin.com/in/jo%C3%A3o-vitor-andrade-289216271/
-Github: https://github.com/andradejao/
-Repositório: https://github.com/andradejao/outlawgames
-Site: https://andradejao.github.io/outlawgames/
+## 06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
 
+Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática Tarde SENAC-SP Tatuapé)<br>
+LinkedIn...: https://www.linkedin.com/in/jo%C3%A3o-vitor-andrade-289216271/<br>
+Github.....: https://github.com/andradejao/<br>
+Repositório: https://github.com/andradejao/outlawgames<br>
+Site.......: https://andradejao.github.io/outlawgames/<br>
+
+```bash
 #fazendo um Fork (garfada) do Projeto do João Vitor Andrade
 Repositório: https://github.com/andradejao/outlawgames
   Clique em: Fork
@@ -204,14 +203,15 @@ git config --global --add safe.directory /var/www/html/outlawgames
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/outlawgames
 ```
 
-#07_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server<br>
-```bash
-Conhecendo o Projeto do Aluno: Camila Jodai (Técnico em Informática Tarde SENAC-SP Tatuapé)
-LinkedIn: https://www.linkedin.com/in/camila-jodai-330676271/
-Github: https://github.com/camilajodai
-Repositório: https://github.com/camilajodai/protectpetz
-Site: https://camilajodai.github.io/protectpetz/
+## 07_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
 
+Conhecendo o Projeto da Aluna: Camila Jodai (Técnico em Informática Tarde SENAC-SP Tatuapé)<br>
+LinkedIn...: https://www.linkedin.com/in/camila-jodai-330676271/<br>
+Github.....: https://github.com/camilajodai<br>
+Repositório: https://github.com/camilajodai/protectpetz<br>
+Site.......: https://camilajodai.github.io/protectpetz/<br>
+
+```bash
 #fazendo um Fork (garfada) do Projeto da Camila Jodai
 Repositório: https://github.com/camilajodai/protectpetz
   Clique em: Fork
@@ -253,7 +253,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/protectpetz
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: *Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

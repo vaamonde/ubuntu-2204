@@ -139,7 +139,7 @@ USE zabbix;
 exit
 ```
 
-##06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema<br>
+## 06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema
 
 **OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
@@ -213,12 +213,15 @@ sudo vim /etc/zabbix/zabbix_agent2.conf
 INSERT
 
   #alterar o valor da variável Server= na linha: 80
+  #alterar o endereço IPv4 do seu servidor conforme o seu cenário
   Server=172.16.1.20
 
   #alterar o valor da variável ServerActive= na linha: 133
+   #alterar o endereço IPv4 do seu servidor conforme o seu cenário
   ServerActive=172.16.1.20
 
   #alterar o valor da variável Hostname= na linha: 144
+   #alterar o nome do seu servidor conforme o seu cenário
   Hostname=wsvaamonde
 
   #descomentar o valor da variável RefreshActiveChecks= na linha 204
@@ -322,7 +325,7 @@ exit
 /etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
 /etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
 /etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent
-/var/log/zabbix*                <-- Diretório dos arquivos de Log's do serviço do Zabbix
+/var/log/zabbix*                <-- Diretório dos arquivos de Logs do serviço do Zabbix
 /usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
 ```
 
@@ -337,6 +340,7 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/dow
 **OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO 7.2 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
 ```bash
+#Download do Agent do Zabbix para sistemas operacionais Microsoft
 #Windows, Any, amd64, v7.2, OpenSSL, MSI: Zabbix agent 2 v7.2.0 (ATUALIZADO NO DIA 20/12/2024)
 https://cdn.zabbix.com/zabbix/binaries/stable/7.2/7.2.0/zabbix_agent2-7.2.0-windows-amd64-openssl.msi
 
@@ -399,12 +403,15 @@ sudo vim /etc/zabbix/zabbix_agent2.conf
 INSERT
 
   #alterar o valor da variável Server= na linha: 80
+  #alterar o endereço IPv4 do seu servidor conforme o seu cenário
   Server=172.16.1.20
 
   #alterar o valor da variável ServerActive= na linha: 133
+  #alterar o endereço IPv4 do seu servidor conforme o seu cenário
   ServerActive=172.16.1.20
 
   #alterar o valor da variável Hostname= na linha: 144
+  #alterar o nome do seu desktop conforme o seu cenário
   Hostname=linuxmint213
 
   #descomentar o valor da variável RefreshActiveChecks= na linha 204

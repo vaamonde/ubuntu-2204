@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.11<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.12<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -39,15 +39,15 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
-InfluxDB é um banco de dados de série temporal de código aberto desenvolvido pela empresa InfluxData. Ele é usado para armazenamento e recuperação de dados de séries temporais em áreas como monitoramento de operações, métricas de aplicativos, dados de sensores da Internet das Coisas e análises em tempo real.
+**O QUE É E PARA QUE SERVER O INFLUXDB:** O InfluxDB é um banco de dados de séries temporais (TSDB - Time Series Database) open-source, projetado para armazenar e processar grandes volumes de dados gerados ao longo do tempo, como métricas, logs, eventos e telemetria de dispositivos IoT.
 
-Telegraf - é um agente de coleta de métricas de código aberto para coleta e envio de dados e eventos de bancos de dados, sistemas e sensores IoT. Ele suporta vários plugins de saída, como InfluxDB, Graphite, Kafka, etc., para os quais pode enviar os dados coletados.
+**O QUE É E PARA QUE SERVER O TELEGRAF:** O Telegraf é um agente de coleta de métricas open-source desenvolvido pela InfluxData. Ele é usado para coletar, processar e enviar dados de monitoramento para diferentes bancos de dados e plataformas, como InfluxDB, Prometheus, Grafana, Elasticsearch e outros.
 
 [![InfluxDB2](http://img.youtube.com/vi/yBmRjTRz2DU/0.jpg)](https://www.youtube.com/watch?v=yBmRjTRz2DU "InfluxDB2")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 
-#01_ Instalando as Dependências do InfluxDB2 e do Telegraf<br>
+## 01_ Instalando as Dependências do InfluxDB2 e do Telegraf
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -56,7 +56,7 @@ sudo apt update
 sudo apt install apt-transport-https software-properties-common git vim wget curl gnupg2
 ```
 
-#02_ Instalando a Chave GPG do InfluxDB2 e do Telegraf no Ubuntu Server<br>
+## 02_ Instalando a Chave GPG do InfluxDB2 e do Telegraf no Ubuntu Server
 ```bash
 #baixando a Chave GPG do InfluxDB2 e do Telegraf
 #opção do comando wget: -q (quiet)
@@ -74,7 +74,7 @@ echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdat
 sudo echo "deb [signed-by=/usr/share/keyrings/influxdb.gpg] https://repos.influxdata.com/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list > /dev/null
 ```
 
-#03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server<br>
+## 03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório
 sudo apt update
@@ -84,7 +84,7 @@ sudo apt update
 sudo apt install --install-recommends influxdb2 telegraf
 ```
 
-#04_ Habilitando o Serviço do InfluxDB2<br>
+## 04_ Habilitando o Serviço do InfluxDB2
 ```bash
 #habilitando o serviço do InfluxDB2
 sudo systemctl daemon-reload
@@ -92,7 +92,7 @@ sudo systemctl enable influxdb
 sudo systemctl restart influxdb
 ```
 
-#05_ Verificando o Serviço e Versão do InfluxDB2<br>
+## 05_ Verificando o Serviço e Versão do InfluxDB2
 ```bash
 #verificando o serviço do InfluxDB2
 sudo systemctl status influxdb
@@ -112,7 +112,7 @@ sudo influxd version
 sudo influx version
 ```
 
-#06_ Verificando a Porta de Conexão do InfluxDB2<br>
+## 06_ Verificando a Porta de Conexão do InfluxDB2
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -123,7 +123,7 @@ sudo influx version
 sudo lsof -nP -iTCP:'8086' -sTCP:LISTEN
 ```
 
-#07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf<br>
+## 07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G influxdb $USER
@@ -136,10 +136,10 @@ id
 exit
 ```
 
-#08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf<br>
+## 08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf
 ```bash
 /etc/influxdb/*              <-- Diretório das configurações do InfluxDB2
-/etc/iffluxdb/config.toml    <-- Arquivo de configuração do InfluxDB2
+/etc/iNfluxdb/config.toml    <-- Arquivo de configuração do InfluxDB2
 /var/lib/influxdb/*          <-- Diretório das bibliotecas e Banco de Dados do InfluxDB2
 /etc/telegraf/*              <-- Diretório das configurações do Telegraf
 /etc/telegraf/telegraf.conf  <-- Arquivo de configuração do Telegraf
@@ -147,7 +147,7 @@ exit
 /var/log/telegraf/*          <-- Diretório de Log do Telegraf
 ```
 
-#09_ Configurando o InfluxDB2 via Navegador<br>
+## 09_ Configurando o InfluxDB2 via Navegador
 ```bash
 #acessar o InfluxDB2 via Navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8086
@@ -168,7 +168,7 @@ You are ready to go!
   <CONFIGURE LATER>
 ```
 
-#10_ Criando o Token de Integração do Telegraf com o InfluxDB<br>
+## 10_ Criando o Token de Integração do Telegraf com o InfluxDB
 ```bash
 Load Data
   API Tokens
@@ -176,12 +176,11 @@ Load Data
       All Access API Token
         Description: telegraf
     <SAVE>
-
-#OBSERVAÇÃO IMPORTANTE: COPIAR O TOKEN GERADO PARA ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO
-#DO TELEGRAF, ELE TAMBÉM SERÁ UTILIZADO NA INTEGRAÇÃO COM O GRAFANA: <COPY TO CLIPBOARD>
 ```
 
-#11_ Editando o arquivo de configuração do Telegraf<br>
+**OBSERVAÇÃO IMPORTANTE:** COPIAR O TOKEN GERADO PARA ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO DO TELEGRAF, ELE TAMBÉM SERÁ UTILIZADO NA INTEGRAÇÃO COM O GRAFANA: <COPY TO CLIPBOARD>
+
+## 11_ Editando o arquivo de configuração do Telegraf
 ```bash
 #editando o arquivo de configuração do Telegraf
 sudo vim /etc/telegraf/telegraf.conf
@@ -217,7 +216,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-#12_ Habilitando o Serviço do Telegraf<br>
+## 12_ Habilitando o Serviço do Telegraf
 ```bash
 #habilitando o serviço do Telegraf
 sudo systemctl daemon-reload
@@ -225,7 +224,7 @@ sudo systemctl enable telegraf
 sudo systemctl restart telegraf
 ```
 
-#13_ Verificando o Serviço e Versão do Telegraf<br>
+## 13_ Verificando o Serviço e Versão do Telegraf
 ```bash
 #verificando o serviço do Telegraf
 sudo systemctl status telegraf
@@ -243,7 +242,7 @@ sudo journalctl -xeu telegraf
 sudo telegraf --version
 ```
 
-#14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
+## 14_ Criando um Data Explorer do Telegraf no InfluxDB2
 ```bash
 Data Explorer
   Graph: Gauge
@@ -277,13 +276,19 @@ Data Explorer
 <CONFIRM> 
 ```
 
-#15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
-#Link de referência do download: https://github.com/influxdata/telegraf/releases
+## 15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows
 
-#link para download direto do Telegraf (link atualizado em: 20/12/2024)
-https://dl.influxdata.com/telegraf/releases/telegraf-1.33.0_windows_amd64.zip
+**OBSERVAÇÃO IMPORTANTE:** INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
+
+Link de referência do download: https://github.com/influxdata/telegraf/releases
+
+```bash
+#OBSERVAÇÃO IMPORTANTE: o executável e os arquivos de configuração do Telegraf sofre
+#alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
+#versão do software no Link: https://github.com/influxdata/telegraf/releases
+
+#link para download direto do Telegraf (link atualizado em: 28/03/2025)
+https://dl.influxdata.com/telegraf/releases/telegraf-1.34.1_windows_amd64.zip
 
 #descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download
@@ -307,10 +312,11 @@ Pasta de Download
 C:\Arquivos de Programas
   Botão direito do mouse e selecionar: Colar (OU CTRL + V)
     <CONTINUAR>
+```
 
-#OBSERVAÇÃO IMPORTANTE: fazer a configuração e instalação do Telegraf utilizando o 
-#Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
+**OBSERVAÇÃO IMPORTANTE:** fazer a configuração e instalação do Telegraf utilizando o Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
 
+```bash
 Menu
   Powershell 
     Clicar com o botão direito do mouse e selecionar: Executar como Administrador
@@ -368,10 +374,13 @@ Set-Service telegraf -StartupType Automatic
 
 #verificando a versão do Telegraf
 .\telegraf version
+```
 
-#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO GNU/LINUX MINT (NÃO COMENTADO NO VÍDEO)
-#Link de referência do download: https://github.com/influxdata/telegraf/releases
+**OBSERVAÇÃO IMPORTANTE:** INSTALAÇÃO NO GNU/LINUX MINT (NÃO COMENTADO NO VÍDEO)
 
+Link de referência do download: https://github.com/influxdata/telegraf/releases
+
+```bash
 #atualizando as lista do apt (NÃO COMENTADO NO VÍDEO)
 sudo apt update
 
@@ -450,7 +459,7 @@ sudo journalctl -xeu telegraf
 sudo telegraf --version
 ```
 
-#16_ Integrando o InfluxDB2 no Grafana<br>
+## 16_ Integrando o InfluxDB2 no Grafana
 ```bash
 #acessando o Grafana Server (NÃO COMENTADO NO VÍDEO)
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
@@ -523,7 +532,7 @@ Open Menu
     <Apply>
 ```
 
-#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+## 17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo apt install stress-ng s-tui
@@ -557,7 +566,7 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

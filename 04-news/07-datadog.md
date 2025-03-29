@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.08<br>
+#Data de atualização: 28/03/2025<br>
+#Versão: 0.09<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Datadog realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -25,26 +25,25 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Datadog: https://www.datadoghq.com/<br>
 
-A Datadog é uma empresa de software que fornece um SaaS de observabilidade para serviços em nuvem amplamente utilizado. Foi fundada em 2010 por Olivier Pomel e Alexis Lê-Quôc em Nova Iorque.
+O QUE É E PARA QUE SERVER O DATADOG: O Datadog é uma plataforma de monitoramento e segurança em nuvem usada para coletar, visualizar e analisar métricas, logs e rastreamento de aplicações em tempo real. Ele é amplamente utilizado por equipes de DevOps, SRE e Segurança para garantir observabilidade completa de infraestruturas modernas, incluindo servidores, containers, aplicações e redes.
 
 [![Datadog](http://img.youtube.com/vi/tmcyPRGSHf4/0.jpg)](https://www.youtube.com/watch?v=tmcyPRGSHf4 "Datadog")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
-#01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: Diferente dos outros sistemas de monitoramento de servidores,
-#o Datadog utilizada sua estrutura em Cloud para monitorar e gerenciar as métricas dos
-#serviços de rede utilizando apenas os agentes para o envio das informações.
+## 01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
 
+**OBSERVAÇÃO IMPORTANTE:** Diferente dos outros sistemas de monitoramento de servidores, o Datadog utilizada sua estrutura em Cloud para monitorar e gerenciar as métricas dos serviços de rede utilizando apenas os agentes para o envio das informações.
+
+```bash
 #criando uma Conta Free no Datadog
 Link dos valores de contas: https://www.datadoghq.com/pricing/
     Clique em: Free - Starting At $0 <START FREE TRIAL>
+```
 
-#OBSERVAÇÃO: a conta Free do Datadog permite manter as métricas dos servidores por apenas
-#1 (um) dia e conectar apenas 05 (cinco) Agentes (Hosts) de Monitoramento, para uma empresa
-#pequena é mais do que suficiente.
+**OBSERVAÇÃO:** a conta Free do Datadog permite manter as métricas dos servidores por apenas 1 (um) dia e conectar apenas 05 (cinco) Agentes (Hosts) de Monitoramento, para uma empresa pequena é mais do que suficiente.
 
+```bash
 #criando o cadastro no Site do Datadog (NÃO PRECISA DE CARTÃO DE CRÉDITO)
 Get Started with Datadog
     Region:
@@ -94,7 +93,7 @@ sudo datadog-agent diagnose
 #padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
 ```
 
-#02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10<br>
+## 02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10<br>
 ```bash
 #instalando o Agent no Linux Mint do site do Datadog
 Datadog
@@ -148,7 +147,7 @@ netstat -an | findstr 5002
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Datadog realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Datadog realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 

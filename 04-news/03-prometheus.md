@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/11/2024<br>
-#Versão: 0.17<br>
+#Data de atualização: 23/08/2025<br>
+#Versão: 0.18<br>
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
@@ -48,13 +48,15 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
-Prometheus é um aplicativo de software livre usado para monitoramento de eventos e alertas. Ele registra métricas em tempo real em um banco de dados de séries temporais (permitindo alta dimensionalidade) construído usando um modelo HTTP pull, com consultas flexíveis e alertas em tempo real. É um projeto código aberto originalmente criado na SoundCloud em 2012 e agora é mantido independentemente de qualquer empresa. 
+**O QUE É E PARA QUE SERVER O PROMETHEUS:** O Prometheus é um sistema de monitoramento e alerta open-source desenvolvido originalmente pela SoundCloud. Ele é projetado para coletar e armazenar métricas de sistemas e aplicações em séries temporais, permitindo análises detalhadas e alertas personalizados.
+
+**O QUE É E PARA QUE SERVER O NODE EXPORTER:** O Node Exporter é um agente de monitoramento usado para coletar métricas detalhadas de servidores Linux e máquinas físicas ou virtuais. Ele faz parte do ecossistema Prometheus e expõe as métricas do sistema operacional para serem coletadas e analisadas.
 
 [![Prometheus](http://img.youtube.com/vi/0h6le4K6uEQ/0.jpg)](https://www.youtube.com/watch?v=0h6le4K6uEQ "Prometheus")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 
-#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
+## 01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter
 ```bash
 #criação do grupo e usuário de serviço do Prometheus
 #opção do comando useradd: -s (shell), -g (group) 
@@ -70,21 +72,21 @@ sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_ex
 sudo usermod -a -G prometheus node_exporter
 ```
 
-#02_ Criando os diretórios do Prometheus e Node Exporter<br>
+## 02_ Criando os diretórios do Prometheus e Node Exporter
 ```bash
 #criando o diretório de configuração e bibliotecas do Prometheus
 #opção do comando mkdir: =p (parents), -v (verbose)
 sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 ```
 
-#03_ Baixando o Prometheus do Projeto do Github<br>
+## 03_ Baixando o Prometheus do Projeto do Github
 ```bash
 #OBSERVAÇÃO IMPORTANTE: o executável e os arquivos de configuração do Prometheus sofre
 #alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
 #versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
-#download do Prometheus do Github (Link atualizado no dia 20/12/2024)
-wget https://github.com/prometheus/prometheus/releases/download/v3.0.1/prometheus-3.0.1.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 28/03/2025)
+wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -92,7 +94,7 @@ wget https://github.com/prometheus/prometheus/releases/download/v3.0.1/prometheu
 ls -lh prometheus*
 ```
 
-#04_ Descompactando o arquivo do Prometheus<br>
+## 04_ Descompactando o arquivo do Prometheus
 ```bash
 #descompactando o arquivo do Prometheus
 #opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
@@ -100,7 +102,7 @@ ls -lh prometheus*
 tar -zxvf prometheus*.tar.gz 
 ```
 
-#05_ Atualizando os arquivos de configuração do Prometheus<br>
+## 05_ Atualizando os arquivos de configuração do Prometheus
 ```bash
 #atualizando os arquivos de configurações do Prometheus
 #opção do comando cp: -R (recursive), -v (verbose)
@@ -110,7 +112,7 @@ sudo cp -Rv prometheus*/{prometheus,promtool} /usr/local/bin/
 sudo cp -Rv prometheus*/{consoles/,console_libraries/} /etc/prometheus/
 ```
 
-#06_ Baixando e atualizando os arquivos customizados do Prometheus<br>
+## 06_ Baixando e atualizando os arquivos customizados do Prometheus
 ```bash
 #download do arquivo de serviço do Prometheus
 #opção do comando wget: -v (verbose), -O (output file)
@@ -121,7 +123,7 @@ sudo wget -v -O /etc/systemd/system/prometheus.service https://raw.githubusercon
 sudo wget -v -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/prometheus.yml
 ```
 
-#07_ Alterando as permissões de arquivos e diretórios do Prometheus<br>
+## 07_ Alterando as permissões de arquivos e diretórios do Prometheus
 ```bash
 #alterando o dono e grupo dos arquivos e diretórios do Prometheus
 #opção do comando chown: -R (recursive) -v (verbose), prometheus (user), :prometheus (group)
@@ -132,14 +134,14 @@ sudo chown -Rv prometheus:prometheus /etc/prometheus/ /var/lib/prometheus/
 sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 ```
 
-#08_ Instalando o Coletor de Métricas Node Exporter<br>
+## 08_ Instalando o Coletor de Métricas Node Exporter
 ```bash
 #OBSERVAÇÃO IMPORTANTE: o executável do Node Exporter do Prometheus sofre alteração
 #o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 #software no Link: https://github.com/prometheus/node_exporter/releases/
 
-#download do Node Exporter do Github (Link atualizado no dia 12/08/2024)
-wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
+#download do Node Exporter do Github (Link atualizado no dia 29/03/2025)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -147,7 +149,7 @@ wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_e
 ls -lh node_exporter*
 ```
 
-#09_ Descompactando o arquivo do Node Exporter<br>
+## 09_ Descompactando o arquivo do Node Exporter
 ```bash
 #descompactando o arquivo do Node Exporter
 #opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
@@ -155,7 +157,7 @@ ls -lh node_exporter*
 tar -zxvf node_exporter*.tar.gz 
 ```
 
-#10_ Atualizando os arquivos de configuração do Node Exporter<br>
+## 10_ Atualizando os arquivos de configuração do Node Exporter
 ```bash
 #atualizando os arquivos de configurações do Node Exporter
 #opção do comando cp: -R (recursive), -v (verbose)
@@ -163,7 +165,7 @@ tar -zxvf node_exporter*.tar.gz
 sudo cp -Rv node_exporter*/node_exporter /usr/local/bin/
 ```
 
-#11_ Baixando e atualizando os arquivos customizados do Node Exporter<br>
+## 11_ Baixando e atualizando os arquivos customizados do Node Exporter
 ```bash
 #download do arquivo de serviço do Node Exporter
 #opção do comando wget: -v (verbose), -O (output file)
@@ -174,7 +176,7 @@ sudo wget -v -O /etc/systemd/system/node_exporter.service https://raw.githubuser
 sudo wget -v -O /etc/prometheus/node_exporter.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.conf
 ```
 
-#12_ Alterando as permissões do executável do Node Exporter<br>
+## 12_ Alterando as permissões do executável do Node Exporter
 ```bash
 #alterando o dono e grupo do arquivo do Node Exporter
 #opção do comando chown: -R (recursive) -v (verbose), node_exporter (user), :node_exporter (group)
@@ -189,7 +191,7 @@ sudo chown -Rv node_exporter:node_exporter /etc/prometheus/node_exporter.conf
 sudo chmod -Rv 775 /usr/local/bin/node_exporter
 ```
 
-#13_ Habilitando o Serviço do Node Exporter no Ubuntu Server<br>
+## 13_ Habilitando o Serviço do Node Exporter no Ubuntu Server
 ```bash
 #habilitando o serviço do Node Exporter
 sudo systemctl daemon-reload
@@ -197,7 +199,7 @@ sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 ```
 
-#14_ Verificando o Serviço e Versão do Node Exporter<br>
+## 14_ Verificando o Serviço e Versão do Node Exporter
 ```bash
 #verificando o serviço do Node Exporter
 sudo systemctl status node_exporter
@@ -214,7 +216,7 @@ sudo journalctl -xeu node_exporter
 sudo node_exporter --version
 ```
 
-#15_ Verificando a Porta de Conexão do Node Exporter<br>
+## 15_ Verificando a Porta de Conexão do Node Exporter
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -225,7 +227,7 @@ sudo node_exporter --version
 sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 ```
 
-#16_ Editando o arquivo de configuração do Prometheus<br>
+## 16_ Editando o arquivo de configuração do Prometheus
 ```bash
 #OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Prometheus e baseado no formato 
 #de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado pela 
@@ -256,7 +258,7 @@ scrape_configs:
 ESC SHIFT : x <Enter>
 ```
 
-#17 Habilitando o Serviço do Prometheus no Ubuntu Server<br>
+## 17 Habilitando o Serviço do Prometheus no Ubuntu Server
 ```bash
 #habilitando o serviço do Prometheus
 sudo systemctl daemon-reload
@@ -264,7 +266,7 @@ sudo systemctl enable prometheus
 sudo systemctl start prometheus
 ```
 
-#18_ Verificando o Serviço e Versão do Prometheus<br>
+## 18_ Verificando o Serviço e Versão do Prometheus
 ```bash
 #verificando o serviço do Prometheus
 sudo systemctl status prometheus
@@ -281,7 +283,7 @@ sudo journalctl -xeu prometheus
 sudo prometheus --version
 ```
 
-#19_ Verificando a Porta de Conexão do Prometheus<br>
+## 19_ Verificando a Porta de Conexão do Prometheus
 ```bash
 #OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
 #iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
@@ -292,7 +294,7 @@ sudo prometheus --version
 sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
 ```
 
-#20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
+## 20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G prometheus $USER
@@ -305,7 +307,7 @@ id
 exit
 ```
 
-#21_ Localização dos diretórios principais do Prometheus<br>
+## 21_ Localização dos diretórios principais do Prometheus
 ```bash
 /etc/prometheus/*                   <-- Diretório de configuração do Prometheus
 /etc/prometheus/prometheus.yml      <-- Arquivo de configuração do Prometheus
@@ -313,16 +315,11 @@ exit
 /var/lib/prometheus/*               <-- Diretório de armazenamento dos binários e dados do Prometheus
 ```
 
-#22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: Quando você acessa o Prometheus via Navegador e aparecer a seguinte mensagem
-#de aviso em vermelho: Warning: Error fetching server time: Detected 65.21499991416931 seconds time 
-#difference between your browser and the server. Prometheus relies on accurate time and time drift 
-#might cause unexpected query results. Esse erro está associado a falha de sincronismo da Data e Hora
-#em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os
-#equipamentos ou utilizar o Protocolo NTP (Network Time Protocol) para sincronizar a data/hora de
-#forma correta. 
+## 22_ Configurando o Prometheus e o Node Exporter via Navegador
 
+**OBSERVAÇÃO IMPORTANTE:** Quando você acessa o Prometheus via Navegador e aparecer a seguinte mensagem de aviso em vermelho: *Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results*. Esse erro está associado a falha de sincronismo da Data e Hora em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os equipamentos ou utilizar o Protocolo **NTP (Network Time Protocol)** para sincronizar a data/hora de forma correta. 
+
+```bash
 #acessando o Prometheus via navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
@@ -363,13 +360,13 @@ i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 ```
 
-#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
+## 23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows
 ```bash
 #OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS
 #Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
-#link para download direto do Node Exporter (link atualizado em: 11/11/2024)
-https://github.com/prometheus-community/windows_exporter/releases/download/v0.28.2/windows_exporter-0.28.2-amd64.msi
+#link para download direto do Node Exporter (link atualizado em: 28/03/2025)
+https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.5/windows_exporter-0.30.5-amd64.msi
 
 #OBSERVAÇÃO IMPORTANTE: fazer a instalação do Prometheus Windows Exporter utilizando 
 #o Powershell em modo Administrador.
@@ -383,7 +380,7 @@ cd c:\user\vaamonde\Download
 
 #instalando o Node Exporter
 #opção do comando msiexec: -i (install)
-msiexec -i windows_exporter-0.26.1-amd64.msi ENABLED_COLLECTORS=cpu,memory,net,logical_disk,os,system,logon,thermalzone
+msiexec -i windows_exporter*.msi ENABLED_COLLECTORS=cpu,memory,net,logical_disk,os,system,logon,thermalzone
 
 #verificando o status de serviço do Node Exporter
 Get-Service 'windows_exporter'
@@ -410,8 +407,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 #o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
 #software no Link: https://github.com/prometheus/node_exporter/releases/
 
-#download do Node Exporter do Github (Link atualizado no dia 11/112024)
-wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
+#download do Node Exporter do Github (Link atualizado no dia 29/03/2025)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -460,7 +457,7 @@ sudo node_exporter --version
 sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 ```
 
-#24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus<br>
+## 24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus
 ```bash
 #arquivo de configuração padrão do Prometheus
 sudo vim /etc/prometheus/prometheus.yml
@@ -497,7 +494,7 @@ Status
   Targets
 ```
 
-#25_ Integrando o Prometheus no Grafana<br>
+## 25_ Integrando o Prometheus no Grafana
 ```bash
 #acessando o Grafana Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
@@ -522,7 +519,7 @@ Open Menu
         Data source: prometheus-wsvaamonde
 ```
 
-#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico<br>
+## 26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo apt install stress-ng s-tui
@@ -556,7 +553,7 @@ sudo find / -name vaamonde*
 
 =========================================================================================
 
-OBSERVAÇÃO IMPORTANTE: COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE:  Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DA IMPLEMENTAÇÃO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DA IMPLEMENTAÇÃO ABAIXO: 
 
