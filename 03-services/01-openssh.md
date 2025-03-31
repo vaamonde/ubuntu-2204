@@ -42,12 +42,11 @@ Site Oficial do PuTTY: https://www.putty.org/
 
 Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
-## 01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: executar a instalação somente se você no processo de instalar
-#o Ubuntu Server não marcou a opção: Install OpenSSH, caso contrário o mesmo já está
-#instalado e pré-configurado.
+## 01_ Instalando o OpenSSH Server e Client no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** executar a instalação somente se você no processo de instalar o Ubuntu Server não marcou a opção: *Install OpenSSH*, caso contrário o mesmo já está instalado e pré-configurado.
+
+```bash
 #atualizando as listas do Apt
 sudo apt update
 
@@ -55,7 +54,7 @@ sudo apt update
 sudo apt install openssh-server openssh-client openssl 
 ```
 
-## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
+## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server
 ```bash
 #verificando o serviço do OpenSSH Server
 sudo systemctl status ssh
@@ -69,19 +68,17 @@ sudo sshd -V
 sudo ssh -V
 ```
 
-## 03_ Verificando a Porta de Conexão do OpenSSH Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+## 03_ Verificando a Porta de Conexão do OpenSSH Server
 
-#verificando a porta padrão do OpenSSH Server
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-22 do OpenSSH Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do OpenSSH Server<br>
+## 04_ Localização dos Arquivos de Configuração do OpenSSH Server
 ```bash
 /etc/ssh/             <-- Diretório de configuração do OpenSSH Server e Client
 /etc/ssh/sshd_config  <-- Arquivo de configuração do OpenSSH Server
@@ -94,7 +91,7 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 /var/log/auth.log     <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
 ```
 
-## 05_ Habilitando a segurança de acesso ao OpenSSH Server<br>
+## 05_ Habilitando a segurança de acesso ao OpenSSH Server
 ```bash
 #editando o arquivo de configuração de Negação de Serviço e Host
 sudo vim /etc/hosts.deny
@@ -135,7 +132,7 @@ sshd: SUA_REDE/SEU_CIDR
 ESC SHIFT :x <Enter>
 ```
 
-## 06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner<br>
+## 06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner
 ```bash
 #fazendo o backup do arquivo de configuração do OpenSSH Server
 #opção do comando cp: -v (verbose)
@@ -202,7 +199,7 @@ sudo journalctl -t sshd
 sudo journalctl -xeu ssh
 ```
 
-#07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY<br>
+## 07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY
 ```bash
 #acessando o OpenSSH via Powershell
 Windows
@@ -250,14 +247,11 @@ sudo who -Ha
 users
 ```
 
-## 08_ Criando um usuário Administrador no Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A
-#ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: admin POIS
-#É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE
-#USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO
-#DE APRENDIZAGEM.
+## 08_ Criando um usuário Administrador no Ubuntu Server
 
+**OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: __` admin `__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
+
+```bash
 #criando o usuário Admin local no Ubuntu Server
 #OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ADMIN CONFORME SUA NECESSIDADE
 sudo adduser admin
@@ -287,7 +281,7 @@ sudo cat -n /etc/group | grep admin
 sudo getent group admin
 ```
 
-## 09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)<br>
+## 09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)
 ```bash
 #adicionando o usuário Admin ao grupo do SUDO
 #opção do comando usermod: -a (append), -G (groups)
@@ -303,11 +297,10 @@ sudo id admin
 sudo getent group sudo
 ```
 
-## 10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: fazer o teste de Login no Terminal do Ubuntu Server na Máquina
-#Virtual para verificar se está tudo OK na autenticação do usuário admin.
-```
+## 10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** fazer o teste de Login no Terminal do Ubuntu Server na Máquina Virtual para verificar se está tudo OK na autenticação do usuário admin.
+
 ========================================DESAFIOS=========================================
 
 **#11_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX.

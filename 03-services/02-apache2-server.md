@@ -56,7 +56,7 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
 Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
-## 01_ Instalando o Apache2 Server e PHP 8.x<br>
+## 01_ Instalando o Apache2 Server e PHP 8.x
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -65,16 +65,13 @@ sudo apt update
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
 zlib1g-dev apt-transport-https
+```
 
-#OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
-#NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
-#VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: 8.1 (ATUALIZADO EM: 26/09/2024).
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
-#OBSERVAÇÃO IMPORTANTE: FOI ADICIONAR MAIS DEPENDÊNCIAS DOS PACOTES DO PHP, CONFORME VÁRIOS RELATOS
-#NO GITHUB E NO CANAL DO YOUTUBE, AS DEPENDÊNCIAS DO WORDPRESS E DO GLPI HELP DESK FORAM ADICIONADAS
-#NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS
-#AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
+**OBSERVAÇÃO IMPORTANTE:** FOI ADICIONAR MAIS *DEPENDÊNCIAS DOS PACOTES DO PHP*, CONFORME VÁRIOS RELATOS NO GITHUB E NO CANAL DO YOUTUBE, AS DEPENDÊNCIAS DO **WORDPRESS** E DO **GLPI HELP DESK** FORAM ADICIONADAS NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
+```bash
 #instalando o Apache2 Server e PHP 8.x e suas dependências
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \
@@ -92,7 +89,7 @@ negotiation setenvif
 sudo systemctl restart apache2
 ```
 
-## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP<br>
+## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP
 ```bash
 #verificando o serviço do Apache2 Server
 sudo systemctl status apache2
@@ -117,18 +114,17 @@ sudo apache2ctl configtest
 sudo php -v
 ```
 
-## 03_ Verificando a Porta de Conexão do Apache2 Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+## 03_ Verificando a Porta de Conexão do Apache2 Server
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-88 do Apache2 Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x<br>
+## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x
 ```bash
 /etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
 /etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
@@ -140,7 +136,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 /var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 ```
 
-## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server<br>
+## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server
 ```bash
 #adicionando o seu usuário no grupo do Apache2
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
@@ -167,7 +163,7 @@ exit
 ~.
 ```
 
-## 06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server<br>
+## 06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server
 ```bash
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
 cd /var/www/html
@@ -188,20 +184,15 @@ sudo chown -Rv root.www-data teste/
 cd teste
 ```
 
-## 07_ Criando páginas HTML e PHP para testar o Apache2 Server<br>
+## 07_ Criando páginas HTML e PHP para testar o Apache2 Server
+
+**OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __` vim `__.
+
+**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+
+**OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: nesse exemplo vamos editar os arquivos teste.html, teste.php e phpinfo.php 
-#utilizando o Editor de Texto em Linha de Comando Vim.
-
-#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e colar
-#o código HTML ou PHP ele desconfigura o código, recomendo no Windows utilizar o software PuTTY ou
-#Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
-
-#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no
-#macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por
-#padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação
-#e modificação dos arquivos desse curso.
-
 #criando o arquivo em HTML
 #OBSERVAÇÃO: ALTERAR O NOME DO ARQUIVO PARA O SEU PRIMEIRO NOME TUDO EM MINÚSCULO
 sudo vim seu_nome.html
@@ -298,7 +289,7 @@ phpinfo();
 ESC SHIFT :x <Enter>
 ```
 
-## 08_ Testando o Apache2 Server e o PHP no navegador<br>
+## 08_ Testando o Apache2 Server e o PHP no navegador
 ```bash
 #utilizar os navegadores para testar suas páginas
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver

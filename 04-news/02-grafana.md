@@ -36,7 +36,7 @@ Conteúdo estudado nessa implementação:<br>
 
 Site Oficial do Grafana: https://grafana.com/<br>
 
-O QUE É E PARA QUE SERVER O GRAFANA: O Grafana é uma plataforma open-source para visualização, monitoramento e análise de dados em tempo real. Ele permite criar dashboards interativos que exibem métricas coletadas de diversas fontes, como bancos de dados, sistemas de monitoramento, IoT e aplicações.
+**O QUE É E PARA QUE SERVER O GRAFANA:** O Grafana é uma plataforma open-source para visualização, monitoramento e análise de dados em tempo real. Ele permite criar dashboards interativos que exibem métricas coletadas de diversas fontes, como bancos de dados, sistemas de monitoramento, IoT e aplicações.
 
 [![Grafana](http://img.youtube.com/vi/vD1aFVcgdlo/0.jpg)](https://www.youtube.com/watch?v=vD1aFVcgdlo "Grafana")
 
@@ -143,17 +143,13 @@ sudo grafana-cli -v
 ```
 
 ## 07_ Verificando a Porta de Conexão do Grafana Server
+
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+**OBSERVAÇÃO IMPORTANTE:** CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O **NODE.JS E OS SEUS DESAFIOS**, POR PADRÃO A PRIMEIRA APLICAÇÃO EM JAVASCRIPT FEITA UTILIZANDO O RECURSO DE EXPRESS ESTÁ NA PORTA: __` 3000 `__, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
-
-#OBSERVAÇÃO IMPORTANTE: CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O NODE.JS E
-#OS SEUS DESAFIOS, POR PADRÃO A PRIMEIRA APLICAÇÃO EM JAVASCRIPT FEITA UTILIZANDO O
-#RECURSO DE EXPRESS ESTÁ NA PORTA 3000, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU
-#DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
-
+#verificando a porta padrão TCP-3000 do Grafana Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```

@@ -50,7 +50,7 @@ Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
 Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
-## 01_ Instalando o MySQL Server e Client<br>
+## 01_ Instalando o MySQL Server e Client
 ```bash	
 #atualizando as listas do Apt
 sudo apt update
@@ -59,7 +59,7 @@ sudo apt update
 sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
 ```
 
-## 02_ Verificando o Serviço e Versão do MySQL Server<br>
+## 02_ Verificando o Serviço e Versão do MySQL Server
 ```bash
 #verificando o serviço do MySQL Server
 sudo systemctl status mysql
@@ -75,18 +75,17 @@ sudo mysqld --version
 sudo mysql --version
 ```
 
-## 03_ Verificando a Porta de Conexão do MySQL Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+## 03_ Verificando a Porta de Conexão do MySQL Server
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-3306 do MySQL Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do MySQL Server<br>
+## 04_ Localização dos Arquivos de Configuração do MySQL Server
 ```bash
 /etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
 /etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
@@ -95,7 +94,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 /var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
 ```
 
-## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console)<br>
+## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console)
 ```bash	
 #OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
 #se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança.
@@ -104,11 +103,11 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 sudo mysql -u root -p
 ```
 
-## 06_ Aplicando a segurança de acesso do usuário Root no MySQL Server<br>
-```sql
-/* OBSERVAÇÃO IMPORTANTE: O MYSQL TAMBÉM É CASE SENSITIVE, CUIDADO COM O NOME DA BASE
-DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO */
+## 06_ Aplicando a segurança de acesso do usuário Root no MySQL Server
 
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É CASE SENSITIVE, CUIDADO COM O NOME DA BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO.
+
+```sql
 /* visualizando as bases de dados do MySQL */
 SHOW DATABASES;
 
@@ -140,7 +139,7 @@ exit
 sudo mysql -u root -p
 ```
 
-## 07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server<br>
+## 07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server
 ```sql
 /* criando o usuário DBA Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
@@ -171,7 +170,7 @@ SHOW DATABASES;
 exit
 ```
 
-## 08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server<br>
+## 08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -202,7 +201,7 @@ SHOW TABLES;
 exit
 ```
 
-## 09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console<br>
+## 09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console
 ```bash
 #fazendo o backup do arquivo de configuração do MySQL Server
 #opção do comando cp: -v (verbose)
@@ -256,15 +255,13 @@ SELECT user,host FROM user;
 exit
 ```
 
-## 10_ Conectando no MySQL Server utilizando o MySQL Workbench<br>
+## 10_ Conectando no MySQL Server utilizando o MySQL Workbench
 
 Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
-```bash
-#OBSERVAÇÃO IMPORTANTE: após a conexão com o MySQL Server utilizando MySQL Workbench somente o
-#Banco de Dados Sys (Sistema) é mostrado em Esquemas, os demais Banco de Dados utilizados pelo
-#MySQL Server não são mostrados por motivo de segurança.
+**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __` Sys (Sistema) `__ é mostrado em Esquemas, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de segurança.
 
+```bash
 #conectando com o usuário Root Remoto do MySQL no Workbench
 MySQL Connections: +
   Connection Name: wsseunome
@@ -282,12 +279,11 @@ MySQL Connections: +
 <OK>
 ```
 
-## 11_ Integrando o MySQL Server com o Visual Studio Code VSCode<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE
-#NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO,
-#POR MOTIVO DE SEGURANÇA.
+## 11_ Integrando o MySQL Server com o Visual Studio Code VSCode
 
+**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO, POR MOTIVO DE SEGURANÇA.
+
+```bash
 #instalando a Extensão do MySQL Server no VSCode
 VSCode
   Extensões

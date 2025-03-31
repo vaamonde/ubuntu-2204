@@ -25,7 +25,7 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
-**O QUE É E PARA QUE SERVER O UBUNTU SERVER:** é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e otimizado para oferecer desempenho, segurança e estabilidade em ambientes de produção.
+**O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
 
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")
 
@@ -41,7 +41,7 @@ B) Arquitetura do Ubuntu Server: AMD64 (64-bit)
 C) Tipo de instalação: DVD Image (ISO) Installer
 ```
 
-## 02_ Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX<br>
+## 02_ Segunda etapa: Criação da Máquina Virtual do UbuntuWebserver no Oracle VirtualBOX
 
 Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
 Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
@@ -78,7 +78,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Finalizar>
 ```
 
-## 03_ Terceira Etapa: Configurações da Máquina Virtual UbuntuWebserver
+## 03_ Terceira Etapa: Configurações da Máquina Virtual do UbuntuWebserver
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
@@ -125,7 +125,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Montar e Tentar Novo Boot>
 ```
 
-## 05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+## 05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS
 
 Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
@@ -219,7 +219,7 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 <Enter>
 ```
 
-## 06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez<br>
+## 06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal
 ```bash
 #AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
 #DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.

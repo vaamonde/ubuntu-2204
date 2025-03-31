@@ -52,7 +52,7 @@ Site Oficial do W3C School JSON: https://www.w3schools.com/js/js_json.asp
 
 Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
-## 01_ Instalando as Dependências do MongoDB Server<br>
+## 01_ Instalando as Dependências do MongoDB Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -70,7 +70,7 @@ wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
 sudo dpkg -i libssl*.deb
 ```
 
-## 02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
+## 02_ Baixando e instalando a Chave GPG do MongoDB Server
 ```bash
 #download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 20/12/2024)
 #Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
@@ -82,19 +82,19 @@ sudo dpkg -i libssl*.deb
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
 ```
 
-## 03_ Criando o repositório do MongoDB Server<br>
+## 03_ Criando o repositório do MongoDB Server
 ```bash
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
-## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
+## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server
 ```bash
 #atualizando as listas do Apt
 sudo apt update
 ```
 
-## 05_ Instalando o MongoDB Server e Client<br>
+## 05_ Instalando o MongoDB Server e Client
 
 **OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E INCOMPATIBILIDADE EM PROCESSADORES INTEL OU AMD QUE NÃO TEM OS PRINCIPAIS RECURSOS OU TECNOLOGIAS QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
 
@@ -109,7 +109,7 @@ sudo apt update
 sudo apt install mongodb-org
 ```
 
-## 06_ Habilitando o Serviço do MongoDB Server<br>
+## 06_ Habilitando o Serviço do MongoDB Server
 ```bash
 #habilitando o serviço do MongoDB Server
 sudo systemctl daemon-reload
@@ -117,7 +117,7 @@ sudo systemctl enable mongod
 sudo systemctl start mongod
 ```
 
-## 07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
+## 07_ Verificando o Serviço e Versão do MongoDB Server e do Client
 ```bash
 #verificando o serviço do MongoDB Server
 sudo systemctl status mongod
@@ -135,25 +135,24 @@ sudo mongod --version
 sudo mongosh --version
 ```
 
-## 08_ Verificando a Porta de Conexão do MongoDB Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+## 08_ Verificando a Porta de Conexão do MongoDB Server
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-27017 do MongoDB Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 ```
 
-## 09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
+## 09_ Localização dos Arquivos de Configuração do MongoDB Server
 ```bash
 /etc/mongod.conf  <-- arquivo de configuração do MongoDB Server
 /var/log/mongodb  <-- diretório dos arquivos de Log do MongoDB Sever
 /var/lib/mongodb  <-- diretório dos arquivos de Banco de Dados do MongoDB Server
 ```
 
-## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
+## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -174,47 +173,42 @@ sudo getent group mongodb
 exit
 ```
 
-## 11_ Testando a Conexão Local com o MongoDB Server via Shell<br>
+## 11_ Testando a Conexão Local com o MongoDB Server via Shell
 ```bash
 #acessando o MongoDB Server via Shell (MongoDB Shell/Console)
 mongosh
 ```
 
-## 12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server<br>
+## 12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server)
+
+**OBSERVAÇÃO IMPORTANTE:** Diferente do *MySQL Server* o MongoDB Server é um Banco de Dados **Não Relacional (No-SQL)**, seu conceito e diferente do Banco de Dados Relacional e os nomes muda um pouco (SÓ FAZER O DE-PARA):
+
+|               DE T-SQL              |                PARA NO-SQL                |
+|-------------------------------------|-------------------------------------------|
+|   Banco de Dados Relacional MySQL   |   Banco de Dados Não Relacional MongoDB   |
+|      Database (Banco de Dados)      |         Database (Banco de Dados)         |
+|          Tables (Tabelas)           |          Collections (Coleções)           |
+|         Index  (Indexação)          |             Index (Indexação)             |
+|             Row (Linhas)            |          Documents (Documentos)           |
+|          Columns (Colunas)          |             Fields (Campos)               |
+|            Join  (Juntar)           |           Linking  (Vincular)             |
+|     Primary Key (Chave Primária)    |       Primary Key (Chave Primária)        |
+|        Group By (Agrupar Por)       |         Aggregation (Agregação)           |
+
+**OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito do: **CRUD (Create, Read Update e Delete)**, seu conceito é o mesmo só mudando a forma como trabalhamos com  os *dados/informações* em cada Banco de Dados.
+
+|   CRUD    |    T-SQL (MySQL)   |      No-SQL (MongoDB)        |
+|-----------|--------------------|------------------------------|
+| Database: |  CREATE DATABASE   |   use database               |
+| Tables..: |  CREATE TABLES     |   db.createCollection()      |
+| Create..: |  INSERT            |   db.collection.insertOne()  |
+| Read....: |  SELECT            |   db.collection.find()       |
+| Update..: |  UPDATE            |   db.collection.updateOne()  |
+| Delete..: |  DELETE            |   db.collection.deleteOne()  |
+
+**OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os dados/informações em cada Banco de Dados.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: Diferente do MySQL Server o MongoDB Server é um Banco de Dados
-#não Relacional (No-SQL), seu conceito e diferente do Banco de Dados Relacional e os
-#nomes muda um pouco (SÓ FAZER O DE-PARA):
-
-
-#               DE T-SQL              |                PARA NO-SQL
-#   Banco de Dados Relacional MySQL   |   Banco de Dados Não Relacional MongoDB
-#      Database (Banco de Dados)      |         Database (Banco de Dados)
-#          Tables (Tabelas)           |          Collections (Coleções)
-#         Index  (Indexação)          |             Index (Indexação)
-#             Row (Linhas)            |          Documents (Documentos)
-#          Columns (Colunas)          |             Fields (Campos)
-#            Join  (Juntar)           |           Linking  (Vincular)
-#     Primary Key (Chave Primária)    |       Primary Key (Chave Primária)
-#        Group By (Agrupar Por)       |         Aggregation (Agregação)
-
-#OBSERVAÇÃO IMPORTANTE: No MySQL como no MongoDB temos o Conceito do CRUD (Create, Read
-#Update e Delete), seu conceito é o mesmo só mudando a forma como trabalhamos com  os
-#dados/informações em cada Banco de Dados.
-
-#   CRUD        T-SQL (MySQL)   |      No-SQL (MongoDB)
-# Database:   CREATE DATABASE   |   use database
-# Tables..:   CREATE TABLES     |   db.createCollection()
-# Create..:   INSERT            |   db.collection.insertOne()
-# Read....:   SELECT            |   db.collection.find()
-# Update..:   UPDATE            |   db.collection.updateOne()
-# Delete..:   DELETE            |   db.collection.deleteOne()
-
-#OBSERVAÇÃO IMPORTANTE: No MySQL como no MongoDB temos o Conceito de DDL (Data Definition 
-#Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data 
-#Query Language) e DCL (Data Control Language), seu conceito é o mesmo só mudando a forma
-#como trabalhamos com os dados/informações em cada Banco de Dados.
-
 #exibindo os bancos de dados existentes no MongoDB
 show dbs
 
@@ -276,7 +270,7 @@ db.getUsers()
 exit
 ```
 
-## 14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
+## 14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto
 ```bash
 #fazendo o backup do arquivo de configuração do MongoDB Server
 #opção do comando cp: -v (verbose)
@@ -309,7 +303,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-## 15_ Acessando o MongoDB COM e SEM autenticação<br>
+## 15_ Acessando o MongoDB COM e SEM autenticação
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -330,7 +324,7 @@ show dbs
 quit
 ```
 
-## 16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
+## 16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)
 
 Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 
@@ -354,7 +348,7 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 <Save & Connect>
 ```
 
-## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
+## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode
 ```bash
 #instalando a Extensão do MongoDB
 VSCode
@@ -382,22 +376,20 @@ VSCode
         <Close>
 ```
 
-## 18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)<br>
+## 18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)
+
+Utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows, Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
+
+**OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM STRINGS DE CONEXÃO O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO UNICODE.
+
 ```bash
-#utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows
-Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
-
-#OBSERVAÇÃO IMPORTANTE: LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA
-#SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM STRINGS DE CONEXÃO O USO DE ALGUNS
-#CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO UNICODE.
-
 #String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
 mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
+```
 
-#OBSERVAÇÃO IMPORTANTE: UTILIZAR A APLICAÇÃO PARA FAZER A CRIAÇÃO DE VÁRIOS DOCUMENTS NO 
-#COLLECTION CONTATOS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E 
-#RESTAURAR APÓS A VERIFICAÇÃO.
+**OBSERVAÇÃO IMPORTANTE:** UTILIZAR A APLICAÇÃO PARA FAZER A CRIAÇÃO DE VÁRIOS **DOCUMENTS** NO **COLLECTION** CONTATOS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E RESTAURAR APÓS A VERIFICAÇÃO.
 
+```bash
 #criando o backup (dump) da base de dados Agenda 
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
 mongodump --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" --gzip -d agenda
@@ -427,11 +419,11 @@ db.contatos.drop()
 
 #exibir os collections da base de dados Agenda
 show collections
+```
 
-#OBSERVAÇÃO IMPORTANTE: No MongoDB, se uma Base de Dados não possuir Collections ela 
-#será removida automaticamente do servidor, se você digitar o comando: show dbs não
-#existi mais a Base de Dados Agenda.
+**OBSERVAÇÃO IMPORTANTE:** No MongoDB, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existi mais a Base de Dados Agenda.
 
+```bash
 #saindo o MongoDB Server
 exit
 

@@ -50,7 +50,7 @@ Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
-## 01_ Instalando as Dependências do Node.JS<br>
+## 01_ Instalando as Dependências do Node.JS
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -61,7 +61,7 @@ sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
 build-essential ca-certificates
 ```
 
-## 02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)<br>
+## 02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)
 ```bash
 #adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
 
@@ -88,7 +88,7 @@ curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg 
 echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 ```
 
-## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
+## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)
 ```bash
 #atualizando as listas do Apt com o novo repositório do Node.JS
 sudo apt update
@@ -97,7 +97,7 @@ sudo apt update
 sudo apt install nodejs
 ```
 
-## 04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
+## 04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)
 ```bash
 #opção do comando node: -v (version)
 #opção do comando npm: -v (version)
@@ -105,7 +105,7 @@ sudo node -v
 sudo npm -v
 ```
 
-## 05_ Criando um Projeto Simples para Testar o Node.JS<br>
+## 05_ Criando um Projeto Simples para Testar o Node.JS
 ```bash
 #criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 #opção do comando mkdir: -v (verbose)
@@ -131,18 +131,13 @@ npm install express
 ls -lha
 ```
 
-## 06_ Criando um Projeto Simples do Node.JS no Ubuntu Server<br>
+## 06_ Criando um Projeto Simples do Node.JS no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o Powershell no processo de copiar e colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software PuTTY ou Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+
+**OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou  no macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação e modificação arquivos desse curso.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: no Microsoft Windows utilizando o Powershell no processo de copiar e 
-#colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software 
-#PuTTY ou Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha 
-#não acontece.
-
-#OBSERVAÇÃO: tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou
-#no macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, 
-#por padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando 
-#a criação e modificação arquivos desse curso.
-
 #Criando o arquivo index.js do projeto do Node.JS
 vim index.js
 
@@ -169,7 +164,7 @@ app.listen(3000, function() {
 ESC SHIFT :x <Enter>
 ```
 
-## 07_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
+## 07_ Executando o Projeto Simples do Node.JS utilizando o Express
 ```bash
 #opção do comando &: background
 #OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
@@ -177,24 +172,23 @@ ESC SHIFT :x <Enter>
 node index.js &
 ```
 
-## 08_ Verificando a Porta de Conexão do Node.JS Express<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão..
+## 08_ Verificando a Porta de Conexão do Node.JS Express
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-3000 do Node.JS
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
-## 09_ Acessando o Projeto Simples do Node.JS<br>
+## 09_ Acessando o Projeto Simples do Node.JS
 ```bash
 #utilizar os navegadores para testar o Node.JS
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-## 10_ Finalizando a Execução do Projeto Simples do Node.JS<br>
+## 10_ Finalizando a Execução do Projeto Simples do Node.JS
 ```bash
 #verificando os processos em segundo plano (background)
 jobs

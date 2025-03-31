@@ -44,7 +44,7 @@ Conteúdo estudado nessa configuração:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=sKn5fTy1OHI
 
-## 01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
+## 01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Hostname
 sudo vim /etc/hostname
@@ -62,7 +62,7 @@ wsseunome.seu.domínio
 ESC SHIFT :x <Enter>
 ```
 
-## 02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
+## 02_ Alterando as entradas no arquivo Hosts do Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
@@ -90,7 +90,7 @@ ff02::2 ip6-allrouters
 ESC SHIFT :x <Enter>
 ```
 
-## 03_ Instalando os principais software de rede no Ubuntu Server<br>
+## 03_ Instalando os principais software de rede no Ubuntu Server
 ```bash
 #atualizando as lista do sources.list
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -101,7 +101,7 @@ sudo apt update
 sudo apt install bridge-utils ifenslave net-tools
 ```
 
-## 04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
+## 04_ Verificando as informações do Hardware de Rede no Ubuntu Server
 ```bash
 #verificando os dispositivos PCI de Placa de Rede instalados
 #opções do comando lspci: -v (verbose), -s (show)
@@ -113,7 +113,7 @@ sudo lspci -v | grep -i ethernet
 sudo lshw -class network
 ```
 
-## 05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
+## 05_ Verificando as informações de Endereços IPv4 no Ubuntu Server
 ```bash
 #verificando as configurações de endereçamento IP da Placa de Rede instalada
 #opção do comando ifconfig: -a (all)
@@ -131,18 +131,13 @@ sudo ip route
 sudo resolvectl
 ```
 
-## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
+## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
+
+**OBSERVAÇÃO:** o nome do arquivo de configuração da placa de rede pode mudar dependendo da versão do Ubuntu Server. O arquivo: */etc/netplan/00-installer-config.yaml* e o Padrão do Ubuntu Server 22.04.x LTS, no Ubuntu Server 24.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digitar o comando: *ls -lh /etc/netplan* antes de editar o arquivo Netplan.
+
+**OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Netplan e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado na linguagem de programação Python por exemplo, muito cuidado com o uso de __` espaços e tabulação `__ e principalmente sua **Indentação**.
+
 ```bash
-#OBSERVAÇÃO: o nome do arquivo pode mudar dependendo da versão do Ubuntu Server.
-#/etc/netplan/00-installer-config.yaml e o Padrão do Ubuntu Server 22.04.x LTS, 
-#no Ubuntu Server 24.04.x LTS tem o nome: /etc/netplan/50-cloud-init.yaml, sempre 
-#digitar o comando: ls -lh /etc/netplan antes de editar o arquivo Netplan.
-
-#OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato 
-#de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado 
-#pela linguagem de programação Python, muito cuidado com o uso de espaços e 
-#tabulação e principalmente sua indentação.
-
 #listando o conteúdo do diretório do Netplan
 #opção do comando ls: -l (long listing), -h (human-readable)
 ls -lh /etc/netplan/
@@ -203,7 +198,7 @@ network:
 ESC SHIFT :x <Enter>
 ```
 
-## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
+## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server
 ```bash
 #aplicando as mudanças do Netplan em modo Debug (detalhado)
 sudo netplan --debug apply
@@ -236,13 +231,11 @@ sudo hostname -d
 sudo hostname -i
 ```
 
-## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
-```bash
-#OBSERVAÇÃO: após a configuração da Placa de Rede do Ubuntu Server você já pode
-#acessar remotamente o seu servidor utilizando o Protocolo SSH nos clientes Linux
-#ou Microsoft para dá continuidade nas configurações do servidor, ficando mais
-#fácil administrar e configurar os principais serviços de rede de forma remota.
+## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
+**OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o *Protocolo SSH* nos clientes Linux ou Microsoft para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
+
+```bash
 #testando a conexão com o Ubuntu Server (alterar o Endereço IPv4 para o seu cenário)
 ping SEU_ENDEREÇO_IPV4
 

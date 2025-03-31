@@ -43,7 +43,7 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
-## 01_ Instalando as Dependências do Netdata Server<br>
+## 01_ Instalando as Dependências do Netdata Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -59,7 +59,7 @@ python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap libuuid1 libcurl4
 libcurl4-openssl-dev
 ```
 
-## 02_ Clonando o projeto do Netdata Server do Github<br>
+## 02_ Clonando o projeto do Netdata Server do Github
 ```bash
 #clonando o projeto do Github do Netdata
 #opção do comando git clone: --recurse-submodules (initialize and clone submodules within based 
@@ -68,12 +68,11 @@ libcurl4-openssl-dev
 git clone https://github.com/netdata/netdata --depth=100 --recursive
 ```
 
-## 03_ Compilando e Instalando o Netdata Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: o processo de compilação e instalação do Netdata demora
-#bastante, dependendo do seu hardware pode demorar mais de 30 minutos para baixar
-#as dependências, compilar e instalar o Netdata.
+## 03_ Compilando e Instalando o Netdata Server
 
+**OBSERVAÇÃO IMPORTANTE:** o processo de compilação e instalação do Netdata demora bastante, dependendo do seu hardware pode demorar mais de: *30 minutos* para baixar as dependências, compilar e instalar o Netdata.
+
+```bash
 #acessando o diretório clonado e instalando o Netdata Server
 cd netdata/
 
@@ -85,7 +84,7 @@ sudo ./netdata-installer.sh
 cd ..
 ```
 
-## 04_ Verificando o Serviço e Versão do Netdata Server<br>
+## 04_ Verificando o Serviço e Versão do Netdata Server
 ```bash
 #verificando o serviço do Netdata Server
 sudo systemctl status netdata
@@ -102,18 +101,17 @@ sudo journalctl -xeu netdata
 sudo netdata -v
 ```
 
-## 05_ Verificando a Porta de Conexão do Netdata Server<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.P.
+## 05_ Verificando a Porta de Conexão do Netdata Server
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-19999 do Netdata
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ```
 
-## 06_ Habilitando as atualizações automática do Netdata Server<br>
+## 06_ Habilitando as atualizações automática do Netdata Server
 ```bash
 #habilitando o suporte para atualização do Netdata Server
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
@@ -124,7 +122,7 @@ sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 sudo /usr/libexec/netdata/./netdata-updater.sh
 ```
 
-## 07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server<br>
+## 07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -146,7 +144,7 @@ SELECT user,host FROM mysql.user WHERE user="netdata";
 exit
 ```
 
-## 08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server<br>
+## 08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server
 ```bash
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
@@ -172,7 +170,7 @@ db.getUser("netdata")
 quit
 ```
 
-## 09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server<br>
+## 09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -193,7 +191,7 @@ sudo getent group netdata
 exit
 ```
 
-## 10_ Localização dos Arquivos de Configuração do Netdata Server<br>
+## 10_ Localização dos Arquivos de Configuração do Netdata Server
 ```bash
 /etc/netdata/netdata.conf           <-- arquivo de configuração do serviço do Netdata Server
 /etc/netdata/apps_groups.conf       <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
@@ -205,7 +203,7 @@ exit
 /etc/netdata/go.d/portcheck.conf    <-- arquivo de monitoramento do Port Check
 ```
 
-## 11_ Configurando os Serviços de Monitoramento do Netdata Server<br>
+## 11_ Configurando os Serviços de Monitoramento do Netdata Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
 #Netdata Server, os arquivos de configuração são baseados na Linguagem de Programação
@@ -374,7 +372,7 @@ sudo nmap -p- SEU_ENDEREÇO_IPV4 -sS -sU | grep -i open | cat -n
 sudo lsof -nP -iTCP:'22,80,3306,8080,19999,27017' -sTCP:LISTEN
 ```
 
-## 12_ Acessando e configurando o Netdata Server no navegador<br>
+## 12_ Acessando e configurando o Netdata Server no navegador
 ```bash
 #acessar via navegador o Netdata
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999

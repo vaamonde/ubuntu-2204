@@ -47,15 +47,17 @@ Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
-## 01_ Instalando as Dependências do CMS WordPress<br>
+## 01_ Instalando as Dependências do CMS WordPress
 ```bash
 #atualizando as listas do Apt
 sudo apt update
+```
 
-#OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
 #NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
 #VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
 
+```bash
 #instalando as dependências do WordPress
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install php-bcmath php-mbstring php-dev php-curl php-mysql php-xml php-zip \
@@ -63,7 +65,7 @@ php-soap php-imagick php-intl php-json php-pear unzip pwgen libmcrypt-dev ghosts
 libapache2-mod-php zlib1g zlib1g-dev
 ```
 
-## 02_ Criando a Base de Dados do WordPress no MySQL Server<br>
+## 02_ Criando a Base de Dados do WordPress no MySQL Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -110,7 +112,7 @@ USE wordpress;
 exit
 ```
 
-## 03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
+## 03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server
 ```bash
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
@@ -139,7 +141,7 @@ sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 ```
 
-## 04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
+## 04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress
 ```bash
 #acessando o diretório do WordPress
 cd /var/www/html/wp/
@@ -177,7 +179,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 ESC SHIFT :x <Enter>
 ```
 
-## 05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
+## 05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress
 ```bash
 #habilitando os módulos do Apache2 Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -193,7 +195,7 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
-## 06_ Acessando e configurando o WordPress via navegador<br>
+## 06_ Acessando e configurando o WordPress via navegador
 ```bash
 #utilizar os navegadores para testar o acesso ao Wordpress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
@@ -217,12 +219,11 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
   <Acessar>
 ```
 
-## 07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: como não estamos utilizando servidores DNS e nem Domínio/Subdomínio
-#é recomendado alterar as configurações de Links Permanente do Wordpress, com isso resolvemos
-#uma falha de JSON (JavaScript Object Notation) na hora de salvar as mudanças no Wordpress.
+## 07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores
 
+**OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanente do Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no Wordpress.
+
+```bash
 #Configuração dos Links Permanentes do WordPress
 Configurações
   Links permanentes
@@ -234,16 +235,13 @@ Configurações
 
 #Tela do site do WordPress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
+```
 
-#OBSERVAÇÃO IMPORTANTE: Quando você faz a implementação do Wordpress em uma rede Local ou Cloud,
-#e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não
-#atualiza automaticamente os endereços IPv4 ou nome de Domínio que estão registrados na tabela de
-#configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente
-#conforme Script SQL abaixo: NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.
+**OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *Wordpress* em uma __` Rede Local ou Cloud `__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na tabela de configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 
-#Mais informações acesse o Link dos Desenvolvedores do Wordpress:
-Link: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
+Mais informações acesse o Link dos Desenvolvedores do Wordpress: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
+```bash
 #se logando no MySQL Server com o usuário e senha Wordpress
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u wordpress -p

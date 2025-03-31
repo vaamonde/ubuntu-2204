@@ -51,7 +51,7 @@ Conteúdo estudado nessa configuração:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 
-## 01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
+## 01_ Verificando as Informações do Sistema Operacional Ubuntu Server
 ```bash
 #verificando as informações da identificação do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
@@ -62,7 +62,7 @@ sudo cat -n /etc/os-release
 sudo cat -n /etc/lsb-release
 ```
 
-## 02_ Atualizando o Sistema Operacional Ubuntu Server<br>
+## 02_ Atualizando o Sistema Operacional Ubuntu Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: recomendo fazer um upgrade completo no servidor antes de
 #adicionar a Licença do Ubuntu Pro.
@@ -74,7 +74,7 @@ sudo apt autoremove
 sudo apt autoclean
 ```
 
-## 03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
+## 03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server
 
 Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
 
@@ -94,7 +94,7 @@ Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
 <Sim, tenho certeza>
 ```
 
-## 04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
+## 04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal
 
 Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/pro/dashboard
 
@@ -106,7 +106,7 @@ Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/p
     Copiar o seu Token no campo: Token.
 ```
 
-## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
+## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja *>= a versão 27.13.x*
 
@@ -116,14 +116,14 @@ Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/p
 sudo pro --version
 ```
 
-## 06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
+## 06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server
 ```bash
 #adicionando o Token da licença do Ubuntu Pro
 #opção do comando pro: attach (Connect an Ubuntu Pro support contract to this machine)
 sudo pro attach [COLAR O SEU TOKEN]
 ```
 
-## 07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
+## 07_ Verificando os repositórios de origem das atualizações no Ubuntu Server
 ```bash
 #verificando o status do Ubuntu Pro
 #opção do comando pro: status (Report current status of Ubuntu Pro services on system)
@@ -145,7 +145,7 @@ sudo pro security-status --esm-apps
 sudo pro fix CVE-2023-23518
 ```
 
-## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro<br>
+## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro
 ```bash
 #OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
 #serviços são habilitados, sendo o: ESM-INFRA e o Livepatch, caso queira habilitar mais 
@@ -178,7 +178,7 @@ sudo pro enable esm-apps
 sudo pro status
 ```
 
-## 09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+## 09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server
 ```bash
 #OBSERVAÇÃO IMPORTANTE: após adicionar a licença do Ubuntu Pro é recomendado fazer
 #um upgrade completo do sistema para testar o Token e as novas listas do sources.list

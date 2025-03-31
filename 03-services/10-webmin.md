@@ -38,7 +38,7 @@ Site Oficial do Webmin: https://webmin.com/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 
-## 01_ Instalando as Dependências do Webmin<br>
+## 01_ Instalando as Dependências do Webmin
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -50,7 +50,7 @@ libio-pty-perl apt-show-versions python2 python3 unzip apt-transport-https libdb
 software-properties-common libdbd-mysql-perl
 ```
 
-## 02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
+## 02_ Adicionando o Repositório do Webmin no Ubuntu Server
 ```bash
 #opção do comando curl: -o (output file)
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
@@ -60,7 +60,7 @@ sudo sh setup-repos.sh
   Setup repository? (y/N) y <Enter>
 ```
 
-## 03_ Instalando o Webmin<br>
+## 03_ Instalando o Webmin
 ```bash
 #atualizando as lista do apt com o novo repositório do Webmin
 sudo apt update
@@ -70,7 +70,7 @@ sudo apt update
 sudo apt install --install-recommends webmin
 ```
 
-## 04_ Habilitando o Serviço do Webmin<br>
+## 04_ Habilitando o Serviço do Webmin
 ```bash
 #habilitando o serviço do Webmin
 sudo systemctl daemon-reload
@@ -78,7 +78,7 @@ sudo systemctl enable webmin
 sudo systemctl start webmin
 ```
 
-## 05_ Verificando o Serviço e Versão do Webmin<br>
+## 05_ Verificando o Serviço e Versão do Webmin
 ```bash
 #verificando o serviço do Webmin
 sudo systemctl status webmin
@@ -97,24 +97,23 @@ sudo journalctl -xeu webmin
 sudo apt list --installed | grep -i webmin 
 ```
 
-## 06_ Verificando a Porta de Conexão do Webmin<br>
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
+## 06_ Verificando a Porta de Conexão do Webmin
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-10000 do Webmin
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
 ```
 
-## 07_ Localização dos diretórios principais do Webmin<br>
+## 07_ Localização dos diretórios principais do Webmin
 ```bash
 /etc/webmin/*   <-- Diretório dos arquivos de Configuração do serviço do Webmin
 /var/webmin/*   <-- Diretório dos arquivos de Log's do serviço do Webmin
 ```
 
-## 08_ Testando o Webmin no navegador<br>
+## 08_ Testando o Webmin no navegador
 ```bash
 #acessar via navegador o Webmin
 firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
@@ -124,7 +123,7 @@ Password: sua_senha
 <Sign In>
 ```
 
-## 09_ Configurações Básicas do Webmin<br>
+## 09_ Configurações Básicas do Webmin
 ```bash
 #Atualizando o Módulos de Serviços do Web
 Webmin
