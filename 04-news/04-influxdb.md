@@ -113,12 +113,11 @@ sudo influx version
 ```
 
 ## 06_ Verificando a Porta de Conexão do InfluxDB2
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-8086 do InfluxDB2
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'8086' -sTCP:LISTEN
 ```
@@ -278,15 +277,13 @@ Data Explorer
 
 ## 15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows
 
-**OBSERVAÇÃO IMPORTANTE:** INSTALAÇÃO NO MICROSOFT WINDOWS (NÃO COMENTADO NO VÍDEO)
+### Instalação do Telegraf no Microsoft Windows
 
-Link de referência do download: https://github.com/influxdata/telegraf/releases
+**OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no Microsoft Windows (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
+
+**OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Telegraf* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/influxdata/telegraf/releases
 
 ```bash
-#OBSERVAÇÃO IMPORTANTE: o executável e os arquivos de configuração do Telegraf sofre
-#alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
-#versão do software no Link: https://github.com/influxdata/telegraf/releases
-
 #link para download direto do Telegraf (link atualizado em: 28/03/2025)
 https://dl.influxdata.com/telegraf/releases/telegraf-1.34.1_windows_amd64.zip
 
@@ -376,9 +373,9 @@ Set-Service telegraf -StartupType Automatic
 .\telegraf version
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** INSTALAÇÃO NO GNU/LINUX MINT (NÃO COMENTADO NO VÍDEO)
+### Instalação do Telegraf no Microsoft Windows
 
-Link de referência do download: https://github.com/influxdata/telegraf/releases
+**OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no GNU/Linux Mint (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
 
 ```bash
 #atualizando as lista do apt (NÃO COMENTADO NO VÍDEO)

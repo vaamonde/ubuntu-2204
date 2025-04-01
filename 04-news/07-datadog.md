@@ -93,7 +93,10 @@ sudo datadog-agent diagnose
 #padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
 ```
 
-## 02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10<br>
+## 02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
+
+### Instalação do Agente do Datadog no GNU/Linux Mint 
+
 ```bash
 #instalando o Agent no Linux Mint do site do Datadog
 Datadog
@@ -113,7 +116,10 @@ sudo datadog-agent status
 
 #checando as informações do Datadog Agent no Linux Mint
 sudo datadog-agent diagnose
+```
 
+### Instalação do Agente do Datadog no GNU/Linux Mint 
+```bash
 #instalando o Agent no Windows 10 do site do Datadog
 Datadog
     Integrations

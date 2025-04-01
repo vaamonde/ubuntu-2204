@@ -338,6 +338,8 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/dow
 
 **OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO 7.2 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
+### Instalação do Agent2 do Zabbix Server no Microsoft Windows
+
 ```bash
 #Download do Agent do Zabbix para sistemas operacionais Microsoft
 #Windows, Any, amd64, v7.2, OpenSSL, MSI: Zabbix agent 2 v7.2.0 (ATUALIZADO NO DIA 20/12/2024)
@@ -372,6 +374,8 @@ Powershell
 C:\Program Files\Zabbix Agent 2\
   zabbix_agent2.conf
 ```
+
+### Instalação do Agent2 do Zabbix Server no GNU/Linux Mint
 
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download
 
@@ -432,8 +436,11 @@ sudo lsof -nP -iTCP:'10050' -sTCP:LISTEN
 ```
 
 ## 15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server
+
+### Criando o Host de Monitoramento do GNU/Linux Mint
+
 ```bash
-#Criação dos Host GNU/Linux e Microsoft Windows no Zabbix Server
+#Criação do Host GNU/Linux Linux no Zabbix Server
 Data collection
   Hosts
     <Create host>
@@ -455,7 +462,11 @@ Data collection
         Monitored by proxy: (no proxy)
         Enable: On
       <Add>
+```
 
+### Criando o Host de Monitoramento do Microsoft Windows
+```bash
+#Criação do Host Microsoft Windows no Zabbix Server
 Data collection
   Hosts
     <Create host>

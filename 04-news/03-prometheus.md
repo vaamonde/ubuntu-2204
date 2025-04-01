@@ -80,11 +80,10 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 ```
 
 ## 03_ Baixando o Prometheus do Projeto do Github
-```bash
-#OBSERVAÇÃO IMPORTANTE: o executável e os arquivos de configuração do Prometheus sofre
-#alteração o tempo todo, sempre acessar o projeto do Github para verificar a última
-#versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
+**OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
+
+```bash
 #download do Prometheus do Github (Link atualizado no dia 28/03/2025)
 wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz
 
@@ -135,11 +134,10 @@ sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 ```
 
 ## 08_ Instalando o Coletor de Métricas Node Exporter
-```bash
-#OBSERVAÇÃO IMPORTANTE: o executável do Node Exporter do Prometheus sofre alteração
-#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
-#software no Link: https://github.com/prometheus/node_exporter/releases/
 
+**OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
+
+```bash
 #download do Node Exporter do Github (Link atualizado no dia 29/03/2025)
 wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
 
@@ -217,23 +215,20 @@ sudo node_exporter --version
 ```
 
 ## 15_ Verificando a Porta de Conexão do Node Exporter
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-9100 do Node Exporter
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 ```
 
 ## 16_ Editando o arquivo de configuração do Prometheus
-```bash
-#OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Prometheus e baseado no formato 
-#de serialização de dados legíveis YAML (Yet Another Markup Language) utilizado pela 
-#linguagem de programação Python, muito cuidado com o uso de espaços e tabulação e 
-#principalmente sua indentação.
 
+**OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Prometheus e baseado no formato de serialização de dados legíveis *YAML (Yet Another Markup Language)* utilizado pela linguagem de programação Python, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
+
+```bash
 #arquivo de configuração padrão do Prometheus
 sudo vim /etc/prometheus/prometheus.yml
 
@@ -284,12 +279,11 @@ sudo prometheus --version
 ```
 
 ## 19_ Verificando a Porta de Conexão do Prometheus
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-9091 do Prometheus
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
 ```
@@ -361,15 +355,15 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 ```
 
 ## 23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows
-```bash
-#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO MICROSOFT WINDOWS
-#Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
+**OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no Microsoft Windows, Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
+
+**OBSERVAÇÃO IMPORTANTE:** fazer a instalação do Prometheus Windows Exporter utilizando o Powershell em modo Administrador.
+
+### Instalação do Node Exporter no Microsoft Windows
+```bash
 #link para download direto do Node Exporter (link atualizado em: 28/03/2025)
 https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.5/windows_exporter-0.30.5-amd64.msi
-
-#OBSERVAÇÃO IMPORTANTE: fazer a instalação do Prometheus Windows Exporter utilizando 
-#o Powershell em modo Administrador.
 
 Menu
   Powershell 
@@ -388,10 +382,13 @@ Get-Service 'windows_exporter'
 #verificando a porta de conexão do Node Exporter
 #opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 netstat -an | findstr 9182
+```
 
-#OBSERVAÇÃO IMPORTANTE: INSTALAÇÃO NO LINUX MINT
-#Link de referência do download: https://github.com/prometheus/node_exporter/releases/
+### Instalação do Node Exporter no GNU/Linux Mint
 
+**OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no GNU/Linux Mint, Link de referência do download: https://github.com/prometheus/node_exporter/releases/
+
+```bash
 #criação do grupo e usuário de serviço do Node Exporter
 #opção do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), --system 
 #(Create a system account). -g (group) 
@@ -402,11 +399,11 @@ sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_ex
 #criando o diretório de configuração e bibliotecas do Prometheus
 #opção do comando mkdir: =p (parents), -v (verbose)
 sudo mkdir -pv /etc/prometheus /var/lib/prometheus
+```
 
-#OBSERVAÇÃO IMPORTANTE: o executável do Node Exporter do Prometheus sofre alteração
-#o tempo todo, sempre acessar o projeto do Github para verificar a última versão do 
-#software no Link: https://github.com/prometheus/node_exporter/releases/
+**OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
+```bash
 #download do Node Exporter do Github (Link atualizado no dia 29/03/2025)
 wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
 
@@ -494,7 +491,7 @@ Status
   Targets
 ```
 
-## 25_ Integrando o Prometheus no Grafana
+## 25_ Integrando o Prometheus no Grafana Server
 ```bash
 #acessando o Grafana Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000

@@ -183,22 +183,20 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 ```
 
 ## 09_ Verificando a Porta de Conexão do OpenSearch
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-9200 do OpenSearch
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 ```
 
 ## 10_ Adicionando o Repositório do Graylog Server no Ubuntu Server
-```bash
-#OBSERVAÇÃO IMPORTANTE: o executável e os arquivos de configuração do Graylog sofre
-#alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última
-#versão do software no Link: https://packages.graylog2.org/packages
 
+**OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Graylog* sofre alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última versão do software no Link: https://packages.graylog2.org/packages
+
+```bash
 #baixando o repositório do Graylog Server (Link atualizado no dia 28/03/2025)
 wget https://packages.graylog2.org/repo/packages/graylog-6.2-repository_latest.deb
 
@@ -328,12 +326,11 @@ sudo apt list | grep -i graylog
 ```
 
 ## 17_ Verificando a Porta de Conexão do Graylog Server
-```bash
-#OBSERVAÇÃO IMPORTANTE: no Ubuntu Server as Regras de Firewall utilizando o comando: 
-#iptables ou: ufw está desabilitado por padrão (INACTIVE), caso você tenha habilitado 
-#algum recurso de Firewall é necessário fazer a liberação do Fluxo de Entrada, Porta 
-#e Protocolo TCP do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+
+```bash
+#verificando a porta padrão TCP-9000 do Graylog Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ```
@@ -419,6 +416,8 @@ sudo systemctl status rsyslog
 
 **OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
 
+### Exportando dos Logs do GNU/Linux Mint para o Graylog Server
+
 ```bash
 #configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog
 #verificando o status de serviço do Rsyslog
@@ -439,7 +438,10 @@ ESC SHIFT : x <Enter>
 #reiniciar e verificar o serviço do Rsyslog
 sudo systemctl restart rsyslog
 sudo systemctl status rsyslog
+```
 
+### Exportando dos Logs do Microsoft Windows para o Graylog Server
+```bash
 #configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
 #baixando o software NXLog-CE (Community Edition) do site oficial:
 Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
@@ -546,7 +548,7 @@ Launch new GELF UDP input
 sudo lsof -nP -iUDP:'12201'
 ```
 
-## 24_ Verificando os Logs dos Eventos do Linux Mint e Microsoft Windows 10
+## 24_ Verificando os Logs dos Eventos do Linux Mint e do Microsoft Windows 10
 ```bash
 Graylog
   Search
