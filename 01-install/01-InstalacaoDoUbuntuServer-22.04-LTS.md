@@ -35,6 +35,8 @@ Conteúdo estudado nessa instalação:<br>
 
 **O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
 
+**O QUE É E PARA QUE SERVER O LTS:** LTS significa Long-Term Support (Suporte de Longo Prazo). Ele é um tipo de versão de software que recebe atualizações e suporte por um período estendido, geralmente de 3 a 5 anos ou mais, dependendo do projeto.
+
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
