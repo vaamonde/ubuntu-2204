@@ -25,6 +25,14 @@ Ubuntu Advantage for Infrastructure: https://ubuntu.com/advantage<br>
 Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br>
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
+Conteúdo estudado nessa instalação:<br>
+#01_ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS<br>
+#02_ Segunda etapa: Criação da Máquina Virtual do UbuntuWebserver no Oracle VirtualBOX<br>
+#03_ Terceira Etapa: Configurações da Máquina Virtual do UbuntuWebserver<br>
+#04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
+#05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
+#06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal<br>
+
 **O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
 
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")

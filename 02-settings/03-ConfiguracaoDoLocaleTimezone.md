@@ -88,8 +88,8 @@ sudo timedatectl
 #OBSERVAÇÃO IMPORTANTE: no sistema operacional Ubuntu Server temos basicamente 03 (três)
 #configurações de hora (time) sendo elas: 
 
-A) Local time (Hora Local)
-B) Universal time (Hora Universal)
+A) Local time (Hora Local);
+B) Universal time (Hora Universal);
 C) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
 ```
 
