@@ -33,6 +33,10 @@ Conteúdo estudado nessa instalação:<br>
 #05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 #06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal<br>
 
+**O QUE É E PARA QUE SERVER O ON-PREMISES:** O termo correto é "on-premises", e ele se refere a uma infraestrutura de TI que está localizada fisicamente nas instalações da empresa. Isso significa que os servidores, bancos de dados, aplicações e demais recursos de TI são hospedados, gerenciados e mantidos internamente pela equipe da empresa, em vez de serem executados em uma nuvem pública como AWS, Azure ou Google Cloud.
+
+**O QUE É E PARA QUE SERVER O CLOUD:** O Cloud Computing (Computação em Nuvem) é um modelo de TI que permite o acesso remoto a servidores, armazenamento, bancos de dados, redes e softwares por meio da internet. Em vez de manter servidores e infraestrutura física dentro da empresa (on-premises), tudo é hospedado em datacenters de provedores de nuvem, como AWS, Microsoft Azure, Google Cloud, entre outros.
+
 **O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
 
 **O QUE É E PARA QUE SERVER O LTS:** LTS significa Long-Term Support (Suporte de Longo Prazo). Ele é um tipo de versão de software que recebe atualizações e suporte por um período estendido, geralmente de 3 a 5 anos ou mais, dependendo do projeto.
