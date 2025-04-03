@@ -38,7 +38,7 @@ Site Oficial do Webmin: https://webmin.com/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 
-## 01_ Instalando as Dependências do Webmin
+## 01_ Instalando as Dependências do Webmin no Ubuntu Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -60,7 +60,7 @@ sudo sh setup-repos.sh
   Setup repository? (y/N) y <Enter>
 ```
 
-## 03_ Instalando o Webmin
+## 03_ Instalando o Webmin no Ubuntu Server
 ```bash
 #atualizando as lista do apt com o novo repositório do Webmin
 sudo apt update
@@ -70,7 +70,7 @@ sudo apt update
 sudo apt install --install-recommends webmin
 ```
 
-## 04_ Habilitando o Serviço do Webmin
+## 04_ Habilitando o Serviço do Webmin no Ubuntu Server
 ```bash
 #habilitando o serviço do Webmin
 sudo systemctl daemon-reload
@@ -78,7 +78,7 @@ sudo systemctl enable webmin
 sudo systemctl start webmin
 ```
 
-## 05_ Verificando o Serviço e Versão do Webmin
+## 05_ Verificando o Serviço e Versão do Webmin no Ubuntu Server
 ```bash
 #verificando o serviço do Webmin
 sudo systemctl status webmin
@@ -97,7 +97,7 @@ sudo journalctl -xeu webmin
 sudo apt list --installed | grep -i webmin 
 ```
 
-## 06_ Verificando a Porta de Conexão do Webmin
+## 06_ Verificando a Porta de Conexão do Webmin no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -107,7 +107,7 @@ sudo apt list --installed | grep -i webmin
 sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
 ```
 
-## 07_ Localização dos diretórios principais do Webmin
+## 07_ Localização dos diretórios principais do Webmin no Ubuntu Server
 ```bash
 /etc/webmin/*   <-- Diretório dos arquivos de Configuração do serviço do Webmin
 /var/webmin/*   <-- Diretório dos arquivos de Log's do serviço do Webmin

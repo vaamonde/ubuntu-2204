@@ -142,14 +142,12 @@ sudo pro security-status --esm-apps
 #opção do comando pro: fix (Fix a CVE or USN on the  system  by  upgrading  the  appropriate
 #package(s))
 #Site dos CVEs do Ubuntu: https://ubuntu.com/security/cves
-sudo pro fix CVE-2023-23518
+sudo pro fix CVE-2023-52927
 ```
 
 ## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro
-```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão após habilitar o Token do Ubuntu Pro os principais 
-#serviços são habilitados, sendo o: ESM-INFRA e o Livepatch, caso queira habilitar mais 
-#serviços veja a lista abaixo:
+
+**OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados, sendo o: **ESM-INFRA** e o **Livepatch**, caso queira habilitar mais serviços veja a lista abaixo:
 
 01) cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
 02) cis.............: Ferramentas para conformidade automatizada com o Center of Internet 
@@ -168,6 +166,7 @@ sudo pro fix CVE-2023-23518
 10) ros-updates.....: Atualizações de segurança para o sistema operacional do robô;
 11) usg.............: Ferramentas para conformidade de segurança e auditoria do sistema.
 
+```bash
 #habilitando o suporte ao ESM-APPS no Ubuntu Pro
 #opção do comando pro: enable (Activate  and  configure  this machine's access to an Ubuntu
 #Pro service)
@@ -179,9 +178,11 @@ sudo pro status
 ```
 
 ## 09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** após adicionar a licença do *Ubuntu Pro* é recomendado fazer um upgrade completo do sistema para testar o *Token* e as novas listas do **sources.list** do Ubuntu Pro.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: após adicionar a licença do Ubuntu Pro é recomendado fazer
-#um upgrade completo do sistema para testar o Token e as novas listas do sources.list
+#atualizando o sistema operacional com suporte ao Ubuntu Pro
 sudo apt clean
 sudo apt update
 sudo apt upgrade

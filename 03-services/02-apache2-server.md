@@ -119,7 +119,7 @@ sudo php -v
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-88 do Apache2 Server
+#verificando a porta padrão TCP-80 do Apache2 Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
@@ -221,12 +221,12 @@ INSERT
             Autor: Robson Vaamonde<br>
             Editado por: SEU NOME AQUI<br>
             <!-- Tag: A Define um hiperlink -->
-            LinkedIn: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
-            Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
-            Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
-            Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
+            LinkedIn.: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
+            Site.....: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
+            Facebook.: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
+            Facebook.: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
             Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
-            YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+            YouTube..: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
         <!-- Fechamento da Tag: BODY -->
         </body>
     <!-- Fechamento da Tag: HTML -->
@@ -257,12 +257,12 @@ INSERT
                 echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
                 echo 'Autor: Robson Vaamonde<br>';
                 echo 'Editado por: SEU NOME AQUI<br>';
-                echo 'LinkedIn: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
-                echo 'Site: http://procedimentosemti.com.br/<br>';
-                echo 'Facebook: https://www.facebook.com/ProcedimentosEmTI<br>';
-                echo 'Facebook: https://www.facebook.com/BoraParaPratica<br>';
+                echo 'LinkedIn.: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
+                echo 'Site.....: http://procedimentosemti.com.br/<br>';
+                echo 'Facebook.: https://www.facebook.com/ProcedimentosEmTI<br>';
+                echo 'Facebook.: https://www.facebook.com/BoraParaPratica<br>';
                 echo 'Instagram: https://www.instagram.com/procedimentoem/<br>';
-                echo 'YouTube: https://youtube.com/BoraParaPratica<br>'; 
+                echo 'YouTube..: https://youtube.com/BoraParaPratica<br>'; 
             // Fechamento do Script PHP
             ?>
         </body>

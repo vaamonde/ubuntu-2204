@@ -29,6 +29,10 @@ Conteúdo estudado desses comandos:<br>
 #04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server<br>
 #05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
 
+**O QUE É E PARA QUE SERVER O SHUTDOWN:** O comando shutdown é usado em sistemas operacionais baseados em Unix/Linux e no Windows para desligar, reiniciar ou suspender o sistema de maneira controlada. Ele é útil para garantir que todos os processos sejam encerrados corretamente, evitando perda de dados ou corrupção do sistema.
+
+**O QUE É E PARA QUE SERVER O INIT:** O comando init é um processo fundamental no Linux e Unix que inicializa e gerencia o sistema após o boot. Ele é responsável por colocar o sistema em diferentes estados de funcionamento, conhecidos como runlevels (em sistemas mais antigos) ou targets no systemd.
+
 [![Desligar Reiniciar Ubuntu Server](http://img.youtube.com/vi/NbA-k5-iLWA/0.jpg)](https://www.youtube.com/watch?v=NbA-k5-iLWA "Desligar e Reiniciar Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
@@ -51,16 +55,19 @@ sudo poweroff --reboot
 
 **OBSERVAÇÃO:** O *init* é o primeiro processo iniciado durante a inicialização do sistema de computador. O init é um processo daemon que continua executando até o sistema ser desligado. O init trabalha no conceito de *Runlevel (níveis de execução)*, no GNU/Linux temos basicamente **08 (oito) tipos de Runlevels**: 
 
-1. init 0 - Shutdown;
-2. init 1 - Single user mode or emergency mode; 
-3. init 2 - No network;
-4. init 3 - Network is present;
-5. init 4 - It is similar to runlevel 3;
-6. init 5 - Network is present;
-7. init 6 - This runlevel is defined to system restart;
-8. init s - Tells the init command to enter the maintenance mode;
-9. init S - Same as init s; 
-10. init m - Same as init s and init S e init M - Same as init s or init S or init m.
+1.  init 0 - Shutdown (Desligar);
+2.  init 1 - Single user mode or emergency mode (Modo de usuário único ou modo de emergência); 
+3.  init 2 - No network (Sem rede);
+4.  init 3 - Network is present (A rede está presente);
+5.  init 4 - It is similar to runlevel 3 (É semelhante ao nível de execução 3);
+6.  init 5 - Network is present (A rede está presente);
+7.  init 6 - This runlevel is defined to system restart (Este nível de execução é definido para
+             reiniciar o sistema);
+8.  init s - Tells the init command to enter the maintenance mode (Diz ao comando init para entrar
+             no modo de manutenção);
+9.  init S - Same as init s (O mesmo que init s); 
+10. init m - Same as init s and init S e init M - Same as init s or init S or init m (O mesmo que 
+             init s e init S e init M - O mesmo que init s ou init S ou init m).
 
 ```bash
 #opção do comando init: 0 (halt), 6 (reboot)
@@ -77,7 +84,7 @@ sudo reboot
 
 ## 05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server
 ```bash
-#opção do comando shutdown: -P (poweroff), -h (halt 60 second), -r (reboot), -c (cancel)
+#opção do comando shutdown: -P (poweroff), -h (halt 60 second default), -r (reboot), -c (cancel)
 #now (Shutdown immediately), 19:50 (Shutdown at 19:50 pm), +20 (Shutdown in 20 minutes)
 sudo shutdown -P
 sudo shutdown -h

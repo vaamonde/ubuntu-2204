@@ -110,6 +110,7 @@ sudo apt install bridge-utils ifenslave net-tools
 sudo lspci -v | grep -i ethernet
 
 #verificando os detalhes do hardware de Placa de Rede instalada
+#opção do comando lshw: -class (Only show the given class of hardware)
 sudo lshw -class network
 ```
 
@@ -160,7 +161,7 @@ INSERT
 network:
   #bloco de configuração do protocolo Ethernet
   ethernets:
-    #configuração da Interface Física (Nome Lógico comando lshw)
+    #configuração da Interface Física (Nome Lógico visto no comando: lshw -class network)
     enp0s3:
       #desabilitando o suporte ao DHCP Client IPv4
       dhcp4: false
@@ -233,7 +234,7 @@ sudo hostname -i
 
 ## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
-**OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o *Protocolo SSH* nos clientes Linux ou Microsoft para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
+**OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o *Protocolo SSH* nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
 
 ```bash
 #testando a conexão com o Ubuntu Server (alterar o Endereço IPv4 para o seu cenário)

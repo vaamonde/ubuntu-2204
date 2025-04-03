@@ -95,10 +95,10 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 ```
 
 ## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console)
-```bash	
-#OBSERVAÇÃO IMPORTANTE: por padrão o usuário Root do MySQL Server não tem senha para
-#se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança.
 
+**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário Root do MySQL Server não tem senha para se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança.
+
+```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
@@ -323,10 +323,10 @@ VSCode
 
 **OBSERVAÇÃO IMPORTANTE:** APÓS VÁRIOS RELATOS DOS ALUNOS REFERENTE A DEMORA OU NÃO RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO DO SITE DB4FREE, PESQUISANDO NA INTERNET ENCONTREI OS PROJETOS ABAIXO PARA TESTE (EM FASE DE TESTES E HOMOLOGAÇÃO): 
 
-01) *Free MySQL Hosting: https://www.freemysqlhosting.net/*<br>
-02) *Remote MySQL: https://remotemysql.com*<br>
-03) *Free SQL Database: https://www.freesqldatabase.com/*<br>
-04) *Free DB: https://freedb.tech*
+01) *Free SQL Database: https://www.freesqldatabase.com/*<br>
+02) *Free MySQL Hosting: https://www.freemysqlhosting.net/*<br>
+03) *Free DB: https://freedb.tech*<br>
+04) *Remote MySQL: https://remotemysql.com*<br>
 
 =========================================================================================
 

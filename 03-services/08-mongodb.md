@@ -181,7 +181,7 @@ mongosh
 
 ## 12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server)
 
-**OBSERVAÇÃO IMPORTANTE:** Diferente do *MySQL Server* o MongoDB Server é um Banco de Dados **Não Relacional (No-SQL)**, seu conceito e diferente do Banco de Dados Relacional e os nomes muda um pouco (SÓ FAZER O DE-PARA):
+**OBSERVAÇÃO IMPORTANTE:** Diferente do *MySQL Server* o MongoDB Server é um Banco de Dados **Não Relacional (No-SQL)**, seu conceito e diferente do Banco de Dados Relacional os nomes muda um pouco (SÓ FAZER O DE-PARA):
 
 |               DE T-SQL              |                PARA NO-SQL                |
 |-------------------------------------|-------------------------------------------|
@@ -199,12 +199,12 @@ mongosh
 
 |   CRUD    |    T-SQL (MySQL)   |      No-SQL (MongoDB)        |
 |-----------|--------------------|------------------------------|
-| Database: |  CREATE DATABASE   |   use database               |
-| Tables..: |  CREATE TABLES     |   db.createCollection()      |
-| Create..: |  INSERT            |   db.collection.insertOne()  |
-| Read....: |  SELECT            |   db.collection.find()       |
-| Update..: |  UPDATE            |   db.collection.updateOne()  |
-| Delete..: |  DELETE            |   db.collection.deleteOne()  |
+| Database  |  CREATE DATABASE   |   use database               |
+| Tables    |  CREATE TABLES     |   db.createCollection()      |
+| Create    |  INSERT            |   db.collection.insertOne()  |
+| Read      |  SELECT            |   db.collection.find()       |
+| Update    |  UPDATE            |   db.collection.updateOne()  |
+| Delete    |  DELETE            |   db.collection.deleteOne()  |
 
 **OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os dados/informações em cada Banco de Dados.
 
@@ -303,7 +303,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-## 15_ Acessando o MongoDB COM e SEM autenticação
+## 15_ Acessando o MongoDB COM e SEM autenticação no MongoSH
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -421,7 +421,7 @@ db.contatos.drop()
 show collections
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** No MongoDB, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existi mais a Base de Dados Agenda.
+**OBSERVAÇÃO IMPORTANTE:** No MongoDB, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existirá mais a Base de Dados Agenda.
 
 ```bash
 #saindo o MongoDB Server
@@ -436,7 +436,9 @@ mongorestore --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin
 
 **#19_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO MONGODB COMPASS (VEJA O SITE W3SCHOOLS).
 
-**#20_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO **DESAFIO-01**, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. **OBSERVAÇÃO:** VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
+**#20_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO **DESAFIO-01**, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. 
+
+**OBSERVAÇÃO:** VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 
 https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
 

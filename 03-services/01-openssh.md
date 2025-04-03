@@ -36,7 +36,11 @@ Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
-**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o protocolo SSH (Secure Shell), permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+
+**O QUE É E PARA QUE SERVER O OPENSSL:** O OpenSSL é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *protocolo TLS/SSL*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.
+
+**O QUE É E PARA QUE SERVER O TCP WRAPPERS:** O TCP Wrappers é uma ferramenta de segurança usada em sistemas Unix/Linux para controlar o acesso a serviços de rede. Ele permite *restringir ou permitir* conexões com base no endereço IP do cliente, hostname ou outras regras definidas pelo administrador.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 
@@ -219,6 +223,11 @@ Category
     SSH: On
 <Open>
 
+#acessando o OpenSSH via Git Bash no Windows
+Windows
+  Git Bash
+    ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar o usuário e endereço IPv4 do seu servidor)
+
 #acessando o OpenSSH via Terminal no Linux Mint
 Linux
   Terminal: Ctrl + Alt + T
@@ -298,7 +307,7 @@ sudo cat -n /etc/group | grep admin
 sudo getent group admin
 ```
 
-## 09_ Adicionando o usuário Admin no grupo SUDO (Super User Do)
+## 09_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server
 ```bash
 #adicionando o usuário Admin ao grupo do SUDO
 #opção do comando usermod: -a (append), -G (groups)
@@ -310,13 +319,13 @@ sudo groups admin
 #verificando as identificações de grupos do usuário Admin
 sudo id admin
 
-#verificando informações do grupo SUDO
+#verificando as informações do grupo SUDO
 sudo getent group sudo
 ```
 
 ## 10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** fazer o teste de Login no Terminal do Ubuntu Server na Máquina Virtual para verificar se está tudo OK na autenticação do usuário admin.
+**OBSERVAÇÃO IMPORTANTE:** fazer o teste de *Login no Terminal* do Ubuntu Server na Máquina Virtual para verificar se está tudo **OK** na autenticação do usuário __`admin`__.
 
 ========================================DESAFIOS=========================================
 

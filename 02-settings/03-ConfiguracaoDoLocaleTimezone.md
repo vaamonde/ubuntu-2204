@@ -97,6 +97,8 @@ C) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
 
 **OBSERVAÇÃO IMPORTANTE:** geralmente mudar para o *Time Zone de America/Sao_Paulo* a hora fica errada no sistema, nesse caso podemos mudar para *America/Fortaleza ou America/Bahia* esse error é por causa do Fuso Horário em relação ao Horário de Verão que não existe mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
+**OBSERVAÇÃO IMPORTANTE:** Até o momento (03/04/2025), o horário de verão 2025 está em *Processo de Avaliação* pelo Governo Federal. De acordo com o ministro de Minas e Energia, **Alexandre Silveira**, a volta da medida será analisada com base na *situação hídrica e na segurança energética*.
+
 **OBSERVAÇÃO:** ALTERAR O LOCALE CONFORME A LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE TIMEZONE ACESSE: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 ```bash
@@ -109,11 +111,10 @@ sudo timedatectl
 ```
 
 ## 05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server
-```bash
-#O NTP é um protocolo para sincronização dos relógios dos computadores baseado no 
-#protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um 
-#conjunto de computadores e dispositivos em redes de dados com latência variável.
 
+**OBSERVAÇÃO:** O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo **UDP** sob a porta **123**. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
+
+```bash
 #editando o arquivo de configuração timesyncd.conf
 sudo vim /etc/systemd/timesyncd.conf
 

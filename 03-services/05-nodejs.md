@@ -62,9 +62,10 @@ build-essential ca-certificates
 ```
 
 ## 02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)
-```bash
-#adicionando o repositório do Node.JS via Nodesource: https://deb.nodesource.com/
 
+Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
+
+```bash
 #Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
 #utilizar esse script em servidores de produção.
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
@@ -78,11 +79,12 @@ build-essential ca-certificates
 #opção do comando gpg: -o (output file)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
+```
 
+**OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
+
+```bash
 #Adicionando o Repositório do Node.JS no Ubuntu Server (link atualizado em 10/01/2025)
-#OBSERVAÇÃO IMPORTANTE: é indicado utilizar sempre a versão LTS (Long Time Support) do
-#Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node 
-#no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção da contra barra (\): criar uma quebra de linha no terminal
 echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
@@ -105,7 +107,7 @@ sudo node -v
 sudo npm -v
 ```
 
-## 05_ Criando um Projeto Simples para Testar o Node.JS
+## 05_ Criando um Projeto Simples para Testar o Node.JS no Ubuntu Server
 ```bash
 #criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 #opção do comando mkdir: -v (verbose)
@@ -164,7 +166,7 @@ app.listen(3000, function() {
 ESC SHIFT :x <Enter>
 ```
 
-## 07_ Executando o Projeto Simples do Node.JS utilizando o Express
+## 07_ Executando o Projeto Simples do Node.JS utilizando o Express no Ubuntu Server
 ```bash
 #opção do comando &: background
 #OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
@@ -177,18 +179,18 @@ node index.js &
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-3000 do Node.JS
+#verificando a porta padrão TCP-3000 do Node.JS Express
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
-## 09_ Acessando o Projeto Simples do Node.JS
+## 09_ Acessando o Projeto Simples do Node.JS via Navegador
 ```bash
 #utilizar os navegadores para testar o Node.JS
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-## 10_ Finalizando a Execução do Projeto Simples do Node.JS
+## 10_ Finalizando a Execução do Projeto Simples do Node.JS Express
 ```bash
 #verificando os processos em segundo plano (background)
 jobs
@@ -198,12 +200,11 @@ fg
 
 #finalizando o processo do Node.JS Express
 Ctrl + C
+```
 
-#OBSERVAÇÃO IMPORTANTE: caso você não consiga trazer os processos que estão em Segundo
-#Plano (Background) para o Primeiro Plano (Foreground) para finalizar o processo, você
-#pode utilizar o comando: ps -u e na coluna: PID finalizar o processo com o comando:
-#kill -9 PID
+**OBSERVAÇÃO IMPORTANTE:** caso você não consiga trazer os processos que estão em *Segundo Plano (Background)* para o *Primeiro Plano (Foreground)* para finalizar o processo, você pode utilizar o comando: *ps -u* e na coluna: **PID** finalizar o processo com o comando: *kill -9 PID*
 
+```bash
 #exemplo de finalizar o processo utilizando o comando ps para descobrir o PID (Process ID)
 #opção do comando ps: -u (userlist)
 ps -u
@@ -214,9 +215,9 @@ kill -9 15939
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ E ADICIONAR MAIS ALGUM RECURSO DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), ADICIONAR 01 (UMA) IMAGEM E FAZER O HYPER LINK PARA O WORDPRESS.
+**#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR 01 (UMA) IMAGEM E FAZER O HYPER LINK PARA ACESSAR O WORDPRESS.
 
-**#12_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO DESAFIO-03 DO WORDPRESS PARA AS PÁGINAS HTML E PHP, NÃO ESQUEÇA DE TESTAR O ACESSO.
+**#12_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
 =========================================================================================
 
