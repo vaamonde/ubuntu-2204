@@ -41,6 +41,8 @@ Conteúdo estudado nessa instalação:<br>
 
 **O QUE É E PARA QUE SERVER O LTS:** LTS significa Long-Term Support (Suporte de Longo Prazo). Ele é um tipo de versão de software que recebe atualizações e suporte por um período estendido, geralmente de 3 a 5 anos ou mais, dependendo do projeto.
 
+**O QUE É E PARA QUE SERVER O HWE:** O HWE (Hardware Enablement Stack) no Ubuntu é um conjunto de atualizações de kernel, drivers e bibliotecas que estendem o suporte a hardware mais recente nas versões LTS (Long-Term Support) do sistema.
+
 [![Instalação Ubuntu Server](http://img.youtube.com/vi/qnMol8-wvq8/0.jpg)](https://www.youtube.com/watch?v=qnMol8-wvq8 "Instalação Ubuntu Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
@@ -152,7 +154,7 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 <Enter>
 
 03) Installer update available
-    Version 24.08.1 of the installer is now available (24.02.1 is currently running)
+    Version 24.10.1 of the installer is now available (24.08.1 is currently running)
 <Continue without updating>
 
 04) Keyboard configuration
