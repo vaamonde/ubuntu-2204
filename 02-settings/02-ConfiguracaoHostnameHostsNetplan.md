@@ -142,11 +142,13 @@ sudo resolvectl
 #listando o conteúdo do diretório do Netplan
 #opção do comando ls: -l (long listing), -h (human-readable)
 ls -lh /etc/netplan/
+```
 
+**OBSERVAÇÃO IMPORTANTE:** ARQUIVO ANTIGO DA VERSÃO 22.04: */etc/netplan/00-installer-config.yaml*, A PARTIR DA VERSÃO 22.04.3 O NOME DO ARQUIVO MUDOU PARA: */etc/netplan/50-cloud-init.yaml*
+
+```bash
 #fazendo o backup do arquivo de configuração original do Netplan
 #opção do comando cp: -v (verbose)
-#OBSERVAÇÃO IMPORTANTE: ARQUIVO ANTIGO DA VERSÃO 22.04, A PARTIR DA VERSÃO
-#22.04.3 O NOME DO ARQUIVO MUDOU PARA: 50-cloud-init.yaml
 #sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old
 sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
