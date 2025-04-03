@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.20<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.21<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -66,6 +66,14 @@ sudo systemctl restart ssh
 sudo systemctl stop ssh
 sudo systemctl start ssh
 
+#analisando os Log's e mensagens de erro do Servidor do OpenSSH (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu ssh
+```
+
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando as versões do OpenSSH Server e Client
 #opção do comando sshd e ssh: -V (version)
 sudo sshd -V
@@ -241,14 +249,14 @@ Linux
 3. Médias de Cargas do Sistema (1, 5 e 15 minutos).
 
 **OBSERVAÇÃO IMPORTANTE 02:** no comando: *w* ele mostra as informações separadas por colunas:<br>
-1. USER (usuário logado);
-2. TTY (terminal do usuário);
-3. FROM (origem da conexão); 
+1. USER   (usuário logado);
+2. TTY    (terminal do usuário);
+3. FROM   (origem da conexão); 
 4. LOGIN@ (hora do login do usuário);
-5. IDLE (tempo ocioso do usuário);
-6. JCPU (tempo de CPU dos processos do TTY);
-7. PCPU (tempo de CPU do processo do último comando o usuário);
-8. WHAT (processo atual do usuário).
+5. IDLE   (tempo ocioso do usuário);
+6. JCPU   (tempo de CPU dos processos do TTY);
+7. PCPU   (tempo de CPU do processo do último comando o usuário);
+8. WHAT   (processo atual do usuário).
 
 ```bash
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
@@ -256,13 +264,13 @@ sudo w
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** no comando: *who* ele mostra as informações separadas por colunas:<br>
-1. NAME (usuário logado);
-2. LINE (terminal do usuário);
-3. TIME (data e hora do login do usuário);
-4. IDLE (tempo ocioso do usuário); 
-5. PID (identificação do processo);
+1. NAME    (usuário logado);
+2. LINE    (terminal do usuário);
+3. TIME    (data e hora do login do usuário);
+4. IDLE    (tempo ocioso do usuário); 
+5. PID     (identificação do processo);
 6. COMMENT (origem da conexão do usuário);
-7. EXIT (saída do processo).
+7. EXIT    (saída do processo).
 
 ```bash
 #verificando os usuários logados remotamente no Ubuntu Server

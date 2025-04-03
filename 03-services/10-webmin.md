@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.13<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.14<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Webmin realizado com sucesso!!! #BoraParaPrática*
 
@@ -90,7 +90,11 @@ sudo systemctl start webmin
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t webmin
 sudo journalctl -xeu webmin
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do Webmin
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando

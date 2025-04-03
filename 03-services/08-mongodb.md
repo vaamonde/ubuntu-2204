@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.34<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.35<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -129,7 +129,11 @@ sudo systemctl start mongod
 #opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
 sudo journalctl -t mongod
 sudo journalctl -xeu mongod
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando as versões do MongoDB Server e do Client
 sudo mongod --version
 sudo mongosh --version
@@ -147,9 +151,9 @@ sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 
 ## 09_ Localização dos Arquivos de Configuração do MongoDB Server
 ```bash
-/etc/mongod.conf  <-- arquivo de configuração do MongoDB Server
-/var/log/mongodb  <-- diretório dos arquivos de Log do MongoDB Sever
-/var/lib/mongodb  <-- diretório dos arquivos de Banco de Dados do MongoDB Server
+/etc/mongod.conf   <-- Arquivo de configuração do MongoDB Server
+/var/log/mongodb   <-- Diretório dos arquivos de Log do MongoDB Sever
+/var/lib/mongodb   <-- Diretório dos arquivos de Banco de Dados do MongoDB Server
 ```
 
 ## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server
@@ -303,7 +307,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-## 15_ Acessando o MongoDB COM e SEM autenticação no MongoSH
+## 15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -324,7 +328,7 @@ show dbs
 quit
 ```
 
-## 16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)
+## 16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface)
 
 Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 

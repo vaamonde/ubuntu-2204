@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -95,7 +95,11 @@ sudo systemctl start netdata
 #analisando os Log's e mensagens de erro do Servidor do Netdata (NÃO COMENTADO NO VÍDEO)
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu netdata
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do Netdata Server
 #opção do comando netdata: -v (version)
 sudo netdata -v
@@ -115,9 +119,12 @@ sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ```bash
 #habilitando o suporte para atualização do Netdata Server
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
+```
 
-#OBSERVAÇÃO IMPORTANTE: caso queira atualizar manualmente o Netdata digite o
-#mesmo comando do agendamento de atualizações do Netdata no terminal.
+**OBSERVAÇÃO IMPORTANTE:** caso queira atualizar manualmente o Netdata digite o mesmo comando do agendamento de atualizações do Netdata no terminal.
+
+```bash
+atualizando manualmente o Netdata
 #opção do ./: execução de script desenvolvido em Shell Script .sh
 sudo /usr/libexec/netdata/./netdata-updater.sh
 ```
@@ -204,19 +211,17 @@ exit
 ```
 
 ## 11_ Configurando os Serviços de Monitoramento do Netdata Server
-```bash
-#OBSERVAÇÃO IMPORTANTE: cuidado na hora de configurar os serviços de monitoramento do
-#Netdata Server, os arquivos de configuração são baseados na Linguagem de Programação
-#Python utilizando o conceito do YAML (YAML Ain't Markup Language), não se utiliza TAB
-#sempre utilizar 02 (dois) espaços para indentar o código.
 
+**OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do Netdata Server, os arquivos de configuração são baseados na *Linguagem de Programação Python* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
+
+```bash
 #acessando o diretório de configuração do Netdata Server
 cd /etc/netdata/
 ```
-```bash
-#OBSERVAÇÃO IMPORTANTE: POR PADRÃO O COMANDO ./edit-config UTILIZA O EDITOR DE TEXTO
-#NANO, SEUS COMANDOS E TECLAS SÃO DIFERENTES DO EDITOR DE TEXTO VIM, CUIDADO!!!!.
 
+**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O COMANDO: *./edit-config* UTILIZA O EDITOR DE TEXTO **NANO**, SEUS COMANDOS E TECLAS SÃO DIFERENTES DO EDITOR DE TEXTO **VIM**, CUIDADO!!!!.
+
+```bash
 #configuração do serviço de monitoramento do Apache Server
 #https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
 sudo ./edit-config go.d/apache.conf
@@ -317,18 +322,11 @@ Ctrl + X
 #configuração do serviço de monitoramento das Portas TCP Endpoint
 #https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
 sudo ./edit-config go.d/portcheck.conf
+```
 
-#OBSERVAÇÃO IMPORTANTE: após várias análises dos Logs do OpenSSH, principalmente do arquivo:
-#sudo cat -n /var/log/auth.log | grep ssh apresentou a seguinte mensagem de erro constante a
-#cada 5 segundos: Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_
-#identification: Connection closed by remote host. Esse error muitas vezes está associado a
-#conexões remotas não autorizadas no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após
-#pesquisar nos Fóruns foi identificado um Software Malicioso (Malware/Boot) de Força Bruta
-#que fica escaneando servidores OpenSSH na Porta Padrão para implementação de Bots DDoS e
-#CoinMiners, segue lista de alguns Bots: ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner
-#Mirai, Gafgy e XorDDos, nesse cenário a falha está associada ao Monitoramento de Porta do SSH
-#utilizado pelo Netdata, após remover a porta: 22 a falha dos Logs foi resolvida.
+**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de Força Bruta que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS e CoinMiners*, segue lista de alguns Bots: **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento de Porta do SSH* utilizado pelo Netdata, após remover a porta: 22 a falha dos Logs foi resolvida.
 
+```bash
 #editar as informações a partir da linha: 8
 jobs:
   - name: wsseunome
@@ -355,11 +353,11 @@ sudo systemctl status netdata
 #--type (list of unit types such as service and socket), --state (list of unit LOAD, SUB, 
 #or ACTIVE states)
 sudo systemctl list-units --type=service --state=running
+```
 
-#OBSERVAÇÃO IMPORTANTE: no vídeo as portas listadas com o comando: nmap só listou as portas 
-#conhecidas, para listar todas as portas adicionei a opção: -p- (OBSERVAÇÃO: COM ESSA OPÇÃO
-#HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
+**OBSERVAÇÃO IMPORTANTE:** no vídeo as portas listadas com o comando: *nmap* só listou as portas conhecidas, para listar todas as portas adicionei a opção: __`-p-`__ (OBSERVAÇÃO: COM ESSA OPÇÃO HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
 
+```bash
 #verificando todas as portas abertas no Ubuntu Server
 #opção do comando nmap: -p- (port ranges all) -sS (scan TCP SYN), -sU (scans UDP)
 #opção do comando grep: -i (ignore-case)

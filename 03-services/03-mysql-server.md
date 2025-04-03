@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.23<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -67,6 +67,14 @@ sudo systemctl restart mysql
 sudo systemctl stop mysql
 sudo systemctl start mysql
 
+#analisando os Log's e mensagens de erro do Servidor do MySQL (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu mysql
+```
+
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando as versões do MySQL Server e do MySQL Client
 #opção do comando mysqld: --version (check version daemon service)
 sudo mysqld --version
@@ -239,11 +247,12 @@ sudo journalctl -xeu mysql
 #acessar o MySQL Server como Root
 sudo mysql -u root -p
 ```
+
+**OBSERVAÇÃO IMPORTANTE:** QUANDO UTILIZADO O CARÁCTER: __`% (PORCENTAGEM)`__ O MYSQL ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE QUALQUER ORIGEM, DIFERENTE DA OPÇÃO: __`LOCALHOST`__ QUE SÓ PERMITE O ACESSO LOCAL. CUIDADO COM ESSA OPÇÃO NA DE CRIAR USUÁRIOS DE SERVIÇOS.
+
 ```sql
 /* criando o usuário Root Remoto do MySQL Server */
-/* OBSERVAÇÃO IMPORTANTE: QUANDO UTILIZADO O CARÁCTER % (PORCENTAGEM) O MYSQL 
-ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE QUALQUER ORIGEM, DIFERENTE DA
-OPÇÃO LOCALHOST QUE SÓ PERMITE O ACESSO LOCAL. CUIDADO COM ESSA OPÇÃO */
+
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
 CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 GRANT ALL ON *.* TO 'root'@'%';
@@ -323,7 +332,7 @@ VSCode
 
 **OBSERVAÇÃO IMPORTANTE:** APÓS VÁRIOS RELATOS DOS ALUNOS REFERENTE A DEMORA OU NÃO RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO DO SITE DB4FREE, PESQUISANDO NA INTERNET ENCONTREI OS PROJETOS ABAIXO PARA TESTE (EM FASE DE TESTES E HOMOLOGAÇÃO): 
 
-01) *Free SQL Database: https://www.freesqldatabase.com/*<br>
+01) *Free SQL Database: https://www.freesqldatabase.com/* (INDICADO)<br>
 02) *Free MySQL Hosting: https://www.freemysqlhosting.net/*<br>
 03) *Free DB: https://freedb.tech*<br>
 04) *Remote MySQL: https://remotemysql.com*<br>

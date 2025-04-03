@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
@@ -46,13 +46,17 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 **O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O Apache Tomcat é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
 
+**O QUE É E PARA QUE SERVER O OPENJDK:** O OpenJDK (Open Java Development Kit) é uma implementação de código aberto da plataforma Java Standard Edition (Java SE). Ele inclui o *compilador Java (javac), a máquina virtual Java (JVM) e as bibliotecas padrão*, permitindo o desenvolvimento e execução de aplicativos Java.
+
+**O QUE É E PARA QUE SERVER O OPENJRE:** O OpenJRE (Open Java Runtime Environment) é uma implementação de código aberto do *Java Runtime Environment (JRE)*, baseada no OpenJDK. O OpenJRE é utilizado para executar aplicações Java, mas *não inclui o compilador (javac)* e outras ferramentas de desenvolvimento. Ele contém apenas a *Máquina Virtual Java (JVM) e as bibliotecas* necessárias para rodar programas Java já compilados.
+
 [![Apache TomCAT](http://img.youtube.com/vi/TcC7cijfub0/0.jpg)](https://www.youtube.com/watch?v=TcC7cijfub0 "Apache TomCAT")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 ## 01_ Instalando as Dependências do Apache Tomcat Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do OpenJDK e do OpenJRE: 8, 11, 17, 18, 19 e 21, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do Apache TomCAT em relação ao OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment).
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19 e 21*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment).
 
 ```bash
 #atualizando as lista do apt
@@ -77,7 +81,7 @@ sudo update-java-alternatives --list
 
 ## 03_ Download do Apache Tomcat Server 10.1.x do site Oficial
 
-**OBSERVAÇÃO IMPORTANTE:** recomendo que o procedimento abaixo seja feito utilizando o usuário: Root do Ubuntu Server para facilitar a instalação e configuração do Apache Tomcat Server 10.1.x.
+**OBSERVAÇÃO IMPORTANTE:** recomendo que o procedimento abaixo seja feito utilizando o usuário: __`root`__ do Ubuntu Server para facilitar a instalação e configuração do *Apache Tomcat Server 10.1.x*.
 
 Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
 
@@ -181,11 +185,15 @@ sudo systemctl start tomcat10
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu tomcat10
 
-#verificando a versão do Apache Tomcat Server
-sudo bash /opt/tomcat/bin/version.sh
-
 #verificando os arquivos de configuração do Apache Tomcat Server (NÃO COMENTADO NO VÍDEO)
 sudo bash /opt/tomcat/bin/configtest.sh
+```
+
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
+#verificando a versão do Apache Tomcat Server
+sudo bash /opt/tomcat/bin/version.sh
 ```
 
 ## 10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x

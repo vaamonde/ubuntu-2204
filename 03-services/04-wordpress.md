@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -74,12 +74,12 @@ sudo mysql -u root -p
 /* Criando o Banco de Dados com o nome Wordpress */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
 CREATE DATABASE wordpress;
+```
 
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
+
+```sql
 /* Criando o usuário e senha da Base de Dados do WordPress */
-/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
-/* NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO
-LOCALHOST OU % (PORCENTAGEM) NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O 
-USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE % NA CRIAÇÃO */
 CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
 
 /* Aplicando as permissões de acesso do usuário WordPress */

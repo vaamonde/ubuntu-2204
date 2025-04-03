@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.21<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.22<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
@@ -100,6 +100,9 @@ sudo apt install nodejs
 ```
 
 ## 04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)
+
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
 ```bash
 #opção do comando node: -v (version)
 #opção do comando npm: -v (version)
@@ -135,7 +138,7 @@ ls -lha
 
 ## 06_ Criando um Projeto Simples do Node.JS no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o Powershell no processo de copiar e colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software PuTTY ou Git Bash para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software *PuTTY ou Git Bash* para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
 
 **OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou  no macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação e modificação arquivos desse curso.
 

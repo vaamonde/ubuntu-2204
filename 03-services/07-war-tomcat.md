@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.21<br>
+#Data de atualização: 04/03/2025<br>
+#Versão: 0.22<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
@@ -48,7 +48,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 ## 01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE
 
-**OBSERVAÇÃO IMPORTANTE:** o projeto da Agenda desenvolvida em JavaEE do *Prof.José de Assis* no seu Github está desatualizado, o projeto que está no Github foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse problema ele compilou um novo WAR que está no meu repositório do Github para essa aula.
+**OBSERVAÇÃO IMPORTANTE:** o projeto da Agenda desenvolvida em **JavaEE** do *Prof.José de Assis* no seu Github está desatualizado, o projeto que está no Github foi feito na versão anterior do Java e do Apache TomCAT, para resolver esse problema ele compilou um novo WAR que está no meu repositório do Github para essa aula.
 
 **OBSERVAÇÃO:** esse novo WAR do Projeto da Agenda foi customizado e melhorado pela *Prof(a). Sirlene Sanches*, criando uma nova estrutura em CSS para deixar o ambiente mais bonito.
 
@@ -88,7 +88,7 @@ Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso se
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma mensagem de erro, esse erro está associado ao Banco de Dados que ainda não foi criado no MySQL, após a sua criação o sistema irá funcionar perfeitamente.
+**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma mensagem de erro de conexão e falha do Java, esse erro está associado a conexão com o Banco de Dados no MySQL Server que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE
 ```bash
@@ -101,11 +101,12 @@ CREATE DATABASE dbagenda;
 
 /* Verificando a criação do Banco de Dados DBAgenda */
 SHOW DATABASES;
+```
 
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO: __`LOCALHOST`__ NO BANCO DE DADOS MYSQL SERVER, USUÁRIOS REMOTOS SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO ESTIVER NO MESMO SERVIDOR DE APLICAÇÃO.
+
+```sql
 /* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
-/* OBSERVAÇÃO IMPORTANTE: POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO LOCALHOST NO
-BANCO DE DADOS MYSQL, USUÁRIOS REMOTOS SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO 
-ESTIVER NO MESMO SERVIDOR */
 CREATE USER 'dbagenda'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbagenda';
 GRANT USAGE ON *.* TO 'dbagenda'@'localhost';
 GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
@@ -186,14 +187,14 @@ TRUNCATE TABLE contatos;
 SELECT * FROM contatos;
 exit
 ```
+
+**OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA VERIFICAR QUE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
+
+Utilizar o Firefox ou Google Chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+**OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA
-#VERIFICAR QUE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
-firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
-
-#OBSERVAÇÃO IMPORTANTE: PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA
-#TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
-
 #restaurando o backup do banco de dados DBAgenda
 #opções do comando mysql: -u (user), -p (password)
 #opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)

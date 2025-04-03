@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 03/04/2025<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -102,13 +102,17 @@ sudo systemctl start apache2
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu apache2
 
-#verificando as versões do Apache2 Server e do PHP
-#opção do comando apache2ctl: -V (version)
-sudo apache2ctl -V
-
 #verificando os arquivos de configuração do Apache2 Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando apache2ctl: configtest (Run a configuration file syntax test)
 sudo apache2ctl configtest 
+```
+
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
+#verificando as versões do Apache2 Server e do PHP
+#opção do comando apache2ctl: -V (version)
+sudo apache2ctl -V
 
 #opção do comando php: -v (version)
 sudo php -v
@@ -186,7 +190,7 @@ cd teste
 
 ## 07_ Criando páginas HTML e PHP para testar o Apache2 Server
 
-**OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __` vim `__.
+**OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
 
 **OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
 
