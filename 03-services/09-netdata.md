@@ -208,6 +208,7 @@ exit
 /etc/netdata/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
 /etc/netdata/go.d/ping.conf         <-- arquivo de monitoramento do ICMP Ping
 /etc/netdata/go.d/portcheck.conf    <-- arquivo de monitoramento do Port Check
+/var/log/netdata                    <-- diretório dos arquios de Logs do Netdata
 ```
 
 ## 11_ Configurando os Serviços de Monitoramento do Netdata Server

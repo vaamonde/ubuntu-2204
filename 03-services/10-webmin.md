@@ -114,7 +114,7 @@ sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
 ## 07_ Localização dos diretórios principais do Webmin no Ubuntu Server
 ```bash
 /etc/webmin/*   <-- Diretório dos arquivos de Configuração do serviço do Webmin
-/var/webmin/*   <-- Diretório dos arquivos de Log's do serviço do Webmin
+/var/webmin/*   <-- Diretório dos arquivos de Logs do serviço do Webmin
 ```
 
 ## 08_ Testando o Webmin no navegador

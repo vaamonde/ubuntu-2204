@@ -152,7 +152,7 @@ sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 ## 09_ Localização dos Arquivos de Configuração do MongoDB Server
 ```bash
 /etc/mongod.conf   <-- Arquivo de configuração do MongoDB Server
-/var/log/mongodb   <-- Diretório dos arquivos de Log do MongoDB Sever
+/var/log/mongodb   <-- Diretório dos arquivos de Logs do MongoDB Sever
 /var/lib/mongodb   <-- Diretório dos arquivos de Banco de Dados do MongoDB Server
 ```
 

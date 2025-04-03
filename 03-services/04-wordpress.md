@@ -195,6 +195,15 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
+#verificando as versões do CMS Worpress
+#opção do comando grep: ^ (circunflexo) indica que a busca deve ocorrer no início da linha, 
+#\$wp_version busca por linhas que começam com a variável $wp_version no código-fonte do WordPress
+sudo grep ^\$wp_version /var/www/html/wp/wp-includes/version.php
+```
+
 ## 06_ Acessando e configurando o WordPress via navegador
 ```bash
 #utilizar os navegadores para testar o acesso ao Wordpress
