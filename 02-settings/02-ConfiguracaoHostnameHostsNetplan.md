@@ -173,16 +173,16 @@ network:
       link-local: []
       #alterar o endereço IPv4 para o seu cenário
       #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
-      addresses: [172.16.1.20/24]
+      addresses: [SEU_ENDEREÇO_IPv4/CIDR]
       #alterar o gateway padrão para o seu cenário
       #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
       #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
-      #gateway4: 172.16.1.254
+      #gateway4: SEU_ENDEREÇO_IPv4
       routes:
         #configuração da rota padrão (cuidado com o traço antes do to)
         - to: default
           #configuração do endereço IPv4 do Gateway
-          via: 172.16.1.254
+          via: SEU_ENDEREÇO_IPv4
       #configuração dos servidores de DNS Preferencial e Alternativo
       nameservers:
         #alterar os servidores DNS para o seu cenário

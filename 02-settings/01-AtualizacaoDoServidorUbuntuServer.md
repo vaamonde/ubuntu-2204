@@ -48,8 +48,8 @@ sudo apt update
 ## 02_ Verificando todos os pacotes a serem atualizados no Ubuntu Server
 ```bash
 #List é utilizado para listar todos os software que serão atualizados no sistema.
-#opção do comando apt: list (list is used to display a list of packages), --upgradable (shows a 
-#list of packages that can be upgraded using the apt package manager)
+#opção do comando apt: list (list is used to display a list of packages), --upgradable (shows
+#a list of packages that can be upgraded using the apt package manager)
 sudo apt list --upgradable
 ```
 

@@ -71,7 +71,7 @@ sudo systemctl start ssh
 sudo journalctl -xeu ssh
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando as versões do OpenSSH Server e Client
@@ -92,15 +92,15 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 
 ## 04_ Localização dos Arquivos de Configuração do OpenSSH Server
 ```bash
-/etc/ssh/             <-- Diretório de configuração do OpenSSH Server e Client
-/etc/ssh/sshd_config  <-- Arquivo de configuração do OpenSSH Server
-/etc/ssh/ssh_config   <-- Arquivo de configuração do OpenSSH Client
-/etc/hosts.deny       <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Deny
-/etc/hosts.allow      <-- Arquivo de configuração do Firewall de Aplicação TCPWrappers Allow
-/etc/issue.net        <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
-/var/log/             <-- Diretório de Logs do Sistema Operacional Ubuntu Server
-/var/log/syslog       <-- Log principal do Sistema Operacional Ubuntu Server
-/var/log/auth.log     <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
+/etc/ssh/              <-- Diretório de configuração do OpenSSH Server e Client
+/etc/ssh/sshd_config   <-- Arquivo de configuração do OpenSSH Server
+/etc/ssh/ssh_config    <-- Arquivo de configuração do OpenSSH Client
+/etc/hosts.deny        <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Deny
+/etc/hosts.allow       <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Allow
+/etc/issue.net         <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
+/var/log/              <-- Diretório de Logs do Sistema Operacional Ubuntu Server
+/var/log/syslog        <-- Log principal do Sistema Operacional Ubuntu Server
+/var/log/auth.log      <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
 ```
 
 ## 05_ Habilitando a segurança de acesso ao OpenSSH Server
