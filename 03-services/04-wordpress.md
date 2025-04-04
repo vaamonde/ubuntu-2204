@@ -22,11 +22,12 @@ Conteúdo estudado nesse desafio:<br>
 #01_ Instalando as Dependências do WordPress<br>
 #02_ Criando a Base de Dados do WordPress no MySQL Server<br>
 #03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
-#04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
-#05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
-#06_ Acessando e configurando o WordPress via navegador<br>
-#07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
-#08_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
+#04_ Localização dos Arquivos de Configuração do CMS Wordpress<br>
+#05_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
+#06_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
+#07_ Acessando e configurando o WordPress via navegador<br>
+#08_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
+#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -141,7 +142,17 @@ sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 ```
 
-## 04_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress
+## 04_ Localização dos Arquivos de Configuração do CMS Wordpress
+```bash
+/var/www/html/wp/wp-admin/      <-- Diretório que contém os arquivos do painel administrativo;
+/var/www/html/wp/wp-includes/   <-- Diretório que contém os arquivos centrais do core do WordPress;
+/var/www/html/wp/wp-content/    <-- Diretório que contém os arquivos que você pode customizar:
+                                    themes/: temas instalados, plugins/: plugins instalados e 
+                                    uploads/: mídias enviadas (imagens, vídeos, PDFs, etc).
+/var/www/html/wp/wp-content/    <-- Diretório que contém os Logs do CMS Wordpress se habilitado.
+```
+
+## 05_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress
 ```bash
 #acessando o diretório do WordPress
 cd /var/www/html/wp/
@@ -179,7 +190,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 ESC SHIFT :x <Enter>
 ```
 
-## 05_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress
+## 06_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress
 ```bash
 #habilitando os módulos do Apache2 Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -204,7 +215,7 @@ sudo journalctl -xeu apache2
 sudo grep ^\$wp_version /var/www/html/wp/wp-includes/version.php
 ```
 
-## 06_ Acessando e configurando o WordPress via navegador
+## 07_ Acessando e configurando o WordPress via navegador
 ```bash
 #utilizar os navegadores para testar o acesso ao Wordpress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
@@ -228,7 +239,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
   <Acessar>
 ```
 
-## 07_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores
+## 08_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores
 
 **OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanente do Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no Wordpress.
 
@@ -272,13 +283,13 @@ exit
 
 ========================================DESAFIOS=========================================
 
-**#08_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`DUAS IMAGEM`__ EM CADA POSTAGEM.
+**#09_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`DUAS IMAGEM`__ EM CADA POSTAGEM.
 
-**#09_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
+**#10_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
 
-**#10_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS __`ÍCONES DO GITHUB, LINKEDIN E FACEBOOK`__, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO __`APACHE2`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
+**#11_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS __`ÍCONES DO GITHUB, LINKEDIN E FACEBOOK`__, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO __`APACHE2`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
-**#11_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
+**#12_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
 |         Descrição           |     Informação     |
 |-----------------------------|--------------------|

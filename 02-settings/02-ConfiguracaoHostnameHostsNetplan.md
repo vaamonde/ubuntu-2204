@@ -73,7 +73,7 @@ INSERT
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O ENDEREÇO IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
-127.0.0.1      localhost.pti.intra     localhost
+127.0.0.1      localhost.seu.domínio   localhost
 127.0.1.1      wsseunome.seu.domínio   wsseunome
 SUA_REDE_IPV4  wsseunome.seu.domínio   wsseunome
 

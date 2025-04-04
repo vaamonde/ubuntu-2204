@@ -222,15 +222,15 @@ INSERT
             <!-- Tag H1: Define títulos HTML -->
             <!-- Tag BR: Define uma única quebra de linha -->
             <h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>
-            Autor: Robson Vaamonde<br>
+            Autor......: Robson Vaamonde<br>
             Editado por: SEU NOME AQUI<br>
             <!-- Tag: A Define um hiperlink -->
-            LinkedIn.: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
-            Site.....: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
-            Facebook.: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
-            Facebook.: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
-            Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
-            YouTube..: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+            LinkedIn...: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
+            Site.......: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
+            Facebook...: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
+            Facebook...: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
+            Instagram..: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
+            YouTube....: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
         <!-- Fechamento da Tag: BODY -->
         </body>
     <!-- Fechamento da Tag: HTML -->
@@ -259,14 +259,14 @@ INSERT
             <?php 
                 // Função ECHO: Imprimir uma ou mais strings na saída padrão
                 echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
-                echo 'Autor: Robson Vaamonde<br>';
+                echo 'Autor......: Robson Vaamonde<br>';
                 echo 'Editado por: SEU NOME AQUI<br>';
-                echo 'LinkedIn.: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
-                echo 'Site.....: http://procedimentosemti.com.br/<br>';
-                echo 'Facebook.: https://www.facebook.com/ProcedimentosEmTI<br>';
-                echo 'Facebook.: https://www.facebook.com/BoraParaPratica<br>';
-                echo 'Instagram: https://www.instagram.com/procedimentoem/<br>';
-                echo 'YouTube..: https://youtube.com/BoraParaPratica<br>'; 
+                echo 'LinkedIn...: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>';
+                echo 'Site.......: http://procedimentosemti.com.br/<br>';
+                echo 'Facebook...: https://www.facebook.com/ProcedimentosEmTI<br>';
+                echo 'Facebook...: https://www.facebook.com/BoraParaPratica<br>';
+                echo 'Instagram..: https://www.instagram.com/procedimentoem/<br>';
+                echo 'YouTube....: https://youtube.com/BoraParaPratica<br>'; 
             // Fechamento do Script PHP
             ?>
         </body>
