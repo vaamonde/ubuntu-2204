@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 03/04/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 04/04/2025<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,19 +19,18 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/03-mysql.p
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiomysql #desafiomysqlserver
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado o MySQL Server e Client no Ubuntu Server;<br>
-#02_ Verificando os Status do Serviço do MySQL Server;<br>
-#03_ Verificando a Versão do MySQL Server;<br>
-#04_ Verificando a Porta de Conexão do MySQL Server;<br>
-#05_ Diretórios e Arquivos de Configuração do MySQL Server;<br>
-#06_ Conectando no Console do MySQL Server;<br>
-#07_ Adicionando uma Senha no usuário Root do MySQL Server;<br>
-#08_ Criando Usuários e Permissões no MySQL Server;<br>
-#09_ Adicionando os Usuários Locais no Grupo do MySQL Server;<br>
-#10_ Permitindo o Acesso Remoto no MySQL Server;<br>
-#11_ Acessando Remotamente o MySQL Server pelo MySQL Workbench;<br>
-#12_ Acessando Remotamente o MySQL Server pelo VSCode;<br>
-#13_ Desafio do Banco de Dados MySQL Server.
+#01_ Instalando o MySQL Server e Client no Ubuntu Server;<br>
+#02_ Verificando o Serviço e Versão do MySQL Server no Ubuntu Server;<br>
+#03_ Verificando a Porta de Conexão do MySQL Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do MySQL Server no Ubuntu Server;<br>
+#05_ Acessando o MySQL Server utilizando o MySQL Client (Console) no Ubuntu Server;<br>
+#06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server;<br>
+#07_ Criando um usuário DBA (Data Base Administrator) do MySQL Server no Ubuntu Server;<br>
+#08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server no Ubuntu Server;<br>
+#09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console no Ubuntu Server;<br>
+#10_ Conectando no MySQL Server utilizando o MySQL Workbench no Windows ou GNU/Linux;<br>
+#11_ Integrando o MySQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux;<br>
+#12_ Desafios do Banco de Dados MySQL Server.<br>
 
 Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
@@ -40,17 +39,17 @@ Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
-**O QUE É E PARA QUE SERVER O MYSQL SERVER:** O MySQL Server é um sistema de gerenciamento de banco de dados relacional (RDBMS - Relational Database Management System) de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
+**O QUE É E PARA QUE SERVER O MYSQL SERVER:** O *MySQL Server* é um sistema de gerenciamento de banco de dados relacional *RDBMS (RDBMS - Relational Database Management System)* de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
 
-**O QUE É E PARA QUE SERVER O RDBMS:** RDBMS (Relational Database Management System) é um Sistema de Gerenciamento de Banco de Dados Relacional. Ele serve para armazenar, organizar e manipular dados de forma estruturada, usando tabelas que se relacionam entre si por meio de chaves primárias e estrangeiras, como por exemplo dos Banco de Dados: MySQL, PostgreSQL, MariaDB, Microsoft SQL Server ou Oracle Database.
+**O QUE É E PARA QUE SERVER O RDBMS:** O *RDBMS (Relational Database Management System)* é um Sistema de Gerenciamento de Banco de Dados Relacional. Ele serve para armazenar, organizar e manipular dados de forma estruturada, usando tabelas que se relacionam entre si por meio de chaves primárias e estrangeiras, como por exemplo dos Banco de Dados: *MySQL Server, PostgreSQL Serer, MariaDB Server (Fork do MySQL Server), Microsoft SQL Server ou Oracle Database Server*.
 
-**O QUE É E PARA QUE SERVER O DBA:** O DBA desempenha um papel essencial na administração de sistemas de banco de dados, garantindo que as informações sejam armazenadas, acessadas e protegidas corretamente, fazendo as funções de: Instalação, Configuração, Monitoramento, Desempenho, Backup/Restaure, Segurança, Gerenciamento, Planejamento, Automação, etc.
+**O QUE É E PARA QUE SERVER O DBA:** O *DBA (Data Base Administrator)* desempenha um papel essencial na administração de sistemas de banco de dados, garantindo que as informações sejam armazenadas, acessadas e protegidas corretamente, fazendo as funções de: *Instalação, Configuração, Monitoramento, Desempenho, Backup/Restaure, Segurança, Gerenciamento, Planejamento, Automação, etc*.
 
 [![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 
-## 01_ Instalando o MySQL Server e Client
+## 01_ Instalando o MySQL Server e Client no Ubuntu Server
 ```bash	
 #atualizando as listas do Apt
 sudo apt update
@@ -59,7 +58,7 @@ sudo apt update
 sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
 ```
 
-## 02_ Verificando o Serviço e Versão do MySQL Server
+## 02_ Verificando o Serviço e Versão do MySQL Server no Ubuntu Server
 ```bash
 #verificando o serviço do MySQL Server
 sudo systemctl status mysql
@@ -83,7 +82,7 @@ sudo mysqld --version
 sudo mysql --version
 ```
 
-## 03_ Verificando a Porta de Conexão do MySQL Server
+## 03_ Verificando a Porta de Conexão do MySQL Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -93,7 +92,7 @@ sudo mysql --version
 sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do MySQL Server
+## 04_ Localização dos Arquivos de Configuração do MySQL Server no Ubuntu Server
 ```bash
 /etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
 /etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
@@ -102,18 +101,18 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 /var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
 ```
 
-## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console)
+## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console) no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário Root do MySQL Server não tem senha para se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança.
+**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário Root do MySQL Server não tem senha para se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança antes do servidor entrar em produção.
 
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
 
-## 06_ Aplicando a segurança de acesso do usuário Root no MySQL Server
+## 06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É CASE SENSITIVE, CUIDADO COM O NOME DA BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO.
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É CASE SENSITIVE, CUIDADO COM O NOME DA BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO AS INFORMAÇÕES NO SERVIDOR.
 
 ```sql
 /* visualizando as bases de dados do MySQL */
@@ -147,7 +146,7 @@ exit
 sudo mysql -u root -p
 ```
 
-## 07_ Criando um usuário DBA (Data Base Administrator) no MySQL Server
+## 07_ Criando um usuário DBA (Data Base Administrator) do MySQL Server no Ubuntu Server
 ```sql
 /* criando o usuário DBA Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
@@ -178,11 +177,12 @@ SHOW DATABASES;
 exit
 ```
 
-## 08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server
+## 08_ Adicionando o Usuário Local no Grupo Padrão do MySQL Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G mysql $USER
 
 #fazendo login em um novo grupo do MySQL
@@ -209,7 +209,7 @@ SHOW TABLES;
 exit
 ```
 
-## 09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console
+## 09_ Permitindo o Root do MySQL se Logar Remotamente no MySQL Client Console no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do MySQL Server
 #opção do comando cp: -v (verbose)
@@ -264,7 +264,7 @@ SELECT user,host FROM user;
 exit
 ```
 
-## 10_ Conectando no MySQL Server utilizando o MySQL Workbench
+## 10_ Conectando no MySQL Server utilizando o MySQL Workbench no Windows ou GNU/Linux
 
 Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
@@ -288,9 +288,9 @@ MySQL Connections: +
 <OK>
 ```
 
-## 11_ Integrando o MySQL Server com o Visual Studio Code VSCode
+## 11_ Integrando o MySQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO NO VÍDEO E MOSTRADO, NA EXTENSÃO DO VSCODE NÃO APARECE NENHUM BANCO DE DADOS PADRÃO DO MYSQL SERVER, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO, POR MOTIVO DE SEGURANÇA.
+**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E MOSTRADO NO VÍDEO, QUANDO VOCÊ INSTALA A EXTENSÃO DO MYSQL SERVER NO VSCODE NÃO APARECE NENHUM BANCO DE DADOS PADRÃO NA LISTAGEM, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO, ISSO É POR MOTIVO DE SEGURANÇA.
 
 ```bash
 #instalando a Extensão do MySQL Server no VSCode

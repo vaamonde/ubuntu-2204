@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 03/04/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 04/04/2025<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,18 +19,15 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/02-apache2
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioapache2 #desafioapache
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado o Apache2 e PHP8 no Ubuntu Server;<br>
-#02_ Verificando os Status do Serviço do Apache2;<br>
-#03_ Verificando as Versões do Apache2 e PHP8;<br>
-#04_ Verificando a Porta de Conexão do Apache2;<br>
-#05_ Diretórios e Arquivos de Configuração do Apache2 e PHP8;<br>
-#06_ Adicionando o Usuário Local no Grupo do Apache2;<br>
-#07_ Criando um Projeto de Teste de Site no Apache2;<br>
-#08_ Alterando as Permissões de Arquivos e Diretórios;<br>
-#09_ Criando Páginas em HTML e PHP para testar o Apache2;<br>
-#10_ Utilizando o VSCode para editar páginas HTML e PHP;<br>
-#11_ Testando o acesso as Páginas no Navegador do Apache2;<br>
-#12_ Desafio do Novo Projeto de Site e Usuários do Apache2.
+#01_ Instalando o Apache2 Server e PHP 8.x no Ubuntu Server;<br>
+#02_ Verificando o Serviço e Versão do Apache2 Server e do PHP no Ubuntu Server;<br>
+#03_ Verificando a Porta de Conexão do Apache2 Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x no Ubuntu Server;<br>
+#05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server no Ubuntu Server;<br>
+#06_ Criando um diretório de Teste do HTML e PHP do Apache2 Server no Ubuntu Server;<br>
+#07_ Criando páginas HTML e PHP para testar o Apache2 Server no Ubuntu Server;<br>
+#08_ Testando o Apache2 Server e o PHP no seu navegador;<br>
+#09_ Desafios do Novo Projeto de Site e Usuários do Apache2.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
@@ -40,23 +37,23 @@ Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp
 
-**O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor HTTP (Hypertext Transfer Protocol) Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em 1995 por um grupo de desenvolvedores da NCSA (National Center for Supercomputing Applications), tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
+**O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
 
-**O QUE É E PARA QUE SERVER O HTTP:** O HTTP (Hyper Text Transfer Protocol) é um padrão de mensagens que permite a comunicação entre navegadores e servidores web. Ele é a base da internet e é usado para transferir dados, como o conteúdo de sites e chamadas de API (Application Programming Interface), utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 80.
+**O QUE É E PARA QUE SERVER O HTTP:** O *HTTP (Hyper Text Transfer Protocol)* é um padrão de mensagens que permite a comunicação entre navegadores e servidores web. Ele é a base da internet e é usado para transferir dados, como o conteúdo de sites e chamadas de **API (Application Programming Interface)**, utiliza o *Protocolo TCP (Transmission Control Protocol) na porta Padrão 80*.
 
-**O QUE É E PARA QUE SERVER O HTTPS:** O HTTPS (Hyper Text Transfer Protocol Secure) é uma versão segura do protocolo HTTP. Ele é usado para criptografar a comunicação entre um site e um navegador web, utiliza o Protocolo TCP (Transmission Control Protocol) na porta Padrão 443.
+**O QUE É E PARA QUE SERVER O HTTPS:** O *HTTPS (Hyper Text Transfer Protocol Secure)* é uma versão segura do protocolo HTTP. Ele é usado para criptografar a comunicação entre um site e um navegador web, utiliza o *Protocolo TCP (Transmission Control Protocol) na porta Padrão 443*.
 
-**O QUE É E PARA QUE SERVER O HTML:** O HTML (Hypertext Markup Language) é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML. HyTime é um padrão para a representação estruturada de hipermídia e conteúdo baseado em tempo.
+**O QUE É E PARA QUE SERVER O HTML:** O *HTML (Hypertext Markup Language)* é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões **HyTime e SGML**. HyTime é um padrão para a representação estruturada de hipermídia e conteúdo baseado em tempo.
 
-**O QUE É E PARA QUE SERVER O CSS:** O CSS (Cascading Style Sheets) é um mecanismo para adicionar estilos (cores, fontes, espaçamento, etc.) a uma página web aplicado diretamente nas tags HTML ou ficar contido dentro dessas tags. Também é possível, adicionar estilos adicionando um link para um arquivo CSS que contém os estilos.
+**O QUE É E PARA QUE SERVER O CSS:** O *CSS (Cascading Style Sheets)* é um mecanismo para adicionar estilos (cores, fontes, espaçamento, etc.) a uma página web aplicado diretamente nas **tags HTML** ou ficar contido dentro dessas tags. Também é possível, adicionar estilos adicionando um link para um arquivo CSS que contém os estilos.
 
-**O QUE É E PARA QUE SERVER O PHP:** O PHP (Hypertext Preprocessor, originalmente Personal Home Page) é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar conteúdo dinâmico na World Wide Web.
+**O QUE É E PARA QUE SERVER O PHP:** O *PHP (Hypertext Preprocessor, originalmente Personal Home Page)* é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar **conteúdo dinâmico** na World Wide Web (WWW).
 
 [![Apache2 Server](http://img.youtube.com/vi/p6fnF1fZ1j4/0.jpg)](https://www.youtube.com/watch?v=p6fnF1fZ1j4 "Apache2 Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 
-## 01_ Instalando o Apache2 Server e PHP 8.x
+## 01_ Instalando o Apache2 Server e PHP 8.x no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -67,9 +64,9 @@ sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl gh
 zlib1g-dev apt-transport-https
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
-**OBSERVAÇÃO IMPORTANTE:** FOI ADICIONAR MAIS *DEPENDÊNCIAS DOS PACOTES DO PHP*, CONFORME VÁRIOS RELATOS NO GITHUB E NO CANAL DO YOUTUBE, AS DEPENDÊNCIAS DO **WORDPRESS** E DO **GLPI HELP DESK** FORAM ADICIONADAS NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
+**OBSERVAÇÃO IMPORTANTE:** FOI ADICIONAR MAIS *DEPENDÊNCIAS DOS PACOTES DO PHP*, CONFORME VÁRIOS RELATOS NO GITHUB E NO CANAL DO YOUTUBE DO BORA PARA PRÁTICA, AS DEPENDÊNCIAS DO **WORDPRESS** E DO **GLPI HELP DESK** FORAM ADICIONADAS NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS DE INSTALAÇÃO DESSAS SOLUÇÕES AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
 ```bash
 #instalando o Apache2 Server e PHP 8.x e suas dependências
@@ -89,7 +86,7 @@ negotiation setenvif
 sudo systemctl restart apache2
 ```
 
-## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP
+## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP no Ubuntu Server
 ```bash
 #verificando o serviço do Apache2 Server
 sudo systemctl status apache2
@@ -118,7 +115,7 @@ sudo apache2ctl -V
 sudo php -v
 ```
 
-## 03_ Verificando a Porta de Conexão do Apache2 Server
+## 03_ Verificando a Porta de Conexão do Apache2 Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -128,7 +125,7 @@ sudo php -v
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x
+## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x no Ubuntu Server
 ```bash
 /etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
 /etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
@@ -140,12 +137,13 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 /var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
 ```
 
-## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server
+## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+
 ```bash
 #adicionando o seu usuário no grupo do Apache2
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G www-data $USER
 
 #fazendo login em um novo grupo do Apache2
@@ -158,16 +156,18 @@ id
 sudo getent group www-data
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
-#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl+D
+#OBSERVAÇÃO: você pode utilizar o comando: exit, logout ou tecla de atalho: Ctrl+D
 exit
+```
 
-#OBSERVAÇÃO IMPORTANTE: caso a conexão SSH trave, utilize os caracteres de escape para 
-#finalizar conexões SSH.
-#caracteres: ~ (til) e . (ponto)
+**OBSERVAÇÃO IMPORTANTE:** caso a conexão do SSH trave, você pode utilizar os caracteres de escape para finalizar conexões SSH.
+
+```bash
+#forçando um logout/logoff utilizando os caracteres: ~ (til) e . (ponto)
 ~.
 ```
 
-## 06_ Criando um diretório de Teste do HTML e PHP no Apache2 Server
+## 06_ Criando um diretório de Teste do HTML e PHP do Apache2 Server no Ubuntu Server
 ```bash
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
 cd /var/www/html
@@ -188,7 +188,7 @@ sudo chown -Rv root.www-data teste/
 cd teste
 ```
 
-## 07_ Criando páginas HTML e PHP para testar o Apache2 Server
+## 07_ Criando páginas HTML e PHP para testar o Apache2 Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
 
@@ -293,7 +293,7 @@ phpinfo();
 ESC SHIFT :x <Enter>
 ```
 
-## 08_ Testando o Apache2 Server e o PHP no navegador
+## 08_ Testando o Apache2 Server e o PHP no seu navegador
 ```bash
 #utilizar os navegadores para testar suas páginas
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver

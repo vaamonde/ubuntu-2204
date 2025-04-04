@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 03/04/2025<br>
-#Versão: 0.21<br>
+#Data de atualização: 04/04/2025<br>
+#Versão: 0.22<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,28 +19,27 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/01-openssh
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioopenssh #desafiossh
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalado o OpenSSH no Ubuntu Server;<br>
-#02_ Verificando os Status do Serviço do OpenSSH;<br>
-#03_ Verificando a Versão do OpenSSH Server e Client;<br>
-#04_ Verificando a Porta de Conexão do OpenSSH Server;<br>
-#05_ Diretórios e Arquivos de Configuração do OpenSSH;<br>
-#06_ Segurança do Arquivo Hosts.Deny do TCPWrappers;<br>
-#07_ Segurança do Arquivo Hosts.Allow do TCPWrappers;<br>
-#08_ Configuração do Arquivo sshd_config do OpenSSH;<br>
-#09_ Configuração do Arquivo issue.net (Banner Login);<br>
-#10_ Acessando Remoto via Powershell, PuTTY e Terminal;<br>
-#11_ Criando usuário Local e Adicionando ao Grupo SUDO;<br>
-#12_ Desafio de Usuários e Acesso Remoto do OpenSSH.
+#01_ Instalando o OpenSSH Server e Client no Ubuntu Server;<br>
+#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server;<br>
+#03_ Verificando a Porta de Conexão do OpenSSH Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server;<br>
+#05_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server;<br>
+#06_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server;<br>
+#07_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash;<br>
+#08_ Criando um usuário Administrador no Ubuntu Server;<br>
+#09_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server;<br>
+#10_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server;<br>
+#12_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
-**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 
-**O QUE É E PARA QUE SERVER O OPENSSL:** O OpenSSL é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *protocolo TLS/SSL*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.
+**O QUE É E PARA QUE SERVER O OPENSSL:** O OpenSSL é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *Protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer)*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.
 
-**O QUE É E PARA QUE SERVER O TCP WRAPPERS:** O TCP Wrappers é uma ferramenta de segurança usada em sistemas Unix/Linux para controlar o acesso a serviços de rede. Ele permite *restringir ou permitir* conexões com base no endereço IP do cliente, hostname ou outras regras definidas pelo administrador.
+**O QUE É E PARA QUE SERVER O TCP WRAPPERS:** O TCP Wrappers é uma ferramenta de segurança usada em sistemas Unix/Linux para controlar o acesso a serviços de rede. Ele permite *Restringir ou Permitir* conexões com base no endereço IPv4/IPv6 do cliente, hostname ou outras regras definidas pelo administrador.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 
@@ -48,7 +47,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 ## 01_ Instalando o OpenSSH Server e Client no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** executar a instalação somente se você no processo de instalar o Ubuntu Server não marcou a opção: *Install OpenSSH*, caso contrário o mesmo já está instalado e pré-configurado.
+**OBSERVAÇÃO IMPORTANTE:** executar a instalação somente se você no processo de instalar o Ubuntu Server não marcou a opção: *Install OpenSSH*, caso contrário o mesmo já está instalado, pré-configurado e funcionando.
 
 ```bash
 #atualizando as listas do Apt
@@ -80,7 +79,7 @@ sudo sshd -V
 sudo ssh -V
 ```
 
-## 03_ Verificando a Porta de Conexão do OpenSSH Server
+## 03_ Verificando a Porta de Conexão do OpenSSH Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -90,7 +89,7 @@ sudo ssh -V
 sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do OpenSSH Server
+## 04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server
 ```bash
 /etc/ssh/              <-- Diretório de configuração do OpenSSH Server e Client
 /etc/ssh/sshd_config   <-- Arquivo de configuração do OpenSSH Server
@@ -103,7 +102,7 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 /var/log/auth.log      <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
 ```
 
-## 05_ Habilitando a segurança de acesso ao OpenSSH Server
+## 05_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server
 ```bash
 #editando o arquivo de configuração de Negação de Serviço e Host
 sudo vim /etc/hosts.deny
@@ -144,7 +143,7 @@ sshd: SUA_REDE/SEU_CIDR
 ESC SHIFT :x <Enter>
 ```
 
-## 06_ Atualizando e editando os arquivos de configuração do OpenSSH Server e do Banner
+## 06_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do OpenSSH Server
 #opção do comando cp: -v (verbose)
@@ -211,7 +210,7 @@ sudo journalctl -t sshd
 sudo journalctl -xeu ssh
 ```
 
-## 07_ Acessando remotamente o OpenSSH Server via Powershell e pelo software PuTTY
+## 07_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash
 ```bash
 #acessando o OpenSSH via Powershell
 Windows
@@ -285,6 +284,8 @@ users
 
 **OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: __` admin `__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
 
+**OBSERVAÇÃO** Mais informações veja o Site do Wikipedia das 10.000 senhas mais comuns: https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords
+
 ```bash
 #criando o usuário Admin local no Ubuntu Server
 #OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ADMIN CONFORME SUA NECESSIDADE
@@ -331,9 +332,26 @@ sudo id admin
 sudo getent group sudo
 ```
 
-## 10_ Se logando no Terminal (Bash/Shell) do Ubuntu Server
+## 10_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** fazer o teste de *Login no Terminal* do Ubuntu Server na Máquina Virtual para verificar se está tudo **OK** na autenticação do usuário __`admin`__.
+
+```bash
+#abrindo um segundo Terminal TTY (Teletype) no Ubuntu Server
+Atalho: Alt + F2
+
+Ubuntu 22.04.5 LTS wsseunome tty2
+  wsseunome login: admin
+  Password: sua_senha
+
+#para sair do Terminal TTY digite você pode digitar os comandos
+logout  (sair do login)
+exit    (sair do login)
+Ctrl+D  (atalho para sair do login)
+
+#voltar para o primeiro Terminal TTY (Teletype) no Ubuntu Server
+Atalho: Alt + F1
+```
 
 ========================================DESAFIOS=========================================
 
