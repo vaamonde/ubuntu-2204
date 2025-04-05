@@ -19,21 +19,22 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/06-tomcat.
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiotomcat #desafiojava
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependências do Java do Apache TomCAT;<br>
-#02_ Verificando as Versões de Java instalado no Ubuntu Server;<br>
-#03_ Download da última Versão do Apache TomCAT Server;<br>
-#04_ Descompactar e Mover o Diretório do Apache TomCAT Server;<br>
-#05_ Download dos Arquivos de Configuração do Apache TomCAT Server;<br>
-#06_ Criação do Usuário de Serviços do Apache TomCAT Server;<br>
-#07_ Alteração das Permissões de Arquivos e Diretórios;<br>
-#08_ Verificando o Status do Serviço do Apache TomCAT Server;<br>
-#09_ Verificando a Versão do Apache TomCAT Server;<br>
-#10_ Verificando a Porta de Conexão do Apache TomCAT Server;<br>
-#11_ Diretórios e Arquivos de Configuração do Apache TomCAT Server;<br>
-#12_ Adicionando o Usuário Local no Grupo do Apache TomCAT Server;<br>
-#13_ Alterando o Arquivo de Configuração TOMCAT-USERS.XML;<br>
-#14_ Acessando o Apache TomCAT Server via Navegador;<br>
-#15_ Desafios do Servidor de Aplicação Apache TomCAT Server.
+#01_ Instalando as Dependências do Apache Tomcat Server no Ubuntu Server;<br>
+#02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado no Ubuntu Server;<br>
+#03_ Download do Apache Tomcat Server 10.1.x do site Oficial no Ubuntu Server;<br>
+#04_ Descompactando e instalando o Apache Tomcat 10.1.x no Ubuntu Server;<br>
+#05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x no Ubuntu Server;<br>
+#06_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x no Ubuntu Server;<br>
+#07_ Alterando as Permissões do Diretório do Apache Tomcat Server 10.1.x no Ubuntu Server;<br>
+#08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x no Ubuntu Server;<br>
+#09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x no Ubuntu Serve;<br>
+#10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x no Ubuntu Server;<br>
+#11_ Localização dos Arquivos de Configuração do Apache Tomcat Server no Ubuntu Server;<br>
+#12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server no Ubuntu Server;<br>
+#13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server no Ubuntu Server;<br>
+#14_ Testando o acesso ao Apache Tomcat Server no navegador;<br>
+#15_ Administrando o Apache Tomcat Server via navegador;<br>
+#16_ Desafios do Servidor de Aplicação Apache TomCAT Server.<br>.
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -54,9 +55,9 @@ Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
 
 Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
-## 01_ Instalando as Dependências do Apache Tomcat Server
+## 01_ Instalando as Dependências do Apache Tomcat Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19 e 21*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment).
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19 e 21*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao *OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment)*.
 
 ```bash
 #atualizando as lista do apt
@@ -68,7 +69,7 @@ sudo apt update
 sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-common build-essential
 ```
 
-## 02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado
+## 02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado no Ubuntu Server
 ```bash
 #verificando as versões de Java instalado
 #opção do comando grep: -i (ignore-case)
@@ -79,7 +80,7 @@ sudo update-alternatives --list java
 sudo update-java-alternatives --list
 ```
 
-## 03_ Download do Apache Tomcat Server 10.1.x do site Oficial
+## 03_ Download do Apache Tomcat Server 10.1.x do site Oficial no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** recomendo que o procedimento abaixo seja feito utilizando o usuário: __`root`__ do Ubuntu Server para facilitar a instalação e configuração do *Apache Tomcat Server 10.1.x*.
 
@@ -97,7 +98,7 @@ sudo -i
 wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.39/bin/apache-tomcat-10.1.39.tar.gz
 ```
 
-## 04_ Descompactando e instalando o Apache Tomcat 10.1.x
+## 04_ Descompactando e instalando o Apache Tomcat 10.1.x no Ubuntu Server
 ```bash
 #descompactando o download do arquivo do Apache TomCAT
 #opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
@@ -108,7 +109,7 @@ tar -xzvf /tmp/tomcat10.tar.gz -C /tmp
 mv -v /tmp/apache-tomcat* /opt/tomcat
 ```
 
-## 05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x
+## 05_ Atualizando os arquivos de configuração do Apache Tomcat Server 10.1.x no Ubuntu Server
 ```bash
 #download dos principais arquivos de configuração do Apache TomCAT Server
 #opção do comando wget: -v (verbose), -O (output file)
@@ -144,14 +145,14 @@ wget -v -O /opt/tomcat/webapps/docs/META-INF/context.xml https://raw.githubuserc
 wget -v -O /etc/systemd/system/tomcat10.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat10.service
 ```
 
-## 06_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x
+## 06_ Criando o Usuário de Serviço do Apache Tomcat Server 10.1.x no Ubuntu Server
 ```bash
 #criando o usuário de serviço do Apache TomCAT
 #opção do comando useradd: -m (create-home), -d (home-dir), -U (user-group), -s (shell)
 useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 ```
 
-## 07_ Alterando as Permissões do Diretório do Apache Tomcat Server 10.1.x
+## 07_ Alterando as Permissões do Diretório do Apache Tomcat Server 10.1.x no Ubuntu Server
 ```bash
 #alterando as permissões de dono e grupo
 #opção do comando chown: -R (recursive), -v (verbose), tomcat:tomcat (user and group)
@@ -162,7 +163,7 @@ chown -Rv tomcat:tomcat /opt/tomcat
 chmod -Rv u+x /opt/tomcat/bin
 ```
 
-## 08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x
+## 08_ Habilitando o Serviço do Apache Tomcat Server 10.1.x no Ubuntu Server
 ```bash
 #habilitando o serviço do Apache Tomcat Server
 systemctl daemon-reload
@@ -173,7 +174,7 @@ systemctl start tomcat10
 exit
 ```
 
-## 09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x
+## 09_ Verificando o Serviço e Versão do Apache Tomcat Server 10.1.x no Ubuntu Server
 ```bash
 #verificando o serviço do Apache Tomcat Server
 sudo systemctl status tomcat10
@@ -189,14 +190,14 @@ sudo journalctl -xeu tomcat10
 sudo bash /opt/tomcat/bin/configtest.sh
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Apache Tomcat Server
 sudo bash /opt/tomcat/bin/version.sh
 ```
 
-## 10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x
+## 10_ Verificando a Porta de Conexão do Apache Tomcat Server 10.1.x no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -206,7 +207,7 @@ sudo bash /opt/tomcat/bin/version.sh
 sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 ```
 
-## 11_ Localização dos Arquivos de Configuração do Apache Tomcat Server
+## 11_ Localização dos Arquivos de Configuração do Apache Tomcat Server no Ubuntu Server
 ```bash
 /opt/tomcat                        <-- Diretório de configuração do Apache Tomcat Server
 /opt/tomcat/bin                    <-- Diretório do binário (executável) do Apache Tomcat Server
@@ -218,7 +219,7 @@ sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 /opt/tomcat/webapps                <-- Diretório das Aplicações Web do Apache Tomcat Server
 ```
 
-## 12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server
+## 12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -239,7 +240,7 @@ sudo getent group tomcat
 exit
 ```
 
-## 13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server
+## 13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server no Ubuntu Server
 ```bash
 #editando o arquivo de criação de usuários do Tomcat
 sudo vim /opt/tomcat/conf/tomcat-users.xml
@@ -266,13 +267,13 @@ sudo systemctl restart tomcat10
 sudo systemctl status tomcat10
 ```
 
-## 14_ Testando o Apache Tomcat Server no navegador
+## 14_ Testando o acesso ao Apache Tomcat Server no navegador
 ```bash
 #utilizar os navegadores para testar o Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```
 
-## 15_ Administrando o Apache Tomcat Server
+## 15_ Administrando o Apache Tomcat Server via navegador
 ```bash
 Clique em: Manager App
   Usuário padrão: admin

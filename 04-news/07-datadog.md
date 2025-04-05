@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 28/03/2025<br>
+#Data de atualização: 05/04/2025<br>
 #Versão: 0.09<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Datadog realizado com sucesso!!! #BoraParaPrática*
@@ -20,18 +20,19 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/17-datadog
 #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiodatadog #desafiodatadogagent
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
-#02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
+#01_ Criando uma conta no Site Oficial do Datadog On-Line;<br>
+#02_ Baixando a Instalando o Agente no Ubuntu Server;<br>
+#03_ Baixando a Instalando os Agentes no Linux Mint e Windows 10.
 
 Site Oficial do Datadog: https://www.datadoghq.com/<br>
 
-O QUE É E PARA QUE SERVER O DATADOG: O Datadog é uma plataforma de monitoramento e segurança em nuvem usada para coletar, visualizar e analisar métricas, logs e rastreamento de aplicações em tempo real. Ele é amplamente utilizado por equipes de DevOps, SRE e Segurança para garantir observabilidade completa de infraestruturas modernas, incluindo servidores, containers, aplicações e redes.
+**O QUE É E PARA QUE SERVER O DATADOG:** O Datadog é uma plataforma de monitoramento e segurança em nuvem usada para coletar, visualizar e analisar métricas, logs e rastreamento de aplicações em tempo real. Ele é amplamente utilizado por equipes de DevOps, SRE e Segurança para garantir observabilidade completa de infraestruturas modernas, incluindo servidores, containers, aplicações e redes.
 
 [![Datadog](http://img.youtube.com/vi/tmcyPRGSHf4/0.jpg)](https://www.youtube.com/watch?v=tmcyPRGSHf4 "Datadog")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
-## 01_ Criando uma conta no Site Oficial do Datadog On-Line<br>
+## 01_ Criando uma conta no Site Oficial do Datadog On-Line
 
 **OBSERVAÇÃO IMPORTANTE:** Diferente dos outros sistemas de monitoramento de servidores, o Datadog utilizada sua estrutura em Cloud para monitorar e gerenciar as métricas dos serviços de rede utilizando apenas os agentes para o envio das informações.
 
@@ -41,7 +42,7 @@ Link dos valores de contas: https://www.datadoghq.com/pricing/
     Clique em: Free - Starting At $0 <START FREE TRIAL>
 ```
 
-**OBSERVAÇÃO:** a conta Free do Datadog permite manter as métricas dos servidores por apenas 1 (um) dia e conectar apenas 05 (cinco) Agentes (Hosts) de Monitoramento, para uma empresa pequena é mais do que suficiente.
+**OBSERVAÇÃO:** a conta Free do Datadog permite manter as métricas dos servidores por apenas **1 (um) dia** e conectar apenas **05 (cinco) Agentes (Hosts) de Monitoramento**, para uma empresa pequena é mais do que suficiente.
 
 ```bash
 #criando o cadastro no Site do Datadog (NÃO PRECISA DE CARTÃO DE CRÉDITO)
@@ -66,11 +67,13 @@ Please Confirm Your Email
 #depois.
 Tell us about your stack
   <Next>
+```
 
-#OBSERVAÇÃO IMPORTANTE: Para você prosseguir e necessário fazer a instalação do
-#Agent do Datadog copiando as informações de como instalar no GNU/Linux, sendo a
-#forma mais simples utilizar o recurso de instalação automática. Nesse método é
-#adicionado automaticamente a Key (Chave) de integração com o site do Datadog.
+## 02_ Baixando a Instalando o Agente no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** Para você prosseguir e necessário fazer a instalação do *Agent do Datadog* copiando as informações de como instalar no GNU/Linux, sendo a forma mais simples utilizar o recurso de instalação automática. Nesse método é adicionado automaticamente a **Key (Chave)** de integração com o site do Datadog.
+
+```bash
 Install your first Datadog Agent
     Ubuntu
         Install or Update to the latest Agent 7 version on Ubuntu
@@ -88,12 +91,11 @@ sudo datadog-agent status
 
 #checando as informações do Datadog Agent no Ubuntu Server
 sudo datadog-agent diagnose
-
-#OBSERVAÇÃO IMPORTANTE: Após alguns minutos e mostrado o Host (Computador) no Dashboard
-#padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
 ```
 
-## 02_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
+**OBSERVAÇÃO IMPORTANTE:** Após alguns minutos e mostrado o *Host (Computador)* no Dashboard padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
+
+## 03_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
 
 ### Instalação do Agente do Datadog no GNU/Linux Mint 
 

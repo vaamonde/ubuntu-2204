@@ -19,16 +19,16 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-webmin.
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowebmin #desafiocockpit
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando a Dependências do Webmin<br>
-#02_ Adicionando o Repositório do Webmin no Ubuntu Server<br>
-#03_ Instalando o Webmin no Ubuntu Server<br>
-#04_ Habilitando e Verificando o Serviço do Webmin<br>
-#05_ Verificando a Versão do Webmin<br>
-#06_ Verificando a Porta de Conexão do Webmin<br>
-#07_ Arquivos e Diretório de Configuração do Webmin<br>
-#08_ Acessando Webmin Via Navegador<br>
-#09_ Configurações Básicas do Webmin<br>
-#10_ Desafios do Webmin e Cockpit<br>
+#01_ Instalando as Dependências do Webmin no Ubuntu Server;<br>
+#02_ Adicionando o Repositório do Webmin no Ubuntu Server;<br>
+#03_ Instalando o Webmin no Ubuntu Server;<br>
+#04_ Habilitando o Serviço do Webmin no Ubuntu Server;<br>
+#05_ Verificando o Serviço e Versão do Webmin no Ubuntu Server;<br>
+#06_ Verificando a Porta de Conexão do Webmin no Ubuntu Server;<br>
+#07_ Localização dos diretórios principais do Webmin no Ubuntu Server;<br>
+#08_ Testando o Webmin no navegador;<br>
+#09_ Configurações Básicas do Webmin;<br>
+#10_ Desafios do Webmin e Cockpit.<br>
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
@@ -92,7 +92,7 @@ sudo journalctl -t webmin
 sudo journalctl -xeu webmin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
 
 ```bash
 #verificando a versão do Webmin

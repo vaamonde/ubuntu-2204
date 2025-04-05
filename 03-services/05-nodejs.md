@@ -19,17 +19,17 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/05-nodejs.
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionodejs #desafiojavascript
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependências do Node.JS<br>
-#02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)<br>
-#03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)<br>
-#04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)<br>
-#05_ Criando um Projeto Simples para Testar o Node.JS<br>
-#06_ Criando um Projeto Simples do Node.JS<br>
-#07_ Executando o Projeto Simples do Node.JS utilizando o Express<br>
-#08_ Verificando a Porta de Conexão do Node.JS Express<br>
-#09_ Acessando o Projeto Simples do Node.JS<br>
-#10_ Finalizando a Execução do Projeto Simples do Node.JS<br>
-#11_ Desafio de uma Nova Aplicação do Node.JS.
+#01_ Instalando as Dependências do Node.JS no Ubuntu Server;<br>
+#02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server;<br>
+#03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server;<br>
+#04_ Verificando as Versões do Node.JS e NPM (Node Package Manager) no Ubuntu Serve;<br>
+#05_ Criando um Projeto Simples para Testar o Node.JS no Ubuntu Server;<br>
+#06_ Criando um Projeto Simples do Node.JS no Ubuntu Server;<br>
+#07_ Executando o Projeto Simples do Node.JS utilizando o Express no Ubuntu Server;<br>
+#08_ Verificando a Porta de Conexão do Node.JS Express no Ubuntu Server;<br>
+#09_ Acessando o Projeto Simples do Node.JS via Navegador;<br>
+#10_ Finalizando a Execução do Projeto Simples do Node.JS Express no Ubuntu Server;<br>
+#11_ Desafio de uma Nova Aplicação do Node.JS.<br>.
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
@@ -42,15 +42,15 @@ Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp<br>
 Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/<br>
 
-**O QUE É E PARA QUE SERVER O NODE.JS:** O Node.js é um ambiente de execução de código JavaScript no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
+**O QUE É E PARA QUE SERVER O NODE.JS:** O Node.js é um ambiente de execução de código *JavaScript* no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
 
-**O QUE É E PARA QUE SERVER O JAVASCRIPT:** O JavaScript é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
+**O QUE É E PARA QUE SERVER O JAVASCRIPT:** O *JavaScript* é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
 
 [![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 
-## 01_ Instalando as Dependências do Node.JS
+## 01_ Instalando as Dependências do Node.JS no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 sudo apt update
@@ -61,7 +61,7 @@ sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
 build-essential ca-certificates
 ```
 
-## 02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager)
+## 02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
 
 Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 
@@ -90,7 +90,7 @@ curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg 
 echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 ```
 
-## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager)
+## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório do Node.JS
 sudo apt update
@@ -99,9 +99,9 @@ sudo apt update
 sudo apt install nodejs
 ```
 
-## 04_ Verificando as Versões do Node.JS e NPM (Node Package Manager)
+## 04_ Verificando as Versões do Node.JS e NPM (Node Package Manager) no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #opção do comando node: -v (version)
@@ -177,7 +177,7 @@ ESC SHIFT :x <Enter>
 node index.js &
 ```
 
-## 08_ Verificando a Porta de Conexão do Node.JS Express
+## 08_ Verificando a Porta de Conexão do Node.JS Express no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -193,7 +193,7 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 ```
 
-## 10_ Finalizando a Execução do Projeto Simples do Node.JS Express
+## 10_ Finalizando a Execução do Projeto Simples do Node.JS Express no Ubuntu Server
 ```bash
 #verificando os processos em segundo plano (background)
 jobs

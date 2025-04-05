@@ -19,25 +19,25 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/08-mongodb
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiomongodb #desafiocompass
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependências do MongoDB Server<br>
-#02_ Baixando e instalando a Chave GPG do MongoDB Server<br>
-#03_ Criando o repositório do MongoDB Server<br>
-#04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server<br>
-#05_ Instalando o MongoDB Server e Client<br>
-#06_ Habilitando o Serviço do MongoDB Server<br>
-#07_ Verificando o Serviço e Versão do MongoDB Server e do Client<br>
-#08_ Verificando a Porta de Conexão do MongoDB Server<br>
-#09_ Localização dos Arquivos de Configuração do MongoDB Server<br>
-#10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server<br>
-#11_ Testando a Conexão Local com o MongoDB Server via Shell<br>
-#12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server<br>
-#13_ Criando o usuário de administração do MongoDB Server<br>
-#14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto<br>
-#15_ Acessando o MongoDB COM e SEM autenticação<br>
-#16_ Integrando o MongoDB Server com o Compass GUI (graphical user interface)<br>
-#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode<br>
-#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO)<br>
-#19_ DesafioS de Criação dE Banco de Dados no MongoDB Local e no Cloud do Atlas
+#01_ Instalando as Dependências do MongoDB Server no Ubuntu Server;<br>
+#02_ Baixando e instalando a Chave GPG do MongoDB Server no Ubuntu Server;<br>
+#03_ Criando o repositório do MongoDB Server no Ubuntu Server;<br>
+#04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server no Ubuntu Server;<br>
+#05_ Instalando o MongoDB Server e Client no Ubuntu Server;<br>
+#06_ Habilitando o Serviço do MongoDB Server no Ubuntu Server;<br>
+#07_ Verificando o Serviço e Versão do MongoDB Server e do Client no Ubuntu Serve;<br>
+#08_ Verificando a Porta de Conexão do MongoDB Server no Ubuntu Server;<br>
+#09_ Localização dos Arquivos de Configuração do MongoDB Server no Ubuntu Server;<br>
+#10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server no Ubuntu Server;<br>
+#11_ Testando a Conexão Local com o MongoDB Server via Shell no Ubuntu Server;<br>
+#12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server);<br>
+#13_ Criando o usuário de administração do MongoDB Server no Ubuntu Server;<br>
+#14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto no Ubuntu Server;<br>
+#15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Client) no Ubuntu Server;<br>
+#16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) (Windows ou GNU/Linux);<br>
+#17_ Integrando o MongoDB Server com o Visual Studio Code VSCode (Windows ou GNU/Linux);<br>
+#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO;<br>
+#19_ Desafios de Criação de Banco de Dados no MongoDB Local e no Cloud do Atlas.<br>
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass<br>
@@ -48,11 +48,13 @@ Site Oficial do W3C School JSON: https://www.w3schools.com/js/js_json.asp
 
 **O QUE É E PARA QUE SERVER O MONGODB SERVER:** MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
+**O QUE É E PARA QUE SERVER O JASON:** * JSON significa *JavaScript Object Notation*. É um formato leve de troca de dados, muito usado na comunicação entre sistemas, principalmente **Web e APIs**. Apesar do nome vir do JavaScript, o JSON é *independente de linguagem* — funciona com Python, Java, C#, PHP, Node.js, Go, etc.
+
 [![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 
-## 01_ Instalando as Dependências do MongoDB Server
+## 01_ Instalando as Dependências do MongoDB Server no Ubuntu Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -70,7 +72,7 @@ wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
 sudo dpkg -i libssl*.deb
 ```
 
-## 02_ Baixando e instalando a Chave GPG do MongoDB Server
+## 02_ Baixando e instalando a Chave GPG do MongoDB Server no Ubuntu Server
 ```bash
 #download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 20/12/2024)
 #Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
@@ -82,19 +84,19 @@ sudo dpkg -i libssl*.deb
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
 ```
 
-## 03_ Criando o repositório do MongoDB Server
+## 03_ Criando o repositório do MongoDB Server no Ubuntu Server
 ```bash
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
-## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server
+## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 sudo apt update
 ```
 
-## 05_ Instalando o MongoDB Server e Client
+## 05_ Instalando o MongoDB Server e Client no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E INCOMPATIBILIDADE EM PROCESSADORES INTEL OU AMD QUE NÃO TEM OS PRINCIPAIS RECURSOS OU TECNOLOGIAS QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
 
@@ -109,7 +111,7 @@ sudo apt update
 sudo apt install mongodb-org
 ```
 
-## 06_ Habilitando o Serviço do MongoDB Server
+## 06_ Habilitando o Serviço do MongoDB Server no Ubuntu Server
 ```bash
 #habilitando o serviço do MongoDB Server
 sudo systemctl daemon-reload
@@ -117,7 +119,7 @@ sudo systemctl enable mongod
 sudo systemctl start mongod
 ```
 
-## 07_ Verificando o Serviço e Versão do MongoDB Server e do Client
+## 07_ Verificando o Serviço e Versão do MongoDB Server e do Client no Ubuntu Server
 ```bash
 #verificando o serviço do MongoDB Server
 sudo systemctl status mongod
@@ -131,7 +133,7 @@ sudo journalctl -t mongod
 sudo journalctl -xeu mongod
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando as versões do MongoDB Server e do Client
@@ -139,7 +141,7 @@ sudo mongod --version
 sudo mongosh --version
 ```
 
-## 08_ Verificando a Porta de Conexão do MongoDB Server
+## 08_ Verificando a Porta de Conexão do MongoDB Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -149,14 +151,14 @@ sudo mongosh --version
 sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 ```
 
-## 09_ Localização dos Arquivos de Configuração do MongoDB Server
+## 09_ Localização dos Arquivos de Configuração do MongoDB Server no Ubuntu Server
 ```bash
 /etc/mongod.conf   <-- Arquivo de configuração do MongoDB Server
 /var/log/mongodb   <-- Diretório dos arquivos de Logs do MongoDB Sever
 /var/lib/mongodb   <-- Diretório dos arquivos de Banco de Dados do MongoDB Server
 ```
 
-## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server
+## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -177,7 +179,7 @@ sudo getent group mongodb
 exit
 ```
 
-## 11_ Testando a Conexão Local com o MongoDB Server via Shell
+## 11_ Testando a Conexão Local com o MongoDB Server via Shell no Ubuntu Server
 ```bash
 #acessando o MongoDB Server via Shell (MongoDB Shell/Console)
 mongosh
@@ -229,7 +231,7 @@ show collections
 quit
 ```
 
-## 13_ Criando o usuário de administração do MongoDB Server<br>
+## 13_ Criando o usuário de administração do MongoDB Server no Ubuntu Server
 ```bash
 #acessando o MongoDB Server via Shell (MongoDB Shell/Console)
 mongosh
@@ -274,7 +276,7 @@ db.getUsers()
 exit
 ```
 
-## 14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto
+## 14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do MongoDB Server
 #opção do comando cp: -v (verbose)
@@ -307,7 +309,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-## 15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH
+## 15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Client) no Ubuntu Server
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -328,7 +330,7 @@ show dbs
 quit
 ```
 
-## 16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface)
+## 16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) (Windows ou GNU/Linux)
 
 Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 
@@ -352,7 +354,7 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 <Save & Connect>
 ```
 
-## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode
+## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode (Windows ou GNU/Linux)
 ```bash
 #instalando a Extensão do MongoDB
 VSCode

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.12<br>
+#Data de atualização: 05/04/2025<br>
+#Versão: 0.13<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,35 +19,35 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/14-influxd
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioinfluxdb #desafiotelegraf
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Instalando as Dependências do InfluxDB2 e do Telegraf<br>
-#02_ Instalando a Chave GPG do InfluxDB2 e do Telegraf no Ubuntu Server<br>
-#03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server<br>
-#04_ Habilitando o Serviço do InfluxDB2<br>
-#05_ Verificando o Serviço e Versão do InfluxDB2<br>
-#06_ Verificando a Porta de Conexão do InfluxDB2<br>
-#07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf<br>
-#08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf<br>
-#09_ Configurando o InfluxDB2 via Navegador<br>
-#10_ Criando o Token de Integração do Telegraf com o InfluxDB<br>
-#11_ Editando o arquivo de configuração do Telegraf<br>
-#12_ Habilitando o Serviço do Telegraf<br>
-#13_ Verificando o Serviço e Versão do Telegraf<br>
-#14_ Criando um Data Explorer do Telegraf no InfluxDB2<br>
-#15_ Instalando o Telegraf no no Linux Mint e no Microsoft Windows<br>
-#16_ Integrando o InfluxDB2 no Grafana<br>
-#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+#01_ Instalando as Dependências do InfluxDB2 e do Telegraf no Ubuntu Server;<br>
+#02_ Instalando a Chave GPG do InfluxDB2 e do Telegraf no Ubuntu Server;<br>
+#03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server;<br>
+#04_ Habilitando o Serviço do InfluxDB2 no Ubuntu Server;<br>
+#05_ Verificando o Serviço e Versão do InfluxDB2 no Ubuntu Server;<br>
+#06_ Verificando a Porta de Conexão do InfluxDB2 no Ubuntu Server;<br>
+#07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf no Ubuntu Server;<br>
+#08_ Localização dos diretórios e arquivos principais do InfluxDB2 e do Telegraf no Ubuntu Server;<br>
+#09_ Configurando o InfluxDB2 via Navegador;<br>
+#10_ Criando o Token de Integração do Telegraf com o InfluxDB2;<br>
+#11_ Editando o arquivo de configuração do Telegraf no Ubuntu Server;<br>
+#12_ Habilitando o Serviço do Telegraf no Ubuntu Server;<br>
+#13_ Verificando o Serviço e Versão do Telegraf no Ubuntu Server;<br>
+#14_ Criando um Data Explorer do Telegraf no InfluxDB2;<br>
+#15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows;<br>
+#16_ Integrando o InfluxDB2 no Grafana;<br>
+#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>
 
 Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
-**O QUE É E PARA QUE SERVER O INFLUXDB:** O InfluxDB é um banco de dados de séries temporais (TSDB - Time Series Database) open-source, projetado para armazenar e processar grandes volumes de dados gerados ao longo do tempo, como métricas, logs, eventos e telemetria de dispositivos IoT.
+**O QUE É E PARA QUE SERVER O INFLUXDB:** O InfluxDB é um banco de dados de séries temporais *TSDB (Time Series Database)* open-source, projetado para armazenar e processar grandes volumes de dados gerados ao longo do tempo, como métricas, logs, eventos e telemetria de dispositivos IoT.
 
-**O QUE É E PARA QUE SERVER O TELEGRAF:** O Telegraf é um agente de coleta de métricas open-source desenvolvido pela InfluxData. Ele é usado para coletar, processar e enviar dados de monitoramento para diferentes bancos de dados e plataformas, como InfluxDB, Prometheus, Grafana, Elasticsearch e outros.
+**O QUE É E PARA QUE SERVER O TELEGRAF:** O Telegraf é um agente de coleta de métricas open-source desenvolvido pela InfluxData. Ele é usado para coletar, processar e enviar dados de monitoramento para diferentes bancos de dados e plataformas, como *InfluxDB2, Prometheus, Grafana, Elasticsearch e outros*.
 
 [![InfluxDB2](http://img.youtube.com/vi/yBmRjTRz2DU/0.jpg)](https://www.youtube.com/watch?v=yBmRjTRz2DU "InfluxDB2")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 
-## 01_ Instalando as Dependências do InfluxDB2 e do Telegraf
+## 01_ Instalando as Dependências do InfluxDB2 e do Telegraf no Ubuntu Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -84,7 +84,7 @@ sudo apt update
 sudo apt install --install-recommends influxdb2 telegraf
 ```
 
-## 04_ Habilitando o Serviço do InfluxDB2
+## 04_ Habilitando o Serviço do InfluxDB2 no Ubuntu Server
 ```bash
 #habilitando o serviço do InfluxDB2
 sudo systemctl daemon-reload
@@ -92,7 +92,7 @@ sudo systemctl enable influxdb
 sudo systemctl restart influxdb
 ```
 
-## 05_ Verificando o Serviço e Versão do InfluxDB2
+## 05_ Verificando o Serviço e Versão do InfluxDB2 no Ubuntu Server
 ```bash
 #verificando o serviço do InfluxDB2
 sudo systemctl status influxdb
@@ -104,7 +104,11 @@ sudo systemctl start influxdb
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t influxd-systemd-start.sh
 sudo journalctl -xeu influxdb
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do InfluxDB2 e do InfluxDB2-Client
 #opção do comando influxd: version (version)
 #opção do comando influx: version (version)
@@ -112,7 +116,7 @@ sudo influxd version
 sudo influx version
 ```
 
-## 06_ Verificando a Porta de Conexão do InfluxDB2
+## 06_ Verificando a Porta de Conexão do InfluxDB2 no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -122,7 +126,7 @@ sudo influx version
 sudo lsof -nP -iTCP:'8086' -sTCP:LISTEN
 ```
 
-## 07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf
+## 07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G influxdb $USER
@@ -135,7 +139,7 @@ id
 exit
 ```
 
-## 08_ Localização dos diretórios principais do InfluxDB2 e do Telegraf
+## 08_ Localização dos diretórios e arquivos principais do InfluxDB2 e do Telegraf no Ubuntu Server
 ```bash
 /etc/influxdb/*              <-- Diretório das configurações do InfluxDB2
 /etc/iNfluxdb/config.toml    <-- Arquivo de configuração do InfluxDB2
@@ -167,7 +171,7 @@ You are ready to go!
   <CONFIGURE LATER>
 ```
 
-## 10_ Criando o Token de Integração do Telegraf com o InfluxDB
+## 10_ Criando o Token de Integração do Telegraf com o InfluxDB2
 ```bash
 Load Data
   API Tokens
@@ -179,7 +183,7 @@ Load Data
 
 **OBSERVAÇÃO IMPORTANTE:** COPIAR O TOKEN GERADO PARA ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO DO TELEGRAF, ELE TAMBÉM SERÁ UTILIZADO NA INTEGRAÇÃO COM O GRAFANA: <COPY TO CLIPBOARD>
 
-## 11_ Editando o arquivo de configuração do Telegraf
+## 11_ Editando o arquivo de configuração do Telegraf no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Telegraf
 sudo vim /etc/telegraf/telegraf.conf
@@ -215,7 +219,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-## 12_ Habilitando o Serviço do Telegraf
+## 12_ Habilitando o Serviço do Telegraf no Ubuntu Server
 ```bash
 #habilitando o serviço do Telegraf
 sudo systemctl daemon-reload
@@ -223,7 +227,7 @@ sudo systemctl enable telegraf
 sudo systemctl restart telegraf
 ```
 
-## 13_ Verificando o Serviço e Versão do Telegraf
+## 13_ Verificando o Serviço e Versão do Telegraf no Ubuntu Server
 ```bash
 #verificando o serviço do Telegraf
 sudo systemctl status telegraf
@@ -235,9 +239,13 @@ sudo systemctl start telegraf
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t telegraf
 sudo journalctl -xeu telegraf
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do Telegraf
-#opção do comando grafana-server: --version (version)
+#opção do comando telegraf: --version (version)
 sudo telegraf --version
 ```
 

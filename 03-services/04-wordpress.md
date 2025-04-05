@@ -19,15 +19,15 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/04-wordpre
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiowordpress #desafiocms
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependências do WordPress<br>
-#02_ Criando a Base de Dados do WordPress no MySQL Server<br>
-#03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server<br>
-#04_ Localização dos Arquivos de Configuração do CMS Wordpress<br>
-#05_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress<br>
-#06_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress<br>
-#07_ Acessando e configurando o WordPress via navegador<br>
-#08_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores<br>
-#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.
+#01_ Instalando as Dependências do CMS WordPress no Ubuntu Server;<br>
+#02_ Criando a Base de Dados do WordPress no MySQL Server;<br>
+#03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do CMS Wordpress no Ubuntu Server;<br>
+#05_ Editando o arquivo de conexão com o Banco de Dados e Salt do CMS WordPress;<br>
+#06_ Habilitando os módulos do Apache2 Server utilizados pelo CMS WordPress no Ubuntu Server;<br>
+#07_ Acessando e configurando o CMS WordPress via navegador;<br>
+#08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores;<br>
+#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
@@ -40,23 +40,21 @@ Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
 
-**O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo (CMS - Content Management System) de código aberto, amplamente utilizado para criar, editar e gerenciar sites e blogs de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em PHP e utiliza o MySQL ou MariaDB como banco de dados.
+**O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo *CMS (Content Management System)* de código aberto, amplamente utilizado para criar, editar e gerenciar **Sites**, **Blogs** e **E-Commerce** de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em *PHP* e utiliza o *MySQL ou MariaDB* como banco de dados.
 
-**O QUE É E PARA QUE SERVER O CMS:** O CMS (Content Management System), ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, sem a necessidade de conhecimento técnico avançado em programação. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
+**O QUE É E PARA QUE SERVER O CMS:** O *CMS (Content Management System)*, ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, *sem a necessidade de conhecimento técnico avançado em programação*. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
 
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 
-## 01_ Instalando as Dependências do CMS WordPress
+## 01_ Instalando as Dependências do CMS WordPress no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 sudo apt update
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP
-#NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU.
-#VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
 ```bash
 #instalando as dependências do WordPress
@@ -113,7 +111,7 @@ USE wordpress;
 exit
 ```
 
-## 03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server
+## 03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server no Ubuntu Server
 ```bash
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
@@ -142,7 +140,7 @@ sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 ```
 
-## 04_ Localização dos Arquivos de Configuração do CMS Wordpress
+## 04_ Localização dos Arquivos de Configuração do CMS Wordpress no Ubuntu Server
 ```bash
 /var/www/html/wp/wp-admin/      <-- Diretório que contém os arquivos do painel administrativo;
 /var/www/html/wp/wp-includes/   <-- Diretório que contém os arquivos centrais do core do WordPress;
@@ -152,7 +150,7 @@ sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 /var/www/html/wp/wp-content/    <-- Diretório que contém os Logs do CMS Wordpress se habilitado.
 ```
 
-## 05_ Editando o arquivo de conexão com o Banco de Dados e Salt do WordPress
+## 05_ Editando o arquivo de conexão com o Banco de Dados e Salt do CMS WordPress
 ```bash
 #acessando o diretório do WordPress
 cd /var/www/html/wp/
@@ -190,7 +188,7 @@ define( 'DB_PASSWORD', 'wordpress' );
 ESC SHIFT :x <Enter>
 ```
 
-## 06_ Habilitando os módulos do Apache2 Server utilizados pelo WordPress
+## 06_ Habilitando os módulos do Apache2 Server utilizados pelo CMS WordPress no Ubuntu Server
 ```bash
 #habilitando os módulos do Apache2 Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
@@ -215,7 +213,7 @@ sudo journalctl -xeu apache2
 sudo grep ^\$wp_version /var/www/html/wp/wp-includes/version.php
 ```
 
-## 07_ Acessando e configurando o WordPress via navegador
+## 07_ Acessando e configurando o CMS WordPress via navegador
 ```bash
 #utilizar os navegadores para testar o acesso ao Wordpress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
@@ -239,7 +237,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
   <Acessar>
 ```
 
-## 08_ Correções de Falhas de Acesso ao Wordpress ou Migração de Servidores
+## 08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores
 
 **OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanente do Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no Wordpress.
 
@@ -257,7 +255,7 @@ Configurações
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *Wordpress* em uma __` Rede Local ou Cloud `__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na tabela de configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
+**OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na tabela de configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 
 Mais informações acesse o Link dos Desenvolvedores do Wordpress: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 

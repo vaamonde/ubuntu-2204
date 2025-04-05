@@ -332,7 +332,7 @@ VSCode
 
 **OBSERVAÇÃO IMPORTANTE:** APÓS VÁRIOS RELATOS DOS ALUNOS REFERENTE A DEMORA OU NÃO RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO DO SITE DB4FREE, PESQUISANDO NA INTERNET ENCONTREI OS PROJETOS ABAIXO PARA TESTE (EM FASE DE TESTES E HOMOLOGAÇÃO): 
 
-01) *Free SQL Database: https://www.freesqldatabase.com/* (INDICADO)<br>
+01) *Free SQL Database: https://www.freesqldatabase.com/* (INDICADO PARA O DESAFIO)<br>
 02) *Free MySQL Hosting: https://www.freemysqlhosting.net/*<br>
 03) *Free DB: https://freedb.tech*<br>
 04) *Remote MySQL: https://remotemysql.com*<br>

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 23/08/2025<br>
-#Versão: 0.18<br>
+#Data de atualização: 05/04/2025<br>
+#Versão: 0.19<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,32 +19,32 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-prometh
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioprometheus #desafionodeexporter
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter<br>
-#02_ Criando os diretórios do Prometheus e do Node Exporter<br>
-#03_ Baixando o Prometheus do Projeto do Github<br>
-#04_ Descompactando o arquivo do Prometheus<br>
-#05_ Atualizando os arquivos de configuração do Prometheus<br>
-#06_ Baixando e atualizando os arquivos customizados do Prometheus<br>
-#07_ Alterando as permissões de arquivos e diretórios do Prometheus<br>
-#08_ Instalando o Coletor de Métricas Node Exporter<br>
-#09_ Descompactando o arquivo do Node Exporter<br>
-#10_ Atualizando os arquivos de configuração do Node Exporter<br>
-#11_ Baixando e atualizando os arquivos customizados do Node Exporter<br>
-#12_ Alterando as permissões do executável do Node Exporter<br>
-#13_ Habilitando o Serviço do Node Exporter no Ubuntu Server<br>
-#14_ Verificando o Serviço e Versão do Node Exporter<br>
-#15_ Verificando a Porta de Conexão do Node Exporter<br>
-#16_ Editando o arquivo de configuração do Prometheus<br>
-#17_ Habilitando o Serviço do Prometheus no Ubuntu Server<br>
-#18_ Verificando o Serviço e Versão do Prometheus<br>
-#19_ Verificando a Porta de Conexão do Prometheus<br>
-#20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter<br>
-#21_ Localização dos diretórios principais do Prometheus<br>
-#22_ Configurando o Prometheus e o Node Exporter via Navegador<br>
-#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows<br>
-#24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus<br>
-#25_ Integrando o Prometheus e Node Exporter no Grafana<br>
-#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.
+#01_ Criando os Grupos e os Usuários do Prometheus e do Node Exporter no Ubuntu Server;<br>
+#02_ Criando os diretórios do Prometheus e Node Exporter no Ubuntu Server;<br>
+#03_ Baixando o Prometheus do Github no Ubuntu Server;<br>
+#04_ Descompactando o arquivo do Prometheus no Ubuntu Server;<br>
+#05_ Atualizando os arquivos de configuração do Prometheus no Ubuntu Server;<br>
+#06_ Baixando e atualizando os arquivos customizados do Prometheus no Ubuntu Server;<br>
+#07_ Alterando as permissões dos arquivos e diretórios do Prometheus no Ubuntu Server;<br>
+#08_ Instalando o Coletor de Métricas Node Exporter no Ubuntu Server;<br>
+#09_ Descompactando o arquivo do Node Exporter no Ubuntu Server;<br>
+#10_ Atualizando os arquivos de configuração do Node Exporter no Ubuntu Server;<br>
+#11_ Baixando e atualizando os arquivos customizados do Node Exporter no Ubuntu Server;<br>
+#12_ Alterando as permissões do executável do Node Exporter no Ubuntu Server;<br>
+#13_ Habilitando o Serviço do Node Exporter no Ubuntu Server;<br>
+#14_ Verificando o Serviço e Versão do Node Exporter no Ubuntu Server;<br>
+#15_ Verificando a Porta de Conexão do Node Exporter no Ubuntu Server;<br>
+#16_ Editando o arquivo de configuração do Prometheus no Ubuntu Server;<br>
+#17_ Habilitando o Serviço do Prometheus no Ubuntu Server;<br>
+#18_ Verificando o Serviço e Versão do Prometheus no Ubuntu Server;<br>
+#19_ Verificando a Porta de Conexão do Prometheus no Ubuntu Server;<br>
+#20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter no Ubuntu Server;<br>
+#21_ Localização dos diretórios e arquivos principais do Prometheus e Node Exporter no Ubuntu Server;<br>
+#22_ Configurando o Prometheus e o Node Exporter via Navegador;<br>
+#23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows;<br>
+#24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus;<br>
+#25_ Integrando o Prometheus no Grafana Server;<br>
+#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>o.
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
@@ -56,7 +56,7 @@ Site Oficial do Prometheus: https://prometheus.io/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 
-## 01_ Criando os Grupos e o Usuários do Prometheus e do Node Exporter
+## 01_ Criando os Grupos e os Usuários do Prometheus e do Node Exporter no Ubuntu Server
 ```bash
 #criação do grupo e usuário de serviço do Prometheus
 #opção do comando useradd: -s (shell), -g (group) 
@@ -72,14 +72,14 @@ sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_ex
 sudo usermod -a -G prometheus node_exporter
 ```
 
-## 02_ Criando os diretórios do Prometheus e Node Exporter
+## 02_ Criando os diretórios do Prometheus e Node Exporter no Ubuntu Server
 ```bash
 #criando o diretório de configuração e bibliotecas do Prometheus
 #opção do comando mkdir: =p (parents), -v (verbose)
 sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 ```
 
-## 03_ Baixando o Prometheus do Projeto do Github
+## 03_ Baixando o Prometheus do Github no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
@@ -93,7 +93,7 @@ wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheu
 ls -lh prometheus*
 ```
 
-## 04_ Descompactando o arquivo do Prometheus
+## 04_ Descompactando o arquivo do Prometheus no Ubuntu Server
 ```bash
 #descompactando o arquivo do Prometheus
 #opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
@@ -101,7 +101,7 @@ ls -lh prometheus*
 tar -zxvf prometheus*.tar.gz 
 ```
 
-## 05_ Atualizando os arquivos de configuração do Prometheus
+## 05_ Atualizando os arquivos de configuração do Prometheus no Ubuntu Server
 ```bash
 #atualizando os arquivos de configurações do Prometheus
 #opção do comando cp: -R (recursive), -v (verbose)
@@ -111,7 +111,7 @@ sudo cp -Rv prometheus*/{prometheus,promtool} /usr/local/bin/
 sudo cp -Rv prometheus*/{consoles/,console_libraries/} /etc/prometheus/
 ```
 
-## 06_ Baixando e atualizando os arquivos customizados do Prometheus
+## 06_ Baixando e atualizando os arquivos customizados do Prometheus no Ubuntu Server
 ```bash
 #download do arquivo de serviço do Prometheus
 #opção do comando wget: -v (verbose), -O (output file)
@@ -122,7 +122,7 @@ sudo wget -v -O /etc/systemd/system/prometheus.service https://raw.githubusercon
 sudo wget -v -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/prometheus.yml
 ```
 
-## 07_ Alterando as permissões de arquivos e diretórios do Prometheus
+## 07_ Alterando as permissões dos arquivos e diretórios do Prometheus no Ubuntu Server
 ```bash
 #alterando o dono e grupo dos arquivos e diretórios do Prometheus
 #opção do comando chown: -R (recursive) -v (verbose), prometheus (user), :prometheus (group)
@@ -133,13 +133,13 @@ sudo chown -Rv prometheus:prometheus /etc/prometheus/ /var/lib/prometheus/
 sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 ```
 
-## 08_ Instalando o Coletor de Métricas Node Exporter
+## 08_ Instalando o Coletor de Métricas Node Exporter no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
-#download do Node Exporter do Github (Link atualizado no dia 29/03/2025)
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+#download do Node Exporter do Github (Link atualizado no dia 05/04/2025)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -147,7 +147,7 @@ wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_e
 ls -lh node_exporter*
 ```
 
-## 09_ Descompactando o arquivo do Node Exporter
+## 09_ Descompactando o arquivo do Node Exporter no Ubuntu Server
 ```bash
 #descompactando o arquivo do Node Exporter
 #opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
@@ -155,7 +155,7 @@ ls -lh node_exporter*
 tar -zxvf node_exporter*.tar.gz 
 ```
 
-## 10_ Atualizando os arquivos de configuração do Node Exporter
+## 10_ Atualizando os arquivos de configuração do Node Exporter no Ubuntu Server
 ```bash
 #atualizando os arquivos de configurações do Node Exporter
 #opção do comando cp: -R (recursive), -v (verbose)
@@ -163,7 +163,7 @@ tar -zxvf node_exporter*.tar.gz
 sudo cp -Rv node_exporter*/node_exporter /usr/local/bin/
 ```
 
-## 11_ Baixando e atualizando os arquivos customizados do Node Exporter
+## 11_ Baixando e atualizando os arquivos customizados do Node Exporter no Ubuntu Server
 ```bash
 #download do arquivo de serviço do Node Exporter
 #opção do comando wget: -v (verbose), -O (output file)
@@ -174,7 +174,7 @@ sudo wget -v -O /etc/systemd/system/node_exporter.service https://raw.githubuser
 sudo wget -v -O /etc/prometheus/node_exporter.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/node_exporter.conf
 ```
 
-## 12_ Alterando as permissões do executável do Node Exporter
+## 12_ Alterando as permissões do executável do Node Exporter no Ubuntu Server
 ```bash
 #alterando o dono e grupo do arquivo do Node Exporter
 #opção do comando chown: -R (recursive) -v (verbose), node_exporter (user), :node_exporter (group)
@@ -197,7 +197,7 @@ sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 ```
 
-## 14_ Verificando o Serviço e Versão do Node Exporter
+## 14_ Verificando o Serviço e Versão do Node Exporter no Ubuntu Server
 ```bash
 #verificando o serviço do Node Exporter
 sudo systemctl status node_exporter
@@ -209,12 +209,16 @@ sudo systemctl start node_exporter
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t node_exporter
 sudo journalctl -xeu node_exporter
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do Node Exporter
 sudo node_exporter --version
 ```
 
-## 15_ Verificando a Porta de Conexão do Node Exporter
+## 15_ Verificando a Porta de Conexão do Node Exporter no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -224,7 +228,7 @@ sudo node_exporter --version
 sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 ```
 
-## 16_ Editando o arquivo de configuração do Prometheus
+## 16_ Editando o arquivo de configuração do Prometheus no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Prometheus e baseado no formato de serialização de dados legíveis *YAML (Yet Another Markup Language)* utilizado pela linguagem de programação Python, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
 
@@ -253,7 +257,7 @@ scrape_configs:
 ESC SHIFT : x <Enter>
 ```
 
-## 17 Habilitando o Serviço do Prometheus no Ubuntu Server
+## 17_ Habilitando o Serviço do Prometheus no Ubuntu Server 
 ```bash
 #habilitando o serviço do Prometheus
 sudo systemctl daemon-reload
@@ -261,7 +265,7 @@ sudo systemctl enable prometheus
 sudo systemctl start prometheus
 ```
 
-## 18_ Verificando o Serviço e Versão do Prometheus
+## 18_ Verificando o Serviço e Versão do Prometheus no Ubuntu Server 
 ```bash
 #verificando o serviço do Prometheus
 sudo systemctl status prometheus
@@ -273,12 +277,16 @@ sudo systemctl start prometheus
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t prometheus
 sudo journalctl -xeu prometheus
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+
+```bash
 #verificando a versão do Prometheus
 sudo prometheus --version
 ```
 
-## 19_ Verificando a Porta de Conexão do Prometheus
+## 19_ Verificando a Porta de Conexão do Prometheus no Ubuntu Server 
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -288,7 +296,7 @@ sudo prometheus --version
 sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
 ```
 
-## 20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter
+## 20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter no Ubuntu Server 
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G prometheus $USER
@@ -301,7 +309,7 @@ id
 exit
 ```
 
-## 21_ Localização dos diretórios principais do Prometheus
+## 21_ Localização dos diretórios e arquivos principais do Prometheus e Node Exporter no Ubuntu Server 
 ```bash
 /etc/prometheus/*                   <-- Diretório de configuração do Prometheus
 /etc/prometheus/prometheus.yml      <-- Arquivo de configuração do Prometheus
@@ -311,7 +319,7 @@ exit
 
 ## 22_ Configurando o Prometheus e o Node Exporter via Navegador
 
-**OBSERVAÇÃO IMPORTANTE:** Quando você acessa o Prometheus via Navegador e aparecer a seguinte mensagem de aviso em vermelho: *Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results*. Esse erro está associado a falha de sincronismo da Data e Hora em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os equipamentos ou utilizar o Protocolo **NTP (Network Time Protocol)** para sincronizar a data/hora de forma correta. 
+**OBSERVAÇÃO IMPORTANTE:** Quando você acessa o Prometheus via Navegador e aparece a seguinte mensagem de aviso em vermelho: *Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results*. Esse erro está associado a falha de sincronismo da Data e Hora em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os equipamentos ou utilizar o Protocolo **NTP (Network Time Protocol)** para sincronizar a data/hora de forma correta. 
 
 ```bash
 #acessando o Prometheus via navegador
@@ -404,8 +412,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
-#download do Node Exporter do Github (Link atualizado no dia 29/03/2025)
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.0/node_exporter-1.9.0.linux-amd64.tar.gz
+#download do Node Exporter do Github (Link atualizado no dia 05/04/2025)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
 #opção do comando ls: -l (long listing), -h (human-readable)

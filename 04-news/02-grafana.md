@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.15<br>
+#Data de atualização: 05/04/2025<br>
+#Versão: 0.16<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,20 +19,20 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/12-grafana
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiografana
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Instalando as Dependências do Grafana Server<br>
-#02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server<br>
-#03_ Instalando o Grafana Server no Ubuntu Server<br>
-#04_ Editando os arquivos de configuração do Grafana Server<br>
-#05_ Habilitando o Serviço do Grafana Server<br>
-#06_ Verificando o Serviço e Versão do Grafana Server<br>
-#07_ Verificando a Porta de Conexão do Grafana Server<br>
-#08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server<br>
-#09_ Localização dos diretórios principais do Grafana Server<br>
-#10_ Configurando o Grafana Server via Navegador<br>
-#11_ Criando um Data Sources do MySQL Server no Grafana Server<br>
-#12_ Criando um Dashboard do Banco de Dados DBAgenda<br>
-#13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana<br>
-#14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+#01_ Instalando as Dependências do Grafana Server no Ubuntu Server;<br>
+#02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server;<br>
+#03_ Instalando o Grafana Server no Ubuntu Server;<br>
+#04_ Editando os arquivos de configuração do Grafana Server no Ubuntu Server;<br>
+#05_ Habilitando o Serviço do Grafana Server no Ubuntu Server;<br>
+#06_ Verificando o Serviço e Versão do Grafana Server no Ubuntu Server;<br>
+#07_ Verificando a Porta de Conexão do Grafana Server no Ubuntu Server;<br>
+#08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server no Ubuntu Server;<br>
+#09_ Localização dos diretórios e arquivos principais do Grafana Server no Ubuntu Server;<br>
+#10_ Configurando o Grafana Server via Navegador;<br>
+#11_ Criando um Data Sources do MySQL Server no Grafana Server;<br>
+#12_ Criando um Dashboard do Banco de Dados DBAgenda;<br>
+#13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana no Ubuntu Server;<br>
+#14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>
 
 Site Oficial do Grafana: https://grafana.com/<br>
 
@@ -42,7 +42,7 @@ Site Oficial do Grafana: https://grafana.com/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
-## 01_ Instalando as Dependências do Grafana Server
+## 01_ Instalando as Dependências do Grafana Server no Ubuntu Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -77,7 +77,7 @@ sudo apt update
 sudo apt install --install-recommends grafana
 ```
 
-## 04_ Editando os arquivos de configuração do Grafana Server
+## 04_ Editando os arquivos de configuração do Grafana Server no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Grafana Server
 sudo vim /etc/default/grafana-server
@@ -114,7 +114,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-## 05_ Habilitando o Serviço do Grafana Server
+## 05_ Habilitando o Serviço do Grafana Server no Ubuntu Server
 ```bash
 #habilitando o serviço do Grafana Server
 sudo systemctl daemon-reload
@@ -122,7 +122,7 @@ sudo systemctl enable grafana-server
 sudo systemctl restart grafana-server
 ```
 
-## 06_ Verificando o Serviço e Versão do Grafana Server
+## 06_ Verificando o Serviço e Versão do Grafana Server no Ubuntu Server
 ```bash
 #verificando o serviço do Grafana Server
 sudo systemctl status grafana-server
@@ -134,7 +134,11 @@ sudo systemctl start grafana-server
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t grafana
 sudo journalctl -xeu grafana-server
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+
+```bash
 #verificando a versão do Grafana Server
 #opção do comando grafana-server: -v (version)
 #opção do comando grafana-cli: -v (version)
@@ -142,11 +146,11 @@ sudo grafana-server -v
 sudo grafana-cli -v
 ```
 
-## 07_ Verificando a Porta de Conexão do Grafana Server
+## 07_ Verificando a Porta de Conexão do Grafana Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-**OBSERVAÇÃO IMPORTANTE:** CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O **NODE.JS E OS SEUS DESAFIOS**, POR PADRÃO A PRIMEIRA APLICAÇÃO EM JAVASCRIPT FEITA UTILIZANDO O RECURSO DE EXPRESS ESTÁ NA PORTA: __` 3000 `__, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
+**OBSERVAÇÃO IMPORTANTE:** CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O **NODE.JS E OS SEUS DESAFIOS**, POR PADRÃO A PRIMEIRA APLICAÇÃO EM *JAVASCRIPT* FEITA UTILIZANDO O RECURSO DO **EXPRESS** ESTÁ NA PORTA: __`3000`__, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
 
 ```bash
 #verificando a porta padrão TCP-3000 do Grafana Server
@@ -154,7 +158,7 @@ sudo grafana-cli -v
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
-## 08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server
+## 08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G grafana $USER
@@ -166,7 +170,7 @@ id
 exit
 ```
 
-## 09_ Localização dos diretórios principais do Grafana Server
+## 09_ Localização dos diretórios e arquivos principais do Grafana Server no Ubuntu Server
 ```bash
 /usr/share/grafana*          <-- Diretório do Site do Grafava Server
 /var/log/grafana*            <-- Diretório dos arquivos de Logs do serviço do Grafana Server
@@ -270,7 +274,7 @@ Open Menu
         <Apply>
 ```
 
-## 13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana
+## 13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana no Ubuntu Server
 ```bash
 #instalando o Plugin do Zabbix Server no Grafana
 sudo grafana-cli plugins install alexanderzobnin-zabbix-app
@@ -278,13 +282,11 @@ sudo grafana-cli plugins install alexanderzobnin-zabbix-app
 #reiniciar o serviço do Grafana Server
 sudo systemctl restart grafana-server
 sudo systemctl status grafana-server
+```
 
-#criando o usuário de autenticação no Zabbix Server
-#OBSERVAÇÃO IMPORTANTE: nos testes feito utilizando o usuário padrão do Zabbix
-#Server: Admin acontecia o erro de autenticação, aparecendo sempre a mensagem de:
-#Incorrect user name or password or account is temporarily blocked. Para corrigir
-#essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
+**OBSERVAÇÃO IMPORTANTE:** nos testes feito utilizando o usuário padrão do Zabbix Server: __`Admin`__ acontecia o erro de autenticação, aparecendo sempre a mensagem de: *Incorrect user name or password or account is temporarily blocked*. Para corrigir essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
 
+```bash
 #acessando o Zabbix Server via Navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
 

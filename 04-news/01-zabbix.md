@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.20<br>
+#Data de atualização: 05/05/2025<br>
+#Versão: 0.21<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,22 +19,22 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-zabbix.
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiozabbix
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Instalando as Dependências do Zabbix Server e Agent<br>
-#02_ Adicionando o Repositório do Zabbix no Ubuntu Server<br>
-#03_ Instalando o Zabbix Server, Frontend e Agent<br>
-#04_ Criando a Base de Dados do Zabbix Server no MySQL Server<br>
-#05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server<br>
-#06_ Populando as Tabelas no Banco de Dados do Zabbix Server<br>
-#07_ Editando os arquivos de Configuração do Zabbix Server e Agent<br>
-#08_ Habilitando o Serviço do Zabbix Server e Agent<br>
-#09_ Verificando o Serviço e Versão do Zabbix Server e Agent<br>
-#10_ Configurando o Zabbix Server via Navegador<br>
-#11_ Verificando a Porta de Conexão do Zabbix Server e Agent<br>
-#12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server<br>
-#13_ Localização dos diretórios principais do Zabbix Server e Agent<br>
-#14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10<br>
-#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server
-#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+#01_ Instalando as Dependências do Zabbix Server e Agent2 no Ubuntu Server;<br>
+#02_ Adicionando o Repositório do Zabbix no Ubuntu Server;<br>
+#03_ Instalando o Zabbix Server, Frontend e Agent2 no Ubuntu Server;<br>
+#04_ Criando a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Server;<br>
+#05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Serve;<br>
+#06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema do MySQL Server no Ubuntu Server;<br>
+#07_ Editando os arquivos de Configuração do Zabbix Server e Agent2 no Ubuntu Server;<br>
+#08_ Habilitando o Serviço do Zabbix Server e Agent2 no Ubuntu Server;<br>
+#09_ Verificando o Serviço e Versão do Zabbix Server e Agent2 no Ubuntu Server;<br>
+#10_ Configurando o Zabbix Server via Navegador;<br>
+#11_ Verificando a Porta de Conexão do Zabbix Server e Agent2 no Ubuntu Server;<br>
+#12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server no Ubuntu Server;<br>
+#13_ Localização dos diretórios principais do Zabbix Server e Agent2 no Ubuntu Server;<br>
+#14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10;<br>
+#15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server;<br>
+#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
@@ -44,9 +44,9 @@ Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
-## 01_ Instalando as Dependências do Zabbix Server e Agent2
+## 01_ Instalando as Dependências do Zabbix Server e Agent2 no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O ZABBIX POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+**OBSERVAÇÃO IMPORTANTE:** O ZABBIX POSSUI AS DEPENDÊNCIAS DO *BANCO DE DADOS MYSQL SERVER* E DO *APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8**.
 
 ```bash
 #atualizando as lista do apt
@@ -80,9 +80,9 @@ wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-releas
 sudo dpkg -i zabbix-release_latest*.deb
 ```
 
-## 03_ Instalando o Zabbix Server, Frontend e Agent2
+## 03_ Instalando o Zabbix Server, Frontend e Agent2 no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o MySQL Server e o Apache2 Server, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
+**OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o *MySQL Server e o Apache2 Server*, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
 
 ```bash
 #atualizando as lista do Apt com o novo repositório do Zabbix Server
@@ -95,7 +95,7 @@ sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php za
 zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
 ```
 
-## 04_ Criando a Base de Dados do Zabbix Server no MySQL Server
+## 04_ Criando a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -123,7 +123,7 @@ SELECT user,host FROM mysql.user WHERE user='zabbix';
 exit
 ```
 
-## 05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server
+## 05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u zabbix -p
@@ -139,7 +139,7 @@ USE zabbix;
 exit
 ```
 
-## 06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema
+## 06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema do MySQL Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
@@ -183,7 +183,7 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 exit
 ```
 
-## 07_ Editando os arquivos de Configuração do Zabbix Server e Agent
+## 07_ Editando os arquivos de Configuração do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Zabbix Server
 sudo vim /etc/zabbix/zabbix_server.conf
@@ -231,7 +231,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-## 08_ Habilitando o Serviço do Zabbix Server e Agent2
+## 08_ Habilitando o Serviço do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
 #habilitando o serviço do Zabbix Server e Agent2
 sudo systemctl daemon-reload
@@ -239,7 +239,7 @@ sudo systemctl enable zabbix-server
 sudo systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 
-## 09_ Verificando o Serviço e Versão do Zabbix Server e Agent2
+## 09_ Verificando o Serviço e Versão do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
 #verificando o serviço do Zabbix Server e Agent2
 sudo systemctl status zabbix-server zabbix-agent2
@@ -252,7 +252,11 @@ sudo systemctl start zabbix-server zabbix-agent
 sudo journalctl -xeu zabbix-server
 sudo journalctl -t zabbix_agent2
 sudo journalctl -xeu zabbix-agent2
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+
+```bash
 #verificando a versão do Zabbix Server e Agent2
 #opção do comando zabbix_server: -V (version)
 #opção do comando zabbix_agentd: -V (version)
@@ -297,7 +301,7 @@ Yes: Remember me for 30 days
 <Sign in>
 ```
 
-## 11_ Verificando a Porta de Conexão do Zabbix Server e Agent
+## 11_ Verificando a Porta de Conexão do Zabbix Server e Agent2 no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -307,7 +311,7 @@ Yes: Remember me for 30 days
 sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN
 ```
 
-## 12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server
+## 12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G zabbix $USER
@@ -319,11 +323,11 @@ id
 exit
 ```
 
-## 13_ Localização dos diretórios principais do Zabbix Server e Agent
+## 13_ Localização dos diretórios principais do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
 /etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
 /etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
-/etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent
+/etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent2
 /var/log/zabbix*                <-- Diretório dos arquivos de Logs do serviço do Zabbix
 /usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
 ```

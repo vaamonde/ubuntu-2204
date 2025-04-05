@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.10<br>
+#Data de atualização: 05/04/2025<br>
+#Versão: 0.11<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,36 +19,43 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/16-glpihel
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioglpi #desafioglpihelpdesk
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Instalando as Dependências do GLPI Help Desk<br>
-#02_ Criando a Base de Dados do GLPI Help Desk<br>
-#03_ Baixando o Projeto do GLPI Help Desk do Github<br>
-#04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server<br>
-#05_ Atualizando os Arquivos de Configuração do GLPI Help Desk<br>
-#06_ Editando os arquivos de configuração do GLPI Help Desk<br>
-#07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk<br>
-#08_ Acessando e configurando o GLPI Help Desk via navegador<br>
-#09_ Localização dos diretórios principais do GLPI Help Desk<br>
-#10_ Habilitando o Recurso de Inventário do GLPI Help Desk<br>
-#11_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops<br>
+#01_ Instalando as Dependências do GLPI Help Desk no Ubuntu Server;<br>
+#02_ Criando a Base de Dados do GLPI Help Desk no MySQL Server no Ubuntu Server;<br>
+#03_ Baixando o Projeto do GLPI Help Desk do Github no Ubuntu Server;<br>
+#04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server no Ubuntu Server;<br>
+#05_ Atualizando os Arquivos de Configuração do GLPI Help Desk no Ubuntu Server;<br>
+#06_ Editando os arquivos de configuração do GLPI Help Desk no Ubuntu Server;<br>
+#07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk no Ubuntu Server;<br>
+#08_ Verificando a Porta de Conexão do GLPI Help Desk no Ubuntu Server;<br>
+#09_ Localização dos diretórios e arquivos principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO) no Ubuntu Server;<br>
+#10_ Acessando e configurando o GLPI Help Desk via navegador;<br>
+#11_ Habilitando o Recurso de Inventário do GLPI Help Desk;<br>
+#12_ Instalando os Agentes de Inventário do GLPI Help Desk no Servidor e Desktops Linux e Windows.<br>
 
 Site Oficial do GLPI Project: https://glpi-project.org/pt-br/<br>
 
-**O QUE É E PARA QUE SERVER O GLPI:** O GLPI (Gestionnaire Libre de Parc Informatique) é uma plataforma open-source de ITSM (IT Service Management) usada para gerenciamento de ativos de TI, help desk, inventário e controle de chamados. Ele é amplamente utilizado por equipes de suporte técnico e departamentos de TI para otimizar o gerenciamento de infraestrutura e serviços.
+**O QUE É E PARA QUE SERVER O GLPI:** O *GLPI (Gestionnaire Libre de Parc Informatique)* é uma plataforma open-source de *ITSM (IT Service Management)* usada para gerenciamento de ativos de TI, help desk, inventário e controle de chamados. Ele é amplamente utilizado por equipes de suporte técnico e departamentos de TI para otimizar o gerenciamento de infraestrutura e serviços.
+
+**O QUE É E PARA QUE SERVER O ITSM:** O *ITSM (sigla para IT Service Management, ou Gerenciamento de Serviços de TI)* é um conjunto de práticas e processos utilizados para projetar, entregar, gerenciar e melhorar os serviços de TI oferecidos por uma organização.
+
+**O QUE É E PARA QUE SERVER O ITIL:** O *ITIL (sigla para Information Technology Infrastructure Library)* é um conjunto de boas práticas para o gerenciamento de serviços de TI (ITSM). Ele serve como um guia para ajudar as organizações a oferecerem serviços de TI de forma mais eficiente, alinhados com os objetivos do negócio.
+
+**O QUE É E PARA QUE SERVER O COBIT:** O *COBIT (Control Objectives for Information and Related Technologies)* é um framework (modelo de governança e gestão de TI) criado pela ISACA para ajudar organizações a gerenciar e controlar melhor a TI com foco em governança corporativa, conformidade, segurança e alinhamento com os objetivos do negócio.
 
 [![GLPI](http://img.youtube.com/vi/Et4Ac24vt6w/0.jpg)](https://www.youtube.com/watch?v=Et4Ac24vt6w "GLPI")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
-## 01_ Instalando as Dependências do GLPI Help Desk
+## 01_ Instalando as Dependências do GLPI Help Desk no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS MYSQL SERVER E DO APACHE2 SERVER, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8.
+**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS *MYSQL SERVER E DO APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP** E NA ETAPA: **03 DO MYSQL SERVER 8**.
 
 ```bash
 #atualizando as lista do apt
 sudo apt update
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A NUMERAÇÃO DA VERSÃO DO PHP NESSE PROCEDIMENTO, TODO O CENÁRIO AGORA IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU. VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER: 8.1 (ATUALIZADO EM: 26/09/2024).
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
 ```bash
 #instalando as dependências do GLPI Help Desk
@@ -59,9 +66,9 @@ libapache2-mod-php xmlrpc-api-utils xz-utils bzip2 unzip curl php-soap php-commo
 php-zip php-bz2
 ```
 
-## 02_ Criando a Base de Dados do GLPI Help Desk
+## 02_ Criando a Base de Dados do GLPI Help Desk no MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DE TIMEZONE E DATA HORA CORRETA, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: 03 DO LOCATE E TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER.
+**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DE *TIMEZONE E DATA HORA CORRETA*, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: **03 DO LOCALE E TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER**.
 
 ```bash
 #habilitando o recurso de TimeZone do GLPI no MySQL Server
@@ -122,7 +129,7 @@ USE glpi10;
 exit
 ```
 
-## 03_ Baixando o Projeto do GLPI Help Desk do Github
+## 03_ Baixando o Projeto do GLPI Help Desk do Github no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Help Desk sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
 
@@ -137,7 +144,7 @@ cd /tmp
 wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.18/glpi-10.0.18.tgz
 ```
 
-## 04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server
+## 04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server no Ubuntu Server
 ```bash
 #descompactando o download do arquivo do GLPI Help Desk
 #opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
@@ -160,7 +167,7 @@ sudo find /var/www/html/glpi/. -type f -exec chmod -v 644 {} \;
 sudo chmod -Rv 777 /var/www/html/glpi/files/_log
 ```
 
-## 05_ Atualizando os Arquivos de Configuração do GLPI Help Desk
+## 05_ Atualizando os Arquivos de Configuração do GLPI Help Desk no Ubuntu Server
 ```bash
 #download dos principais arquivos de configuração do GLPI Help Desk
 #opção do comando wget: -v (verbose), -O (output file)
@@ -172,7 +179,7 @@ sudo wget -v -O /etc/apache2/conf-available/glpi.conf https://raw.githubusercont
 sudo wget -v -O /etc/cron.d/glpi-cron https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/glpi-cron
 ```
 
-## 06_ Editando os arquivos de configuração do GLPI Help Desk
+## 06_ Editando os arquivos de configuração do GLPI Help Desk no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do GLPI Help Desk utilizado pelo Apache2
 sudo vim /etc/apache2/conf-available/glpi.conf
@@ -211,6 +218,10 @@ sudo vim /etc/php/8.1/apache2/php.ini
 INSERT
 ```
 ```bash
+#alterar o valor da variável: date.timezone na linha: 968
+#OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO CONFIGURAR PARA EFEITO DE COMPATIBILIDADE
+date.timezone = America/Sao_Paulo
+
 #descomentar e alterar o valor da variável: session.cookie_secure na linha: 1371
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 session.cookie_secure = on
@@ -262,7 +273,7 @@ Listen 8888
 ESC SHIFT :x <Enter>
 ```
 
-## 07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk
+## 07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk no Ubuntu Server
 ```bash
 #habilitando os módulos do Apache2 Server
 sudo a2enmod rewrite setenvif
@@ -282,7 +293,7 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
-## 08_ Verificando a Porta de Conexão do GLPI Help Desk
+## 08_ Verificando a Porta de Conexão do GLPI Help Desk no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -292,7 +303,7 @@ sudo journalctl -xeu apache2
 sudo lsof -nP -iTCP:'8888' -sTCP:LISTEN
 ```
 
-## 09_ Localização dos diretórios principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO)
+## 09_ Localização dos diretórios e arquivos principais do GLPI Help Desk (NÃO COMENTADO NO VÍDEO) no Ubuntu Server
 ```bash
 /etc/apache2/conf-available/*  <-- Diretório dos arquivos de configuração dos Sites do Apache2 Server;
 /etc/cron.d/*                  <-- Diretório dos arquivos de agendamento diário do CRON;

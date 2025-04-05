@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.08<br>
+#Data de atualização: 05/04/2025<br>
+#Versão: 0.09<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,29 +19,30 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/15-graylog
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiograylog #desafioopensearch
 
 Conteúdo estudado nessa implementação:<br>
-#01_ Instalando as Dependências do Graylog Server<br>
-#02_ Baixando e instalando a Chave GPG do OpenSearch<br>
-#03_ Instalando o OpenSearch no Ubuntu Server<br>
-#04_ Editando o arquivo de configuração do OpenSearch<br>
-#05_ Editando o arquivo de configuração JVM (Java Virtual Machine)<br>
-#06_ Alterando as opções de inicialização do Kernel do Ubuntu Server<br>
-#07_ Habilitando o Serviço do OpenSearch<br>
-#08_ Verificando o Serviço e Versão do OpenSearch<br>
-#09_ Verificando a Porta de Conexão do OpenSearch<br>
-#10_ Adicionando o Repositório do Graylog Server no Ubuntu Server<br>
-#11_ Instalando o Graylog Server no Ubuntu Server<br>
-#12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server<br>
-#13_ Editando o arquivo de configuração do Graylog Server<br>
-#14_ Criando o usuário de autenticação do MongoDB Server<br>
-#15_ Habilitando o Serviço do Graylog Server<br>
-#16_ Verificando o Serviço e Versão do Graylog Server<br>
-#17_ Verificando a Porta de Conexão do Graylog Server<br>
-#18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server<br>
-#19_ Localização dos diretórios principais do OpenSearch e do Graylog Server<br>
-#20_ Configurando o Graylog Server via Navegador<br>
-#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server<br>
-#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10<br>
-#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server
+#01_ Instalando as Dependências do Graylog Server no Ubuntu Server;<br>
+#02_ Baixando e instalando a Chave GPG do OpenSearch no Ubuntu Server;<br>
+#03_ Instalando o OpenSearch no Ubuntu Server;<br>
+#04_ Editando o arquivo de configuração do OpenSearch no Ubuntu Server;<br>
+#05_ Editando o arquivo de configuração JVM (Java Virtual Machine) do OpenSearch no Ubuntu Server;<br>
+#06_ Alterando as opções de inicialização do Kernel do Ubuntu Server;<br>
+#07_ Habilitando o Serviço do OpenSearch no Ubuntu Server;<br>
+#08_ Verificando o Serviço e Versão do OpenSearch no Ubuntu Server;<br>
+#09_ Verificando a Porta de Conexão do OpenSearch no Ubuntu Server;<br>
+#10_ Adicionando o Repositório do Graylog Server no Ubuntu Server;<br>
+#11_ Instalando o Graylog Server no Ubuntu Server;<br>
+#12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server no Ubuntu Server;<br>
+#13_ Editando o arquivo de configuração do Graylog Server no Ubuntu Server;<br>
+#14_ Criando o usuário de autenticação do MongoDB Server no Ubuntu Server;<br>
+#15_ Habilitando o Serviço do Graylog Server no Ubuntu Server;<br>
+#16_ Verificando o Serviço e Versão do Graylog Server no Ubuntu Server;<br>
+#17_ Verificando a Porta de Conexão do Graylog Server no Ubuntu Server;<br>
+#18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server no Ubuntu Server;<br>
+#19_ Localização dos diretórios e arquivos principais do OpenSearch e do Graylog Server no Ubuntu Server;<br>
+#20_ Configurando o Graylog Server via Navegador;<br>
+#21_ Exportando os Logs do Rsyslog/Syslog do Ubuntu Server para o Graylog Server;<br>
+#22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10;<br>
+#23_ Criando um Input GELF UDP do Windows 10 no Graylog Server;<br>
+#24_ Verificando os Logs dos Eventos do Linux Mint e do Microsoft Windows 10.<br>
 
 Site Oficial do Graylog: https://graylog.org/<br>
 
@@ -53,7 +54,7 @@ Site Oficial do Graylog: https://graylog.org/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
-## 01_ Instalando as Dependências do Graylog Server
+## 01_ Instalando as Dependências do Graylog Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06 DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO MONGODB (VERSÃO 7).
 
@@ -67,7 +68,7 @@ sudo apt install apt-transport-https software-properties-common git vim wget cur
 gnupg2 uuid-runtime pwgen dirmngr
 ```
 
-## 02_ Baixando e instalando a Chave GPG do OpenSearch
+## 02_ Baixando e instalando a Chave GPG do OpenSearch no Ubuntu Server
 ```bash
 #baixando a chave GPG do OpenSearch
 #opção do comando curl: -o- (output file)
@@ -99,7 +100,7 @@ sudo apt update
 sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/urandom  | head -c${1:-32}) apt install --install-recommends opensearch
 ```
 
-## 04_ Editando o arquivo de configuração do OpenSearch
+## 04_ Editando o arquivo de configuração do OpenSearch no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do OpenSearch
 sudo vim /etc/opensearch/opensearch.yml
@@ -125,7 +126,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-## 05_ Editando o arquivo de configuração JVM (Java Virtual Machine)
+## 05_ Editando o arquivo de configuração JVM (Java Virtual Machine) do OpenSearch no Ubuntu Server
 ```bash
 #editando o arquivo de configuração JVM (Java Virtual Machine)
 sudo vim /etc/opensearch/jvm.options
@@ -154,7 +155,7 @@ sudo sysctl -w vm.max_map_count=262144
 echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
 ```
 
-## 07_ Habilitando o Serviço do OpenSearch
+## 07_ Habilitando o Serviço do OpenSearch no Ubuntu Server
 ```bash
 #habilitando o serviço do OpenSearch
 sudo systemctl daemon-reload
@@ -162,7 +163,7 @@ sudo systemctl enable opensearch
 sudo systemctl restart opensearch
 ```
 
-## 08_ Verificando o Serviço e Versão do OpenSearch
+## 08_ Verificando o Serviço e Versão do OpenSearch no Ubuntu Server
 ```bash
 #verificando o serviço do OpenSearch
 sudo systemctl status opensearch
@@ -173,7 +174,11 @@ sudo systemctl start opensearch
 #analisando os Log's e mensagens de erro do Servidor do OpenSearch
 #opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -xeu opensearch
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do OpenSearch via Terminal ou Navegador
 #opção do comando curl: -X (request method), GET (method)
 curl -X GET "http://localhost:9200"
@@ -182,7 +187,7 @@ curl -X GET "http://localhost:9200"
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 ```
 
-## 09_ Verificando a Porta de Conexão do OpenSearch
+## 09_ Verificando a Porta de Conexão do OpenSearch no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -215,11 +220,12 @@ sudo apt update
 sudo apt install --install-recommends graylog-server
 ```
 
-## 12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server
+## 12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS CONFIGURAÇÕES DAS VARIÁVEIS DO GRAYLOG SERVER NAS PRÓXIMAS ETAPAS.
+
 ```bash
 #gerando a senha aleatório da variável: password_secret
-#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
-#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
 #opção do comando tr: -d (delete), -c (complement)
 #opção do comando head: -c (bytes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -228,8 +234,6 @@ sudo apt install --install-recommends graylog-server
 < /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
 
 #gerando a senha aleatório da variável: root_password_sha2
-#OBSERVAÇÃO IMPORTANTE: COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS 
-#CONFIGURAÇÕES DA VARIÁVEL DO GRAYLOG
 #opção do comando echo: -n (do not output the trailing newline)
 #opção do comando head: -1 (lines)
 #opção do comando tr: -d (delete)
@@ -240,7 +244,7 @@ echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut
   Enter Password: pti@2018
 ```
 
-## 13_ Editando o arquivo de configuração do Graylog Server
+## 13_ Editando o arquivo de configuração do Graylog Server no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Graylog
 sudo vim /etc/graylog/server/server.conf
@@ -272,7 +276,7 @@ INSERT
 ESC SHIFT : x <Enter>
 ```
 
-## 14_ Criando o usuário de autenticação do MongoDB Server
+## 14_ Criando o usuário de autenticação do MongoDB Server no Ubuntu Server
 ```bash
 #acessando o MongoDB Shell
 #opção do comando mongosh: admin (database) -u (username), -p (password)
@@ -299,7 +303,7 @@ db.getUser("graylog")
 quit
 ```
 
-## 15_ Habilitando o Serviço do Graylog Server
+## 15_ Habilitando o Serviço do Graylog Server no Ubuntu Server
 ```bash
 #habilitando o serviço do Graylog Server
 sudo systemctl daemon-reload
@@ -307,7 +311,7 @@ sudo systemctl enable graylog-server
 sudo systemctl restart graylog-server
 ```
 
-## 16_ Verificando o Serviço e Versão do Graylog Server
+## 16_ Verificando o Serviço e Versão do Graylog Server no Ubuntu Server
 ```bash
 #verificando o serviço do Graylog Server
 sudo systemctl status graylog-server
@@ -318,14 +322,18 @@ sudo systemctl start graylog-server
 #analisando os Log's e mensagens de erro do Servidor do Graylog Server
 #opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -xeu graylog-server
+```
 
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
 #verificando a versão do Graylog Server
 #opção do comando grep: - i (ignore-case)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo apt list | grep -i graylog
 ```
 
-## 17_ Verificando a Porta de Conexão do Graylog Server
+## 17_ Verificando a Porta de Conexão do Graylog Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -335,7 +343,7 @@ sudo apt list | grep -i graylog
 sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ```
 
-## 18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server
+## 18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G opensearch $USER
@@ -348,7 +356,7 @@ id
 exit
 ```
 
-## 19_ Localização dos diretórios principais do OpenSearch e do Graylog Server
+## 19_ Localização dos diretórios e arquivos principais do OpenSearch e do Graylog Server no Ubuntu Server
 ```bash
 /etc/opensearch/*                <-- Diretório das configurações do OpenSearch
 /etc/opensearch/opensearch.yml   <-- Arquivo de configuração do Serviço do OpenSearch
@@ -462,11 +470,12 @@ Download
   Ready to install NXLog-CE: <Install>
     Controle de Conta do Usuário: <Sim>
   Completed the NXLog-CE Setup Wizard: <Finish>
+```
 
+**OBSERVAÇÃO IMPORTANTE:** fazer a instalação do *NXLog-CE Windows* utilizando o *Powershell* em modo: **Executar como Administrador**.
+
+```bash
 #editando o arquivo de configuração do NXLog-CE via Powershell
-#OBSERVAÇÃO IMPORTANTE: fazer a instalação do NXLog-CE Windows utilizando 
-#o Powershell em modo Administrador.
-
 Menu
   Powershell 
     Clicar com o botão direito do mouse e selecionar: Executar como Administrador

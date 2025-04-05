@@ -19,19 +19,19 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-netdata
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionetdata #desafionetdatacloud
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalação das Dependência do Netdata<br>
-#02_ Clonagem do Projeto do Netdata do Github<br>
-#03_ Compilação e Instalação do Netdata no Ubuntu Server<br>
-#04_ Verificando o Status do Serviço do Netdata<br>
-#05_ Verificando a Versão do Netdata<br>
-#06_ Verificando a Porta de Conexão do Netdata<br>
-#07_ Habilitando o Recurso de Auto-Atualização do Netdata<br>
-#08_ Arquivo e Diretórios de Configuração do Netdata<br>
-#09_ Atualização os Arquivos de Monitoramento de Serviços do Netdata<br>
-#10_ Criando o Usuário de Monitoramento do MySQL Server do Netdata<br>
-#11_ Adicionando o Usuário Local do Grupo do Netdata<br>
-#12_ Acessando o Netdata via Navegador<br>
-#13_ Desafio do Netdata Cloud<br>
+#01_ Instalando as Dependências do Netdata Server no Ubuntu Server;<br>
+#02_ Clonando o projeto do Netdata Server do Github no Ubuntu Server;<br>
+#03_ Compilando e Instalando o Netdata Server no Ubuntu Server;<br>
+#04_ Verificando o Serviço e Versão do Netdata Server no Ubuntu Server;<br>
+#05_ Verificando a Porta de Conexão do Netdata Server no Ubuntu Server;<br>
+#06_ Habilitando as atualizações automática do Netdata Server no Ubuntu Server;<br>
+#07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server no Ubuntu Server;<br>
+#08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server no Ubuntu Server;<br>
+#09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server no Ubuntu Server;<br>
+#10_ Localização dos Arquivos de Configuração do Netdata Server no Ubuntu Server;<br>
+#11_ Configurando os Serviços de Monitoramento do Netdata Server no Ubuntu Server;<br>
+#12_ Acessando e configurando o Netdata Server no navegador;<br>
+#13_ Desafio da Integração do Netdata Server com o Cloud.<br>
 
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
@@ -43,7 +43,7 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 
-## 01_ Instalando as Dependências do Netdata Server
+## 01_ Instalando as Dependências do Netdata Server no Ubuntu Server
 ```bash
 #atualizando as lista do apt
 sudo apt update
@@ -59,7 +59,7 @@ python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap libuuid1 libcurl4
 libcurl4-openssl-dev
 ```
 
-## 02_ Clonando o projeto do Netdata Server do Github
+## 02_ Clonando o projeto do Netdata Server do Github no Ubuntu Server
 ```bash
 #clonando o projeto do Github do Netdata
 #opção do comando git clone: --recurse-submodules (initialize and clone submodules within based 
@@ -68,7 +68,7 @@ libcurl4-openssl-dev
 git clone https://github.com/netdata/netdata --depth=100 --recursive
 ```
 
-## 03_ Compilando e Instalando o Netdata Server
+## 03_ Compilando e Instalando o Netdata Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o processo de compilação e instalação do Netdata demora bastante, dependendo do seu hardware pode demorar mais de: *30 minutos* para baixar as dependências, compilar e instalar o Netdata.
 
@@ -84,7 +84,7 @@ sudo ./netdata-installer.sh
 cd ..
 ```
 
-## 04_ Verificando o Serviço e Versão do Netdata Server
+## 04_ Verificando o Serviço e Versão do Netdata Server no Ubuntu Server
 ```bash
 #verificando o serviço do Netdata Server
 sudo systemctl status netdata
@@ -97,7 +97,7 @@ sudo systemctl start netdata
 sudo journalctl -xeu netdata
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Netdata Server
@@ -105,7 +105,7 @@ sudo journalctl -xeu netdata
 sudo netdata -v
 ```
 
-## 05_ Verificando a Porta de Conexão do Netdata Server
+## 05_ Verificando a Porta de Conexão do Netdata Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -115,7 +115,7 @@ sudo netdata -v
 sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ```
 
-## 06_ Habilitando as atualizações automática do Netdata Server
+## 06_ Habilitando as atualizações automática do Netdata Server no Ubuntu Server
 ```bash
 #habilitando o suporte para atualização do Netdata Server
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
@@ -129,7 +129,7 @@ atualizando manualmente o Netdata
 sudo /usr/libexec/netdata/./netdata-updater.sh
 ```
 
-## 07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server
+## 07_ Criando o usuário de monitoramento do MySQL Server do Netdata Server no Ubuntu Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
@@ -151,7 +151,7 @@ SELECT user,host FROM mysql.user WHERE user="netdata";
 exit
 ```
 
-## 08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server
+## 08_ Criando o usuário de monitoramento do MongoDB Server do Netdata Server no Ubuntu Server
 ```bash
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
@@ -177,7 +177,7 @@ db.getUser("netdata")
 quit
 ```
 
-## 09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server
+## 09_ Adicionado o Usuário Local no Grupo Padrão do Netdata Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -198,7 +198,7 @@ sudo getent group netdata
 exit
 ```
 
-## 10_ Localização dos Arquivos de Configuração do Netdata Server
+## 10_ Localização dos Arquivos de Configuração do Netdata Server no Ubuntu Server
 ```bash
 /etc/netdata/netdata.conf           <-- arquivo de configuração do serviço do Netdata Server
 /etc/netdata/apps_groups.conf       <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Server
@@ -211,7 +211,7 @@ exit
 /var/log/netdata                    <-- diretório dos arquios de Logs do Netdata
 ```
 
-## 11_ Configurando os Serviços de Monitoramento do Netdata Server
+## 11_ Configurando os Serviços de Monitoramento do Netdata Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do Netdata Server, os arquivos de configuração são baseados na *Linguagem de Programação Python* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
 
