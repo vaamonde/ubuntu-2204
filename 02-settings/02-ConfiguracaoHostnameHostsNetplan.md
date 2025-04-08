@@ -138,7 +138,7 @@ sudo resolvectl
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Netplan e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado na linguagem de programação Python por exemplo, muito cuidado com o uso de __`espaços e tabulação`__ e principalmente sua **Indentação**.
 
-**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server 22.04.4 LTS o sistema de Cloud-Init afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você alterar as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
+**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server 22.04.4 LTS e a versão 22.04.5 LTS o sistema de Cloud-Init afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você alterar as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
 
 ```bash
 #criando o arquivo para desativar as configurações da Placa de Rede do Cloud-Init
@@ -211,6 +211,11 @@ ESC SHIFT :x <Enter>
 
 ## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server
 ```bash
+#fazendo o backup do arquivo de configuração modificado do Netplan
+#opção do comando cp: -v (verbose)
+#sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.bkp
+sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bkp
+
 #aplicando as mudanças do Netplan em modo Debug (detalhado)
 sudo netplan --debug apply
 
