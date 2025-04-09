@@ -149,22 +149,19 @@ sudo pro fix CVE-2023-52927
 
 **OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados, sendo o: **ESM-INFRA** e o **Livepatch**, caso queira habilitar mais serviços veja a lista abaixo:
 
-01) cc-eal..........: Relacionado à conformidade com os Critérios Comuns EAL2;
-02) cis.............: Ferramentas para conformidade automatizada com o Center of Internet 
-                      Security (CIS) e seus benchmarks;
-03) esm-infra.......: Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos
-                      de atualizações de segurança para versões LTS;
-04) esm-apps........: ESM do Ubuntu, mas para aplicativos.
-05) fips............: Relacionado à conformidade com os Padrões Federais de Processamento de 
-                      Informações (FIPS);
-06) fips-updates....: Atualizações de segurança para fips;
-07) livepatch.......: Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch);
-08) realtime-kernel.: Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente
-                      não precisa dele);
-09) ros.............: Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional 
-                      de Robô;
-10) ros-updates.....: Atualizações de segurança para o sistema operacional do robô;
-11) usg.............: Ferramentas para conformidade de segurança e auditoria do sistema.
+| ID | SERVIÇOS | DESCRIÇÃO |
+|----|----------|-----------|
+| 01 | cc-eal | Relacionado à conformidade com os Critérios Comuns EAL2 |
+| 02 | cis | Ferramentas para conformidade automatizada com o Center of Internet Security (CIS) e seus benchmarks |
+| 03 | esm-infra | Manutenção Estendida de Segurança do Ubuntu; Mais 5 (total de 10) anos de atualizações de segurança para versões LTS |
+| 04 | esm-apps | ESM do Ubuntu, mas para aplicativos |
+| 05 | fips | Relacionado à conformidade com os Padrões Federais de Processamento de Informações (FIPS) |
+| 06 | fips-updates | Atualizações de segurança para fips |
+| 07 | livepatch | Ferramenta de correção ao vivo do Kernel do Ubuntu (livepatch) |
+| 08 | realtime-kernel | Obtenha um Kernel em tempo real (se você não sabe o que é, provavelmente não precisa dele) |
+| 09 | ros | Ubuntu ajustado para Robótica, sensatamente chamado de Sistema Operacional de Robô |
+| 10 | ros-updates | Atualizações de segurança para o sistema operacional do robô |
+| 11 | usg | Ferramentas para conformidade de segurança e auditoria do sistema. |
 
 ```bash
 #habilitando o suporte ao ESM-APPS no Ubuntu Pro

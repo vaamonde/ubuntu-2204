@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.06<br>
+#Data de atualização: 08/04/2025<br>
+#Versão: 0.07<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -97,4 +97,8 @@ sudo date
 sudo shutdown -r 19:50 Servidor será reinicializando às 19:50hs
 sudo shutdown -r +20 Servidor será reinicializando em 20 minutos
 sudo shutdown -c
+
+#verificando o arquivo de agendamento (schedule) do shutdown
+#opção o comando cat: -n (number line)
+sudo cat -n /run/systemd/shutdown/scheduled
 ```
