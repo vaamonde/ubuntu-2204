@@ -282,7 +282,7 @@ users
 
 ## 08_ Criando um usuário Administrador no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: __` admin `__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
+**OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO: __`admin`__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE FORÇA BRUTA QUE USA ESSE USUÁRIO PARA INVADIR SERVIDORES. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
 
 **OBSERVAÇÃO** Mais informações veja o Site do Wikipedia das 10.000 senhas mais comuns: https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords
 
@@ -344,12 +344,12 @@ Ubuntu 22.04.5 LTS wsseunome tty2
   wsseunome login: admin
   Password: sua_senha
 
-#para sair do Terminal TTY digite você pode digitar os comandos
+#para sair do Terminal TTY você pode digitar os comandos
 logout  (sair do login)
 exit    (sair do login)
 Ctrl+D  (atalho para sair do login)
 
-#voltar para o primeiro Terminal TTY (Teletype) no Ubuntu Server
+#voltar para o primeiro Terminal TTY (Teletype) do Ubuntu Server
 Atalho: Alt + F1
 ```
 

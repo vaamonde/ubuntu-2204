@@ -268,7 +268,7 @@ exit
 
 Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
-**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __` Sys (Sistema) `__ é mostrado em Esquemas, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de segurança.
+**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __`Sys (Sistema)`__ é mostrado em Esquemas, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de segurança.
 
 ```bash
 #conectando com o usuário Root Remoto do MySQL no Workbench

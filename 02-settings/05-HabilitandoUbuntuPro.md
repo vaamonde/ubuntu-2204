@@ -147,7 +147,7 @@ sudo pro fix CVE-2023-52927
 
 ## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro
 
-**OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados, sendo o: **ESM-INFRA** e o **Livepatch**, caso queira habilitar mais serviços veja a lista abaixo:
+**OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados, sendo o: **ESM-INFRA**, **ESM-APPS** e o **Livepatch**, caso queira habilitar mais serviços veja a lista abaixo:
 
 | ID | SERVIÇOS | DESCRIÇÃO |
 |----|----------|-----------|
