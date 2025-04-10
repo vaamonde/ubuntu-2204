@@ -117,6 +117,7 @@ INSERT
 #inserir as informações na linha: 17
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.deny
 ALL: ALL
 ```
 ```bash
@@ -136,6 +137,7 @@ INSERT
 #inserir as informações na linha: 10
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.allow
 sshd: SUA_REDE/SEU_CIDR
 ```
 ```bash
@@ -158,6 +160,7 @@ sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/
 sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
 
 #editando o arquivo de configuração do OpenSSH Server
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/sshd_config
 sudo vim /etc/ssh/sshd_config
 
 #entrando no modo de edição do editor de texto VIM
@@ -186,6 +189,7 @@ ESC SHIFT :x <Enter>
 sudo sshd -t
 
 #editando o arquivo de configuração do Banner do Ubuntu Server
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/issue.net
 sudo vim /etc/issue.net
 
 #entrando no modo de edição do editor de texto VIM

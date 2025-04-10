@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.10<br>
+#Data de atualização: 10/04/2025<br>
+#Versão: 0.11<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -116,6 +116,7 @@ sudo timedatectl
 
 ```bash
 #editando o arquivo de configuração timesyncd.conf
+#mais informações veja a documentação oficial em: https://documentation.ubuntu.com/server/how-to/networking/timedatectl-and-timesyncd/
 sudo vim /etc/systemd/timesyncd.conf
 
 #entrando no modo de edição do editor de texto VIM

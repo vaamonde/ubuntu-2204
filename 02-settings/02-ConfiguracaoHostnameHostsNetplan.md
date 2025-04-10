@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 08/04/2025<br>
-#Versão: 0.14<br>
+#Data de atualização: 10/04/2025<br>
+#Versão: 0.15<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -30,7 +30,8 @@ Conteúdo estudado nessa configuração:<br>
 #05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
-#08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
+#08_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
+#09_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
 **O QUE É E PARA QUE SERVER O NETPLAN:** O Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
@@ -73,6 +74,7 @@ INSERT
 ```bash
 #adicionar o nome de domínio e apelido nas linhas 2 e 3
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O ENDEREÇO IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
+#mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts
 127.0.0.1      localhost.seu.domínio   localhost
 127.0.1.1      wsseunome.seu.domínio   wsseunome
 SUA_REDE_IPV4  wsseunome.seu.domínio   wsseunome
@@ -222,7 +224,10 @@ sudo netplan --debug apply
 #OBSERVAÇÃO IMPORTANTE: você pode utilizar a opção: try que caso aconteça alguma
 #falha na hora de configurar a placa de rede ele reverte a configuração inicial
 sudo netplan --debug try
+```
 
+## 08_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
+```bash
 #verificando o endereço IPv4 da Interface de Rede
 sudo ifconfig
 sudo ip address show
@@ -247,7 +252,7 @@ sudo hostname -d
 sudo hostname -i
 ```
 
-## 08_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
+## 09_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
 **OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o *Protocolo SSH* nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
 
