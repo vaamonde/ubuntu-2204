@@ -42,11 +42,15 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
-**O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
+**O QUE É E PARA QUE SERVER O OPENSSH:** O *OpenSSH (Open Secure Shell)* é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 
-**O QUE É E PARA QUE SERVER O OPENSSL:** O OpenSSL é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *Protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer)*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.
+**O QUE É E PARA QUE SERVER O OPENSSL:** O *OpenSSL* é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *Protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer)*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.
 
-**O QUE É E PARA QUE SERVER O TCP WRAPPERS:** O TCP Wrappers é uma ferramenta de segurança usada em sistemas Unix/Linux para controlar o acesso a serviços de rede. Ele permite *Restringir ou Permitir* conexões com base no endereço IPv4/IPv6 do cliente, hostname ou outras regras definidas pelo administrador.
+**O QUE É E PARA QUE SERVER O TCP WRAPPERS:** O *TCP Wrappers* é uma ferramenta de segurança usada em sistemas Unix/Linux para controlar o acesso a serviços de rede. Ele permite *Restringir ou Permitir* conexões com base no endereço IPv4/IPv6 do cliente, hostname ou outras regras definidas pelo administrador.
+
+**O QUE É E PARA QUE SERVER O BLUE TEAM:** Blue Team é o time de *Defesa em Cibersegurança*. É o grupo responsável por: *proteger, monitorar e responder a ataques cibernéticos* dentro de uma organização. Eles trabalham de forma **Proativa e Reativa**, com foco total na segurança defensiva.
+
+**O QUE É E PARA QUE SERVER O RED TEAM:** Red Team é o time de *Ataque em Cibersegurança*. A missão deles é *simular ataques reais contra a infraestrutura da empresa* para encontrar **Falhas** e testar a eficácia das *defesas (Blue Team)*. Eles são os __`"hackers éticos ofensivos"`__ dentro da organização — tudo é feito com autorização e objetivo de melhorar a segurança.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 

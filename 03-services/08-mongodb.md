@@ -56,7 +56,7 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O MONGODB SERVER:** MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
-**O QUE É E PARA QUE SERVER O JASON:** * JSON significa *JavaScript Object Notation*. É um formato leve de troca de dados, muito usado na comunicação entre sistemas, principalmente **Web e APIs**. Apesar do nome vir do JavaScript, o JSON é *independente de linguagem* — funciona com Python, Java, C#, PHP, Node.js, Go, etc.
+**O QUE É E PARA QUE SERVER O JSON:** * JSON significa *JavaScript Object Notation*. É um formato leve de troca de dados, muito usado na comunicação entre sistemas, principalmente **Web e APIs**. Apesar do nome vir do JavaScript, o JSON é *independente de linguagem* — funciona com Python, Java, C#, PHP, Node.js, Go, etc.
 
 [![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
 

@@ -44,6 +44,8 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 **O QUE É E PARA QUE SERVER O NETDATA:** Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
 
+**O QUE É E PARA QUE SERVER O OBSERVABILIDADE:** Essa é uma daquelas palavras que virou **buzzword** no mundo *DevOps/SRE*, *Observabilidade* é a capacidade de entender o que está acontecendo dentro de um sistema (app, servidor, infraestrutura) apenas observando os dados gerados por ele — como *logs, métricas e traces*.
+
 **OBSERVAÇÃO IMPORTANTE:** A PARTIR DA VERSÃO DO *NETDATA v1.90.x* NÃO É MAIS NECESSÁRIO FAZER O PROCEDIMENTO DESSE VÍDEO DE BAIXAR O AGENTE VIA GITHUB, COMPILAR E INSTALAR, HOJE ACESSAMOS APENAS O NETDATA CLOUD: https://app.netdata.cloud/, COPIAMOS A CHAVE DE INTEGRAÇÃO DO AGENTE E COLAMOS NO TERMINAL, SÓ SEGUIR OS PROCEDIMENTOS NA TELA QUE JÁ ESTÁ FEITO A INTEGRAÇÃO, AINDA É POSSÍVEL UTILIZAR OS RECURSOS DE CONFIGURAÇÃO DE SERVIÇOS A SEREM MONITORADOS, MUITO MAIS SIMPLES.
 
 [![Netdata Server](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Server")

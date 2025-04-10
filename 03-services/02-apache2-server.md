@@ -57,6 +57,10 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O PHP:** O *PHP (Hypertext Preprocessor, originalmente Personal Home Page)* é uma linguagem interpretada livre, usada originalmente apenas para o desenvolvimento de aplicações presentes e atuantes no lado do servidor, capazes de gerar **conteúdo dinâmico** na World Wide Web (WWW).
 
+**O QUE É E PARA QUE SERVER O FULL-STACK:** O termo *Full-Stack* se refere a um **Profissional (ou conjunto de tecnologias)** que atua tanto no *Back-End* quanto no *Front-End* de uma aplicação. Ou seja, é *alguém capaz de desenvolver uma aplicação completa*, desde o visual (interface do usuário) até a lógica interna, banco de dados e servidor.
+
+**O QUE É E PARA QUE SERVER O DEVOPS:** O termo *DevOps* é a união das palavras **Dev (Desenvolvimento) + Ops (Operações/Infraestrutura)**, e representa uma *Cultura de Integração* entre equipes de *Desenvolvimento e Infraestrutura*. O objetivo do **DevOps** é: *automatizar, agilizar e melhorar todo o ciclo de vida de software*: **do código à produção**, com foco em entrega contínua, qualidade, segurança e colaboração.
+
 [![Apache2 Server](http://img.youtube.com/vi/p6fnF1fZ1j4/0.jpg)](https://www.youtube.com/watch?v=p6fnF1fZ1j4 "Apache2 Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
@@ -160,7 +164,7 @@ newgrp www-data
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando informações do grupo WWW-DATA
+#verificando as informações do grupo WWW-DATA
 sudo getent group www-data
 
 #recomendo fazer logout do usuário para testar as permissões de grupos

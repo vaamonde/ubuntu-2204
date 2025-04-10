@@ -52,6 +52,8 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O CMS:** O *CMS (Content Management System)*, ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, *sem a necessidade de conhecimento técnico avançado em programação*. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
 
+**O QUE É E PARA QUE SERVER WEB DESIGNER:** Um *Web Designer* é o profissional responsável por criar o *Layout Visual e a Experiência de Uso (UX/UI) de Sites*, blogs, portais e lojas virtuais. **Ele não é necessariamente programador**, mas entende de *Design, Usabilidade, Estrutura Visual e Ferramentas Web* para criar interfaces que sejam bonitas, funcionais e responsivas (adaptadas a diferentes telas).
+
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
