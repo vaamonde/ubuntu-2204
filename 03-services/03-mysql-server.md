@@ -36,8 +36,16 @@ Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do MariaDB: https://mariadb.org/<br>
 Site Oficial do Workbench: https://www.mysql.com/products/workbench/
 
+**Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School MySQL: https://www.w3schools.com/mysql/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
+
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O MYSQL SERVER:** O *MySQL Server* é um sistema de gerenciamento de banco de dados relacional *RDBMS (RDBMS - Relational Database Management System)* de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
 

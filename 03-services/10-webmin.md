@@ -30,6 +30,13 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Configurações Básicas do Webmin;<br>
 #10_ Desafios do Webmin e Cockpit.<br>
 
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
+
 Site Oficial do Webmin: https://webmin.com/<br>
 
 **O QUE É E PARA QUE SERVER O WEBMIN:** O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.

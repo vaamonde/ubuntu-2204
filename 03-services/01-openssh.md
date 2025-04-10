@@ -35,6 +35,13 @@ Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
 Site Oficial do PuTTY: https://www.putty.org/
 
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
+
 **O QUE É E PARA QUE SERVER O OPENSSH:** O OpenSSH (Open Secure Shell) é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 
 **O QUE É E PARA QUE SERVER O OPENSSL:** O OpenSSL é uma biblioteca de código aberto amplamente utilizada para segurança e criptografia, fornecendo ferramentas para comunicação segura através do *Protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer)*. Ele é essencial para a criação, gerenciamento e uso de certificados digitais, chaves criptográficas e conexões seguras em servidores, aplicações e redes.

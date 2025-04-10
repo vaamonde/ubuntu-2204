@@ -34,11 +34,19 @@ Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>
 Site Oficial do MySQL: https://www.mysql.com/<br>
 Site Oficial do WordPress: https://br.wordpress.org/
 
+**Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
+
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo *CMS (Content Management System)* de código aberto, amplamente utilizado para criar, editar e gerenciar **Sites**, **Blogs** e **E-Commerce** de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em *PHP* e utiliza o *MySQL ou MariaDB* como banco de dados.
 

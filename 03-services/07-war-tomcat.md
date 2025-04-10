@@ -33,10 +33,18 @@ Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
 Site Oficial do OpenJDK: https://openjdk.org/<br>
 Site Oficial do Eclipse IDE: https://eclipseide.org/
 
+**Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
+
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 

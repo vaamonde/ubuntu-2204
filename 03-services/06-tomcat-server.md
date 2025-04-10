@@ -40,10 +40,18 @@ Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
 Site Oficial do OpenJDK: https://openjdk.org/
 
+**Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
+
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O Apache Tomcat é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
 

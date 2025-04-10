@@ -35,12 +35,20 @@ Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
 Github do Nodesource: https://github.com/nodesource/distributions#debian-and-ubuntu-based-distributions
 
+**Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
 Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
 Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
 Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp<br>
 Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/<br>
+
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O NODE.JS:** O Node.js é um ambiente de execução de código *JavaScript* no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
 
