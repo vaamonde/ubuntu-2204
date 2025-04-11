@@ -54,7 +54,7 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O JAVASCRIPT:** O *JavaScript* é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
 
-**EM QUAL CATEGORIA SE ENQUADRA O PROFISSIONAL NODE.JS:** 🔧 Desenvolvedor Back-end, 🌐 Desenvolvedor Full-Stack, ☁️ DevOps ou SRE (Site Reliability Engineering), 🤖 Desenvolvedor de Bots ou Automações CI/CD (Continuous Integration (Integração Contínua)/Continuous Delivery (Entrega Contínua)), 📡 Engenheiro de APIs / Integrações.
+**EM QUAL CATEGORIA SE ENQUADRA O PROFISSIONAL NODE.JS:** 🔧 Desenvolvedor Back-End, 🌐 Desenvolvedor Full-Stack, ☁️ DevOps ou SRE (Site Reliability Engineering - Engenharia de Confiabilidade de Sites), 🤖 Desenvolvedor de Bots ou Automações CI/CD (Continuous Integration (Integração Contínua)/Continuous Delivery (Entrega Contínua)), 📡 Engenheiro de APIs (Application Programming Interface - Interface de Programação de Aplicações) / Integrações.
 
 [![Node.JS](http://img.youtube.com/vi/1JOs_qALw6I/0.jpg)](https://www.youtube.com/watch?v=1JOs_qALw6I "Node.JS")
 
@@ -180,10 +180,11 @@ ESC SHIFT :x <Enter>
 ```
 
 ## 07_ Executando o Projeto Simples do Node.JS utilizando o Express no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** existe também o comando: *bg* que faz a mesma coisa do caractere: *& (E-Comercial)* colocando a aplicação em **background** e liberando o terminal.
+
 ```bash
 #opção do comando &: background
-#OBSERVAÇÃO IMPORTANTE: existe também o comando: bg que faz a mesma coisa do caractere: & 
-#(E-Comercial) colocando a aplicação em background e liberando o terminal.
 node index.js &
 ```
 

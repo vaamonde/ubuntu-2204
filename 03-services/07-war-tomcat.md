@@ -100,7 +100,7 @@ Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso se
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma mensagem de erro de conexão e falha do Java, esse erro está associado a conexão com o Banco de Dados no MySQL Server que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
+**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma *mensagem de erro* de conexão e falha do Java*, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE
 ```bash
@@ -171,7 +171,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 ## 07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server
 
-**OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários registros no Banco de Dados do DBAgenda, para verificar os procedimentos de Dump do Banco e Restore das informações.
+**OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários *Registros no Banco de Dados do DBAgenda*, para depois testar os procedimentos de **Dump e Restore do Banco de Dados** e verificar se as informações ainda estão integras.
 
 ```bash
 #fazendo o backup do banco de dados DBAgenda
@@ -200,7 +200,7 @@ SELECT * FROM contatos;
 exit
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA VERIFICAR QUE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
+**OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
 
 Utilizar o Firefox ou Google Chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 

@@ -79,11 +79,15 @@ sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-commo
 
 ## 02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado no Ubuntu Server
 ```bash
-#verificando as versões de Java instalado
+#verificando a versão do Java instalado
+sudo java -version
+
+#verificando as versões do OpenJDK instalado
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-sudo java -version
 sudo apt list --installed | grep -i openjdk
+
+#verificando as alternativas de Jaa instalado
 sudo update-alternatives --list java
 sudo update-java-alternatives --list
 ```
@@ -99,11 +103,11 @@ Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomc
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 26/03/2025)
+#download da última versão do Apache TomCAT Server (link atualizado em 11/04/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.39/bin/apache-tomcat-10.1.39.tar.gz
+wget -v -O /tmp/tomcat10.tar.gz https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.40/bin/apache-tomcat-10.1.40.tar.gz
 ```
 
 ## 04_ Descompactando e instalando o Apache Tomcat 10.1.x no Ubuntu Server

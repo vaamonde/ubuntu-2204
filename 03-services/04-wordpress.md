@@ -186,9 +186,15 @@ define( 'DB_USER', 'wordpress' );
 
 #alterar o valor da variável: DB_PASSWORD da senha do usuário do banco de dados na linha: 29
 define( 'DB_PASSWORD', 'wordpress' );
+```
 
-#configuração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
-#mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
+O **salt (ou "sal", em português) do WordPress** é uma string aleatória usada para *aumentar a segurança da autenticação dos usuários*. Ele é combinado com senhas e outras informações sensíveis antes de serem armazenadas ou processadas, **dificultando que sejam quebradas por ataques como brute-force ou rainbow tables**.
+
+Link oficial para a geração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
+
+Mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tutoriais/wordpress-salt
+
+```php
 #copiar o conteúdo do Salt e colocar a partir da linha: 51
 #OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 51 até: 58 antes de copiar/colar as
 #novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
@@ -214,10 +220,10 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: CVE (Common Vulnerabilities and Exposures), com base na versão utilizada podemos pesquisar no site do Ubuntu Security CVE Reports: https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do CMS Worpress
+#verificando as versões do CMS Wordpress
 #opção do comando grep: ^ (circunflexo) indica que a busca deve ocorrer no início da linha, 
 #\$wp_version busca por linhas que começam com a variável $wp_version no código-fonte do WordPress
 sudo grep ^\$wp_version /var/www/html/wp/wp-includes/version.php
@@ -269,6 +275,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
 Mais informações acesse o Link dos Desenvolvedores do Wordpress: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
+
 ```bash
 #se logando no MySQL Server com o usuário e senha Wordpress
 #opções do comando mysql: -u (user), -p (password)
@@ -307,7 +314,7 @@ exit
 | User and Password Wordpress | super              |
 | Wordpress Template Install  | Astra              |
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS DESAFIOS DO WORDPRESS, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
+**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS *DESAFIOS DO WORDPRESS*, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
 ```bash
 #acessar o diretório do site do Wordpress
 cd /var/www/html/wp

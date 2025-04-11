@@ -106,7 +106,7 @@ sudo apt update
 
 ## 05_ Instalando o MongoDB Server e Client no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM ALGUMAS FALHAS E INCOMPATIBILIDADE EM PROCESSADORES INTEL OU AMD QUE NÃO TEM OS PRINCIPAIS RECURSOS OU TECNOLOGIAS QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
+**OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM **ALGUMAS FALHAS E INCOMPATIBILIDADE** EM PROCESSADORES __`INTEL`__ OU __`AMD`__ QUE NÃO TEM OS PRINCIPAIS *RECURSOS OU TECNOLOGIAS* QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
 
 1. https://www.mongodb.com/pt-br/docs/manual/administration/production-notes/
 2. https://pt.wikipedia.org/wiki/Advanced_Vector_Extensions
@@ -209,7 +209,7 @@ mongosh
 |     Primary Key (Chave Primária)    |       Primary Key (Chave Primária)        |
 |        Group By (Agrupar Por)       |         Aggregation (Agregação)           |
 
-**OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito do: **CRUD (Create, Read Update e Delete)**, seu conceito é o mesmo só mudando a forma como trabalhamos com  os *dados/informações* em cada Banco de Dados.
+**OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito do: **CRUD (Create, Read, Update e Delete)**, seu conceito é o mesmo só mudando a forma como trabalhamos com  os *dados/informações* em cada Banco de Dados.
 
 |   CRUD    |    T-SQL (MySQL)   |      No-SQL (MongoDB)        |
 |-----------|--------------------|------------------------------|
@@ -248,9 +248,9 @@ mongosh
 use admin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão com o MongoDB utilizando o Mongoose acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
+**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão com o MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
 
-**OBSERVAÇÃO IMPORTANTE:** No software MongoDB Compass, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de acesso de permissão para monitorar o MongoDB e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário admin conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
+**OBSERVAÇÃO IMPORTANTE:** No software *MongoDB Compass*, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de *acesso de permissão para monitorar o MongoDB* e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário **admin** conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
 ```javascript
 db.createUser(
@@ -338,7 +338,7 @@ show dbs
 quit
 ```
 
-## 16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) (Windows ou GNU/Linux)
+## 16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) no Windows ou GNU/Linux
 
 Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 
@@ -362,7 +362,7 @@ Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/comp
 <Save & Connect>
 ```
 
-## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode (Windows ou GNU/Linux)
+## 17_ Integrando o MongoDB Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
 ```bash
 #instalando a Extensão do MongoDB
 VSCode
