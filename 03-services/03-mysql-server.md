@@ -111,7 +111,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
 ## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console) no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário Root do MySQL Server não tem senha para se logar no MySQL Client Console, sendo necessário fazer a configuração de segurança antes do servidor entrar em produção.
+**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário *Root do MySQL Server* não tem senha para se logar no *MySQL Client Console*, sendo necessário fazer a configuração de segurança antes do servidor entrar em produção.
 
 ```bash
 #opções do comando mysql: -u (user), -p (password)
@@ -120,7 +120,7 @@ sudo mysql -u root -p
 
 ## 06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É CASE SENSITIVE, CUIDADO COM O NOME DA BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO AS INFORMAÇÕES NO SERVIDOR.
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É *CASE SENSITIVE*, CUIDADO COM O NOME DA BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
 
 ```sql
 /* visualizando as bases de dados do MySQL */
@@ -256,7 +256,7 @@ sudo journalctl -xeu mysql
 sudo mysql -u root -p
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** QUANDO UTILIZADO O CARÁCTER: __`% (PORCENTAGEM)`__ O MYSQL ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE QUALQUER ORIGEM, DIFERENTE DA OPÇÃO: __`LOCALHOST`__ QUE SÓ PERMITE O ACESSO LOCAL. CUIDADO COM ESSA OPÇÃO NA HORA DE CRIAR USUÁRIOS DE SERVIÇOS.
+**OBSERVAÇÃO IMPORTANTE:** QUANDO UTILIZADO O CARÁCTER: __`% (PORCENTAGEM)`__ O MYSQL ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE *QUALQUER ORIGEM*, DIFERENTE DA OPÇÃO: __`LOCALHOST`__ QUE SÓ PERMITE O *ACESSO LOCAL*. CUIDADO COM ESSA OPÇÃO NA HORA DE CRIAR USUÁRIOS DE SERVIÇOS.
 
 ```sql
 /* criando o usuário Root Remoto do MySQL Server */
@@ -276,7 +276,7 @@ exit
 
 Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
-**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __`Sys (Sistema)`__ é mostrado em Esquemas, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de segurança.
+**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __`Sys (Sistema)`__ é mostrado em *Esquemas*, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de segurança.
 
 ```bash
 #conectando com o usuário Root Remoto do MySQL no Workbench
