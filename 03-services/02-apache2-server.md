@@ -190,6 +190,7 @@ sudo mkdir -v teste
 
 #alterando as permissões do diretório de teste
 #opção do comando chmod: -R (recursive), -v (verbose), 2775 (Set-GID=2,User=RWX,Group=RWS,Other=R-X)
+#opções das permissões: R (read), W (write), X (execute), S (Set-Group ID)
 sudo chmod -Rv 2775 teste/
 
 #alterando o dono e grupo do diretório de teste
