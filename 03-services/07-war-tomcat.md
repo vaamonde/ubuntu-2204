@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 04/03/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 15/04/2025<br>
+#Versão: 0.23<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
@@ -31,13 +31,14 @@ Conteúdo estudado nesse desafio:<br>
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
 Site Oficial do OpenJDK: https://openjdk.org/<br>
+Site Oficial do Java: https://www.java.com/pt-BR/<br>
 Site Oficial do Eclipse IDE: https://eclipseide.org/
 
 **Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
-Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
+Site Oficial do W3C School CSS5: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
-Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
+Site Oficial do W3C School Java24: https://www.w3schools.com/java/default.asp
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -67,7 +68,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 Repositório do Projeto do Github do Prof. José de Assis: https://github.com/professorjosedeassis/javaEE
 
 ```bash
-#Download do arquivo WAR (DESCONTINUADO)
+#Download do arquivo WAR (DESCONTINUADO: NÃO RECOMENDO MAIS UTILIZAR ESSE ARQUIVO)
 Clique em: Releases
   Em assets, clique em: agenda.war para fazer o Download.
 ```
@@ -100,7 +101,7 @@ Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso se
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma *mensagem de erro* de conexão e falha do Java*, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
+**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma *mensagem de erro de conexão e falha do Java*, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE
 ```bash
@@ -115,7 +116,7 @@ CREATE DATABASE dbagenda;
 SHOW DATABASES;
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO: __`LOCALHOST`__ NO BANCO DE DADOS MYSQL SERVER, USUÁRIOS REMOTOS SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO ESTIVER NO MESMO SERVIDOR DE APLICAÇÃO.
+**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO: __`LOCALHOST`__ NO BANCO DE DADOS MYSQL SERVER, *USUÁRIOS REMOTOS* SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO ESTIVER NO MESMO SERVIDOR DE APLICAÇÃO.
 
 ```sql
 /* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
@@ -238,7 +239,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 **#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`dbagenda`__ E FAZER O DEPLOY NOVAMENTE, VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
 
-**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO WAR TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
+**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO *WAR TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS* PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
 
 =========================================================================================
 

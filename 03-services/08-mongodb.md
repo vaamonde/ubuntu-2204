@@ -41,7 +41,8 @@ Conteúdo estudado nesse desafio:<br>
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
 Site Oficial do MongoDB Compass: https://www.mongodb.com/products/compass<br>
-Site Oficial da MongoDB Atlas: https://www.mongodb.com/atlas/database
+Site Oficial da MongoDB Atlas: https://www.mongodb.com/atlas/database<br>
+Site Oficial do JSON: https://www.json.org/json-en.html
 
 **Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School MongoDB: https://www.w3schools.com/mongodb/<br>
@@ -69,10 +70,12 @@ sudo apt update
 
 #instalando as dependências do MongoDB Server
 sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
+```
 
+**OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
+
+```bash
 #download da última versão do Libssl (link atualizado em 26/03/2025)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo a Biblioteca Libssl sofre alteração, antes de faze o download do 
-#arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb
 
 #instalando a biblioteca Libssl no Ubuntu Server
@@ -81,11 +84,13 @@ sudo dpkg -i libssl*.deb
 ```
 
 ## 02_ Baixando e instalando a Chave GPG do MongoDB Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** o MongoDB Server possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://www.mongodb.org/static/pgp/
+
+Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
+
 ```bash
 #download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 20/12/2024)
-#Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
-#OBSERVAÇÃO IMPORTANTE: o MongoDB Server possui várias versões, para verificar as chaves GPG 
-#de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
@@ -220,7 +225,7 @@ mongosh
 | Update    |  UPDATE            |   db.collection.updateOne()  |
 | Delete    |  DELETE            |   db.collection.deleteOne()  |
 
-**OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os dados/informações em cada Banco de Dados.
+**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos o Conceito de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os dados/informações em cada Banco de Dados.
 
 ```bash
 #exibindo os bancos de dados existentes no MongoDB
@@ -435,7 +440,7 @@ db.contatos.drop()
 show collections
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** No MongoDB, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existirá mais a Base de Dados Agenda.
+**OBSERVAÇÃO IMPORTANTE:** No MongoDB Server, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existirá mais a Base de Dados Agenda.
 
 ```bash
 #saindo o MongoDB Server
@@ -456,7 +461,7 @@ mongorestore --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin
 
 https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
 
-**#21_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O: __`seu_usuário`__ CRIADOS NO DESAFIO DO OPENSSH NO GRUPO DO MONGODB PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+**#21_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO DESAFIO DO *OPENSSH* NO GRUPO DO MONGODB SERVER: __`mongodb`__ PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
 =========================================================================================
 

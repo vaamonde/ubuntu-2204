@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 04/04/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 15/04/2025<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -111,7 +111,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
 ## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console) no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário *Root do MySQL Server* não tem senha para se logar no *MySQL Client Console*, sendo necessário fazer a configuração de segurança antes do servidor entrar em produção.
+**OBSERVAÇÃO IMPORTANTE:** por padrão o usuário *Root do MySQL Server* não tem senha para se logar no *MySQL Client Console*, sendo necessário fazer a configuração de **segurança** antes do servidor entrar em **produção**.
 
 ```bash
 #opções do comando mysql: -u (user), -p (password)
@@ -120,7 +120,7 @@ sudo mysql -u root -p
 
 ## 06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É *CASE SENSITIVE*, CUIDADO COM O NOME DA BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC... NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É *CASE SENSITIVE*, CUIDADO COM O NOME DA: *BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
 
 ```sql
 /* visualizando as bases de dados do MySQL */
@@ -256,7 +256,7 @@ sudo journalctl -xeu mysql
 sudo mysql -u root -p
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** QUANDO UTILIZADO O CARÁCTER: __`% (PORCENTAGEM)`__ O MYSQL ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE *QUALQUER ORIGEM*, DIFERENTE DA OPÇÃO: __`LOCALHOST`__ QUE SÓ PERMITE O *ACESSO LOCAL*. CUIDADO COM ESSA OPÇÃO NA HORA DE CRIAR USUÁRIOS DE SERVIÇOS.
+**OBSERVAÇÃO IMPORTANTE:** QUANDO UTILIZADO O CARÁCTER: __`% (PORCENTAGEM)`__ O MYSQL ENTENDE QUE O USUÁRIO PODE ACESSAR O SERVIDOR DE *QUALQUER ORIGEM*, DIFERENTE DA OPÇÃO: __`LOCALHOST`__ QUE SÓ PERMITE O *ACESSO LOCAL*. **CUIDADO** COM ESSA OPÇÃO NA HORA DE CRIAR *USUÁRIOS DE SERVIÇOS*.
 
 ```sql
 /* criando o usuário Root Remoto do MySQL Server */
@@ -276,7 +276,7 @@ exit
 
 Link para download do MySQL Workbench: https://dev.mysql.com/downloads/workbench/
 
-**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __`Sys (Sistema)`__ é mostrado em *Esquemas*, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de segurança.
+**OBSERVAÇÃO IMPORTANTE:** após a conexão com o MySQL Server utilizando *MySQL Workbench* somente o Banco de Dados: __`Sys (Sistema)`__ é mostrado em *Esquemas (Scheme)*, os demais Banco de Dados utilizados pelo MySQL Server não são mostrados por motivo de **segurança**.
 
 ```bash
 #conectando com o usuário Root Remoto do MySQL no Workbench
@@ -298,7 +298,7 @@ MySQL Connections: +
 
 ## 11_ Integrando o MySQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E MOSTRADO NO VÍDEO, QUANDO VOCÊ INSTALA A EXTENSÃO DO MYSQL SERVER NO VSCODE NÃO APARECE NENHUM BANCO DE DADOS PADRÃO NA LISTAGEM, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO, ISSO É POR MOTIVO DE SEGURANÇA.
+**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E MOSTRADO NO VÍDEO, QUANDO VOCÊ INSTALA A *EXTENSÃO DO MYSQL SERVER NO VSCODE* NÃO APARECE NENHUM BANCO DE DADOS PADRÃO NA LISTAGEM, SOMENTE OS BANCOS DE DADOS CRIADOS PELO USUÁRIO, ISSO É POR MOTIVO DE **SEGURANÇA**.
 
 ```bash
 #instalando a Extensão do MySQL Server no VSCode
@@ -324,15 +324,15 @@ VSCode
 
 ========================================DESAFIOS=========================================
 
-**#12_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+**#12_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
 
-**#13_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO __`MYSQL`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
+**#13_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO MYSQL SERVER __`mysql`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
 
-**#14_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), CONFIGURAR TODAS AS PERMISSÕES IGUAIS AO USUÁRIO __`DBA LOCALHOST`__, TESTAR A CONEXÃO NO TERMINAL.
+**#14_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO NO MYSQL SERVER COM O SEU NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), CONFIGURAR TODAS AS PERMISSÕES IGUAIS AO USUÁRIO __`DBA LOCALHOST`__, TESTAR A CONEXÃO NO TERMINAL.
 
 **#15_ DESAFIO-04:** CRIAR OS USUÁRIOS: __`dba`__ E SEU NOME: __`seunome`__ REMOTOS, CONFIGURAR TODAS AS PERMISSÕES IGUAIS AO USUÁRIO __`ROOT REMOTO %`__, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
 
-**#16_ DESAFIO-05:** CONHECER O PROJETO: *Free SQL Database: https://www.freesqldatabase.com/*, NA OPÇÃO DE BANCO DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO PROCEDIMENTO DO __`DESAFIO-01 DA ETAPA: 12`__ E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
+**#16_ DESAFIO-05:** CONHECER O PROJETO: *Free SQL Database: https://www.freesqldatabase.com/*, NA OPÇÃO DE BANCO DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO PROCEDIMENTO DO __`DESAFIO-01 DA ETAPA: 12`__, DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 
 **OBSERVAÇÃO IMPORTANTE:** APÓS O CADASTRO NO SITE DO DB4FREE, DEPENDENDO DA CONTA DE EMAIL QUE VOCÊ ESTÁ UTILIZANDO, O RECEBIMENTO DO EMAIL DE CONFIRMAÇÃO DE CADASTRO DEMORA OU PODE ESTÁ NA CAIXA DE SPAM DA SUA CONTA, VERIFICAR ANTES DE TENTAR O CADASTRO NOVAMENTE.
 

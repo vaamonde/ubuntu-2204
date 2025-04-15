@@ -38,13 +38,15 @@ Conteúdo estudado nesse desafio:<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
-Site Oficial do OpenJDK: https://openjdk.org/
+Site Oficial do OpenJDK: https://openjdk.org/<br>
+Site Oficial do Java: https://www.java.com/pt-BR/
 
 **Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
-Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
+Site Oficial do W3C School CSS5: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
-Site Oficial do W3C School Java: https://www.w3schools.com/java/default.asp
+Site Oficial do W3C School Java24: https://www.w3schools.com/java/default.asp<br>
+Site Oficial do W3C School XML: https://www.w3schools.com/xml/
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -53,11 +55,13 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
-**O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O Apache Tomcat é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
+**O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O *Apache Tomcat* é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
 
-**O QUE É E PARA QUE SERVER O OPENJDK:** O OpenJDK (Open Java Development Kit) é uma implementação de código aberto da plataforma Java Standard Edition (Java SE). Ele inclui o *compilador Java (javac), a máquina virtual Java (JVM) e as bibliotecas padrão*, permitindo o desenvolvimento e execução de aplicativos Java.
+**O QUE É E PARA QUE SERVER O OPENJDK:** O *OpenJDK (Open Java Development Kit)* é uma implementação de código aberto da plataforma Java Standard Edition (Java SE). Ele inclui o *compilador Java (javac), a máquina virtual Java (JVM) e as bibliotecas padrão*, permitindo o desenvolvimento e execução de aplicativos Java.
 
-**O QUE É E PARA QUE SERVER O OPENJRE:** O OpenJRE (Open Java Runtime Environment) é uma implementação de código aberto do *Java Runtime Environment (JRE)*, baseada no OpenJDK. O OpenJRE é utilizado para executar aplicações Java, mas *não inclui o compilador (javac)* e outras ferramentas de desenvolvimento. Ele contém apenas a *Máquina Virtual Java (JVM) e as bibliotecas* necessárias para rodar programas Java já compilados.
+**O QUE É E PARA QUE SERVER O OPENJRE:** O *OpenJRE (Open Java Runtime Environment)* é uma implementação de código aberto do *Java Runtime Environment (JRE)*, baseada no OpenJDK. O OpenJRE é utilizado para executar aplicações Java, mas *não inclui o compilador (javac)* e outras ferramentas de desenvolvimento. Ele contém apenas a *Máquina Virtual Java (JVM) e as bibliotecas* necessárias para rodar programas Java já compilados.
+
+**O QUE É E PARA QUE SERVER O XML:** O *XML (eXtensible Markup Language)* é uma linguagem de marcação criada para armazenar e transportar dados de forma estruturada e legível por humanos e máquinas. Não é uma linguagem de programação, e sim uma forma padronizada de organizar informações usando tags (semelhante ao HTML, mas com foco em dados, não visual).
 
 [![Apache TomCAT](http://img.youtube.com/vi/TcC7cijfub0/0.jpg)](https://www.youtube.com/watch?v=TcC7cijfub0 "Apache TomCAT")
 
@@ -295,11 +299,11 @@ Clique em: Manager App
 
 ========================================DESAFIOS=========================================
 
-**#16_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat10`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat10`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO TOMCAT (O TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
+**#16_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat10`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat10`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
 
-**OBSERVAÇÃO IMPORTANTE:** RECOMENDO UTILIZAR DOIS NAVEGADORES DIFERENTES PARA ESSE TESTE, O USUÁRIO E SENHA DO TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR, VOCÊ PODE UTILIZAR OS RECURSOS DOS NAVEGADORES: __`Mozilla Firefox - Nova Janela Privada`__, __`Google Chrome - Nova Janela de Navegação Anonima`__ ou __`Microsoft Edge - Nova Janela InPrivate`__ QUE RESOLVE ESSE PROBLEMA.
+**OBSERVAÇÃO IMPORTANTE:** RECOMENDO UTILIZAR DOIS NAVEGADORES DIFERENTES PARA ESSE TESTE, O USUÁRIO E SENHA DO APACHE TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR, VOCÊ PODE UTILIZAR O RECURSO DOS NAVEGADORES: __`Mozilla Firefox - Nova Janela Privada`__, __`Google Chrome - Nova Janela de Navegação Anonima`__ ou __`Microsoft Edge - Nova Janela InPrivate`__ QUE RESOLVE ESSE PROBLEMA.
 
-**#17: DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O SEU: __`seu_usuário`__ NO GRUPO DO TOMCAT PARA ADMINISTRAR O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
+**#17: DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O SEU: __`seu_usuário`__ NO GRUPO DO APACHE TOMCAT: __`tomcat`__  PARA ADMINISTRAR O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
 
 =========================================================================================
 

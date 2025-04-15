@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 03/04/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 15/04/2025<br>
+#Versão: 0.23<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
@@ -91,7 +91,7 @@ Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
+**OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node.JS no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 
 ```bash
 #Adicionando o Repositório do Node.JS no Ubuntu Server (link atualizado em 10/01/2025)
@@ -121,36 +121,44 @@ sudo npm -v
 ```
 
 ## 05_ Criando um Projeto Simples para Testar o Node.JS no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM *DIRETÓRIOS DE PROJETOS* QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO O *FRAMEWORKS NODE.JS* DEVIDO AS DEPENDÊNCIAS E ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS NO MOMENTO DA INICIALIZAÇÃO DO PROJETO.
+
 ```bash
 #criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
 #opção do comando mkdir: -v (verbose)
 mkdir -v nodejs-hello
 
 #Listando o diretório criado do projeto do Node.JS
-#opção do comando ls: -l (long listing), -h (human-readable)
-ls -lh
+#opção do comando ls: -l (long listing), -h (human-readable), -a (all files)
+ls -lha
 
 #acessando o diretório do projeto do Node.JS
 cd nodejs-hello/
 
 #Inicializando o diretório do Projeto do Node.JS
 #opção do comando npm: init (create package.json file), -y (yes)
+#mais informações acesse: https://docs.npmjs.com/cli/v11/commands/npm-init
 npm init -y
 
 #Instalando o Módulo/Pacote Express do Node.JS
 #opção do comando npm: install (install package in directory)
+#mais informações acesse: https://docs.npmjs.com/cli/v11/commands/npm-install
 npm install express
 
 #Listando o conteúdo do diretório do projeto do Node.JS
-#opção do comando ls: -l (long listing), -h (human-readable), -a (all)
+#opção do comando ls: -l (long listing), -h (human-readable), -a (all files)
 ls -lha
 ```
 
 ## 06_ Criando um Projeto Simples do Node.JS no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código JavaScript ele desconfigura o código, recomendo no Windows utilizar o software *PuTTY ou Git Bash* para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+**OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar o arquivo: *index.js* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
 
-**OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc) ou  no macOS recomendo sempre utilizar o Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio, por padrão ele já entende toda a codificação HTML, PHP, JavaScript, JSON, etc..., facilitando a criação e modificação arquivos desse curso.
+**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+
+**OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
+
 
 ```bash
 #Criando o arquivo index.js do projeto do Node.JS
@@ -229,9 +237,9 @@ kill -9 15939
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR 01 (UMA) IMAGEM E FAZER O HYPER LINK PARA ACESSAR O WORDPRESS.
+**#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR __`01 (UMA) IMAGEM`__ E FAZER OS **HYPER LINKS** PARA ACESSAR O CMS WORDPRESS.
 
-**#12_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS IGUAL QUE FOI FEITO NO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
+**#12_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS SEGUINDO O MESMO PROCEDIMENTO DO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
 =========================================================================================
 

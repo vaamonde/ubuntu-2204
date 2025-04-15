@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 03/04/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 15/04/2025<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -85,7 +85,7 @@ sudo mysql -u root -p
 CREATE DATABASE wordpress;
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
 
 ```sql
 /* Criando o usuário e senha da Base de Dados do WordPress */
@@ -157,7 +157,8 @@ sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 /var/www/html/wp/wp-content/    <-- Diretório que contém os arquivos que você pode customizar:
                                     themes/: temas instalados, plugins/: plugins instalados e 
                                     uploads/: mídias enviadas (imagens, vídeos, PDFs, etc).
-/var/www/html/wp/wp-content/    <-- Diretório que contém os Logs do CMS Wordpress se habilitado.
+/var/www/html/wp/wp-content/    <-- Diretório que contém os Logs do CMS Wordpress se habilitado;
+/var/www/html/wp/wp-config.php  <-- Arquivo de configuração principal do CMS Wordpress.
 ```
 
 ## 05_ Editando o arquivo de conexão com o Banco de Dados e Salt do CMS WordPress
@@ -188,7 +189,7 @@ define( 'DB_USER', 'wordpress' );
 define( 'DB_PASSWORD', 'wordpress' );
 ```
 
-O **salt (ou "sal", em português) do WordPress** é uma string aleatória usada para *aumentar a segurança da autenticação dos usuários*. Ele é combinado com senhas e outras informações sensíveis antes de serem armazenadas ou processadas, **dificultando que sejam quebradas por ataques como brute-force ou rainbow tables**.
+O **salt (ou "sal", em português) do WordPress** é uma string aleatória usada para *aumentar a segurança da autenticação dos usuários*. Ele é combinado com senhas e outras informações sensíveis antes de serem armazenadas ou processadas, **dificultando que sejam quebradas por ataques como brute-force (força bruta - dicionário de senhas) ou rainbow tables (tabela arco-íris - reverter funções hash criptográficas)**.
 
 Link oficial para a geração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
 
@@ -197,7 +198,7 @@ Mais informações sobre o Salt's do WordPress: https://www.hostinger.com.br/tut
 ```php
 #copiar o conteúdo do Salt e colocar a partir da linha: 51
 #OBSERVAÇÃO IMPORTANTE: remover as linhas existentes de: 51 até: 58 antes de copiar/colar as
-#novas linhas do Salt, utilizar a opção: dd do Editor de Texto VIM. 
+#novas linhas do Salt do CMS Wordpress, utilizar a opção: dd do Editor de Texto VIM. 
 ```
 ```bash
 #salvar e sair do arquivo
@@ -255,7 +256,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
 
 ## 08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores
 
-**OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanente do Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no Wordpress.
+**OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores de DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanentes do Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no Wordpress.
 
 ```bash
 #Configuração dos Links Permanentes do WordPress
@@ -271,10 +272,11 @@ Configurações
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na tabela de configuração do Wordpress no MySQL Server, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
+## 09_ Correções da Falhas de Mudança de Domínio ou Rede do CMS Wordpress.
+
+**OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na *tabela de configuração do Wordpress no MySQL Server*, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 
 Mais informações acesse o Link dos Desenvolvedores do Wordpress: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
-
 
 ```bash
 #se logando no MySQL Server com o usuário e senha Wordpress
@@ -298,25 +300,26 @@ exit
 
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA`__ DO WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGEM NO WORDPRESS DE QUALQUER CONTEÚDO ADICIONANDO PELO MENOS __`DUAS IMAGEM`__ EM CADA POSTAGEM.
+**#10_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA (THEME)`__ DO CMS WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGENS NO WORDPRESS DE QUALQUER CONTEÚDO/ASSUNTO, ADICIONANDO PELO MENOS __`02 (DUAS) IMAGENS`__ EM CADA POSTAGEM.
 
-**#10_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
+**#11_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO CMS WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
 
-**#11_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR OS __`ÍCONES DO GITHUB, LINKEDIN E FACEBOOK`__, ADICIONAR TAMBÉM OS LINKS PARA O SITE CRIADO NO DESAFIO DO __`APACHE2`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM SISTEMA DE GESTÃO UNIFICADA DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
+**#12_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR E CONFIGURAR OS __`ÍCONES DO GITHUB, LINKEDIN, INSTAGRAM E FACEBOOK`__ PARA AS SUAS CONTAS, ADICIONAR TAMBÉM OS LINKS PARA DOS SITES CRIADOS NO DESAFIO DO __`APACHE2 (Diretório /teste e /seunome)`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM *SISTEMA DE GESTÃO UNIFICADA* DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
-**#12_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO WORDPRESS, SEGUINDO OS PROCEDIMENTOS ABAIXO:
+**#13_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO **CMS WORDPRESS**, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
-|         Descrição           |     Informação     |
-|-----------------------------|--------------------|
-| Path New Site               | /var/www/html/site |
-| Database Name               | newsite            |
-| User and Password Database  | newsite            |
-| User and Password Wordpress | super              |
-| Wordpress Template Install  | Astra              |
+|         Descrição           |     Informação     | Observação |
+|-----------------------------|--------------------|------------|
+| Path New Site               | /var/www/html/site | Nova localização do site |
+| Database Name               | newsite            | Nome do Banco de Dados |
+| User and Password Database  | newsite            | Usuário e Senha de conexão do Banco de Dados |
+| User and Password Wordpress | super              | Usuário e Senha de acesso ao CMS Wordpress
+| Wordpress Template Install  | Astra              | Tema (theme) do novo site do CMS Wordpress |
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS *DESAFIOS DO WORDPRESS*, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS FICA FORA DO AR (INDISPONÍVEL) E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
+**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS *DESAFIOS DO CMS WORDPRESS*, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS **FICA FORA DO AR (INDISPONÍVEL)** E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
+
 ```bash
-#acessar o diretório do site do Wordpress
+#acessar o diretório do site do Wordpress (ALTERE CONFORME SUA NECESSIDADE)
 cd /var/www/html/wp
 
 #listar o arquivo oculto de manutenção do Wordpress

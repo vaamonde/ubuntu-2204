@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 04/04/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 15/04/2025<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -34,9 +34,9 @@ Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
 
 **Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
-Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
+Site Oficial do W3C School CSS5: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
-Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
+Site Oficial do W3C School PHP8: https://www.w3schools.com/php/default.asp<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -180,6 +180,9 @@ exit
 ```
 
 ## 06_ Criando um diretório de Teste do HTML e PHP do Apache2 Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM *DIRETÓRIOS DE PROJETOS DE SITES* QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO AS LINGUAGENS *HTML5, CSS5, JAVASCRIPT, PHP7/8, ETC.* DEVIDO A ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS E CONECTADOS NA CONSTRUÇÃO DO SITE.
+
 ```bash
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
 cd /var/www/html
@@ -196,6 +199,10 @@ sudo chmod -Rv 2775 teste/
 #alterando o dono e grupo do diretório de teste
 #opção do comando chown: -R (recursive), -v (verbose), root (User), . (separate), www-date (group)
 sudo chown -Rv root.www-data teste/
+
+#Listando o diretório criado do site teste
+#opção do comando ls: -l (long listing), -h (human-readable)
+ls -lh
 
 #acessando o diretório criado de teste
 cd teste
@@ -315,13 +322,13 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
+**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
 
-**#10_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. **DICA-01:** FAZER OS HYPERLINK DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE DATA HORA DO PHP PARA ADICIONAR NA PÁGINA OU OUTRA FUNÇÃO DO SEU INTERESSE.
+**#10_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
 
-**#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO NO OPENSSH NO GRUPO DO __`APACHE2`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
+**#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO NO *OPENSSH* NO GRUPO DO APACHE2 __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
-**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS-01 E 02`__ NO SITE ON-LINE (CLOUD). 
+**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). 
 
 =========================================================================================
 
