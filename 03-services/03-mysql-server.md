@@ -53,6 +53,8 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O DBA:** O *DBA (Data Base Administrator)* desempenha um papel essencial na administração de sistemas de banco de dados, garantindo que as informações sejam armazenadas, acessadas e protegidas corretamente, fazendo as funções de: *Instalação, Configuração, Monitoramento, Desempenho, Backup/Restaure, Segurança, Gerenciamento, Planejamento, Automação, etc*.
 
+**O QUE É E PARA QUE SERVER O T-SQL:** O *SQL (Structured Query Language)* é a linguagem padrão para acessar e manipular *Bancos de Dados Relacionais*. Ela permite que você interaja com os dados de forma estruturada — seja para consultar, inserir, atualizar ou excluir informações. O SQL é o que você usa para **"Conversar"** com o banco de dados, T-SQL (Transact-SQL), PL-SQL (Procedural Language/Structured Query Language), PL-pgSQL (Procedural Language/PostgreSQL) etc., são variações do SQL padrão, com recursos extras de programação.
+
 [![MySQL Server](http://img.youtube.com/vi/7tl4TuxhuKg/0.jpg)](https://www.youtube.com/watch?v=7tl4TuxhuKg "MySQL Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg

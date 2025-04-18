@@ -36,10 +36,14 @@ Site Oficial do WordPress: https://br.wordpress.org/
 
 **Site Oficial do W3C (World Wide Web Consortium) School**<br>
 Site Oficial do W3C School HTML5: https://www.w3schools.com/html/default.asp<br>
-Site Oficial do W3C School CSS: https://www.w3schools.com/css/default.asp<br>
+Site Oficial do W3C School CSS5: https://www.w3schools.com/css/default.asp<br>
 Site Oficial do W3C School JavaScript: https://www.w3schools.com/js/default.asp<br>
-Site Oficial do W3C School PHP: https://www.w3schools.com/php/default.asp<br>
-Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp
+Site Oficial do W3C School Bootstrap5: https://www.w3schools.com/bootstrap5/<br>
+Site Oficial do W3C School PHP8: https://www.w3schools.com/php/default.asp<br>
+Site Oficial do W3C School SQL: https://www.w3schools.com/sql/default.asp<br>
+Site Oficial do W3C School JSON: https://www.w3schools.com/js/js_json_intro.asp<br>
+Site Oficial do W3C School React: https://www.w3schools.com/react/default.asp<br>
+Site Oficial do W3C School jQuery: https://www.w3schools.com/jquery/default.asp
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -52,7 +56,9 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O CMS:** O *CMS (Content Management System)*, ou Sistema de Gerenciamento de Conteúdo, é uma plataforma que permite criar, editar, organizar e publicar conteúdos de maneira fácil e intuitiva, *sem a necessidade de conhecimento técnico avançado em programação*. É amplamente utilizado para gerenciar sites, blogs e até lojas virtuais.
 
-**O QUE É E PARA QUE SERVER WEB DESIGNER:** Um *Web Designer* é o profissional responsável por criar o *Layout Visual e a Experiência de Uso (UX/UI) de Sites*, blogs, portais e lojas virtuais. **Ele não é necessariamente programador**, mas entende de *Design, Usabilidade, Estrutura Visual e Ferramentas Web* para criar interfaces que sejam bonitas, funcionais e responsivas (adaptadas a diferentes telas).
+**O QUE É E PARA QUE SERVER O WEB DESIGNER:** Um *Web Designer* é o profissional responsável por criar o *Layout Visual e a Experiência de Uso (UX/UI) de Sites*, blogs, portais e lojas virtuais. **Ele não é necessariamente programador**, mas entende de *Design, Usabilidade, Estrutura Visual e Ferramentas Web* para criar interfaces que sejam bonitas, funcionais e responsivas (adaptadas a diferentes telas).
+
+**O QUE É E PARA QUE SERVER O WEB DEVELOPER:** Um *Web Developer (ou Desenvolvedor Web)* é o profissional responsável por criar e manter sites, sistemas e aplicações para a web. Ele **escreve o código** que faz os sites funcionarem, seja na parte visual **(Front-End)**, na lógica e estrutura interna **(Back-End)** ou em ambos **(Full Stack)**.
 
 [![WordPress](http://img.youtube.com/vi/J6xVAocGyZg/0.jpg)](https://www.youtube.com/watch?v=J6xVAocGyZg "WordPress")
 
