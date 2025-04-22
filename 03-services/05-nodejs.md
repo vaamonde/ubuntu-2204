@@ -130,8 +130,8 @@ sudo npm -v
 mkdir -v nodejs-hello
 
 #Listando o diretório criado do projeto do Node.JS
-#opção do comando ls: -l (long listing), -h (human-readable), -a (all files)
-ls -lha
+#opção do comando ls: -l (long listing), -h (human-readable)
+ls -lh
 
 #acessando o diretório do projeto do Node.JS
 cd nodejs-hello/
