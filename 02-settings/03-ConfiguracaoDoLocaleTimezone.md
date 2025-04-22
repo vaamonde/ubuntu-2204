@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/04/2025<br>
-#Versão: 0.11<br>
+#Data de atualização: 22/04/2025<br>
+#Versão: 0.12<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -102,11 +102,14 @@ C) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
 **OBSERVAÇÃO:** ALTERAR O LOCALE CONFORME A LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE TIMEZONE ACESSE: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 ```bash
+#listando os Timezones disponíveis do comando timedatectl (PARA SAIR PRESSIONE Q (quit))
+sudo timedatectl list-timezones
+
 #configurando o fuso horário de America São Paulo
 #opção do comando timedatectl: set-timezone (set the system time zone to the specified value)
 sudo timedatectl set-timezone "America/Sao_Paulo"
 
-#verificando as mudanças do Timezone
+#verificando as mudanças do Timezone no Sistema
 sudo timedatectl
 ```
 
@@ -144,7 +147,10 @@ sudo systemctl restart systemd-timesyncd.service
 #verificar o status do serviço do Timesyncd
 sudo systemctl status systemd-timesyncd.service
 
-#verificar as informações do fuso horário e sincronismo
+#verificar as informações do sincronismo do Timesyncd (NÃO COMENTADO NO VÍDEO)
+sudo timedatectl timesync-status
+
+#verificando as informações de data e hora atualizada
 sudo timedatectl
 ```
 
