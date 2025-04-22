@@ -103,7 +103,11 @@ Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/p
     Personal Data Request: <Yes, log me in>
 
 02) Será mostrado no campo Free Personal Token o seu token;
-    Copiar o seu Token no campo: Token.
+    Copiar o seu Token no campo: Token. ou
+    Copiar o comando com o Token na linha: Command to attach a machine: 
+
+03) No lado esquerdo em: Free Personal Token é mostrado as colunas:
+    Machines (Licenças Disponíveis), Created (Data de Criação) e Expires (Data de Expiração)
 ```
 
 ## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server

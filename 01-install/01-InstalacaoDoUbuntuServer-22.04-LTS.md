@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 28/03/2025<br>
-Versão: 0.19<br>
+Data de atualização: 22/04/2025<br>
+Versão: 0.20<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -154,7 +154,7 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 <Enter>
 
 03) Installer update available
-    Version 24.10.1 of the installer is now available (24.08.1 is currently running)
+    Version 25.04 of the installer is now available (24.08.1 is currently running)
 <Continue without updating>
 
 04) Keyboard configuration

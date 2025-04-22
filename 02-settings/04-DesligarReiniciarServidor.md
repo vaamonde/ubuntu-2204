@@ -97,7 +97,7 @@ sudo shutdown -r 19:50 Servidor será reinicializando às 19:50hs
 sudo shutdown -r +20 Servidor será reinicializando em 20 minutos
 sudo shutdown -c
 
-#verificando o arquivo de agendamento (schedule) do shutdown
+#verificando o arquivo de agendamento (schedule) do shutdown (NÃO COMENTADO NO VÍDEO)
 #opção o comando cat: -n (number line)
 sudo cat -n /run/systemd/shutdown/scheduled
 ```

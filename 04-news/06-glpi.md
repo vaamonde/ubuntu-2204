@@ -97,8 +97,13 @@ CREATE USER 'glpi10' IDENTIFIED WITH mysql_native_password BY 'glpi10';
 GRANT USAGE ON *.* TO 'glpi10';
 GRANT ALL PRIVILEGES ON glpi10.* TO 'glpi10';
 FLUSH PRIVILEGES;
+```
 
+**OBSERVAÇÃO IMPORTANTE:** CUIDADO COM AS CONFIGURAÇÕES DA TIMEZONE DO GLPI HELP, ESSAS CONFIGURAÇÕES PRECISA SER FEITA NO SISTEMA OPERACIONAL DO UBUNTU SERVER (ETAPA: 03 DAS CONFIGURAÇÕES DE DADA E HORA), NO MYSQL SERVER E NO PHP PARA FUNCIONAR CORRETAMENTE.
+
+```sql
 /* Configurando o Recurso de TimeZone do Usuário GLPI Help Desk */
+/* ALTERAR AS INFORMAÇÕES DE TIMEZONE CONFORME A SUA NECESSIDADE */
 GRANT SELECT ON mysql.time_zone_name TO 'glpi10';
 SET time_zone='America/Sao_Paulo';
 SELECT NOW();
@@ -190,8 +195,8 @@ INSERT
 ```bash
 #altere os valores das variáveis do GLPI Help Desk nas linhas:
 16: <VirtualHost *:8888>
-22: DocumentRoot /var/www/html/glpi/public
-29: <Directory /var/www/html/glpi/public>
+22:   DocumentRoot /var/www/html/glpi/public
+29:   <Directory /var/www/html/glpi/public>
 ```
 ```bash
 #salvar e sair do arquivo
@@ -218,7 +223,7 @@ sudo vim /etc/php/8.1/apache2/php.ini
 INSERT
 ```
 ```bash
-#alterar o valor da variável: date.timezone na linha: 968
+#descomentar e alterar o valor da variável: date.timezone na linha: 968
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO CONFIGURAR PARA EFEITO DE COMPATIBILIDADE
 date.timezone = America/Sao_Paulo
 
@@ -249,7 +254,7 @@ opcache.memory_consumption = 1024
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 opcache.max_accelerated_files = 20000
 
-#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1795
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1798
 #Define com que frequência, em segundos, os arquivos em cache deverão expirar
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 opcache.revalidate_freq = 0

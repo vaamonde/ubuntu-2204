@@ -33,13 +33,13 @@ Conteúdo estudado nessa configuração:<br>
 #08_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
 #09_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
-**O QUE É E PARA QUE SERVER O NETPLAN:** O Netplan é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição YAML das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
+**O QUE É E PARA QUE SERVER O NETPLAN:** O *Netplan* é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição **YAML** das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
-**O QUE É E PARA QUE SERVER O HOSTNAME:** O arquivo Hostname é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de domínio NIS. O arquivo /etc/hostname armazena as informações de nome de máquina e domínio no formato FQDN (Fully Qualified Domain Name)
+**O QUE É E PARA QUE SERVER O HOSTNAME:** O arquivo *Hostname* é usado para exibir o nome DNS do sistema e para exibir ou defina seu nome de host ou nome de *domínio NIS*. O arquivo **/etc/hostname** armazena as informações de nome de máquina e domínio no formato *FQDN (Fully Qualified Domain Name)*
 
-**O QUE É E PARA QUE SERVER O FQDN:** Algumas vezes denominado nome de domínio absoluto, é um nome de domínio que especifica sua localização exata na árvore hierárquica do Domain Name System. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
+**O QUE É E PARA QUE SERVER O FQDN:** Algumas vezes denominado *nome de domínio absoluto*, é um nome de domínio que especifica sua localização exata na árvore hierárquica do **Domain Name System**. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
 
-**O QUE É E PARA QUE SERVER O HOSTS:** O arquivo Hosts faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores DNS (Domain Name System) e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
+**O QUE É E PARA QUE SERVER O HOSTS:** O arquivo *Hosts* faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores *DNS (Domain Name System)* e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
 
 [![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
 
@@ -140,7 +140,7 @@ sudo resolvectl
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Netplan e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado na linguagem de programação Python por exemplo, muito cuidado com o uso de __`espaços e tabulação`__ e principalmente sua **Indentação**.
 
-**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server 22.04.4 LTS e a versão 22.04.5 LTS o sistema de Cloud-Init afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você alterar as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
+**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server 22.04.4 LTS e da versão 22.04.5 LTS o sistema de Cloud-Init afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você altere as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
 
 ```bash
 #criando o arquivo para desativar as configurações da Placa de Rede do Cloud-Init (NÃO COMENTADO NO VÍDEO)

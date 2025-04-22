@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/04/2025<br>
-#Versão: 0.06<br>
+#Data de atualização: 22/04/2025<br>
+#Versão: 0.07<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -111,7 +111,7 @@ sudo apt autoclean
 sudo apt clean
 ```
 
-## 09_ Verificando todas as versões de software atualizados no Ubuntu Server
+## 09_ Verificando todas as versões de software atualizados no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 ```bash
 #List é utilizado para listar todos os software que serão atualizados no sistema.
 #opção do comando apt: list (list is used to display a list of packages), --installed (shows
@@ -119,7 +119,7 @@ sudo apt clean
 sudo apt list --installed
 ```
 
-## 10_ Verificando os Logs de atualização de software no Ubuntu Server
+## 10_ Verificando os Logs de atualização de software no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 ```bash
 #Verificando o Log de instalação e atualização de pacotes no Ubuntu Server
 #opção do comando cat: -n (number line)
