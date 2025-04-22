@@ -36,7 +36,7 @@ Conteúdo estudado nesse desafio:<br>
 #15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Client) no Ubuntu Server;<br>
 #16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) (Windows ou GNU/Linux);<br>
 #17_ Integrando o MongoDB Server com o Visual Studio Code VSCode (Windows ou GNU/Linux);<br>
-#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO;<br>
+#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO);<br>
 #19_ Desafios de Criação de Banco de Dados no MongoDB Local e no Cloud do Atlas.<br>
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>

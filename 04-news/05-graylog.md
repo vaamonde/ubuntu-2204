@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 05/04/2025<br>
-#Versão: 0.09<br>
+#Data de atualização: 22/04/2025<br>
+#Versão: 0.10<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
@@ -65,7 +65,12 @@ sudo apt update
 #instalando as dependências do Graylog Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apt-transport-https software-properties-common git vim wget curl \
-gnupg2 uuid-runtime pwgen dirmngr
+gnupg2 uuid-runtime pwgen dirmngr build-essential
+
+#instalando as dependências do OpenJDK e OpenJRE (NÃO COMENTADO NO VÍDEO)
+#OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle
+#OBSERVAÇÃO: OpenJRE é um software necessário para que os programas em Java funcionem corretamente.
+sudo apt install openjdk-21-jdk openjdk-21-jre
 ```
 
 ## 02_ Baixando e instalando a Chave GPG do OpenSearch no Ubuntu Server
@@ -83,7 +88,7 @@ echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.o
 
 ## 03_ Instalando o OpenSearch no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o OpenSearch 2.12 e superior agora requer a configuração da *OPENSEARCH_INITIAL_ADMIN_PASSWORD* variável de ambiente durante a instalação. A senha deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
+**OBSERVAÇÃO IMPORTANTE:** O OpenSearch 2.12 e superior agora requer a configuração da *OPENSEARCH_INITIAL_ADMIN_PASSWORD* variável de ambiente durante a instalação. A senha deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
 
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
@@ -117,7 +122,7 @@ INSERT
   #descomentar e alterar o valor da variável network.host na linha: 55
   network.host: 0.0.0.0
 
-  #adicionar as opção abaixo no final do arquivo a partir da linha: 159
+  #adicionar as opção abaixo no final do arquivo a partir da linha: 164
   discovery.type: single-node
   action.auto_create_index: false
   plugins.security.disabled: true
@@ -241,7 +246,7 @@ sudo apt install --install-recommends graylog-server
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
-  Enter Password: pti@2018
+  Enter Password: sua_senha
 ```
 
 ## 13_ Editando o arquivo de configuração do Graylog Server no Ubuntu Server
@@ -259,6 +264,8 @@ INSERT
   root_password_sha2 = COLAR_SUA_SENHA_GERADA
 
   #descomentar a alterar o valor da variável root_timezone na linha: 76
+  #OBSERVAÇÃO: CUIDADO COM ESSA VARIÁVEL, O SISTEMA JÁ FOI CONFIGURADO COM O UTC
+  #America / São Paulo no inicio da configuração do Ubuntu Server.
   root_timezone = America/Sao_Paulo
 
   #descomentar e alterar o valor da variável http_bind_address na linha: 104
@@ -267,7 +274,7 @@ INSERT
   #descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
   elasticsearch_hosts = http://172.16.1.20:9200
 
-  #alterando o valor da variável mongodb_uri na linha: 576
+  #alterando o valor da variável mongodb_uri na linha: 578
   #OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
   #utilizando usuário e senha.
   mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
