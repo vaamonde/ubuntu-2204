@@ -224,7 +224,7 @@ sudo vim /etc/php/8.1/apache2/php.ini
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
-```bash
+```php
 #descomentar e alterar o valor da variável: date.timezone na linha: 968
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO CONFIGURAR PARA EFEITO DE COMPATIBILIDADE
 date.timezone = America/Sao_Paulo
