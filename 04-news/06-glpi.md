@@ -161,6 +161,7 @@ tar -xzvf glpi.tgz
 #opção do comando mv: -v (verbose)
 sudo mv -v glpi/ /var/www/html/
 
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
 #alterando as permissões dos diretórios e arquivos do GLPI Help Desk
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)

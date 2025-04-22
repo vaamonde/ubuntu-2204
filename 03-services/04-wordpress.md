@@ -144,7 +144,7 @@ unzip wordpress.zip
 #opção do comando mv: -v (verbose)
 sudo mv -v wordpress/ /var/www/html/wp/
 
-#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME NECESSIDADE
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
 #alterando as permissões dos diretórios e arquivos do WordPress
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
@@ -278,7 +278,7 @@ Configurações
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 ```
 
-## 09_ Correções da Falhas de Mudança de Domínio ou Rede do CMS Wordpress.
+## 09_ Correções das Falhas de Mudança de Domínio ou Rede do CMS Wordpress.
 
 **OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na *tabela de configuração do Wordpress no MySQL Server*, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 
