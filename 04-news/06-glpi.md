@@ -106,9 +106,11 @@ FLUSH PRIVILEGES;
 /* ALTERAR AS INFORMAÇÕES DE TIMEZONE CONFORME A SUA NECESSIDADE */
 GRANT SELECT ON mysql.time_zone_name TO 'glpi10';
 SET time_zone='America/Sao_Paulo';
+FLUSH PRIVILEGES;
+
+/* Verificando as informações de Data e Hora e Timezone do MySQL Server */
 SELECT NOW();
 SELECT @@time_zone;
-FLUSH PRIVILEGES;
 
 /* Verificando o Usuário GLPI Help Desk criado no Banco de Dados MySQL Server*/
 SELECT user,host FROM mysql.user WHERE user='glpi10';
