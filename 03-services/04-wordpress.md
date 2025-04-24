@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 15/04/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 24/04/2025<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -321,6 +321,8 @@ exit
 | User and Password Database  | newsite            | Usuário e Senha de conexão do Banco de Dados |
 | User and Password Wordpress | super              | Usuário e Senha de acesso ao CMS Wordpress
 | Wordpress Template Install  | Astra              | Tema (theme) do novo site do CMS Wordpress |
+
+**#14_ NOVO DESAFIO-05:** FAZER O CADASTRADO NO SITE DO WORDPRESS FREE: https://wordpress.com/free/ SELECIONAR A OPÇÃO: __`<Start with Free>`__, EM CRIAR A SUA CONTA, SELECIONE O TIPO DE AUTENTICAÇÃO QUE VOCÊ PREFERIR, NA ESCOLHA DO DOMÍNIO DIGITE O SEU NOME, EXEMPLO: __`vaamonde`__ VERIFIQUE OS DOMÍNIOS DISPONÍVEIS DO TIPO: **GRATUITO** QUEM SÃO OS DOMÍNIOS: __`.wordpress.com`__ CLIQUE EM: **<Selecionar>**, NO TIPO DE PUBLICAÇÃO SELECIONE: **Construir um site escolar ou sem fins lucrativos**, ESCOLHA O SEU TEMA GRATUITO (RECOMENDADO O Retrospect OU da sua escolha), PERSONALIZE O SEU SITE, TENTE REPLICAR OS CONCEITOS APRENDIDOS NO WORDPRESS LOCAL.
 
 **OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS *DESAFIOS DO CMS WORDPRESS*, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS **FICA FORA DO AR (INDISPONÍVEL)** E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
 
