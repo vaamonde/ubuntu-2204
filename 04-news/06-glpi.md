@@ -283,8 +283,10 @@ ESC SHIFT :x <Enter>
 
 ## 07_ Habilitando os módulos do Apache2 Server utilizados pelo GLPI Help Desk no Ubuntu Server
 ```bash
-#habilitando os módulos do Apache2 Server
-sudo a2enmod rewrite setenvif
+#habilitando os módulos do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#opção da contra barra (\): criar uma quebra de linha no terminal
+sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex \
+negotiation setenvif
 
 #testando as configurações do Apache2 Server
 sudo apachectl configtest
