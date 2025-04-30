@@ -7,247 +7,241 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 28/04/2024<br>
-#Data de atualização: 12/08/2024<br>
-#Versão: 0.03<br>
+#Data de atualização: 29/04/2025<br>
+#Versão: 0.04<br>
 
 =========================================================================================<br>
 ############################### 01-openssh.md CHALLENGES ################################<br>
 =========================================================================================<br>
 
-#11_ DESAFIO-01: PERMITIR QUE O USUÁRIO: admin SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU
-SERVER VIA SSH UTILIZANDO O POWERSHELL, PUTTY OU TERMINAL NO LINUX.
+**#11_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
 
-	#editar o arquivo de configuração do OpenSSH
-	sudo vim /etc/ssh/sshd_config +77
-	INSERT
+```bash
+#editar o arquivo de configuração do OpenSSH
+sudo vim /etc/ssh/sshd_config +77
+INSERT
 
-		AllowUsers vaamonde admin
-		AllowGroups vaamonde admin
+  AllowUsers vaamonde admin
+  AllowGroups vaamonde admin
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
 
-	#reiniciar o serviço do OpenSSH Server
-	sudo systemctl restart ssh
-	sudo systemctl status ssh
+#reiniciar o serviço do OpenSSH Server
+sudo systemctl restart ssh
+sudo systemctl status ssh
+```
 
-#12_ DESAFIO-02: CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: robson (TUDO EM MINÚSCULO),
-FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: sudo E PERMITIR QUE O
-SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER VIA SSH.
+**#12_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
 
-	#criando o usuário Robson
-		sudo adduser robson
-			New password: pti@2018
-			Retype new password: pti@2018
-				Full Name []: Robson Vaamonde
-				Room Number []: <Enter>
-				Work Phone []: <Enter>
-				Home Phone []: <Enter>
-				Other []: <Enter>
-			Is the information correct? [Y/n] y <Enter>
-	
-	#listando o usuário criado com o comando getent
-	sudo getent passwd robson
+```bash
+#criando o usuário Robson
+sudo adduser robson
+  New password: pti@2018
+  Retype new password: pti@2018
+    Full Name []: Robson Vaamonde
+    Room Number []: <Enter>
+    Work Phone []: <Enter>
+    Home Phone []: <Enter>
+    Other []: <Enter>
+  Is the information correct? [Y/n] y <Enter>
 
-	#adicionando o usuário Robson ao grupo do SUDO
-	sudo usermod -aG sudo robson
+#listando o usuário criado com o comando getent
+sudo getent passwd robson
 
-	#verificando os grupos do usuário Robson
-	sudo groups robson
+#adicionando o usuário Robson ao grupo do SUDO
+sudo usermod -aG sudo robson
 
-	#editar o arquivo de configuração do OpenSSH
-	sudo vim /etc/ssh/sshd_config +77
-	INSERT
+#verificando os grupos do usuário Robson
+sudo groups robson
 
-		AllowUsers vaamonde admin robson
-		AllowGroups vaamonde admin robson
+#editar o arquivo de configuração do OpenSSH
+sudo vim /etc/ssh/sshd_config +77
+INSERT
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+  AllowUsers vaamonde admin robson
+  AllowGroups vaamonde admin robson
 
-	#reiniciar o serviço do OpenSSH Server
-	sudo systemctl restart ssh
-	sudo systemctl status ssh
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#reiniciar o serviço do OpenSSH Server
+sudo systemctl restart ssh
+sudo systemctl status ssh
+```
 
 =========================================================================================<br>
 ############################ 02-apache2-server.md CHALLENGES ############################<br>
 =========================================================================================<br>
 
-#09_ DESAFIO-01: CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: /var/www/html COM: seu_nome
-(TUDO EM MINÚSCULO) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UM NOVA PÁGINA EM HTML
-CHAMADA: index.html (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES DO HTML (VEJA O SITE W3SCHOOLS)
-E COLOCAR 02 (DUAS) IMAGENS NA PÁGINA.
+**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
 
-	#acessando o diretório do Apache2 Server
-	cd /var/www/html
+```bash
+#acessando o diretório do Apache2 Server
+cd /var/www/html
 
-	#criando o diretório com o seu nome
-	sudo mkdir -v robson
-	
-	#alterando as permissões do diretório de robson
-	sudo chmod -Rv 2775 robson/
-		
-	#alterando o dono e grupo do diretório de robson
-	sudo chown -Rv root.www-data robson/
-	
-	#acessando o diretório robson
-	cd robson/
+#criando o diretório com o seu nome
+sudo mkdir -v robson
 
-	#criando uma página em HTML com o seu nome
-	sudo vim index.html
-	INSERT
+#alterando as permissões do diretório de robson
+sudo chmod -Rv 2775 robson/
+  
+#alterando o dono e grupo do diretório de robson
+sudo chown -Rv root.www-data robson/
 
+#acessando o diretório robson
+cd robson/
+
+#criando uma página em HTML com o seu nome
+sudo vim index.html
+INSERT
+```
 ```html
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<title>Nova Página Index HTML do Desafio</title>
-			<meta charset="utf-8">
-		</head>
-		<body>
-			<h1>Nova Página Index HTML do Desafio</h1>
-			Autor: Robson Vaamonde<br>
-			Editado por: Robson Vaamonde<br>
-			Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
-			Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
-			Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
-			Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
-			Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
-			YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
-			<h1>Novos Recursos do HTML</h1>
-			<!-- Adicionando os novos recursos do HTML -->
-				<img src="https://hermes.dio.me/assets/articles/beea2f49-fb44-4778-8cb0-69101a5113ab.png" alt="COMO FUNCIONA O HTML" width="600" height="400"><br>
-				<img src="https://hermes.dio.me/assets/articles/50a9f5e9-1ac3-40d9-8559-def8b46e981f.png" alt="ESTRUTURA BÁSICA" width="600" height="400"><br>
-				<a href="http://172.16.1.20/robson/robson.php">Página em PHP</a>
-		</body>
-	</html>
+  <html lang="pt-br">
+    <head>
+      <title>Nova Página Index HTML do Desafio</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1>Nova Página Index HTML do Desafio</h1>
+      Autor: Robson Vaamonde<br>
+      Editado por: Robson Vaamonde<br>
+      Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
+      Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
+      Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
+      Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
+      Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
+      YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+      <h1>Novos Recursos do HTML</h1>
+      <!-- Adicionando os novos recursos do HTML -->
+        <ol>
+          <li>Linux Server</li>
+          <li>Apache Server</li>
+          <li>HTML5</li>
+        </ol>
+        <img src="https://hermes.dio.me/assets/articles/beea2f49-fb44-4778-8cb0-69101a5113ab.png" alt="COMO FUNCIONA O HTML" width="600" height="400"><br>
+        <img src="https://hermes.dio.me/assets/articles/50a9f5e9-1ac3-40d9-8559-def8b46e981f.png" alt="ESTRUTURA BÁSICA" width="600" height="400"><br>
+        <a href="http://172.16.1.20/robson/robson.php">Página em PHP</a>
+    </body>
+  </html>
 ```
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
 
-#10_ DESAFIO-02: NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: seunome.php, ADICIONAR
-MAIS OPÇÕES DO PHP (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR. DICA: FAZER O HYPERLINK
-DAS PÁGINAS: index.html COM A PÁGINA PHP seunome.php PARA FACILITAR O ACESSO E COMEÇAR UM 
-PROJETO DE SITE.
+**#10_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
 
-	#criando uma página em PHP com o seu nome
-	sudo vim robson.php
-	INSERT
-
+```bash
+#criando uma página em PHP com o seu nome
+sudo vim robson.php
+INSERT
+```
 ```php
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<title>Nova Página em PHP do Desafio</title>
-			<meta charset="utf-8">
-		</head>
-		<body>
-			<h1>Nova Página em PHP do Desafio</h1>
-			Autor: Robson Vaamonde<br>
-			Editado por: Robson Vaamonde<br>
-			Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
-			Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
-			Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
-			Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
-			Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
-			YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
-			<h1>Novos Recursos do PHP</h1>
-			<!-- Adicionando os novos recursos do PHP -->
-			<?php
-				// Obtém a data atual
-				$dataAtual = date('d/m/Y');
-				echo "Data atual: " . $dataAtual . "<br>";
+  <html lang="pt-br">
+    <head>
+      <title>Nova Página em PHP do Desafio</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1>Nova Página em PHP do Desafio</h1>
+      Autor: Robson Vaamonde<br>
+      Editado por: Robson Vaamonde<br>
+      Linkedin: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
+      Site: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
+      Facebook: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
+      Facebook: <a href="https://www.facebook.com/BoraParaPratica">Bora Para Pratica</a><br>
+      Instagram: <a href="https://www.instagram.com/procedimentoem/?hl=pt-br">Procedimentos Em TI</a><br>
+      YouTube: <a href="https://www.youtube.com/BoraParaPratica">Bora Para Pratica</a><br>
+      <h1>Novos Recursos do PHP</h1>
+      <!-- Adicionando os novos recursos do PHP -->
+      <?php
+        // Obtém a data atual
+        $dataAtual = date('d/m/Y');
+        echo "Data atual: " . $dataAtual . "<br>";
 
-				// Obtém a hora atual
-				$horaAtual = date('H:i:s');
-				echo "Hora atual: " . $horaAtual . "<br>";
+        // Obtém a hora atual
+        $horaAtual = date('H:i:s');
+        echo "Hora atual: " . $horaAtual . "<br>";
 
-				// Obtém a data e hora atual combinadas
-				$dataHoraAtual = date('d/m/Y H:i:s');
-				echo "Data e hora atual: " . $dataHoraAtual . "<br>";
-			?>
-			<a href="http://172.16.1.20/robson/">Página em HTML</a>
-		</body>
-	</html>
+        // Obtém a data e hora atual combinadas
+        $dataHoraAtual = date('d/m/Y H:i:s');
+        echo "Data e hora atual: " . $dataHoraAtual . "<br>";
+      ?>
+      <a href="http://172.16.1.20/robson/">Página em HTML</a>
+    </body>
+  </html>
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
 ```
 
-	#salvar e sair do arquivo
-	ESC SHIFT :x <Enter>
+**#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO NO *OPENSSH* NO GRUPO DO APACHE2 __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
-#11_ DESAFIO-03: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO SISTEMA NO 
-GRUPO DO APACHE2, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS 
-DOS SITES CRIADOS.
+```bash
+#adicionando o usuário Admin e Robson ao grupo do Apache2
+sudo usermod -aG www-data admin
+sudo usermod -aG www-data robson
+```
 
-	#adicionando o usuário Admin e Robson ao grupo do Apache2
-	sudo usermod -aG www-data admin
-	sudo usermod -aG www-data robson
+**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
 
-#12_ #12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA 
-CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS DESAFIO-01 
-E 02 NO SITE ON-LINE (CLOUD).
+```bash
+#acessar o link de registro do Pro Free Host
+https://profreehost.com/register/
 
-	#acessando o site do InfinityFree
-	https://www.infinityfree.com/
+  #registro da contra (Register)
+  Email Address: SEU_EMAIL@SEU_DOMÍNIO.COM
+  Password (Minimum 6 characters): SUA_SENHA
+  <Register>
+  #Captcha do Google
+  <Avançar>
+  #validação do email para continuar
+  Activate Account: Please activate your account first. Did not receive activation email? Resend Activation Email! 
 
-	#criando uma conta no InfinityFree
-	<Register>
+  #acessar o seu email e clicar no link: Account Activation
+  <Ativar conta>
+  #conta ativada
+  Your account has been activated successfully. Redirecting to your account.
 
-	#criando o cadastro no Site do InfinityFree
-	Email address: SEU_EMAIL
-	Password: SUA_SENHA
-	Confirm Password: CONFIRMA_SUA_SENHA
-	(X) Ive read and agree to the terms of service
-	(X) Confirme que é humano (CloudFlare)
-	<Sign Up>
+  #criando uma nova conta para o website
+  You do not have any account yet Create One Now! 
+  <+ Create New Account>
 
-	#validando o email recebido da InfinityFree
-	Clique no Link: <Verify Email Address>
+  #configurando o novo website
+  Launch Your New Website
+    Create New Website
+      Enter Attractive Name for Your Website: vaamonde: seu_domínio.unaux.com <Check Availability>
+      <YES> Free Domain
+      <Continuar>
+  
+  #gerenciando o novo website
+  Your Accounts (1/3)
+    Domain: vaamonde.unaux.com
+    Username: seu_usuário
+    <Manage>
 
-	#criando um nova conta de site na InfinityFree
-	<Create Account>
-
-	#configuração da conta na InfinityFree
-	Step 1: Choose Hosting Plan: InfinityFree <Create Now>
-	Step 2: Domain Name:
-	  Domain Type: Subdomain
-	  Subdomain: vaamonde
-	  Domain Extension: infinityfreeapp.com
-	<Check Availability>
-	Step 3: Additional Information
-	  Account Label: Primeiro Site do Vaamonde
-	  Account Username: (generated automatically)
-	  Account Password: SUA_SENHA_SEGURA
-	  Email Consent: I Approved
-	  (X) Confirme que é humano (CloudFlare)
-	<Create Account>
-	Step 4: Done
-	<Finish>
-
-	#email da confirmação do site do InfinityFree
-	Domínio: vaamonde.infinityfreeapp.com
-
-	#OBSERVAÇÃO IMPORTANTE: A CRIAÇÃO DO SITE E LIBERAÇÃO DO ENDEREÇO IP PÚBLICO PODE
-	#DEMORA CERCA DE 72HS, AGUARDE PARA QUE O SEU DOMÍNIO SEJA LIBERADO O ACESSO E VOCÊ
-	#CONSIGA CRIAR SUAS PÁGINAS.
+  
+```
 
 =========================================================================================<br>
 ############################# 02-mysql-server.md CHALLENGES #############################<br>
 =========================================================================================<br>
 
-#12_ DESAFIO-01: CRIAR UM BANCO DE DADOS COM O: seu_nome (TUDO EM MINÚSCULO), DENTRO DESSE 
-BANCO DE DADOS CRIAR UMA TABELA COM O: seu_nome (TUDO EM MINÚSCULO) COM AS SEGUINTES COLUNAS: 
-Nome (Tipo Texto) e Idade (Tipo Numérico) (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM 
-REGISTRO COM: Seu Nome e Sua Idade (VEJA O SITE W3SCHOOLS). OBSERVAÇÃO IMPORTANTE: NÃO PRECISA 
-CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+**#12_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.LA.
 
-	#acessar o MySQL Server como Root
-	sudo mysql -u root -p
-
+```bash
+#acessar o MySQL Server como Root
+sudo mysql -u root -p
+```
 ```sql
 /* criando o banco de dados robson */
 CREATE DATABASE robson;
 
-/* verificando os banco de dados criados */
+/* verificando os banco de dados criado */
 SHOW DATABASES;
 
 /* acessando o banco de dados robson */
@@ -255,8 +249,8 @@ USE robson;
 
 /* criando uma tabela robson com os campos nome e idade */
 CREATE TABLE robson (
-	nome VARCHAR(50),
-	idade INT
+  nome VARCHAR(50),
+  idade INT
 );
 
 /* verificando a tabela criada robson */
@@ -267,32 +261,32 @@ DESC robson;
 
 /* inserindo os dados na tabela robson */
 INSERT INTO robson (
-	nome, 
-	idade
+  nome, 
+  idade
 )
 VALUES (
-	'Robson Vaamonde', 
-	45
+  'Robson Vaamonde',
+  45
 );
 
 /* verificando as informações cadastradas na tabela robson */
 SELECT * FROM robson;
 ```
 
-#13_ DESAFIO-02: ADICIONAR O USUÁRIO: admin E O USUÁRIO: seu_usuário CRIADOS NO PROCEDIMENTO
-DE CONFIGURAÇÃO DO OPENSSH NO GRUPO DO MYSQL PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE 
-DO COMANDO SUDO.
+**#13_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO MYSQL SERVER __`mysql`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
 
-	#adicionando o usuário Admin e Robson ao grupo do Apache2
-	sudo usermod -aG mysql admin
-	sudo usermod -aG mysql robson
+```bash
+#adicionando o usuário Admin e Robson ao grupo do Apache2
+sudo usermod -aG mysql admin
+sudo usermod -aG mysql robson
+```
 
-#14_ DESAFIO-03: CRIAR MAIS UM USUÁRIO NO MYSQL COM O SEU NOME: seu_nome, CONFIGURAR TODAS
-AS PERMISSÕES IGUAIS AO USUÁRIO DBA, TESTAR A CONEXÃO NO TERMINAL.
+**#14_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO NO MYSQL SERVER COM O SEU NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), CONFIGURAR TODAS AS PERMISSÕES IGUAIS AO USUÁRIO __`DBA LOCALHOST`__, TESTAR A CONEXÃO NO TERMINAL.
 
-	#acessar o MySQL Server como Root
-	sudo mysql -u root -p
-
+```bash
+#acessar o MySQL Server como Root
+sudo mysql -u root -p
+```
 ```sql
 /* criando o usuário Robson Localhost */
 CREATE USER 'robson'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
@@ -309,10 +303,10 @@ SELECT user,host FROM mysql.user WHERE user='robson';
 /* saindo do MySQL Client Console */
 exit
 ```
-
-	#se logando com o usuário Robson para testar a conexão com o MySQL Server
-	sudo mysql -u robson -p
-
+```bash
+#se logando com o usuário Robson para testar a conexão com o MySQL Server
+sudo mysql -u robson -p
+```
 ```sql
 /* visualizando as bases de dados do MySQL */
 SHOW DATABASES;
@@ -321,12 +315,12 @@ SHOW DATABASES;
 exit
 ```
 
-#15_ DESAFIO-04: CRIAR OS USUÁRIO: dba E SEU NOME: seu_nome, CONFIGURAR TODAS AS PERMISSÕES
-IGUAIS AO USUÁRIO ROOT REMOTO, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
+**#15_ DESAFIO-04:** CRIAR OS USUÁRIOS: __`dba`__ E SEU NOME: __`seunome`__ REMOTOS, CONFIGURAR TODAS AS PERMISSÕES IGUAIS AO USUÁRIO __`ROOT REMOTO %`__, TESTAR A CONEXÃO NO TERMINAL, MYSQL WORKBENCH E VSCODE.
 
-	#acessar o MySQL Server como Root
-	sudo mysql -u root -p
-
+```bash
+#acessar o MySQL Server como Root
+sudo mysql -u root -p
+```
 ```sql
 /* criando os usuários dba e robson remoto no  MySQL Server */
 CREATE USER 'dba'@'%' IDENTIFIED WITH mysql_native_password BY 'pti@2018';
@@ -340,86 +334,133 @@ SELECT user,host FROM mysql.user where host = '%';
 exit
 ```
 
-#16_ DESAFIO-04: CONHECER O PROJETO: DB4Free https://www.db4free.net/, NA OPÇÃO DE BANCO 
-DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO
-DESAFIO-01 DA ETAPA: 12 E DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
+**#16_ DESAFIO-05:** CONHECER O PROJETO: *Free SQL Database: https://www.freesqldatabase.com/*, NA OPÇÃO DE BANCO DE DADOS, FAZER A CRIAÇÃO DE UM BANCO DE DADOS GRATUITO NA NUVEM (CLOUD) SEGUINDO O MESMO PROCEDIMENTO DO __`DESAFIO-01 DA ETAPA: 12`__, DEPOIS TESTAR A CONEXÃO NO MYSQL WORKBENCH E VSCODE.
 
-	#acessar o site do DB4Free
-	https://www.db4free.net/
-		Clicar em: Criar uma conta
-			Cadastre-se:
-				Nome do banco de dados MySQL: robson
-				Nome de usuário MySQL: SEU_USUÁRIO
-				Senha do MySQL: SUA_SENHA
-				Confirmação de senha do MySQL: SUA_SENHA
-				E-mail: SEU_EMAIL@SEU_DOMÍNIO.COM
-				(Enable) Li e concordo com os termos de uso.
-			<Cadastre-se>
-	
-	#acessar o email de confirmação da conta e do banco DB4Free
-	Você receberá um e-mail para confirmação de seu cadastro.
-		Clicar no link: https://www.db4free.net/confirm.php?create=XXXXXXXXX
-	
-	#acessando o PhPMyAdmin do DB4Free
-	https://www.db4free.net/phpMyAdmin/
-		 Idioma (Language): Português (Brasil) - Português (Brazil)
-		 Usuário: SEU_USUÁRIO
-		 Senha: SUA_SENHA
-	
-	#criando a tabela no banco de dados robson no PhPMySQLAdmin
-	clicar no Banco: robson
-		Clicar em: <Criar nova tabela>
-			Nome da tabela: robson
-			Número de colunas: 2
-		<Criar>
-	
-	#criando os campos da tabela robson no banco de dados robson
-	Nome: nome - Tipo: VARCHAR - 50
-	Nome: idade - Tipo: INT - 3
-	<Salvar>
+```bash
+#acessar o site do Free SQL Database
+https://www.freesqldatabase.com/
+  Ir até: MySQL Free
+    Clique em: <Sing Up>
 
-	#inserir os dados na tabela robson no banco de dados robson
-	clicar em: Inserir
-		Coluna: nome - Valor: Robson Vaamonde
-		Coluna: idade - Valor: 45
-	<Executar>
+#registre a sua conta
+Register For This Site
+  Email: seu_email@seu_domínio.com
+  (YES) I not a robot
+  <Register>
+    https://www.freesqldatabase.com/login/
 
-	#visualizar os dados cadastrados na tabela robson no banco de dados robson
-	clicar em: Visualizar
+#acessar o email de confirmação da conta e do banco Free SQL Database
+Você receberá um e-mail para confirmação de seu cadastro.
+  Email: Welcome to freesqldatabase.com (Bem-vindo ao freesqldatabase.com)
+    Clique no link: Utilize este link para concluir seu registro .
 
-	#conectando o DB4Free no MySQL Workbench
-	MySQL Workbench
-		MySQL Connections: (+)
-			Connection name: DB4Free
-			Connection Method:
-				Parameters
-					Hostname: db4free.net
-					Port: 3306
-					Username: SEU_USUÁRIO
-					Password: <Store in Keychain>
-						Password: SUA_SENHA <OK>
-					<Test Connection>
-						<Continue Anyway>
-						<OK>
-				Advanced
-					Timeout: 1000
-		<OK>
-	
-	#conectando o DB4Free no Visual Studio Code VSCode
-	Visual Studio Code
-		Database
-			<+ Add Connection>
-				Connect to server
-					Name: DB4Free
-				Server Type
-					MySQL Server
-				Config
-					Host: db4free.net
-					Port: 3306
-					Username: SEU_USUÁRIO
-					Password: SUA_SENHA
-			<Save>
-		<+ Connect>
+#configurando a senha de acesso ao Painel do Free SQL Database
+New password: sua_senha
+Confirm new password: sua_senha
+<Save Password>
+
+#acessando o ambiente de administração do Free SQL Database
+Your password has been reset.
+  Email: seu_email@seu_domínio.com
+  Password: sua_senha
+  (YES) Remember Me
+  (YES) Im not robot
+  <Log In>
+
+#criando um registro de banco de dados do Free SQL Database
+Registration
+  Selecione: Brazil <Complete my registration>
+
+#configuração da localização do banco de dados do Free SQL Database
+Server Location
+  Select where you would like you database located.
+    Selecione: South America <Save Location>
+
+#iniciando um banco de dados do Free SQL Database
+Database Details
+  <Start new database>
+  Anote os dados de acesso ao Banco de Dados
+    Database Host: sql10.freesqldatabase.com
+    Database Name: sqlXXXX
+    Database Username: sqlXXX
+    Database Password: enviado por email
+
+#acessar o email de criação do banco de dados do Free SQL Database
+Você receberá um e-mail de confirmação do banco de dados
+  Email: Your Database is setup (Seu banco de dados está configurado)
+    O número da sua conta é: XXXX
+    Host: sql10.freesqldatabase.com
+    Nome do banco de dados: sqlXXXX
+    Usuário do banco de dados: sqlXXXXX
+    Senha do banco de dados: sua_senha
+    Número da porta: 3306
+
+#acessando o banco de dados criado via PhpMySQL do Free SQL Database
+Acesse: https://www.phpmyadmin.co/
+  Servidor: sql10.freesqldatabase.com
+  Usuário: sqlXXX
+  Senha: sua_senha
+  (YES) Não sou robô
+  <Executar>
+
+#criando a tabela robson no banco de dados padrão do Free SQL Database
+Selecione o banco: sqlXXXX
+  Estrutura
+    Criar tabela
+      Nome: robson
+      Número de colunas: 2
+  <Executar>
+
+#personalizando as colunas da tabela robson no banco de dados padrão do Free SQL Database
+Nome: nome   Tipo: VARCHAR   Tamanho/Valores: 50
+Nome: idade  Tipo: INT       Tamanho/Valores: 3
+<Salvar>
+
+#inserindo os dados na tabela robson no banco de dados padrão do Free SQL Database
+Selecione o banco: sqlXXXX
+  Inserir
+    Coluna: nome    Valor: Robson Vaamonde
+    Coluna: idade   Valor: 45
+  <Executar>
+
+#visualizando o registro na tabela robson no banco de dados padrão do Free SQL Database
+Selecione o banco: sqlXXXX
+  Visualizar
+
+#conectando o Free SQL Database no MySQL Workbench
+MySQL Workbench
+  MySQL Connections: (+)
+    Connection name: Free SQL Database
+    Connection Method:
+      Parameters
+        Hostname: sql10.freesqldatabase.com
+        Port: 3306
+        Username: sqlXXXX
+        Password: <Store in Keychain>
+          Password: SUA_SENHA <OK>
+        <Test Connection>
+          <Continue Anyway>
+          <OK>
+      Advanced
+        Timeout: 1000
+  <OK>
+
+#conectando o Free SQL Database no Visual Studio Code VSCode
+Visual Studio Code
+  Database
+    <+ Add Connection>
+      Connect to server
+        Name: Free SQL Database
+      Server Type
+        MySQL Server
+      Config
+        Host: sql10.freesqldatabase.com
+        Port: 3306
+        Username: sqlXXXX
+        Password: SUA_SENHA
+    <Save>
+  <+ Connect>
+```
 
 =========================================================================================<br>
 ############################## 03-wordpress.md CHALLENGES ###############################<br>

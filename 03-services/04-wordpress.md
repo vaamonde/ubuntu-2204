@@ -278,7 +278,7 @@ Configurações
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 ```
 
-## 09_ Correções das Falhas de Mudança de Domínio ou Rede do CMS Wordpress.
+## 09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress.
 
 **OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na *tabela de configuração do Wordpress no MySQL Server*, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 
@@ -303,6 +303,7 @@ UPDATE wp_postmeta SET meta_value = replace(meta_value,'IPv4.ANTIGO','IPv4.NOVO'
 /* Sair do Mysql Server e Testar novamente o Site do Wordpress no navegador */ 
 exit
 ```
+
 
 ========================================DESAFIOS=========================================
 

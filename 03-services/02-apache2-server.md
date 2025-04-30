@@ -328,9 +328,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
 **#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO NO *OPENSSH* NO GRUPO DO APACHE2 __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
-**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://www.infinityfree.com/*, CRIAR UMA CONTA: *Free Register*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`wuaze.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO), DEPOIS REMOVER O __`https`__ DO ACESSO AO SITE PARA TESTAR AS PÁGINAS. 
-
-https://profreehost.com/register/
+**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
 
 =========================================================================================
 
