@@ -30,7 +30,7 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Acessando o Projeto Simples do Node.JS via Navegador;<br>
 #10_ Finalizando a Execução do Projeto Simples do Node.JS Express no Ubuntu Server;<br>
 #11_ Entendendo a Estrutura do Projeto Simples do Node.JS Express no Ubuntu Server;<br>
-#12_ Desafio de uma Nova Aplicação do Node.JS.<br>.
+#12_ Desafio de uma Nova Aplicação do Node.JS.<br>
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
@@ -164,7 +164,6 @@ ls -lha
 
 **OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
 
-
 ```bash
 #Criando o arquivo index.js do projeto do Node.JS
 vim index.js
@@ -220,7 +219,7 @@ ESC SHIFT :x <Enter>
 
 ## 07_ Executando o Projeto Simples do Node.JS utilizando o Express no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** existe também o comando: *bg* que faz a mesma coisa do caractere: *& (E-Comercial)* colocando a aplicação em **background** e liberando o terminal.
+**OBSERVAÇÃO IMPORTANTE:** existe também o comando: __`bg`__ que faz a mesma coisa do caractere: *& (E-Comercial)* colocando a aplicação em **background** e liberando o terminal.
 
 ```bash
 #opção do comando &: background
@@ -248,7 +247,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 #verificando os processos em segundo plano (background)
 jobs
 
-#trazendo o processo em segundo plano do Node.JS para o primeiro plano (foreground)
+#trazendo o processo em segundo plano (background) do Node.JS para o primeiro plano (foreground)
 fg
 
 #finalizando o processo do Node.JS Express
@@ -276,10 +275,10 @@ ls -lha
 
 | Arquivo/Diretório | Descrição |
 |-------------------|-----------|
-| index.js | Arquivo principal do servidor |
+| index.js | Arquivo principal do servidor e serviço do Node.js |
 | package.json | Arquivo de configuração do projeto Node.js |
 | package-lock.json | Arquivo das versões dos pacotes do projeto Node.js |
-| node_modules | Diretório dos pacotes e dependências do projeto Node.js |
+| node_modules/ | Diretório dos pacotes e dependências do projeto Node.js |
 
 ```bash
 #Verificando a Árvore do Projeto do Node.JS
