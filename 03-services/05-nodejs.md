@@ -174,7 +174,7 @@ INSERT
 ```
 ```js
 //Projeto simples do Node.JS e Express para testar o Servidor Ubuntu
-//Versão: 1.0 - Data de atualização: 06/05/2025
+//Versão: 1.0 - Data de atualização: 06/05/2025 - Dev: Robson Vaamonde
 
 //===== Bloco das Variáveis do Node.JS =====
 
