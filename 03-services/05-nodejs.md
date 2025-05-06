@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 15/04/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 06/05/2025<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
@@ -29,7 +29,8 @@ Conteúdo estudado nesse desafio:<br>
 #08_ Verificando a Porta de Conexão do Node.JS Express no Ubuntu Server;<br>
 #09_ Acessando o Projeto Simples do Node.JS via Navegador;<br>
 #10_ Finalizando a Execução do Projeto Simples do Node.JS Express no Ubuntu Server;<br>
-#11_ Desafio de uma Nova Aplicação do Node.JS.<br>.
+#11_ Entendendo a Estrutura do Projeto Simples do Node.JS Express no Ubuntu Server;<br>
+#12_ Desafio de uma Nova Aplicação do Node.JS.<br>.
 
 Site Oficial do Node.JS: https://nodejs.org/en/<br>
 Site Oficial do NPM: https://www.npmjs.com/<br>
@@ -67,13 +68,15 @@ sudo apt update
 
 #instalando as dependências do Node.JS
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install git vim curl gnupg gcc g++ make software-properties-common \
-build-essential ca-certificates
+sudo apt install git vim curl gnupg gcc g++ make software-properties-common tree \
+build-essential ca-certificates apt-transport-https
 ```
 
 ## 02_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
 
 Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
+
+**OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node.JS no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 
 ```bash
 #Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
@@ -83,21 +86,23 @@ Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 #opção do comando sudo: -E (preserve-env)
 #sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
 
-#Adicionando a Chave GPG do Node.JS via Nodesource
+#Adicionando a Chave GPG do Node.JS via Nodesource (DESATIVADO DEVIDO A INCOMPATIBILIDADE DE VERSÃO)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output file)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
-```
+#curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/nodesource.gpg
 
-**OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node.JS no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
-
-```bash
-#Adicionando o Repositório do Node.JS no Ubuntu Server (link atualizado em 10/01/2025)
+#Adicionando o Repositório do Node.JS no Ubuntu Server (link atualizado em 10/01/2025) (DESATIVADO DEVIDO A INCOMPATIBILIDADE DE VERSÃO)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção da contra barra (\): criar uma quebra de linha no terminal
-echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+#echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+#Script de configuração do Repositório do Node.JS (INDICADO A SUA UTILIZAÇÃO)
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando sudo: -E (preserve-env)
+sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash
 ```
 
 ## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
@@ -168,16 +173,39 @@ vim index.js
 INSERT
 ```
 ```js
-// Criando as variáveis do Express e do App do Node.JS
-var express = require ('express'); 
+//===== Bloco das Variáveis do Node.JS =====
+
+//Importando o Módulo Express
+//require('express'): importa o módulo Express, que é um framework para criar servidores
+//web de forma simples e rápida no Node.js.
+//var express =: atribui a funcionalidade do módulo à variável express
+//O require() é uma função do Node.js usada para importar bibliotecas externas ou arquivos.
+var express = require ('express');
+
+//Criando uma Instância do Aplicativo
+//express(): cria uma instância do servidor Express.
+//app: será usado para configurar rotas, middlewares e controlar a lógica da aplicação.
 var app = express();
 
-// Mensagem que será mostrada no browser (navegador) 
+//===== Bloco da Rota GET do Node.JS =====
+
+//Definindo uma Rota GET (Mensagem que será mostrada no browser (navegador))
+//app.get('/'): define uma rota HTTP do tipo GET para o caminho / (raiz).
+//function(req, res) {...}: função callback que trata a requisição (req) e envia uma resposta (res).
+//req (request): contém informações da requisição do cliente (navegador, Postman, etc).
+//res (response): usado para enviar a resposta ao cliente.
+//res.send(...): envia uma mensagem de texto como resposta HTTP. Essa mensagem aparecerá no
+//navegador quando o usuário acessar o servidor pela rota /.
 app.get('/', function (req, res) {
   res.send('Seu Nome e Sobrenome #BoraParaPrática!!!');
 });
 
-// Porta padrão utilizada pela aplicação do Node.JS
+//===== Bloco do Servidor Express do Node.JS =====
+
+//Iniciando o Servidor (Porta padrão 3000 utilizada pela aplicação do Node.JS)
+//app.listen(3000, ...): inicia o servidor na porta 3000, que será usada para aceitar conexões HTTP.
+//função callback exibe uma mensagem no terminal para indicar que o servidor está ativo.
+//Porta 3000 é comumente usada para testes locais em projetos Node.js.
 app.listen(3000, function() {
   console.log('Aplicativo de exemplo ouvindo na porta 3000');
 });
@@ -232,14 +260,29 @@ Ctrl + C
 ps -u
 
 #opção do comando kill: -9 (Kill all processes you can kill)
-kill -9 15939
+kill -9 PID_ID
 ```
+
+## 11_ Entendendo a Estrutura do Projeto Simples do Node.JS Express no Ubuntu Server
+
+```bash
+#Listando o conteúdo do diretório do projeto do Node.JS
+#opção do comando ls: -l (long listing), -h (human-readable), -a (all files)
+ls -lha
+```
+
+| Arquivo/Diretório | Descrição |
+|-------------------|-----------|
+| index.js | Arquivo principal do servidor |
+| package.json | Arquivo de configuração do projeto Node.js |
+| package-lock.json | Arquivo das versões dos pacotes do projeto Node.js |
+| node_modules | Diretório dos pacotes e dependências do projeto Node.js | 
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR __`01 (UMA) IMAGEM`__ E FAZER OS **HYPER LINKS** PARA ACESSAR O CMS WORDPRESS.
+**#12_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR __`01 (UMA) IMAGEM`__ E FAZER OS **HYPER LINKS** PARA ACESSAR O CMS WORDPRESS.
 
-**#12_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS SEGUINDO O MESMO PROCEDIMENTO DO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
+**#13_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS SEGUINDO O MESMO PROCEDIMENTO DO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
 =========================================================================================
 
