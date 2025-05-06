@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
 #Data de atualização: 06/05/2025<br>
-#Versão: 0.24<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
@@ -279,7 +279,16 @@ ls -lha
 | index.js | Arquivo principal do servidor |
 | package.json | Arquivo de configuração do projeto Node.js |
 | package-lock.json | Arquivo das versões dos pacotes do projeto Node.js |
-| node_modules | Diretório dos pacotes e dependências do projeto Node.js | 
+| node_modules | Diretório dos pacotes e dependências do projeto Node.js |
+
+```bash
+#Verificando a Árvore do Projeto do Node.JS
+#opção do comando tree: s (Print the size of each file in bytes along with the name), 
+#h (Print the size of each file but in a more human readable way), --sort=size (Sort 
+#the output by type instead of name) --du (For each directory report its size as the 
+#accumulation of sizes of all its files and sub-directories)
+tree -sh --sort=size --du
+```
 
 ========================================DESAFIOS=========================================
 
