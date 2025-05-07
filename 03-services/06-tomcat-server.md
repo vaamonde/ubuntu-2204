@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 29/04/2025<br>
-#Versão: 0.28<br>
+#Data de atualização: 07/05/2025<br>
+#Versão: 0.29<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
@@ -34,7 +34,8 @@ Conteúdo estudado nesse desafio:<br>
 #13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server no Ubuntu Server;<br>
 #14_ Testando o acesso ao Apache Tomcat Server no navegador;<br>
 #15_ Administrando o Apache Tomcat Server via navegador;<br>
-#16_ Desafios do Servidor de Aplicação Apache TomCAT Server.<br>.
+#16_ Conhecendo as opções de gerenciamento do Apache Tomcar Server via navegador;<br>
+#17_ Desafios do Servidor de Aplicação Apache TomCAT Server.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -91,7 +92,7 @@ sudo java -version
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo apt list --installed | grep -i openjdk
 
-#verificando as alternativas de Jaa instalado
+#verificando as alternativas de Java instalado
 sudo update-alternatives --list java
 sudo update-java-alternatives --list
 ```
@@ -102,7 +103,7 @@ sudo update-java-alternatives --list
 
 Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
 
-**OBSERVAÇÃO IMPORTANTE:** EM OUTUBRO DE 2024 FOI ANUNCIADO A VERSÃO 11.x DO APACHE TOMCAT, EM ABRIL DE 2025 A VERSÃO 11.0.6 FOI LANÇADA COM VÁRIAS CORREÇÕES SE TORNANDO UMA VERSÃO ESTÁVEL PARA IMPLEMENTAÇÃO, APÓS TODOS OS TESTES FEITO NA NOVA VERSÃO DO APACHE TOMCAT, ESSA DOCUMENTAÇÃO FOI ATUALIZADA PARA A VERSÃO MAIS RECENTE DO APACHE TOMCAT (ATUAL: 11.0.6), MAIS INFORMAÇÕES ACESSE O LINK OFICIAL DO APACHE TOMCAT EM: https://tomcat.apache.org/tomcat-11.0-doc/changelog.html
+**OBSERVAÇÃO IMPORTANTE:** EM OUTUBRO DE 2024 FOI ANUNCIADO A VERSÃO 11.x DO APACHE TOMCAT, EM ABRIL DE 2025 A VERSÃO 11.0.6 FOI LANÇADA COM VÁRIAS CORREÇÕES SE TORNANDO UMA VERSÃO ESTÁVEL PARA IMPLEMENTAÇÃO, APÓS TODOS OS TESTES FEITO NA NOVA VERSÃO DO APACHE TOMCAT, ESSA DOCUMENTAÇÃO FOI ATUALIZADA PARA A VERSÃO MAIS RECENTE D (ATUAL 07/05/2025: 11.0.6), MAIS INFORMAÇÕES ACESSE O LINK OFICIAL DO APACHE TOMCAT EM: https://tomcat.apache.org/tomcat-11.0-doc/changelog.html
 
 
 ```bash
@@ -110,7 +111,7 @@ Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomc
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 29/04/2025)
+#download da última versão do Apache TomCAT Server (link atualizado em 07/05/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
@@ -133,34 +134,34 @@ mv -v /tmp/apache-tomcat* /opt/tomcat
 #download dos principais arquivos de configuração do Apache TomCAT Server
 #opção do comando wget: -v (verbose), -O (output file)
 
-#download do arquivo de configuração do Servidor Apache Tomcat
+#PRIMEIRO: download do arquivo de configuração do Servidor Apache Tomcat
 wget -v -O /opt/tomcat/conf/server.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.xml
 
-#download do arquivo de configuração dos Usuários do Apache Tomcat
+#SEGUNDO: download do arquivo de configuração dos Usuários do Apache Tomcat
 wget -v -O /opt/tomcat/conf/tomcat-users.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat-users.xml
 
-#download do arquivo de configuração do Contexto do Apache Tomcat
+#TERCEIRO: download do arquivo de configuração do Contexto do Apache Tomcat
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO A PARTIR DA LINHA: 36 FICA TODAS AS LIBERAÇÕES
 #DE REDES QUE PODE ACESSAR O SERVIDOR APACHE TOMCAT, FOI ADICIONADO SOMENTE AS REDES
 #LOCAIS PRIVADAS CONFORME RFC-1918.
 wget -v -O /opt/tomcat/conf/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Manager do Apache Tomcat
+#QUARTO: download do arquivo de configuração do Meta Dados do Contexto Manager do Apache Tomcat
 wget -v -O /opt/tomcat/webapps/manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Host Manager do Apache Tomcat
+#QUINTO: download do arquivo de configuração do Meta Dados do Contexto Host Manager do Apache Tomcat
 wget -v -O /opt/tomcat/webapps/host-manager/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Examples do Apache Tomcat
+#SEXTO: download do arquivo de configuração do Meta Dados do Contexto Examples do Apache Tomcat
 wget -v -O /opt/tomcat/webapps/examples/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração do Meta Dados do Contexto Docs do Apache Tomcat
+#SÉTIMO: download do arquivo de configuração do Meta Dados do Contexto Docs do Apache Tomcat
 #NÃO COMENTADO OU BAIXADO NO VÍDEO (ADICIONADO DEPOIS PARA CORRIGIR O ERRO DA DOCUMENTAÇÃO)
 wget -v -O /opt/tomcat/webapps/docs/META-INF/context.xml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/context.xml
 
-#download do arquivo de configuração da Inicialização do Apache Tomcat
+#OITAVO: download do arquivo de configuração da Inicialização do Apache Tomcat
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
-#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.x NO DIA: 13/05/2024
+#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.x NO DIA: 07/05/2024
 wget -v -O /etc/systemd/system/tomcat11.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat11.service
 ```
 
@@ -268,8 +269,8 @@ sudo vim /opt/tomcat/conf/tomcat-users.xml
 INSERT
 ```
 ```xml
-<!-- alterar os valores das variável a partir da linha: 30 -->
-<!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Web Tomcat -->
+<!-- alterar os valores das variáveis a partir da linha: 30 -->
+<!-- Configuração do Usuário, Senha e Papéis de administrador do Servidor Apache Tomcat -->
 <!-- Para criar novos usuários no Apache TomCAT Server é só copiar a linha abaixo e colar -->
 <!-- na próxima linha alterando o nome, senha e papeis do novo usuário -->
 <user username="admin" password="sua_senha" roles="manager-gui,manager,admin-gui,admin,tomcat,role1"/>
@@ -300,13 +301,21 @@ Clique em: Manager App
 <Fazer Login>
 ```
 
+## 16_ Conhecendo as opções de gerenciamento do Apache Tomcar Server via navegador
+
+| Opção | Descrição |
+|-------|-----------|
+| 🔧 Server Status | Exibe informações em tempo real sobre o estado do servidor |
+| 📦 Manager App | Interface para gerenciar aplicações web implantadas no Tomcat |
+| 🏠 Host Manager | Permite criar e gerenciar Virtual Hosts diretamente pela interface web |
+
 ========================================DESAFIOS=========================================
 
-**#16_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat10`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat10`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
+**#17_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat10`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat10`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
 
 **OBSERVAÇÃO IMPORTANTE:** RECOMENDO UTILIZAR DOIS NAVEGADORES DIFERENTES PARA ESSE TESTE, O USUÁRIO E SENHA DO APACHE TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR, VOCÊ PODE UTILIZAR O RECURSO DOS NAVEGADORES: __`Mozilla Firefox - Nova Janela Privada`__, __`Google Chrome - Nova Janela de Navegação Anonima`__ ou __`Microsoft Edge - Nova Janela InPrivate`__ QUE RESOLVE ESSE PROBLEMA.
 
-**#17: DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O SEU: __`seu_usuário`__ NO GRUPO DO APACHE TOMCAT: __`tomcat`__  PARA ADMINISTRAR O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
+**#18: DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O SEU: __`seu_usuário`__ NO GRUPO DO APACHE TOMCAT: __`tomcat`__  PARA ADMINISTRAR O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
 
 =========================================================================================
 
