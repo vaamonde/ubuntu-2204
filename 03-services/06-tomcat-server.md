@@ -34,7 +34,7 @@ Conteúdo estudado nesse desafio:<br>
 #13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server no Ubuntu Server;<br>
 #14_ Testando o acesso ao Apache Tomcat Server no navegador;<br>
 #15_ Administrando o Apache Tomcat Server via navegador;<br>
-#16_ Conhecendo as opções de gerenciamento do Apache Tomcar Server via navegador;<br>
+#16_ Conhecendo as opções de gerenciamento do Apache Tomcat Server via navegador;<br>
 #17_ Desafios do Servidor de Aplicação Apache TomCAT Server.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
@@ -301,7 +301,7 @@ Clique em: Manager App
 <Fazer Login>
 ```
 
-## 16_ Conhecendo as opções de gerenciamento do Apache Tomcar Server via navegador
+## 16_ Conhecendo as opções de gerenciamento do Apache Tomcat Server via navegador
 
 | Opção | Descrição |
 |-------|-----------|
@@ -311,7 +311,7 @@ Clique em: Manager App
 
 ========================================DESAFIOS=========================================
 
-**#17_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat10`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat10`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
+**#17_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat11`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat11`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
 
 **OBSERVAÇÃO IMPORTANTE:** RECOMENDO UTILIZAR DOIS NAVEGADORES DIFERENTES PARA ESSE TESTE, O USUÁRIO E SENHA DO APACHE TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR, VOCÊ PODE UTILIZAR O RECURSO DOS NAVEGADORES: __`Mozilla Firefox - Nova Janela Privada`__, __`Google Chrome - Nova Janela de Navegação Anonima`__ ou __`Microsoft Edge - Nova Janela InPrivate`__ QUE RESOLVE ESSE PROBLEMA.
 

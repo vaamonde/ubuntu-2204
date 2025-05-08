@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.18<br>
+#Data de atualização: 08/05/2025<br>
+#Versão: 0.19<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: *Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática*
 
@@ -89,7 +89,7 @@ INSERT
 #ClientAliveInterval 1800
 #ClientAliveCountMax 3
 
-#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 138
+#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 139
 AllowTcpForwarding yes
 ```
 ```bash
@@ -117,19 +117,19 @@ Remote Explorer
   Remotes (Tunnels/SSH)
     SSH: +(New Remote)
       #altere o usuário e senha conforme a sua necessidade
-      Enter SSH Connection Command: vaamonde@172.16.1.20
+      Enter SSH Connection Command: seu_usuário@ENDEREÇO_IPv4_SERVIDOR
       #altere o caminho do arquivo de configuração conforme a sua necessidade
       Select SSH configuration file to update: /home/SEU_USUÁRIO/.ssh/config
     <Refresh>
 
     SSH:
-      172.16.1.20 (Connect in Current Windows)
-      Enter password for: vaamonde@172.16.1.20: pti@2018
+      ENDEREÇO_IPv4_SERVIDOR (Connect in Current Windows)
+      Enter password for: seu_usuário@ENDEREÇO_IPv4_SERVIDOR: sua_senha
     <Dont Show Again>
 
 <Open Folder>
-  /home/vaamonde/nodejs-hello <OK>
-    Enter password for: vaamonde@172.16.1.20: pti@2018
+  /home/SEU_USUÁRIO/nodejs-hello <OK>
+    Enter password for: seu_usuário@ENDEREÇO_IPv4_SERVIDOR: sua_senha
     (YES) Trust the authors of all files in the parent folder
     <Yes, I trust the authors>
 
@@ -138,19 +138,19 @@ Remote Explorer
   Remotes (Tunnels/SSH)
     SSH: +(New Remote)
       #altere o usuário e senha conforme a sua necessidade
-      Enter SSH Connection Command: vaamonde@172.16.1.20
+      Enter SSH Connection Command: seu_usuário@ENDEREÇO_IPv4_SERVIDOR
       #altere o caminho do arquivo de configuração conforme a sua necessidade
       Select SSH configuration file to update: C:\Users\SEU_USUÁRIO\.ssh\config
     <Refresh>
 
     SSH:
-      172.16.1.20 (Connect in Current Windows)
+      ENDEREÇO_IPv4_SERVIDOR (Connect in Current Windows)
       Select the platform of the remote host: Linux
-      Enter password for: vaamonde@172.16.1.20: pti@2018
+      Enter password for: seu_usuário@ENDEREÇO_IPv4_SERVIDOR: sua_senha
 
 <Open Folder>
-  /home/vaamonde/nodejs-hello <OK>
-    Enter password for: vaamonde@172.16.1.20: pti@2018
+  /home/SEU_USUÁRIO/nodejs-hello <OK>
+    Enter password for: seu_usuário@ENDEREÇO_IPv4_SERVIDOR: sua_senha
     (YES) Trust the authors of all files in the parent folder
     <Yes, I trust the authors>
 ```
@@ -168,7 +168,7 @@ Site.......: https://andradejao.github.io/outlawgames/<br>
 Repositório: https://github.com/andradejao/outlawgames
   Clique em: Fork
     Create a new Fork
-      Owner: vaamonde/ Repository name: outlawgames
+      Owner: seu_usuário/ Repository name: outlawgames
       Description: Esse é o repositório que hospedará o meu primeiro site criado (FORK)
       Copy the main branch only: ON (Enable)
     <Create Fork>
@@ -177,7 +177,7 @@ Repositório: https://github.com/andradejao/outlawgames
 cd /var/www/html
 
 #clonando o projeto do Github no Ubuntu Server
-sudo git clone https://github.com/vaamonde/outlawgames
+sudo git clone https://github.com/seu_usuário/outlawgames
 
 #alterando as permissões dos diretórios e arquivos do site Clonado
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
@@ -192,7 +192,7 @@ sudo find /var/www/html/outlawgames/. -type f -exec chmod -v 2664 {} \;
 #OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM
 #PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
 #APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
-#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR ATUALIZAÇÕES REMOTAS.
+#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR NOVAS ATUALIZAÇÕES REMOTAS.
 #opções do comando git: config (Get and set repository or global options), --global 
 #(write to global ~/.gitconfig), --add (Adds a new line to the option without altering 
 #any existing values), safe.directory (These config entries specify Git-tracked directories 
@@ -216,7 +216,7 @@ Site.......: https://camilajodai.github.io/protectpetz/<br>
 Repositório: https://github.com/camilajodai/protectpetz
   Clique em: Fork
     Create a new Fork
-      Owner: vaamonde/ Repository name: protectpetz
+      Owner: seu_usuário/ Repository name: protectpetz
       Description: Esse é o repositório que hospedará o meu segundo site criado (FORK)
       Copy the main branch only: ON (Enable)
     <Create Fork>
@@ -225,7 +225,7 @@ Repositório: https://github.com/camilajodai/protectpetz
 cd /var/www/html
 
 #clonando o projeto do Github no Ubuntu Server
-sudo git clone https://github.com/vaamonde/protectpetz
+sudo git clone https://github.com/seu_usuário/protectpetz
 
 #alterando as permissões dos diretórios e arquivos do site Clonado
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
@@ -240,7 +240,7 @@ sudo find /var/www/html/protectpetz/. -type f -exec chmod -v 2664 {} \;
 #OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM
 #PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
 #APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
-#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR ATUALIZAÇÕES REMOTAS.
+#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR NOVAS ATUALIZAÇÕES REMOTAS.
 #opções do comando git: config (Get and set repository or global options), --global 
 #(write to global ~/.gitconfig), --add (Adds a new line to the option without altering 
 #any existing values), safe.directory (These config entries specify Git-tracked directories 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 15/04/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 08/05/2025<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
@@ -47,8 +47,6 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
-Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
-
 **O QUE É E PARA QUE SERVER O JAVA ECLIPSE:** Na verdade, *"Java Eclipse"* é uma forma popular de se referir ao *Eclipse IDE (Integrated Development Environment)* voltado para desenvolvimento em Java. Ou seja: Eclipse é uma IDE gratuita e de código aberto usada principalmente para programar em Java, mas também suporta outras linguagens como C, C++, Python, PHP e muito mais.
 
 **O QUE É E PARA QUE SERVER O JAVAEE:** O *Java EE (Java Platform, Enterprise Edition)*, atualmente chamado de *Jakarta EE*, é uma plataforma de desenvolvimento voltada para a criação de aplicações corporativas robustas, escaláveis e seguras em Java.
@@ -63,9 +61,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 **OBSERVAÇÃO IMPORTANTE:** o projeto da Agenda desenvolvida em **JavaEE** do *Prof.José de Assis* no seu Github está desatualizado, o projeto que está no Github foi feito na versão anterior do *Java e do Apache TomCAT*, para resolver esse problema ele **Compilou um novo WAR** que está no meu repositório do Github para essa aula.
 
-**OBSERVAÇÃO:** esse novo *WAR do Projeto da Agenda* foi customizado e melhorado pela *Prof(a). Sirlene Sanches*, criando uma nova estrutura em **CSS** deixando o ambiente mais bonito.
+Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 
-Repositório do Projeto do Github do Prof. José de Assis: https://github.com/professorjosedeassis/javaEE
+Repositório do Projeto do Github do Prof. José de Assis: https://github.com/professorjosedeassis/javaEE 
+
+**OBSERVAÇÃO:** esse novo *WAR do Projeto da Agenda* foi customizado e melhorado pela *Prof(a). Sirlene Sanches*, criando uma nova estrutura em **CSS** deixando o ambiente mais bonito.
 
 ```bash
 #Download do arquivo WAR (DESCONTINUADO: NÃO RECOMENDO MAIS UTILIZAR ESSE ARQUIVO)
@@ -175,6 +175,23 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 **OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários *Registros no Banco de Dados do DBAgenda*, para depois testar os procedimentos de **Dump e Restore do Banco de Dados** e verificar se as informações ainda estão integras.
 
 ```bash
+#acessando o MySQL Server via console
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u dbagenda -p
+```
+```sql
+/* comandos básicos de verificação da base de dados e tabelas do MySQL */
+SHOW DATABASES;
+USE dbagenda;
+SHOW TABLES;
+
+/* verificando todos os registros da Tabela Contatos */
+SELECT * FROM contatos;
+
+/* sair do mysql server */
+exit
+```
+```bash
 #fazendo o backup do banco de dados DBAgenda
 #opções do comando mysqldump: -u (user), -p (password), database
 #opção do redirecionador de saída >: Redireciona a saída padrão (STDOUT)
@@ -183,6 +200,7 @@ sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
 #verificando o conteúdo do arquivo backupeado 
 sudo less bkp-dbagenda.sql
 
+#acessando o MySQL Server via console
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dbagenda -p
 ```
@@ -213,6 +231,7 @@ Utilizar o Firefox ou Google Chrome: http://endereço_ipv4_ubuntuserver:8080/age
 #opção do redirecionador de entrada <: Redireciona a entrada padrão (STDIN)
 sudo mysql -u root -p dbagenda < bkp-dbagenda.sql
 
+#acessando o MySQL Server via console
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dbagenda -p
 ```

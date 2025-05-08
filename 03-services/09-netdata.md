@@ -53,7 +53,7 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 **O QUE É E PARA QUE SERVER O NETDATA:** Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
 
-**O QUE É E PARA QUE SERVER O OBSERVABILIDADE:** Essa é uma daquelas palavras que virou **buzzword** no mundo *DevOps/SRE*, *Observabilidade* é a capacidade de entender o que está acontecendo dentro de um sistema (app, servidor, infraestrutura) apenas observando os dados gerados por ele — como *logs, métricas e traces*.
+**O QUE É E PARA QUE SERVER O OBSERVABILIDADE:** Essa é uma daquelas palavras que virou **buzzword (momento)** no mundo *DevOps/SRE (Site Reliability Engineering)*, *Observabilidade* é a capacidade de entender o que está acontecendo dentro de um sistema (app, servidor, infraestrutura) apenas observando os dados gerados por ele — como *logs, métricas, traces, etc*.
 
 [![Netdata Server](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Server")
 
@@ -168,15 +168,15 @@ exit
 
 ## 08_ Localização dos Arquivos de Configuração do Netdata Agent no Ubuntu Server
 ```bash
-/etc/netdata/netdata.conf           <-- arquivo de configuração do serviço do Netdata Agent
-/etc/netdata/apps_groups.conf       <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Agent
-/etc/netdata/go.d/apache.conf       <-- arquivo de monitoramento do Apache2 Server
-/etc/netdata/go.d/mongodb.conf      <-- arquivo de monitoramento do MongoDB Server
-/etc/netdata/go.d/mysql.conf        <-- arquivo de monitoramento do MySQL Server
-/etc/netdata/python.d/tomcat.conf   <-- arquivo de monitoramento do Apache Tomcat
-/etc/netdata/go.d/ping.conf         <-- arquivo de monitoramento do ICMP Ping
-/etc/netdata/go.d/portcheck.conf    <-- arquivo de monitoramento do Port Check
-/var/log/netdata                    <-- diretório dos arquios de Logs do Netdata
+/etc/netdata/netdata.conf          <-- arquivo de configuração do serviço do Netdata Agent
+/etc/netdata/apps_groups.conf      <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Agent
+/etc/netdata/go.d/apache.conf      <-- arquivo de monitoramento do Apache2 Server
+/etc/netdata/go.d/mongodb.conf     <-- arquivo de monitoramento do MongoDB Server
+/etc/netdata/go.d/mysql.conf       <-- arquivo de monitoramento do MySQL Server
+/etc/netdata/go.d/ping.conf        <-- arquivo de monitoramento do ICMP Ping
+/etc/netdata/go.d/portcheck.conf   <-- arquivo de monitoramento do Port Check
+/etc/netdata/go.d/tomcat.conf      <-- arquivo de monitoramento do Apache Tomcat
+/var/log/netdata                   <-- diretório dos arquivos de Logs do Netdata
 ```
 
 ## 09_ Acessando e configurando o Netdata Agent via navegador
