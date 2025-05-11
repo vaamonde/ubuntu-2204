@@ -75,7 +75,7 @@ python3-mysqldb python3-pip python3-dev libmysqlclient-dev libuv1-dev netcat lib
 libwebsockets-dev libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev \
 autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 \
 python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap libuuid1 libcurl4 libyaml-dev \
-libcurl4-openssl-dev stress-ng iperf3
+libcurl4-openssl-dev stress-ng iperf3 s-tui
 ```
 
 ## 02_ Clonando o projeto do Netdata Agent do Github no Ubuntu Server
@@ -471,6 +471,19 @@ Entendendo as opções do comando __`*stress-ng*`__
 | 08 | --timeout 900 | Executa todos esses testes por 900 segundos (ou seja, 15 minutos), e depois para automaticamente |
 
 ```bash
+#estressando a CPU utilizando o s-tui
+sudo s-tui
+
+#utilizado o modos de Monitoramento e Estresse do s-tui
+Modes
+  ( ) Monitor (Monitoramento do uso da CPU) <Enter>
+  ( ) Stress  (Modo de Stress da CPU) <Enter>
+
+#Saindo do s-tui
+Control Options
+  <Quit> <Enter>
+```
+```bash
 #fazendo uma busca no hard disk utilizando o comando find e grep
 #opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 
 #'root'(with-filename), {} (path find file), \; (end command execution)
@@ -515,7 +528,7 @@ Entendendo as opções de métricas do comando __`*ab*`__
 | 19 | Total Time (ms): min=42 mean=127 [+/-sd]=903.9 median=53 max=13711 | Tempo total para completar a requisição: conexão + processamento + resposta |
 
 ```bash
-#fazendo várias requisições simultâneas no MySQL Server
+#fazendo várias requisições de consultas simultâneas no MySQL Server
 #opções do comando mysqlslap: --concurrency (The number of parallel clients to simulate), 
 #--iterations (The number of times to run the tests), --query (The file or string containing 
 #the SELECT statement to use for retrieving data), --create-schema (The schema in which to 
@@ -524,15 +537,15 @@ Entendendo as opções de métricas do comando __`*ab*`__
 sudo mysqlslap --concurrency=1000 --iterations=100 --query="SELECT * FROM contatos;" --create-schema=dbagenda --user=dbagenda --password=dbagenda
 ```
 ```bash
-#fazendo várias conexões simultâneas no servidor de teste iPerf3
+#fazendo várias conexões de rede simultâneas no servidor do iPerf3
 #documentação oficial do iPerf3: https://iperf-fr.translate.goog/iperf-doc.php?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 #opções do comando iperf3: -s (Run iPerf in server mode.), -c (Run iPerf in client mode, connecting
 #to an iPerf server running on host.), -t (The time in seconds to transmit for), -u (Use UDP rather 
 #than TCP), -b (The UDP bandwidth to send at, in bits/sec), -l (The length of buffers to read or write)
 iperf -s
-iperf3 -c 172.16.1.113 -t 30
-iperf3 -c 172.16.1.113 -u -b 10M -t 30
-iperf3 -c 172.16.1.113 -l 128
+iperf3 -c IP_SERVER_IPERF3_REMOTO -t 30
+iperf3 -c IP_SERVER_IPERF3_REMOTO -u -b 10M -t 30
+iperf3 -c IP_SERVER_IPERF3_REMOTO -l 128
 ```
 
 Entendendo as opções de métricas do comando __`*iperf*`__

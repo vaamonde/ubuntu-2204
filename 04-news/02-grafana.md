@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 05/04/2025<br>
-#Versão: 0.16<br>
+#Data de atualização: 11/05/2025<br>
+#Versão: 0.17<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -108,7 +108,7 @@ INSERT
 
   #descomentar a variável ;domain = na linha 44
   #altere o nome de domínio conforme o seu cenário
-	domain = pti.intra
+  domain = pti.intra
 
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
@@ -175,10 +175,10 @@ exit
 /usr/share/grafana*          <-- Diretório do Site do Grafava Server
 /var/log/grafana*            <-- Diretório dos arquivos de Logs do serviço do Grafana Server
 /var/lib/grafana*            <-- Diretório dos banco de dados do Grafana Server
+/var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
 /etc/grafana/*               <-- Diretório das configurações do Grafana Server
 /etc/grafana/grafana.ini     <-- Arquivo de Configuração e Inicialização do Grafana Server
 /etc/default/grafana-server  <-- Arquivo de Configuração do Serviço do Grafana Server
-/var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
 ```
 
 ## 10_ Configurando o Grafana Server via Navegador
@@ -358,20 +358,36 @@ sudo uptime
 #verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
 sudo top
 
-#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+#estressando a CPU, RAM, DISK e PROCESS utilizando o stress-ng (pressione Ctrl+C para abortar)
 #opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
 #removing temporary files.), --io (start N workers continuously calling sync(2) to 
 #commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
-#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
-#for at least T seconds)
-sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+#munmap(2) and writing to the allocated memory.), --cpu (start N processes computing 
+#sqrt((double)rand())), --stack (start N workers that rapidly cause and catch), --fork
+#(start N workers continually forking children that immediately exit), --exec  (start N 
+#workers continually forking children that exec) --timeout (run each stress test for at
+#least T seconds)
+sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --timeout 900s
 
 #parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
 
-#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
-#opção do comando find: -name (Base of file name), * (Qualquer coisa)
-sudo find / -name vaamonde*
+#fazendo uma busca no hard disk utilizando o comando find e grep (NÃO COMENTADO NO VÍDEO)
+#opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 
+#'root'(with-filename), {} (path find file), \; (end command execution)
+sudo find / -type f -exec grep -H 'root' {} \;
+
+#estressando a CPU utilizando o s-tui
+sudo s-tui
+
+#utilizado o modos de Monitoramento e Estresse do s-tui
+Modes
+  ( ) Monitor (Monitoramento do uso da CPU) <Enter>
+  ( ) Stress  (Modo de Stress da CPU) <Enter>
+
+#Saindo do s-tui
+Control Options
+  <Quit> <Enter>
 ```
 
 =========================================================================================

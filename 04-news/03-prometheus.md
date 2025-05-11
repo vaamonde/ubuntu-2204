@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 05/04/2025<br>
-#Versão: 0.19<br>
+#Data de atualização: 11/05/2025<br>
+#Versão: 0.20<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
@@ -84,8 +84,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
 ```bash
-#download do Prometheus do Github (Link atualizado no dia 28/03/2025)
-wget https://github.com/prometheus/prometheus/releases/download/v3.2.1/prometheus-3.2.1.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 11/05/2025)
+wget https://github.com/prometheus/prometheus/releases/download/v3.3.1/prometheus-3.3.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -370,8 +370,8 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
 
 ### Instalação do Node Exporter no Microsoft Windows
 ```bash
-#link para download direto do Node Exporter (link atualizado em: 28/03/2025)
-https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.5/windows_exporter-0.30.5-amd64.msi
+#link para download direto do Node Exporter (link atualizado em: 11/05/2025)
+https://github.com/prometheus-community/windows_exporter/releases/download/v0.30.6/windows_exporter-0.30.6-amd64.msi
 
 Menu
   Powershell 
@@ -412,7 +412,7 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
-#download do Node Exporter do Github (Link atualizado no dia 05/04/2025)
+#download do Node Exporter do Github (Link atualizado no dia 11/05/2025)
 wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
@@ -540,20 +540,36 @@ sudo uptime
 #verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
 sudo top
 
-#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+#estressando a CPU, RAM, DISK e PROCESS utilizando o stress-ng (pressione Ctrl+C para abortar)
 #opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
 #removing temporary files.), --io (start N workers continuously calling sync(2) to 
 #commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
-#munmap(2) and writing  to  the  allocated  memory.), --timeout (run each stress test 
-#for at least T seconds)
-sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+#munmap(2) and writing to the allocated memory.), --cpu (start N processes computing 
+#sqrt((double)rand())), --stack (start N workers that rapidly cause and catch), --fork
+#(start N workers continually forking children that immediately exit), --exec  (start N 
+#workers continually forking children that exec) --timeout (run each stress test for at
+#least T seconds)
+sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --timeout 900s
 
 #parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
 
-#fazendo uma busca no disk utilizando o comando find (NÃO COMENTADO NO VÍDEO)
-#opção do comando find: -name (Base of file name), * (Qualquer coisa)
-sudo find / -name vaamonde*
+#fazendo uma busca no hard disk utilizando o comando find e grep (NÃO COMENTADO NO VÍDEO)
+#opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 
+#'root'(with-filename), {} (path find file), \; (end command execution)
+sudo find / -type f -exec grep -H 'root' {} \;
+
+#estressando a CPU utilizando o s-tui
+sudo s-tui
+
+#utilizado o modos de Monitoramento e Estresse do s-tui
+Modes
+  ( ) Monitor (Monitoramento do uso da CPU) <Enter>
+  ( ) Stress  (Modo de Stress da CPU) <Enter>
+
+#Saindo do s-tui
+Control Options
+  <Quit> <Enter>
 ```
 
 =========================================================================================

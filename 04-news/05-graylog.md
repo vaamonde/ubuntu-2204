@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 22/04/2025<br>
-#Versão: 0.10<br>
+#Data de atualização: 11/05/2025<br>
+#Versão: 0.11<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
@@ -56,7 +56,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 ## 01_ Instalando as Dependências do Graylog Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL MONGODB E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06 DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO MONGODB (VERSÃO 7).
+**OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL MONGODB SERVER E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06 DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO MONGODB SERVER (VERSÃO 8).
 
 ```bash
 #atualizando as lista do apt
@@ -74,21 +74,26 @@ sudo apt install openjdk-21-jdk openjdk-21-jre
 ```
 
 ## 02_ Baixando e instalando a Chave GPG do OpenSearch no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** No mês de *Maio/2025* foi lançado a versão 3.0.x do OpenSearch conforme link do site Oficial: https://opensearch.org/blog/opensearch-3-0-enhances-vector-database-performance/ - até o momento, a última versão do *Graylog Server 6.3.x/6.4.x* não suporta a nova versão do OpenSearch, sendo necessário ainda instalar a versão 2.x do OpenSearch para o correto funcionamento do servidor, caso você instale a versão 3.x a seguinte mensagem é mostrada no comando: __`sudo journalctl -xeu graylog-server`__
+
+Exception in thread "main" org.graylog2.bootstrap.preflight.PreflightCheckException: Unsupported (Elastic/Open)Search version <OpenSearch:3.0.0>. Supported versions: <[SearchVersionRange{distribution=OpenSearch, expression=^1.0.0}, SearchVersionRange{distribution=OpenSearch, expression=^2.0.0}, SearchVersionRange{distribution=Elasticsearch, expression=^7.0.0}, SearchVersionRange{distribution=Datanode, expression=^5.2.0}]>
+
 ```bash
-#baixando a chave GPG do OpenSearch
+#baixando a chave GPG do OpenSearch (Link atualizado no dia 11/05/2025)
 #opção do comando curl: -o- (output file)
 #opção do comando gpg: -o (output file)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/opensearch-keyring
 
-#criando o repositório do OpenSearch
+#criando o repositório do OpenSearch (Link atualizado no dia 11/05/2025)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.opensearch.org/releases/bundle/opensearch/2.x/apt stable main" | sudo tee /etc/apt/sources.list.d/opensearch-2.x.list
 ```
 
 ## 03_ Instalando o OpenSearch no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O OpenSearch 2.12 e superior agora requer a configuração da *OPENSEARCH_INITIAL_ADMIN_PASSWORD* variável de ambiente durante a instalação. A senha deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
+**OBSERVAÇÃO IMPORTANTE:** A versão do OpenSearch >=2.12 e superior agora requer a configuração da *OPENSEARCH_INITIAL_ADMIN_PASSWORD* variável de ambiente durante a instalação. A senha deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
 
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
@@ -122,7 +127,7 @@ INSERT
   #descomentar e alterar o valor da variável network.host na linha: 55
   network.host: 0.0.0.0
 
-  #adicionar as opção abaixo no final do arquivo a partir da linha: 164
+  #adicionar as opção abaixo no final do arquivo a partir da linha: 160
   discovery.type: single-node
   action.auto_create_index: false
   plugins.security.disabled: true
@@ -188,6 +193,10 @@ sudo journalctl -xeu opensearch
 #opção do comando curl: -X (request method), GET (method)
 curl -X GET "http://localhost:9200"
 
+#verificando os plugins habilitados por padrão do OpenSearch via Terminal ou Navegador
+#opção do comando curl: -X (request method), GET (method)
+curl -X GET http://localhost:9200/_cat/plugins?v
+
 #acessar via navegador o OpenSearch
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 ```
@@ -207,8 +216,8 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Graylog* sofre alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última versão do software no Link: https://packages.graylog2.org/packages
 
 ```bash
-#baixando o repositório do Graylog Server (Link atualizado no dia 28/03/2025)
-wget https://packages.graylog2.org/repo/packages/graylog-6.2-repository_latest.deb
+#baixando o repositório do Graylog Server (Link atualizado no dia 11/05/2025)
+wget https://packages.graylog2.org/repo/packages/graylog-6.3-repository_latest.deb
 
 #instalando o repositório do Graylog
 #opção do comando dpkg: -i (install)
@@ -429,7 +438,7 @@ sudo systemctl status rsyslog
 
 ## 22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO E CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO QUE VOCÊ ESTÁ OBTENDO OS LOGS.
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO É CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO DE REDE QUE VOCÊ ESTÁ OBTENDO OS LOGS.
 
 ### Exportando dos Logs do GNU/Linux Mint para o Graylog Server
 

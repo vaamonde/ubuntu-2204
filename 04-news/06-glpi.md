@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 05/04/2025<br>
+#Data de atualização: 11/05/2025<br>
 #Versão: 0.11<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
@@ -428,8 +428,8 @@ hdparm 7zip
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 
 ```bash
-#baixando o Agent do GLPI do Github (link atualizado em: 28/03/2025)
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.13/glpi-agent_1.13-1_all.deb
+#baixando o Agent do GLPI do Github (link atualizado em: 11/05/2025)
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.14/glpi-agent_1.14-2_all.deb
 
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
@@ -495,8 +495,8 @@ hdparm 7zip
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 
 ```bash
-#baixando o Agent do GLPI do Github (link atualizado em: 28/03/2025)
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.13/glpi-agent_1.13-1_all.deb
+#baixando o Agent do GLPI do Github (link atualizado em: 11/05/2025)
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.14/glpi-agent_1.14-2_all.deb
 
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
@@ -542,8 +542,8 @@ sudo glpi-agent
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 
 ```bash
-#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 28/03/2025)
-Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.13/GLPI-Agent-1.13-x64.msi
+#baixando o Agent do GLPI Help Desk do Github (link atualizado em: 11/05/2025)
+Link de download: https://github.com/glpi-project/glpi-agent/releases/download/1.14/GLPI-Agent-1.14-x64.msi
 
 #instalando o Agent GLPI Help Desk Windows 10
 Download
