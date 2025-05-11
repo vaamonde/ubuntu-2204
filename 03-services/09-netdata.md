@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 06/05/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 11/05/2025<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -39,7 +39,7 @@ Conteúdo estudado nesse desafio:<br>
 #18_ Configurando o serviço de monitoramento das Portas TCP Endpoint no Netdata Agent;<br>
 #19_ Reiniciando o serviço do Netdata Agent no Ubuntu Server;<br>
 #20_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server;<br>
-#21_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico;<br>
+#21_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO);<br>
 #22_ Desafio da Integração do Netdata Server com o Cloud.<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
@@ -52,6 +52,8 @@ x.AI Grok: https://grok.com/<br>
 Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 **O QUE É E PARA QUE SERVER O NETDATA:** Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
+
+**O QUE É E PARA QUE SERVER O MONITORAMENTO:** O monitoramento é o processo de observar, coletar e analisar dados em tempo real ou em intervalos regulares para acompanhar o desempenho, o estado e o comportamento de sistemas, equipamentos, redes ou processos.
 
 **O QUE É E PARA QUE SERVER O OBSERVABILIDADE:** Essa é uma daquelas palavras que virou **buzzword (momento)** no mundo *DevOps/SRE (Site Reliability Engineering)*, *Observabilidade* é a capacidade de entender o que está acontecendo dentro de um sistema (app, servidor, infraestrutura) apenas observando os dados gerados por ele — como *logs, métricas, traces, etc*.
 
@@ -237,7 +239,7 @@ quit
 
 ## 12_ Acessando o diretório de configuração do Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do Netdata Server, os arquivos de configuração são baseados na *Linguagem de Programação Python* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
+**OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do Netdata Server, os arquivos de configuração são baseados na *Linguagem de Programação Python e Go (Golang)* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
 
 ```bash
 #acessando o diretório de configuração do Netdata Aget
@@ -316,7 +318,7 @@ sudo ./edit-config go.d/mongodb.conf
 #editar as informações a partir da linha: 04
 jobs:
   - name: wsseunome
-    uri: 'mongodb://netdata:netdata@localhost:27017'
+    uri: 'mongodb://netdata:netdata@127.0.0.1:27017'
 
 #salvar e sair do arquivo
 Ctrl + X
@@ -359,6 +361,8 @@ sudo ./edit-config go.d/portcheck.conf
 
 ```bash
 #editar as informações a partir da linha: 04
+#portas: 80 (Apache2 Server), 3306 (MySQL Server), 8080 (Apache TomCAT), 19999 (Netdata Agent),
+#27017 (MongoDB Server).
 jobs:
   - name: wsseunome
     host: SEU_ENDEREÇO_IPV4
@@ -401,7 +405,7 @@ sudo nmap -p- SEU_ENDEREÇO_IPV4 -sS -sU | grep -i open | cat -n
 
 #verificando todas as portas de serviços no Ubuntu Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-#serviços implementados: 22 (OpenSSH), 80 (Apache2), 3306 (MySQL), 8080 (TomCAT), 19999 (Netdata)
+#serviços implementados: 22 (OpenSSH), 80 (Apache2), 3306 (MySQL), 8080 (Apache TomCAT), 19999 (Netdata)
 #27017 (MongoDB)
 sudo lsof -nP -iTCP:'22,80,3306,8080,19999,27017' -sTCP:LISTEN
 ```
@@ -412,18 +416,83 @@ Mais informações do software stress-ng Ubuntu: https://manpages.ubuntu.com/man
 Mais informações do software stress-ng Debian: https://manpages.debian.org/jessie/stress-ng/stress-ng.1<br>
 
 ```bash
-#estressando a CPU, RAM e DISK utilizando o stress-ng (pressione Ctrl+C para abortar)
+#estressando a CPU, RAM, DISK e PROCESS utilizando o stress-ng (pressione Ctrl+C para abortar)
 #opção do comando stress-ng: --hdd (start N workers continually writing, reading and 
 #removing temporary files.), --io (start N workers continuously calling sync(2) to 
 #commit buffer cache to disk.), --vm (start N workers continuously calling mmap(2)/
-#munmap(2) and writing to the allocated memory.), --cpu (tart N processes computing 
-#sqrt((double)rand())), --timeout (run each stress test for at least T seconds)
-sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --timeout 900s
+#munmap(2) and writing to the allocated memory.), --cpu (start N processes computing 
+#sqrt((double)rand())), --stack (start N workers that rapidly cause and catch), --fork
+#(start N workers continually forking children that immediately exit), --exec  (start N 
+#workers continually forking children that exec) --timeout (run each stress test for at
+#least T seconds)
+sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --timeout 900s
+```
 
-#fazendo uma busca no disk utilizando o comando find e grep
+Entendendo as opções do comando __`*stress-ng*`__
+
+| ID | Opção | Descrição |
+|----|-------|-----------|
+| 01 | --hdd 8 | Cria 8 workers (trabalhos) que fazem operações intensas de leitura e escrita em disco (testa o I/O de disco). |
+| 02 | --io 8 | Cria 8 workers (trabalhos) que realizam chamadas de entrada e saída (I/O) para testar o subsistema de arquivos/dispositivos. |
+| 03 | --vm 18 | Cria 18 workers (trabalhos) que alocam e acessam memória (RAM), simulando uso intenso da memória. |
+| 04 | --cpu 8 | Cria 8 workers (trabalhos) que usam a CPU ao máximo (100%), rodando cálculos matemáticos. |
+| 05 | --stack 4 | Cria 4 process (processos) que usam chamadas recursivas profundas, estressando a pilha (stack) de memória de cada thread. |
+| 06 | --fork 8 | Cria 8 process (processos) que ficam criando e destruindo novos processos rapidamente (estressa o gerenciamento de processos do kernel). |
+| 07 | --exec 4 | Cria 4 process (processos) que executam repetidamente programas simples (testa a função exec() e o sistema de arquivos). |
+| 08 | --timeout 900 | Executa todos esses testes por 900 segundos (ou seja, 15 minutos), e depois para automaticamente |
+
+```bash
+#fazendo uma busca no hard disk utilizando o comando find e grep
 #opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 
 #'root'(with-filename), {} (path find file), \; (end command execution)
 sudo find / -type f -exec grep -H 'root' {} \;
+```
+```bash
+#fazendo várias requisições simultâneas no Apache2 Server
+#opções do comando ab: -n (Number of requests to perform for the benchmarking session.),
+#-c (Number of multiple requests to perform at a time. Default is one request at a time),
+#http://127.0.0.1/ (Target request test)
+sudo ab -n 100000 -c 1000 http://127.0.0.1/
+
+#fazendo várias requisições simultâneas no Apache TomCAT
+#opções do comando ab: -n (Number of requests to perform for the benchmarking session.),
+#-c (Number of multiple requests to perform at a time. Default is one request at a time),
+#http://127.0.0.1:8080/agenda (Target request test)
+sudo ab -n 100000 -c 1000 http://127.0.0.1:8080/agenda
+```
+
+Entendendo as opções do comando __`*ab*`__
+
+| ID | Opção | Descrição |
+|----|-------|-----------|
+| 01 | Server Software: Apache/2.4.52 | Informa o software do servidor HTTP que respondeu às requisições |
+| 02 | Server Hostname: 127.0.0.1 | Endereço do host (IP ou nome) onde o benchmark foi executado | 
+| 03 | Server Port: 80 | Porta TCP usada para as conexões HTTP (padrão é 80) | 
+| 04 | Document Path: / | Caminho do recurso requisitado no servidor web | 
+| 05 | Document Length: 10671 bytes | Tamanho da resposta HTML em bytes por requisição |
+| 06 | Concurrency Level: 1000 | Número de conexões simultâneas realizadas durante o teste |
+| 07 | Time taken for tests: 13.720 seconds | Tempo total gasto para concluir todas as requisições do teste |
+| 08 | Complete requests: 100000 | Número total de requisições realizadas com sucesso |
+| 09 | Failed requests: 0 | Número de requisições que falharam (timeout, erro de conexão, etc) |
+| 10 | Total transferred: 1094500000 bytes | Quantidade total de dados transferidos, incluindo cabeçalhos HTTP |
+| 11 | HTML transferred: 1067100000 bytes | Quantidade total de conteúdo HTML transferido, excluindo cabeçalhos |
+| 12 | Requests per second: 7288.73 [#/sec] (mean) | Número médio de requisições concluídas por segundo |
+| 13 | Time per request: 137.198 [ms] (mean) | Tempo médio para concluir uma requisição, considerando todas as concorrências |
+| 14 | Time per request: 0.137 [ms] (mean, across all concurrent requests) | Tempo médio por requisição individual (tempo total dividido pelo número total de requests) |
+| 15 | Transfer rate: 77905.47 [Kbytes/sec] received | Taxa média de transferência de dados durante o teste |
+| 16 | Connection Times (ms): min=0 mean=4 [+/-sd]=65.5 median=0 max=3069 | Tempo de estabelecimento de conexão (TCP handshake): mínimo, médio, mediana e máximo |
+| 17 | Processing Times (ms): min=10 mean=123 [+/-sd]=895.5 median=52 max=13599 | Tempo de processamento no servidor: do envio da requisição até início da resposta |
+| 18 | Waiting Time (ms): min=0 mean=121 [+/-sd]=894.2 median=52 max=13594 | Tempo ocioso aguardando a resposta: é um subconjunto do tempo de processamento |
+| 19 | Total Time (ms): min=42 mean=127 [+/-sd]=903.9 median=53 max=13711 | Tempo total para completar a requisição: conexão + processamento + resposta |
+
+```bash
+#fazendo várias requisições simultâneas no MySQL Server
+#opções do comando mysqlslap: --concurrency (The number of parallel clients to simulate), 
+#--iterations (The number of times to run the tests), --query (The file or string containing 
+#the SELECT statement to use for retrieving data), --create-schema (The schema in which to 
+#run the tests), --user (The user name of the MySQL account to use for connecting to the 
+#server), --password (The password of the MySQL account used for connecting to the server)
+sudo mysqlslap --concurrency=1000 --iterations=100 --query="SELECT * FROM contatos;" --create-schema=dbagenda --user=dbagenda --password=dbagenda
 ```
 
 ========================================DESAFIOS=========================================

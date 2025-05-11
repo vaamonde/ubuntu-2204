@@ -193,7 +193,7 @@ sudo usermod -aG www-data robson
 #acessar o link de registro do Pro Free Host
 https://profreehost.com/register/
 
-  #registro da contra (Register)
+  #registro da conta (Register)
   Email Address: SEU_EMAIL@SEU_DOMÍNIO.COM
   Password (Minimum 6 characters): SUA_SENHA
   <Register>
@@ -224,7 +224,6 @@ https://profreehost.com/register/
     Username: seu_usuário
     <Manage>
 
-  
 ```
 
 =========================================================================================<br>
