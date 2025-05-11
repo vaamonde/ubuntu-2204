@@ -37,10 +37,11 @@ Conteúdo estudado nesse desafio:<br>
 #16_ Configurando o serviço de monitoramento do MongoDB Server no Netdata Agent;<br>
 #17_ Configurando o serviço de monitoramento do ICMP no Netdata Agent;<br>
 #18_ Configurando o serviço de monitoramento das Portas TCP Endpoint no Netdata Agent;<br>
-#19_ Reiniciando o serviço do Netdata Agent no Ubuntu Server;<br>
-#20_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server;<br>
-#21_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO);<br>
-#22_ Desafio da Integração do Netdata Server com o Cloud.<br>
+#19_ Configurando o serviço de monitoramento do HTTP Endpoint no Netdata Agent;<br>
+#20_ Reiniciando o serviço do Netdata Agent no Ubuntu Server;<br>
+#21_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server;<br>
+#22_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO);<br>
+#23_ Desafio da Integração do Netdata Server com o Cloud.<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -173,10 +174,11 @@ exit
 /etc/netdata/netdata.conf          <-- arquivo de configuração do serviço do Netdata Agent
 /etc/netdata/apps_groups.conf      <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Agent
 /etc/netdata/go.d/apache.conf      <-- arquivo de monitoramento do Apache2 Server
+/etc/netdata/go.d/httpcheck.conf   <-- arquivo de monitoramento do HTTP Endpoint Check
 /etc/netdata/go.d/mongodb.conf     <-- arquivo de monitoramento do MongoDB Server
 /etc/netdata/go.d/mysql.conf       <-- arquivo de monitoramento do MySQL Server
 /etc/netdata/go.d/ping.conf        <-- arquivo de monitoramento do ICMP Ping
-/etc/netdata/go.d/portcheck.conf   <-- arquivo de monitoramento do Port Check
+/etc/netdata/go.d/portcheck.conf   <-- arquivo de monitoramento do TCP/UDP Port Endpoint Check
 /etc/netdata/go.d/tomcat.conf      <-- arquivo de monitoramento do Apache Tomcat
 /var/log/netdata                   <-- diretório dos arquivos de Logs do Netdata
 ```
@@ -191,6 +193,9 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 
 ## 10_ Criando o usuário de monitoramento do MySQL Server do Netdata Agent no Ubuntu Server
 ```bash
+#configuração do serviço de monitoramento do MySQL Server
+#https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
+
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
@@ -213,6 +218,9 @@ exit
 
 ## 11_ Criando o usuário de monitoramento do MongoDB Server do Netdata Agent no Ubuntu Server
 ```bash
+#configuração do serviço de monitoramento do MongoDB Server
+#https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
+
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 ```
@@ -256,7 +264,7 @@ ls -lh
 
 ```bash
 #configuração do serviço de monitoramento do Apache Server
-#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/apache
+#https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/apache
 sudo ./edit-config go.d/apache.conf
 
 #editar as informações a partir da linha: 04
@@ -274,7 +282,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do Apache TomCAT Server
-#https://learn.netdata.cloud/docs/data-collection/web-servers-and-web-proxies/tomcat
+#https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/tomcat
 sudo ./edit-config go.d/tomcat.conf
 
 #editar as informações a partir da linha: 04
@@ -294,7 +302,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
-#https://learn.netdata.cloud/docs/data-collection/databases/mysql
+#https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
 sudo ./edit-config go.d/mysql.conf
 
 #editar as informações a partir da linha: 04
@@ -312,7 +320,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do MongoDB Server
-#https://learn.netdata.cloud/docs/data-collection/databases/mongodb
+#https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
 sudo ./edit-config go.d/mongodb.conf
 
 #editar as informações a partir da linha: 04
@@ -326,11 +334,11 @@ Ctrl + X
     File Name to Write: <Enter>
 ```
 
-## 17_ Configurando o serviço de monitoramento do ICMP no Netdata Agent
+## 17_ Configurando o serviço de monitoramento do ICMP Ping no Netdata Agent
 
 ```bash
 #configuração do serviço de monitoramento do ICMP Ping
-#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/ping
+#https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/ping
 sudo ./edit-config go.d/ping.conf
 
 #editar as informações a partir da linha: 04
@@ -353,7 +361,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento das Portas TCP Endpoint
-#https://learn.netdata.cloud/docs/data-collection/synthetic-checks/tcp-endpoints
+#https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/tcp-udp-endpoints
 sudo ./edit-config go.d/portcheck.conf
 ```
 
@@ -374,7 +382,28 @@ Ctrl + X
     File Name to Write: <Enter>
 ```
 
-## 19_ Reiniciando o serviço do Netdata Agent no Ubuntu Server
+## 19_ Configurando o serviço de monitoramento do HTTP Endpoint no Netdata Agent
+
+```bash
+#configuração do serviço de monitoramento do HTTP Endpoint
+#https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/http-endpoints
+sudo ./edit-config go.d/httpcheck.conf
+
+#editar as informações a partir da linha: 04
+jobs:
+  - name: apache2
+    url: http://127.0.0.1:80/
+
+  - name: tomcat
+    url: http://127.0.0.1:8080/
+
+#salvar e sair do arquivo
+Ctrl + X
+    Save modified buffer? Y
+    File Name to Write: <Enter>
+```
+
+## 20_ Reiniciando o serviço do Netdata Agent no Ubuntu Server
 ```bash
 #verificando os arquivos de configuração dos monitoramentos criados
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -391,7 +420,7 @@ sudo systemctl status netdata
 sudo systemctl list-units --type=service --state=running
 ```
 
-## 20_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server
+## 21_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no vídeo as portas listadas com o comando: *nmap* só listou as portas conhecidas, para listar todas as portas adicionei a opção: __`-p-`__ (OBSERVAÇÃO: COM ESSA OPÇÃO HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
 
@@ -410,7 +439,7 @@ sudo nmap -p- SEU_ENDEREÇO_IPV4 -sS -sU | grep -i open | cat -n
 sudo lsof -nP -iTCP:'22,80,3306,8080,19999,27017' -sTCP:LISTEN
 ```
 
-## 21_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
+## 22_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
 
 Mais informações do software stress-ng Ubuntu: https://manpages.ubuntu.com/manpages/xenial/man1/stress-ng.1.html<br>
 Mais informações do software stress-ng Debian: https://manpages.debian.org/jessie/stress-ng/stress-ng.1<br>
@@ -520,11 +549,11 @@ Entendendo as opções de métricas do comando __`*iperf*`__
 
 ========================================DESAFIOS=========================================
 
-**#22_ DESAFIO-01:** FAZER A INTEGRAÇÃO DO NETDATA AGENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE INTEGRAÇÃO: __`15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent`__, LINK: https://www.youtube.com/watch?v=5MrH8L5cSIU
+**#23_ DESAFIO-01:** FAZER A INTEGRAÇÃO DO NETDATA AGENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE INTEGRAÇÃO: __`15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent`__, LINK: https://www.youtube.com/watch?v=5MrH8L5cSIU
 
-**#23_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O: __`seu_usuário`__ CRIADOS NO DESAFIO DO OPENSSH NO GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+**#24_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O: __`seu_usuário`__ CRIADOS NO DESAFIO DO OPENSSH NO GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
-**#24_ DESAFIO-03:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
+**#25_ DESAFIO-03:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
 

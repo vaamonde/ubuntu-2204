@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 03/04/2025<br>
-#Versão: 0.14<br>
+#Data de atualização: 10/05/2025<br>
+#Versão: 0.15<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Webmin realizado com sucesso!!! #BoraParaPrática*
 
@@ -38,6 +38,8 @@ DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
 Site Oficial do Webmin: https://webmin.com/<br>
+
+**O QUE É E PARA QUE SERVER O WEBGUI:** Um WebGUI (Web Graphical User Interface) é uma interface gráfica baseada em web que permite a interação com sistemas ou softwares através de uma página da web, ao invés de utilizar uma interface tradicional com base em texto ou em um aplicativo de desktop. Ele geralmente utiliza tecnologias como HTML, CSS, JavaScript e frameworks modernos para fornecer uma experiência interativa e visual ao usuário.
 
 **O QUE É E PARA QUE SERVER O WEBMIN:** O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
