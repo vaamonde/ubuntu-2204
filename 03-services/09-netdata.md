@@ -74,7 +74,7 @@ python3-mysqldb python3-pip python3-dev libmysqlclient-dev libuv1-dev netcat lib
 libwebsockets-dev libjson-c-dev libbpfcc-dev liblz4-dev libjudy-dev libelf-dev libmnl-dev \
 autoconf-archive curl cmake protobuf-compiler protobuf-c-compiler lm-sensors python3-psycopg2 \
 python3-pymysql libssl-dev libprotobuf-dev g++ flex bison nmap libuuid1 libcurl4 libyaml-dev \
-libcurl4-openssl-dev stress-ng
+libcurl4-openssl-dev stress-ng iperf3
 ```
 
 ## 02_ Clonando o projeto do Netdata Agent do Github no Ubuntu Server
@@ -461,7 +461,7 @@ sudo ab -n 100000 -c 1000 http://127.0.0.1/
 sudo ab -n 100000 -c 1000 http://127.0.0.1:8080/agenda
 ```
 
-Entendendo as opções do comando __`*ab*`__
+Entendendo as opções de métricas do comando __`*ab*`__
 
 | ID | Opção | Descrição |
 |----|-------|-----------|
@@ -494,6 +494,29 @@ Entendendo as opções do comando __`*ab*`__
 #server), --password (The password of the MySQL account used for connecting to the server)
 sudo mysqlslap --concurrency=1000 --iterations=100 --query="SELECT * FROM contatos;" --create-schema=dbagenda --user=dbagenda --password=dbagenda
 ```
+```bash
+#fazendo várias conexões simultâneas no servidor de teste iPerf3
+#documentação oficial do iPerf3: https://iperf-fr.translate.goog/iperf-doc.php?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+#opções do comando iperf3: -s (Run iPerf in server mode.), -c (Run iPerf in client mode, connecting
+#to an iPerf server running on host.), -t (The time in seconds to transmit for), -u (Use UDP rather 
+#than TCP), -b (The UDP bandwidth to send at, in bits/sec), -l (The length of buffers to read or write)
+iperf -s
+iperf3 -c 172.16.1.113 -t 30
+iperf3 -c 172.16.1.113 -u -b 10M -t 30
+iperf3 -c 172.16.1.113 -l 128
+```
+
+Entendendo as opções de métricas do comando __`*iperf*`__
+
+| ID  | Opção              | Descrição                                                                                  |
+|-----|--------------------|--------------------------------------------------------------------------------------------|
+| 01  | ID                 | Identificador único para cada teste ou fluxo de dados. Cada conexão ou métrica é associada a um ID distinto.       |
+| 02  | Interval           | Intervalo de tempo durante o qual as métricas são calculadas. Em um teste contínuo, o `iperf3` calcula os dados para intervalos definidos (geralmente em segundos). |
+| 03  | Transfer           | Quantidade total de dados transferidos durante o teste, em bytes ou em uma unidade mais legível como megabytes (MB) ou gigabytes (GB). |
+| 04  | Bitrate            | Taxa de transferência de dados durante o teste, medida em bits por segundo (bps), Kbps, Mbps ou Gbps. Reflete o desempenho da conexão em termos de velocidade de download/upload. |
+| 05  | Retr               | Retransmissões de pacotes, ou seja, o número de pacotes que foram enviados novamente devido a falhas ou perda de pacotes durante a transmissão. |
+| 06  | Cwnd               | Tamanho da janela de congestionamento (congestion window) no TCP. O TCP usa uma janela de congestionamento para controlar a quantidade de dados não confirmados que podem ser enviados antes de esperar por um reconhecimento. Quanto maior o valor, mais dados podem ser enviados sem confirmação. |
+| 07  | Total Datagrams    | Número total de pacotes de dados enviados ou recebidos durante o teste, aplicável especialmente aos testes UDP. Cada datagrama representa um pacote UDP. |
 
 ========================================DESAFIOS=========================================
 
