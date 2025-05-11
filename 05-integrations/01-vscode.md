@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 08/05/2025<br>
-#Versão: 0.19<br>
+#Data de atualização: 11/05/2025<br>
+#Versão: 0.20<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: *Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática*
 
@@ -157,7 +157,7 @@ Remote Explorer
 
 ## 06_ Fazendo o Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
 
-Conhecendo o Projeto do Aluno: João Vitor Andrade (Técnico em Informática Tarde SENAC-SP Tatuapé)<br>
+Conhecendo o Projeto do Aluno: **João Vitor Andrade** (Técnico em Informática Tarde SENAC-SP Tatuapé)<br>
 LinkedIn...: https://www.linkedin.com/in/jo%C3%A3o-vitor-andrade-289216271/<br>
 Github.....: https://github.com/andradejao/<br>
 Repositório: https://github.com/andradejao/outlawgames<br>
@@ -179,7 +179,7 @@ cd /var/www/html
 #clonando o projeto do Github no Ubuntu Server
 sudo git clone https://github.com/seu_usuário/outlawgames
 
-#alterando as permissões dos diretórios e arquivos do site Clonado
+#alterando as permissões dos diretórios e arquivos do site clonado do Github
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
@@ -188,11 +188,12 @@ sudo git clone https://github.com/seu_usuário/outlawgames
 sudo chown -Rfv www-data.www-data /var/www/html/outlawgames/
 sudo find /var/www/html/outlawgames/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/outlawgames/. -type f -exec chmod -v 2664 {} \;
+```
 
-#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM
-#PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
-#APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
-#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR NOVAS ATUALIZAÇÕES REMOTAS.
+**OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS E DIRETÓRIOS, É NECESSÁRIO APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES E PERMITIR EXECUTAR O COMANDO: __`git pull`__ PARA BUSCAR NOVAS ATUALIZAÇÕES REMOTAS.
+
+```bash
+#alterando as opções globais do repositório local do site clonado do Github
 #opções do comando git: config (Get and set repository or global options), --global 
 #(write to global ~/.gitconfig), --add (Adds a new line to the option without altering 
 #any existing values), safe.directory (These config entries specify Git-tracked directories 
@@ -205,7 +206,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/outlawgames
 
 ## 07_ Testando um novo Fork de um Projeto de Site do Github e Clonando no Ubuntu Server
 
-Conhecendo o Projeto da Aluna: Camila Jodai (Técnico em Informática Tarde SENAC-SP Tatuapé)<br>
+Conhecendo o Projeto da Aluna: **Camila Jodai** (Técnico em Informática Tarde SENAC-SP Tatuapé)<br>
 LinkedIn...: https://www.linkedin.com/in/camila-jodai-330676271/<br>
 Github.....: https://github.com/camilajodai<br>
 Repositório: https://github.com/camilajodai/protectpetz<br>
@@ -227,7 +228,7 @@ cd /var/www/html
 #clonando o projeto do Github no Ubuntu Server
 sudo git clone https://github.com/seu_usuário/protectpetz
 
-#alterando as permissões dos diretórios e arquivos do site Clonado
+#alterando as permissões dos diretórios e arquivos do site clonado do Github
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
@@ -236,11 +237,12 @@ sudo git clone https://github.com/seu_usuário/protectpetz
 sudo chown -Rfv www-data.www-data /var/www/html/protectpetz/
 sudo find /var/www/html/protectpetz/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/protectpetz/. -type f -exec chmod -v 2664 {} \;
+```
 
-#OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO): DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM
-#PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS, É NECESSÁRIO
-#APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES
-#E PERMITIR EXECUTAR O COMANDO: git pull PARA BUSCAR NOVAS ATUALIZAÇÕES REMOTAS.
+**OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** DEPOIS QUE VOCÊ FAZ A CLONAGEM DE UM PROJETO DO GITHUB NO UBUNTU SERVER E ALTERA AS PERMISSÕES DOS ARQUIVOS E DIRETÓRIOS, É NECESSÁRIO APLICAR O COMANDO ABAIXO PARA O REPOSITÓRIO LOCAL ENTENDER QUE ALTEROU AS PERMISSÕES E PERMITIR EXECUTAR O COMANDO: __`git pull`__ PARA BUSCAR NOVAS ATUALIZAÇÕES REMOTAS.
+
+```bash
+#alterando as opções globais do repositório local do site clonado do Github
 #opções do comando git: config (Get and set repository or global options), --global 
 #(write to global ~/.gitconfig), --add (Adds a new line to the option without altering 
 #any existing values), safe.directory (These config entries specify Git-tracked directories 
