@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 08/05/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 12/05/2025<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
@@ -53,6 +53,8 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O ARQUIVO WAR:** Em engenharia de software, um arquivo *WAR* é um arquivo **JAR** usado para distribuir uma coleção de *JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas* e outros recursos que, juntos, constituem uma aplicação web.
 
+**O QUE É E PARA QUE SERVER A SEGURANÇA DA INFORMAÇÃO COM ÊNFASE EM BACKUP:** Os pilares base do conceito de *Segurança da Informação*, com ênfase em backup, são os seguintes: __`Confidencialidade`__ (Garantir que os dados só sejam acessados por pessoas autorizadas), __`Integridade`__ (Assegurar que a informação não seja alterada ou corrompida, seja acidentalmente ou de forma maliciosa), __`Disponibilidade`__ (Garantir que a informação esteja acessível sempre que necessária), __`Autenticidade`__ (Garantir que os dados sejam autênticos e a fonte de origem seja confiável) e __`Responsabilidade / Rastreabilidade`__ (Rastrear quem fez o quê, quando e como).
+
 [![WAR TomCAT](http://img.youtube.com/vi/DTduw0NKQvo/0.jpg)](https://www.youtube.com/watch?v=DTduw0NKQvo "WAR TomCAT")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
@@ -69,15 +71,15 @@ Repositório do Projeto do Github do Prof. José de Assis: https://github.com/pr
 
 ```bash
 #Download do arquivo WAR (DESCONTINUADO: NÃO RECOMENDO MAIS UTILIZAR ESSE ARQUIVO)
-Clique em: Releases
+Clique em: Releases: https://github.com/professorjosedeassis/javaEE/releases
   Em assets, clique em: agenda.war para fazer o Download.
 ```
 
 Download dos arquivos WAR (ATUALIZADOS PARA ESSA AULA)<br>
 LINK DE DOWNLOAD DO NOVO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tree/main/war
 
-A) Arquivo: agenda.war versão antiga atualizada pela Prof(a). Sirlene Sanches;<br>
-B) Arquivo: agenda_bootstrap.war versão nova atualizada pela Prof(a). Sirlene Sanches.<br>
+A) Arquivo: __`agenda.war`__ versão antiga atualizada pela Prof(a). Sirlene Sanches;<br>
+B) Arquivo: __`agenda_bootstrap.war`__ versão nova atualizada pela Prof(a). Sirlene Sanches.<br>
 
 ## 02_ Acessando o Apache TomCAT Server pelo Navegador
 ```bash
@@ -98,6 +100,7 @@ C) Finalize clicando em: <Deploy>
 
 Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso será:
 
+#testando a aplicação agenda via navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 ```
 
@@ -119,13 +122,13 @@ SHOW DATABASES;
 **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO: __`LOCALHOST`__ NO BANCO DE DADOS MYSQL SERVER, *USUÁRIOS REMOTOS* SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO ESTIVER NO MESMO SERVIDOR DE APLICAÇÃO.
 
 ```sql
-/* Criando o Usuário Agenda com a Senha Agenda do Banco de Dados Agenda*/
+/* Criando o Usuário DBAgenda com a Senha DBAgenda do Banco de Dados DBAgenda*/
 CREATE USER 'dbagenda'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbagenda';
 GRANT USAGE ON *.* TO 'dbagenda'@'localhost';
 GRANT ALL PRIVILEGES ON dbagenda.* TO 'dbagenda'@'localhost';
 FLUSH PRIVILEGES;
 
-/* Verificando o Usuário Agenda criado no Banco de Dados MySQL Server*/
+/* Verificando o Usuário DBAgenda criado no Banco de Dados MySQL Server*/
 SELECT user,host FROM mysql.user WHERE user='dbagenda';
 
 /* Acessando o Banco de Dados DBAgenda */
@@ -143,14 +146,14 @@ CREATE TABLE contatos (
 /* Verificando a Tabela criada */
 SHOW TABLES;
 
-/* Verificando as informações detalhadas da Tabela*/
+/* Verificando as informações detalhadas da Tabela Contatos*/
 DESC contatos;
 
 /* Saindo do Banco de Dados */
 exit
 ```
 
-## 05_ Testando o acesso a Base de Dados DBAgenda com o usuário dbagenda
+## 05_ Testando o acesso a Base de Dados DBAgenda com o usuário DBAgenda
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dbagenda -p
@@ -164,7 +167,7 @@ DESC contatos;
 exit
 ```
 
-## 06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros
+## 06_ Acessando novamente a Aplicação DBAgenda via Navegador e adicionando Registros
 ```bash
 #utilizar os navegadores para testar o WAR do Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
@@ -172,7 +175,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 ## 07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server
 
-**OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários *Registros no Banco de Dados do DBAgenda*, para depois testar os procedimentos de **Dump e Restore do Banco de Dados** e verificar se as informações ainda estão integras.
+**OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários *Registros no Banco de Dados do DBAgenda*, depois testar os procedimentos de **Dump e Restore do Banco de Dados** e verificar se as informações ainda estão integras.
 
 ```bash
 #acessando o MySQL Server via console
@@ -188,7 +191,7 @@ SHOW TABLES;
 /* verificando todos os registros da Tabela Contatos */
 SELECT * FROM contatos;
 
-/* sair do mysql server */
+/* sair do MySQL Server */
 exit
 ```
 ```bash
@@ -219,11 +222,13 @@ SELECT * FROM contatos;
 exit
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DE AGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS DO BANCO DE DADOS.
+**OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DBAGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS (TRUNCADOS) DO BANCO DE DADOS.
 
 Utilizar o Firefox ou Google Chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 **OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
+
+**CUIDADO!!!!!!** PARA ESSE PROCEDIMENTO, SERÁ REMOVIDO TODO O CONTEÚDO EXISTENTE E RESTAURADO O BACKUP ANTERIOR, OS DADOS DIGITADOS SERÃO PERDIDOS É OS NOVOS DADOS DO BACKUP SERÁ RESTAURADO.
 
 ```bash
 #restaurando o backup do banco de dados DBAgenda
