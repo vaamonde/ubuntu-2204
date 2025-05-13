@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 12/05/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 13/05/2025<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
@@ -54,6 +54,8 @@ x.AI Grok: https://grok.com/<br>
 **O QUE É E PARA QUE SERVER O ARQUIVO WAR:** Em engenharia de software, um arquivo *WAR* é um arquivo **JAR** usado para distribuir uma coleção de *JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas* e outros recursos que, juntos, constituem uma aplicação web.
 
 **O QUE É E PARA QUE SERVER A SEGURANÇA DA INFORMAÇÃO COM ÊNFASE EM BACKUP:** Os pilares base do conceito de *Segurança da Informação*, com ênfase em backup, são os seguintes: __`Confidencialidade`__ (Garantir que os dados só sejam acessados por pessoas autorizadas), __`Integridade`__ (Assegurar que a informação não seja alterada ou corrompida, seja acidentalmente ou de forma maliciosa), __`Disponibilidade`__ (Garantir que a informação esteja acessível sempre que necessária), __`Autenticidade`__ (Garantir que os dados sejam autênticos e a fonte de origem seja confiável) e __`Responsabilidade / Rastreabilidade`__ (Rastrear quem fez o quê, quando e como).
+
+**O QUE É E PARA QUE SERVER O DUMP SQL:** O dump do SQL (MySQL ou MariaDB Server) é uma cópia de segurança (backup) de um banco de dados ou de toda a instância do SQL (Banco de Dados, Tabelas, etc.), geralmente exportada para um arquivo de texto que contém comandos SQL (como CREATE, INSERT, etc.) para recriar e repopular os dados, o resultado é um script SQL legível, que pode ser usado para restaurar o banco posteriormente.
 
 [![WAR TomCAT](http://img.youtube.com/vi/DTduw0NKQvo/0.jpg)](https://www.youtube.com/watch?v=DTduw0NKQvo "WAR TomCAT")
 
@@ -143,13 +145,13 @@ CREATE TABLE contatos (
   PRIMARY KEY (idcon)
 );
 
-/* Verificando a Tabela criada */
+/* Verificando a Tabela Contatos criada no Banco de Dados DBAgenda */
 SHOW TABLES;
 
-/* Verificando as informações detalhadas da Tabela Contatos*/
+/* Verificando as informações detalhadas da Tabela Contatos */
 DESC contatos;
 
-/* Saindo do Banco de Dados */
+/* Saindo do Banco de Dados DBAgenda */
 exit
 ```
 
@@ -188,7 +190,7 @@ SHOW DATABASES;
 USE dbagenda;
 SHOW TABLES;
 
-/* verificando todos os registros da Tabela Contatos */
+/* verificando todos os registros da Tabela Contatos do Banco de Dados DBAgenda */
 SELECT * FROM contatos;
 
 /* sair do MySQL Server */
@@ -200,7 +202,7 @@ exit
 #opção do redirecionador de saída >: Redireciona a saída padrão (STDOUT)
 sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
 
-#verificando o conteúdo do arquivo backupeado 
+#verificando o conteúdo do arquivo backupeado do banco de dados DBAgenda
 sudo less bkp-dbagenda.sql
 
 #acessando o MySQL Server via console
@@ -213,10 +215,10 @@ SHOW DATABASES;
 USE dbagenda;
 SHOW TABLES;
 
-/* verificando todos os registros da Tabela Contatos */
+/* verificando todos os registros da Tabela Contatos do Banco de Dados DBAgenda */
 SELECT * FROM contatos;
 
-/* removendo todos os registros da Tabela Contatos */
+/* removendo todos os registros da Tabela Contatos do Banco de Dados DBAgenda */
 TRUNCATE TABLE contatos;
 SELECT * FROM contatos;
 exit
@@ -224,7 +226,10 @@ exit
 
 **OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DBAGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS (TRUNCADOS) DO BANCO DE DADOS.
 
-Utilizar o Firefox ou Google Chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+```bash
+#utilizar os navegadores para testar o WAR do Apache TomCAT
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+```
 
 **OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
 
@@ -246,7 +251,7 @@ SHOW DATABASES;
 USE dbagenda;
 SHOW TABLES;
 
-/* verificando todos os registros da Tabela Contatos */
+/* verificando todos os registros da Tabela Contatos do Banco de Dados DBAgenda */
 SELECT * FROM contatos;
 exit
 ```
