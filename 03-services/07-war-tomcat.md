@@ -104,9 +104,11 @@ Após o Deploy da aplicação a nova URL (Uniform Resource Locator) de acesso se
 
 #testando a aplicação agenda via navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+Clique em: <Acessar>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda pela primeira vez será apresentado uma *mensagem de erro de conexão e falha do Java*, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
+**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda de Contatos pela primeira vez será apresentado uma *mensagem de erro de conexão e falha do Java*: __`HTTP Status 500 – Internal Server Error`__, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE
 ```bash
@@ -173,6 +175,8 @@ exit
 ```bash
 #utilizar os navegadores para testar o WAR do Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+Clique em: <Acessar>
 ```
 
 ## 07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server
@@ -233,7 +237,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 **OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
 
-**CUIDADO!!!!!!** PARA ESSE PROCEDIMENTO, SERÁ REMOVIDO TODO O CONTEÚDO EXISTENTE E RESTAURADO O BACKUP ANTERIOR, OS DADOS DIGITADOS SERÃO PERDIDOS É OS NOVOS DADOS DO BACKUP SERÁ RESTAURADO.
+**CUIDADO!!!!!!** PARA ESSE PROCEDIMENTO, SERÁ REMOVIDO TODO O CONTEÚDO EXISTENTE E RESTAURADO O BACKUP ANTERIOR, OS DADOS DIGITADOS SERÃO PERDIDOS É OS DADOS ANTIGO DO BACKUP SERÁ RESTAURADO.
 
 ```bash
 #restaurando o backup do banco de dados DBAgenda
@@ -266,7 +270,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 **#09_ DESAFIO-02:** DELETAR A BASE DE DADOS: __`dbagenda`__ E O USUÁRIO: __`dbagenda`__ DO MYSQL SERVER (VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP E TESTAR A CONEXÃO NO NAVEGADOR.
 
-**#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`dbagenda`__ E FAZER O DEPLOY NOVAMENTE, VERIFICAR SE O NOME MANTEVE O MESMO E O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
+**#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`agenda`__ E FAZER O DEPLOY NOVAMENTE COM O NOME DO ARQUIVO ALTERADO PARA: __`novaagenda`__, VERIFICAR SE O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
 
 **#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO *WAR TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS* PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
 
