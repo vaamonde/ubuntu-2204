@@ -110,8 +110,14 @@ Clique em: <Acessar>
 
 **OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda de Contatos pela primeira vez será apresentado uma *mensagem de erro de conexão e falha do Java*: __`HTTP Status 500 – Internal Server Error`__, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
 
-## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em JavaEE
+## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda de Contatos em JavaEE
 ```bash
+#litando o conteúdo do diretório Webapp do Apache Tomcat
+#opção do comando ls: -l (long listing format), -h (human-readable)
+ls -lh /opt/tomcat/webapps
+```
+```bash
+#acessando o MySQL Server com o usuário Root
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
@@ -233,6 +239,8 @@ exit
 ```bash
 #utilizar os navegadores para testar o WAR do Apache TomCAT
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+Clique em: <Acessar>
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
@@ -262,6 +270,8 @@ exit
 ```bash
 #acessar novamente a aplicação para verificar se voltou os registros
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
+
+Clique em: <Acessar>
 ```
 
 ========================================DESAFIOS=========================================
