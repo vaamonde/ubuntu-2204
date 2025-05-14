@@ -59,6 +59,8 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O JSON:** * JSON significa *JavaScript Object Notation*. É um formato leve de troca de dados, muito usado na comunicação entre sistemas, principalmente **Web e APIs**. Apesar do nome vir do JavaScript, o JSON é *independente de linguagem* — funciona com Python, Java, C#, PHP, Node.js, Go, etc.
 
+**O QUE É E PARA QUE SERVER O BSON:** O BSON significa *Binary JSON* é um formato binário de serialização de documentos, desenvolvido principalmente para uso no **MongoDB**, mas também é utilizado em outros sistemas que precisam armazenar ou transmitir dados estruturados.
+
 **O QUE É E PARA QUE SERVER A SEGURANÇA DA INFORMAÇÃO COM ÊNFASE EM BACKUP:** Os pilares base do conceito de *Segurança da Informação*, com ênfase em backup, são os seguintes: __`Confidencialidade`__ (Garantir que os dados só sejam acessados por pessoas autorizadas), __`Integridade`__ (Assegurar que a informação não seja alterada ou corrompida, seja acidentalmente ou de forma maliciosa), __`Disponibilidade`__ (Garantir que a informação esteja acessível sempre que necessária), __`Autenticidade`__ (Garantir que os dados sejam autênticos e a fonte de origem seja confiável) e __`Responsabilidade / Rastreabilidade`__ (Rastrear quem fez o quê, quando e como).
 
 [![MongoDB Server](http://img.youtube.com/vi/qs-zRXaSmuM/0.jpg)](https://www.youtube.com/watch?v=qs-zRXaSmuM "MongoDB Server")
