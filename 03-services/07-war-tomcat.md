@@ -53,6 +53,8 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O ARQUIVO WAR:** Em engenharia de software, um arquivo *WAR* é um arquivo **JAR** usado para distribuir uma coleção de *JavaServer Pages, Servlets Java, classes Java, arquivos XML, bibliotecas de tag, páginas web estáticas* e outros recursos que, juntos, constituem uma aplicação web.
 
+**O QUE É E PARA QUE SERVER O DEPLOY:** Deploy (do inglês deployment) é o processo de disponibilizar uma aplicação ou sistema para uso — geralmente em um ambiente de produção, como um servidor web, um serviço em nuvem ou um dispositivo final.
+
 **O QUE É E PARA QUE SERVER A SEGURANÇA DA INFORMAÇÃO COM ÊNFASE EM BACKUP:** Os pilares base do conceito de *Segurança da Informação*, com ênfase em backup, são os seguintes: __`Confidencialidade`__ (Garantir que os dados só sejam acessados por pessoas autorizadas), __`Integridade`__ (Assegurar que a informação não seja alterada ou corrompida, seja acidentalmente ou de forma maliciosa), __`Disponibilidade`__ (Garantir que a informação esteja acessível sempre que necessária), __`Autenticidade`__ (Garantir que os dados sejam autênticos e a fonte de origem seja confiável) e __`Responsabilidade / Rastreabilidade`__ (Rastrear quem fez o quê, quando e como).
 
 **O QUE É E PARA QUE SERVER O DUMP SQL:** O dump do SQL (MySQL ou MariaDB Server) é uma cópia de segurança (backup) de um banco de dados ou de toda a instância do SQL (Banco de Dados, Tabelas, etc.), geralmente exportada para um arquivo de texto que contém comandos SQL (como CREATE, INSERT, etc.) para recriar e repopular os dados, o resultado é um script SQL legível, que pode ser usado para restaurar o banco posteriormente.
@@ -112,7 +114,7 @@ Clique em: <Acessar>
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda de Contatos em JavaEE
 ```bash
-#litando o conteúdo do diretório Webapp do Apache Tomcat
+#litando o conteúdo do diretório Webapps do Apache Tomcat
 #opção do comando ls: -l (long listing format), -h (human-readable)
 ls -lh /opt/tomcat/webapps
 ```
@@ -215,7 +217,7 @@ sudo mysqldump -u root -p dbagenda > bkp-dbagenda.sql
 #verificando o conteúdo do arquivo backupeado do banco de dados DBAgenda
 sudo less bkp-dbagenda.sql
 
-#acessando o MySQL Server via console
+#acessando o MySQL Server via console com o usuário DBAgenda
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u dbagenda -p
 ```
@@ -280,9 +282,9 @@ Clique em: <Acessar>
 
 **#09_ DESAFIO-02:** DELETAR A BASE DE DADOS: __`dbagenda`__ E O USUÁRIO: __`dbagenda`__ DO MYSQL SERVER (VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP E TESTAR A CONEXÃO NO NAVEGADOR.
 
-**#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`agenda`__ E FAZER O DEPLOY NOVAMENTE COM O NOME DO ARQUIVO ALTERADO PARA: __`novaagenda`__, VERIFICAR SE O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
+**#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`agenda`__ APÓS A SUA REMOÇÃO FAZER O DEPLOY NOVAMENTE COM O NOME DO ARQUIVO ALTERADO PARA: __`novaagenda`__, VERIFICAR SE O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
 
-**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO *WAR TOMCAT DA AGENDA E DO SAMPLE NO WORDPRESS* PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
+**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO *WAR TOMCAT DA AGENDA E DO SAMPLE HELLO WORLD NO WORDPRESS* PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
 
 =========================================================================================
 

@@ -103,13 +103,14 @@ curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmo
 
 ## 03_ Criando o repositório do MongoDB Server no Ubuntu Server
 ```bash
+#criando o arquivo do repositório Apt do MongoDB no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
 ## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server no Ubuntu Server
 ```bash
-#atualizando as listas do Apt
+#atualizando as listas do Apt com o novo repositório
 sudo apt update
 ```
 
@@ -136,7 +137,7 @@ sudo systemctl enable mongod
 sudo systemctl start mongod
 ```
 
-## 07_ Verificando o Serviço e Versão do MongoDB Server e do Client no Ubuntu Server
+## 07_ Verificando o Serviço e Versão do MongoDB Server e do Shell no Ubuntu Server
 ```bash
 #verificando o serviço do MongoDB Server
 sudo systemctl status mongod
@@ -153,7 +154,7 @@ sudo journalctl -xeu mongod
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do MongoDB Server e do Client
+#verificando as versões do MongoDB Server e do Shell
 sudo mongod --version
 sudo mongosh --version
 ```
@@ -204,7 +205,7 @@ mongosh
 
 ## 12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server)
 
-**OBSERVAÇÃO IMPORTANTE:** Diferente do *MySQL Server* o MongoDB Server é um Banco de Dados **Não Relacional (No-SQL)**, seu conceito e diferente do Banco de Dados Relacional os nomes muda um pouco (SÓ FAZER O DE-PARA):
+**OBSERVAÇÃO IMPORTANTE:** Diferente do *MySQL Server* o MongoDB Server é um Banco de Dados **Não Relacional (No-SQL)**, seu conceito e diferente do **Banco de Dados Relacional** os nomes muda um pouco (SÓ FAZER O DE-PARA):
 
 |               DE T-SQL              |                PARA NO-SQL                |
 |-------------------------------------|-------------------------------------------|
@@ -218,7 +219,7 @@ mongosh
 |     Primary Key (Chave Primária)    |       Primary Key (Chave Primária)        |
 |        Group By (Agrupar Por)       |         Aggregation (Agregação)           |
 
-**OBSERVAÇÃO IMPORTANTE:** No MySQL como no MongoDB temos o Conceito do: **CRUD (Create, Read, Update e Delete)**, seu conceito é o mesmo só mudando a forma como trabalhamos com  os *dados/informações* em cada Banco de Dados.
+**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos os recursos do: **CRUD (Create, Read, Update e Delete)**, seu conceito é o mesmo só mudando a forma como trabalhamos com  os *dados/informações* em cada Banco de Dados.
 
 |   CRUD    |    T-SQL (MySQL)   |      No-SQL (MongoDB)        |
 |-----------|--------------------|------------------------------|
@@ -229,7 +230,7 @@ mongosh
 | Update    |  UPDATE            |   db.collection.updateOne()  |
 | Delete    |  DELETE            |   db.collection.deleteOne()  |
 
-**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos o Conceito de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os dados/informações em cada Banco de Dados.
+**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos os recursos de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os *dados/informações* em cada Banco de Dados.
 
 ```bash
 #exibindo os bancos de dados existentes no MongoDB
@@ -257,7 +258,7 @@ mongosh
 use admin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações Node.JS junto com o recurso de conexão com o MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
+**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações **Node.JS** junto com o recurso de conexão com o MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
 
 **OBSERVAÇÃO IMPORTANTE:** No software *MongoDB Compass*, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de *acesso de permissão para monitorar o MongoDB* e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário **admin** conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
@@ -267,6 +268,7 @@ db.createUser(
     user: "admin",
     // altere a senha conforme a sua necessidade
     pwd: "sua_senha",
+    // papeis que o usuário admin vai ter na base de dados
     roles: [
       { role: 'root', db: 'admin' },
       { role: 'read', db: 'admin' },
@@ -326,7 +328,7 @@ sudo systemctl restart mongod
 sudo systemctl status mongod
 ```
 
-## 15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Client) no Ubuntu Server
+## 15_ Acessando o MongoDB "COM" e "SEM" autenticação no Mongosh (Shell/Client) no Ubuntu Server
 ```bash
 #acessando novamente o console do MongoDB
 mongosh
@@ -337,6 +339,7 @@ show dbs
 #saindo do MongoDB Server
 quit
 
+#acessando novamente o console do MongoDB com autenticação
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 
@@ -352,7 +355,7 @@ quit
 Link de download do MongoDB Compass: https://www.mongodb.com/products/tools/compass
 
 ```bash
-#criando uma nova conexão com o MongoDB Server
+#criando uma nova conexão com o MongoDB Server no Compass
 <New connection+>
   New Connection
     URL: mongodb://SEU_ENDEREÇO_IPV4:27017
@@ -403,7 +406,7 @@ VSCode
 
 Utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows, Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
 
-**OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM STRINGS DE CONEXÃO O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO UNICODE.
+**OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM *STRINGS DE CONEXÃO* O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO **UNICODE**.
 
 ```bash
 #String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
@@ -413,15 +416,16 @@ mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 **OBSERVAÇÃO IMPORTANTE:** UTILIZAR A APLICAÇÃO PARA FAZER A CRIAÇÃO DE VÁRIOS **DOCUMENTS** NO **COLLECTION** CONTATOS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E RESTAURAR APÓS A VERIFICAÇÃO.
 
 ```bash
-#criando o backup (dump) da base de dados Agenda 
+#criando o backup (dump) da base de dados Agenda do MongoDB
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
-mongodump --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" --gzip -d agenda
+mongodump --uri "mongodb://seu_usuário:sua_senha@ip_do_server:27017/?authSource=admin" --gzip -d agenda
 
 #listando o diretório do Backup (Dump) da base de dados Agenda
 #opção do comando ls: -l (long listing format), -h (human-readable)
 ls -lh dump/
 
-#limpando os documents do collection Contatos da base de dados Agenda
+#limpando os documents do collection Contatos da base de dados Agenda no MongoDB
+#acessando novamente o MongoDB via Shell
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 
@@ -452,7 +456,23 @@ exit
 
 #restaurando o backup da base de dados Agenda
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
-mongorestore --uri "mongodb://usuario:senha@ip_do_server:27017/?authSource=admin" --gzip ./dump/agenda -d agenda
+mongorestore --uri "mongodb://seu_usuário:seu_senha@ip_do_server:27017/?authSource=admin" --gzip ./dump/agenda -d agenda
+
+#acessando novamente o MongoDB via Shell
+#opção do comando mongosh: admin (database) -u (username), -p (password)
+mongosh admin -u admin -p
+
+#exibir os bancos de dados existentes no MongoDB
+show dbs
+
+#usar a base de dados Agenda
+use agenda
+
+#exibir os collections da base de dados Agenda
+show collections
+
+#exibindo todos os documents do collection Contatos da base de dados Agenda
+db.contatos.find()
 ```
 
 ========================================DESAFIOS=========================================

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.27<br>
+#Data de atualização: 14/05/2025<br>
+#Versão: 0.28<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -89,7 +89,7 @@ git clone https://github.com/netdata/netdata --depth=100 --recursive
 
 ## 03_ Compilando e Instalando o Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o processo de compilação e instalação do Netdata Agent via Github demora bastante, dependendo do seu hardware pode demorar mais de: *30 minutos* para baixar as dependências, compilar e instalar o Netdata Agent no Ubuntu Server, aguarde!!!!!!!
+**OBSERVAÇÃO IMPORTANTE:** o processo de compilação e instalação do Netdata Agent via Github demora bastante, dependendo do seu hardware pode demorar mais de: **30 minutos** para baixar as dependências, compilar e instalar o Netdata Agent no Ubuntu Server, aguarde!!!!!!!
 
 ```bash
 #acessando o diretório clonado e instalando o Netdata Agent
@@ -179,23 +179,27 @@ exit
 /etc/netdata/go.d/mysql.conf       <-- arquivo de monitoramento do MySQL Server
 /etc/netdata/go.d/ping.conf        <-- arquivo de monitoramento do ICMP Ping
 /etc/netdata/go.d/portcheck.conf   <-- arquivo de monitoramento do TCP/UDP Port Endpoint Check
-/etc/netdata/go.d/tomcat.conf      <-- arquivo de monitoramento do Apache Tomcat
+/etc/netdata/go.d/tomcat.conf      <-- arquivo de monitoramento do Apache Tomcat Server
 /var/log/netdata                   <-- diretório dos arquivos de Logs do Netdata
 ```
 
 ## 09_ Acessando e configurando o Netdata Agent via navegador
+
+**OBSERVAÇÃO IMPORTANTE:** Por padrão o acesso ao Netdata Agent não solicita usuário e senha, o acesso está liberado para todas as Redes Locais (LAN) ou Remotas (WAN), o processo de segurança do Netdata Agent é baseado nas configurações de Regras de Acesso a URL da Aplicação feitas no arquivo: __`/etc/netdata/netdata.conf`__, regras de Firewall utilizando o: __`iptables`__ ou __`ufw`__ e a configuração do recurso de Proxy com Autenticação do __`Apache2 Server`__, recursos esses que não serão abordados nesse curso.
+
 ```bash
-#acessar via navegador o Netdata
+#acessar o Netdata Agent via navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 ```
 
-# CONFIGURAÇÃO DO MONITORAMENTO DOS SERVIÇOS DE REDE DO NETDATA AGENT
+# CONFIGURAÇÃO DO MONITORAMENTO DOS SERVIÇOS DE REDE NO NETDATA AGENT
 
 ## 10_ Criando o usuário de monitoramento do MySQL Server do Netdata Agent no Ubuntu Server
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
 #https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
 
+#acessando o MySQL Server via console
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
@@ -221,6 +225,7 @@ exit
 #configuração do serviço de monitoramento do MongoDB Server
 #https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
 
+#acessando o MongoDB Server via shell
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 mongosh admin -u admin -p
 ```
@@ -247,7 +252,7 @@ quit
 
 ## 12_ Acessando o diretório de configuração do Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do Netdata Server, os arquivos de configuração são baseados na *Linguagem de Programação Python e Go (Golang)* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
+**OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do *Netdata Agent*, os arquivos de configuração são baseados na *Linguagem de Programação Python e Go (Golang)* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
 
 ```bash
 #acessando o diretório de configuração do Netdata Aget
@@ -260,10 +265,10 @@ ls -lh
 
 ## 13_ Configurando o serviço de monitoramento do Apache2 Server no Netdata Agent
 
-**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O COMANDO: *./edit-config* UTILIZA O EDITOR DE TEXTO **NANO**, SEUS COMANDOS E TECLAS DE ATALHO SÃO DIFERENTES DO EDITOR DE TEXTO **VIM**, CUIDADO!!!!.
+**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O COMANDO: __`./edit-config`__ UTILIZA O EDITOR DE TEXTO **NANO**, SEUS COMANDOS E TECLAS DE ATALHO SÃO DIFERENTES DO EDITOR DE TEXTO **VIM**, CUIDADO!!!!.
 
 ```bash
-#configuração do serviço de monitoramento do Apache Server
+#configuração do serviço de monitoramento do Apache2 Server
 #https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/apache
 sudo ./edit-config go.d/apache.conf
 
@@ -365,7 +370,7 @@ Ctrl + X
 sudo ./edit-config go.d/portcheck.conf
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na Porta Padrão: 22, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de Força Bruta que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS e CoinMiners*, segue lista de alguns Bots: **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata, após remover a porta: 22 a falha dos Logs foi resolvida.
+**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Distributed Denial-of-Service) e CoinMiners*, segue lista de alguns Bots: **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
 
 ```bash
 #editar as informações a partir da linha: 04
@@ -559,6 +564,102 @@ Entendendo as opções de métricas do comando __`*iperf*`__
 | 05  | Retr               | Retransmissões de pacotes, ou seja, o número de pacotes que foram enviados novamente devido a falhas ou perda de pacotes durante a transmissão. |
 | 06  | Cwnd               | Tamanho da janela de congestionamento (congestion window) no TCP. O TCP usa uma janela de congestionamento para controlar a quantidade de dados não confirmados que podem ser enviados antes de esperar por um reconhecimento. Quanto maior o valor, mais dados podem ser enviados sem confirmação. |
 | 07  | Total Datagrams    | Número total de pacotes de dados enviados ou recebidos durante o teste, aplicável especialmente aos testes UDP. Cada datagrama representa um pacote UDP. |
+
+```bash
+#fazendo várias requisições de consultas simultâneas no MongoDB Server
+#criando o arquivo de teste do MongoDB (criar no Perfil do seu usuário)
+vim mongodb_stress_test.js
+
+#entrar no modo de edição do Editor VIM
+INSERT
+```
+```js
+/**
+ * Script de Teste de Estresse para MongoDB Server
+ * Versão: 1.0 - Data de atualização: 14/05/2025 - Dev: Robson Vaamonde
+ * Finalidade: Simular um cenário de concorrência e carga no MongoDB semelhante ao comando:
+ * mysqlslap --concurrency=1000 --iterations=100 [...]
+ * 
+ * O teste cria 1000 workers (processos filhos), cada um executando 100 queries findOne()
+ * contra a coleção "contatos" do banco "dbagenda".
+ */
+
+//===== Bloco das Variáveis do Node.JS =====
+
+const { MongoClient } = require("mongodb"); // Importa o driver oficial MongoDB
+const cluster = require("cluster");         // Módulo para criar múltiplos processos (concorrência real)
+const numWorkers = 1000;                    // Número de processos simultâneos (concorrência)
+const iterations = 100;                     // Quantidade de consultas por worker
+
+// Configuração da conexão MongoDB
+const uri = "mongodb://seu_usuário:sua_senha@localhost:27017";   // URL de conexão (ajuste se necessário)
+const dbName = "dbagenda";                                       // Nome do banco de dados
+const collectionName = "contatos";                               // Nome da collection que será consultada
+
+// Se é o processo master (coordenador dos workers)
+if (cluster.isPrimary || cluster.isMaster) {
+  console.log(`Iniciando teste de estresse com ${numWorkers} workers...`);
+  let completed = 0; // Contador de workers finalizados
+
+  // Criação dos workers
+  for (let i = 0; i < numWorkers; i++) {
+    const worker = cluster.fork(); // Cria um novo processo filho
+
+    // Quando o worker termina, incrementa o contador
+    worker.on("exit", () => {
+      completed++;
+      if (completed === numWorkers) {
+        console.log("Teste de estresse finalizado com sucesso!!!");
+      }
+    });
+  }
+} else {
+  // Código executado por cada worker
+  (async () => {
+    try {
+      // Cria uma nova conexão com o MongoDB
+      const client = new MongoClient(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+
+      await client.connect(); // Conecta ao servidor MongoDB
+      const db = client.db(dbName); // Seleciona o banco de dados
+      const collection = db.collection(collectionName); // Seleciona a collection
+
+      // Executa a consulta 100 vezes (findOne())
+      for (let i = 0; i < iterations; i++) {
+        await collection.findOne({});
+      }
+
+      await client.close(); // Fecha a conexão após terminar as consultas
+      process.exit(0); // Encerra o worker com sucesso
+    } catch (err) {
+      console.error("Erro no worker:", err); // Log de erro, se ocorrer
+      process.exit(1); // Encerra com erro
+    }
+  })();
+}
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
+```bash
+#executando o script de Stress do MongoDB Server
+node mongodb_stress_test.js
+```
+```bash
+#monitorando o MongoDB utilizando os recursos de monitoramento nativo
+
+#monitorando o MongoDB utilizando o comando mongostat
+#opção do comando mongostat: --authenticationDatabase (), -u (), -p ()
+sudo mongostat --authenticationDatabase admin -u seu_usuário -p sua_senha
+
+#monitorando o MongoDB utilizando o comando mongotop
+#opção do comando mongotop: --authenticationDatabase (), -u (), -p ()
+sudo mongotop   --authenticationDatabase admin -u seu_usuário -p sua_senha
+```
 
 ========================================DESAFIOS=========================================
 
