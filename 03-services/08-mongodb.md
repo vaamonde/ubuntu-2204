@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 12/05/2025<br>
-#Versão: 0.36<br>
+#Data de atualização: 19/05/2025<br>
+#Versão: 0.37<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -23,9 +23,9 @@ Conteúdo estudado nesse desafio:<br>
 #02_ Baixando e instalando a Chave GPG do MongoDB Server no Ubuntu Server;<br>
 #03_ Criando o repositório do MongoDB Server no Ubuntu Server;<br>
 #04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server no Ubuntu Server;<br>
-#05_ Instalando o MongoDB Server e Client no Ubuntu Server;<br>
+#05_ Instalando o MongoDB Server e Shell no Ubuntu Server;<br>
 #06_ Habilitando o Serviço do MongoDB Server no Ubuntu Server;<br>
-#07_ Verificando o Serviço e Versão do MongoDB Server e do Client no Ubuntu Serve;<br>
+#07_ Verificando o Serviço e Versão do MongoDB Server e do Shell no Ubuntu Serve;<br>
 #08_ Verificando a Porta de Conexão do MongoDB Server no Ubuntu Server;<br>
 #09_ Localização dos Arquivos de Configuração do MongoDB Server no Ubuntu Server;<br>
 #10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server no Ubuntu Server;<br>
@@ -33,7 +33,7 @@ Conteúdo estudado nesse desafio:<br>
 #12_ Comandos Básicos do MongoDB Server (De-Para: MySQL Server - MongoDB Server);<br>
 #13_ Criando o usuário de administração do MongoDB Server no Ubuntu Server;<br>
 #14_ Configurando o MongoDB Server para suportar autenticação e Acesso Remoto no Ubuntu Server;<br>
-#15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Client) no Ubuntu Server;<br>
+#15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Shell) no Ubuntu Server;<br>
 #16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) (Windows ou GNU/Linux);<br>
 #17_ Integrando o MongoDB Server com o Visual Studio Code VSCode (Windows ou GNU/Linux);<br>
 #18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO);<br>
@@ -60,6 +60,8 @@ x.AI Grok: https://grok.com/<br>
 **O QUE É E PARA QUE SERVER O JSON:** * JSON significa *JavaScript Object Notation*. É um formato leve de troca de dados, muito usado na comunicação entre sistemas, principalmente **Web e APIs**. Apesar do nome vir do JavaScript, o JSON é *independente de linguagem* — funciona com Python, Java, C#, PHP, Node.js, Go, etc.
 
 **O QUE É E PARA QUE SERVER O BSON:** O BSON significa *Binary JSON* é um formato binário de serialização de documentos, desenvolvido principalmente para uso no **MongoDB**, mas também é utilizado em outros sistemas que precisam armazenar ou transmitir dados estruturados.
+
+**O QUE É E PARA QUE SERVER O MONGOOSE:** O Mongoose é uma biblioteca *ODM (Object Data Modeling)* para **Node.js** que facilita a interação com bancos de dados MongoDB. Ele permite que você trabalhe com documentos MongoDB usando objetos JavaScript de forma mais estruturada e segura.
 
 **O QUE É E PARA QUE SERVER A SEGURANÇA DA INFORMAÇÃO COM ÊNFASE EM BACKUP:** Os pilares base do conceito de *Segurança da Informação*, com ênfase em backup, são os seguintes: __`Confidencialidade`__ (Garantir que os dados só sejam acessados por pessoas autorizadas), __`Integridade`__ (Assegurar que a informação não seja alterada ou corrompida, seja acidentalmente ou de forma maliciosa), __`Disponibilidade`__ (Garantir que a informação esteja acessível sempre que necessária), __`Autenticidade`__ (Garantir que os dados sejam autênticos e a fonte de origem seja confiável) e __`Responsabilidade / Rastreabilidade`__ (Rastrear quem fez o quê, quando e como).
 
@@ -114,7 +116,7 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gp
 sudo apt update
 ```
 
-## 05_ Instalando o MongoDB Server e Client no Ubuntu Server
+## 05_ Instalando o MongoDB Server e Shell no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM **ALGUMAS FALHAS E INCOMPATIBILIDADE** EM PROCESSADORES __`INTEL`__ OU __`AMD`__ QUE NÃO TEM OS PRINCIPAIS *RECURSOS OU TECNOLOGIAS* QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
 
@@ -230,7 +232,7 @@ mongosh
 | Update    |  UPDATE            |   db.collection.updateOne()  |
 | Delete    |  DELETE            |   db.collection.deleteOne()  |
 
-**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos os recursos de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só mudando a forma como trabalhamos com os *dados/informações* em cada Banco de Dados.
+**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos os recursos de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só muda a forma como trabalhamos com os *dados/informações* em cada Banco de Dados.
 
 ```bash
 #exibindo os bancos de dados existentes no MongoDB
@@ -258,7 +260,7 @@ mongosh
 use admin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações **Node.JS** junto com o recurso de conexão com o MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
+**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações **Node.JS** junto com o recurso de conexão do MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
 
 **OBSERVAÇÃO IMPORTANTE:** No software *MongoDB Compass*, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de *acesso de permissão para monitorar o MongoDB* e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário **admin** conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
@@ -404,16 +406,16 @@ VSCode
 
 ## 18_ Fazendo o Backup do Banco de Dados DBAgenda no MongoDB Server (NÃO COMENTADO NO VÍDEO)
 
-Utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron no Microsoft Windows, Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
+Utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron/Mongoose no Microsoft Windows (SEM VERSÃO PARA LINUX ATÉ O MOMENTO), Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
 
-**OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM *STRINGS DE CONEXÃO* O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO **UNICODE**.
+**OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM *STRINGS DE CONEXÃO DO MONGODB* O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO **UNICODE**.
 
 ```bash
 #String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
 mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** UTILIZAR A APLICAÇÃO PARA FAZER A CRIAÇÃO DE VÁRIOS **DOCUMENTS** NO **COLLECTION** CONTATOS DA BASE DE DADOS AGENDA, FAZER O BACKUP DEPOIS, REMOVER OS DADOS E RESTAURAR APÓS A VERIFICAÇÃO.
+**OBSERVAÇÃO IMPORTANTE:** UTILIZAR A APLICAÇÃO AGENDA PARA FAZER A CRIAÇÃO DE VÁRIOS **DOCUMENTS** NO **COLLECTION** **CONTATOS** DA BASE DE DADOS **AGENDA**, FAZER O BACKUP DEPOIS, REMOVER TODOS OS DADOS E VERIFICAR SE O SISTEMA NÃO TEM MAIS CONTATOS REGISTRADOS NA BASE DE DADOS AGENDA.
 
 ```bash
 #criando o backup (dump) da base de dados Agenda do MongoDB
@@ -450,6 +452,8 @@ show collections
 
 **OBSERVAÇÃO IMPORTANTE:** No MongoDB Server, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existirá mais a Base de Dados Agenda.
 
+**OBSERVAÇÃO:** NOVAMENTE FAZER VÁRIOS REGISTROS NA BASE DE DADOS AGENDA ANTES DE FAZER A RESTAURAÇÃO.
+
 ```bash
 #saindo o MongoDB Server
 exit
@@ -473,6 +477,9 @@ show collections
 
 #exibindo todos os documents do collection Contatos da base de dados Agenda
 db.contatos.find()
+
+#saindo o MongoDB Server
+exit
 ```
 
 ========================================DESAFIOS=========================================

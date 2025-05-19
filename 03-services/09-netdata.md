@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 14/05/2025<br>
-#Versão: 0.28<br>
+#Data de atualização: 19/05/2025<br>
+#Versão: 0.29<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -38,7 +38,7 @@ Conteúdo estudado nesse desafio:<br>
 #17_ Configurando o serviço de monitoramento do ICMP no Netdata Agent;<br>
 #18_ Configurando o serviço de monitoramento das Portas TCP Endpoint no Netdata Agent;<br>
 #19_ Configurando o serviço de monitoramento do HTTP Endpoint no Netdata Agent;<br>
-#20_ Reiniciando o serviço do Netdata Agent no Ubuntu Server;<br>
+#20_ Aplicando as mudanças e reiniciando o serviço do Netdata Agent no Ubuntu Server;<br>
 #21_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server;<br>
 #22_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO);<br>
 #23_ Desafio da Integração do Netdata Server com o Cloud.<br>
@@ -143,7 +143,7 @@ sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 **OBSERVAÇÃO IMPORTANTE:** caso queira atualizar manualmente o Netdata Agent digite o mesmo comando do agendamento de atualizações do Netdata Agent no terminal.
 
 ```bash
-#atualizando manualmente o Netdata Agent
+#atualizando manualmente o Netdata Agent (SÓ EXECUTAR ESSE COMANDO SE NECESSÁRIO)
 #opção do ./: execução de script desenvolvido em Shell Script .sh
 sudo /usr/libexec/netdata/./netdata-updater.sh
 ```
@@ -155,13 +155,13 @@ sudo /usr/libexec/netdata/./netdata-updater.sh
 #nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G netdata $USER
 
-#fazendo login em um novo grupo do NETDATA
+#fazendo login em um novo grupo do Netdata
 newgrp netdata
 
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando informações do grupo NETDATA
+#verificando informações do grupo Netdata
 sudo getent group netdata
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
@@ -185,7 +185,7 @@ exit
 
 ## 09_ Acessando e configurando o Netdata Agent via navegador
 
-**OBSERVAÇÃO IMPORTANTE:** Por padrão o acesso ao Netdata Agent não solicita usuário e senha, o acesso está liberado para todas as Redes Locais (LAN) ou Remotas (WAN), o processo de segurança do Netdata Agent é baseado nas configurações de Regras de Acesso a URL da Aplicação feitas no arquivo: __`/etc/netdata/netdata.conf`__, regras de Firewall utilizando o: __`iptables`__ ou __`ufw`__ e a configuração do recurso de Proxy com Autenticação do __`Apache2 Server`__, recursos esses que não serão abordados nesse curso.
+**OBSERVAÇÃO IMPORTANTE:** Por padrão o acesso ao Netdata Agent não solicita usuário e senha, o acesso está liberado para todas as Redes Locais (LAN) ou Remotas (WAN), o processo de segurança do Netdata Agent é baseado nas configurações de Regras de Acesso a URL da Aplicação feitas no arquivo: __`/etc/netdata/netdata.conf`__, regras de Firewall utilizando o: __`iptables`__ ou __`ufw`__ e a configuração do recurso de Proxy com Autenticação do __`Apache2 Server ou NGINX Server`__, recursos esses que não serão abordados nesse curso.
 
 ```bash
 #acessar o Netdata Agent via navegador
@@ -194,7 +194,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 
 # CONFIGURAÇÃO DO MONITORAMENTO DOS SERVIÇOS DE REDE NO NETDATA AGENT
 
-## 10_ Criando o usuário de monitoramento do MySQL Server do Netdata Agent no Ubuntu Server
+## 10_ Criando o usuário de monitoramento no MySQL Server do Netdata Agent no Ubuntu Server
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
 #https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
@@ -220,7 +220,7 @@ SELECT user,host FROM mysql.user WHERE user="netdata";
 exit
 ```
 
-## 11_ Criando o usuário de monitoramento do MongoDB Server do Netdata Agent no Ubuntu Server
+## 11_ Criando o usuário de monitoramento no MongoDB Server do Netdata Agent no Ubuntu Server
 ```bash
 #configuração do serviço de monitoramento do MongoDB Server
 #https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
@@ -370,7 +370,7 @@ Ctrl + X
 sudo ./edit-config go.d/portcheck.conf
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Distributed Denial-of-Service) e CoinMiners*, segue lista de alguns Bots: **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
+**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Robots of Distributed Denial-of-Service) e CoinMiners (Malware de Criptomineração ou Cryptojacking)*, segue lista de alguns Bots (Robôs): **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
 
 ```bash
 #editar as informações a partir da linha: 04
@@ -408,9 +408,9 @@ Ctrl + X
     File Name to Write: <Enter>
 ```
 
-## 20_ Reiniciando o serviço do Netdata Agent no Ubuntu Server
+## 20_ Aplicando as mudanças e reiniciando o serviço do Netdata Agent no Ubuntu Server
 ```bash
-#verificando os arquivos de configuração dos monitoramentos criados
+#verificando os arquivos de configuração dos monitoramentos criados no Netdata Agent
 #opção do comando ls: -l (long listing), -h (human-readable)
 ls -lh go.d/
 
@@ -427,7 +427,7 @@ sudo systemctl list-units --type=service --state=running
 
 ## 21_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no vídeo as portas listadas com o comando: *nmap* só listou as portas conhecidas, para listar todas as portas adicionei a opção: __`-p-`__ (OBSERVAÇÃO: COM ESSA OPÇÃO HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
+**OBSERVAÇÃO IMPORTANTE:** no vídeo as portas listadas com o comando: *nmap* só listou as portas conhecidas, para listar todas as portas adicionei a opção: __`-p-`__ (**OBSERVAÇÃO:** COM ESSA OPÇÃO HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
 
 ```bash
 #verificando todas as portas abertas no Ubuntu Server
@@ -541,19 +541,21 @@ Entendendo as opções de métricas do comando __`*ab*`__
 #server), --password (The password of the MySQL account used for connecting to the server)
 sudo mysqlslap --concurrency=1000 --iterations=100 --query="SELECT * FROM contatos;" --create-schema=dbagenda --user=dbagenda --password=dbagenda
 ```
+
+Mais informações do software iPerf3: https://iperf-fr.translate.goog/iperf-doc.php?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+
 ```bash
 #fazendo várias conexões de rede simultâneas no servidor do iPerf3
-#documentação oficial do iPerf3: https://iperf-fr.translate.goog/iperf-doc.php?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 #opções do comando iperf3: -s (Run iPerf in server mode.), -c (Run iPerf in client mode, connecting
 #to an iPerf server running on host.), -t (The time in seconds to transmit for), -u (Use UDP rather 
 #than TCP), -b (The UDP bandwidth to send at, in bits/sec), -l (The length of buffers to read or write)
-iperf -s
+iperf3 -s
 iperf3 -c IP_SERVER_IPERF3_REMOTO -t 30
 iperf3 -c IP_SERVER_IPERF3_REMOTO -u -b 10M -t 30
 iperf3 -c IP_SERVER_IPERF3_REMOTO -l 128
 ```
 
-Entendendo as opções de métricas do comando __`*iperf*`__
+Entendendo as opções de métricas do comando __`*iperf3*`__
 
 | ID  | Opção              | Descrição                                                                                  |
 |-----|--------------------|--------------------------------------------------------------------------------------------|
@@ -578,10 +580,10 @@ INSERT
  * Script de Teste de Estresse para MongoDB Server
  * Versão: 1.0 - Data de atualização: 14/05/2025 - Dev: Robson Vaamonde
  * Finalidade: Simular um cenário de concorrência e carga no MongoDB semelhante ao comando:
- * mysqlslap --concurrency=1000 --iterations=100 [...]
+ * mysqlslap --concurrency=1000 --iterations=100 [...] do MySQL Server usando o mysqllap
  * 
  * O teste cria 1000 workers (processos filhos), cada um executando 100 queries findOne()
- * contra a coleção "contatos" do banco "dbagenda".
+ * contra a coleção "contatos" do banco "agenda".
  */
 
 //===== Bloco das Variáveis do Node.JS =====
@@ -592,13 +594,13 @@ const numWorkers = 1000;                    // Número de processos simultâneos
 const iterations = 100;                     // Quantidade de consultas por worker
 
 // Configuração da conexão MongoDB
-const uri = "mongodb://seu_usuário:sua_senha@localhost:27017";   // URL de conexão (ajuste se necessário)
-const dbName = "dbagenda";                                       // Nome do banco de dados
+const uri = "mongodb://seu_usuário:sua_senha@localhost:27017";   // URI de conexão (ajuste se necessário)
+const dbName = "agenda";                                       // Nome do banco de dados
 const collectionName = "contatos";                               // Nome da collection que será consultada
 
 // Se é o processo master (coordenador dos workers)
 if (cluster.isPrimary || cluster.isMaster) {
-  console.log(`Iniciando teste de estresse com ${numWorkers} workers...`);
+  console.log(`Iniciando o teste de estresse com ${numWorkers} workers...`);
   let completed = 0; // Contador de workers finalizados
 
   // Criação dos workers
@@ -653,11 +655,11 @@ node mongodb_stress_test.js
 #monitorando o MongoDB utilizando os recursos de monitoramento nativo
 
 #monitorando o MongoDB utilizando o comando mongostat
-#opção do comando mongostat: --authenticationDatabase (), -u (), -p ()
+#opção do comando mongostat: --authenticationDatabase (database), -u (username), -p (password)
 sudo mongostat --authenticationDatabase admin -u seu_usuário -p sua_senha
 
 #monitorando o MongoDB utilizando o comando mongotop
-#opção do comando mongotop: --authenticationDatabase (), -u (), -p ()
+#opção do comando mongotop: --authenticationDatabase (database), -u (username), -p (password)
 sudo mongotop   --authenticationDatabase admin -u seu_usuário -p sua_senha
 ```
 

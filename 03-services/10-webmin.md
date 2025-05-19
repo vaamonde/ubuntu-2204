@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 10/05/2025<br>
-#Versão: 0.15<br>
+#Data de atualização: 19/05/2025<br>
+#Versão: 0.16<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Webmin realizado com sucesso!!! #BoraParaPrática*
 
@@ -39,12 +39,12 @@ x.AI Grok: https://grok.com/<br>
 
 Site Oficial do Webmin: https://webmin.com/<br>
 
-**O QUE É E PARA QUE SERVER O WEBGUI:** Um WebGUI (Web Graphical User Interface) é uma interface gráfica baseada em web que permite a interação com sistemas ou softwares através de uma página da web, ao invés de utilizar uma interface tradicional com base em texto ou em um aplicativo de desktop. Ele geralmente utiliza tecnologias como HTML, CSS, JavaScript e frameworks modernos para fornecer uma experiência interativa e visual ao usuário.
+**O QUE É E PARA QUE SERVER O WEBGUI:** Um *WebGUI (Web Graphical User Interface)* é uma interface gráfica baseada em web que permite a interação com sistemas ou softwares através de uma página da web, ao invés de utilizar uma interface tradicional com base em texto ou em um aplicativo de desktop. Ele geralmente utiliza tecnologias como HTML, CSS, JavaScript e frameworks modernos para fornecer uma experiência interativa e visual ao usuário.
 
-**O QUE É E PARA QUE SERVER O WEBMIN:** O Webmin é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.
+**O QUE É E PARA QUE SERVER O WEBMIN:** O *Webmin* é um painel de controle de gerenciamento de servidor baseado na web para sistemas operacionais do tipo Unix ou Linux, facilitando a administração e gestão dos servidores via navegador, não precisando de conhecimentos avanças em Bash/Shell.
 
 [![Webmin](http://img.youtube.com/vi/QEpOrGZbEl8/0.jpg)](https://www.youtube.com/watch?v=QEpOrGZbEl8 "Webmin")
-
+14
 Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 
 ## 01_ Instalando as Dependências do Webmin no Ubuntu Server
@@ -136,7 +136,7 @@ Password: sua_senha
 <Sign In>
 ```
 
-## 09_ Configurações Básicas do Webmin
+## 09_ Configurações Básicas do Webmin via navegador
 ```bash
 #Atualizando o Módulos de Serviços do Web
 Webmin
@@ -167,9 +167,9 @@ Webmin
 
 **#10_ DESAFIO-01:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE __`COCKPIT`__ NO UBUNTU SERVER, ANALISAR AS DIFERENÇAS ENTRE O *WEBMIN E O COCKPIT* OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN GUI (Graphical User Interface) WEB PARA A ADMINISTRAÇÃO DO UBUNTU SERVER, COMENTAR NA DESCRIÇÃO DESSE VÍDEO.
 
-**#11_ DESAFIO-02:** ADICIONAR O MONITORAMENTO DAS PORTAS DO WEBMIN E DO COCKPIT NO __`NETDATA`__.
+**#11_ DESAFIO-02:** ADICIONAR O MONITORAMENTO DAS PORTAS DO WEBMIN E DO COCKPIT NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
 
-**#12_ DESAFIO-03:** ESTUDAR O MATERIAL DE MONITORAMENTO DO __`HTTP ENDPOINT`__ DO NETDATA PARA VERIFICAR OS STATUS DE PÁGINA DE TODOS OS SERVIÇOS CONFIGURADO ATÉ AGORA, VERIFICAR O LINK: https://learn.netdata.cloud/docs/data-collection/synthetic-checks/http-endpoints
+**#12_ DESAFIO-03:** ESTUDAR O MATERIAL DE MONITORAMENTO DO __`HTTP ENDPOINT`__ DO NETDATA PARA VERIFICAR OS STATUS DE PÁGINA DE TODOS OS SERVIÇOS CONFIGURADO ATÉ AGORA, VERIFICAR O LINK: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/http-endpoints
 
 **#13_ DESAFIO-04:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN E COCKPIT IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
