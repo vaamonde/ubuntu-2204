@@ -56,7 +56,7 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 **O QUE É E PARA QUE SERVER O MONITORAMENTO:** O monitoramento é o processo de observar, coletar e analisar dados em tempo real ou em intervalos regulares para acompanhar o desempenho, o estado e o comportamento de sistemas, equipamentos, redes ou processos.
 
-**O QUE É E PARA QUE SERVER O OBSERVABILIDADE:** Essa é uma daquelas palavras que virou **buzzword (momento)** no mundo *DevOps/SRE (Site Reliability Engineering)*, *Observabilidade* é a capacidade de entender o que está acontecendo dentro de um sistema (app, servidor, infraestrutura) apenas observando os dados gerados por ele — como *logs, métricas, traces, etc*.
+**O QUE É E PARA QUE SERVER A OBSERVABILIDADE:** Essa é uma daquelas palavras que virou **buzzword (momento)** no mundo *DevOps/SRE (Site Reliability Engineering)*, *Observabilidade* é a capacidade de entender o que está acontecendo dentro de um sistema (app, servidor, infraestrutura) apenas observando os dados gerados por ele — como *logs, métricas, traces, etc*.
 
 [![Netdata Server](http://img.youtube.com/vi/KaNmgc43vlw/0.jpg)](https://www.youtube.com/watch?v=KaNmgc43vlw "Netdata Server")
 
