@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 19/05/2025<br>
-#Versão: 0.29<br>
+#Data de atualização: 20/05/2025<br>
+#Versão: 0.30<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -138,6 +138,11 @@ sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ```bash
 #habilitando o suporte para atualização do Netdata Agent
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
+```
+```bash
+#verificando o arquivo de atualização do Crontab do Netdata Agent
+#opções de comando ls: -l (long listing format), -h (human-readable)
+ls -lh /etc/cron.daily/
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** caso queira atualizar manualmente o Netdata Agent digite o mesmo comando do agendamento de atualizações do Netdata Agent no terminal.
