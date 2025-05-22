@@ -475,10 +475,10 @@ Entendendo as opções do comando __`*stress-ng*`__
 | 02 | --io 8 | Cria 8 workers (trabalhos) que realizam chamadas de entrada e saída (I/O) para testar o subsistema de arquivos/dispositivos. |
 | 03 | --vm 18 | Cria 18 workers (trabalhos) que alocam e acessam memória (RAM), simulando uso intenso da memória. |
 | 04 | --cpu 8 | Cria 8 workers (trabalhos) que usam a CPU ao máximo (100%), rodando cálculos matemáticos. |
-| 05 | --stack 4 | Cria 4 process (processos) que usam chamadas recursivas profundas, estressando a pilha (stack) de memória de cada thread. |
+| 05 | --stack 4 | Cria 4 process (processos) que usam chamadas recursivas profundas, estressando a pilha (stack) de memória (ram) de cada thread (unidade de execução). |
 | 06 | --fork 8 | Cria 8 process (processos) que ficam criando e destruindo novos processos rapidamente (estressa o gerenciamento de processos do kernel). |
 | 07 | --exec 4 | Cria 4 process (processos) que executam repetidamente programas simples (testa a função exec() e o sistema de arquivos). |
-| 08 | --timeout 900 | Executa todos esses testes por 900 segundos (ou seja, 15 minutos), e depois para automaticamente |
+| 08 | --timeout 900 | Executa todos esses testes por 900 segundos (ou seja, 15 minutos), e depois para automaticamente. |
 
 ```bash
 #estressando a CPU utilizando o s-tui
@@ -487,7 +487,7 @@ sudo s-tui
 #utilizado o modos de Monitoramento e Estresse do s-tui
 Modes
   ( ) Monitor (Monitoramento do uso da CPU) <Enter>
-  ( ) Stress  (Modo de Stress da CPU) <Enter>
+  (X) Stress  (Modo de Stress da CPU) <Enter>
 
 #Saindo do s-tui
 Control Options
@@ -600,7 +600,7 @@ const iterations = 100;                     // Quantidade de consultas por worke
 
 // Configuração da conexão MongoDB
 const uri = "mongodb://seu_usuário:sua_senha@localhost:27017";   // URI de conexão (ajuste se necessário)
-const dbName = "agenda";                                       // Nome do banco de dados
+const dbName = "agenda";                                         // Nome do banco de dados
 const collectionName = "contatos";                               // Nome da collection que será consultada
 
 // Se é o processo master (coordenador dos workers)
