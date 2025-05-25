@@ -87,8 +87,10 @@ sudo lsof -nP -iTCP:'21' -sTCP:LISTEN
 ```bash
 /etc/proftpd/               <-- Diretório de configuração do ProFTPD Server
 /etc/proftpd/proftpd.conf   <-- Arquivo de configuração do ProFTPD Server
+/etc/proftpd/conf.d/        <-- Diretório das configurações personalizadas do ProFTPD Server
 /etc/ftpusers               <-- Arquivo de usuários negados para conectar via FTP
 /var/log/proftpd/           <-- Diretório padrão dos Logs do ProFTPD Server
+/var/run/proftpd/           <-- Diretório do processo e socket do ProFTPD Server
 ```
 
 ## 06_ Atualizando os arquivos de configuração do ProFTPD Server no Ubuntu Server
