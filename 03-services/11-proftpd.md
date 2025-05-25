@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2025<br>
 #Data de atualização: 25/05/2025<br>
-#Versão: 0.03<br>
+#Versão: 0.04<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROFTPD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do ProFTPD realizado com sucesso!!! #BoraParaPrática*
 
@@ -27,7 +27,10 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Acessando remotamente o ProFTPD Server via Powershell, Terminal e Git Bash.<br>
 #07_ Instalando o via FileZilla no Windows e GNU/Linux<br>
 #08_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux<br>
-#09_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server<br>
+#09_ Integrando o FTP no Visual Studio Code VSCode o Windows e GNU/Linux
+#10_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server<br>
+#11_ Gerenciando o servidor ProFTPD Server via Webmin<br>
+#12_ Desafios de Usuários e Acesso Remoto do ProFTPD Server.<br>
 
 Site Oficial do ProFTPD: http://www.proftpd.org/<br>
 Site Oficial do Projeto FileZilla: https://filezilla-project.org/
@@ -251,7 +254,32 @@ Gerenciador de Sites
   <OK>
 ```
 
-## 09_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server
+## 09_ Integrando o FTP no Visual Studio Code VSCode o Windows e GNU/Linux
+```bash
+#abrir o VSCode no Windows ou GNU/Linux instalar a Extensão do FTP
+code
+  Extensões
+    Pesquisar:
+      #OBSERVAÇÃO: essa extensão já foi instalada no procedimento 03-mysql-server
+      MySQL (Database manager for MySQL/MariaDB, PostgreSQL, SQLite, Redis and ElasticSearch)
+    <Instalar>
+
+#criando uma nova conexão com o servidor de FTP no VSCode no Windows ou GNU/Linux
+code
+  Service
+    <Create Connection>
+      Connect to Server
+        FTP
+          Main
+            Host: ENDEREÇO_IPV4_SERVIDOR
+            Port: 21
+            Username: SEU_USUÁRIO
+            Password: SUA_SENHA
+        <Save>
+  Clicar em: SEU_ENDEREÇO_IPV4_SERVIDOR@21
+```
+
+## 10_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server
 
 ```bash
 #criando o usuário de FTP do CMS Wordpress no Ubuntu Server
@@ -268,13 +296,34 @@ echo -e "wordpress\nwordpress" | sudo passwd wordpress
 sudo getent passwd wordpress
 ```
 
+## 11_ Gerenciando o servidor ProFTPD Server via Webmin
+```bash
+#acessar via navegador o Webmin
+firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
+
+Username: seu_usuário
+Password: sua_senha
+<Sign In>
+```
+```bash
+#Atualizando o Módulos de Serviços do Web
+Webmin
+  Refresh Modules
+```
+```bash
+#Administrado o servidor de FTP ProFTPD Server via Webmin
+Webmin
+  Servidores
+    Servidor ProFTPD
+```
+
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
+**#12_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
 
-**#11_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
+**#13_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
 
-**#12_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
+**#14_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
 
 =========================================================================================
 
