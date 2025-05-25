@@ -256,12 +256,15 @@ Gerenciador de Sites
 ```bash
 #criando o usuário de FTP do CMS Wordpress no Ubuntu Server
 #opções do comando useradd: -d (home-dir), -s (shell), -G (groups), wordpress (create user)
-useradd -d /var/www/html/wp -s /bin/ftponly -G www-data,nogroup wordpress
+sudo useradd -d /var/www/html/wp -s /bin/ftponly -G www-data,nogroup wordpress
 
 #criando a senha de acesso ao FTP do usuário do CMS Wordpress no Ubuntu Server
 #opção do comando echo: -e (enable escapes), \n (new line)
 #opção do redirecionar | "piper": (Conecta a saída padrão com a entrada padrão de outro comando)
-echo -e "wordpress\nwordpress" | passwd wordpress
+echo -e "wordpress\nwordpress" | sudo passwd wordpress
+
+#visualizando o usuário criado no Ubuntu Server
+sudo getent passwd wordpress
 ```
 
 ========================================DESAFIOS=========================================
