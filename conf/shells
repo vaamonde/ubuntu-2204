@@ -1,0 +1,24 @@
+#Autor: Robson Vaamonde
+#Procedimentos em TI: http://procedimentosemti.com.br
+#Bora para Prática: http://boraparapratica.com.br
+#Robson Vaamonde: http://vaamonde.com.br
+#Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+#Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+#Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+#YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+#Data de criação: 24/05/2025
+#Data de atualização: 25/05/2025
+#Versão: 0.03
+#Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+#Testado e homologado para a versão do ProFTPD Server v1.3.x
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/usr/bin/sh
+/bin/dash
+/usr/bin/dash
+/usr/bin/tmux
+/usr/bin/screen
+/bin/ftponly

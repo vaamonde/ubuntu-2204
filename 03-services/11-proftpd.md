@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2025<br>
-#Data de atualização: 24/05/2025<br>
-#Versão: 0.02<br>
+#Data de atualização: 25/05/2025<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROFTPD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do ProFTPD realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,9 +19,18 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/20-proftpd
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioproftpd #desafioftp
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando o ProFTPD Server no Ubuntu Server<br>
+#02_ Verificando o Serviço e Versão do ProFTPD Server no Ubuntu Server<br>
+#03_ Verificando a Porta de Conexão do ProFTPD Server no Ubuntu Server<br>
+#04_ Localização dos Arquivos de Configuração do ProFTPD Server no Ubuntu Server<br>
+#05_ Atualizando os arquivos de configuração do ProFTPD Server no Ubuntu Server<br>
+#06_ Acessando remotamente o ProFTPD Server via Powershell, Terminal e Git Bash.<br>
+#07_ Instalando o via FileZilla no Windows e GNU/Linux<br>
+#08_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux<br>
+#09_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server<br>
 
-Site Oficial do ProFTPD: http://www.proftpd.org/
+Site Oficial do ProFTPD: http://www.proftpd.org/<br>
+Site Oficial do Projeto FileZilla: https://filezilla-project.org/
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -56,7 +65,7 @@ sudo systemctl reload proftpd
 sudo systemctl stop proftpd
 sudo systemctl start proftpd
 
-#analisando os Log's e mensagens de erro do Servidor do ProFTPD
+#analisando os Log's e mensagens de erro do ProFTPD Server
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu proftpd
 
@@ -90,14 +99,27 @@ sudo lsof -nP -iTCP:'21' -sTCP:LISTEN
 /etc/proftpd/conf.d/        <-- Diretório das configurações personalizadas do ProFTPD Server
 /etc/ftpusers               <-- Arquivo de usuários negados para conectar via FTP
 /var/log/proftpd/           <-- Diretório padrão dos Logs do ProFTPD Server
-/var/run/proftpd/           <-- Diretório do processo e socket do ProFTPD Server
+/var/run/                   <-- Diretório dos processos e socket do ProFTPD Server
+/bin/ftponly                <-- Arquivo de Shell básico dos usuários de FTP do ProFTPD Server
 ```
 
-## 06_ Atualizando os arquivos de configuração do ProFTPD Server no Ubuntu Server
+## 05_ Atualizando os arquivos de configuração do ProFTPD Server no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do ProFTPD Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/proftpd/proftpd.conf /etc/proftpd/proftpd.conf.old
+
+#criando o arquivo de shell básico dos usuários do ProFTPD Server
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /bin/ftponly https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/ftponly
+
+#alterando as permissões do arquivo de shell básico dos usuários do ProFTPD Server
+#opção do comando chmod: -v (verbose), a (all user), + (bits to be added), x (execute/search only)
+sudo chmod -v a+x /bin/ftponly
+
+#atualizando o arquivo de shells válidos do Ubuntu Server
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/shells https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/shells
 
 #atualizando o arquivo de configuração do ProFTPD Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
@@ -112,11 +134,11 @@ INSERT
 ```
 ```bash
 #alterar a variável ServerName na linha: 19 
-#ServerName "wsvaamonde" para: NOME_DO_SEU_SERVIDOR
+#ServerName "NOME_SERVIDOR" para: NOME_DO_SEU_SERVIDOR
 #OBSERVAÇÃO: ALTERAR O NOME DO SERVIDOR CONFORME A SUA NECESSIDADE
 ServerName "NOME_DO_SEU_SERVIDOR"
 
-#alterar a variável Allow from 172.16.1.0/24 na linha: 39
+#alterar a variável Allow from SUA_REDE_LOCAL/CIDR na linha: 39
 #OBSERVAÇÃO: ALTERAR O ENDEREÇO IPV4 DA SUA REDE LOCAL
 Allow from SUA_REDE_LOCAL/CIDR
 ```
@@ -136,11 +158,115 @@ sudo systemctl status proftpd
 #analisando os Log's e mensagens de erro do Servidor do ProFTPD
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu proftpd
+
+#verificando a porta padrão TCP-21 do ProFTPD Server
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
+sudo lsof -nP -iTCP:'21' -sTCP:LISTEN
+```
+
+## 06_ Acessando remotamente o ProFTPD Server via Powershell, Terminal, Git Bash e Gerenciador de Arquivos.
+
+**OBSERVAÇÃO IMPORTANTE:** O comando ftp tem várias opções, após se autenticar no ProFTPD Server para obter ajuda sobre o comando digite o carácter: __`?`__ (interrogação), a maioria dos comando do FTP são baseados nos comandos antigos do __`MSDOS`__ e do __`BASH`__.
+
+```bash
+#acessando o ProFTPD via Powershell
+Windows
+  Pesquisa do Windows
+    Powershell
+      ftp ENDEREÇO_IPV4_SERVIDOR
+      Name (ENDEREÇO_IPV4_SERVIDOR:vaamonde): SEU_USUÁRIO
+      Password: SUA_SENHA
+
+#acessando o ProFTPD via Git Bash
+Windows
+  Pesquisa do Windows
+    Git Bash
+      ftp ENDEREÇO_IPV4_SERVIDOR
+      Name (ENDEREÇO_IPV4_SERVIDOR:vaamonde): SEU_USUÁRIO
+      Password: SUA_SENHA
+
+#acessando o ProFTPD via Terminal
+Atalho Terminal: Ctrl+Alt+T
+  ftp ENDEREÇO_IPV4_SERVIDOR
+  Name (ENDEREÇO_IPV4_SERVIDOR:vaamonde): SEU_USUÁRIO
+  Password: SUA_SENHA
+
+#acessando o ProFTPD via Gerenciador de Arquivos NEMO
+Gerenciador de Arquivos NEMO
+  Ctrl+L
+    ftp://ENDEREÇO_IPV4_SERVIDOR
+    Usuário: SEU_USUÁRIO
+    Senha..: SUA_SENHA
+```
+
+## 07_ Instalando o FileZilla no Microsoft Windows e GNU/Linux Mint
+
+Site oficial do FileZilla: https://filezilla-project.org/
+
+```bash
+#instalando o FileZilla no GNU/Linux Mint
+Atalho Terminal: Ctrl+Alt+T
+
+#atualizando as listas do apt
+sudo apt update
+
+#instalando o FileZilla no Linux Mint
+sudo apt install filezilla
+```
+```bash
+#instalando o FileZilla no Microsoft Windows
+Link de download: https://filezilla-project.org/download.php?platform=win64
+
+#download da versão 64 Bis
+Clicar em: <Download FileZilla Client>
+```
+
+## 08_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux
+```bash
+#executando o cliente do FileZilla no Windows ou GNU/Linux
+Pesquisar por: FileZilla Client
+
+#criando uma conexão com o servidor de FTP
+Arquivo
+  Gerenciador de Sites
+
+#criando um novo site de FTP no FileZilla
+Gerenciador de Sites
+  <New site>
+    Name: ProFTPD <Enter>
+    Geral
+      Protocolo: FTP - Protocolo de Transferência de Arquivos
+      Host: ENDEREÇO_IPV4_SERVIDOR  Porta: 21
+      Criptografia: Use FTP explícito sobre TLS se disponível
+      Tipo de logon: normal
+      Usuário: SEU_USUÁRIO
+      Senha: SUA_SENHA
+    <OK>
+  (ON) Save passwords
+<OK>
+
+#testando a conexão com o servidor de FTP no FileZilla
+Ícone de: Gerenciador de Site selecione: ProFTPD
+  (ON) Always allow insecure plain FTP for this server
+  <OK>
+```
+
+## 09_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server
+
+```bash
+#criando o usuário de FTP do CMS Wordpress no Ubuntu Server
+#opções do comando useradd: -d (home-dir), -s (shell), -G (groups), wordpress (create user)
+useradd -d /var/www/html/wp -s /bin/ftponly -G www-data,nogroup wordpress
+
+#criando a senha de acesso ao FTP do usuário do CMS Wordpress no Ubuntu Server
+#opção do comando echo: -e (enable escapes), \n (new line)
+#opção do redirecionar | "piper": (Conecta a saída padrão com a entrada padrão de outro comando)
+echo -e "wordpress\nwordpress" | passwd wordpress
 ```
 
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** 
+**#10_ DESAFIO-01:** 
 
 
 
