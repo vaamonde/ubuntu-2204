@@ -264,14 +264,17 @@ sudo useradd -d /var/www/html/wp -s /bin/ftponly -G www-data,nogroup wordpress
 echo -e "wordpress\nwordpress" | sudo passwd wordpress
 
 #visualizando o usuário criado no Ubuntu Server
+#opção do comando getent: passwd (the database system user)
 sudo getent passwd wordpress
 ```
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** 
+**#10_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
 
+**#11_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
 
+**#12_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
 
 =========================================================================================
 
