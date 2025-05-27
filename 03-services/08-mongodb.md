@@ -128,7 +128,7 @@ sudo apt update
 
 ```bash
 #instalando o MongoDB Server e Shell (Console)
-sudo apt install mongodb-org
+sudo apt install mongodb-org yamllint
 ```
 
 ## 06_ Habilitando o Serviço do MongoDB Server no Ubuntu Server
@@ -309,6 +309,10 @@ exit
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/mongod.conf /etc/mongod.conf.old
 
+#atualizando o arquivo de configuração do MongoDB Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/mongod.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mongod.conf
+
 #editando o arquivo de configuração do MongoDB Server
 sudo vim /etc/mongod.conf
 
@@ -316,20 +320,28 @@ sudo vim /etc/mongod.conf
 INSERT
 ```
 ```bash
-#habilitando o suporte remoto do MongoDB Server na linha: 18
+#habilitando o suporte remoto do MongoDB Server na linha: 19
 #alterar a linha: bindIp: 127.0.0.1 para: bindIp: 0.0.0.0
 net:
   port: 27017
   bindIp: 0.0.0.0
 
-#habilitando o recurso de autenticação do MongoDB Server na linha: 28
-#descomentar a linha: #security, adicionar o valor: authorization: enabled
+#habilitando o recurso de autenticação do MongoDB Server na linha: 23
+#descomentar as linhas: #security e #authorization: enabled
 security:
   authorization: enabled
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <ENTER>
+```
+
+**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO A PARTIR DA VERSÃO DO MONGODB SERVER 8.0.x NÃO TEM MAIS DISPONÍVEL AS OPÇÕES DE VALIDAÇÃO DA SINTAXE (SYNTAX) DO ARQUIVO DE CONFIGURAÇÃO: __`mongod.conf`__ NAS OPÇÃO DO COMANDO: __`mongod`__, ERROS DE CONFIGURAÇÃO SÃO MOSTRADOS NOS ARQUIVOS DE LOG DO SERVIÇO.
+
+```bash
+#validando as configurações do arquivo de configuração do MongoDB Server
+#OBSERVAÇÃO: validação feita somente das estrutura do arquivo YAML
+sudo yamllint /etc/mongod.conf
 
 #reiniciar o serviço do MongoDB Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
