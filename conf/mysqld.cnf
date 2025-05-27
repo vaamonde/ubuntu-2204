@@ -115,22 +115,20 @@ max_execution_time = 5000
 # Mantém threads em cache para não criar/destruir a cada nova conexão.
 thread_cache_size = 100
 #
-# Desabilite Query Cache — já está obsoleto no MySQL 8.0.
-query_cache_type = 0
-query_cache_size = 0
-#
 # Mantém ativado para análises de desempenho.
 performance_schema = ON
 #
-#=========BLOCO DE CONFIGURAÇÃO DE TLS DO MYSQLD=========
+#=========BLOCO DE CONFIGURAÇÃO DE SSL/TLS DO MYSQLD=========
 #
-# Encriptação em Trânsito (SSL/TLS)
-require_secure_transport = ON
-ssl-ca = /var/lib/mysql/ssl/ca.pem
-ssl-cert = /var/lib/mysql/ssl/server-cert.pem
-ssl-key = /var/lib/mysql/ssl/server-key.pem
+# Habilitar o suporte a Encriptação em Trânsito (SSL/TLS)
+#require_secure_transport = ON
 #
-# Encriptação de Dados em Repouso (Opcional)
-innodb_encrypt_tables = ON
-innodb_encrypt_log = ON
+# Caminho do arquivo da Unidade Certificadora Raiz (CA)
+#ssl-ca = /var/lib/mysql/ssl/ca.pem
+#
+# Caminho do arquivo de Certificado Assinado
+#ssl-cert = /var/lib/mysql/ssl/server-cert.pem
+#
+# Caminho do arquivos de Chave do Certificado Assinado
+#ssl-key = /var/lib/mysql/ssl/server-key.pem
 #

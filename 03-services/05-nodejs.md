@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 06/05/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NODEJS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Node.JS realizado com sucesso!!! #BoraParaPrática*
 
@@ -236,7 +236,25 @@ node index.js &
 sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```
 
-## 09_ Acessando o Projeto Simples do Node.JS via Navegador
+## 09_ Testando e acessando o Projeto Simples do Node.JS via Terminal e Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 400    | Bad Request (solicitação malformada)            |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
+```bash
+#testando o acesso as páginas do Node.JS (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only)
+curl -I http://127.0.0.1:19999/
+```
 ```bash
 #utilizar os navegadores para testar o Node.JS
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000

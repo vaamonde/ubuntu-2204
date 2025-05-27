@@ -233,7 +233,7 @@ sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 #atualizando o arquivo de configuração do MySQL Server do Github (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mysqld.cnf
+sudo wget -v -O /etc/mysql/mysql.conf.d/mysqld.cnf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mysqld.cnf
 
 #editar o arquivo de configuração do MySQL Server
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -242,14 +242,14 @@ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 INSERT
 ```
 ```bash
-#alterar a linha: 31 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
+#alterar a linha: 20 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
 bind-address = 0.0.0.0
 
-#comentar a linha:32 da variável do: mysqlx-bind-address
+#comentar a linha: 24 da variável do: mysqlx-bind-address = 127.0.0.1
 #mysqlx-bind-address = 127.0.0.1
 ```
 ```bash
-#salvar e sair do arquivo	
+#salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
 #testando o arquivo de configuração do MySQL SERVER (NÃO COMENTADO NO VÍDEO)
@@ -257,6 +257,7 @@ ESC SHIFT :x <Enter>
 sudo mysqld --validate-config
 
 #reiniciar o serviço do MySQL Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units)
 sudo systemctl restart mysql
 sudo systemctl status mysql
 

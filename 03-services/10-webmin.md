@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 19/05/2025<br>
-#Versão: 0.16<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.17<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Webmin realizado com sucesso!!! #BoraParaPrática*
 
@@ -82,6 +82,8 @@ sudo apt install --install-recommends webmin
 ## 04_ Habilitando o Serviço do Webmin no Ubuntu Server
 ```bash
 #habilitando o serviço do Webmin
+#opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), start (Start (activate) one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable webmin
 sudo systemctl start webmin
@@ -90,6 +92,9 @@ sudo systemctl start webmin
 ## 05_ Verificando o Serviço e Versão do Webmin no Ubuntu Server
 ```bash
 #verificando o serviço do Webmin
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status webmin
 sudo systemctl restart webmin
 sudo systemctl stop webmin

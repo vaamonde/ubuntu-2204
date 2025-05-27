@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 19/05/2025<br>
-#Versão: 0.37<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.38<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -134,6 +134,8 @@ sudo apt install mongodb-org
 ## 06_ Habilitando o Serviço do MongoDB Server no Ubuntu Server
 ```bash
 #habilitando o serviço do MongoDB Server
+#opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), start (Start (activate) one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable mongod
 sudo systemctl start mongod
@@ -142,6 +144,9 @@ sudo systemctl start mongod
 ## 07_ Verificando o Serviço e Versão do MongoDB Server e do Shell no Ubuntu Server
 ```bash
 #verificando o serviço do MongoDB Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status mongod
 sudo systemctl restart mongod
 sudo systemctl stop mongod
@@ -191,7 +196,8 @@ newgrp mongodb
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando informações do grupo MONGODB
+#verificando informações do grupo MONGODB do MongoDB Server
+#opção do comando getent: group (the database system group)
 sudo getent group mongodb
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
@@ -326,6 +332,8 @@ security:
 ESC SHIFT :x <ENTER>
 
 #reiniciar o serviço do MongoDB Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart mongod
 sudo systemctl status mongod
 ```

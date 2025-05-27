@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 24/04/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -143,8 +143,11 @@ unzip wordpress.zip
 #movendo o conteúdo do WordPress para o diretório do Apache2 Server
 #opção do comando mv: -v (verbose)
 sudo mv -v wordpress/ /var/www/html/wp/
+```
 
-#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS PARA APLICAR DE FORMA CORRETA A ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE.
+
+```bash
 #alterando as permissões dos diretórios e arquivos do WordPress
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 #opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
@@ -219,6 +222,8 @@ sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoi
 negotiation setenvif
 
 #reiniciar o serviço do Apache2 Server
+#opções do comando systemctl: status (runtime status information), reload (Asks all units 
+#listed on the command line to reload their configuration)
 sudo systemctl reload apache2
 sudo systemctl status apache2
 
@@ -236,9 +241,29 @@ sudo journalctl -xeu apache2
 sudo grep ^\$wp_version /var/www/html/wp/wp-includes/version.php
 ```
 
-## 07_ Acessando e configurando o CMS WordPress via navegador
+## 07_ Testando e configurando o CMS Wordpress via Terminal e Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
 ```bash
-#utilizar os navegadores para testar o acesso ao Wordpress
+#testando o acesso ao diretório de teste do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only), -L (Reports that the requested page has moved 
+#to a different location)
+#saída do comando curl: HTTP/1.1 301 Moved Permanently (É um redirecionamento permanente)
+#saída do comando curl: HTTP/1.1 200 OK (Sucesso total, servidor está respondendo corretamente
+curl -I -L http://127.0.0.1:80/wp
+```
+```bash
+#utilizar os navegadores para configurar o CMS Wordpress
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp
 
 #Informações que serão solicitadas na configuração via Web do WordPress

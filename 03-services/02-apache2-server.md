@@ -319,9 +319,34 @@ phpinfo();
 ESC SHIFT :x <Enter>
 ```
 
-## 08_ Testando o Apache2 Server e o PHP no seu navegador
+## 08_ Testando o acesso ao Apache2 Server e o PHP no Terminal e no Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
 ```bash
-#utilizar os navegadores para testar suas páginas
+#testando o acesso as páginas do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only)
+#saída do comando curl: HTTP/1.1 200 OK (Sucesso total, servidor está respondendo corretamente)
+curl -I http://127.0.0.1:80/
+
+#testando o acesso ao diretório de teste do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only), -L (Reports that the requested page has moved 
+#to a different location)
+#saída do comando curl: HTTP/1.1 301 Moved Permanently (É um redirecionamento permanente)
+#saída do comando curl: HTTP/1.1 200 OK (Sucesso total, servidor está respondendo corretamente)
+curl -I -L http://127.0.0.1:80/teste
+```
+```bash
+#utilizar os navegadores para testar as páginas HTML e PHP
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 ```

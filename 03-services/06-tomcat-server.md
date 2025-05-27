@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 07/05/2025<br>
-#Versão: 0.29<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.30<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
@@ -88,6 +88,7 @@ sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-commo
 sudo java -version
 
 #verificando as versões do OpenJDK instalado
+#opção do comando apt: list (display a list of packages), --installed (packages installed)
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo apt list --installed | grep -i openjdk
@@ -111,11 +112,11 @@ Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomc
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 07/05/2025)
+#download da última versão do Apache TomCAT Server (link atualizado em 27/05/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.6/bin/apache-tomcat-11.0.6.tar.gz
+wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.7/bin/apache-tomcat-11.0.7.tar.gz
 ```
 
 ## 04_ Descompactando e instalando o Apache Tomcat 11.x no Ubuntu Server
@@ -186,6 +187,8 @@ chmod -Rv u+x /opt/tomcat/bin
 ## 08_ Habilitando o Serviço do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
 #habilitando o serviço do Apache Tomcat Server
+#opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), start (Start (activate) one or more units)
 systemctl daemon-reload
 systemctl enable tomcat11
 systemctl start tomcat11
@@ -197,6 +200,9 @@ exit
 ## 09_ Verificando o Serviço e Versão do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
 #verificando o serviço do Apache Tomcat Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status tomcat11
 sudo systemctl restart tomcat11
 sudo systemctl stop tomcat11
@@ -252,7 +258,8 @@ newgrp tomcat
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando informações do grupo TOMCAT
+#verificando informações do grupo TOMCAT do Apache TomCAT
+#opção do comando getent: group (the database system group)
 sudo getent group tomcat
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
@@ -283,13 +290,32 @@ ESC SHIFT : x <Enter>
 sudo bash /opt/tomcat/bin/configtest.sh
 
 #reiniciando e verificando o serviço do Apache Tomcat Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start
+#one or more units)
 sudo systemctl restart tomcat11
 sudo systemctl status tomcat11
 ```
 
-## 14_ Testando o acesso ao Apache Tomcat Server no navegador
+## 14_ Testando o acesso ao Apache Tomcat Server no Terminal e no Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
 ```bash
-#utilizar os navegadores para testar o Apache TomCAT
+#testando o acesso as páginas do Apache TomCAT Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only)
+curl -I http://127.0.0.1:8080/
+```
+```bash
+#utilizar os navegadores para testar o acesso ao Apache TomCAT Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 20/05/2025<br>
-#Versão: 0.30<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.31<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -106,6 +106,9 @@ cd ..
 ## 04_ Verificando o Serviço e Versão do Netdata Agent no Ubuntu Server
 ```bash
 #verificando o serviço do Netdata Agent
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status netdata
 sudo systemctl restart netdata
 sudo systemctl stop netdata
@@ -188,7 +191,25 @@ exit
 /var/log/netdata                   <-- diretório dos arquivos de Logs do Netdata
 ```
 
-## 09_ Acessando e configurando o Netdata Agent via navegador
+## 09_ Testando e acessando as configurações do Netdata Agent via Terminal e Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 400    | Bad Request (solicitação malformada)            |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
+```bash
+#testando o acesso as páginas do Netdata Agent (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only)
+curl -I http://127.0.0.1:19999/
+```
 
 **OBSERVAÇÃO IMPORTANTE:** Por padrão o acesso ao Netdata Agent não solicita usuário e senha, o acesso está liberado para todas as Redes Locais (LAN) ou Remotas (WAN), o processo de segurança do Netdata Agent é baseado nas configurações de Regras de Acesso a URL da Aplicação feitas no arquivo: __`/etc/netdata/netdata.conf`__, regras de Firewall utilizando o: __`iptables`__ ou __`ufw`__ e a configuração do recurso de Proxy com Autenticação do __`Apache2 Server ou NGINX Server`__, recursos esses que não serão abordados nesse curso.
 
@@ -420,6 +441,8 @@ Ctrl + X
 ls -lh go.d/
 
 #reinicializar o serviço do Netdata Agent
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart netdata
 sudo systemctl status netdata
 
