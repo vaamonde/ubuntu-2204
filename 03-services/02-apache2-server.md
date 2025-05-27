@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 15/04/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -95,12 +95,16 @@ sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoi
 negotiation setenvif
 
 #reiniciar o serviço do Apache2 Server
+#opções do comando systemctl: restart (Stop and then start one or more units)
 sudo systemctl restart apache2
 ```
 
 ## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP no Ubuntu Server
 ```bash
 #verificando o serviço do Apache2 Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
+#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units), reload (Asks all units 
+#listed on the command line to reload their configuration)
 sudo systemctl status apache2
 sudo systemctl restart apache2
 sudo systemctl reload apache2
@@ -119,10 +123,11 @@ sudo apache2ctl configtest
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do Apache2 Server e do PHP
+#verificando a versão do Apache2 Server
 #opção do comando apache2ctl: -V (version)
 sudo apache2ctl -V
 
+#verificando a versão do PHP
 #opção do comando php: -v (version)
 sudo php -v
 ```
@@ -154,17 +159,18 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
-#adicionando o seu usuário no grupo do Apache2
+#adicionando o seu usuário no grupo do Apache2 Server
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G www-data $USER
 
-#fazendo login em um novo grupo do Apache2
+#fazendo login em um novo grupo do Apache2 Server
 newgrp www-data
 
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando as informações do grupo WWW-DATA
+#verificando as informações do grupo WWW-DATA do Apache2 Server
+#opção do comando getent: group (the database system group)
 sudo getent group www-data
 
 #recomendo fazer logout do usuário para testar as permissões de grupos

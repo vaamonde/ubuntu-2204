@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2025<br>
-#Data de atualização: 25/05/2025<br>
-#Versão: 0.04<br>
+#Data de atualização: 26/05/2025<br>
+#Versão: 0.05<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROFTPD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do ProFTPD realizado com sucesso!!! #BoraParaPrática*
 
@@ -158,7 +158,7 @@ sudo proftpd -td10
 sudo systemctl restart proftpd
 sudo systemctl status proftpd
 
-#analisando os Log's e mensagens de erro do Servidor do ProFTPD
+#analisando os Log's e mensagens de erro do ProFTPD Server
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu proftpd
 
@@ -294,6 +294,10 @@ echo -e "wordpress\nwordpress" | sudo passwd wordpress
 #visualizando o usuário criado no Ubuntu Server
 #opção do comando getent: passwd (the database system user)
 sudo getent passwd wordpress
+
+#visualizando o grupo do Apache2 no Ubuntu Server
+#opção do comando getent: group (the database system group)
+sudo getent group www-data
 ```
 
 ## 11_ Gerenciando o servidor ProFTPD Server via Webmin
@@ -306,12 +310,12 @@ Password: sua_senha
 <Sign In>
 ```
 ```bash
-#Atualizando o Módulos de Serviços do Web
+#Atualizando os Módulos de Serviços do Webmin
 Webmin
   Refresh Modules
 ```
 ```bash
-#Administrado o servidor de FTP ProFTPD Server via Webmin
+#Administrado o servidor de ProFTPD Server via Webmin
 Webmin
   Servidores
     Servidor ProFTPD
@@ -324,6 +328,8 @@ Webmin
 **#13_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
 
 **#14_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
+
+**#15_ DESAFIO-04:** ADICIONAR O MONITORAMENTO DA PORTA DO PROFTPD NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
 
 =========================================================================================
 

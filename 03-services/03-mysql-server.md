@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 15/04/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -67,12 +67,14 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 sudo apt update
 
 #instalando o MySQL Server e Client
-sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 
+sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 mysqltuner
 ```
 
 ## 02_ Verificando o Serviço e Versão do MySQL Server no Ubuntu Server
 ```bash
 #verificando o serviço do MySQL Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
+#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units)
 sudo systemctl status mysql
 sudo systemctl restart mysql
 sudo systemctl stop mysql
@@ -111,6 +113,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 /etc/mysql/mysql.conf.d/mysql.cnf   <-- Arquivo de configuração do Cliente SGBD do MySQL Client
 /var/log/mysql                      <-- Diretório padrão dos Logs do SGBD Mysql Server
 /var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
+/var/run/mysqld/                    <-- Diretório do Pid de Processo e Socket do SGBD MySQL Server
 ```
 
 ## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console) no Ubuntu Server
@@ -124,7 +127,7 @@ sudo mysql -u root -p
 
 ## 06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O MYSQL TAMBÉM É *CASE SENSITIVE*, CUIDADO COM O NOME DA: *BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL SERVER E CLIENT É *CASE SENSITIVE*, CUIDADO COM OS NOMES DOS: *BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
 
 ```sql
 /* visualizando as bases de dados do MySQL */
@@ -203,7 +206,8 @@ newgrp mysql
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando informações do grupo MYSQL
+#verificando informações do grupo MYSQL do MySQL Server
+#opção do comando getent: group (the database system group)
 sudo getent group mysql
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
@@ -226,6 +230,10 @@ exit
 #fazendo o backup do arquivo de configuração do MySQL Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
+
+#atualizando o arquivo de configuração do MySQL Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mysqld.cnf
 
 #editar o arquivo de configuração do MySQL Server
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf

@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 11/10/2021
-# Data de atualização: 31/03/2025
-# Versão: 0.12
+# Data de atualização: 27/05/2025
+# Versão: 0.13
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.9.x
 #
@@ -54,7 +54,6 @@ StrictModes yes
 #
 # Localização das configurações das Chaves Públicas e Privadas do Servidor de OpenSSH
 HostKey /etc/ssh/ssh_host_rsa_key
-HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 #

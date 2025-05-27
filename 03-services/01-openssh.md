@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 15/04/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 27/05/2025<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -71,6 +71,8 @@ sudo apt install openssh-server openssh-client openssl
 ## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server
 ```bash
 #verificando o serviço do OpenSSH Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
+#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units)
 sudo systemctl status ssh
 sudo systemctl restart ssh
 sudo systemctl stop ssh
@@ -149,7 +151,7 @@ INSERT
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.allow
-sshd: SUA_REDE/SEU_CIDR
+sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR
 ```
 ```bash
 #salvar e sair do arquivo
@@ -216,6 +218,7 @@ Servidor: wsseunome - Admin: SEU NOME E SOBRENOME
 ESC SHIFT :x <Enter>
 
 #reiniciar e verificar o status do serviço do OpenSSH Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
 sudo systemctl restart ssh
 sudo systemctl status ssh
 
@@ -320,6 +323,7 @@ sudo adduser admin
 sudo cat -n /etc/passwd | grep admin
 
 #listando o usuário criado com o comando getent
+#opção do comando getent: passwd (the database system user)
 sudo getent passwd admin
 
 #listando o grupo criado no arquivo group
@@ -328,6 +332,7 @@ sudo getent passwd admin
 sudo cat -n /etc/group | grep admin
 
 #listando o grupo criado com o comando getent
+#opção do comando getent: group (the database system group)
 sudo getent group admin
 ```
 
@@ -344,6 +349,7 @@ sudo groups admin
 sudo id admin
 
 #verificando as informações do grupo SUDO
+#opção do comando getent: group (the database system group)
 sudo getent group sudo
 ```
 

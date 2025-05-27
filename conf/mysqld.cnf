@@ -1,0 +1,136 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 24/05/2025
+# Data de atualização: 24/05/2025
+# Versão: 0.03
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do MySQL Server v8.0.x
+#
+# Configurações básicas do servidor de Banco de Dados MySQL Server
+[mysqld]
+#
+#=========BLOCO DE CONFIGURAÇÃO DA REDE E PORTA DO MYSQLD=========
+#
+# Define o endereço IP no qual o serviço MySQL irá escutar conexões.
+bind-address = 127.0.0.1
+#
+# O MySQL X permite acesso não só SQL, mas também com APIs de documentos (JSON) e CRUD, 
+# usando o protocolo padrão do MySQL Shell e linguagens como Node.js, Python, etc.
+mysqlx-bind-address = 127.0.0.1
+#
+# Define a porta padrão do serviço MySQL, que é 3306.
+port = 3306
+#
+# Proteção Contra DNS Reverso e Autenticações Problemáticas
+skip-host-cache
+skip-name-resolve
+#
+#=========BLOCO DE CONFIGURAÇÃO DO SERVIÇO DO MYSQLD=========
+#
+# Define o usuário do sistema operacional que o processo mysqld usará para rodar.
+user = mysql
+#
+# Define o caminho do arquivo PID (Process ID) do mysqld
+pid-file = /var/run/mysqld/mysqld.pid
+#
+# Define o caminho do arquivo socket Unix do mysqld
+socket = /var/run/mysqld/mysqld.sock
+#
+# Define o diretório onde estão armazenados os dados do banco de dados — os arquivos .ibd, 
+# .frm, .ib_logfile, arquivos de logs binários, entre outros.
+datadir = /var/lib/mysql
+#
+#=========BLOCO DE CONFIGURAÇÃO DOS LOGS DO MYSQLD=========
+#
+# Registra erros, avisos e mensagens críticas do servidor (quedas, falhas de autenticação, 
+# corrupção, problemas de permissões, etc.).
+log_error = /var/log/mysql/error.log
+#
+# Logs de Queries Lentas (Slow Query Log) Fundamental para otimização de performance.
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/mysql-slow.log
+long_query_time = 2
+log_queries_not_using_indexes = 1
+#
+# Logs Binário (Binary Log) — Para replicação e recuperação, Grava todas as operações que 
+# alteram dados (INSERT, UPDATE, DELETE).
+server-id = 1
+log_bin = /var/log/mysql/mysql-bin.log
+binlog_format = ROW
+expire_logs_days = 7
+max_binlog_size = 100M
+#
+#=========BLOCO DE CONFIGURAÇÃO DE SERVIÇOS OBSOLETOS DO MYSQLD=========
+#
+# Define o tamanho do buffer de índice usado pelo MySQL para tabelas MyISAM.
+# OBSERVAÇÃO: No MySQL moderno (8.0), essa opção é praticamente irrelevante, a menos que você 
+# tenha tabelas antigas no formato MyISAM, que hoje são raras.
+key_buffer_size = 16M
+#
+# Define como o MySQL deve reagir se detectar uma tabela MyISAM corrompida ao iniciar
+myisam-recover-options  = BACKUP
+#
+#=========BLOCO DE CONFIGURAÇÃO DE TUNING DO MYSQLD=========
+#
+# Buffer principal da engine InnoDB. Ideal ser entre 60% a 70% da RAM total
+innodb_buffer_pool_size = 2G
+#
+#  Divide o buffer pool em instâncias. Melhora concorrência em I/O.
+innodb_buffer_pool_instances = 4
+#
+# Tamanho dos arquivos de redo log. Garante melhor desempenho em operações de escrita
+innodb_log_file_size = 512M
+#
+# Correção de sintaxe aplicada. Aumenta desempenho, com risco mínimo de perda de dados
+innodb_flush_log_at_trx_commit = 2
+#
+# Faz com que o InnoDB bypass o cache do sistema operacional (evita double-buffering).
+innodb_flush_method = O_DIRECT
+#
+# Performance em inserts concorrentes
+innodb_autoinc_lock_mode = 2 
+#
+# Aumentar muito pode levar a problemas se o sistema não tiver recursos suficientes (RAM e CPU).
+max_connections = 300
+#
+# Número de tabelas que o MySQL pode manter abertas simultaneamente.
+table_open_cache = 2048
+#
+# Cache das definições das tabelas (estrutura).
+table_definition_cache = 2048
+#
+# Aumenta o limite de tamanho das tabelas temporárias na memória. Se uma query criar uma tabela 
+# temporária maior que isso, ela vai para disco (/tmp), o que é muito mais lento.
+max_heap_table_size = 256M
+tmp_table_size = 256M
+#
+# Tempo máximo de execução de uma query (em milissegundos, portanto, 5 segundos).
+max_execution_time = 5000
+#
+# Mantém threads em cache para não criar/destruir a cada nova conexão.
+thread_cache_size = 100
+#
+# Desabilite Query Cache — já está obsoleto no MySQL 8.0.
+query_cache_type = 0
+query_cache_size = 0
+#
+# Mantém ativado para análises de desempenho.
+performance_schema = ON
+#
+#=========BLOCO DE CONFIGURAÇÃO DE TLS DO MYSQLD=========
+#
+# Encriptação em Trânsito (SSL/TLS)
+require_secure_transport = ON
+ssl-ca = /var/lib/mysql/ssl/ca.pem
+ssl-cert = /var/lib/mysql/ssl/server-cert.pem
+ssl-key = /var/lib/mysql/ssl/server-key.pem
+#
+# Encriptação de Dados em Repouso (Opcional)
+innodb_encrypt_tables = ON
+innodb_encrypt_log = ON
+#
