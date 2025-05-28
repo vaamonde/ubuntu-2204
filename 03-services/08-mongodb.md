@@ -336,14 +336,15 @@ security:
 ESC SHIFT :x <ENTER>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO A PARTIR DA VERSÃO DO MONGODB SERVER 8.0.x NÃO TEM MAIS DISPONÍVEL AS OPÇÕES DE VALIDAÇÃO DA SINTAXE (SYNTAX) DO ARQUIVO DE CONFIGURAÇÃO: __`mongod.conf`__ NAS OPÇÃO DO COMANDO: __`mongod`__, ERROS DE CONFIGURAÇÃO SÃO MOSTRADOS NOS ARQUIVOS DE LOG DO SERVIÇO.
+**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA VERSÃO DO MONGODB SERVER 8.0.x NÃO ESTÁ MAIS DISPONÍVEL AS OPÇÕES DE VALIDAÇÃO DA SINTAXE (SYNTAX) DO ARQUIVO DE CONFIGURAÇÃO: __`mongod.conf`__ NAS OPÇÕES DO COMANDO: __`mongod`__, ERROS DE CONFIGURAÇÃO SÃO MOSTRADOS NOS ARQUIVOS DE LOG DO SERVIÇO.
 
 ```bash
-#validando as configurações do arquivo de configuração do MongoDB Server
-#OBSERVAÇÃO: validação feita somente das estrutura do arquivo YAML
+#validando as opções YAML do arquivo de configuração do MongoDB Server
+#OBSERVAÇÃO: validação feita somente das estrutura do arquivo YAML, não é feita a verificação
+#dos parâmetros e nem dos valores.
 sudo yamllint /etc/mongod.conf
 
-#reiniciar o serviço do MongoDB Server
+#reiniciando e verificando o serviço do MongoDB Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
 #start one or more units)
 sudo systemctl restart mongod
