@@ -102,26 +102,28 @@ innodb_flush_method = O_DIRECT
 # Performance em inserts concorrentes
 innodb_autoinc_lock_mode = 2 
 #
-# ============EM DESENVOLVIMENTO E ANÁLISE DE RECURSOS============
 # Gerará um espaço de tabela InnoDB independente para cada tabela no banco de dados.
-# innodb_file_per_table = ON
+innodb_file_per_table = ON
 #
 # Evita atualizações desnecessárias de estatísticas do InnoDB e pode melhorar muito
 # as velocidades de leitura.
-# innodb_stats_on_metadata = OFF
+innodb_stats_on_metadata = OFF
 #
 # Determina o tamanho combinado de todos os logs. Se a RAM disponível for <2 GB, defina
 # o valor como 2; se for >2 GB, defina o valor como 4.
-# innodb_log_files_in_group =4 
+innodb_log_files_in_group =4
 #
-# Recomenda-se usar o dobro da quantidade de núcleos de processadores
-# innodb_thread_concurrency = 4
+# Determina o uso de Thread Concurrency, rRecomenda-se usar o dobro da quantidade de 
+# núcleos de processadores
+innodb_thread_concurrency = 4
+#
+# ============EM DESENVOLVIMENTO E ANÁLISE DE RECURSOS============
 #
 # Define o tamanho do buffer que o InnoDB usa para gravar nos arquivos de log no disco.
 # innodb_log_buffer_size = 256M
 #
-# innodb_io_capacity
-# innodb_io_capacity_max
+# innodb_io_capacity = 200
+# innodb_io_capacity_max = 400
 # 
 # Definir ambos como “0” desabilitará completamente o cache de consulta.
 # query_cache_type = 0
@@ -139,8 +141,8 @@ table_definition_cache = 2048
 #
 # Aumenta o limite de tamanho das tabelas temporárias na memória. Se uma query criar uma 
 # tabela temporária maior que isso, ela vai para disco (/tmp), o que é muito mais lento.
-max_heap_table_size = 256M
-tmp_table_size = 256M
+max_heap_table_size = 512M
+tmp_table_size = 512M
 #
 # Tempo máximo de execução de uma query (em milissegundos, portanto, 5 segundos).
 max_execution_time = 5000
