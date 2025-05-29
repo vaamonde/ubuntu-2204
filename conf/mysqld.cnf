@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 24/05/2025
-# Data de atualização: 24/05/2025
-# Versão: 0.03
+# Data de atualização: 29/05/2025
+# Versão: 0.04
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do MySQL Server v8.0.x
 #
@@ -68,23 +68,30 @@ max_binlog_size = 100M
 #=========BLOCO DE CONFIGURAÇÃO DE SERVIÇOS OBSOLETOS DO MYSQLD=========
 #
 # Define o tamanho do buffer de índice usado pelo MySQL para tabelas MyISAM.
-# OBSERVAÇÃO: No MySQL moderno (8.0), essa opção é praticamente irrelevante, a menos que você 
-# tenha tabelas antigas no formato MyISAM, que hoje são raras.
+# OBSERVAÇÃO: No MySQL moderno (8.0), essa opção é praticamente irrelevante, a menos que 
+# você tenha tabelas antigas no formato MyISAM, que hoje são raras.
 key_buffer_size = 16M
 #
 # Define como o MySQL deve reagir se detectar uma tabela MyISAM corrompida ao iniciar
 myisam-recover-options  = BACKUP
 #
-#=========BLOCO DE CONFIGURAÇÃO DE TUNING DO MYSQLD=========
+#=========BLOCO DE CONFIGURAÇÃO DE HARDENING (SEGURANÇA) - TUNING (AJUSTE) DO MYSQLD=========
 #
-# Buffer principal da engine InnoDB. Ideal ser entre 60% a 70% da RAM total
+# OBSERVAÇÃO IMPORTANTE: AS CONFIGURAÇÕES ABAIXO FORAM FEITAS COM BASE NO SERVIDOR 
+# GNU/LINUX UBUNTU SERVER 22.04.X LTS x64 RODANDO NO ORACLE VIRTUALBOX COM 4096RAM
+# E 2 NÚCLEOS DE PROCESSADORES.
+#
+# RECOMENDAÇÃO DE DOCUMENTAÇÃO: https://releem.com/mysql-optimization-center
+#
+# Buffer principal da engine InnoDB. Ideal ser entre 50% a 70% da RAM total
 innodb_buffer_pool_size = 2G
 #
-#  Divide o buffer pool em instâncias. Melhora concorrência em I/O.
+# Divide o buffer pool em instâncias. Melhora concorrência em I/O.
 innodb_buffer_pool_instances = 4
 #
 # Tamanho dos arquivos de redo log. Garante melhor desempenho em operações de escrita
-innodb_log_file_size = 512M
+# RAM: 2-8GB = 128M, RAM: 8-24GB = 256M, RAM: 24-64GB = 512M, RAM: 64-128GB = 768M
+innodb_log_file_size = 128M
 #
 # Correção de sintaxe aplicada. Aumenta desempenho, com risco mínimo de perda de dados
 innodb_flush_log_at_trx_commit = 2
@@ -95,6 +102,32 @@ innodb_flush_method = O_DIRECT
 # Performance em inserts concorrentes
 innodb_autoinc_lock_mode = 2 
 #
+# ============EM DESENVOLVIMENTO E ANÁLISE DE RECURSOS============
+# Gerará um espaço de tabela InnoDB independente para cada tabela no banco de dados.
+# innodb_file_per_table = ON
+#
+# Evita atualizações desnecessárias de estatísticas do InnoDB e pode melhorar muito
+# as velocidades de leitura.
+# innodb_stats_on_metadata = OFF
+#
+# Determina o tamanho combinado de todos os logs. Se a RAM disponível for <2 GB, defina
+# o valor como 2; se for >2 GB, defina o valor como 4.
+# innodb_log_files_in_group =4 
+#
+# Recomenda-se usar o dobro da quantidade de núcleos de processadores
+# innodb_thread_concurrency = 4
+#
+# Define o tamanho do buffer que o InnoDB usa para gravar nos arquivos de log no disco.
+# innodb_log_buffer_size = 256M
+#
+# innodb_io_capacity
+# innodb_io_capacity_max
+# 
+# Definir ambos como “0” desabilitará completamente o cache de consulta.
+# query_cache_type = 0
+# query_cache_size = 0
+#=================================================================
+#
 # Aumentar muito pode levar a problemas se o sistema não tiver recursos suficientes (RAM e CPU).
 max_connections = 300
 #
@@ -104,8 +137,8 @@ table_open_cache = 2048
 # Cache das definições das tabelas (estrutura).
 table_definition_cache = 2048
 #
-# Aumenta o limite de tamanho das tabelas temporárias na memória. Se uma query criar uma tabela 
-# temporária maior que isso, ela vai para disco (/tmp), o que é muito mais lento.
+# Aumenta o limite de tamanho das tabelas temporárias na memória. Se uma query criar uma 
+# tabela temporária maior que isso, ela vai para disco (/tmp), o que é muito mais lento.
 max_heap_table_size = 256M
 tmp_table_size = 256M
 #
