@@ -62,6 +62,9 @@ sudo apt install proftpd-basic proftpd-core
 ## 02_ Verificando o Serviço e Versão do ProFTPD Server no Ubuntu Server
 ```bash
 #verificando o serviço do ProFTPD Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status proftpd
 sudo systemctl restart proftpd
 sudo systemctl reload proftpd
@@ -155,6 +158,8 @@ ESC SHIFT :x <Enter>
 sudo proftpd -td10
 
 #reiniciando e verificando o serviço do ProFTPD Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units),
 sudo systemctl restart proftpd
 sudo systemctl status proftpd
 

@@ -81,7 +81,7 @@ sudo apt install --install-recommends webmin
 
 ## 04_ Habilitando o Serviço do Webmin no Ubuntu Server
 ```bash
-#habilitando o serviço do Webmin
+#habilitando o serviço do Webmin no Ubuntu Server
 #opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
 #enable (Enable one or more units), start (Start (activate) one or more units)
 sudo systemctl daemon-reload
