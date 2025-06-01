@@ -113,6 +113,10 @@ sudo wget -v -O /etc/fail2ban/fail2ban.local https://raw.githubusercontent.com/v
 #atualizando o arquivo de configuração do Jail Local do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/jail.local
+
+#atualizando o arquivo de configuração de Reincidência do Github
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/fail2ban/jail.d/recidive.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recidive.conf
 ```
 
 
