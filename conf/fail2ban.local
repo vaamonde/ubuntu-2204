@@ -1,0 +1,43 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 01/06/2025
+# Data de atualização: 01/06/2025
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do Fail2Ban v0.11.x
+#
+#====== BLOCO DE CONFIGURAÇÃO PADRÃO ======
+[DEFAULT]
+#
+#Configuração das opções de Log do Fail2Ban
+loglevel = INFO
+logtarget = /var/log/fail2ban.log
+syslogsocket = auto
+#
+#Configuração do Socket e PID da Processo do Fail2Ban
+socket = /var/run/fail2ban/fail2ban.sock
+pidfile = /var/run/fail2ban/fail2ban.pid
+#
+#Configuração do Banco de Dados SQLite do Fail2Ban
+dbfile = /var/lib/fail2ban/fail2ban.sqlite3
+dbpurgeage = 30d
+dbmaxmatches = 50
+#
+#Configuração das Políticas de Banimento mais Restritiva do Fail2Ban
+bantime = 1h
+findtime = 10m
+maxretry = 3
+
+#====== BLOCO DE CONFIGURAÇÃO DE REINCIDÊNCIA ======
+[recidive]
+#
+#Configuração das Políticas de Banimento de Reincidência do Fail2Ban
+enabled = true
+bantime = 7d
+findtime = 7d
+maxretry = 5
