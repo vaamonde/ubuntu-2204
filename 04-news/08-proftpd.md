@@ -193,18 +193,18 @@ Windows
       Name (ENDEREÇO_IPV4_SERVIDOR:vaamonde): SEU_USUÁRIO
       Password: SUA_SENHA
 
-#acessando o ProFTPD via Terminal
+#acessando o ProFTPD via Terminal no Linux
 Atalho Terminal: Ctrl+Alt+T
   ftp ENDEREÇO_IPV4_SERVIDOR
-  Name (ENDEREÇO_IPV4_SERVIDOR:vaamonde): SEU_USUÁRIO
-  Password: SUA_SENHA
+    Name (ENDEREÇO_IPV4_SERVIDOR:vaamonde): SEU_USUÁRIO
+    Password: SUA_SENHA
 
 #acessando o ProFTPD via Gerenciador de Arquivos NEMO
 Gerenciador de Arquivos NEMO
   Ctrl+L
     ftp://ENDEREÇO_IPV4_SERVIDOR
-    Usuário: SEU_USUÁRIO
-    Senha..: SUA_SENHA
+      Usuário: SEU_USUÁRIO
+      Senha..: SUA_SENHA
 ```
 
 ## 07_ Instalando o FileZilla no Microsoft Windows e GNU/Linux Mint

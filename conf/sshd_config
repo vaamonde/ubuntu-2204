@@ -150,12 +150,14 @@ X11DisplayOffset 10
 # Controla o suporte para o esquema de autenticação "keyboard-interactive" definido 
 # no RFC-4256. Utilizar um desafio para se autenticar, muito utilizado com QRCode
 # Mudar de: no para: yes se você estiver utilizando o 2FA ou Google Authenticator
+# Recomendo utilizar o aplicativo no Android: 2FAS Auth v5.4.x
 ChallengeResponseAuthentication no
 #
 # Para fornecer o mecanismo 2FA você deve instalar o Google Pluggable Authentication 
 # Module (PAM). A validação da autenticação é baseada em Time-Based One-Time Password 
 # (TOTP), um padrão aberto que alterna tokens seguros em blocos de tempo discretos – 
 # a cada 30 segundos.
+# Instalação do LibPAM: sudo apt install libpam-google-authenticator
 #auth required pam_google_authenticator.so
 #
 # Utilizar autenticação de usuário via PAM (Linux Pluggable Authentication), essa 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -260,12 +260,15 @@ Linux
 ```
 
 **OBSERVAÇÃO IMPORTANTE 01:** no comando: *w* ele mostra na primeira linha as informações de:<br>
+14:28:13 up 16 min,  1 user,  load average: 0,00, 0,00, 0,00<br>
 1. Data e Hora Atual do Sistema; 
 2. Período de Tempo Ativo, 
 3. Número de Usuários Logados;
 3. Médias de Cargas do Sistema (1, 5 e 15 minutos).
 
 **OBSERVAÇÃO IMPORTANTE 02:** no comando: *w* ele mostra as informações separadas por colunas:<br>
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT<br>
+vaamonde pts/0    172.16.1.113     14:12    1.00s  0.43s  0.01s w<br>
 1. USER   (usuário logado);
 2. TTY    (terminal do usuário);
 3. FROM   (origem da conexão); 
@@ -281,6 +284,7 @@ sudo w
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** no comando: *who* ele mostra as informações separadas por colunas:<br>
+NAME       LINE         TIME             IDLE          PID COMMENT  EXIT<br>
 1. NAME    (usuário logado);
 2. LINE    (terminal do usuário);
 3. TIME    (data e hora do login do usuário);

@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 27/05/2025<br>
+#Data de atualização: 01/06/2025<br>
 #Versão: 0.38<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
@@ -161,7 +161,7 @@ sudo journalctl -xeu mongod
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do MongoDB Server e do Shell
+#verificando as versões do MongoDB Server e do Mongo Shell
 sudo mongod --version
 sudo mongosh --version
 ```
@@ -271,6 +271,8 @@ use admin
 **OBSERVAÇÃO IMPORTANTE:** No software *MongoDB Compass*, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de *acesso de permissão para monitorar o MongoDB* e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário **admin** conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
 ```javascript
+// criando o usuário de administração do MongoDB Server
+// Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/reference/method/db.createUser/
 db.createUser(
   {
     user: "admin",
@@ -296,10 +298,11 @@ db.createUser(
 )
 ```
 ```bash
-#visualizando os usuários do MongoDB
+#visualizando os usuários criado no MongoDB Server
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/reference/method/db.getUsers/
 db.getUsers()
 
-#saindo do MongoDB
+#saindo do MongoDB Shell
 exit
 ```
 
@@ -349,6 +352,11 @@ sudo yamllint /etc/mongod.conf
 #start one or more units)
 sudo systemctl restart mongod
 sudo systemctl status mongod
+
+#analisando os Log's e mensagens de erro do Servidor do MongoDB (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
+sudo journalctl -t mongod
+sudo journalctl -xeu mongod
 ```
 
 ## 15_ Acessando o MongoDB "COM" e "SEM" autenticação no Mongosh (Shell/Client) no Ubuntu Server
@@ -441,6 +449,7 @@ mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 ```bash
 #criando o backup (dump) da base de dados Agenda do MongoDB
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/database-tools/mongodump/
 mongodump --uri "mongodb://seu_usuário:sua_senha@ip_do_server:27017/?authSource=admin" --gzip -d agenda
 
 #listando o diretório do Backup (Dump) da base de dados Agenda
@@ -462,9 +471,11 @@ use agenda
 show collections
 
 #exibindo todos os documents do collection Contatos da base de dados Agenda
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/reference/method/db.collection.find/
 db.contatos.find()
 
 #removendo todos os documents do collection Contatos da base de dados Agenda
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/reference/method/db.collection.drop/
 db.contatos.drop()
 
 #exibir os collections da base de dados Agenda
@@ -481,6 +492,7 @@ exit
 
 #restaurando o backup da base de dados Agenda
 #opção do comando mongodump: --uri (connection string), --gzip (compacted backup), -d (database)
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/database-tools/mongorestore/
 mongorestore --uri "mongodb://seu_usuário:seu_senha@ip_do_server:27017/?authSource=admin" --gzip ./dump/agenda -d agenda
 
 #acessando novamente o MongoDB via Shell

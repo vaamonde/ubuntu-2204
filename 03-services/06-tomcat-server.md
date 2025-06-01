@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.30<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.31<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
@@ -84,17 +84,19 @@ sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-commo
 
 ## 02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado no Ubuntu Server
 ```bash
-#verificando a versão do Java instalado
+#verificando a versão do Java instalado no Ubuntu Server
 sudo java -version
 
-#verificando as versões do OpenJDK instalado
+#verificando as versões do OpenJDK (JDK/JRE) instalados no Ubuntu Server
 #opção do comando apt: list (display a list of packages), --installed (packages installed)
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo apt list --installed | grep -i openjdk
 
-#verificando as alternativas de Java instalado
+#listando os caminhos das instalações de Java (Binário) no Ubuntu Server
 sudo update-alternatives --list java
+
+#listando as instalações completas de JDK/JRE (Prioridade) no Ubuntu Server
 sudo update-java-alternatives --list
 ```
 

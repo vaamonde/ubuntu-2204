@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.31<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.32<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -223,7 +223,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:19999
 ## 10_ Criando o usuário de monitoramento no MySQL Server do Netdata Agent no Ubuntu Server
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
-#https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
 
 #acessando o MySQL Server via console
 #opções do comando mysql: -u (user), -p (password)
@@ -231,15 +231,19 @@ sudo mysql -u root -p
 ```
 ```sql
 /* criando o usuário de monitoramento do Netdata no MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-user.html */
 CREATE USER 'netdata'@'localhost';
 
 /* aplicando as permissões do usuário do Netdata no MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
 GRANT USAGE, REPLICATION CLIENT ON *.* TO 'netdata'@'localhost';
 
 /* fazendo o flush das permissões */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
 /* verificando o usuário do Netdata criado no MySQL */
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host FROM mysql.user WHERE user="netdata";
 
 /* saindo do MySQL */
@@ -249,7 +253,7 @@ exit
 ## 11_ Criando o usuário de monitoramento no MongoDB Server do Netdata Agent no Ubuntu Server
 ```bash
 #configuração do serviço de monitoramento do MongoDB Server
-#https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
 
 #acessando o MongoDB Server via shell
 #opção do comando mongosh: admin (database) -u (username), -p (password)
@@ -257,6 +261,7 @@ mongosh admin -u admin -p
 ```
 ```javascript
 // criando o usuário de monitoramento do Netdata
+// Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/reference/method/db.createUser/
 db.createUser({
     "user": "netdata",
     "pwd": "netdata",
@@ -269,7 +274,7 @@ db.createUser({
 ``` 
 ```bash
 #verificando o usuário criado no MongoDB do Netdata
-db.getUsers()
+#Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/reference/method/db.getUsers/
 db.getUser("netdata")
 
 #saindo do MongoDB
@@ -295,7 +300,7 @@ ls -lh
 
 ```bash
 #configuração do serviço de monitoramento do Apache2 Server
-#https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/apache
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/apache
 sudo ./edit-config go.d/apache.conf
 
 #editar as informações a partir da linha: 04
@@ -313,7 +318,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do Apache TomCAT Server
-#https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/tomcat
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/tomcat
 sudo ./edit-config go.d/tomcat.conf
 
 #editar as informações a partir da linha: 04
@@ -333,7 +338,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do MySQL Server
-#https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/databases/mysql
 sudo ./edit-config go.d/mysql.conf
 
 #editar as informações a partir da linha: 04
@@ -351,7 +356,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do MongoDB Server
-#https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/databases/mongodb
 sudo ./edit-config go.d/mongodb.conf
 
 #editar as informações a partir da linha: 04
@@ -369,7 +374,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do ICMP Ping
-#https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/ping
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/ping
 sudo ./edit-config go.d/ping.conf
 
 #editar as informações a partir da linha: 04
@@ -392,7 +397,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento das Portas TCP Endpoint
-#https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/tcp-udp-endpoints
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/tcp-udp-endpoints
 sudo ./edit-config go.d/portcheck.conf
 ```
 
@@ -417,7 +422,7 @@ Ctrl + X
 
 ```bash
 #configuração do serviço de monitoramento do HTTP Endpoint
-#https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/http-endpoints
+#Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/http-endpoints
 sudo ./edit-config go.d/httpcheck.conf
 
 #editar as informações a partir da linha: 04
@@ -615,7 +620,6 @@ INSERT
  */
 
 //===== Bloco das Variáveis do Node.JS =====
-
 const { MongoClient } = require("mongodb"); // Importa o driver oficial MongoDB
 const cluster = require("cluster");         // Módulo para criar múltiplos processos (concorrência real)
 const numWorkers = 1000;                    // Número de processos simultâneos (concorrência)

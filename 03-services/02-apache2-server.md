@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.27<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.28<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -81,7 +81,7 @@ zlib1g-dev apt-transport-https
 **OBSERVAÇÃO IMPORTANTE:** FOI ADICIONAR MAIS *DEPENDÊNCIAS DOS PACOTES DO PHP*, CONFORME VÁRIOS RELATOS NO GITHUB E NO CANAL DO YOUTUBE DO BORA PARA PRÁTICA, AS DEPENDÊNCIAS DO **WORDPRESS** E DO **GLPI HELP DESK** FORAM ADICIONADAS NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS DE INSTALAÇÃO DESSAS SOLUÇÕES AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
 ```bash
-#instalando o Apache2 Server e PHP 8.x e suas dependências
+#instalando o Apache2 Server, PHP 8.x e suas dependências (suporte extra)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \
 php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \
@@ -144,14 +144,15 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
 ## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x no Ubuntu Server
 ```bash
-/etc/apache2/                  <-- Diretório de configuração do Apache 2 Server
-/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache 2 Server
-/etc/apache2/sites-available/  <-- Diretório padrão dos Sites Acessíveis do Apache 2 Server
-/etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache 2 Server
+/etc/apache2/                  <-- Diretório de configuração do Apache2 Server
+/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache2 Server
+/etc/apache2/ports.conf        <-- Arquivo de configuração das Portas do Apache2 Server
+/etc/apache2/sites-available/  <-- Diretório padrão dos Sites Acessíveis do Apache2 Server
+/etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache2 Server
 /etc/php/                      <-- Diretório de configuração do PHP 7.x ou 8.x
-/etc/php/8.x/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache 2 Server
-/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache 2 Server
-/var/log/apache2/              <-- Diretório padrão dos Logs do Apache 2 Server
+/etc/php/8.x/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache2 Server
+/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache2 Server
+/var/log/apache2/              <-- Diretório padrão dos Logs do Apache2 Server
 ```
 
 ## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server no Ubuntu Server
@@ -159,7 +160,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
-#adicionando o seu usuário no grupo do Apache2 Server
+#adicionando o usuário local (logado) no grupo do Apache2 Server
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G www-data $USER
 
@@ -232,25 +233,34 @@ INSERT
 ```
 ```html
 <!-- Início do código HTML: declaração do tipo de arquivo que será enviado para a navegador -->
+<!-- Mais informações acesse: https://www.w3schools.com/tags/tag_doctype.ASP -->
 <!DOCTYPE html>
     <!-- Tag HTML: Define a raiz de um documento HTML -->
+    <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_html.asp -->
     <html lang="pt-br">
         <!-- Tag HEAD: Define um cabeçalho para um documento ou seção -->
+        <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_header.asp -->
         <head>
             <!-- Tag TITLE: Define um título para o documento -->
+            <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_title.asp -->
             <title>Teste da Linguagem HTML</title>
             <!-- Tag META: Define metadados sobre um documento HTML -->
+            <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_meta.asp -->
             <meta charset="utf-8">
         <!-- Fechamento da Tag: HEAD -->
         </head>
         <!-- Tag BODY: Define o corpo do documento -->
+        <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_body.asp -->
         <body>
             <!-- Tag H1: Define títulos HTML -->
-            <!-- Tag BR: Define uma única quebra de linha -->
+            <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_hn.asp -->
             <h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>
+            <!-- Tag BR: Define uma única quebra de linha -->
+            <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_br.asp -->
             Autor......: Robson Vaamonde<br>
             Editado por: SEU NOME AQUI<br>
             <!-- Tag: A Define um hiperlink -->
+            <!-- Mais informações acesse: https://www.w3schools.com/tags/tag_a.asp -->
             LinkedIn...: <a href="https://www.linkedin.com/in/robson-vaamonde-0b029028/">Robson Vaamonde</a><br>
             Site.......: <a href="http://procedimentosemti.com.br/">procedimentosemti.com.br</a><br>
             Facebook...: <a href="https://www.facebook.com/ProcedimentosEmTI"> Procedimentos Em TI</a><br>
@@ -282,8 +292,10 @@ INSERT
         </head>
         <body>
             <!-- Início do script PHP: ?php -->
+            <!-- Mais informações acesse: https://www.w3schools.com/php/php_syntax.asp -->
             <?php 
                 // Função ECHO: Imprimir uma ou mais strings na saída padrão
+                // Mais informações acesse: https://www.w3schools.com/php/func_string_echo.asp
                 echo '<h1>Teste da Linguagem HTML (HyperText Markup Language)</h1>';
                 echo 'Autor......: Robson Vaamonde<br>';
                 echo 'Editado por: SEU NOME AQUI<br>';
@@ -311,6 +323,7 @@ INSERT
 ```php
 <?php
 // Função do PHP para gerar a página de documentação e parâmetros do PHP e do Apache2 Server
+// Mais informações acesse: https://www.php.net/phpinfo
 phpinfo(); 
 ?>
 ```

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.17<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.18<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Webmin realizado com sucesso!!! #BoraParaPrática*
 
@@ -131,8 +131,24 @@ sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
 /var/webmin/*   <-- Diretório dos arquivos de Logs do serviço do Webmin
 ```
 
-## 08_ Testando o Webmin no navegador
+## 08_ Testando o acesso ao Webmin no Terminal e no Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
 ```bash
+#testando o acesso as páginas do Webmin (NÃO COMENTADO NO VÍDEO)
+#opção do comando curl: -I (Fetch the headers only)
+curl -I http://127.0.0.1:10000/
+
 #acessar via navegador o Webmin
 firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
 

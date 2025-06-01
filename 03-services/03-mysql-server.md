@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -88,11 +88,12 @@ sudo journalctl -xeu mysql
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do MySQL Server e do MySQL Client
+#verificando a versão do MySQL Server e do MySQL Client
 #opção do comando mysqld: --version (check version daemon service)
 sudo mysqld --version
 
-#opção do comando mysqld: --version (check version client)
+#verificando a versão do MySQL Client (Console)
+#opção do comando mysql: --version (check version client)
 sudo mysql --version
 ```
 
@@ -131,26 +132,37 @@ sudo mysql -u root -p
 
 ```sql
 /* visualizando as bases de dados do MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
 /* utilizando a base de dados mysql */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE mysql;
 
 /* mostrando as tabelas criadas na base de dados mysql */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SHOW TABLES;
 
 /* selecionando o dados da tabela user, filtrando somente as colunas: user e host */
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host FROM user;
 
 /* alterando a senha do usuário Root Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/alter-user.html */
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 
 /* alterando as permissões do usuário Root Localhost */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
 GRANT ALL ON *.* TO 'root'@'localhost';
 
 /* aplicando todas as mudanças na base de dados */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
+
+/* verificando a senha do usuário Root adicionada */
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
+SELECT user,host,authentication_string FROM user;
 
 /* saindo do MySQL Client Console */
 exit
@@ -165,16 +177,24 @@ sudo mysql -u root -p
 ```sql
 /* criando o usuário DBA Localhost */
 /* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-user.html */
 CREATE USER 'dba'@'localhost' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 
 /* alterando as permissões do usuário DBA Localhost */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
 GRANT ALL ON *.* TO 'dba'@'localhost';
 
 /* aplicando todas as mudanças na base de dados */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
 /* Verificando o Usuário DBA criado no Banco de Dados MySQL Server*/
-SELECT user,host FROM mysql.user WHERE user='dba';
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
+SELECT user,host,authentication_string FROM mysql.user WHERE user='dba';
+
+/* Comparando a senha do Usuário DBA com a do Root do MySQL Server */
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
+SELECT user,host,authentication_string FROM mysql.user WHERE user='dba' OR user='root';
 
 /* saindo do MySQL Client Console */
 exit
@@ -186,6 +206,7 @@ sudo mysql -u dba -p
 ```
 ```sql
 /* visualizando as bases de dados do MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SHOW DATABASES;
 
 /* saindo do MySQL Client Console */
@@ -197,10 +218,11 @@ exit
 **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
+#adicionando o usuário local (logado) no grupo do MySQL Server
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G mysql $USER
 
-#fazendo login em um novo grupo do MySQL
+#fazendo login em um novo grupo do MySQL Server
 newgrp mysql
 
 #verificando os identificadores de usuário e grupos
@@ -214,6 +236,7 @@ sudo getent group mysql
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
 exit
 
+#se logando com o usuário dba para testar os direitos do Grupo do MySQL Server
 #opções do comando mysql: -u (user), -p (password)
 mysql -u dba -p
 ```
@@ -242,10 +265,10 @@ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 INSERT
 ```
 ```bash
-#alterar a linha: 20 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
+#alterar a linha: 21 variável do: bind-address = 127.0.0.1 para: 0.0.0.0
 bind-address = 0.0.0.0
 
-#comentar a linha: 24 da variável do: mysqlx-bind-address = 127.0.0.1
+#comentar a linha: 25 da variável do: mysqlx-bind-address = 127.0.0.1
 #mysqlx-bind-address = 127.0.0.1
 ```
 ```bash
@@ -279,9 +302,8 @@ CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
 GRANT ALL ON *.* TO 'root'@'%';
 FLUSH PRIVILEGES;
 
-/* verificando o usuário Root Remoto do MySQL Server */
-USE mysql;
-SELECT user,host FROM user;
+/* verificando o usuário Root Remoto e Root Local do MySQL Server */
+SELECT user,host,authentication_string FROM mysql.user WHERE user='root';
 exit
 ```
 

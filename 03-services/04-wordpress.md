@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 27/05/2025<br>
-#Versão: 0.27<br>
+#Data de atualização: 01/06/2025<br>
+#Versão: 0.28<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -82,12 +82,15 @@ libapache2-mod-php zlib1g zlib1g-dev
 
 ## 02_ Criando a Base de Dados do WordPress no MySQL Server
 ```bash
+#acessando o MySQL Server com o usuário Root
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
 ```sql
 /* Criando o Banco de Dados com o nome Wordpress */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
+/* Mais informações acesse: https://www.w3schools.com/mysql/mysql_create_db.asp */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-database.html */
 CREATE DATABASE wordpress;
 ```
 
@@ -95,21 +98,29 @@ CREATE DATABASE wordpress;
 
 ```sql
 /* Criando o usuário e senha da Base de Dados do WordPress */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-user.html */
 CREATE USER 'wordpress' IDENTIFIED WITH mysql_native_password BY 'wordpress';
 
 /* Aplicando as permissões de acesso do usuário WordPress */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO CONFORME NECESSIDADE */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
 GRANT USAGE ON *.* TO 'wordpress';
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';
+
+/* aplicando todas as mudanças na base de dados */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
-/* Verificando o Usuário Wordpress criado no Banco de Dados MySQL Server*/
-SELECT user,host FROM mysql.user WHERE user='wordpress';
+/* Verificando o Usuário do Wordpress criado no Banco de Dados MySQL Server */
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
+SELECT user,host,authentication_string FROM mysql.user WHERE user='wordpress';
 
 /* Visualizando as bases de dados do MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
 /* Acessando o Banco de Dados wordpress */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE wordpress;
 
 /* Saindo do Banco de Dados */
@@ -121,13 +132,13 @@ exit
 sudo mysql -u wordpress -p
 ```
 ```sql
-/* visualizando a base de dados do WordPress */
+/* visualizando a base de dados do WordPress e acessando o Banco para testar a conexão */
 SHOW DATABASES;
 USE wordpress;
 exit
 ```
 
-## 03_ Fazendo o download do WordPress e descompactando o seu conteúdo no diretório padrão do Apache2 Server no Ubuntu Server
+## 03_ Fazendo o download do WordPress e descompactando no diretório padrão do Apache2 Server no Ubuntu Server
 ```bash
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
@@ -145,7 +156,7 @@ unzip wordpress.zip
 sudo mv -v wordpress/ /var/www/html/wp/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS PARA APLICAR DE FORMA CORRETA A ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE.
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS PARA APLICAR DE FORMA CORRETA AS MUDANÇAS DAS PERMISSÕES CONFORME A SUA NECESSIDADE.
 
 ```bash
 #alterando as permissões dos diretórios e arquivos do WordPress
@@ -186,7 +197,7 @@ sudo vim wp-config.php
 INSERT
 ```
 ```php
-#alterar os valores das variáveis "define" a partir da linha: 23
+#alterar os valores das variáveis "define" do Wordpress a partir da linha: 23
 
 #alterar o valor da variável: DB_NAME do nome do banco de dados na linha: 23
 define( 'DB_NAME', 'wordpress' );
@@ -271,7 +282,7 @@ Português do Brasil: Continuar;
 Informação necessária
   Título do site: Seu Nome e Sobrenome;
   Nome de usuário: admin;
-  Senha: sua_Senha;
+  Senha: sua_senha;
   Confirme a senha: On (Habilitado) Confirmar o uso de uma senha fraca;
   O seu e-mail: admin@seu.domínio; 
 <Instalar WordPress>
@@ -320,6 +331,7 @@ USE wordpress;
 
 /* Alterar os endereços IPv4 ou Nome do Domínio conforme a sua necessidade */
 /* OBSERVAÇÃO IMPORTANTE: RECOMENDO APLICAR AS ATUALIZAÇÕES UMA DE CADA VEZ */ 
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_update.asp */
 UPDATE wp_options SET option_value = replace(option_value, 'IPv4.ANTIGO', 'IPv4.NOVO') WHERE option_name = 'home' OR option_name = 'siteurl'; 
 UPDATE wp_posts SET guid = replace(guid, 'IPv4.ANTIGO','IPv4.NOVO'); 
 UPDATE wp_posts SET post_content = replace(post_content, 'IPv4.ANTIGO', 'IPv4.NOVO'); 
@@ -328,7 +340,6 @@ UPDATE wp_postmeta SET meta_value = replace(meta_value,'IPv4.ANTIGO','IPv4.NOVO'
 /* Sair do Mysql Server e Testar novamente o Site do Wordpress no navegador */ 
 exit
 ```
-
 
 ========================================DESAFIOS=========================================
 
