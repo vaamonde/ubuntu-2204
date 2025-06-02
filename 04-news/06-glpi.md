@@ -431,6 +431,7 @@ hdparm 7zip
 #baixando o Agent do GLPI do Github (link atualizado em: 11/05/2025)
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.14/glpi-agent_1.14-2_all.deb
 
+#instalando o Agent do GLPI Help Desk
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
 
