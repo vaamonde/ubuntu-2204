@@ -259,8 +259,8 @@ Linux
     ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar o usuário e endereço IPv4 do seu servidor)
 ```
 
-**OBSERVAÇÃO IMPORTANTE 01:** no comando: *w* ele mostra na primeira linha as informações de:<br>
-14:28:13 up 16 min,  1 user,  load average: 0,00, 0,00, 0,00<br>
+**OBSERVAÇÃO IMPORTANTE 01:** no comando: __`w`__ ele mostra na primeira linha as informações de:<br>
+14:28:13   up 16 min,   1 user,   load average: 0,00, 0,00, 0,00<br>
 
 | Valores | Descrição |
 |---------|-----------|
@@ -269,9 +269,8 @@ Linux
 | 1 user | Número de Usuários Logados; |
 | load average: 0,00, 0,00, 0,00 | Médias de Cargas do Sistema (1, 5 e 15 minutos). |
 
-**OBSERVAÇÃO IMPORTANTE 02:** no comando: *w* ele mostra as informações separadas por colunas:<br>
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT<br>
-vaamonde pts/0    172.16.1.113     14:12    1.00s  0.43s  0.01s w<br>
+**OBSERVAÇÃO IMPORTANTE 02:** no comando: __`w`__ ele mostra as informações separadas por colunas:<br>
+USER   TTY   FROM   LOGIN@   IDLE   JCPU   PCPU   WHAT<br>
 
 | Colunas | Descrição | 
 |---------|-----------|
@@ -289,8 +288,8 @@ vaamonde pts/0    172.16.1.113     14:12    1.00s  0.43s  0.01s w<br>
 sudo w
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** no comando: *who* ele mostra as informações separadas por colunas:<br>
-NAME       LINE         TIME             IDLE          PID COMMENT  EXIT<br>
+**OBSERVAÇÃO IMPORTANTE:** no comando: __`who`__ ele mostra as informações separadas por colunas:<br>
+NAME   LINE   TIME   IDLE   PID COMMENT   EXIT<br>
 
 | Colunas | Descrição | 
 |---------|-----------|
