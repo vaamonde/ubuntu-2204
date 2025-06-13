@@ -70,8 +70,8 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Novo>
 
 02) Nome da Máquina Virtual e Sistema Operacional:
-    Nome: UbuntuWebserver (altere conforme a sua necessidade)
-    Pasta (F): #PATH_PADRÃO\UbuntuWebserver (altere conforme a sua necessidade)
+    Nome: wsseunome (altere conforme a sua necessidade)
+    Pasta (F): #PATH_PADRÃO\wsseunome (altere conforme a sua necessidade)
     Imagem ISO: <não selecionar>
     Edição: (sem informação)
     Tipo: Linux
@@ -98,7 +98,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
-01) Selecionar a Máquina Virtual: UbuntuWebserver
+01) Selecionar a Máquina Virtual: wsseunome
 <Configurações>
 
 02) Sistema
@@ -132,7 +132,7 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 ```bash
 Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
-01. Selecionar a Máquina Virtual: UbuntuWebserver: 
+01. Selecionar a Máquina Virtual: wsseunome: 
 <Iniciar>
 
 02. VirtualBOX VM

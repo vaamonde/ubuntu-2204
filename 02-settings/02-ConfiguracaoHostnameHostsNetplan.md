@@ -256,6 +256,8 @@ sudo hostname -i
 
 **OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o *Protocolo SSH* nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
 
+**DICA:** Você pode usar os os softwares: __`Bash/Shell`__ (GNU/Linux), __`Powershell`__ (Microsoft Windows), __`PuTTY`__ (GNU/Linux ou Microsoft Windows) e __`Git Bash`__ (Microsoft Windows - RECOMENDADO SE ESTIVER USANDO O WINDOWS).
+
 ```bash
 #testando a conexão com o Ubuntu Server (alterar o Endereço IPv4 para o seu cenário)
 ping SEU_ENDEREÇO_IPV4

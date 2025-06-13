@@ -261,22 +261,28 @@ Linux
 
 **OBSERVAÇÃO IMPORTANTE 01:** no comando: *w* ele mostra na primeira linha as informações de:<br>
 14:28:13 up 16 min,  1 user,  load average: 0,00, 0,00, 0,00<br>
-1. Data e Hora Atual do Sistema; 
-2. Período de Tempo Ativo, 
-3. Número de Usuários Logados;
-3. Médias de Cargas do Sistema (1, 5 e 15 minutos).
+
+| Valores | Descrição |
+|---------|-----------|
+| 14:28:13 | Data e Hora Atual do Sistema; |
+| up 16 min | Período de Tempo Ativo; |
+| 1 user | Número de Usuários Logados; |
+| load average: 0,00, 0,00, 0,00 | Médias de Cargas do Sistema (1, 5 e 15 minutos). |
 
 **OBSERVAÇÃO IMPORTANTE 02:** no comando: *w* ele mostra as informações separadas por colunas:<br>
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT<br>
 vaamonde pts/0    172.16.1.113     14:12    1.00s  0.43s  0.01s w<br>
-1. USER   (usuário logado);
-2. TTY    (terminal do usuário);
-3. FROM   (origem da conexão); 
-4. LOGIN@ (hora do login do usuário);
-5. IDLE   (tempo ocioso do usuário);
-6. JCPU   (tempo de CPU dos processos do TTY);
-7. PCPU   (tempo de CPU do processo do último comando o usuário);
-8. WHAT   (processo atual do usuário).
+
+| Colunas | Descrição | 
+|---------|-----------|
+| USER | usuário logado; |
+| TTY | terminal do usuário |
+| FROM | origem da conexão; |
+| LOGIN@ | hora do login do usuário; |
+| IDLE | tempo ocioso do usuário; |
+| JCPU | tempo de CPU dos processos do TTY; |
+| PCPU | tempo de CPU do processo do último comando o usuário; |
+| WHAT | processo atual do usuário. |
 
 ```bash
 #verificando informações detalhadas dos usuários logados no Ubuntu Server
@@ -285,13 +291,16 @@ sudo w
 
 **OBSERVAÇÃO IMPORTANTE:** no comando: *who* ele mostra as informações separadas por colunas:<br>
 NAME       LINE         TIME             IDLE          PID COMMENT  EXIT<br>
-1. NAME    (usuário logado);
-2. LINE    (terminal do usuário);
-3. TIME    (data e hora do login do usuário);
-4. IDLE    (tempo ocioso do usuário); 
-5. PID     (identificação do processo);
-6. COMMENT (origem da conexão do usuário);
-7. EXIT    (saída do processo).
+
+| Colunas | Descrição | 
+|---------|-----------|
+| NAME | usuário logado; |
+| LINE | terminal do usuário; |
+| TIME | data e hora do login do usuário; |
+| IDLE | tempo ocioso do usuário; |
+| PID | identificação do processo; |
+| COMMENT | origem da conexão do usuário; |
+| EXIT | saída do processo. |
 
 ```bash
 #verificando os usuários logados remotamente no Ubuntu Server

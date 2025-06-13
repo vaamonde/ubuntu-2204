@@ -112,7 +112,7 @@ Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/p
 
 ## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja *>= a versão 27.13.x*
+**OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja: __`>= a versão 27.13.x`__
 
 ```bash
 #verificando a versão do cliente do Ubuntu Pro Client

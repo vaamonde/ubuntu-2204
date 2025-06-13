@@ -39,7 +39,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
 
 ## 01_ Desligando e reinicializando o servidor com halt no Ubuntu Server
 ```bash
-#opção do comando halt: -p (poweroff)
+#opção do comando halt: -p (poweroff), --reboot (reboot host)
 sudo halt -p
 sudo halt --reboot
 ```
