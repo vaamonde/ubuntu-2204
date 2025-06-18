@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 22/04/2025<br>
-Versão: 0.20<br>
+Data de atualização: 18/06/2025<br>
+Versão: 0.21<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -37,6 +37,8 @@ Conteúdo estudado nessa instalação:<br>
 
 **O QUE É E PARA QUE SERVER O CLOUD:** O Cloud Computing (Computação em Nuvem) é um modelo de TI que permite o acesso remoto a servidores, armazenamento, bancos de dados, redes e softwares por meio da internet. Em vez de manter servidores e infraestrutura física dentro da empresa (on-premises), tudo é hospedado em datacenters de provedores de nuvem, como AWS, Microsoft Azure, Google Cloud, entre outros.
 
+**O QUE É E PARA QUE SERVER A CANONICAL:** A Canonical Ltd. é uma empresa de tecnologia britânica fundada por Mark Shuttleworth em 2004. Ela é conhecida principalmente como a desenvolvedora do sistema operacional Ubuntu, uma das distribuições Linux mais populares do mundo.
+
 **O QUE É E PARA QUE SERVER O UBUNTU SERVER:** O Ubuntu Server é uma versão do sistema operacional Ubuntu desenvolvida especificamente para servidores. Ele é baseado no Debian e é uma das distribuições Linux mais populares para servidores devido à sua estabilidade, segurança e facilidade de uso.
 
 **O QUE É E PARA QUE SERVER O LTS:** LTS significa Long-Term Support (Suporte de Longo Prazo). Ele é um tipo de versão de software que recebe atualizações e suporte por um período estendido, geralmente de 3 a 5 anos ou mais, dependendo do projeto.
@@ -51,21 +53,19 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qnMol8-wvq8
 
 Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
 
-```bash
-A) Versão do download Ubuntu Server: ubuntu-22.04.5-live-server-amd64.iso (Link atualizado em 12/09/2024)
-B) Arquitetura do Ubuntu Server: AMD64 (64-bit)
-C) Tipo de instalação: DVD Image (ISO) Installer
-```
+01) Versão do download Ubuntu Server: ubuntu-22.04.5-live-server-amd64.iso (Link atualizado em 12/09/2024)<br>
+02) Arquitetura do Ubuntu Server: AMD64 (64-bit)<br>
+03) Tipo de instalação: DVD Image (ISO) Installer<br>
 
 ## 02_ Segunda etapa: Criação da Máquina Virtual do UbuntuWebserver no Oracle VirtualBOX
 
-Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
-Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
-Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA<br>
+01) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
+02) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
+03) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA<br>
+
+**Observação:** Utilizar o Oracle VirtualBOX Gerenciador (versão 7.x ou superior).
 
 ```bash
-Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
-
 01) Ferramentas;
 <Novo>
 
@@ -79,14 +79,14 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 <Próximo>
 
 03) Hardware:
-    Memória Base: 4096MB (altere conforme a sua necessidade, mínimo 2048MB)
+    Memória Base: 4096 MB (altere conforme a sua necessidade, mínimo 2048 MB)
     Processadores: 02 CPU (altere conforme a sua necessidade, mínimo 2 CPU)
     Habilitar EFI (SOs especiais apenas): OFF (Desligado)
 <Próximo>
 
 04) Disco Rígido Virtual:
     Criar um novo disco rígido virtual agora: ON (Selecionar)
-      Tamanho do Disco: 50,00GB (alterar conforme a sua necessidade, mínimo 50GB)
+      Tamanho do Disco: 50,00 GB (alterar conforme a sua necessidade, mínimo 50 GB)
     Pré-alocar Tamanho Total (F): OFF (Desativado) 
 <Próximo>
 
@@ -95,13 +95,14 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 ```
 
 ## 03_ Terceira Etapa: Configurações da Máquina Virtual do UbuntuWebserver
-```bash
-Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
+```bash
 01) Selecionar a Máquina Virtual: wsseunome
 <Configurações>
 
-02) Sistema
+02) Selecione a Opção: Expert
+
+03) Sistema
     Placa-Mãe
       Recurso Estendidos
       Relógio da máquina retorno hora UTC: OFF (Desabilitar)
@@ -109,15 +110,15 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
       Recursos Estendidos: Habilitar PAE/NX
                            Habilitar VT-x/AMD-v Aninhado 
 
-03) Monitor
+04) Monitor
     Tela (S)
       Memória de Vídeo: 128MB
       Recursos Estendidos: Habilitar Aceleração 3D: ON (Habilitar)
 
-04) Áudio
+05) Áudio
     Habilitar Áudio: OFF (Desabilitar)
 
-05) Rede
+06) Rede
     Adaptador 1 (LAN)
       Habilitar Placa de Rede: ON (Habilitar)
       Conectado a: Placa em modo Bridge
@@ -129,21 +130,20 @@ Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 ```
 
 ## 04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)
-```bash
-Oracle VirtualBOX Gerenciado (versão 7.x ou superior).
 
+```bash
 01. Selecionar a Máquina Virtual: wsseunome: 
 <Iniciar>
 
 02. VirtualBOX VM
     DVD: <Outro>
-      LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
+      #LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
 <Montar e Tentar Novo Boot>
 ```
 
 ## 05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS
 
-Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
+Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
 
 ```bash
 01) *Try or Install Ubuntu Server
@@ -163,14 +163,14 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 <Done>
 
 05) Choose type of install
-    (X) Ubuntu Server (DEFAULT - Selecionado)
+    (X) Ubuntu Server (DEFAULT - Selecionado por padrão)
     ( ) Ubuntu Server (minimized)
     Additional options
       [ ] Search for third-party drivers
 <Done>
 
 06) Network connections
-    enp0s3 eth - (o nome lógico da placa de rede muda de equipamento para equipamento)
+    enp0s3 eth - (o nome lógico da placa de rede pode mudar de equipamento para equipamento)
     DHCPv4 172.16.1.XXX/24 (altere o Endereço IPv4 conforme a sua necessidade)
     #OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA REDE 
     #INTERNA PARA ADAPTAR NO SEU CENÁRIO.
@@ -196,6 +196,7 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 
 10) Storage configuration
     USED DEVICES
+      #SELECIONAR O LV (LOGICAL VOLUME) DA RAIZ (/ = ROOT) DO UBUNTU SERVER PARA EDITAR A PARTIÇÃO
       ubuntu-lv  new, to be formatted as ext4, mounted at /  24G <Enter>
       Edit <Enter>
           Name: ubuntu-lv
@@ -217,7 +218,7 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 <Done>
 
 12) Upgrade to Ubuntu Pro
-    (X) Skip Ubuntu Pro setup for now
+    (X) Skip Ubuntu Pro setup for now (Habilitar - será configurado posteriormente)
 <Continue>
 
 13) SSH Setup
@@ -236,10 +237,10 @@ Link Oficial da Instalação do Ubuntu Server: https://ubuntu.com/server/docs/in
 ```
 
 ## 06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal
-```bash
-#AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES 
-#DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
 
+**OBSERVAÇÃO:** AGUARDAR A INICIALIZAÇÃO TOTAL DO UBUNTU SERVER, NO FINAL SERÁ GERADO VÁRIAS CHAVES DE AUTENTICAÇÃO DO SSH SERVER, PRESSIONE <ENTER> PARA APARECER A TELA DE LOGIN.
+
+```bash
 01) Tela de Login do Ubuntu Server
     wsseunome login: seu_usuário <Enter> (altere para o seu usuário)
     Password: sua_senha <Enter> (altere para a sua senha)

@@ -41,7 +41,7 @@ Conteúdo estudado nessa atualização:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=B3FzV2bxjtw
 
-## 01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server
+## 01_ Atualizando as Listas (sources.list) do Apt ou Apt-Get no Ubuntu Server
 ```bash
 #Update é utilizado para baixar informações de pacotes de todas as fontes configuradas.
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -104,7 +104,7 @@ sudo apt autoremove
 sudo apt autoclean
 ```
 
-## 08_ Limpando o cache local do sources.list no Ubuntu Server
+## 08_ Limpando o cache local do (sources.list) no Ubuntu Server
 ```bash
 #Clean limpa o repositório local de arquivos de pacotes recuperados
 #opção do comando apt: clean (clean clears out the local repository of retrieved package files)
@@ -130,7 +130,7 @@ sudo cat -n /var/log/apt/history.log
 sudo cat -n /var/log/apt/term.log
 ```
 
-## 11_ Reiniciando o sistema operacional do Ubuntu Server
+## 11_ Reiniciando o sistema operacional do Ubuntu Server para aplicar as mudanças
 ```bash
 #Reiniciar o servidor para testar as atualizações
 sudo reboot

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/04/2025<br>
-#Versão: 0.15<br>
+#Data de atualização: 18/06/2025<br>
+#Versão: 0.16<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -72,14 +72,15 @@ sudo vim /etc/hosts
 INSERT
 ```
 ```bash
-#adicionar o nome de domínio e apelido nas linhas 2 e 3
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O ENDEREÇO IPv4, NOME DO DOMÍNIO E APELIDO PARA O SEU CENÁRIO
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts
+
+#adicionar o nome de domínio e apelido nas linhas 2 e 3
 127.0.0.1      localhost.seu.domínio   localhost
 127.0.1.1      wsseunome.seu.domínio   wsseunome
 SUA_REDE_IPV4  wsseunome.seu.domínio   wsseunome
 
-#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6
+#OBSERVAÇÃO IMPORTANTE: NESSE CENÁRIO NÃO SERÁ CONFIGURADO O IPv6 (DEIXAR O PADRÃO)
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -92,26 +93,26 @@ ff02::2 ip6-allrouters
 ESC SHIFT :x <Enter>
 ```
 
-## 03_ Instalando os principais software de rede no Ubuntu Server
+## 03_ Instalando os principais software de Rede (Network) no Ubuntu Server
 ```bash
-#atualizando as lista do sources.list
+#atualizando as lista do Apt sources.list
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando os pacotes e ferramentas de rede
+#instalando os pacotes e ferramentas de rede no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 sudo apt install bridge-utils ifenslave net-tools
 ```
 
-## 04_ Verificando as informações do Hardware de Rede no Ubuntu Server
+## 04_ Verificando as informações do Hardware de Rede (Placa de Rede) no Ubuntu Server
 ```bash
-#verificando os dispositivos PCI de Placa de Rede instalados
+#verificando os dispositivos PCI de Placa de Rede instalados no Ubuntu Server
 #opções do comando lspci: -v (verbose), -s (show)
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo lspci -v | grep -i ethernet
 
-#verificando os detalhes do hardware de Placa de Rede instalada
+#verificando os detalhes do hardware de Placa de Rede instalada no Ubuntu Server
 #opção do comando lshw: -class (Only show the given class of hardware)
 sudo lshw -class network
 ```
@@ -124,7 +125,7 @@ sudo lshw -class network
 sudo ifconfig -a
 sudo ip address show
 
-#verificando as configurações de Gateway (route)
+#verificando as configurações de Gateway (route) no Ubuntu Server
 #opção do comando route: -n (number)
 #opções do comando ip: route (Routing table entry)
 sudo route -n
@@ -140,7 +141,7 @@ sudo resolvectl
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Netplan e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado na linguagem de programação Python por exemplo, muito cuidado com o uso de __`espaços e tabulação`__ e principalmente sua **Indentação**.
 
-**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server 22.04.4 LTS e da versão 22.04.5 LTS o sistema de Cloud-Init afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você altere as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
+**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server __`22.04.4 LTS`__ e da versão __`22.04.5 LTS`__ o sistema de **Cloud-Init** afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você altere as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
 
 ```bash
 #criando o arquivo para desativar as configurações da Placa de Rede do Cloud-Init (NÃO COMENTADO NO VÍDEO)
@@ -154,7 +155,7 @@ echo "network: {config: disabled}" | sudo tee /etc/cloud/cloud.cfg.d/99-disable-
 ls -lh /etc/netplan/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ARQUIVO ANTIGO DA VERSÃO 22.04: */etc/netplan/00-installer-config.yaml*, A PARTIR DA VERSÃO 22.04.3 O NOME DO ARQUIVO MUDOU PARA: */etc/netplan/50-cloud-init.yaml*
+**OBSERVAÇÃO IMPORTANTE:** ARQUIVO ANTIGO DA VERSÃO 22.04: __`/etc/netplan/00-installer-config.yaml`__, A PARTIR DA VERSÃO 22.04.3 O NOME DO ARQUIVO MUDOU PARA: __`/etc/netplan/50-cloud-init.yaml`__
 
 ```bash
 #fazendo o backup do arquivo de configuração original do Netplan
@@ -254,9 +255,9 @@ sudo hostname -i
 
 ## 09_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
-**OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o *Protocolo SSH* nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
+**OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o __`Protocolo SSH`__ nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
 
-**DICA:** Você pode usar os os softwares: __`Bash/Shell`__ (GNU/Linux), __`Powershell`__ (Microsoft Windows), __`PuTTY`__ (GNU/Linux ou Microsoft Windows) e __`Git Bash`__ (Microsoft Windows - RECOMENDADO SE ESTIVER USANDO O WINDOWS).
+**DICA:** Você pode usar os softwares: __`Bash/Shell`__ (GNU/Linux), __`Powershell`__ (Microsoft Windows), __`PuTTY`__ (GNU/Linux ou Microsoft Windows) e __`Git Bash`__ (Microsoft Windows - RECOMENDADO SE ESTIVER USANDO O WINDOWS).
 
 ```bash
 #testando a conexão com o Ubuntu Server (alterar o Endereço IPv4 para o seu cenário)

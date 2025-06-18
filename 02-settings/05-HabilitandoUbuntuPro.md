@@ -124,7 +124,7 @@ sudo pro --version
 ```bash
 #adicionando o Token da licença do Ubuntu Pro
 #opção do comando pro: attach (Connect an Ubuntu Pro support contract to this machine)
-sudo pro attach [COLAR O SEU TOKEN]
+sudo pro attach COPIAR_E_COLAR_O_SEU_TOKEN
 ```
 
 ## 07_ Verificando os repositórios de origem das atualizações no Ubuntu Server

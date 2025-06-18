@@ -58,13 +58,13 @@ sudo locale -a
 
 ## 02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** *pt_BR.UTF-8* é uma codificação de caractere que indica o uso da língua portuguesa (pt) como falada no Brasil (BR) com a codificação *UTF-8*. UTF-8 (Unicode Transformation Format - 8 bits) é uma codificação de caracteres que pode representar qualquer caractere no conjunto Unicode, o que inclui praticamente todos os caracteres de todas as línguas do mundo.
+**OBSERVAÇÃO IMPORTANTE:** O *pt_BR.UTF-8* é uma codificação de caractere que indica o uso da língua portuguesa (pt) como falada no Brasil (BR) com a codificação __`UTF-8`__. UTF-8 (Unicode Transformation Format - 8 bits) é uma codificação de caracteres que pode representar qualquer caractere no conjunto Unicode, o que inclui praticamente todos os caracteres de todas as línguas do mundo.
 
 ```bash
-#gerando a localidade do Português do Brasil
+#gerando a localidade do Português do Brasil no Ubuntu Server
 sudo locale-gen pt_BR.UTF-8
 
-#configurando a localidade Português do Brasil
+#configurando a localidade Português do Brasil no Ubuntu Server
 #opção do comando localectl: set-locale (Set the system locale)
 sudo localectl set-locale LANG=pt_BR.UTF-8
 
@@ -73,8 +73,9 @@ sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 
 #recomendado rebootar o sistema para testar as localidades
 sudo reboot
-
-#verificando as mudanças de localidades do sistema
+```
+```bash
+#verificando as mudanças de localidades do sistema no Ubuntu Server apos o reboot
 #opção do comando locale: -a (all-locales)
 sudo localectl
 sudo locale -a
@@ -82,22 +83,20 @@ sudo locale -a
 
 ## 03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server
 ```bash
-#verificando as informações de fuso horário do sistema
+#verificando as informações de fuso horário do sistema no Ubuntu Server
 sudo timedatectl
-
-#OBSERVAÇÃO IMPORTANTE: no sistema operacional Ubuntu Server temos basicamente 03 (três)
-#configurações de hora (time) sendo elas: 
-
-A) Local time (Hora Local);
-B) Universal time (Hora Universal);
-C) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).
 ```
+**OBSERVAÇÃO IMPORTANTE:** no sistema operacional Ubuntu Server temos basicamente **03 (três)** configurações de hora (time) sendo elas: 
+
+01) Local time (Hora Local do Servidor - Software/OS);<br>
+02) Universal time (Hora Universal - UTC Horário Universal Coordenado);<br>
+03) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).<br>
 
 ## 04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** geralmente mudar para o *Time Zone de America/Sao_Paulo* a hora fica errada no sistema, nesse caso podemos mudar para *America/Fortaleza ou America/Bahia* esse error é por causa do Fuso Horário em relação ao Horário de Verão que não existe mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
+**OBSERVAÇÃO IMPORTANTE:** geralmente mudar para o __`Time Zone de America/Sao_Paulo`__ a hora fica errada no sistema, nesse caso podemos mudar para __`America/Fortaleza`__ ou __`America/Bahia`__ esse error é por causa do **Fuso Horário** em relação ao __`Horário de Verão`__ que não existe mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
-**OBSERVAÇÃO IMPORTANTE:** Até o momento (03/04/2025), o horário de verão 2025 está em *Processo de Avaliação* pelo Governo Federal. De acordo com o ministro de Minas e Energia, **Alexandre Silveira**, a volta da medida será analisada com base na *situação hídrica e na segurança energética*.
+**OBSERVAÇÃO IMPORTANTE:** Até o momento (03/04/2025), o horário de verão 2025 está em __`Processo de Avaliação`__ pelo Governo Federal. De acordo com o ministro de Minas e Energia, **Alexandre Silveira**, a volta da medida será analisada com base na *situação hídrica e na segurança energética*.
 
 **OBSERVAÇÃO:** ALTERAR O LOCALE CONFORME A LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE TIMEZONE ACESSE: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -115,7 +114,7 @@ sudo timedatectl
 
 ## 05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server
 
-**OBSERVAÇÃO:** O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo **UDP** sob a porta **123**. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
+**OBSERVAÇÃO:** O NTP (Network Time Protocol) é um protocolo para sincronização dos relógios dos computadores baseado no protocolo **UDP** sob a porta **123**. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
 
 ```bash
 #editando o arquivo de configuração timesyncd.conf
@@ -126,7 +125,7 @@ sudo vim /etc/systemd/timesyncd.conf
 INSERT
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** no Brasil sempre utilizar o site: https://ntp.br/ para o sincronismo de Data e Hora de forma correta nos servidores.
+**OBSERVAÇÃO IMPORTANTE:** no Brasil sempre utilizar o site: https://ntp.br/ para o sincronismo de Data e Hora de forma correta nos servidores. O ntp.br é o serviço oficial de sincronização de horário do Brasil, mantido pelo Observatório Nacional (ON), em parceria com o NIC.br (Núcleo de Informação e Coordenação do Ponto BR).
 
 ```bash
 #descomentar e alterar os valores das variáveis a partir da linha: 14
