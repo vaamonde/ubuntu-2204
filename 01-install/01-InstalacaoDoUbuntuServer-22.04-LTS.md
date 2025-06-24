@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 18/06/2025<br>
-Versão: 0.21<br>
+Data de atualização: 24/06/2025<br>
+Versão: 0.22<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -57,13 +57,13 @@ Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
 02) Arquitetura do Ubuntu Server: AMD64 (64-bit)<br>
 03) Tipo de instalação: DVD Image (ISO) Installer<br>
 
-## 02_ Segunda etapa: Criação da Máquina Virtual do UbuntuWebserver no Oracle VirtualBOX
+## 02_ Segunda etapa: Criação da Máquina Virtual do Ubuntu Server no Oracle VirtualBOX
 
 01) Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads<br>
 02) Vídeo de instalação do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=yTihvAaaxpU<br>
 03) Atualização do VirtualBOX no Linux Mint: https://www.youtube.com/watch?v=DU47PLFSxpA<br>
 
-**Observação:** Utilizar o Oracle VirtualBOX Gerenciador (versão 7.x ou superior).
+**OBSERVAÇÃO:** Utilizar o Oracle VirtualBOX Gerenciador (versão 7.x ou superior).
 
 ```bash
 01) Ferramentas;
@@ -137,13 +137,25 @@ Link de download do Ubuntu Server: https://releases.ubuntu.com/22.04/
 
 02. VirtualBOX VM
     DVD: <Outro>
-      #LOCALIZAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
+      #LOCALIZAR E SELECIONAR A IMAGEM DA ISO DO UBUNTU SERVER 22.04.x LTS
 <Montar e Tentar Novo Boot>
 ```
 
 ## 05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS
 
 Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.com/server/docs/installation
+
+**OBSERVAÇÃO IMPORTANTE:** O Boot Inicial do Ubuntu Server demora cerca de: __`30 (trinta segundos)`__ para iniciar a instalação padrão caso você não altere as opções de Boot.
+
+**OBSERVAÇÃO:** Para parar o *Boot Inicial do Ubuntu Server* pressione: __`<Seta para Baixo>`__.
+
+**DICA:** Entendendo as opções de inicialização do Ubuntu Server<br>
+
+| Opção de Boot | Descrição |
+| --------------|-----------|
+| **Try or Install Ubuntu Server** | Inicia o instalador padrão do Ubuntu Server. Recomendado para a maioria das instalações. |
+| **Ubuntu Server with the HWE kernel** | Inicia a instalação com o kernel HWE (Hardware Enablement), fornecendo suporte a hardwares mais recentes. Ideal para máquinas modernas ou servidores com hardware novo. |
+| **Test memory** | Executa o Memtest86+ para testar a memória RAM do sistema. Útil para diagnósticos de estabilidade e problemas de hardware. |
 
 ```bash
 01) *Try or Install Ubuntu Server
@@ -160,6 +172,7 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 04) Keyboard configuration
     Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
     Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+             [English (US) - English (US, intl., with dead keys)] (suporte americano com acentuação)
 <Done>
 
 05) Choose type of install
@@ -229,7 +242,7 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 14) Featured Server Snaps
 <Done>
 
-15) Install complete!
+15) Installation complete!
 <Reboot Now>
 
 16) Please remove the installation medium, then press ENTER:
@@ -242,6 +255,8 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 
 ```bash
 01) Tela de Login do Ubuntu Server
-    wsseunome login: seu_usuário <Enter> (altere para o seu usuário)
-    Password: sua_senha <Enter> (altere para a sua senha)
+    Ubuntu 22.04.5 LTS wsseunome tty1
+      wsseunome login: seu_usuário <Enter> (altere para o seu usuário)
+      Password: sua_senha <Enter> (altere para a sua senha)
+    seu_usuário@wsseunome:~$ (primeiro acesso ao Terminal do Ubuntu Server)
 ```

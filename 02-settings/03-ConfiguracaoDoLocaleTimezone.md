@@ -48,10 +48,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 
 ## 01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server
 ```bash
-#verificando as informações detalhas de localidade do sistema
+#verificando as informações detalhas de localidade no Ubuntu Server
 sudo localectl
 
-#verificando as informações de localidades instaladas no sistema 
+#verificando as informações de localidades instaladas no Ubuntu Server 
 #opção do comando locale: -a (all-locales)
 sudo locale -a
 ```
@@ -61,21 +61,21 @@ sudo locale -a
 **OBSERVAÇÃO IMPORTANTE:** O *pt_BR.UTF-8* é uma codificação de caractere que indica o uso da língua portuguesa (pt) como falada no Brasil (BR) com a codificação __`UTF-8`__. UTF-8 (Unicode Transformation Format - 8 bits) é uma codificação de caracteres que pode representar qualquer caractere no conjunto Unicode, o que inclui praticamente todos os caracteres de todas as línguas do mundo.
 
 ```bash
-#gerando a localidade do Português do Brasil no Ubuntu Server
+#gerando a localidade do Português do Brasil (pt_BR) no Ubuntu Server
 sudo locale-gen pt_BR.UTF-8
 
-#configurando a localidade Português do Brasil no Ubuntu Server
+#configurando a localidade do Português do Brasil no Ubuntu Server
 #opção do comando localectl: set-locale (Set the system locale)
 sudo localectl set-locale LANG=pt_BR.UTF-8
 
-#atualizando as localidades do Português do Brasil e Linguagem do Sistema
+#atualizando as localidades do Português do Brasil e Linguagem no Ubuntu Server
 sudo update-locale LANG=pt_BR.UTF-8 LC_ALL=pt_BR.UTF-8 LANGUAGE="pt_BR:pt:en"
 
 #recomendado rebootar o sistema para testar as localidades
 sudo reboot
 ```
 ```bash
-#verificando as mudanças de localidades do sistema no Ubuntu Server apos o reboot
+#verificando as mudanças de localidades do sistema no Ubuntu Server depois do reboot
 #opção do comando locale: -a (all-locales)
 sudo localectl
 sudo locale -a
@@ -86,6 +86,7 @@ sudo locale -a
 #verificando as informações de fuso horário do sistema no Ubuntu Server
 sudo timedatectl
 ```
+
 **OBSERVAÇÃO IMPORTANTE:** no sistema operacional Ubuntu Server temos basicamente **03 (três)** configurações de hora (time) sendo elas: 
 
 01) Local time (Hora Local do Servidor - Software/OS);<br>

@@ -1,0 +1,62 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 24/06/2025
+# Data de atualização: 24/06/2025
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+# Testado e homologado para a versão do Netplan v0.106.x
+#
+# OBSERVAÇÃO IMPORTANTE: o arquivo de configuração do Netplan e baseado no formato de Serialização
+# de Dados Legíveis YAML (Yet Another Markup Language) utilizado na linguagem de programação Python
+# por exemplo, muito cuidado com o uso de espaços e tabulação e principalmente sua Indentação.
+# Configuração da Placa de Rede do Ubuntu Server 22.04.x LTS x64
+#
+# Bloco inicial das configurações da Rede no Netplan (BLOCO MELHORADO PARA A NOVA VERSÃO)
+network:
+  #
+  # Início da configuração do Netplan usando a versão 2 (mais atual)
+  version: 2
+  #
+  # Bloco de configuração das Interfaces Ethernet (físicas ou virtuais)
+  ethernets:
+    #
+    # Configuração da Interface Física (Nome Lógico visto no comando: lshw -class network)
+    enp0s3:
+      #
+      # Desabilitando o suporte ao DHCP Client IPv4 na interface física
+      dhcp4: false
+      #
+      # Desabilitando o suporte da configuração automática do IPv6 na interface física
+      # OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
+      # na sua rede o recurso do IPv6, caso contrário fazer a configuração adequada
+      link-local: []
+      #
+      # Configuração do Endereço IPv4 e Máscara de Rede (CIDR) para o seu cenário
+      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
+      addresses: [SEU_ENDEREÇO_IPv4/CIDR]
+      #
+      # Configuração do Gateway Padrão (Rota Padrão) para o seu cenário
+      # OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo utilizar 
+      # as opções de Routes (Rotas) do Netplan para configurar o Gateway padrão
+      # gateway4: SEU_ENDEREÇO_IPv4
+      routes:
+        # Configuração da Rota Padrão (cuidado com o traço antes da opção: to)
+        - to: default
+          # Configuração do endereço IPv4 do Gateway para o seu cenário
+          via: SEU_ENDEREÇO_IPv4
+          #
+      # Configuração dos servidores de DNS Server Preferencial e Alternativo
+      nameservers:
+        # Configuração dos servidores de DNS para o seu cenário
+        # OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
+        # por vírgula, recomendo pelo menos dois DNS Servers serem configurados ou 
+        # somente o endereço do Servidor de DNS Local da Rede.
+        addresses: [8.8.8.8, 8.8.4.4]
+        # Configuração da pesquisa de domínio para o seu cenário
+        # OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
+        search: [seu.domínio]

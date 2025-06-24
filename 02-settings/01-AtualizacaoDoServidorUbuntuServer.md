@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 22/04/2025<br>
-#Versão: 0.07<br>
+#Data de atualização: 24/06/2025<br>
+#Versão: 0.08<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -53,16 +53,25 @@ sudo apt update
 #List é utilizado para listar todos os software que serão atualizados no sistema.
 #opção do comando apt: list (list is used to display a list of packages), --upgradable (shows
 #a list of packages that can be upgraded using the apt package manager)
-sudo apt list --upgradable
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando cat: -n (number line)
+sudo apt list --upgradable | cat -n
 ```
 
-## 03_ Atualizando todos os software no Ubuntu Server
+## 03_ Atualizando todos os software (Pacotes) no Ubuntu Server
 ```bash
 #Upgrade é utilizado para instalar atualizações disponíveis de todos os pacotes atualmente 
 #instalados no sistema a partir das fontes configuradas via sources.list
 #opção do comando apt: upgrade (Install the newest versions of all packages currently installed
 #on the system from the sources enumerated in /etc/apt/sources.list.)
 sudo apt upgrade
+  Do you want to continue? [Y/n] y <Enter>
+
+#OBSERVAÇÃO: algumas vezes pode aparecer uma tela na cor: Rosa/Branca informando que alguns
+#serviços de rede serão reinicializados, isso é comum na distribuição Ubuntu Server.
+Daemons using outdated libraries
+  Which services should be restarted?
+<OK>
 ```
 
 ## 04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server
@@ -116,7 +125,9 @@ sudo apt clean
 #List é utilizado para listar todos os software que serão atualizados no sistema.
 #opção do comando apt: list (list is used to display a list of packages), --installed (shows
 #a list of packages names as well as options to list installed)
-sudo apt list --installed
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando cat: -n (number line)
+sudo apt list --installed | cat -n
 ```
 
 ## 10_ Verificando os Logs de atualização de software no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
