@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 22/04/2025<br>
-#Versão: 0.12<br>
+#Data de atualização: 24/06/2025<br>
+#Versão: 0.13<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -50,11 +50,29 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Szt6egOsKxE
 ```bash
 #verificando as informações detalhas de localidade no Ubuntu Server
 sudo localectl
+```
 
+Entendendo a saída do comando: __`localectl`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Campo           | Valor              | Descrição                    |
+| --------------- | ------------------ | ---------------------------- |
+| `System Locale` | `LANG=en_US.UTF-8` | Define o idioma e codificação do sistema. Neste caso, está em **inglês (EUA)** com codificação **UTF-8**. Afeta mensagens de sistema, data, hora e ordenação alfabética. |
+| `VC Keymap`     | `n/a`              | Layout do teclado para consoles virtuais (tty). **n/a** indica que não está configurado ou não se aplica. |
+| `X11 Layout`    | `us`               | Layout do teclado para ambientes gráficos (X11), neste caso, **layout americano padrão (us)**. Mesmo em servidores sem interface gráfica, esse campo pode ser exibido.   |
+| `X11 Model`     | `pc105`            | Modelo de teclado reconhecido (105 teclas padrão internacional). Importante em ambientes gráficos ou terminais compatíveis. |
+
+```bash
 #verificando as informações de localidades instaladas no Ubuntu Server 
 #opção do comando locale: -a (all-locales)
 sudo locale -a
 ```
+
+Entendendo a saída do comando: __`locale`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Locale       | Descrição                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------- |
+| `C`          | Locale padrão minimalista do sistema (equivalente ao `POSIX`). Usa codificação ASCII.                   |
+| `C.utf8`     | Variante do `C` locale com suporte à codificação UTF-8. Leve, rápida, mas sem formatação local.         |
+| `en_US.utf8` | Locale para **inglês dos Estados Unidos** com codificação UTF-8. Utilizado por padrão no Ubuntu Server. |
+| `POSIX`      | Locale mais básico possível. Idêntico ao `C`. Compatível com padrões UNIX antigos.                      |
 
 ## 02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server
 
@@ -82,16 +100,28 @@ sudo locale -a
 ```
 
 ## 03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server
-```bash
-#verificando as informações de fuso horário do sistema no Ubuntu Server
-sudo timedatectl
-```
 
 **OBSERVAÇÃO IMPORTANTE:** no sistema operacional Ubuntu Server temos basicamente **03 (três)** configurações de hora (time) sendo elas: 
 
 01) Local time (Hora Local do Servidor - Software/OS);<br>
 02) Universal time (Hora Universal - UTC Horário Universal Coordenado);<br>
 03) RTC (Real-time clock) time (Relógio de Tempo Real - BIOS/Hardware).<br>
+
+```bash
+#verificando as informações de fuso horário do sistema no Ubuntu Server
+sudo timedatectl
+```
+
+Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Campo                       | Valor                         | Descrição                                               |
+| --------------------------- | ----------------------------- | ------------------------------------------------------- |
+| `Local time`                | `ter 2025-06-24 20:00:50 UTC` | Hora local do sistema operacional com base no fuso horário configurado. |
+| `Universal time`            | `ter 2025-06-24 20:00:50 UTC` | Hora universal (UTC). Usada para consistência em sistemas distribuídos. |
+| `RTC time`                  | `ter 2025-06-24 20:00:50`     | Hora armazenada no **RTC (Relógio de Tempo Real)** da placa-mãe. |
+| `Time zone`                 | `Etc/UTC (UTC, +0000)`        | Fuso horário atual do sistema. Neste caso, está definido como UTC. |
+| `System clock synchronized` | `yes`                         | Indica se o relógio do sistema está sincronizado com servidores NTP. |
+| `NTP service`               | `active`                      | Estado do serviço de sincronização automática via NTP. |
+| `RTC in local TZ`           | `no`                          | Define se o relógio de hardware está usando o fuso horário local (`yes`) ou UTC (`no`). Em servidores, é recomendado manter como `no`. |
 
 ## 04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server
 
@@ -103,13 +133,14 @@ sudo timedatectl
 
 ```bash
 #listando os Timezones disponíveis do comando timedatectl (PARA SAIR PRESSIONE Q (quit))
+#opção do comando timedatectl: list-timezones (List available time zones, one per line)
 sudo timedatectl list-timezones
 
-#configurando o fuso horário de America São Paulo
+#configurando o fuso horário de America São Paulo no Ubuntu Server
 #opção do comando timedatectl: set-timezone (set the system time zone to the specified value)
 sudo timedatectl set-timezone "America/Sao_Paulo"
 
-#verificando as mudanças do Timezone no Sistema
+#verificando as mudanças do Timezone no Sistema do Ubuntu Server
 sudo timedatectl
 ```
 
@@ -142,17 +173,37 @@ ESC SHIFT : x <Enter>
 ## 06_ Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora) no Ubuntu Server
 ```bash
 #reiniciar o serviço do Timesyncd
+#opção do comando systemctl: restart (Stop and then start one or more units specified on the command line)
 sudo systemctl restart systemd-timesyncd.service
 
 #verificar o status do serviço do Timesyncd
+#opção do comando systemctl: status (Show terse runtime status information about one or more units)
 sudo systemctl status systemd-timesyncd.service
-
-#verificar as informações do sincronismo do Timesyncd (NÃO COMENTADO NO VÍDEO)
-sudo timedatectl timesync-status
 
 #verificando as informações de data e hora atualizada
 sudo timedatectl
+
+#verificar as informações do sincronismo do Timesyncd (NÃO COMENTADO NO VÍDEO)
+#opção do comando timedatectl: timesync-status
+sudo timedatectl timesync-status
 ```
+
+Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Campo             | Valor                               | Descrição                                    |
+| ----------------- | ----------------------------------- | -------------------------------------------- |
+| **Server**        | `200.160.7.186 (a.st1.ntp.br)`      | Endereço IP e nome do servidor NTP atualmente em uso. |
+| **Poll interval** | `1min 4s` (min: 32s; max: 34min 8s) | Intervalo de verificação da hora. Mostra o tempo atual, mínimo e máximo de polling.|
+| **Leap**          | `normal`                            | Estado de ajuste de segundos (ex: `normal`, `insert second`, `delete second`).|
+| **Version**       | `4`                                 | Versão do protocolo NTP utilizado. |
+| **Stratum**       | `1`                                 | Nível de proximidade com a fonte de tempo. `1` indica servidor de referência (ex: GPS, relógio atômico). |
+| **Reference**     | `ONBR`                              | Identificador da fonte de tempo utilizada pelo servidor NTP remoto. |
+| **Precision**     | `1us (-22)`                         | Precisão estimada do relógio local. |
+| **Root distance** | `1.022ms (max: 5s)`                 | Distância total (erro estimado) até a fonte de tempo confiável. |
+| **Offset**        | `+5.324ms`                          | Diferença atual entre o relógio do sistema e o relógio do servidor NTP. |
+| **Delay**         | `33.551ms`                          | Tempo de ida e volta da comunicação com o servidor NTP. |
+| **Jitter**        | `0`                                 | Variação de atraso entre pacotes consecutivos — ideal quando está baixo. |
+| **Packet count**  | `1`                                 | Número de pacotes trocados desde a última inicialização. |
+| **Frequency**     | `-458,403ppm`                       | Ajuste de frequência aplicado ao relógio do sistema para mantê-lo sincronizado. |
 
 ## 07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server
 
@@ -170,7 +221,7 @@ sudo date -s 13:30:00
 
 ## 08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** mesmo cenário da utilização do comando date, a da Data e hora da BIOS do Hardware é mantida pela *CMOS e Bateria* que mantém essa hora armazenada, caso a Data e Hora de BIOS esteja errada, recomendo verificar a Bateria pois já é um sinal de falha de Hardware, no GNU/Linux você pode sincronizar a Data e Hora de Software para o Hardware e vice-versa, também, não é recomendo a sua utilização.
+**OBSERVAÇÃO IMPORTANTE:** mesmo cenário da utilização do comando __`date`__, a da Data e hora da BIOS do Hardware é mantida pela *CMOS e Bateria* que mantém essa hora armazenada, caso a Data e Hora de BIOS esteja errada, recomendo verificar a Bateria pois já é um sinal de falha de Hardware, no GNU/Linux você pode sincronizar a Data e Hora de Software para o Hardware e vice-versa, também, não é recomendo a sua utilização.
 
 ```bash
 #opção do comando hwclock: --systohc (system clock to hardware clock), --hctosys (hardware 
