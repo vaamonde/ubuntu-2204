@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.28<br>
+#Data de atualização: 25/06/2025<br>
+#Versão: 0.29<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -81,7 +81,7 @@ zlib1g-dev apt-transport-https
 **OBSERVAÇÃO IMPORTANTE:** FOI ADICIONAR MAIS *DEPENDÊNCIAS DOS PACOTES DO PHP*, CONFORME VÁRIOS RELATOS NO GITHUB E NO CANAL DO YOUTUBE DO BORA PARA PRÁTICA, AS DEPENDÊNCIAS DO **WORDPRESS** E DO **GLPI HELP DESK** FORAM ADICIONADAS NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS DE INSTALAÇÃO DESSAS SOLUÇÕES AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
 ```bash
-#instalando o Apache2 Server, PHP 8.x e suas dependências (suporte extra)
+#instalando o Apache2 Server, PHP 8.x e suas dependências (SUPORTE EXTRA DE DEPENDÊNCIAS)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \
 php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \
@@ -94,7 +94,7 @@ php-apcu xmlrpc-api-utils php-bz2
 sudo a2enmod cgi alias authz_host deflate dir expires headers mime rewrite autoindex \
 negotiation setenvif
 
-#reiniciar o serviço do Apache2 Server
+#reiniciando o serviço do Apache2 Server
 #opções do comando systemctl: restart (Stop and then start one or more units)
 sudo systemctl restart apache2
 ```
@@ -188,7 +188,9 @@ exit
 
 ## 06_ Criando um diretório de Teste do HTML e PHP do Apache2 Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM *DIRETÓRIOS DE PROJETOS DE SITES* QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO AS LINGUAGENS *HTML5, CSS5, JAVASCRIPT, PHP7/8, ETC.* DEVIDO A ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS E CONECTADOS NA CONSTRUÇÃO DO SITE.
+**OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM __`DIRETÓRIOS DE PROJETOS DE SITES`__ QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO AS LINGUAGENS __`HTML5, CSS5, JAVASCRIPT, PHP7/8, ETC.`__ DEVIDO A ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS E CONECTADOS NA CONSTRUÇÃO DO SITE.
+
+**OBSERVAÇÃO IMPORTANTE:** SEMPRE CRIAR ARQUIVOS E DIRETÓRIOS TUDO EM: __`minúsculo`__ NÃO UTILIZAR: __`acentuação, caracteres especiais, espaço em branco, etc`__ CRIAR ARQUIVOS E DIRETÓRIOS COM NOMES __`pequenos e objetivos`__. LEMBRE-SE QUE O GNU/LINUX É: __`CASE SENSITIVE`__.
 
 ```bash
 #acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)

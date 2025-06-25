@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.25<br>
+#Data de atualização: 25/06/2025<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -259,6 +259,11 @@ Linux
     ssh seu_usuário@ENDEREÇO_IPV4_SERVIDOR (alterar o usuário e endereço IPv4 do seu servidor)
 ```
 
+```bash
+#verificando informações detalhadas dos usuários logados no Ubuntu Server
+sudo w
+```
+
 **OBSERVAÇÃO IMPORTANTE 01:** no comando: __`w`__ ele mostra na primeira linha as informações de:<br>
 14:28:13   up 16 min,   1 user,   load average: 0,00, 0,00, 0,00<br>
 
@@ -284,8 +289,9 @@ USER   TTY   FROM   LOGIN@   IDLE   JCPU   PCPU   WHAT<br>
 | WHAT | processo atual do usuário. |
 
 ```bash
-#verificando informações detalhadas dos usuários logados no Ubuntu Server
-sudo w
+#verificando os usuários logados remotamente no Ubuntu Server
+#opção do comando who: -H (heading), -a (all)
+sudo who -Ha
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** no comando: __`who`__ ele mostra as informações separadas por colunas:<br>
@@ -302,10 +308,6 @@ NAME   LINE   TIME   IDLE   PID COMMENT   EXIT<br>
 | EXIT | saída do processo. |
 
 ```bash
-#verificando os usuários logados remotamente no Ubuntu Server
-#opção do comando who: -H (heading), -a (all)
-sudo who -Ha
-
 #verificando os usuários logados no Ubuntu Server
 users
 ```
@@ -334,7 +336,7 @@ sudo adduser admin
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat -n /etc/passwd | grep admin
 
-#listando o usuário criado com o comando getent
+#listando o usuário criado com o comando getent (MAIS SIMPLES)
 #opção do comando getent: passwd (the database system user)
 sudo getent passwd admin
 
@@ -343,7 +345,7 @@ sudo getent passwd admin
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo cat -n /etc/group | grep admin
 
-#listando o grupo criado com o comando getent
+#listando o grupo criado com o comando getent (MAIS SIMPLES)
 #opção do comando getent: group (the database system group)
 sudo getent group admin
 ```
@@ -352,7 +354,7 @@ sudo getent group admin
 ```bash
 #adicionando o usuário Admin ao grupo do SUDO
 #opção do comando usermod: -a (append), -G (groups)
-sudo usermod -aG sudo admin
+sudo usermod -a -G sudo admin
 
 #verificando os grupos do usuário Admin
 sudo groups admin

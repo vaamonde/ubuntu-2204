@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.27<br>
+#Data de atualização: 25/06/2025<br>
+#Versão: 0.28<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -128,7 +128,7 @@ sudo mysql -u root -p
 
 ## 06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O MYSQL SERVER E CLIENT É *CASE SENSITIVE*, CUIDADO COM OS NOMES DOS: *BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL SERVER E CLIENT É __`CASE SENSITIVE`__, CUIDADO COM OS NOMES DOS: *BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
 
 ```sql
 /* visualizando as bases de dados do MySQL */
@@ -188,11 +188,11 @@ GRANT ALL ON *.* TO 'dba'@'localhost';
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
-/* Verificando o Usuário DBA criado no Banco de Dados MySQL Server*/
+/* Verificando o Usuário DBA criado no Banco de Dados MySQL Server */
 /* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host,authentication_string FROM mysql.user WHERE user='dba';
 
-/* Comparando a senha do Usuário DBA com a do Root do MySQL Server */
+/* Comparando a senha do Usuário DBA com a do Root do MySQL Server (NÃO COMENTADO NO VÍDEO) */
 /* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host,authentication_string FROM mysql.user WHERE user='dba' OR user='root';
 

@@ -125,7 +125,7 @@ Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 
 ## 04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** geralmente mudar para o __`Time Zone de America/Sao_Paulo`__ a hora fica errada no sistema, nesse caso podemos mudar para __`America/Fortaleza`__ ou __`America/Bahia`__ esse error é por causa do **Fuso Horário** em relação ao __`Horário de Verão`__ que não existe mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
+**OBSERVAÇÃO IMPORTANTE:** geralmente mudar para o Time Zone de __`America/Sao_Paulo`__ a hora fica errada no sistema, nesse caso podemos mudar para __`America/Fortaleza`__ ou __`America/Bahia`__ esse error é por causa do **Fuso Horário** em relação ao __`Horário de Verão`__ que não existe mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
 **OBSERVAÇÃO IMPORTANTE:** Até o momento (25/06/2025), o horário de verão 2025 está em __`Processo de Avaliação`__ pelo Governo Federal. De acordo com o ministro de Minas e Energia, **Alexandre Silveira**, a volta da medida será analisada com base na *situação hídrica e na segurança energética*. "Nós temos a segurança energética assegurada, há o início de um processo de restabelecimento ainda muito modesto da nossa condição hídrica. Temos condições de chegar depois do verão em condição de avaliar, sim, a volta dessa política em 2025"
 
@@ -146,7 +146,7 @@ sudo timedatectl
 
 ## 05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server
 
-**OBSERVAÇÃO:** O NTP (Network Time Protocol) é um protocolo para sincronização dos relógios dos computadores baseado no protocolo **UDP** sob a porta **123**. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
+**OBSERVAÇÃO:** O NTP (Network Time Protocol) é um protocolo para sincronização dos relógios dos computadores baseado no protocolo __`UDP`__ sob a porta __`123`__. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável.
 
 ```bash
 #editando o arquivo de configuração timesyncd.conf
@@ -174,11 +174,11 @@ ESC SHIFT : x <Enter>
 ```bash
 #reiniciar o serviço do Timesyncd
 #opção do comando systemctl: restart (Stop and then start one or more units specified on the command line)
-sudo systemctl restart systemd-timesyncd.service
+sudo systemctl restart systemd-timesyncd
 
 #verificar o status do serviço do Timesyncd
 #opção do comando systemctl: status (Show terse runtime status information about one or more units)
-sudo systemctl status systemd-timesyncd.service
+sudo systemctl status systemd-timesyncd
 
 #verificando as informações de data e hora atualizada
 sudo timedatectl
@@ -210,6 +210,7 @@ Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 **OBSERVAÇÃO IMPORTANTE:** só utilizar as configurações de Data e Hora em modo manual caso as configurações de sincronismo automático não funcione de forma adequada, não recomendo a configuração de Data e Hora em modo manual, isso é um alerta de erro de sistema (BIOS/Hardware ou Rede/Internet).
 
 ```bash
+#configuração da data e hora no modo manual no Ubuntu Server
 #opção do comando date: -s (set), %d (day of month), %m (month), %Y (year), %H (hour), 
 #%M (minute), %S (second)
 sudo date
@@ -224,6 +225,7 @@ sudo date -s 13:30:00
 **OBSERVAÇÃO IMPORTANTE:** mesmo cenário da utilização do comando __`date`__, a da Data e hora da BIOS do Hardware é mantida pela *CMOS e Bateria* que mantém essa hora armazenada, caso a Data e Hora de BIOS esteja errada, recomendo verificar a Bateria pois já é um sinal de falha de Hardware, no GNU/Linux você pode sincronizar a Data e Hora de Software para o Hardware e vice-versa, também, não é recomendo a sua utilização.
 
 ```bash
+#sincronizando a data hora de software e hardware manual no Ubuntu Server
 #opção do comando hwclock: --systohc (system clock to hardware clock), --hctosys (hardware 
 #clock to system clock)
 sudo hwclock --show
