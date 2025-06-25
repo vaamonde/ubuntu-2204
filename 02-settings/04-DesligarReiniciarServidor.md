@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/04/2025<br>
-#Versão: 0.08<br>
+#Data de atualização: 25/06/2025<br>
+#Versão: 0.09<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -91,13 +91,23 @@ sudo shutdown -r
 sudo shutdown -h now
 sudo shutdown -r now
 
-#agendando o desligamento ou o reboot do servidor
+#agendando (schedule) o desligamento ou o reboot do servidor com shutdown
 sudo date
 sudo shutdown -r 19:50 Servidor será reinicializando às 19:50hs
 sudo shutdown -r +20 Servidor será reinicializando em 20 minutos
 sudo shutdown -c
 
-#verificando o arquivo de agendamento (schedule) do shutdown (NÃO COMENTADO NO VÍDEO)
+#verificando o arquivo temporário de agendamento (schedule) do shutdown (NÃO COMENTADO NO VÍDEO)
 #opção o comando cat: -n (number line)
 sudo cat -n /run/systemd/shutdown/scheduled
+
+#confirmando que o servidor fez o reboot na hora certa do shutdown (NÃO COMENTADO NO VÍDEO)
+#opção do comando last: -x (Display the system shutdown entries and run level changes)
+#opção do comando grep: -i (Ignore case distinctions in patterns and input data)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+sudo last -x | grep -i reboot
+
+#confirmando o tempo que o servidor está ligado e funcionando após o reboot (NÃO COMENTADO NO VÍDEO)
+#opção do comando uptime: -s (system up since)
+sudo uptime -s
 ```

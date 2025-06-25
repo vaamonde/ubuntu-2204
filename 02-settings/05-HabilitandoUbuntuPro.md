@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.12<br>
+#Data de atualização: 25/06/2025<br>
+#Versão: 0.13<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -56,16 +56,44 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SW9JzwjGdkM
 #verificando as informações da identificação do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
 sudo cat -n /etc/os-release
+```
 
+Entendendo a saída do arquivo: __`os-release`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Linha | Campo                | Valor                                                            | Descrição                        |
+| ----- | -------------------- | ---------------------------------------------------------------- | -------------------------------- |
+| 1     | `PRETTY_NAME`        | `"Ubuntu 22.04.5 LTS"`                                           | Nome completo e legível da distribuição.                         |
+| 2     | `NAME`               | `"Ubuntu"`                                                       | Nome genérico da distribuição.                                   |
+| 3     | `VERSION_ID`         | `"22.04"`                                                        | Versão principal da distribuição (sem revisões menores).         |
+| 4     | `VERSION`            | `"22.04.5 LTS (Jammy Jellyfish)"`                                | Versão completa com número de release e codinome.                |
+| 5     | `VERSION_CODENAME`   | `jammy`                                                          | Codinome da versão em desenvolvimento.                           |
+| 6     | `ID`                 | `ubuntu`                                                         | Identificador do sistema operacional.                            |
+| 7     | `ID_LIKE`            | `debian`                                                         | Sistemas operacionais semelhantes (compatibilidade).             |
+| 8     | `HOME_URL`           | `https://www.ubuntu.com/`                                        | Página oficial do Ubuntu.                                        |
+| 9     | `SUPPORT_URL`        | `https://help.ubuntu.com/`                                       | Página de suporte oficial da distribuição.                       |
+| 10    | `BUG_REPORT_URL`     | `https://bugs.launchpad.net/ubuntu/`                             | URL para relatar bugs do sistema operacional.                    |
+| 11    | `PRIVACY_POLICY_URL` | `https://www.ubuntu.com/legal/terms-and-policies/privacy-policy` | Política de privacidade da Canonical/Ubuntu.                     |
+| 12    | `UBUNTU_CODENAME`    | `jammy`                                                          | Codinome do release estável (mesmo valor de `VERSION_CODENAME`). |
+
+```bash
 #verificando as informações específicas do Sistema Operacional
 #opção do comando cat: -n (number all output lines)
 sudo cat -n /etc/lsb-release
 ```
 
+Entendendo a saída do arquivo: __`lsb-release`__ (NÃO COMENTADO NO VÍDEO)<br>
+| Linha | Campo                 | Valor                  | Descrição                                                                        |
+| ----- | --------------------- | ---------------------- | -------------------------------------------------------------------------------- |
+| 1     | `DISTRIB_ID`          | `Ubuntu`               | Identificador da distribuição conforme o padrão **LSB** (*Linux Standard Base*). |
+| 2     | `DISTRIB_RELEASE`     | `22.04`                | Versão principal da distribuição Ubuntu.                                         |
+| 3     | `DISTRIB_CODENAME`    | `jammy`                | Codinome da versão (`jammy` = Jammy Jellyfish).                                  |
+| 4     | `DISTRIB_DESCRIPTION` | `"Ubuntu 22.04.5 LTS"` | Descrição completa da distribuição e número de release.                          |
+
 ## 02_ Atualizando o Sistema Operacional Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** recomendo fazer um upgrade completo no servidor antes de adicionar a Licença do Ubuntu Pro.
+
 ```bash
-#OBSERVAÇÃO IMPORTANTE: recomendo fazer um upgrade completo no servidor antes de
-#adicionar a Licença do Ubuntu Pro.
+#atualização completa do Ubuntu Server antes de instalar e configurar o Ubuntu Pro
 sudo apt update
 sudo apt upgrade
 sudo apt full-upgrade
@@ -76,7 +104,7 @@ sudo apt autoclean
 
 ## 03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server
 
-Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
+Link para o cadastro oficial do Ubuntu One: Acesse o site: https://login.ubuntu.com/
 
 ```bash
 01) Clique em: I don’t have an Ubuntu One account
@@ -94,7 +122,7 @@ Link para o cadastro oficial: Acesse o site: https://login.ubuntu.com/
 <Sim, tenho certeza>
 ```
 
-## 04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal
+## 04_ Criando uma Assinatura Gratuita do Ubuntu Pro Free para uso Pessoal
 
 Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/pro/dashboard
 
@@ -110,7 +138,7 @@ Link para o Dashboard oficial do Ubuntu Pro: Acesse o site: https://ubuntu.com/p
     Machines (Licenças Disponíveis), Created (Data de Criação) e Expires (Data de Expiração)
 ```
 
-## 05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server
+## 05_ Verificando a versão do Ubuntu Advantage Tools Update no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** a Canonical recomenda que a versão do Ubuntu Pro Client seja: __`>= a versão 27.13.x`__
 
@@ -142,7 +170,7 @@ sudo pro security-status
 #--esm-apps (flag will only  show  information  about esm-apps packages)
 sudo pro security-status --esm-apps
 
-#verificando as informações de Fix (correção) dos CVE (Common Vulnerabilities and Exposures)
+#verificando as informações de Fix (correções) dos CVE (Common Vulnerabilities and Exposures)
 #opção do comando pro: fix (Fix a CVE or USN on the  system  by  upgrading  the  appropriate
 #package(s))
 #Site dos CVEs do Ubuntu: https://ubuntu.com/security/cves

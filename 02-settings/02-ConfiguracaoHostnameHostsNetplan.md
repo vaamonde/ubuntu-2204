@@ -171,10 +171,10 @@ Entendendo a saída do comando: __`ifconfig`__ (NÃO COMENTADO NO VÍDEO)<br>
 | `txqueuelen 1000`                                       | Tamanho da fila de transmissão de pacotes |
 | `RX packets 3470`                                       | Total de pacotes recebidos |
 | `RX bytes 624611`                                       | Total de bytes recebidos |
-| `RX errors / dropped / overruns / frame`                | Contadores de erro durante recepção |
+| `RX errors / dropped / overruns / frame`                | Contadores de erro durante a recepção |
 | `TX packets 1854`                                       | Total de pacotes enviados |
 | `TX bytes 314064`                                       | Total de bytes enviados |
-| `TX errors / dropped / overruns / carrier / collisions` | Contadores de erro durante transmissão |
+| `TX errors / dropped / overruns / carrier / collisions` | Contadores de erro durante a transmissão |
 
 ```bash
 #verificando as configurações de Gateway (route) no Ubuntu Server
