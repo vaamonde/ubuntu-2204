@@ -92,6 +92,7 @@ sudo shutdown -h now
 sudo shutdown -r now
 
 #agendando (schedule) o desligamento ou o reboot do servidor com shutdown
+#opção do comando shutdown: -r (reboot), -c (cancel)
 sudo date
 sudo shutdown -r 19:50 Servidor será reinicializando às 19:50hs
 sudo shutdown -r +20 Servidor será reinicializando em 20 minutos

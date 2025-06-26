@@ -209,11 +209,11 @@ sudo chmod -Rv 2775 teste/
 #opção do comando chown: -R (recursive), -v (verbose), root (User), . (separate), www-date (group)
 sudo chown -Rv root.www-data teste/
 
-#Listando o diretório criado do site teste
+#listando o diretório criado do site teste
 #opção do comando ls: -l (long listing), -h (human-readable)
 ls -lh
 
-#acessando o diretório criado de teste
+#acessando o diretório criado do site teste
 cd teste
 ```
 

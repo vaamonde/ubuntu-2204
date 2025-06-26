@@ -80,7 +80,7 @@ Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 
 ```bash
 #Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
-#utilizar esse script em servidores de produção.
+#utilizar esse script em servidores de produção. (DESATIVADO DEVIDO A INCOMPATIBILIDADE DE VERSÃO)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando sudo: -E (preserve-env)
@@ -253,7 +253,7 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ```bash
 #testando o acesso as páginas do Node.JS (NÃO COMENTADO NO VÍDEO)
 #opção do comando curl: -I (Fetch the headers only)
-curl -I http://127.0.0.1:19999/
+curl -I http://127.0.0.1:3000/
 ```
 ```bash
 #utilizar os navegadores para testar o Node.JS

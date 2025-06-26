@@ -380,9 +380,9 @@ Ubuntu 22.04.5 LTS wsseunome tty2
   Password: sua_senha
 
 #para sair do Terminal TTY você pode digitar os comandos
-logout  (sair do login)
-exit    (sair do login)
-Ctrl+D  (atalho para sair do login)
+logout   #(sair do login)
+exit     #(sair do login)
+Ctrl+D   #(atalho para sair do login)
 
 #voltar para o primeiro Terminal TTY (Teletype) do Ubuntu Server
 Atalho: Alt + F1
