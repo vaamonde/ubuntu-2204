@@ -1,0 +1,56 @@
+qual sistema operacional que mais se destacada em serviços para Web Site Local (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
+--------------------------------------------
+
+quais as pricipais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
+--------------------------------------------
+
+qual distribuição GNU/Linux lidera o mercado de servidores locais (on-premises) e nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
+--------------------------------------------
+
+qual o nome do software mais utilizado no Brasil e no mundo para acesso remoto de servidores locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é mais utilizado?
+--------------------------------------------
+
+qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
+--------------------------------------------
+
+qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados relacional? Qual o seu percentual de uso para aplicações emergentes.
+--------------------------------------------
+
+quais as pricipais Big Techs no Brasil e no mundo que utiliza o MySQL Server?
+-----------------------------------------------------
+
+qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? Qual o seu percentual de uso para aplicações emergentes.
+--------------------------------------------
+
+qual o nome do sistema operacional mais utilizado no Brasil e no Mundo para implementar todos esses recursos? Qual o seu percentual de uso para aplicações emergentes.
+--------------------------------------------
+
+Pergunta? Você recomendária o Microsoft Windows Server, XAMP ou WAMP para essa implementação em Larga Escala (produção de uma empresa de Médio ou Grande porte), poderia me explicar o por que?
+--------------------------------------------
+
+estou começando no mundo de desenvolvimento de software, tanto para Web como para Desktop, qual linguagem de programação e framework seria melhor iniciar os meus estudos?, mesmo não tendo muito conhecendo em lógica de programação?
+--------------------------------------------
+
+qual a melhor plataforma de software e sistema operacional para fazer o Deploy de uma aplicação desenvolvida em Eclipse utilizando o JavaEE?
+--------------------------------------------
+
+quais as pricipais Big Techs no Brasil e no mundo que utiliza o JAVA e Apache TomCAT?
+--------------------------------------------
+
+qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados não relacional? Qual o seu percentual de uso para aplicações emergentes.
+-----------------------------------------------------
+
+quais as pricipais Big Techs no Brasil e no mundo que utiliza o MongoDB?
+-----------------------------------------------------
+
+vale apena estudar as liguagens de programação utilizando o Frameworks Node.JS e Electron para desenvolver aplicações Desktop com Banco de Dados MongoDB junto com o Driver Mongoose? Isso ainda vale a pena para o mercado atual e futuro de software, tanto no Brasil como no Mundo desenvolver aplicativos Desktops? 
+------------------------------------------------
+
+em servidores GNU/Linux de produção, interno (on-premises) ou em Cloud (nuvem) você recomenda usar ambiente gráfico ou WebGUI para a sua administração? Qual os riscos de instalar um aplicativo desse em servidores de Website, Banco de Dados e aplicações de Back-End?
+-----------------------------------------------------
+
+estava recentemente em um evento de Infraestrutura de Redes, surgiu uma dúvida? qual o exato momento da Infra utilizando Cloud e Infra utilizando On-Premises (local) no Brasil? foi comentado que o custo para manter uma Infra em Cloud está muito caro e as empresas estão pensando em voltar para o On-Premises (misto entre Cloud e Local tipo Hibrido)? Isso é verdade? Tem algum relatório ou estatísticas para isso? Sei que é difícil prever o futuro (sei que você não sabe disso e não foi feito para isso) mais vale a pena voltar para os servidores locais novamente? Como por exemplo: Windows Server Local (Active Directory), Servidores de Arquivos (File Server e Storage), Firewall/Proxy e Links Redundantes, etc... Vale a pena voltar a estudar e se aprofundar no seguimento de Infraestrutura local?
+--------------------------------------------------------------------
+
+aproveitando essa linha de pensamento, no Brasil, os profissionais Dev Junior, ainda tem possibilidade de trabalhar na área, recentemente estava em um grande evento de TI que foi comentado que a IA (AI) está comendo pelas beiradas esses profissionais, isso é verdade? ainda tem possibilidade de entrar nessa área para ganhar 15K de Home Office (brincadeira a parte...)
+--------------------------------------------------------------------
