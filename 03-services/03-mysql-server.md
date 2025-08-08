@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 25/06/2025<br>
-#Versão: 0.28<br>
+#Data de atualização: 08/09/2025<br>
+#Versão: 0.29<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -46,6 +46,13 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados
+           relacional? Qual o seu percentual de uso para aplicações emergentes.
+Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o MySQL Server?
+```
 
 **O QUE É E PARA QUE SERVER O MYSQL SERVER:** O *MySQL Server* é um sistema de gerenciamento de banco de dados relacional *RDBMS (RDBMS - Relational Database Management System)* de código aberto. Ele é amplamente utilizado para armazenar, organizar e acessar dados de forma eficiente em uma variedade de aplicações, desde pequenos projetos até grandes sistemas corporativos.
 

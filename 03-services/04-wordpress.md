@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 01/06/2025<br>
+#Data de atualização: 08/09/2025<br>
 #Versão: 0.28<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
@@ -51,6 +51,12 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? 
+           Qual o seu percentual de uso para aplicações emergentes.
+```
 
 **O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo *CMS (Content Management System)* de código aberto, amplamente utilizado para criar, editar e gerenciar **Sites**, **Blogs** e **E-Commerce** de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em *PHP* e utiliza o *MySQL ou MariaDB* como banco de dados.
 

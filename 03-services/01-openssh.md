@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 25/06/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 08/09/2025<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -41,6 +41,12 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: qual o nome do software mais utilizado no Brasil e no mundo para acesso remoto de servidores
+           locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é mais utilizado?
+```
 
 **O QUE É E PARA QUE SERVER O OPENSSH:** O *OpenSSH (Open Secure Shell)* é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 

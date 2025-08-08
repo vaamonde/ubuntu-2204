@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 24/06/2025<br>
-Versão: 0.22<br>
+Data de atualização: 08/09/2025<br>
+Versão: 0.23<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -32,6 +32,22 @@ Conteúdo estudado nessa instalação:<br>
 #04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
 #05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
 #06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal<br>
+
+**Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
+OpenAI ChatGPT: https://chatgpt.com<br>
+Microsoft Copilot: https://copilot.microsoft.com<br>
+Google Gemini: https://gemini.google.com<br>
+DeepSeek: https://chat.deepseek.com/<br>
+x.AI Grok: https://grok.com/<br>
+
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: qual sistema operacional que mais se destacada em serviços para Web Site Local
+           (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
+Prompt-02: qual distribuição GNU/Linux lidera o mercado de servidores locais (on-premises)
+           e nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
+Prompt-03: quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
+```
 
 **O QUE É E PARA QUE SERVER O ON-PREMISES:** O "on-premises" se refere a uma infraestrutura de TI que está localizada fisicamente nas instalações da empresa. Isso significa que os servidores, bancos de dados, aplicações e demais recursos de TI são hospedados, gerenciados e mantidos internamente pela equipe da empresa, em vez de serem executados em uma nuvem pública como AWS, Azure ou Google Cloud.
 

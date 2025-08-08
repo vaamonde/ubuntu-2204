@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 25/06/2025<br>
-#Versão: 0.29<br>
+#Data de atualização: 08/09/2025<br>
+#Versão: 0.30<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -44,6 +44,12 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de
+          Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
+```
 
 **O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
 
