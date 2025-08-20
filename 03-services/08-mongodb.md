@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.38<br>
+#Data de atualização: 15/08/2025<br>
+#Versão: 0.39<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -81,7 +81,7 @@ sudo apt install git vim build-essential software-properties-common gnupg apt-tr
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 
 ```bash
-#download da última versão do Libssl (link atualizado em 26/03/2025)
+#download da última versão do Libssl (link atualizado em 15/08/2025)
 wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_amd64.deb
 
 #instalando a biblioteca Libssl no Ubuntu Server
@@ -125,6 +125,14 @@ sudo apt update
 3. https://www.mongodb.com/community/forums/t/mongo-db-failed-unable-to-start-mongodb/124039
 4. https://www.mongodb.com/community/forums/t/setting-up-mongodb-v5-0-on-ubuntu-20-core-dump-status-4-ill/120705
 5. https://www.mongodb.com/community/forums/t/installing-mongodb-5-0-on-a-qemu-vm/166192
+
+```bash
+#verificando a compatibilidade de recursos do Processadores INTEL e AMD
+#Intel AVX (Advanced Vector Extensions) e SSE (Streaming SIMD Extensions)
+#opções do comando grep: -i (ignore-case), -E (extended-regexp)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+sudo lscpu | grep -i -E "avx|sse"
+```
 
 ```bash
 #instalando o MongoDB Server e Shell (Console)
