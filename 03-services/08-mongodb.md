@@ -7,7 +7,7 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 15/08/2025<br>
+#Data de atualização: 31/08/2025<br>
 #Versão: 0.39<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
@@ -87,6 +87,10 @@ wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
 #instalando a biblioteca Libssl no Ubuntu Server
 #opção do comando dpkg: -i (install), * (all - Qualquer coisa)
 sudo dpkg -i libssl*.deb
+
+#verificando a biblioteca Libssl instalado no Ubuntu Server
+#opção do comando dpkg: -l (list)
+sudo dpkg -l libssl1.1
 ```
 
 ## 02_ Baixando e instalando a Chave GPG do MongoDB Server no Ubuntu Server
@@ -96,7 +100,7 @@ sudo dpkg -i libssl*.deb
 Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
 
 ```bash
-#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 20/12/2024)
+#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 31/08/2025)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
@@ -127,8 +131,8 @@ sudo apt update
 5. https://www.mongodb.com/community/forums/t/installing-mongodb-5-0-on-a-qemu-vm/166192
 
 ```bash
-#verificando a compatibilidade de recursos do Processadores INTEL e AMD
-#Intel AVX (Advanced Vector Extensions) e SSE (Streaming SIMD Extensions)
+#verificando a compatibilidade de recursos dos Processadores INTEL e AMD
+#Intel e AMD AVX (Advanced Vector Extensions) e SSE (Streaming SIMD Extensions)
 #opções do comando grep: -i (ignore-case), -E (extended-regexp)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo lscpu | grep -i -E "avx|sse"

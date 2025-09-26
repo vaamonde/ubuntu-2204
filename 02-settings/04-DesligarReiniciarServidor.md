@@ -110,6 +110,6 @@ sudo last -x | grep -i reboot
 
 #confirmando o tempo que o servidor está ligado e funcionando após o reboot (NÃO COMENTADO NO VÍDEO)
 #opção do comando uptime: -s (system up since)
-sudo uptime       #analisar o valor da opção: up
-sudo uptime -s    #data e hora que o sistema está ligado
+sudo uptime       #analisar o valor da opção: up (Exemplo: 15:32:10 up 3 min)
+sudo uptime -s    #data e hora que o sistema está ligado (Exemplo: 2025-09-16 15:28:44)
 ```
