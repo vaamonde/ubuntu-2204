@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.14<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.15<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -292,8 +292,8 @@ Data Explorer
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Telegraf* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/influxdata/telegraf/releases
 
 ```bash
-#link para download direto do Telegraf (link atualizado em: 11/05/2025)
-https://dl.influxdata.com/telegraf/releases/telegraf-1.34.3_windows_amd64.zip
+#link para download direto do Telegraf (link atualizado em: 26/09/2025)
+https://dl.influxdata.com/telegraf/releases/telegraf-1.36.1_windows_amd64.zip
 
 #descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download

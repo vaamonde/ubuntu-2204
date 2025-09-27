@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.23<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -69,11 +69,13 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/downlo
 
 **OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.2 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
 
-**OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO: 7.0 LTS, Ubuntu, 22.04 (Jammy), Server, Frontend, Agent, MySQL e Apache.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA *25/08/2025* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.4 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+
+**OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO: 7.4 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
 
 ```bash
-#download do repositório do Zabbix Server LTS 7.2 (LINK ATUALIZADO EM: 20/12/2024)
-wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu22.04_all.deb
+#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 26/10/2025)
+wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Server
 #opção do comando dpkg: -i (install)
@@ -342,12 +344,14 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/dow
 
 **OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO 7.2 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
+**OBSERVAÇÃO IMPORTANTE:** NO DIA *25/08/2024* FOI LANÇADO A VERSÃO 7.4 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+
 ### Instalação do Agent2 do Zabbix Server no Microsoft Windows
 
 ```bash
 #Download do Agent do Zabbix para sistemas operacionais Microsoft
-#Windows, Any, amd64, v7.2, OpenSSL, MSI: Zabbix agent 2 v7.2.0 (ATUALIZADO NO DIA 20/12/2024)
-https://cdn.zabbix.com/zabbix/binaries/stable/7.2/7.2.0/zabbix_agent2-7.2.0-windows-amd64-openssl.msi
+#Windows, Any, amd64, v7.4, OpenSSL, MSI: Zabbix agent 2 v7.4.2 (ATUALIZADO NO DIA 26/09/2025)
+https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.2/zabbix_agent-7.4.2-windows-amd64-openssl.msi
 
 #Instalação Manual do Zabbix Agent 2 para Microsoft
 Pasta de Download
@@ -384,9 +388,9 @@ C:\Program Files\Zabbix Agent 2\
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download
 
 ```bash
-#SELECIONAR: 7.2 LTS, Ubuntu, 22.04 (Jammy), Agent 2
-#download do repositório do Zabbix Server LTS 7.2 (LINK ATUALIZADO EM: 20/12/2024)
-wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu22.04_all.deb
+#SELECIONAR: 7.4 LTS, Ubuntu, 22.04 (Jammy), Agent 2
+#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 26/09/2025)
+wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Agent 2
 #opção do comando dpkg: -i (install)

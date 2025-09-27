@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 23/09/2025<br>
-#Data de atualização: 23/09/2025<br>
-#Versão: 0.01<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.02<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NGINX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do NGINX realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,8 +19,15 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-nginx.p
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionginx
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando o NGINX Server e PHP 8.x no Ubuntu Server;<br>
-#02_ 
+#01_ Instalando o NGINX Server e PHP 8.x no Ubuntu Server<br>
+#02_ Verificando o Serviço e Versão do NGINX Server e do PHP no Ubuntu Server<br>
+#03_ Verificando a Porta de Conexão do NGINX Server no Ubuntu Server<br>
+#04_ Localização dos Arquivos de Configuração do NGINX Server e do PHP 8.x no Ubuntu Server<br>
+#05_ Adicionando o Usuário Local no Grupo Padrão do NGINX Server no Ubuntu Server<br>
+#06_ Configurando o suporte ao PHP-FPM no NGINX Server no Ubuntu Server<br>
+#07_ Criando um diretório de Teste do HTML e PHP do NGINX Server no Ubuntu Server<br>
+#08_ Criando páginas HTML e PHP para testar o NGINX Server no Ubuntu Server<br>
+#09_ Testando o acesso ao NGINX Server e o PHP no Terminal e no Navegador<br>
 
 Site Oficial do NGINX: https://nginx.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
@@ -44,7 +51,7 @@ Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para hosp
           Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
 ```
 
-**O QUE É E PARA QUE SERVER O NGINX SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
+**O QUE É E PARA QUE SERVER O NGINX SERVER:** O NGINX Server é um servidor web de alto desempenho que também pode atuar como proxy reverso, balanceador de carga, servidor de e-mail (IMAP/POP3/SMTP) e cache de conteúdo. Ele foi criado para ser rápido, leve e escalável, ideal para lidar com grande volume de conexões simultâneas sem consumir muitos recursos do servidor.
 
 **O QUE É E PARA QUE SERVER O HTTP:** O *HTTP (Hyper Text Transfer Protocol)* é um padrão de mensagens que permite a comunicação entre navegadores e servidores web. Ele é a base da internet e é usado para transferir dados, como o conteúdo de sites e chamadas de **API (Application Programming Interface)**, utiliza o *Protocolo TCP (Transmission Control Protocol) na porta Padrão 80*.
 
@@ -82,86 +89,86 @@ zlib1g-dev apt-transport-https
 #instalando o NGINX Server, PHP 8.x e suas dependências (SUPORTE EXTRA DE DEPENDÊNCIAS)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install nginx nginx-common nginx-core php-cli php-common php-mysql php-fpm php-opcache \
-php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \
-php-imagick php-dev php-pear php-gd php-imap php-memcache php-pspell php-tidy php-xmlrpc \
-php-ldap php-cas php-apcu php-bz2
+php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json php-bz2 \
+php-imagick php-dev php-pear php-gd php-imap php-memcache php-pspell php-tidy php-xmlrpc php-cas \
+php-ldap php-apcu php-gmp 
 ```
 
-
-php php-fpm php-mysql php-mbstring php-xml php-curl php-gd php-zip
-
-## 02_ Verificando o Serviço e Versão do Apache2 Server e do PHP no Ubuntu Server
+## 02_ Verificando o Serviço e Versão do NGINX Server e do PHP no Ubuntu Server
 ```bash
-#verificando o serviço do Apache2 Server
+#verificando o serviço do NGINX Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
 #stop (Stop (deactivate) one or more units), start (Start (activate) one or more units), reload (Asks all units 
 #listed on the command line to reload their configuration)
-sudo systemctl status apache2
-sudo systemctl restart apache2
-sudo systemctl reload apache2
-sudo systemctl stop apache2
-sudo systemctl start apache2
+sudo systemctl status nginx
+sudo systemctl restart nginx
+sudo systemctl reload nginx
+sudo systemctl stop nginx
+sudo systemctl start nginx
 
-#analisando os Log's e mensagens de erro do Servidor do Apache2 (NÃO COMENTADO NO VÍDEO)
+#analisando os Log's e mensagens de erro do Servidor do NGINX Server
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-sudo journalctl -xeu apache2
+sudo journalctl -xeu nginx
 
-#verificando os arquivos de configuração do Apache2 Server (NÃO COMENTADO NO VÍDEO)
-#opção do comando apache2ctl: configtest (Run a configuration file syntax test)
-sudo apache2ctl configtest 
+#verificando os arquivos de configuração do NGINX Server
+#opção do comando nginx: -t (Do not run, just test the configuration file)
+sudo nginx -t
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando a versão do Apache2 Server
-#opção do comando apache2ctl: -V (version)
-sudo apache2ctl -V
+#verificando a versão do NGINX Server
+#opção do comando nginx: -V (full version)
+sudo nginx -V
 
 #verificando a versão do PHP
 #opção do comando php: -v (version)
 sudo php -v
 ```
 
-## 03_ Verificando a Porta de Conexão do Apache2 Server no Ubuntu Server
+## 03_ Verificando a Porta de Conexão do NGINX Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-80 do Apache2 Server
+#verificando a porta padrão TCP-80 do NGINX Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
-## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x no Ubuntu Server
+## 04_ Localização dos Arquivos de Configuração do NGINX Server e do PHP 8.x no Ubuntu Server
 ```bash
-/etc/apache2/                  <-- Diretório de configuração do Apache2 Server
-/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache2 Server
-/etc/apache2/ports.conf        <-- Arquivo de configuração das Portas do Apache2 Server
-/etc/apache2/sites-available/  <-- Diretório padrão dos Sites Acessíveis do Apache2 Server
-/etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache2 Server
-/etc/php/                      <-- Diretório de configuração do PHP 7.x ou 8.x
-/etc/php/8.x/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache2 Server
-/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache2 Server
-/var/log/apache2/              <-- Diretório padrão dos Logs do Apache2 Server
+/etc/nginx/                     <-- Diretório de configuração do NGINX Server
+/etc/nginx/nginx.conf           <-- Arquivo de configuração do NGINX Server
+/etc/nginx/conf.d/              <-- Diretório padrão das configurações do NGINX Server
+/etc/nginx/modules-available/   <-- Diretório padrão dos módulos disponíveis do NGINX Server
+/etc/nginx/modules-enabled/     <-- Diretório padrão dos módulos habilitados no NGINX Server
+/etc/nginx/sites-available/     <-- Diretório padrão dos sites disponíveis do NGINX Server
+/etc/nginx/sites-enabled/       <-- Diretório padrão dos sites habilitados no NGINX Server
+/etc/nginx/snippets/            <-- Diretório padrão dos fragmentos de configuração reutilizáveis do NGINX Server
+/etc/php/                       <-- Diretório de configuração do PHP 7.x ou 8.x
+/etc/php/8.x/fpm/php.ini        <-- Arquivo de configuração do PHP-FPM 8.x do NGINX Server
+/var/www/html/                  <-- Diretório padrão das Hospedagem de Site do NGINX Server
+/var/log/nginx/                 <-- Diretório padrão dos Logs do NGINX Server
 ```
 
-## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server no Ubuntu Server
+## 05_ Adicionando o Usuário Local no Grupo Padrão do NGINX Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
-#adicionando o usuário local (logado) no grupo do Apache2 Server
+#adicionando o usuário local (logado) no grupo do NGINX Server
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 sudo usermod -a -G www-data $USER
 
-#fazendo login em um novo grupo do Apache2 Server
+#fazendo login em um novo grupo do NGINX Server
 newgrp www-data
 
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando as informações do grupo WWW-DATA do Apache2 Server
+#verificando as informações do grupo WWW-DATA do NGINX Server
 #opção do comando getent: group (the database system group)
 sudo getent group www-data
 
@@ -177,14 +184,59 @@ exit
 ~.
 ```
 
-## 06_ Criando um diretório de Teste do HTML e PHP do Apache2 Server no Ubuntu Server
+## 06_ Configurando o suporte ao PHP-FPM no NGINX Server no Ubuntu Server
+```bash
+#fazendo o backup do site padrão do NGINX Server
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/nginx/sites-enabled/default /etc/nginx/default.old
+
+#atualizando o arquivo de configuração do NGINX Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/nginx/sites-enabled/default https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/default
+
+#editando o arquivo de configuração do NGINX Server
+sudo vim /etc/nginx/sites-enabled/default
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#habilitando a porta de conexão HTTP 80 na linha: 19
+# Escuta na porta 80 (HTTP) em IPv4 e define como servidor padrão
+listen 80 default_server;
+
+#habilitando o recurso de processamento de páginas PHP na linha: 42
+# Encaminha as requisições PHP para o socket do PHP-FPM 8.2
+fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <ENTER>
+```
+```bash
+#verificando os arquivos de configuração do NGINX Server
+#opção do comando nginx: -t (Do not run, just test the configuration file)
+sudo nginx -t
+
+#reiniciando e verificando o serviço do NGINX Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
+sudo systemctl restart nginx
+sudo systemctl status nginx
+
+#analisando os Log's e mensagens de erro do Servidor do NGINX Server
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu nginx
+```
+
+## 07_ Criando um diretório de Teste do HTML e PHP do NGINX Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM __`DIRETÓRIOS DE PROJETOS DE SITES`__ QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO AS LINGUAGENS __`HTML5, CSS5, JAVASCRIPT, PHP7/8, ETC.`__ DEVIDO A ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS E CONECTADOS NA CONSTRUÇÃO DO SITE.
 
 **OBSERVAÇÃO IMPORTANTE:** SEMPRE CRIAR ARQUIVOS E DIRETÓRIOS TUDO EM: __`minúsculo`__ NÃO UTILIZAR: __`acentuação, caracteres especiais, espaço em branco, etc`__ CRIAR ARQUIVOS E DIRETÓRIOS COM NOMES __`pequenos e objetivos`__. LEMBRE-SE QUE O GNU/LINUX É: __`CASE SENSITIVE`__.
 
 ```bash
-#acessando o diretório padrão dos Sites do Apache2 Server (DocumentRoot)
+#acessando o diretório padrão dos Sites do NGINX Server (DocumentRoot)
 cd /var/www/html
 
 #criando o diretório de teste das páginas HTML e PHP
@@ -208,7 +260,7 @@ ls -lh
 cd teste
 ```
 
-## 07_ Criando páginas HTML e PHP para testar o Apache2 Server no Ubuntu Server
+## 08_ Criando páginas HTML e PHP para testar o NGINX Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
 
@@ -315,7 +367,7 @@ INSERT
 ```
 ```php
 <?php
-// Função do PHP para gerar a página de documentação e parâmetros do PHP e do Apache2 Server
+// Função do PHP para gerar a página de documentação e parâmetros do PHP e do NGINX Server
 // Mais informações acesse: https://www.php.net/phpinfo
 phpinfo(); 
 ?>
@@ -325,7 +377,7 @@ phpinfo();
 ESC SHIFT :x <Enter>
 ```
 
-## 08_ Testando o acesso ao Apache2 Server e o PHP no Terminal e no Navegador
+## 09_ Testando o acesso ao NGINX Server e o PHP no Terminal e no Navegador
 
 **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
@@ -339,12 +391,12 @@ ESC SHIFT :x <Enter>
 | 500    | Internal Server Error                           |
 
 ```bash
-#testando o acesso as páginas do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#testando o acesso as páginas do NGINX Server
 #opção do comando curl: -I (Fetch the headers only)
 #saída do comando curl: HTTP/1.1 200 OK (Sucesso total, servidor está respondendo corretamente)
 curl -I http://127.0.0.1:80/
 
-#testando o acesso ao diretório de teste do Apache2 Server (NÃO COMENTADO NO VÍDEO)
+#testando o acesso ao diretório de teste do NGINX Server
 #opção do comando curl: -I (Fetch the headers only), -L (Reports that the requested page has moved 
 #to a different location)
 #saída do comando curl: HTTP/1.1 301 Moved Permanently (É um redirecionamento permanente)
@@ -359,20 +411,20 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
 ========================================DESAFIOS=========================================
 
-**#09_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO APACHE2 EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
+**#10_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO NGINX EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
 
-**#10_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
+**#11_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
 
-**#11_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO DO *OPENSSH SERVER* NO GRUPO DO APACHE2 __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO APACHE2 E NOS DIRETÓRIOS DOS SITES CRIADOS.
+**#12_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO DO *OPENSSH SERVER* NO GRUPO DO NGINX __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO NGINX E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
-**#12_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
+**#13_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
 
 =========================================================================================
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NGINX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do NGINX realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/02-apache2.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-nginx.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioapache2 #desafioapache
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionginx

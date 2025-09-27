@@ -1,0 +1,51 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 26/09/2025
+# Data de atualização: 26/09/2025
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do NGINX Server v1.18.x
+#
+# Configurações básicas do servidor de Web Site NGINX Server
+#
+# Início do bloco de configuração do Virtual Host padrão
+server {
+        # Escuta na porta 80 (HTTP) em IPv4 e define como servidor padrão
+        listen 80 default_server;
+        #
+        # Escuta na porta 80 (HTTP) em IPv6 e também define como servidor padrão
+        listen [::]:80 default_server;
+        #
+        # Diretório raiz do site (onde ficam os arquivos a serem hospedados)
+        root /var/www/html;
+        #
+        # Ordem dos arquivos padrão a serem carregados
+        index index.html index.htm index.php index.nginx-debian.html;
+        #
+        # Nome do servidor. "_" é um curinga (wildcard) para qualquer hostname
+        server_name _;
+        #
+        # Bloco que trata as requisições da raiz do site
+        location / {
+                # Tenta servir o arquivo exato, depois o diretório, senão retorna erro 404
+                try_files $uri $uri/ =404;
+        }
+        #
+        # Bloco para arquivos que terminam com .php (expressão regular)
+        location ~ \.php$ {
+               # Encaminha as requisições PHP para o socket do PHP-FPM 8.2
+               fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        }
+        #
+        # Protege arquivos ocultos que comecem com .ht (ex.: .htaccess)
+        location ~ /\.ht {
+               # Bloqueia totalmente o acesso a esses arquivos (erro 403 Forbidden)
+               deny all;
+        }
+# Fim do bloco do servidor
+}

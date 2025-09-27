@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 12/08/2025<br>
-#Data de atualização: 12/08/2025<br>
-#Versão: 0.01<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.02<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO AUDITD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Auditd realizado com sucesso!!! #BoraParaPrática*
 
@@ -30,7 +30,7 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
-**O QUE É E PARA QUE SERVER O FAIL2BAN:** O Fail2Ban é uma ferramenta de segurança para servidores Linux que protege contra ataques de força bruta e outras tentativas de acesso malicioso. Ele monitora arquivos de *log (como /var/log/auth.log, /var/log/apache2/error.log, entre outros)* e, quando detecta padrões de tentativas de acesso suspeitas (como várias senhas incorretas), ele bloqueia automaticamente o IP do atacante, adicionando regras no firewall (geralmente no iptables, nftables ou ufw).
+**O QUE É E PARA QUE SERVER O AUDITD:** O Fail2Ban é uma ferramenta de segurança para servidores Linux que protege contra ataques de força bruta e outras tentativas de acesso malicioso. Ele monitora arquivos de *log (como /var/log/auth.log, /var/log/apache2/error.log, entre outros)* e, quando detecta padrões de tentativas de acesso suspeitas (como várias senhas incorretas), ele bloqueia automaticamente o IP do atacante, adicionando regras no firewall (geralmente no iptables, nftables ou ufw).
 
 [![Auditd](http://img.youtube.com/vi//0.jpg)]( "Auditd")
 
@@ -42,36 +42,26 @@ Link da vídeo aula:
 sudo apt update
 
 #instalando o Auditd no Ubuntu Server
-sudo apt install fail2ban
+sudo apt install auditd audispd-plugins
 ```
 
-## 02_ Habilitando o Serviço do Fail2Ban no Ubuntu Server
+## 03_ Verificando o Serviço e Versão do Auditd no Ubuntu Server
 ```bash
-#habilitando o serviço do Fail2Ban no Ubuntu Server
-#opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
-#enable (Enable one or more units), start (Start (activate) one or more units)
-sudo systemctl daemon-reload
-sudo systemctl enable fail2ban
-sudo systemctl start fail2ban
-```
-
-## 03_ Verificando o Serviço e Versão do Fail2Ban no Ubuntu Server
-```bash
-#verificando o serviço do Fail2Ban
+#verificando o serviço do Auditd
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
 #start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
 #one or more units)
-sudo systemctl status fail2ban
-sudo systemctl restart fail2ban
-sudo systemctl reload fail2ban
-sudo systemctl stop fail2ban
-sudo systemctl start fail2ban
+sudo systemctl status auditd
+sudo systemctl restart auditd
+sudo systemctl reload auditd
+sudo systemctl stop auditd
+sudo systemctl start auditd
 
-#analisando os Log's e mensagens de erro do Fail2Ban
+#analisando os Log's e mensagens de erro do Auditd
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-sudo journalctl -xeu fail2ban
+sudo journalctl -xeu auditd
 
-#verificando os arquivos de configuração do Fail2Ban
+#verificando os arquivos de configuração do Auditd
 #opção do comando fail2ban-client: -t (test configuration)
 sudo fail2ban-client -t
 ```
@@ -79,21 +69,19 @@ sudo fail2ban-client -t
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando a versão do Fail2Ban
-#opção do comando fail2ban-client: -V (version)
-sudo fail2ban-client -V
+#verificando a versão do Auditctl, Ausearch e Aureport
+#opção do comandos auditctl, ausearch e aureport: -v (version)
+sudo auditctl -v    #configuração das regras de auditoria
+sudo ausearch -v    #consultar um evento de log
+sudo aureport -v    #relatório do sistema de auditoria
 ```
 
-## 04_ Localização dos Arquivos de Configuração do Fail2Ban no Ubuntu Server
+## 04_ Localização dos Arquivos de Configuração do Auditd no Ubuntu Server
 ```bash
-/etc/fail2ban/                <-- Diretório de configuração do Fail2Ban
-/etc/fail2ban/action.d        <-- Diretório de configuração das Ações do Fail2Ban
-/etc/fail2ban/filter.d/       <-- Diretório de configuração dos Filtros do Fail2Ban
-/etc/fail2ban/jail.d          <-- Diretório de configuração das Regras do Fail2Ban
-/etc/fail2ban/fail2ban.conf   <-- Arquivo de configuração do Serviços do Fail2Ban
-/var/log/fail2ban.log         <-- Arquivo de Log do Serviço do Fail2Ban
-/var/run/fail2ban/            <-- Diretório do PID de Processo e Socket do Fail2Ban
-/var/lib/fail2ban/            <-- Diretório do Banco de Dados SQLite3 do Fail2Ban
+/etc/audit/             <-- Diretório de configuração do Auditd
+/etc/audit/plugins.d/   <-- Diretório de plugins do Auditd
+/etc/audit/rules.d/     <-- Diretório de regras do Auditd
+/var/log/audit/         <-- Diretório do log do Auditd
 ```
 
 ## 05_ Atualizando os arquivos de configuração do Fail2Ban no Ubuntu Server

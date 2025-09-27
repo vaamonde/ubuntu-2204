@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 08/09/2025<br>
-#Versão: 0.30<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.31<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -93,7 +93,7 @@ sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-
 php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \
 php-imagick libapache2-mod-php libapr1 libaprutil1-ldap libaprutil1 libaprutil1-dbd-sqlite3 php-dev \
 php-pear libmcrypt-dev php-gd php-imap php-memcache php-pspell php-tidy php-xmlrpc php-ldap php-cas \
-php-apcu xmlrpc-api-utils php-bz2
+php-apcu xmlrpc-api-utils php-bz2 php-gmp
 
 #habilitando os módulos do Apache2 Server (NÃO COMENTADO NO VÍDEO)
 #opção da contra barra (\): criar uma quebra de linha no terminal

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 24/06/2025<br>
-#Versão: 0.17<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.18<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -101,7 +101,7 @@ sudo apt update
 
 #instalando os pacotes e ferramentas de rede no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install bridge-utils ifenslave net-tools
+sudo apt install bridge-utils ifenslave net-tools fping
 ```
 
 ## 04_ Verificando as informações do Hardware de Rede (Placa de Rede) no Ubuntu Server

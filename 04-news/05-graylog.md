@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.11<br>
+#Data de atualização: 26/09/2025<br>
+#Versão: 0.12<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
@@ -472,7 +472,7 @@ Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
   Available Downloads
     Version: NXLog Community Edition
     Platform: Windows
-    #download da versão atualizada em: 11/11/2024
+    #download da versão atualizada em: 26/09/2025
     Windows: Windows x86-64 (nxlog-ce-3.2.2329.msi)
   <Download>
   <No thanks, just starts my download>
