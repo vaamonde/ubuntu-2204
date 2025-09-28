@@ -256,11 +256,11 @@ sudo -u postgres psql --command '\password postgres'
 
 ## 12_ Atualizando os arquivo de configuração do PostgreSQL Server no Ubuntu Server
 ```bash
-#fazendo o backup do arquivo de configuração do PostgreSQL Server
+#fazendo o backup do arquivo de configuração do servidor PostgreSQL Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/postgresql/18/main/postgresql.conf /etc/postgresql/18/main/postgresql.conf.old
 
-#fazendo o backup do arquivo de autenticação do PostgreSQL Server
+#fazendo o backup do arquivo de autenticação do servidor PostgreSQL Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/postgresql/18/main/pg_hba.conf /etc/postgresql/18/main/pg_hba.conf.old
 
@@ -316,6 +316,11 @@ sudo journalctl -xeu postgresql
 #testando a conexão no PostgreSQL com o usuário postgres usando o client psql
 #opção do comando sudo: -u (user)
 sudo -u postgres psql
+
+#saindo do PostgreSQL Server
+#opção do comando \q: (quit)
+#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\q
 ```
 
 ## 14_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux
@@ -329,9 +334,9 @@ Menu
     Select your database: PostgreSQL <Avançar>
       Main
         Server
-          Connect by: Host
-          URL: jdbc:postgresql://172.16.1.20:5432/postgres
-          Host: 172.16.1.20
+          Connect by: UbuntuServer
+          URL: jdbc:postgresql://ENDEREÇO_IPV4_SERVIDOR:5432/postgres (alterar o endereço IPv4 do seu servidor)
+          Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
           Port: 5432
           Database: postgres
         Authentication
@@ -361,28 +366,24 @@ VSCode
       Server Type:
         PostgreSQL
           Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
-          Port: 3306
-          Username: root
-          Password: sua_senha (alterar a senha do usuário root do seu servidor)
+          Port: 5432
+          Username: postgres
+          Password: SUA_SENHA_SEGURA
     <Save>
 ```
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO NGINX EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
+**#16_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
 
-**#11_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
-
-**#12_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO DO *OPENSSH SERVER* NO GRUPO DO NGINX __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO NGINX E NOS DIRETÓRIOS DOS SITES CRIADOS.
-
-**#13_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
+**#17_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO OPSTEGRESQL SERVER __`postgres`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
 
 =========================================================================================
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NGINX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do NGINX realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POSTGRESQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PostgreSQL realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/09-nginx.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-postgresql.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionginx
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiopostgresql

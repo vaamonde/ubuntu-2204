@@ -28,6 +28,7 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Criando um diretório de Teste do HTML e PHP do NGINX Server no Ubuntu Server<br>
 #08_ Criando páginas HTML e PHP para testar o NGINX Server no Ubuntu Server<br>
 #09_ Testando o acesso ao NGINX Server e o PHP no Terminal e no Navegador<br>
+#10_ Desafios do NGINX Server.<br>
 
 Site Oficial do NGINX: https://nginx.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/
