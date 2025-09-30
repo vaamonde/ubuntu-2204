@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 11/10/2021
-# Data de atualização: 27/05/2025
-# Versão: 0.13
+# Data de atualização: 29/09/2025
+# Versão: 0.14
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 # Testado e homologado para a versão do OpenSSH Server v8.9.x
 #
@@ -66,7 +66,7 @@ Ciphers aes128-ctr,aes192-ctr,aes256-ctr
 # Log's de autenticação do OpenSSH: sudo cat -n /var/log/auth.log | grep -i sshd
 # Log's de serviço do OpenSSH: sudo cat -n /var/log/syslog | grep -i ssh
 SyslogFacility AUTH
-LogLevel INFO
+LogLevel VERBOSE
 #
 # Negar o acesso remoto ao Servidor de OpenSSH para o usuário ROOT
 PermitRootLogin no
@@ -103,14 +103,14 @@ LoginGraceTime 60
 # Tempo de inatividade em segundos para que os usuários logados na sessão do 
 # Servidor de OpenSSH sejam desconectados. Se você utiliza o recurso do Visual 
 # Studio Code VSCode com Remote SSH, recomendo comentar ou aumentar o tempo da sessão
-ClientAliveInterval 1800
-ClientAliveCountMax 3
+ClientAliveInterval 300
+ClientAliveCountMax 2
 #
 # Tentativa máxima de conexões simultâneas no Servidor de OpenSSH
 MaxAuthTries 3
 #
 # Número de usuários ou sessões que podem se conectar remotamente no Servidor de OpenSSH
-MaxSessions 3
+MaxSessions 2
 #
 # Especifica o número máximo de conexões simultâneas não autenticadas com o OpenSSH 
 # para ser rejeitado a conexão. 5=conexão não autenticada | 60=rejeitar 60% das conexões 
@@ -138,6 +138,10 @@ PermitUserEnvironment no
 # Especifica se o encaminhamento de TCP é permitido. O padrão é yes. Se você utilizar a 
 # extensão do Visual Studio Code VSCode com Remote SSH, será necessário alterar para: yes
 AllowTcpForwarding no
+#
+# O encaminhamento do agente SSH pode ser usado para simplificar a implantação em um servidor. 
+# Isso permite que você use suas chaves SSH locais em vez de deixar as chaves no seu servidor.
+AllowAgentForwarding no
 #
 # Não permitir encaminhamento de portas via Servidor de OpenSSH para os serviços de 
 # X11 (ambiente gráfico)
@@ -182,14 +186,14 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # Especifica se o sistema deve enviar mensagens de manutenção de atividade TCP para o 
 # outro lado. Se forem enviados, será devidamente notado a morte da conexão ou travamento 
 # de uma das máquinas.
-TCPKeepAlive yes
+TCPKeepAlive no
 #
 # Desativar os mecanismos de autenticação desnecessários para fins de segurança
 KerberosAuthentication no
 GSSAPIAuthentication no
 #
 # Ativar a compactação após autenticação bem-sucedida (aumentar a segurança e desempenho)
-Compression delayed
+Compression no
 #
 # Não procure o nome do host remoto utilizando o serviço do DNS
 UseDNS no

@@ -8,7 +8,7 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
 #Data de atualização: 26/09/2025<br>
-#Versão: 0.12<br>
+#Versão: 0.13<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
@@ -63,7 +63,8 @@ sudo apt update
 sudo apt install php-curl php-gd php-intl php-pear php-imagick php-imap php-memcache php-pspell \
 php-mysql php-tidy php-xmlrpc php-mbstring php-ldap php-cas php-apcu php-json php-xml php-cli \
 libapache2-mod-php xmlrpc-api-utils xz-utils bzip2 unzip curl php-soap php-common php-bcmath \
-php-zip php-bz2
+php-zip php-bz2 ghostscript libgs9 libgs9-common php-opcache php-dev pwgen libmcrypt-dev zlib1g \
+zlib1g-dev
 ```
 
 ## 02_ Criando a Base de Dados do GLPI Help Desk no MySQL Server no Ubuntu Server
@@ -140,7 +141,7 @@ exit
 
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Help Desk sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
 
-Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/
+Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/glpi/releases
 
 ```bash
 #acessando diretório temporário do Ubuntu Server
@@ -172,6 +173,7 @@ sudo mv -v glpi/ /var/www/html/
 sudo chown -Rfv www-data.www-data /var/www/html/glpi/
 sudo find /var/www/html/glpi/. -type d -exec chmod -v 755 {} \;
 sudo find /var/www/html/glpi/. -type f -exec chmod -v 644 {} \;
+sudo chmod -Rv 775 /var/www/html/glpi/config/
 sudo chmod -Rv 777 /var/www/html/glpi/files/_log
 ```
 
@@ -232,7 +234,8 @@ date.timezone = America/Sao_Paulo
 
 #descomentar e alterar o valor da variável: session.cookie_secure na linha: 1371
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
-session.cookie_secure = on
+#SOMENTE SE VOCÊ ESTÁ USANDO HTTPS COM SUPORTE AO SSL/TLS, CASO CONTRÁRIO DEIXAR DESATIVADO
+session.cookie_secure = off
 
 #alterar o valor da variável: session.cookie_httponly na linha: 1403
 #OBSERVAÇÃO IMPORTANTE: a opção: on tem que ser em: MINÚSCULA para funcionar.
