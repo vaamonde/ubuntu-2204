@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.18<br>
+#Data de atualização: 30/09/2025<br>
+#Versão: 0.19<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -30,8 +30,10 @@ Conteúdo estudado nessa configuração:<br>
 #05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
-#08_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
-#09_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
+#08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
+#11_ 11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
 **O QUE É E PARA QUE SERVER O NETPLAN:** O *Netplan* é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição **YAML** das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
@@ -222,7 +224,7 @@ Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Netplan e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado na linguagem de programação Python por exemplo, muito cuidado com o uso de __`espaços e tabulação`__ e principalmente sua **Indentação**.
 
-**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server __`22.04.4 LTS`__ e da versão __`22.04.5 LTS`__ o sistema de **Cloud-Init** afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você altere as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reiniciar ou desligar o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
+**OBSERVAÇÃO IMPORTANTE:** a partir da versão do Ubuntu Server __`22.04.4 LTS`__ e da versão __`22.04.5 LTS`__ o sistema de **Cloud-Init** afeta diretamente nas configurações da Placa de Rede utilizando o Netplan, mesmo que você altere as configurações no arquivo: */etc/netplan/50-cloud-init.yaml* ele sempre será sobrescrito (voltar para o original) toda vez que você reinicia ou desliga o servidor, para resolver esse problema recomendo desativar as opções do Cloud-Init referente a Placa de Rede conforme o procedimento abaixo:
 
 ```bash
 #criando o arquivo para desativar as configurações da Placa de Rede do Cloud-Init (NÃO COMENTADO NO VÍDEO)
@@ -326,7 +328,41 @@ sudo netplan --debug apply
 sudo netplan --debug try
 ```
 
-## 08_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
+## 08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#editando o arquivo de configuração do Systemd Resolved no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo vim /etc/systemd/resolved.conf
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#descomentar e alterar o valor da variável DNSSEC na linha 25 para: DNSSEC=yes
+DNSSEC=yes
+
+#descomentar e alterar o valor da variável DNSOverTLS na linha 26 para: DNSOverTLS=yes
+DNSOverTLS=yes
+
+#descomentar e alterar o valor da variável Cache na linha 29 para: Cache=yes
+Cache=yes
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
+
+## 09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+```bash
+#reiniciar o serviço do Resolved
+#opção do comando systemctl: restart (Stop and then start one or more units specified on the command line)
+sudo systemctl restart systemd-resolved
+
+#verificar o status do serviço do Resolved
+#opção do comando systemctl: status (Show terse runtime status information about one or more units)
+sudo systemctl status systemd-resolved
+```
+
+## 10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server
 ```bash
 #verificando o endereço IPv4 da Interface de Rede
 #opção do comando ifconfig: -a (all interfaces)
@@ -355,7 +391,7 @@ sudo hostname -d
 sudo hostname -i
 ```
 
-## 09_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
+## 11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
 **OBSERVAÇÃO:** após a configuração da Placa de Rede do Ubuntu Server você já pode acessar remotamente o seu servidor utilizando o __`Protocolo SSH`__ nos clientes Linux ou Microsoft Windows para dá continuidade nas configurações do servidor, ficando mais fácil administrar e configurar os principais serviços de rede de forma remota.
 
