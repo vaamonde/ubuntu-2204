@@ -19,7 +19,22 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-postgre
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiopostgresql
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando as Dependências do PostgreSQL Server no Ubuntu Server<br>
+#02_ Baixando e instalando a Chave GPG do PostgreSQL Server no Ubuntu Server<br>
+#03_ Criando o repositório local do PostgreSQL Server no Ubuntu Server<br>
+#04_ Atualizando as Listas do Apt e Instalando o PostgreSQL Server e Client no Ubuntu Server<br>
+#05_ Habilitando o Serviço do PostgreSQL Server no Ubuntu Server<br>
+#06_ Verificando o Serviço e Versão do PostgreSQL Server e do PHP no Ubuntu Server<br>
+#07_ Verificando a Porta de Conexão do PostgreSQL Server no Ubuntu Server<br>
+#08_ Localização dos Arquivos de Configuração do PostgreSQL Server no Ubuntu Server<br>
+#09_ Adicionando o Usuário Local no Grupo Padrão do PostgreSQL Server no Ubuntu Server<br>
+#10_ Testando a conexão com o PostgreSQL Server local no Ubuntu Server<br>
+#11_ Configurando a Senha do Usuário Admin (postgres) no Ubuntu Server<br>
+#12_ Atualizando os arquivo de configuração do PostgreSQL Server no Ubuntu Server<br>
+#13_ Editando os arquivo de configuração do PostgreSQL Server no Ubuntu Server<br>
+#14_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
+#15_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
+#16_ Desafios do Banco de Dados PostgreSQL Server.<br>
 
 Site Oficial do PostgreSQL: https://www.postgresql.org/<br>
 Site Oficial do DBeaver: https://dbeaver.io/<br>
@@ -57,12 +72,12 @@ Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o Post
 
 Link da vídeo aula: 
 
-## 01_ Instalando o PostgreSQL Server no Ubuntu Server
+## 01_ Instalando as Dependências do PostgreSQL Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 sudo apt update
 
-#instalando as dependências do PostgreSQL Server
+#instalando as dependências do PostgreSQL Server no Ubuntu Server
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
 zlib1g-dev apt-transport-https build-essential software-properties-common gnupg ca-certificates \
@@ -105,7 +120,7 @@ echo "deb http://apt.postgresql.org/pub/repos/apt jammy-pgdg main" | sudo tee /e
 #atualizando as listas do Apt com o novo repositório do PostgreSQL Server
 sudo apt update
 
-#instalando o PostgreSQL Server e Client no Ubuntu Server
+#instalando o PostgreSQL Server e Client (versão 18) no Ubuntu Server
 sudo apt install postgresql-18 postgresql-client-18
 ```
 
@@ -331,21 +346,26 @@ Link para download do DBeaver Community: https://dbeaver.io/download/
 #conectando com o usuário Postgres Remoto do PostgreSQL Server no DBeaver Community
 Menu
   Pesquisa Indexada: DBeaver-ce
-    Select your database: PostgreSQL <Avançar>
-      Main
-        Server
-          Connect by: UbuntuServer
-          URL: jdbc:postgresql://ENDEREÇO_IPV4_SERVIDOR:5432/postgres (alterar o endereço IPv4 do seu servidor)
-          Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
-          Port: 5432
-          Database: postgres
-        Authentication
-          Authentication: Database Native
-          Username: postgres
-          Password: SUA_SENHA_SEGURA
-          Save password locally: Yes
-      <Test Connection>
-    <Concluir>
+    New Database Connection
+      Select your database: PostgreSQL <Avançar>
+        Main
+          Server
+            Connect by: UbuntuServer
+            URL: jdbc:postgresql://ENDEREÇO_IPV4_SERVIDOR:5432/postgres (alterar o endereço IPv4 do seu servidor)
+            Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
+            Port: 5432
+            Database: postgres
+          Authentication
+            Authentication: Database Native
+            Username: postgres
+            Password: SUA_SENHA_SEGURA
+            Save password locally: Yes
+        <Test Connection>
+          Download driver filer
+            <Download>
+              Connection Test
+                <OK>
+      <Finish>
 ```
 
 ## 15_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux

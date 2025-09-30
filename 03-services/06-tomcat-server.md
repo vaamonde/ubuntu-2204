@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.31<br>
+#Data de atualização: 30/09/2025<br>
+#Versão: 0.32<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
 
@@ -114,11 +114,11 @@ Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomc
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 26/06/2025)
+#download da última versão do Apache TomCAT Server (link atualizado em 30/09/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.8/bin/apache-tomcat-11.0.8.tar.gz
+wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.11/bin/apache-tomcat-11.0.11.tar.gz
 ```
 
 ## 04_ Descompactando e instalando o Apache Tomcat 11.x no Ubuntu Server

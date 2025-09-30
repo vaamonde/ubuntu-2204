@@ -74,7 +74,7 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/downlo
 **OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO: 7.4 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
 
 ```bash
-#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 26/10/2025)
+#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 30/09/2025)
 wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Server
@@ -96,7 +96,6 @@ sudo apt update
 sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
 zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
 ```
-
 ## 04_ Criando a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)

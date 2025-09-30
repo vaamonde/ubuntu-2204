@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 26/09/2025
-# Data de atualização: 26/09/2025
-# Versão: 0.01
+# Data de atualização: 30/09/2025
+# Versão: 0.02
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do NGINX Server v1.18.x
 #
@@ -38,7 +38,8 @@ server {
         #
         # Bloco para arquivos que terminam com .php (expressão regular)
         location ~ \.php$ {
-               # Encaminha as requisições PHP para o socket do PHP-FPM 8.2
+               # Encaminha as requisições PHP para o socket do PHP-FPM 8.1
+               include snippets/fastcgi-php.conf;
                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
         }
         #

@@ -189,14 +189,14 @@ exit
 ```bash
 #fazendo o backup do site padrão do NGINX Server
 #opção do comando cp: -v (verbose)
-sudo cp -v /etc/nginx/sites-enabled/default /etc/nginx/default.old
+sudo cp -v /etc/nginx/sites-available/default /etc/nginx/sites-available/default.old
 
 #atualizando o arquivo de configuração do NGINX Server do Github (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/nginx/sites-enabled/default https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/default
+sudo wget -v -O /etc/nginx/sites-available/default https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/default
 
 #editando o arquivo de configuração do NGINX Server
-sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-available/default
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
@@ -207,7 +207,7 @@ INSERT
 listen 80 default_server;
 
 #habilitando o recurso de processamento de páginas PHP na linha: 42
-# Encaminha as requisições PHP para o socket do PHP-FPM 8.2
+# Encaminha as requisições PHP para o socket do PHP-FPM 8.1
 fastcgi_pass unix:/run/php/php8.1-fpm.sock;
 ```
 ```bash
