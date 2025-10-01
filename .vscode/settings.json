@@ -1,0 +1,21 @@
+{
+  "sqltools.connections": [
+    {
+      "port": 3050,
+      "firebirdOptions": {
+        "lowercase_keys": false,
+        "role": null,
+        "pageSize": 4096,
+        "retryConnectionInterval": 1000,
+        "blobAsText": false,
+        "encoding": "UTF8"
+      },
+      "previewLimit": 50,
+      "driver": "SQLTools Firebird",
+      "name": "UbuntuServer",
+      "host": "172.16.1.20",
+      "database": "/opt/firebird/examples/empbuild/employee.fdb",
+      "username": "SYSDBA"
+    }
+  ]
+}

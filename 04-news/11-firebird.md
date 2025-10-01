@@ -180,7 +180,7 @@ sudo /opt/firebird/bin/isql
   SQL> QUIT;
 ```
 
-## 12_ Atualizando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server
+## 10_ Atualizando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do servidor FirebirdSQL Server
 #opção do comando cp: -v (verbose)
@@ -191,7 +191,7 @@ sudo cp -v /opt/firebird/firebird.conf /opt/firebird/firebird.conf.old
 sudo wget -v -O /opt/firebird/firebird.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/firebird.conf
 ```
 
-## 13_ Editando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server
+## 11_ Editando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server
 ```bash
 #editar o arquivo de configuração do FirebirdSQL Server
 sudo vim /opt/firebird/firebird.conf
@@ -200,52 +200,43 @@ sudo vim /opt/firebird/firebird.conf
 INSERT
 ```
 ```bash
-#alterar a linha: 28 variável do: listen_addresses = '*' padrão é: listen_addresses = 'localhost'
-listen_addresses = '*'
+#alterar a linha: 33 variável do: RemoteBindAddress conforme sua necessidade
+RemoteBindAddress = 172.16.1.20
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
-#reiniciar o serviço do PostgreSQL Server
+#reiniciar o serviço do FirebirdSQL Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units)
-sudo systemctl restart postgresql
-sudo systemctl status postgresql
+sudo systemctl restart firebird
+sudo systemctl status firebird
 
-#analisando os Log's e mensagens de erro do PostgreSQL Server
+#analisando os Log's e mensagens de erro do FirebirdSQL Server
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-sudo journalctl -xeu postgresql
-
-#testando a conexão no PostgreSQL com o usuário postgres usando o client psql
-#opção do comando sudo: -u (user)
-sudo -u postgres psql
-
-#saindo do PostgreSQL Server
-#opção do comando \q: (quit)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
-\q
+sudo journalctl -xeu firebird
 ```
 
-## 14_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux
+## 12_ Conectando no FirebirdSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux
 
 Link para download do DBeaver Community: https://dbeaver.io/download/
 
 ```bash
-#conectando com o usuário Postgres Remoto do PostgreSQL Server no DBeaver Community
+#conectando com o usuário Sysadmin Remoto do FirebirdSQL Server no DBeaver Community
 Menu
   Pesquisa Indexada: DBeaver-ce
     New Database Connection
-      Select your database: PostgreSQL <Avançar>
+      Select your database: Firebird <Avançar>
         Main
           Server
             Connect by: UbuntuServer
-            URL: jdbc:postgresql://ENDEREÇO_IPV4_SERVIDOR:5432/postgres (alterar o endereço IPv4 do seu servidor)
+            URL: jdbc:firebirdsql://ENDEREÇO_IPV4_SERVIDOR:3050//opt/firebird/examples/empbuild/employee.fdb
             Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
-            Port: 5432
-            Database: postgres
+            Port: 3050
+            Path: /opt/firebird/examples/empbuild/employee.fdb
           Authentication
             Authentication: Database Native
-            Username: postgres
+            Username: SYSDBA
             Password: SUA_SENHA_SEGURA
             Save password locally: Yes
         <Test Connection>
@@ -256,35 +247,40 @@ Menu
       <Finish>
 ```
 
-## 15_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
-
+## 13_ Integrando o FirebirdSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
 ```bash
-#instalando a Extensão do PostgreSQL Server no VSCode
+#instalando a Extensão do FirebirdSQL Server no VSCode
 VSCode
   Extensões
     Pesquisar
-      PostgreSQL (PostgreSQL Client for Visual Studio Code)
+      Firebird (SQLTools Firebird)
         Instalar
 
-#configurando a conexão com o PostgreSQL Server no VSCode
+#configurando a conexão com o FirebirdSQL Server no VSCode
 VSCode
-  Database
-    <Create Connection>
-      Name: UbuntuServer
-      Server Type:
-        PostgreSQL
-          Host: ENDEREÇO_IPV4_SERVIDOR (alterar o endereço IPv4 do seu servidor)
-          Port: 5432
-          Username: postgres
-          Password: SUA_SENHA_SEGURA
-    <Save>
+  SQLTools
+    <Add new Connection>
+      Connection Assistant
+        Select your database driver
+          SQLTools Firebird
+        Connection Settings
+          Connection name*: UbuntuServer
+          Connection group:
+          Host*: 172.16.1.20
+          Port*: 3050
+          Database Name*: /opt/firebird/examples/empbuild/employee.fdb
+          User*: SYSDBA
+          Password: Save Password
+        <Test Connection>
+    <Save Connection>
+  <Connection>
 ```
 
 ========================================DESAFIOS=========================================
 
-**#16_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+**#14_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
 
-**#17_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO OPSTEGRESQL SERVER __`postgres`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
+**#15_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO FIREBIRDSQL SERVER __`firebird`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
 
 =========================================================================================
 
@@ -292,6 +288,6 @@ VSCode
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-postgresql.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-firebird.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiopostgresql
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiofirebird
