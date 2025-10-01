@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.13<br>
+#Data de atualização: 01/10/2025<br>
+#Versão: 0.14<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
@@ -62,9 +62,8 @@ sudo apt update
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install php-curl php-gd php-intl php-pear php-imagick php-imap php-memcache php-pspell \
 php-mysql php-tidy php-xmlrpc php-mbstring php-ldap php-cas php-apcu php-json php-xml php-cli \
-libapache2-mod-php xmlrpc-api-utils xz-utils bzip2 unzip curl php-soap php-common php-bcmath \
-php-zip php-bz2 ghostscript libgs9 libgs9-common php-opcache php-dev pwgen libmcrypt-dev zlib1g \
-zlib1g-dev
+xmlrpc-api-utils bzip2 unzip curl php-soap php-common php-bcmath php-zip php-bz2 ghostscript \
+xz-utils libgs9 libgs9-common php-opcache php-dev pwgen libmcrypt-dev zlib1g zlib1g-dev
 ```
 
 ## 02_ Criando a Base de Dados do GLPI Help Desk no MySQL Server no Ubuntu Server

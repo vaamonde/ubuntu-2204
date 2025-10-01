@@ -98,7 +98,7 @@ Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 #opção da contra barra (\): criar uma quebra de linha no terminal
 #echo "deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 
-#Script de configuração do Repositório do Node.JS (INDICADO A SUA UTILIZAÇÃO)
+#Script de configuração do Repositório do Node.JS (RECOMENDADO A SUA UTILIZAÇÃO)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando sudo: -E (preserve-env)

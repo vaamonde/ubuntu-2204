@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 25/06/2025<br>
-#Versão: 0.13<br>
+#Data de atualização: 01/10/2025<br>
+#Versão: 0.14<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -37,7 +37,7 @@ Conteúdo estudado nessa configuração:<br>
 #06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
 #07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
 #08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
-#09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+#09_ Atualizando o sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
 
 **O QUE É E PARA QUE SERVER O UBUNTU PRO:** O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
@@ -179,7 +179,7 @@ sudo pro fix CVE-2023-52927
 
 ## 08_ Habilitando outros Serviços de Atualização do Ubuntu Pro
 
-**OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados, sendo o: **ESM-INFRA**, **ESM-APPS** e o **Livepatch**, caso queira habilitar mais serviços veja a lista abaixo:
+**OBSERVAÇÃO IMPORTANTE:** por padrão após habilitar o *Token do Ubuntu Pro* os principais serviços são habilitados por padrão, sendo o: **ESM-INFRA**, **ESM-APPS** e o **Livepatch**, caso queira habilitar ou desabilitar mais serviços veja a lista abaixo:
 
 | ID | SERVIÇOS | DESCRIÇÃO |
 |----|----------|-----------|
@@ -206,7 +206,7 @@ sudo pro enable esm-apps
 sudo pro status
 ```
 
-## 09_ Atualizando sistema com o suporte do Ubuntu Pro no Ubuntu Server
+## 09_ Atualizando o sistema com o suporte do Ubuntu Pro no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** após adicionar a licença do *Ubuntu Pro* é recomendado fazer um upgrade completo do sistema para testar o *Token* e as novas listas do **sources.list** do Ubuntu Pro.
 

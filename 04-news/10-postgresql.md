@@ -24,14 +24,14 @@ Conteúdo estudado nesse desafio:<br>
 #03_ Criando o repositório local do PostgreSQL Server no Ubuntu Server<br>
 #04_ Atualizando as Listas do Apt e Instalando o PostgreSQL Server e Client no Ubuntu Server<br>
 #05_ Habilitando o Serviço do PostgreSQL Server no Ubuntu Server<br>
-#06_ Verificando o Serviço e Versão do PostgreSQL Server e do PHP no Ubuntu Server<br>
+#06_ Verificando o Serviço e Versão do PostgreSQL Server e do Client Psql no Ubuntu Server<br>
 #07_ Verificando a Porta de Conexão do PostgreSQL Server no Ubuntu Server<br>
 #08_ Localização dos Arquivos de Configuração do PostgreSQL Server no Ubuntu Server<br>
 #09_ Adicionando o Usuário Local no Grupo Padrão do PostgreSQL Server no Ubuntu Server<br>
 #10_ Testando a conexão com o PostgreSQL Server local no Ubuntu Server<br>
 #11_ Configurando a Senha do Usuário Admin (postgres) no Ubuntu Server<br>
-#12_ Atualizando os arquivo de configuração do PostgreSQL Server no Ubuntu Server<br>
-#13_ Editando os arquivo de configuração do PostgreSQL Server no Ubuntu Server<br>
+#12_ Atualizando os arquivos de configurações do PostgreSQL Server no Ubuntu Server<br>
+#13_ Editando os arquivos de configurações do PostgreSQL Server no Ubuntu Server<br>
 #14_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
 #15_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
 #16_ Desafios do Banco de Dados PostgreSQL Server.<br>
@@ -132,7 +132,7 @@ sudo systemctl enable postgresql
 sudo systemctl start postgresql
 ```
 
-## 06_ Verificando o Serviço e Versão do PostgreSQL Server e do PHP no Ubuntu Server
+## 06_ Verificando o Serviço e Versão do PostgreSQL Server e do Client Psql no Ubuntu Server
 ```bash
 #verificando o serviço do PostgreSQL Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
@@ -269,7 +269,7 @@ sudo -u postgres psql --command '\password postgres'
   Enter it again: SUA_SENHA_SEGURA
 ```
 
-## 12_ Atualizando os arquivo de configuração do PostgreSQL Server no Ubuntu Server
+## 12_ Atualizando os arquivos de configurações do PostgreSQL Server no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do servidor PostgreSQL Server
 #opção do comando cp: -v (verbose)
@@ -288,7 +288,7 @@ sudo wget -v -O /etc/postgresql/18/main/postgresql.conf https://raw.githubuserco
 sudo wget -v -O /etc/postgresql/18/main/pg_hba.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pg_hba.conf
 ```
 
-## 13_ Editando os arquivo de configuração do PostgreSQL Server no Ubuntu Server
+## 13_ Editando os arquivos de configurações do PostgreSQL Server no Ubuntu Server
 ```bash
 #editar o arquivo de configuração do PostgreSQL Server
 sudo vim /etc/postgresql/18/main/postgresql.conf

@@ -21,14 +21,14 @@ server {
         # Escuta na porta 80 (HTTP) em IPv6 e também define como servidor padrão
         listen [::]:80 default_server;
         #
+        # Nome do servidor. "_" é um curinga (wildcard) para qualquer hostname
+        server_name _;
+        #
         # Diretório raiz do site (onde ficam os arquivos a serem hospedados)
         root /var/www/html;
         #
         # Ordem dos arquivos padrão a serem carregados
         index index.html index.htm index.php index.nginx-debian.html;
-        #
-        # Nome do servidor. "_" é um curinga (wildcard) para qualquer hostname
-        server_name _;
         #
         # Bloco que trata as requisições da raiz do site
         location / {

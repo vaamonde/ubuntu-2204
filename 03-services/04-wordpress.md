@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 08/09/2025<br>
-#Versão: 0.28<br>
+#Data de atualização: 01/10/2025<br>
+#Versão: 0.29<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -25,9 +25,10 @@ Conteúdo estudado nesse desafio:<br>
 #04_ Localização dos Arquivos de Configuração do CMS Wordpress no Ubuntu Server;<br>
 #05_ Editando o arquivo de conexão com o Banco de Dados e Salt do CMS WordPress;<br>
 #06_ Habilitando os módulos do Apache2 Server utilizados pelo CMS WordPress no Ubuntu Server;<br>
-#07_ Acessando e configurando o CMS WordPress via navegador;<br>
+#07_ Testando e configurando o CMS Wordpress via Terminal e Navegador;<br>
 #08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores;<br>
-#09_ Desafio de Postagem, Temas e Plugins do CMS WordPress.<br>
+#09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress<br>
+#10_ Desafio de Postagem, Temas e Plugins do CMS WordPress.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do PHP (7.x ou 8.x): https://www.php.net/<br>

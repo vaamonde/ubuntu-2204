@@ -1,0 +1,14 @@
+Servidor do Projeto Bora para Prática - GNU/Linux Server
+Data e hora do servidor...: \d \t
+
+Bem-vindo ao..............: \s \S
+Você está se conectando em: \n
+Endereço IPv4 do servidor.: \4
+Endereço IPv6 do servidor.: \6
+Informações do Kernel.....: \r
+Arquitetura do Processador: \m
+
+Terminal TTY do servidor..: \l
+Usuários no servidor......: \U
+
+Administrador do servidor.: SEU_NOME_E_SOBRENOME 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 30/09/2025<br>
-#Versão: 0.19<br>
+#Data de atualização: 01/10/2025<br>
+#Versão: 0.20<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -33,7 +33,7 @@ Conteúdo estudado nessa configuração:<br>
 #08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
 #09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
 #10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
-#11_ 11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
+#11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
 **O QUE É E PARA QUE SERVER O NETPLAN:** O *Netplan* é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição **YAML** das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
@@ -42,6 +42,10 @@ Conteúdo estudado nessa configuração:<br>
 **O QUE É E PARA QUE SERVER O FQDN:** Algumas vezes denominado *nome de domínio absoluto*, é um nome de domínio que especifica sua localização exata na árvore hierárquica do **Domain Name System**. Ele especifica todos os níveis de domínio, incluindo, pelo menos, um domínio de segundo nível e um domínio de nível superior.
 
 **O QUE É E PARA QUE SERVER O HOSTS:** O arquivo *Hosts* faz a pesquisa na tabela estática para nomes de host, é utilizado quando não temos servidores *DNS (Domain Name System)* e fazermos o apontamento diretamente no arquivo localizado em /etc/hosts.
+
+**O QUE É E PARA QUE SERVER O DNSSEC:** O DNSSEC (Domain Name System Security Extensions) é uma extensão do protocolo DNS que adiciona camadas de segurança para garantir que as respostas às consultas DNS não sejam alteradas ou falsificadas no caminho entre o servidor e o cliente.
+
+**O QUE É E PARA QUE SERVER O DOT (DNS Over TLS):** O DoT é um protocolo que permite criptografar as consultas e respostas do DNS usando TLS (Transport Layer Security) — o mesmo protocolo usado no HTTPS. Ou seja: em vez de o DNS viajar pela rede em texto puro (como no DNS tradicional), ele viaja dentro de um túnel criptografado TLS.
 
 [![Endereço IPv4 Ubuntu Server](http://img.youtube.com/vi/sKn5fTy1OHI/0.jpg)](https://www.youtube.com/watch?v=sKn5fTy1OHI "Endereço IPv4 Ubuntu Server")
 
@@ -218,6 +222,28 @@ Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 | **DNS Servers**    | `8.8.8.8, 8.8.4.4`                                             | Servidores DNS configurados para a interface |
 | **DNS Domain**     | `pti.intra`                                                    | Domínio de busca DNS configurado para a interface |
 
+```bash
+#verificando as informações de Leases (Alugueis) do DHCP Client no Ubuntu Server
+#opção do comando cat: -n (number line), * (asterisco) todos os arquivos
+sudo cat -n /run/systemd/netif/leases/*
+```
+
+Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<br>
+| **Campo**        | **Valor (Exemplo)**                      | **Descrição**                                                                                           |
+| ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ADDRESS`        | `172.16.1.131`                           | Endereço IP atribuído pelo servidor DHCP para a interface de rede.                                      |
+| `NETMASK`        | `255.255.255.0`                          | Máscara de sub-rede associada ao endereço IP, define o tamanho da rede.                                 |
+| `ROUTER`         | `172.16.1.254`                           | Gateway padrão fornecido pelo servidor DHCP, usado para acessar redes externas.                         |
+| `SERVER_ADDRESS` | `172.16.1.254`                           | Endereço IP do servidor DHCP que atendeu a requisição.                                                  |
+| `NEXT_SERVER`    | `172.16.1.254`                           | Próximo servidor no processo DHCP (geralmente usado para boot PXE ou TFTP).                             |
+| `T1`             | `43200` (12h)                            | Tempo em segundos até o cliente iniciar a **renovação** do lease com o servidor DHCP.                   |
+| `T2`             | `75600` (21h)                            | Tempo em segundos até o cliente tentar **renovar com outro servidor DHCP** se o primeiro não responder. |
+| `LIFETIME`       | `86400` (24h)                            | Tempo total de validade do lease em segundos (expiração do IP).                                         |
+| `DNS`            | `172.16.1.254`                           | Servidor(es) DNS fornecido(s) pelo DHCP.                                                                |
+| `DOMAINNAME`     | `apto.intra`                             | Nome de domínio fornecido pelo servidor DHCP, usado para resolução DNS.                                 |
+| `HOSTNAME`       | `wsvaamonde`                             | Nome de host atribuído ao cliente (pode ser usado para identificação na rede).                          |
+| `CLIENTID`       | `ffe2343f3e00020000ab11a1d5bc10296b8939` | Identificador único do cliente DHCP (gerado a partir da interface ou hardware).                         |
+
 ## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
 
 **OBSERVAÇÃO:** o nome do arquivo de configuração da placa de rede pode mudar dependendo da versão do Ubuntu Server. O arquivo: */etc/netplan/00-installer-config.yaml* e o Padrão do Ubuntu Server 22.04.x LTS, no Ubuntu Server 24.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digitar o comando: *ls -lh /etc/netplan* antes de editar o arquivo Netplan.
@@ -353,11 +379,11 @@ ESC SHIFT :x <Enter>
 
 ## 09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 ```bash
-#reiniciar o serviço do Resolved
+#reiniciar o serviço do Resolved (NÃO COMENTADO NO VÍDEO)
 #opção do comando systemctl: restart (Stop and then start one or more units specified on the command line)
 sudo systemctl restart systemd-resolved
 
-#verificar o status do serviço do Resolved
+#verificar o status do serviço do Resolved (NÃO COMENTADO NO VÍDEO)
 #opção do comando systemctl: status (Show terse runtime status information about one or more units)
 sudo systemctl status systemd-resolved
 ```
@@ -377,6 +403,10 @@ sudo ip route
 #verificando as informações dos Servidores DNS e Pesquisa de Domínio
 #opção do comando resolvectl: status (Shows the global and per-link DNS settings currently in effect)
 sudo resolvectl status
+
+#verificando as informações de endereço IPv4, DNS e Gateway com o Netplan (NÃO COMENTADO NO VÍDEO)
+#opção do comando netplan: status (show network address configuration)
+sudo netplan status
 
 #testando a conexão com a Internet e Resolução de nomes de DNS
 #opção do comando ping: -c 5 (Stop after sending count ECHO_REQUEST packets)
