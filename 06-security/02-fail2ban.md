@@ -197,15 +197,119 @@ sudo vim /etc/fail2ban/jail.d/sshd.conf
 INSERT
 ```
 ```bash
-#alterar a linha: 61 variável do: name = pti.intra
-name = pti.intra
+#alterar as linhas: 31 até 41 conforme sua necessidade de tempo de Banimento
+# Número máximo de tentativas falhas permitidas antes de aplicar o banimento
+maxretry = 3
+# Janela de tempo (10 minutos) para contar as tentativas falhas
+findtime = 10m
+# Tempo de banimento do IP ofensivo (1 hora)
+bantime = 1h
+# Ação aplicada no banimento; aqui, integra com o UFW para bloquear o IP
+banaction = ufw
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
+
+#verificando os arquivos de configuração do Fail2Ban
+#opção do comando fail2ban-client: -t (test configuration)
+sudo fail2ban-client -t
 ```
 
+## 08_ Reiniciando e Aplicando as novas regras de Jail (Cadeia/Jaula) do Fail2Ban no Ubuntu Server
+```bash
+#reiniciando o serviço do Fail2Ban no Ubuntu Server
+#opção do comando systemctl: restart (Stop and then start one or more units), status (runtime status information)
+sudo systemctl restart fail2ban
+sudo systemctl status fail2ban
 
+#verificando o status de todos os Jails (Cadeias/Jaulas) do Fail2Ban
+#opção do comando fail2ban-client: status (gets the current status of the server)
+sudo fail2ban-client status
+
+#verificando o status do Jail (Cadeia/Jaula) do serviço do OpenSSH no Fail2Ban
+#opção do comando fail2ban-client: status (gets the current status of the server), sshd (gets the current status of <JAIL>)
+sudo fail2ban-client status sshd
+
+#Verificando o status do UFW (Status padrão: inactive - inativo/desativado)
+sudo ufw status
+```
+
+## 09_ Configuração básica do serviço de Firewall UFW no Ubuntu Server
+```bash
+#Habilitando e iniciando o Firewall UFW no Ubuntu Server integrado com o Fail2Ban
+#opção do comando ufw: enable (reloads firewall and enables firewall on boot)
+sudo ufw enable
+  Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
+  Firewall is active and enabled on system startup
+
+#Verificando o serviço do Firewall UFW no Ubuntu Server
+#opção do comando systemctl: status (runtime status information)
+sudo systemctl status ufw
+
+#Verificando o Status das Regras (RULES) Detalhadas (VERBOSE) do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose (for extra information)
+sudo ufw status verbose
+
+#configuração das regras mais restritivas de Entrada (Incoming) e Saída (Outgoing) do Firewall UFW no Ubuntu Server
+#opção do comando ufw:
+sudo ufw default deny incoming
+sudo ufw default deny outgoing
+
+#configuração do nível de Log do Firewall UFW no Ubuntu Server
+#opção do comando ufw:
+sudo ufw logging on
+sudo ufw logging medium
+
+#configuração das regras de Loopback de Entrada (Incoming) e Saída (Outgoing) do Firewall UFW no Ubuntu Server
+#opção do comando ufw:
+sudo ufw allow in on lo
+sudo ufw allow out on lo
+
+#configuração das regras de Saída (Outgoing) dos Protocolos Básicos do Firewall UFW no Ubuntu Server
+#opção do comando ufw:
+sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
+sudo ufw allow out 853/tcp comment 'Liberando a saida para consulta do DNSTLS'
+sudo ufw allow out 80/tcp comment 'Liberando a saida para navegação do HTTP'
+sudo ufw allow out 443/tcp comment 'Liberando a saida para navegação do HTTPS'
+sudo ufw allow out 123/udp comment 'Liberando a saida para sincronismo do NTP'
+
+#configuração da regra de Entrada (Incoming) do Protocolo SSH do Firewall UFW no Ubuntu Server
+#opção do comando ufw:
+sudo ufw allow in log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
+
+#configuração das regras de Saída (Outgoing) do Protocolo ICMP do Firewall UFW no Ubuntu Server
+#Editando o arquivo de configuração before.rules (ANTES DAS REGRAS) do UFW
+sudo vim /etc/ufw/before.rules
+ESC SHIFT :set number <Enter>
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#inserir as informações na linha: 39
+#liberando a saída do protocolo ICMP (Permitindo o Ping - Echo Request)
+#opções do comando iptables usados pelo UFW: -A (append), -p (protocol), -j (jump target)
+# ok icmp codes for OUTPUT
+-A ufw-before-output -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type time-exceeded -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type parameter-problem -j ACCEPT
+-A ufw-before-output -p icmp --icmp-type echo-request -j ACCEPT
+```
+```bash
+#Salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#Reiniciar as regras de firewall do UFW
+sudo ufw reload
+  Firewall reloaded
+
+#Pingando o endereço IPv4 do Google
+ping 8.8.8.8
+
+#Pingando o nome do Google
+ping google.com
+```
 
 
 ========================================DESAFIOS=========================================

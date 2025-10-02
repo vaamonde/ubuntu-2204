@@ -363,6 +363,9 @@ sudo vim /etc/systemd/resolved.conf
 INSERT
 ```
 ```bash
+#descomentar e alterar o valor da variável Domains na linha 24 para: Domains=~.
+Domains=~.
+ 
 #descomentar e alterar o valor da variável DNSSEC na linha 25 para: DNSSEC=yes
 DNSSEC=yes
 
