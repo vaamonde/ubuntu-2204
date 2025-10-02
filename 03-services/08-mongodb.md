@@ -102,7 +102,7 @@ Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-not
 ```bash
 #download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 31/08/2025)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
-#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
 ```

@@ -95,9 +95,9 @@ sudo fail2ban-client -V
 ## 04_ Localização dos Arquivos de Configuração do Fail2Ban no Ubuntu Server
 ```bash
 /etc/fail2ban/                <-- Diretório de configuração do Fail2Ban
-/etc/fail2ban/action.d        <-- Diretório de configuração das Ações do Fail2Ban
+/etc/fail2ban/action.d/       <-- Diretório de configuração das Ações do Fail2Ban
 /etc/fail2ban/filter.d/       <-- Diretório de configuração dos Filtros do Fail2Ban
-/etc/fail2ban/jail.d          <-- Diretório de configuração das Regras do Fail2Ban
+/etc/fail2ban/jail.d/         <-- Diretório de configuração das Regras do Fail2Ban
 /etc/fail2ban/fail2ban.conf   <-- Arquivo de configuração do Serviços do Fail2Ban
 /var/log/fail2ban.log         <-- Arquivo de Log do Serviço do Fail2Ban
 /var/run/fail2ban/            <-- Diretório do PID de Processo e Socket do Fail2Ban
@@ -118,7 +118,6 @@ sudo wget -v -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/vaamo
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/fail2ban/jail.d/recidive.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recidive.conf
 ```
-
 
 ========================================DESAFIOS=========================================
 
