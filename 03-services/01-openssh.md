@@ -120,7 +120,7 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 /etc/hosts.deny        <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Deny
 /etc/hosts.allow       <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Allow
 /etc/issue.net         <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
-/etc/issue.net         <-- Arquivo de configuração do Prompt de Login do Ubuntu Server para acesso local
+/etc/issue             <-- Arquivo de configuração do Prompt de Login do Ubuntu Server para acesso local
 /var/log/              <-- Diretório de Logs do Sistema Operacional Ubuntu Server
 /var/log/syslog        <-- Log principal do Sistema Operacional Ubuntu Server
 /var/log/auth.log      <-- Log principal das autenticações do Sistema Operacional Ubuntu Server

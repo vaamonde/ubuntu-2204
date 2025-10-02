@@ -29,7 +29,8 @@ Conteúdo estudado nesse desafio:<br>
 #08_ Consultando o arquivo de Log de Auditoria do Auditd no Ubuntu Server<br>
 #09_ Gerando os relatórios do arquivo de Log de Auditoria do Auditd no Ubuntu Server<br>
 #10_ Testando a regras de Auditoria do Auditd no Ubuntu Server<br>
-#11_ Desafios de Auditoria do Auditd no Ubuntu Server<br>
+#11_ Entendo a saída do Log de Auditoria do Auditd no Ubuntu Server<br>
+#12_ Desafios de Auditoria do Auditd no Ubuntu Server<br>
 
 Site Oficial do Auditd: https://man7.org/linux/man-pages/man8/auditd.8.html
 
@@ -80,6 +81,10 @@ sudo systemctl start auditd
 #analisando os Log's e mensagens de erro do Auditd
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu auditd
+
+#verificando os arquivos de configuração do Auditd
+#opção do comando augenrules: --check (test if rules have changed and need updating without overwriting audit.rules)
+sudo augenrules --check
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
@@ -150,6 +155,11 @@ ESC SHIFT :x <Enter>
 
 ## 07_ Atualizando as regras de auditoria do Auditd no Ubuntu Server
 ```bash
+#reiniciando o serviço do Auditd no Ubuntu Server
+#opções do comando systemctl: restart (Stop and then start one or more units), start (Start (activate) one or more units)
+sudo systemctl restart auditd
+sudo systemctl status auditd
+
 #verificando se há alguma alteração de regra existente para carregar no Auditd
 #opção do comando augenrules: --check (test if rules have changed and need updating without overwriting audit.rules)
 sudo augenrules --check
@@ -224,9 +234,56 @@ sudo ausearch -f /etc/passwd | grep passwd
 sudo ausearch -k passwd_changes | grep passwd
 ```
 
+## 11_ Entendo a saída do Log de Auditoria do Auditd no Ubuntu Server
+
+| **Campo**          | **Exemplo**                 | **Descrição**                                                             |
+| ------------------ | --------------------------- | ------------------------------------------------------------------------- |
+| **node**           | `wsvaamonde.pti.intra`      | Nome do host ou nó onde ocorreu o evento.                                 |
+| **type**           | `CRED_DISP`                 | Tipo de evento. (Ex: `CRED_DISP` = descarte de credenciais no PAM).       |
+| **msg=audit(...)** | `audit(1759411325.608:449)` | Metadados do evento: **timestamp UNIX.epoch.segundos : ID do evento**.    |
+| **pid**            | `2431`                      | PID do processo que gerou o evento.                                       |
+| **uid**            | `1000`                      | UID real do usuário que executou o processo.                              |
+| **auid**           | `1000`                      | UID do usuário autenticado na sessão (quem fez login originalmente).      |
+| **ses**            | `1`                         | Número da sessão de login associada ao evento.                            |
+| **subj**           | `unconfined`                | Contexto de segurança (SELinux/AppArmor). `unconfined` = sem restrições.  |
+| **op**             | `PAM:setcred`               | Operação realizada pelo PAM (ex: set de credenciais).                     |
+| **grantors**       | `pam_permit`                | Módulos PAM envolvidos na decisão de autenticação.                        |
+| **acct**           | `"root"`                    | Conta alvo da operação (usuário em nome de quem o comando foi executado). |
+| **exe**            | `"/usr/bin/sudo"`           | Caminho do executável que disparou o evento.                              |
+| **hostname**       | `?`                         | Nome do host remoto (quando aplicável). `?` = não informado.              |
+| **addr**           | `?`                         | Endereço IP remoto (quando aplicável). `?` = não informado.               |
+| **terminal**       | `/dev/pts/0`                | Terminal ou sessão TTY de onde partiu o comando.                          |
+| **res**            | `success`                   | Resultado da operação (`success` ou `failed`).                            |
+| **UID**            | `"vaamonde"`                | Nome de usuário correspondente ao **uid**.                                |
+| **AUID**           | `"vaamonde"`                | Nome de usuário correspondente ao **auid**.                               |
+
+
+| **Campo**          | **Exemplo**                 | **Descrição**                                                                          |
+| ------------------ | --------------------------- | -------------------------------------------------------------------------------------- |
+| **node**           | `wsvaamonde.pti.intra`      | Host/nó onde ocorreu o evento.                                                         |
+| **type**           | `PATH`                      | Indica que o evento refere-se a uma operação em caminho de arquivo.                    |
+| **msg=audit(...)** | `audit(1759411301.064:415)` | Timestamp e ID do evento.                                                              |
+| **item**           | `2`                         | Índice do item de caminho (pode ter múltiplos caminhos em um evento único).            |
+| **name**           | `"/etc/passwd+"`            | Nome do arquivo/diretório envolvido no evento.                                         |
+| **inode**          | `1574525`                   | Número do inode no filesystem (identificador único do arquivo).                        |
+| **dev**            | `fd:00`                     | Identificador do dispositivo de bloco onde o arquivo reside.                           |
+| **mode**           | `0100644`                   | Permissões e tipo de arquivo em notação octal (`-rw-r--r--`).                          |
+| **ouid**           | `0`                         | UID do dono original do arquivo (0 = root).                                            |
+| **ogid**           | `0`                         | GID do grupo original do arquivo (0 = root).                                           |
+| **rdev**           | `00:00`                     | Dispositivo especial associado (apenas para char/block devices).                       |
+| **nametype**       | `DELETE`                    | Tipo de operação realizada sobre o nome do arquivo (ex: `CREATE`, `DELETE`, `NORMAL`). |
+| **cap_fp**         | `0`                         | File capability permitted set (bitmask de capacidades).                                |
+| **cap_fi**         | `0`                         | File capability inheritable set.                                                       |
+| **cap_fe**         | `0`                         | File capability effective set.                                                         |
+| **cap_fver**       | `0`                         | Versão das capabilities do arquivo.                                                    |
+| **cap_frootid**    | `0`                         | Root ID para capacidades herdadas.                                                     |
+| **OUID**           | `"root"`                    | Nome do usuário dono do arquivo (mapeado do ouid).                                     |
+| **OGID**           | `"root"`                    | Nome do grupo dono do arquivo (mapeado do ogid).                                       |
+
+
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** 
+**#12_ DESAFIO-01:** 
 
 =========================================================================================
 

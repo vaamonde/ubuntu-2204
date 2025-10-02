@@ -11,7 +11,7 @@
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do Fail2Ban v0.11.x
 #
-#====== BLOCO DE CONFIGURAÇÃO PADRÃO ======
+#====== BLOCO DE CONFIGURAÇÃO PADRÃO DO JAIL LOCAL======
 [DEFAULT]
 #
 #Configuração do diretório de logs para o Fail2Ban

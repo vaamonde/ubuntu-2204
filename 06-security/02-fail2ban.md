@@ -110,14 +110,103 @@ sudo fail2ban-client -V
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/fail2ban/fail2ban.local https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/fail2ban.local
 
-#atualizando o arquivo de configuração do Jail Local do Github
+#atualizando o arquivo de configuração do Jail (Cadeia/Jaula) Local do Fail2Ban do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/jail.local
 
-#atualizando o arquivo de configuração de Reincidência do Github
+#atualizando o arquivo de configuração de Reincidência do Fail2Ban do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/fail2ban/jail.d/recidive.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recidive.conf
 ```
+
+## 06_ Editando os arquivos de configuração do Fail2Ban no Ubuntu Server
+```bash
+#editar o arquivo de configuração padrão do Fail2Ban
+sudo vim /etc/fail2ban/fail2ban.local
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar as linhas: 41 até 43 conforme sua necessidade de tempo de Banimento
+#Configuração das Políticas de Banimento mais Restritiva do Fail2Ban
+bantime = 1h
+findtime = 10m
+maxretry = 3
+#Configuração das Políticas de Banimento de Reincidência do Fail2Ban
+enabled = true
+bantime = 7d
+findtime = 7d
+maxretry = 5
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#editar o arquivo de configuração padrão do Jail (Cadeia/Jaula) do Fail2Ban
+sudo vim /etc/fail2ban/jail.local
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar as linhas: 30 até 33 conforme sua necessidade de tempo de Banimento
+30 #Configurações globais de banimento do Fail2Ban
+bantime = 1h
+findtime = 10m
+maxretry = 3
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#editar o arquivo de configuração padrão do Recidive (Reincidência) do Fail2Ban
+sudo vim /etc/fail2ban/jail.d/recidive.conf
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar as linhas: 30 até 33 conforme sua necessidade de tempo de Banimento
+30 #Configurações globais de banimento do Fail2Ban
+bantime = 1h
+findtime = 10m
+maxretry = 3
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#verificando os arquivos de configuração do Fail2Ban
+#opção do comando fail2ban-client: -t (test configuration)
+sudo fail2ban-client -t
+```
+
+## 07_ Configurando o Monitoramento e Jail (Cadeia/Jaula) do serviço do OpenSSH no Ubuntu Server
+```bash
+#removendo o arquivo de Jail padrão do Fail2Ban no Ubuntu Server
+sudo rm -v /etc/fail2ban/jail.d/defaults-debian.conf
+
+#atualizando o arquivo de configuração do Jail (Cadeia/Jaula) do OpenSSH do Github
+sudo wget -v -O /etc/fail2ban/jail.d/sshd.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd.conf
+
+#editar o arquivo de configuração do Jail do OpenSSH Server
+sudo vim /etc/fail2ban/jail.d/sshd.conf
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar a linha: 61 variável do: name = pti.intra
+name = pti.intra
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
+
+
+
 
 ========================================DESAFIOS=========================================
 
