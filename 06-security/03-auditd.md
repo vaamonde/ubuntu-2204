@@ -42,7 +42,7 @@ Link da vídeo aula:
 sudo apt update
 
 #instalando o Auditd no Ubuntu Server
-sudo apt install auditd audispd-plugins
+sudo apt install auditd audispd-plugins 
 ```
 
 ## 03_ Verificando o Serviço e Versão do Auditd no Ubuntu Server
@@ -60,43 +60,39 @@ sudo systemctl start auditd
 #analisando os Log's e mensagens de erro do Auditd
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu auditd
-
-#verificando os arquivos de configuração do Auditd
-#opção do comando fail2ban-client: -t (test configuration)
-sudo fail2ban-client -t
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando a versão do Auditctl, Ausearch e Aureport
+#verificando as versões do Auditctl, Ausearch e Aureport
 #opção do comandos auditctl, ausearch e aureport: -v (version)
-sudo auditctl -v    #configuração das regras de auditoria
-sudo ausearch -v    #consultar um evento de log
-sudo aureport -v    #relatório do sistema de auditoria
+sudo auditctl -v    #configuração das regras de auditoria do Auditd
+sudo ausearch -v    #consultar um evento de log de auditoria do Auditd
+sudo aureport -v    #relatório do sistema de auditoria do Auditd
 ```
 
 ## 04_ Localização dos Arquivos de Configuração do Auditd no Ubuntu Server
 ```bash
-/etc/audit/             <-- Diretório de configuração do Auditd
-/etc/audit/plugins.d/   <-- Diretório de plugins do Auditd
-/etc/audit/rules.d/     <-- Diretório de regras do Auditd
-/var/log/audit/         <-- Diretório do log do Auditd
+/etc/audit/             <-- Diretório de configuração padrão do Auditd
+/etc/audit/plugins.d/   <-- Diretório dos plugins do Auditd
+/etc/audit/rules.d/     <-- Diretório das regras do Auditd
+/var/log/audit/         <-- Diretório dos logs do Auditd
 ```
 
-## 05_ Atualizando os arquivos de configuração do Fail2Ban no Ubuntu Server
+## 05_ Atualizando os arquivos de configuração do Auditd no Ubuntu Server
 ```bash
-#atualizando o arquivo de configuração do Fail2Ban Local do Github
-#opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/fail2ban/fail2ban.local https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/fail2ban.local
+#fazendo o backup do arquivo de configuração do Auditd
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/audit/auditd.conf /etc/audit/auditd.conf.old
 
-#atualizando o arquivo de configuração do Jail Local do Github
+#atualizando o arquivo de configuração do Auditd do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/jail.local
+sudo wget -v -O /etc/audit/auditd.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/auditd.conf
 
-#atualizando o arquivo de configuração de Reincidência do Github
+#atualizando o arquivo de configuração das Regras do Auditd do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/fail2ban/jail.d/recidive.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recidive.conf
+sudo wget -v -O /etc/audit/rules.d/wsvaamodne.rules https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/wsvaamodne.rules
 ```
 
 

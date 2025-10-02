@@ -1,0 +1,64 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 02/10/2025
+# Data de atualização: 02/10/2025
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do Audit v3.0.x
+#
+# Configuração básica do Baseline de Auditoria do Auditd no Ubuntu Server
+#
+# Este baseline monitora modificações em arquivos críticos do sistema, garantindo rastreabilidade
+# em mudanças de contas, permissões, rede, bootloader e configurações essenciais do servidor.
+#
+# Legenda das opções do Auditd utilizadas no arquivo audit.rules:
+# -w  => caminho do arquivo ou diretório a ser monitorado
+# -p  => permissões: r = leitura, w = escrita, x = execução, a = atributos
+# -k  => chave para filtrar logs com ausearch
+#
+# Auditoria dos arquivos de Contas e Grupos do Ubuntu Server
+-w /etc/passwd    -p wa -k passwd_changes
+-w /etc/group     -p wa -k group_changes
+-w /etc/shadow    -p wa -k shadow_changes
+-w /etc/gshadow   -p wa -k gshadow_changes
+#
+# Auditoria dos arquivos de Sudo e Autenticação do Ubuntu Server
+-w /etc/sudoers                -p wa -k sudoers_changes
+-w /etc/sudoers.d/             -p wa -k sudoersd_changes
+-w /etc/security/limits.conf   -p wa -k limits_changes
+-w /etc/pam.d/                 -p wa -k pamd_changes
+#
+# Auditoria dos arquivos de Configuração do OpenSSH Server e Client
+-w /etc/ssh/sshd_config  -p wa -k sshd_config_changes
+-w /etc/ssh/ssh_config   -p wa -k ssh_config_changes
+-w /etc/hosts.deny       -p wa -k hosts_deny_changes
+-w /etc/hosts.allow      -p wa -k hosts_allow_changes
+#
+# Auditoria dos arquivos de Configuração da Placa de Rede e Resolução de Nomes
+-w /etc/netplan/      -p wa -k netplan_changes
+-w /etc/hosts         -p wa -k hosts_changes
+-w /etc/hostname      -p wa -k hostname_changes
+-w /etc/resolv.conf   -p wa -k resolv_changes
+#
+# Auditoria dos arquivos de Configuração do Boot Load GRUB e Kernel
+-w /boot/grub/grub.cfg   -p wa -k grub_changes
+-w /etc/default/grub     -p wa -k grub_default_changes
+-w /etc/sysctl.conf      -p wa -k sysctl_changes
+-w /etc/sysctl.d/        -p wa -k sysctl_d_change
+#
+# Auditoria dos arquivos de Configuração Essencial do Ubuntu Server
+-w /etc/fstab            -p wa -k fstab_changes
+-w /etc/crontab          -p wa -k crontab_changes
+-w /etc/cron.d/          -p wa -k cron_d_changes
+-w /etc/systemd/system/  -p wa -k systemd_changes
+#
+# Auditoria dos diretórios de Configuração Sensíveis do Ubuntu Server 
+-w /etc/audit/           -p wa -k auditd_changes
+-w /etc/apparmor.d/      -p wa -k apparmor_changes
+-w /etc/firewalld/       -p wa -k firewall_changes
+-w /etc/ufw/             -p wa -k ufw_changes

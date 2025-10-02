@@ -120,11 +120,11 @@ sudo journalctl -xeu ufw
 
 ## 05_ Localização dos Arquivos e Diretório de Configuração do UFW no Ubuntu Server
 ```bash
-/etc/default/ufw   <-- Arquivo de inicialização padrão do UFW
-/etc/ufw/*         <-- Diretório padrão das configurações das regras do UFW
-/var/log/ufw.log   <-- Arquivo de Log padrão do UFW
-/var/log/syslog    <-- Logs do UFW no sistema (usar o filtro: cat /var/log/syslog | grep -i ufw)
-/var/log/kern.log  <-- Logs do UFW no Kernel (usar o filtro: cat /var/log/syslog | grep -i ufw)
+/etc/default/ufw    <-- Arquivo de inicialização padrão do UFW
+/etc/ufw/*          <-- Diretório padrão das configurações das regras do UFW
+/var/log/ufw.log    <-- Arquivo de Log padrão do UFW
+/var/log/syslog     <-- Logs do UFW no sistema (usar o filtro: cat /var/log/syslog | grep -i ufw)
+/var/log/kern.log   <-- Logs do UFW no Kernel (usar o filtro: cat /var/log/syslog | grep -i ufw)
 ```
 
 ## 06_ Verificando as Regras (RULES) de Entrada (INCOMING) e Saída (OUTGOING) padrão do UFW no Ubuntu Server
@@ -250,6 +250,9 @@ sudo ufw status numbered
 ```bash
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (53/udp)
 sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
+
+#Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (853/tcp)
+sudo ufw allow out 853/tcp comment 'Liberando a saida para consulta do DNSTLS'
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Navegação do Protocolo HTTP (80/tcp)
 sudo ufw allow out 80/tcp comment 'Liberando a saida para navegação do HTTP'
