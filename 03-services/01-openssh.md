@@ -240,6 +240,10 @@ sudo vim /etc/issue
 INSERT
 ```
 ```bash
+#alterar a linha 1: Servidor do Projeto
+#OBSERVAÇÃO: ALTERAR O PROMPT CONFORME A SUA NECESSIDADE
+Servidor do Projeto NOME_DO_SEU_PROJETO - GNU/Linux Server
+
 #alterar a linha 4: Administrador do servidor
 #OBSERVAÇÃO: ALTERAR O PROMPT CONFORME A SUA NECESSIDADE
 Administrador do servidor.: SEU_NOME_E_SOBRENOME 
