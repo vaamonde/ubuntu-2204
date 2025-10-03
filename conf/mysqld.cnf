@@ -157,7 +157,27 @@ performance_schema = ON
 #
 #=========BLOCO DE CONFIGURAÇÃO DE SSL/TLS DO MYSQLD=========
 #
-# Habilitar o suporte ao SSL
+# OBSERVAÇÃO IMPORTANTE: HABILITAR ESSE RECURSO EXIGI QUE TODAS AS CONEXÕES SEJAM CRIPTOGRAFAS,
+# TODOS OS APLICATIVOS PRECISA TER SUPORTE AO SSL/TLS NA CONEXÃO COM O BANCO DE DADOS MYSQL SERVER.
+#
+# Para o correto funcionamento do suporte ao SSL/TLS e recomendado criar um usuário
+# com suporte ao SSL conforme procedimento abaixo:
+#CREATE USER 'SEU_USUÁRIO'@'%' IDENTIFIED BY 'SUA_SENHA' REQUIRE SSL;
+#GRANT ALL PRIVILEGES ON *.* TO 'SEU_USUÁRIO'@'%';
+#FLUSH PRIVILEGES;
+#
+# Depois é necessário copiar os arquivos do diretório: /var/lib/mysql/ssl/ para o
+# perfil do seu usuário ou para o desktop remoto.
+#scp user@servidor:/var/lib/mysql/ssl/{ca.pem,client-cert.pem,client-key.pem} ~/.mysql/ssl/
+#
+# Testar a conexão com suporte so SSL/TLS no client remoto e depois configurar no Workbench
+#mysql -u SEU_USUÁRIO -p --host=IP_DO_SERVIDOR --ssl-ca=~/.mysql/ssl/ca.pem \
+#--ssl-cert=~/.mysql/ssl/client-cert.pem --ssl-key=~/.mysql/ssl/client-key.pem
+#
+# Testando a conexão dentro do MySQL Client
+#SHOW SESSION STATUS LIKE 'Ssl_cipher';
+#
+# Habilitar o suporte ao SSL/TLS no MySQL Server
 #ssl = ON
 #
 # Habilitar o suporte a Encriptação em Trânsito (SSL/TLS)

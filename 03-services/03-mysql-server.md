@@ -116,12 +116,13 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
 ## 04_ Localização dos Arquivos de Configuração do MySQL Server no Ubuntu Server
 ```bash
-/etc/mysql                          <-- Diretório de configuração do SGBD MySQL Server
-/etc/mysql/mysql.conf.d/mysqld.cnf  <-- Arquivo de configuração do Servidor SGBD do MySQL Server
-/etc/mysql/mysql.conf.d/mysql.cnf   <-- Arquivo de configuração do Cliente SGBD do MySQL Client
-/var/log/mysql                      <-- Diretório padrão dos Logs do SGBD Mysql Server
-/var/lib/mysql                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
-/var/run/mysqld/                    <-- Diretório do Pid de Processo e Socket do SGBD MySQL Server
+/etc/mysql                           <-- Diretório de configuração do SGBD MySQL Server
+/etc/mysql/mysql.conf.d/mysqld.cnf   <-- Arquivo de configuração do Servidor SGBD do MySQL Server
+/etc/mysql/mysql.conf.d/mysql.cnf    <-- Arquivo de configuração do Cliente SGBD do MySQL Client
+/var/log/mysql/                      <-- Diretório padrão dos Logs do SGBD Mysql Server
+/var/lib/mysql/                      <-- Diretório da Base de Dados padrão do SGBD MySQL Server
+/var/lib/mysql/ssl/                  <-- Diretório padrão dos Certificados do SGBD MySQL Server
+/var/run/mysqld/                     <-- Diretório do Pid de Processo e Socket do SGBD MySQL Server
 ```
 
 ## 05_ Acessando o MySQL Server utilizando o MySQL Client (Console) no Ubuntu Server
