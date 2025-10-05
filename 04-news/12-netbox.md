@@ -112,11 +112,11 @@ sudo redis-server -v
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/redis/redis.conf /etc/redis/redis.conf.old
 
-#atualizando o arquivo de configuração do Redis Server
+#atualizando o arquivo de configuração do Redis Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/redis/redis.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/redis.conf
 
-#editar o arquivo de configuração do PostgreSQL Server
+#editar o arquivo de configuração do Redis Server
 sudo vim /etc/redis/redis.conf
 
 #entrando no modo de edição do editor de texto VIM
@@ -164,7 +164,7 @@ CREATE DATABASE netbox;
 #criando o usuário de conexão com a Base de Dados do Netbox no PostgreSQL Server
 CREATE USER netbox WITH PASSWORD 'SUA_SENHA_SEGURA';
 
-#lsitando o usuário do netbox criado no PostgreSQL Server
+#listando o usuário do netbox criado no PostgreSQL Server
 \du netbox
 
 #alterando o dono da Base de Dados do Netbox no PostgreSQL Server
@@ -261,8 +261,8 @@ sudo chown -Rv netbox /opt/netbox/netbox/scripts/
 ## 09_ Gerando a Chave Secreta da instalação do Netbox Labs Community no Ubuntu Server
 ```bash
 #gerando a chave secreta da instalação do Netbox Labs no Ubuntu Server
-#OBSERVAÇÃO: copiar a chave gerada para adicionar no arquivo de configuração do
-#Netbox Labs Community: /opt/netbox/netbox/netbox/configuration.py
+#OBSERVAÇÃO IMPORTANTE: copiar a chave gerada para adicionar no arquivo de configuração do
+#Netbox Labs Community: /opt/netbox/netbox/netbox/configuration.py na variável: SECRET_KEY =
 sudo python3 /opt/netbox/netbox/generate_secret_key.py 
 ```
 
@@ -300,7 +300,8 @@ DATABASES = {
 
 #alterar a linha: 69 da variável do SECRET_KEY = para: SECRET_KEY = SUA_CHAVE_SEGURA
 #copiar e colar a chave gerada pelo script: /opt/netbox/netbox/generate_secret_key.py 
-SECRET_KEY = COPIAR_COLAR_A_CHAVE_SEGURA
+#OBSERVAÇÃO IMPORTANTE: COPIAR E COLAR A CHAVE DENTRO DE ASPAS SIMPLES
+SECRET_KEY = 'COPIAR_COLAR_A_CHAVE_SEGURA'
 
 #alterar a linha: 163 da variável: LOGIN_REQUIRED = False para LOGIN_REQUIRED = True
 LOGIN_REQUIRED = True
@@ -406,12 +407,12 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 -out /etc/ssl/certs/netbox.crt
 ```
 
-## 18_ Instalando e configurando o NGINX Server no Ubuntu Server
+## 18_ Instalando e configurando o serviço do NGINX Server no Ubuntu Server
 ```bash
 #instalando o NGINX Server no Ubuntu Server
 sudo apt install nginx nginx-common nginx-core
 
-#atualizando o arquivo de configuração do Netbox Labs Community no NGINX Server
+#atualizando o arquivo do site padrão do Netbox Labs Community no NGINX Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /opt/netbox/contrib/nginx.conf /etc/nginx/sites-available/netbox
 
