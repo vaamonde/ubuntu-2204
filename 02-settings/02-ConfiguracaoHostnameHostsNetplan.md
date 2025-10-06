@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 01/10/2025<br>
-#Versão: 0.20<br>
+#Data de atualização: 06/10/2025<br>
+#Versão: 0.21<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -67,9 +67,12 @@ wsseunome.seu.domínio
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
+
+#verificando as informações de Hostname no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo hostname
 ```
 
-## 02_ Alterando as entradas no arquivo Hosts do Ubuntu Server
+## 02_ Alterando as entradas de resolução de nomes no arquivo Hosts do Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Hosts
 sudo vim /etc/hosts
@@ -97,6 +100,9 @@ ff02::2 ip6-allrouters
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
+
+#verificando as informações de hosts no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+sudo getent hosts
 ```
 
 ## 03_ Instalando os principais software de Rede (Network) no Ubuntu Server
@@ -291,35 +297,58 @@ network:
     # Configuração da Interface Física (Nome Lógico visto no comando: lshw -class network)
     enp0s3:
       #
-      # Desabilitando o suporte ao DHCP Client IPv4 na interface física
-      dhcp4: false
-      #
       # Desabilitando o suporte da configuração automática do IPv6 na interface física
       # OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
       # na sua rede o recurso do IPv6, caso contrário fazer a configuração adequada
+      # do Link Local do IPv6.
       link-local: []
+      #
+      # Desabilitando o suporte ao DHCP Client IPv4 na interface física
+      dhcp4: false
+      #
+      # Desabilitando o suporte ao DHCP Client IPv6 na interface física
+      dhcp6: false
       #
       # Configuração do Endereço IPv4 e Máscara de Rede (CIDR) para o seu cenário
       # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
       addresses: [SEU_ENDEREÇO_IPv4/CIDR]
+      #
+      # Configuração do Endereço IPv4/CIDR e IPv6/CIDR para o seu cenário utilizando
+      # endereço IPv6 Unicast Global
+      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv6 e IPv6 separados por Traço
+      #addresses:
+      #  - SEU_ENDEREÇO_IPv4/CIDR
+      #  - SEU_ENDEREÇO_IPv6/CIDR
       #
       # Configuração do Gateway Padrão (Rota Padrão) para o seu cenário
       # OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo utilizar 
       # as opções de Routes (Rotas) do Netplan para configurar o Gateway padrão
       # gateway4: SEU_ENDEREÇO_IPv4
       routes:
-        # Configuração da Rota Padrão (cuidado com o traço antes da opção: to)
+        # Configuração da Rota Padrão IPv4 (cuidado com o traço antes da opção: to)
         - to: default
           # Configuração do endereço IPv4 do Gateway para o seu cenário
-          via: SEU_ENDEREÇO_IPv4
+          via: SEU_ENDEREÇO_DE_GATEWAY_IPv4
+          #
+        # Configuração da Rota Padrão IPv6 (cuidado com o traço antes da opção: to)
+        #- to: default
+          # Configuração do endereço IPv6 do Gateway para o seu cenário
+          #via: SEU_ENDEREÇO_DE_GATEWAY_IPv6
           #
       # Configuração dos servidores de DNS Server Preferencial e Alternativo
       nameservers:
-        # Configuração dos servidores de DNS para o seu cenário
+        # Configuração dos servidores de DNS IPv4 para o seu cenário
         # OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
         # por vírgula, recomendo pelo menos dois DNS Servers serem configurados ou 
         # somente o endereço do Servidor de DNS Local da Rede.
-        addresses: [8.8.8.8, 8.8.4.4]
+        addresses: [ENDEREÇO_IPV4_PREFERENCIAL, ENDEREÇO_IPV4_ALTERNATIVO]
+        # Configuração dos Endereços IPv4 e IPv6 de DNS para o seu cenário com nível de
+        # segurança contra Malware e Adult Content CloudFlare utilizando o CloudFlare
+        #addresses:
+        #  - 1.1.1.3
+        #  - 1.0.0.3
+        #  - 2606:4700:4700::1113
+        #  - 2606:4700:4700::1003
         # Configuração da pesquisa de domínio para o seu cenário
         # OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
         search: [seu.domínio]
@@ -442,5 +471,6 @@ The authenticity of host 'SEU_ENDEREÇO_IPV4_UBUNTU_SERVER' can't be established
 ECDSA key fingerprint is SHA256:5yoVsKHMrn3FP/LBW1fyPTtVlt3og9jmyXPPkki/BY0.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes <Enter>
 seu_usuário@SEU_ENDEREÇO_IPV4's password: sua_senha <Enter> (Por motivo de segurança a senha não aparece no Terminal)
+
 seu_usuário@wsseunome:~$ (Acesso ao Terminal Remoto (Bash/Shell) via SSH)
 ```
