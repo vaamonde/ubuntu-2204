@@ -72,9 +72,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=-cforvm_oV0
 
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o OpenSSH Server e Client
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install openssh-server openssh-client openssl 
 ```
 

@@ -186,7 +186,7 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 <Continue without updating>
 
 04) Keyboard configuration
-    Layout: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
+    Layout:  [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
     Variant: [English (US)] ou [Portuguese (Brazil)] (altere conforme a sua necessidade)
              [English (US) - English (US, intl., with dead keys)] (suporte americano com acentuação)
 <Done>
