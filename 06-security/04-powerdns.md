@@ -233,25 +233,47 @@ exit
 
 ## 13_ Localização dos diretórios principais do PowerDNS no Ubuntu Server
 ```bash
-/etc/powerdns/*             <-- Diretório dos arquivos de configuração do serviço do PowerDNS
-/etc/powerdns/pdns.d/       <-- Diretório dos arquivos de configuração do PowerDNS Authoritative
-/etc/powerdns/recursor.d/   <-- Diretório dos arquivos de configuração do PowerDNS Recursor
+/etc/powerdns/*                        <-- Diretório dos arquivos de configuração do serviço do PowerDNS
+/etc/powerdns/pdns.conf                <-- Arquivo de configuração principal do serviço do PowerDNS Authoritative
+/etc/powerdns/recursor.conf            <-- Arquivo de configuração principal do serviço do PowerDNS Recursor
+/etc/powerdns/pdns.d/                  <-- Diretório dos arquivos de configuração do PowerDNS Authoritative
+/etc/powerdns/pdns.d/bind.conf         <-- Arquivo de configuração da Base de Dados do Bind9 DNS Server
+/etc/powerdns/pdns.d/pdns-mysql.conf   <-- Arquivo de configuração da Base de Dados do MySQL Server
+/etc/powerdns/recursor.d/              <-- Diretório dos arquivos de configuração do PowerDNS Recursor
+/var/log/
+```
+
+## 10_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
+sudo usermod -a -G pdns $USER
+
+#verificando informações do grupo PDNS do PowerDNS
+#opção do comando getent: group (the database system group)
+sudo getent group pdns
 ```
 
 ## 07_ Atualizando os arquivos de configuração do PowerDNS Server no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do Bind9 DNS Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/powerdns/pdns.d/pdns-bind.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/bind.conf
+sudo wget -v -O /etc/powerdns/pdns.d/bind.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-bind.conf
 
 #atualizando o arquivo de configuração do MySQL Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/powerdns/pdns.d/pdns-mysql.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/mysql.conf
+sudo wget -v -O /etc/powerdns/pdns.d/pdns-mysql.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-mysql.conf
 
-#atualizando o arquivo de configuração do PowerDNS do Github
+#atualizando o arquivo de configuração do PowerDNS Authoritative do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/powerdns/pdns.d/pdns.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns.conf
+sudo wget -v -O /etc/powerdns/pdns.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns.conf
+
+#atualizando o arquivo de configuração do PowerDNS Recursor do Github
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/powerdns/recursor.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recursor.conf
 ```
+
 
 
 ## 03_ Verificando o Serviço e Versão do Auditd no Ubuntu Server
