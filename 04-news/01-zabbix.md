@@ -88,6 +88,7 @@ sudo dpkg -i zabbix-release_latest*.deb
 
 ```bash
 #atualizando as lista do Apt com o novo repositório do Zabbix Server
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Zabbix Server e Agent2
@@ -96,6 +97,7 @@ sudo apt update
 sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
 zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
 ```
+
 ## 04_ Criando a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Server
 ```bash
 #opções do comando mysql: -u (user), -p (password)
@@ -126,17 +128,18 @@ exit
 
 ## 05_ Testando o acesso a Base de Dados do Zabbix Server no MySQL Server no Ubuntu Server
 ```bash
+#conectando no banco de dados MySQL Server com o usuário zabbix
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u zabbix -p
 ```
 ```sql
-/* Listando os Bancos de Dados do MySQL */
+/* Listando os Bancos de Dados do MySQL Server */
 SHOW DATABASES;
 
-/* Acessando o Banco de Dados Zabbix */
+/* Acessando o Banco de Dados Zabbix Server */
 USE zabbix;
 
-/* Saindo do Banco de Dados */
+/* Saindo do Banco de Dados do MySQL Server*/
 exit
 ```
 

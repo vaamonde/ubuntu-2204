@@ -64,9 +64,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=1JOs_qALw6I
 ## 01_ Instalando as Dependências do Node.JS no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Node.JS
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim curl gnupg gcc g++ make software-properties-common tree \
 build-essential ca-certificates apt-transport-https
@@ -108,9 +110,11 @@ sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash
 ## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório do Node.JS
+#opção do comando apt: update (Resynchronize the package index files from their sources
 sudo apt update
 
 #Instalando o Node.JS e NPM (Node Package Manager)
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install nodejs
 ```
 

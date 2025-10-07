@@ -74,6 +74,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 ## 01_ Instalando as Dependências do CMS WordPress no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 ```
 
@@ -81,6 +82,7 @@ sudo apt update
 
 ```bash
 #instalando as dependências do WordPress
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install php-bcmath php-mbstring php-dev php-curl php-mysql php-xml php-zip \
 php-soap php-imagick php-intl php-json php-pear unzip pwgen libmcrypt-dev ghostscript \
@@ -118,7 +120,7 @@ GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress';
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
-/* Verificando o Usuário do Wordpress criado no Banco de Dados MySQL Server */
+/* Verificando o Usuário do Wordpress foi criado no Banco de Dados MySQL Server */
 /* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host,authentication_string FROM mysql.user WHERE user='wordpress';
 

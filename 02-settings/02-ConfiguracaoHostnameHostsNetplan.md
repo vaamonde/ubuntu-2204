@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 06/10/2025<br>
-#Versão: 0.21<br>
+#Data de atualização: 07/10/2025<br>
+#Versão: 0.22<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -34,6 +34,10 @@ Conteúdo estudado nessa configuração:<br>
 #09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
 #10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
 #11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
+
+**O QUE É E PARA QUE SERVER O IPV4:** O IPv4 (Internet Protocol version 4) é o protocolo de endereçamento que permite a identificação e comunicação entre dispositivos em redes, como a Internet ou uma rede local (LAN).
+
+**O QUE É E PARA QUE SERVER O IPV6:** O IPv6 (Internet Protocol version 6) é a evolução do IPv4, criado para resolver o maior problema da Internet moderna: a falta de endereços IP disponíveis. Enquanto o IPv4 trabalha com endereços de 32 bits (ex: 192.168.0.1), o IPv6 usa 128 bits, permitindo uma quantidade praticamente infinita de endereços — algo em torno de 340 undecilhões!
 
 **O QUE É E PARA QUE SERVER O NETPLAN:** O *Netplan* é um utilitário para configurar facilmente a rede em um sistema Linux. Você simplesmente cria uma descrição **YAML** das interfaces de rede necessárias e o que cada uma deve ser configurada para fazer. A partir desta descrição o Netplan irá gerar toda a configuração necessária para a ferramenta de renderização escolhida.
 
@@ -345,10 +349,10 @@ network:
         # Configuração dos Endereços IPv4 e IPv6 de DNS para o seu cenário com nível de
         # segurança contra Malware e Adult Content CloudFlare utilizando o CloudFlare
         #addresses:
-        #  - 1.1.1.3
-        #  - 1.0.0.3
-        #  - 2606:4700:4700::1113
-        #  - 2606:4700:4700::1003
+        #  - 8.8.8.8
+        #  - 8.8.8.4
+        #  - 2001:4860:4860::8888
+        #  - 2001:4860:4860::8844
         # Configuração da pesquisa de domínio para o seu cenário
         # OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
         search: [seu.domínio]
@@ -384,6 +388,15 @@ sudo netplan --debug try
 ```
 
 ## 08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+
+**OBSERVAÇÃO IMPORTANTE:** CUIDADO!!!!!! Nem todos os servidores Externos tem suporte ao DNSSEC ou DoT, segue lista dos principais servidores com suporte ao DNSSEC e DoT recomentado pelo Ubuntu Server no arquivo: resolved.conf
+
+| Servidor DNS | Endereços IPv4 | Endereços IPv6 |
+|--------------| ---------------| ---------------|
+| Google | 8.8.8.8 e 8.8.4.4 | 2001:4860:4860::8888 e 2001:4860:4860::8844 |
+| Quad9 | 9.9.9.9 e 149.112.112.112 | 2620:fe::fe e 2620:fe::9 |
+| CloudFlare |  1.1.1.1 e 1.1.1.1 | 2606:4700:4700::1111 e 2606:4700:4700::1001 |
+
 ```bash
 #editando o arquivo de configuração do Systemd Resolved no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo vim /etc/systemd/resolved.conf

@@ -72,9 +72,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=qs-zRXaSmuM
 ## 01_ Instalando as Dependências do MongoDB Server no Ubuntu Server
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do MongoDB Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 ```
 
@@ -117,6 +119,7 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gp
 ## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 ```
 
