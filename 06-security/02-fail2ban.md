@@ -19,7 +19,15 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/21-fail2ba
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiofail2ban #desafiosecurity
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando o Fail2Ban no Ubuntu Server<br>
+#02_ Habilitando o Serviço do Fail2Ban no Ubuntu Server<br>
+#03_ Verificando o Serviço e Versão do Fail2Ban no Ubuntu Server<br>
+#04_ Localização dos Arquivos de Configuração do Fail2Ban no Ubuntu Server<br>
+#05_ Atualizando os arquivos de configuração do Fail2Ban no Ubuntu Server<br>
+#06_ Editando os arquivos de configuração do Fail2Ban no Ubuntu Server<br>
+#07_ Configurando o Monitoramento e Jail (Cadeia/Jaula) do serviço do OpenSSH no Ubuntu Server<br>
+#08_ Reiniciando e Aplicando as novas regras de Jail (Cadeia/Jaula) do Fail2Ban no Ubuntu Server<br>
+#09_ Configuração básica do serviço de Firewall UFW no Ubuntu Server<br>
 
 Site Oficial do Fail2Ban: https://github.com/fail2ban/fail2ban
 
