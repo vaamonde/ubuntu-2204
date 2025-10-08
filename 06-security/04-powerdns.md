@@ -114,8 +114,8 @@ sudo systemctl stop systemd-resolved
 sudo systemctl disable --now systemd-resolved
 
 #removendo o arquivo resolv.conf do Ubuntu Server
-#opção do comando rm: -r (recursive), -f (force)
-sudo rm -rf /etc/resolv.conf
+#opção do comando rm: -r (recursive), -f (force), -v (verbose)
+sudo rm -rfv /etc/resolv.conf
 
 #atualizando o arquivo resolv.conf com servidor DNS Temporário do Google
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -206,8 +206,8 @@ CREATE USER 'powerdns'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pow
 /* Aplicando as permissões de acesso do usuário PowerDNS */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO CONFORME NECESSIDADE */
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
-GRANT USAGE ON *.* TO 'powerdns';
-GRANT ALL PRIVILEGES ON powerdns.* TO 'powerdns';
+GRANT USAGE ON *.* TO 'powerdns'@'localhost';
+GRANT ALL PRIVILEGES ON powerdns.* TO 'powerdns'@'localhost';
 
 /* aplicando todas as mudanças na base de dados */
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
@@ -393,6 +393,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now pdnsadmin.service pdnsadmin.socket
 sudo systemctl status pdnsadmin.service pdnsadmin.socket
 
+dig pti.intra @127.0.0.1 -p 5301
+dig wsvaamonde.pti.intra @127.0.0.1 -p 5301
 
 ========================================DESAFIOS=========================================
 
