@@ -45,7 +45,7 @@ Link da vídeo aula:
 
 **OBSERVAÇÃO IMPORTANTE:** É RECOMENDADO UTILIZADO O NGINX SERVER PARA AS CONFIGURAÇÕES DO POWERDNS ADMIN, CUIDADO COM A INSTALAÇÃO DO APACHE2 SERVER PARA NÃO ENTRAR EM CONFLITO NAS CONFIGURAÇÕES, RECOMENDADO INSTALAR O NGINX SERVER DE FORMA SIMPLES, SEM CONFIGURAÇÃO EXTRA DO PHP-FPM.
 
-## 01_Instalando as dependências do PowerDNS Autoritativo, PowerDNS Recursivo e do PowerDNS Admin no Ubuntu Server
+## 01_Instalando as dependências do PowerDNS Autoritativo, Recursivo e do PowerDNS Admin no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -60,7 +60,7 @@ git python3-flask libpq-dev vim gnupg gcc g++ make software-properties-common tr
 ca-certificates apt-transport-https curl
 ```
 
-## 02_ Baixando e instalando a Chave GPG do PowerDNS Auth e Recursor v5.0.x no Ubuntu Server
+## 02_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o PowerDNS Authoritative e Recursor possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://repo.powerdns.com/
 
@@ -78,24 +78,24 @@ curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /u
 curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-recur-5.3.gpg
 ```
 
-## 03_ Criando o repositório do PowerDNS Auth e Recursor no Ubuntu Server
+## 03_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server
 ```bash
 #criando o arquivo do repositório Apt do PowerDNS Authoritative no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [signed-by=/usr/share/keyrings/powerdns-auth-5.0.gpg] http://repo.powerdns.com/ubuntu jammy-auth-50 main" | sudo tee /etc/apt/sources.list.d/pdns-auth.list
 
-#criando o arquivo do repositório Apt do PowerDNS Recursos no Ubuntu Server
+#criando o arquivo do repositório Apt do PowerDNS Recursor no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 echo "deb [signed-by=/usr/share/keyrings/powerdns-recur-5.3.gpg] http://repo.powerdns.com/ubuntu jammy-rec-53 main" | sudo tee /etc/apt/sources.list.d/pdns-recur.list
 
-#criando o arquivo de preferências do PowerDNS Server no Ubuntu Server
+#criando o arquivo de preferências do PowerDNS no Ubuntu Server
 #opção do comando echo: -e (enable interpretation of backslash escapes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do caracter especial de escape \n: number line
 echo -e "Package: pdns-* \nPin: origin repo.powerdns.com \nPin-Priority: 600" | sudo tee /etc/apt/preferences.d/pdns-server-50
 ```
 
-## 04_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS Server no Ubuntu Server
+## 04_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -125,10 +125,61 @@ echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 sudo nslookup google.com
 ```
 
-## 06_ Instalando o PowerDNS Server e PowerDNS Backend MySQL no Ubuntu Server
+## 06_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
 ```bash
-#instando o PowerDNS Server e PowerDNS Backend MySQL no Ubuntu Server
+#instando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
 sudo apt install pdns-server pdns-recursor pdns-backend-mysql 
+```
+
+## 03_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
+```bash
+#verificando o serviço do PowerDNS Authoritative e Recursor
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
+sudo systemctl status pdns pdns-recursor
+sudo systemctl restart pdns pdns-recursor
+sudo systemctl reload pdns pdns-recursor
+sudo systemctl stop pdns pdns-recursor
+sudo systemctl start pdns pdns-recursor
+
+#analisando os Log's e mensagens de erro do PowerDNS Authoritative e Recursor
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
+sudo journalctl -xeu pdns
+sudo journalctl -xeu pdns-recursor
+```
+**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+
+```bash
+#verificando as versões do PowerDNS Authoritative e Recursor
+#opção do comandos pdns_server e pdns_recursor: --version (version)
+sudo pdns_server --version     #consultando a versão do PowerDNS Authoritative
+sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
+```
+
+## 13_ Localização dos diretórios principais do PowerDNS no Ubuntu Server
+```bash
+/etc/powerdns/*                        <-- Diretório dos arquivos de configuração do serviço do PowerDNS
+/etc/powerdns/pdns.conf                <-- Arquivo de configuração principal do serviço do PowerDNS Authoritative
+/etc/powerdns/recursor.conf            <-- Arquivo de configuração principal do serviço do PowerDNS Recursor
+/etc/powerdns/pdns.d/                  <-- Diretório dos arquivos de configuração do PowerDNS Authoritative
+/etc/powerdns/pdns.d/bind.conf         <-- Arquivo de configuração da Base de Dados do Bind9 DNS Server
+/etc/powerdns/pdns.d/pdns-mysql.conf   <-- Arquivo de configuração da Base de Dados do MySQL Server
+/etc/powerdns/recursor.d/              <-- Diretório dos arquivos de configuração do PowerDNS Recursor
+/var/lib/powerdns/                     <-- Diretório dos arquivos de Zonas de Domínio do PowerDNS
+/var/log/
+```
+
+## 10_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
+```bash
+#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
+sudo usermod -a -G pdns $USER
+
+#verificando informações do grupo PDNS do PowerDNS
+#opção do comando getent: group (the database system group)
+sudo getent group pdns
 ```
 
 ## 02_ Criando a Base de Dados do PowerDNS Server no MySQL Server no Ubuntu Server
@@ -231,31 +282,7 @@ SHOW TABLES;
 exit
 ```
 
-## 13_ Localização dos diretórios principais do PowerDNS no Ubuntu Server
-```bash
-/etc/powerdns/*                        <-- Diretório dos arquivos de configuração do serviço do PowerDNS
-/etc/powerdns/pdns.conf                <-- Arquivo de configuração principal do serviço do PowerDNS Authoritative
-/etc/powerdns/recursor.conf            <-- Arquivo de configuração principal do serviço do PowerDNS Recursor
-/etc/powerdns/pdns.d/                  <-- Diretório dos arquivos de configuração do PowerDNS Authoritative
-/etc/powerdns/pdns.d/bind.conf         <-- Arquivo de configuração da Base de Dados do Bind9 DNS Server
-/etc/powerdns/pdns.d/pdns-mysql.conf   <-- Arquivo de configuração da Base de Dados do MySQL Server
-/etc/powerdns/recursor.d/              <-- Diretório dos arquivos de configuração do PowerDNS Recursor
-/var/log/
-```
-
-## 10_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
-```bash
-#opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
-sudo usermod -a -G pdns $USER
-
-#verificando informações do grupo PDNS do PowerDNS
-#opção do comando getent: group (the database system group)
-sudo getent group pdns
-```
-
-## 07_ Atualizando os arquivos de configuração do PowerDNS Server no Ubuntu Server
+## 07_ Atualizando os arquivos de configuração do PowerDNS no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do Bind9 DNS Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
@@ -271,224 +298,100 @@ sudo wget -v -O /etc/powerdns/pdns.conf https://raw.githubusercontent.com/vaamon
 
 #atualizando o arquivo de configuração do PowerDNS Recursor do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/powerdns/recursor.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recursor.conf
+sudo wget -v -O /etc/powerdns/recursor.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recursor.yml
 ```
 
-
-
-## 03_ Verificando o Serviço e Versão do Auditd no Ubuntu Server
-```bash
-#verificando o serviço do Auditd
-#opções do comando systemctl: status (runtime status information), restart (Stop and then 
-#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
-#one or more units)
-sudo systemctl status auditd
-sudo systemctl restart auditd
-sudo systemctl reload auditd
-sudo systemctl stop auditd
-sudo systemctl start auditd
-
-#analisando os Log's e mensagens de erro do Auditd
-#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
-sudo journalctl -xeu auditd
-
-#verificando os arquivos de configuração do Auditd
-#opção do comando augenrules: --check (test if rules have changed and need updating without overwriting audit.rules)
-sudo augenrules --check
-```
-
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
-
-```bash
-#verificando as versões do Auditctl, Ausearch e Aureport
-#opção do comandos auditctl, ausearch e aureport: -v (version)
-sudo auditctl -v    #configuração das regras de auditoria do Auditd
-sudo ausearch -v    #consultar eventos no log de auditoria do Auditd
-sudo aureport -v    #gerar relatórios do sistema de auditoria do Auditd
-```
-
-## 04_ Localização dos Arquivos de Configuração do Auditd no Ubuntu Server
-```bash
-/etc/audit/                      <-- Diretório de configuração padrão do Auditd
-/etc/audit/auditd.conf           <-- Arquivo de configuração padrão do serviço do Auditd
-/etc/audit/plugins.d/            <-- Diretório dos plugins do Auditd
-/etc/audit/rules.d/              <-- Diretório das regras do Auditd
-/etc/audit/rules.d/audit.rules   <-- Arquivo de configuração padrão das regras do Auditd
-/var/log/audit/                  <-- Diretório dos logs do Auditd
-```
-
-## 05_ Atualizando os arquivos de configuração do Auditd no Ubuntu Server
-```bash
-#fazendo o backup do arquivo de configuração do serviço do Auditd
-#opção do comando cp: -v (verbose)
-sudo cp -v /etc/audit/auditd.conf /etc/audit/auditd.conf.old
-
-#atualizando o arquivo de configuração do Auditd do Github
-#opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/audit/auditd.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/auditd.conf
-
-#atualizando o arquivo de configuração das Regras do Auditd do Github
-#opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/audit/rules.d/wsvaamonde.rules https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/wsvaamonde.rules
-```
-
-## 06_ Editando os arquivos de configuração do serviço e regras do Auditd no Ubuntu Server
+## 06_ Editando os arquivos de configuração do serviço do PowerDNS no Ubuntu Server
 ```bash
 #editar o arquivo de configuração do Auditd
-sudo vim /etc/audit/auditd.conf
+sudo vim /etc/powerdns/pdns.d/pdns-mysql.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
-#alterar a linha: 61 variável do: name = pti.intra
-name = pti.intra
+#alterar a linha:
+
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
 #editar o arquivo de regras do Auditd
-sudo vim /etc/audit/rules.d/wsvaamonde.rules
+sudo vim /etc/powerdns/pdns.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
-#adicionar mais regras de monitoramento seguindo o padrão
--w arquivo_ou_diretório -p permissões -k chave_para_filtro
+#alterar a linha:
+
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#editar o arquivo de regras do Auditd
+sudo vim /etc/powerdns/recursor.yml
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar a linha:
+
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 ```
 
-## 07_ Atualizando as regras de auditoria do Auditd no Ubuntu Server
-```bash
-#reiniciando o serviço do Auditd no Ubuntu Server
-#opções do comando systemctl: restart (Stop and then start one or more units), start (Start (activate) one or more units)
-sudo systemctl restart auditd
-sudo systemctl status auditd
+sudo systemctl stop pdns
+sudo pdns_server --daemon=no --guardian=no --loglevel=9
 
-#verificando se há alguma alteração de regra existente para carregar no Auditd
-#opção do comando augenrules: --check (test if rules have changed and need updating without overwriting audit.rules)
-sudo augenrules --check
+sudo systemctl restart pdns pdns-recursor
+sudo lsof -nP -iTCP:'53,5353' -sTCP:LISTEN
 
-#carregando e mesclando as regras do Auditd
-#opção do comando augenrules: --load (load old or newly built rules into the kernel)
-sudo augenrules --load
+sudo npm install -g yarn
 
-#verificando as regras de auditoria ativas do Auditd
-#opção do comando auditctl: -l (List all rules 1 per line) 
-sudo auditctl -l
+wget https://github.com/PowerDNS-Admin/PowerDNS-Admin/archive/refs/tags/v0.4.2.tar.gz
+tar -zxvf v0.4.2.tar.gz
+sudo mv -v PowerDNS*/ /var/www/html/pdns
 
-#verificando o arquivo de mesclagem de regras do Auditd
-#opção do comando cat: -n (number line)
-sudo cat -n /etc/audit/audit.rules
-```
+cd /var/www/html/pdns/
+virtualenv -p python3 flask
+source ./flask/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+deactivate
 
-## 08_ Consultando o arquivo de Log de Auditoria do Auditd no Ubuntu Server
-```bash
-#listando todo o conteúdo do arquivo de Log do Auditd no Ubuntu Server
-#opção do comando cat: -n (number line)
-sudo cat -n /var/log/audit/audit.log
+sudo vim /var/www/html/pdns/powerdnsadmin/default_config.py
 
-#pesquisando no arquivo de log ocorrências no arquivo /etc/passwd
-#opção do comando ausearch: -f (Search for an event based on the given filename)
-sudo ausearch -f /etc/passwd
+cd /var/www/html/pdns/
+source ./flask/bin/activate
+export FLASK_APP=powerdnsadmin/__init__.py
+flask db upgrade
+yarn install --pure-lockfile
+flask assets build
+deactivate
 
-#pesquisando no arquivo de log ocorrências no arquivo /etc/passwd
-#opção do comando ausearch: -k (Search for an event based on the given key string)
-sudo ausearch -k passwd_changes
-```
+sudo vim /etc/nginx/conf.d/pdns-admin.conf
+sudo nginx -t
 
-## 09_ Gerando os relatórios do arquivo de Log de Auditoria do Auditd no Ubuntu Server
-```bash
-#gerando o relatório de sumário do Auditd
-sudo aureport
+sudo chown -Rv www-data:www-data /var/www/html/pdns
 
-#gerando o relatório de modificações de contas no Auditd
-#opção do comando aureport: -m (Report about account modifications)
-sudo aureport -m 
+sudo vim /etc/systemd/system/pdnsadmin.service
 
-#gerando o relatório de autenticação de contas no Auditd
-#opção do comando aureport: -au (Report about authentication attempts)
-sudo aureport -au
-```
+sudo vim /etc/systemd/system/pdnsadmin.socket
 
-## 10_ Testando a regras de Auditoria do Auditd no Ubuntu Server
-```bash
-#monitoramento em tempo real de arquivo de log do Auditd no Ubuntu Server
-#opção do comando tail: -f (output appended data as the file grows)
-#opção do comando cat: -n (number all output lines)
-#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
-sudo tail -f /var/log/audit/audit.log | cat -n
+echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf
+sudo mkdir -v /run/pdnsadmin/
+sudo chown -Rv pdns: /run/pdnsadmin/
+sudo chown -Rv pdns: /var/www/html/pdns/powerdnsadmin/
 
-#autenticando remotamente via ssh no Ubuntu Server
-ssh SEU_USUÁRIO_REMOTO@ENDEREÇO_IPV4_SERVIDOR
-
-#adicionando um novo usuário de teste no Ubuntu Server
-sudo useradd teste01
-
-#removendo o usuário de teste no Ubuntu Server
-sudo userdel teste01
-
-#pesquisando no arquivo de log ocorrências no arquivo /etc/passwd
-#opção do comando ausearch: -f (Search for an event based on the given filename)
-#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
-sudo ausearch -f /etc/passwd | grep passwd
-
-#pesquisando no arquivo de log ocorrências no arquivo /etc/passwd
-#opção do comando ausearch: -k (Search for an event based on the given key string)
-#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
-sudo ausearch -k passwd_changes | grep passwd
-```
-
-## 11_ Entendo a saída do Log de Auditoria do Auditd no Ubuntu Server
-
-| **Campo**          | **Exemplo**                 | **Descrição**                                                             |
-| ------------------ | --------------------------- | ------------------------------------------------------------------------- |
-| **node**           | `wsvaamonde.pti.intra`      | Nome do host ou nó onde ocorreu o evento.                                 |
-| **type**           | `CRED_DISP`                 | Tipo de evento. (Ex: `CRED_DISP` = descarte de credenciais no PAM).       |
-| **msg=audit(...)** | `audit(1759411325.608:449)` | Metadados do evento: **timestamp UNIX.epoch.segundos : ID do evento**.    |
-| **pid**            | `2431`                      | PID do processo que gerou o evento.                                       |
-| **uid**            | `1000`                      | UID real do usuário que executou o processo.                              |
-| **auid**           | `1000`                      | UID do usuário autenticado na sessão (quem fez login originalmente).      |
-| **ses**            | `1`                         | Número da sessão de login associada ao evento.                            |
-| **subj**           | `unconfined`                | Contexto de segurança (SELinux/AppArmor). `unconfined` = sem restrições.  |
-| **op**             | `PAM:setcred`               | Operação realizada pelo PAM (ex: set de credenciais).                     |
-| **grantors**       | `pam_permit`                | Módulos PAM envolvidos na decisão de autenticação.                        |
-| **acct**           | `"root"`                    | Conta alvo da operação (usuário em nome de quem o comando foi executado). |
-| **exe**            | `"/usr/bin/sudo"`           | Caminho do executável que disparou o evento.                              |
-| **hostname**       | `?`                         | Nome do host remoto (quando aplicável). `?` = não informado.              |
-| **addr**           | `?`                         | Endereço IP remoto (quando aplicável). `?` = não informado.               |
-| **terminal**       | `/dev/pts/0`                | Terminal ou sessão TTY de onde partiu o comando.                          |
-| **res**            | `success`                   | Resultado da operação (`success` ou `failed`).                            |
-| **UID**            | `"vaamonde"`                | Nome de usuário correspondente ao **uid**.                                |
-| **AUID**           | `"vaamonde"`                | Nome de usuário correspondente ao **auid**.                               |
-
-
-| **Campo**          | **Exemplo**                 | **Descrição**                                                                          |
-| ------------------ | --------------------------- | -------------------------------------------------------------------------------------- |
-| **node**           | `wsvaamonde.pti.intra`      | Host/nó onde ocorreu o evento.                                                         |
-| **type**           | `PATH`                      | Indica que o evento refere-se a uma operação em caminho de arquivo.                    |
-| **msg=audit(...)** | `audit(1759411301.064:415)` | Timestamp e ID do evento.                                                              |
-| **item**           | `2`                         | Índice do item de caminho (pode ter múltiplos caminhos em um evento único).            |
-| **name**           | `"/etc/passwd+"`            | Nome do arquivo/diretório envolvido no evento.                                         |
-| **inode**          | `1574525`                   | Número do inode no filesystem (identificador único do arquivo).                        |
-| **dev**            | `fd:00`                     | Identificador do dispositivo de bloco onde o arquivo reside.                           |
-| **mode**           | `0100644`                   | Permissões e tipo de arquivo em notação octal (`-rw-r--r--`).                          |
-| **ouid**           | `0`                         | UID do dono original do arquivo (0 = root).                                            |
-| **ogid**           | `0`                         | GID do grupo original do arquivo (0 = root).                                           |
-| **rdev**           | `00:00`                     | Dispositivo especial associado (apenas para char/block devices).                       |
-| **nametype**       | `DELETE`                    | Tipo de operação realizada sobre o nome do arquivo (ex: `CREATE`, `DELETE`, `NORMAL`). |
-| **cap_fp**         | `0`                         | File capability permitted set (bitmask de capacidades).                                |
-| **cap_fi**         | `0`                         | File capability inheritable set.                                                       |
-| **cap_fe**         | `0`                         | File capability effective set.                                                         |
-| **cap_fver**       | `0`                         | Versão das capabilities do arquivo.                                                    |
-| **cap_frootid**    | `0`                         | Root ID para capacidades herdadas.                                                     |
-| **OUID**           | `"root"`                    | Nome do usuário dono do arquivo (mapeado do ouid).                                     |
-| **OGID**           | `"root"`                    | Nome do grupo dono do arquivo (mapeado do ogid).                                       |
+sudo systemctl daemon-reload
+sudo systemctl enable --now pdnsadmin.service pdnsadmin.socket
+sudo systemctl status pdnsadmin.service pdnsadmin.socket
 
 
 ========================================DESAFIOS=========================================

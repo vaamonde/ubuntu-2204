@@ -1,0 +1,52 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 07/10/2025
+# Data de atualização: 07/10/2025
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do PowerDNS Recursor v5.3.x
+#
+# Configurando o serviço do PowerDNS Recursor
+#
+incoming:
+  allow_from:
+    - '127.0.0.1/32'
+    - '172.16.1.0/24'
+    - '::1/128'
+    - '2804:14c:90:8938::/64'
+
+  listen:
+    - '127.0.0.1:53'
+    - '0.0.0.0:53'
+    - '[::1]:53'
+    - '[::]:53'
+
+recursor:
+  extended_resolution_errors: true
+  forward_zones_recurse:
+    - zone: pti.intra
+      forwarders:
+        - 172.161.20:5353
+    - zone: "."
+      forwarders:
+        - '1.1.1.1:853'
+        - '1.0.0.1:853'
+        - '[2606:4700:4700::1111]:853'
+        - '[2606:4700:4700::1001]:853'
+
+outgoing:
+  source_address:
+    - 0.0.0.0
+    - '::'
+
+dnssec:
+  validation: validate
+  log_bogus: true
+
+logging:
+  loglevel: 6
