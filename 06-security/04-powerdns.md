@@ -35,6 +35,10 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O POWERDNS:** O PowerDNS é uma alternativa avançada ao BIND9 (da ISC.org), desenvolvido para oferecer melhor desempenho, escalabilidade e integração com bancos de dados. Ele é open source, multiplataforma e amplamente utilizado em provedores de Internet, data centers e grandes empresas.
 
+**O QUE É E PARA QUE SERVER O POWERDNS AUTHORITATIVE:** O PowerDNS Authoritative Server é um servidor DNS autoritativo moderno, leve e altamente flexível, responsável por responder oficialmente pelas zonas de domínio que ele gerencia. Ou seja, ele não faz recursão, apenas responde com autoridade pelas informações DNS que estão sob sua responsabilidade.
+
+**O QUE É E PARA QUE SERVER O POWERDNS RECURSOR:** O PowerDNS Recursor é um servidor DNS recursivo — ou seja, ele não é autoritativo, mas é quem faz o trabalho de buscar respostas para consultas DNS, tanto internas quanto externas. Ele atua como o intermediário inteligente entre o cliente (por exemplo, seu navegador ou servidor local) e os servidores DNS autoritativos espalhados pela internet.
+
 **O QUE É E PARA QUE SERVER O POWERDNS ADMIN:** O PowerDNS-Admin é uma interface web moderna e intuitiva desenvolvida para gerenciar servidores PowerDNS de forma simples, visual e organizada. Ele é o “painel de controle” do PowerDNS — ideal para quem não quer (ou não precisa) editar arquivos de zona manualmente no terminal.
 
 [![PowerDNS](http://img.youtube.com/vi//0.jpg)]( "PowerDNS")
@@ -45,7 +49,7 @@ Link da vídeo aula:
 
 **OBSERVAÇÃO IMPORTANTE:** É RECOMENDADO UTILIZADO O NGINX SERVER PARA AS CONFIGURAÇÕES DO POWERDNS ADMIN, CUIDADO COM A INSTALAÇÃO DO APACHE2 SERVER PARA NÃO ENTRAR EM CONFLITO NAS CONFIGURAÇÕES, RECOMENDADO INSTALAR O NGINX SERVER DE FORMA SIMPLES, SEM CONFIGURAÇÃO EXTRA DO PHP-FPM.
 
-## 01_Instalando as dependências do PowerDNS Autoritativo, Recursivo e do PowerDNS Admin no Ubuntu Server
+## 01_Instalando as dependências do PowerDNS Autoritativo, Recursivo e do Admin no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -57,58 +61,20 @@ sudo apt update
 sudo apt install nginx python3-dev libsasl2-dev libldap2-dev libssl-dev libxml2-dev libxslt1-dev \
 libxmlsec1-dev libffi-dev pkg-config apt-transport-https virtualenv build-essential libmariadb-dev \
 git python3-flask libpq-dev vim gnupg gcc g++ make software-properties-common tree build-essential \
-ca-certificates apt-transport-https curl
+ca-certificates apt-transport-https curl ssl-cert
+
+#instalando a dependência do PowerDNS Admin do Yarn
+#opção do comando npm: install (install a package), -g (in global mode)
+sudo npm install -g yarn
 ```
 
-## 02_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server
-
-**OBSERVAÇÃO IMPORTANTE:** o PowerDNS Authoritative e Recursor possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://repo.powerdns.com/
-
+## 02_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server
 ```bash
-#download da Chave GPG do PowerDNS Authoritative (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.0.x EM: 07/10/2025)
-#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
-#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
-#opção do comando gpg: -o (output)
-curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-auth-5.0.gpg
-
-#download da Chave GPG do PowerDNS Recursor (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.3.x EM: 07/10/2025)
-#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
-#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
-#opção do comando gpg: -o (output)
-curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-recur-5.3.gpg
-```
-
-## 03_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server
-```bash
-#criando o arquivo do repositório Apt do PowerDNS Authoritative no Ubuntu Server
-#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "deb [signed-by=/usr/share/keyrings/powerdns-auth-5.0.gpg] http://repo.powerdns.com/ubuntu jammy-auth-50 main" | sudo tee /etc/apt/sources.list.d/pdns-auth.list
-
-#criando o arquivo do repositório Apt do PowerDNS Recursor no Ubuntu Server
-#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "deb [signed-by=/usr/share/keyrings/powerdns-recur-5.3.gpg] http://repo.powerdns.com/ubuntu jammy-rec-53 main" | sudo tee /etc/apt/sources.list.d/pdns-recur.list
-
-#criando o arquivo de preferências do PowerDNS no Ubuntu Server
-#opção do comando echo: -e (enable interpretation of backslash escapes)
-#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-#opção do caracter especial de escape \n: number line
-echo -e "Package: pdns-* \nPin: origin repo.powerdns.com \nPin-Priority: 600" | sudo tee /etc/apt/preferences.d/pdns-server-50
-```
-
-## 04_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server
-```bash
-#atualizando as listas do Apt com o novo repositório
-#opção do comando apt: update (Resynchronize the package index files from their sources)
-sudo apt update
-```
-
-## 05_ Desativando o Serviço do SystemD e Resolução de DNS do ResolveD do Ubuntu Server
-```bash
-#parando o serviço do SystemtD ResolveD do Ubuntu Server
+#parando o serviço do Systemtd Resolved do Ubuntu Server
 #opção do comando systemctl: stop (Stop (deactivate) one or more units specified on the command line)
 sudo systemctl stop systemd-resolved
 
-#desabilitando o serviço do SystemtD ResolveD do Ubuntu Server
+#desabilitando o serviço do Systemtd Resolved do Ubuntu Server
 #opções do comando systemctl: disable (Disables one or more units), --now (When used with disable, 
 #the units will also be disabled service)
 sudo systemctl disable --now systemd-resolved
@@ -125,13 +91,13 @@ echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 sudo nslookup google.com
 ```
 
-## 06_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
+## 03_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
 ```bash
 #instando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
 sudo apt install pdns-server pdns-recursor pdns-backend-mysql 
 ```
 
-## 03_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 04_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
 ```bash
 #verificando o serviço do PowerDNS Authoritative e Recursor
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
@@ -157,7 +123,7 @@ sudo pdns_server --version     #consultando a versão do PowerDNS Authoritative
 sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
 ```
 
-## 13_ Localização dos diretórios principais do PowerDNS no Ubuntu Server
+## 05_ Localização dos diretórios principais do PowerDNS no Ubuntu Server
 ```bash
 /etc/powerdns/*                        <-- Diretório dos arquivos de configuração do serviço do PowerDNS
 /etc/powerdns/pdns.conf                <-- Arquivo de configuração principal do serviço do PowerDNS Authoritative
@@ -170,7 +136,7 @@ sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
 /var/log/
 ```
 
-## 10_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
+## 06_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -182,7 +148,7 @@ sudo usermod -a -G pdns $USER
 sudo getent group pdns
 ```
 
-## 02_ Criando a Base de Dados do PowerDNS Server no MySQL Server no Ubuntu Server
+## 07_ Criando a Base de Dados do PowerDNS Server no MySQL Server no Ubuntu Server
 ```bash
 #acessando o MySQL Server com o usuário Root
 #opções do comando mysql: -u (user), -p (password)
@@ -240,7 +206,7 @@ USE powerdns;
 exit
 ```
 
-## 05_ Testando o acesso a Base de Dados do PowerDNS Server no MySQL Server no Ubuntu Server
+## 08_ Testando o acesso a Base de Dados do PowerDNS Server no MySQL Server no Ubuntu Server
 ```bash
 #conectando no banco de dados MySQL Server com o usuário powerdns
 #opções do comando mysql: -u (user), -p (password)
@@ -257,7 +223,7 @@ USE powerdns;
 exit
 ```
 
-## 06_ Populando as Tabelas no Banco de Dados do PowerDNS Server utilizando o arquivo de Esquema do MySQL Server no Ubuntu Server
+## 09_ Populando as Tabelas no Banco de Dados do PowerDNS Server utilizando o arquivo de Esquema do MySQL Server no Ubuntu Server
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do PowerDNS Server
 #opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
@@ -282,7 +248,7 @@ SHOW TABLES;
 exit
 ```
 
-## 07_ Atualizando os arquivos de configuração do PowerDNS no Ubuntu Server
+## 10_ Atualizando os arquivos de configuração do PowerDNS no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do Bind9 DNS Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
@@ -298,12 +264,12 @@ sudo wget -v -O /etc/powerdns/pdns.conf https://raw.githubusercontent.com/vaamon
 
 #atualizando o arquivo de configuração do PowerDNS Recursor do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/powerdns/recursor.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recursor.yml
+sudo wget -v -O /etc/powerdns/recursor.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recursor.conf
 ```
 
-## 06_ Editando os arquivos de configuração do serviço do PowerDNS no Ubuntu Server
+## 11_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server
 ```bash
-#editar o arquivo de configuração do Auditd
+#editar o arquivo de configuração do PowerDNS Backend MySQL
 sudo vim /etc/powerdns/pdns.d/pdns-mysql.conf
 
 #entrando no modo de edição do editor de texto VIM
@@ -317,7 +283,7 @@ INSERT
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
-#editar o arquivo de regras do Auditd
+#editar o arquivo de configuração do PowerDNS Authoritative
 sudo vim /etc/powerdns/pdns.conf
 
 #entrando no modo de edição do editor de texto VIM
@@ -331,7 +297,7 @@ INSERT
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
-#editar o arquivo de regras do Auditd
+#editar o arquivo de configuração do PowerDNS Recursor
 sudo vim /etc/powerdns/recursor.yml
 
 #entrando no modo de edição do editor de texto VIM
@@ -344,15 +310,20 @@ INSERT
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
+
+#atualizando o arquivo resolv.conf com servidor do PowerDNS Recursor
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+echo "nameserver 172.16.1.20" | sudo tee /etc/resolv.conf
 ```
+
 
 sudo systemctl stop pdns
 sudo pdns_server --daemon=no --guardian=no --loglevel=9
 
 sudo systemctl restart pdns pdns-recursor
-sudo lsof -nP -iTCP:'53,5353' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'53,5300' -sTCP:LISTEN
 
-sudo npm install -g yarn
+
 
 wget https://github.com/PowerDNS-Admin/PowerDNS-Admin/archive/refs/tags/v0.4.2.tar.gz
 tar -zxvf v0.4.2.tar.gz
