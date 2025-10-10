@@ -27,11 +27,14 @@ incoming:
     - '[::]:53'
 
 recursor:
+  hint_file: /usr/share/dns/root.hints
+  include_dir: /etc/powerdns/recursor.d
   extended_resolution_errors: true
-  forward_zones_recurse:
+  forward_zones:
     - zone: pti.intra
       forwarders:
-        - 172.161.20:5353
+        - 127.0.0.1:5300
+  forward_zones_recurse:
     - zone: "."
       forwarders:
         - '1.1.1.1:853'
@@ -45,7 +48,8 @@ outgoing:
     - '::'
 
 dnssec:
-  validation: validate
+  trustanchorfile: /usr/share/dns/root.key
+  validation: process
   log_bogus: true
 
 logging:
