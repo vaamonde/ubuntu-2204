@@ -91,6 +91,48 @@ echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 sudo nslookup google.com
 ```
 
+## 02_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** o PowerDNS Authoritative e Recursor possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://repo.powerdns.com/
+
+```bash
+#download da Chave GPG do PowerDNS Authoritative (VERSÃO ESTÁVEL ATÉ O MOMENTO: 4.9.x EM: 07/10/2025)
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando gpg: -o (output)
+curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-auth-5.0.gpg
+
+#download da Chave GPG do PowerDNS Recursor (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.3.x EM: 07/10/2025)
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando gpg: -o (output)
+curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-recur-5.3.gpg
+```
+
+## 03_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server
+```bash
+#criando o arquivo do repositório Apt do PowerDNS Authoritative no Ubuntu Server
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+echo "deb [signed-by=/usr/share/keyrings/powerdns-auth-5.0.gpg] http://repo.powerdns.com/ubuntu jammy-auth-50 main" | sudo tee /etc/apt/sources.list.d/pdns-auth.list
+
+#criando o arquivo do repositório Apt do PowerDNS Recursor no Ubuntu Server
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+echo "deb [signed-by=/usr/share/keyrings/powerdns-recur-5.3.gpg] http://repo.powerdns.com/ubuntu jammy-rec-53 main" | sudo tee /etc/apt/sources.list.d/pdns-recur.list
+
+#criando o arquivo de preferências do PowerDNS no Ubuntu Server
+#opção do comando echo: -e (enable interpretation of backslash escapes)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do caracter especial de escape \n: number line
+echo -e "Package: pdns-* \nPin: origin repo.powerdns.com \nPin-Priority: 600" | sudo tee /etc/apt/preferences.d/powerdns
+```
+
+## 04_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server
+```bash
+#atualizando as listas do Apt com o novo repositório
+#opção do comando apt: update (Resynchronize the package index files from their sources)
+sudo apt update
+```
+
 ## 03_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
 ```bash
 #instando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
@@ -251,6 +293,8 @@ exit
 ## 10_ Atualizando os arquivos de configuração do PowerDNS no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do Bind9 DNS Server do Github
+#OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO ESTÁ SENDO DESATIVADO O RECURSO DE BANCO DE DADOS
+#UTILIZANDO O SERVIÇO DO BIND9 DNS SERVER COMO SERVIÇO DE BACKEND DO POWERDNS AUTHORITATIVE
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/powerdns/pdns.d/bind.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-bind.conf
 
