@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/10/2025<br>
-#Data de atualização: 07/10/2025<br>
-#Versão: 0.01<br>
+#Data de atualização: 09/10/2025<br>
+#Versão: 0.02<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
@@ -324,7 +324,7 @@ sudo systemctl restart pdns pdns-recursor
 sudo lsof -nP -iTCP:'53,5300' -sTCP:LISTEN
 
 
-
+cd /tmp
 wget https://github.com/PowerDNS-Admin/PowerDNS-Admin/archive/refs/tags/v0.4.2.tar.gz
 tar -zxvf v0.4.2.tar.gz
 sudo mv -v PowerDNS*/ /var/www/html/pdns
