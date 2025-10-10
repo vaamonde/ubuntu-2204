@@ -360,9 +360,24 @@ ESC SHIFT :x <Enter>
 echo "nameserver 172.16.1.20" | sudo tee /etc/resolv.conf
 ```
 
-
 sudo systemctl stop pdns
 sudo pdns_server --daemon=no --guardian=no --loglevel=9
+
+sudo pdnsutil create-zone pti.intra ns1.pti.intra
+sudo pdnsutil list-all-zones
+sudo pdnsutil zone list pti.intra
+
+sudo pdnsutil add-record pti.intra ns1.pti.intra A 3600 172.16.1.20
+sudo pdnsutil add-record pti.intra pti.intra A 3600 172.16.1.20
+sudo pdnsutil add-record pti.intra wsvaamonde.pti.intra A 3600 172.16.1.20
+
+sudo pdnsutil delete-rrset pti.intra pti.intra SOA
+sudo pdnsutil add-record pti.intra pti.intra SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
+
+sudo pdnsutil rectify-zone pti.intra
+sudo pdns_control reload
+
+
 
 sudo systemctl restart pdns pdns-recursor
 sudo lsof -nP -iTCP:'53,5300' -sTCP:LISTEN
