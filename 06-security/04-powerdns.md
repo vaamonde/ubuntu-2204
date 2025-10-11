@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/10/2025<br>
-#Data de atualização: 10/10/2025<br>
-#Versão: 0.03<br>
+#Data de atualização: 11/10/2025<br>
+#Versão: 0.04<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
@@ -528,39 +528,129 @@ sudo wget -v -O /etc/systemd/system/pdnsadmin.socket https://raw.githubuserconte
 
 #criando o arquivo e diretório de runtime do PowerDNS Admin
 #opção do comando mkdir: -v (verbose)
-#opção do comando chown: -R (recursive), -v (verbose)
+#opção do comando chown: -R (recursive), -v (verbose), pdns: (user and group)
 sudo mkdir -v /run/pdnsadmin/
 sudo chown -Rv pdns: /run/pdnsadmin/
 echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf
-
 ```
 
+## 21_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
+```bash
+#editando o arquivo de configuração do PowerDNS Admin
+#opção do comando wget: -v (verbose), -O (output file)
+sudo vim /var/www/html/pdns/powerdnsadmin/default_config.py
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar as linhas de: 21 até 22 das variáveis dos endereços IPv4 e Porta
+BIND_ADDRESS = '172.16.1.20'
+PORT = 9191
+
+#alterar as linhas de: 25 até 26 das variáveis de salt e secret
+SALT = 'pwerdns'
+SECRET_KEY = 'powerdns'
+
+#alterar as linhas de: 48 até 48 das variáveis de conexão do MySQL Server
+SQLA_DB_USER = 'powerdns'
+SQLA_DB_PASSWORD = 'powerdns'
+SQLA_DB_HOST = 'powerdns'
+SQLA_DB_NAME = 'powerdns
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+
+#editando o arquivo de configuração do PowerDNS Admin do NGINX Server
+#opção do comando wget: -v (verbose), -O (output file)
+sudo vim  /etc/nginx/conf.d/pdns-admin.conf
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+#alterar a linha 22 da variável do nome do servidor
+server_name pdns.pti.intra;
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT :x <Enter>
+```
+
+## 22_ Configurando o Ambiente Virtual e Dependências do PowerDNS Admin no Ubuntu Server
+
+```bash
+#Acessando o diretório de instalação do PowerDNS-Admin no servidor NGINX
 cd /var/www/html/pdns/
+
+#Criando um ambiente virtual isolado em Python 3 para o PowerDNS-Admin
 virtualenv -p python3 flask
+
+#Ativando o ambiente virtual Python (modo ativo)
 source ./flask/bin/activate
+
+#Atualizando o gerenciador de pacotes pip dentro do ambiente virtual
 python -m pip install --upgrade pip
+
+#Instalando todas as dependências Python listadas no arquivo requirements.txt
 pip install -r requirements.txt
+
+#Definindo a variável de ambiente FLASK_APP apontando para o aplicativo principal do PowerDNS-Admin
 export FLASK_APP=powerdnsadmin/__init__.py
+
+#Atualizando o banco de dados interno do Flask (migrações com o Alembic)
 flask db upgrade
+
+#Instalando as dependências de frontend (JavaScript/CSS) usando o Yarn
 yarn install --pure-lockfile
+
+#Gerando (compilando) os arquivos estáticos do frontend do Flask
 flask assets build
+
+#Desativando o ambiente virtual Python (voltando ao shell normal)
 deactivate
+```
 
-
-
-sudo vim /etc/nginx/conf.d/pdns-admin.conf
-sudo nginx -t
-
+## 23_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server
+```bash
+#alterando as permissões do diretório de instalação do PowerDNS Admin no NGINX Server
+#opções do comando chown: -R (recursive), -v (verbose), www-data:www-data (user/owner and group default)
 sudo chown -Rv www-data:www-data /var/www/html/pdns
+
+#alterando as permissões do diretório de administração do PowerDNS Admin no NGINX Server
+#opções do comando chown: -R (recursive), -v (verbose), pdns: (user/owner default)
 sudo chown -Rv pdns: /var/www/html/pdns/powerdnsadmin/
 
-sudo vim /etc/systemd/system/pdnsadmin.service
-sudo vim /etc/systemd/system/pdnsadmin.socket
+#removendo o arquivo de configuração do site padrão do NGINX Server
+#opção do comando rm: -v (verbose)
+sudo rm -v /etc/nginx/sites-enabled/default
 
+#testando os arquivos de configuração do NGINX Server
+#opção do comando nginx: -t (test config files)
+sudo nginx -t
+```
+
+## 24_ Habilitando e iniciando os serviços do NGINX Server e do PowerDNS Admin no Ubuntu Server
+```bash
 sudo systemctl daemon-reload
 sudo systemctl restart nginx
 sudo systemctl enable --now pdnsadmin.service pdnsadmin.socket
 sudo systemctl status pdnsadmin.service pdnsadmin.socket
+```
+
+## 25_ Acessando via navegador o PowerDNS Admin
+172.16.1.20
+Create an account
+  Enter your personal details below
+    First name: Robson
+    Last name: Vaamonde
+    Email: vaamonde@pti.intra
+    Username: vaamonde
+    Password: pti@2018
+    Retype password: pti@2018
+    Captcha: 123456
+  <Register>
 
 ========================================DESAFIOS=========================================
 
