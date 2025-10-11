@@ -141,7 +141,7 @@ sudo apt install pdns-server pdns-recursor pdns-backend-mysql
 
 ## 07_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O POWERDNS AUTHORITATIVO E RECURSOR ESTÃO CONFIGURADOS NA MESMA PORTA (53/UDP) CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO DO POWERDNS AUTHORITATIVE SERVER, ESSA FALHA SERÁ CORRIGIDA NAS CONFIGURAÇÕES DO SERVIDOR.
+**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O POWERDNS AUTHORITATIVE E O RECURSOR ESTÃO CONFIGURADOS NA MESMA PORTA (53/UDP) CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO DO POWERDNS AUTHORITATIVE SERVER, ESSA FALHA SERÁ CORRIGIDA NAS CONFIGURAÇÕES DO SERVIDOR.
 
 ```bash
 #verificando os serviços do PowerDNS Authoritative e Recursor
@@ -376,7 +376,7 @@ ESC SHIFT :x <Enter>
 echo "nameserver 172.16.1.20" | sudo tee /etc/resolv.conf
 ```
 
-## 15_ Testando o serviço do PowerDNS Authoritative e Backend no Ubuntu Server
+## 15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server
 
 ```bash
 #parando o serviço do PowerDNS Authoritative no Ubuntu Server
@@ -426,24 +426,24 @@ sudo pdnsutil list-all-zones
 #opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
 sudo pdnsutil zone list pti.intra
 
-#removendo o registro do tipo SOA () da Zona Interna criada no PowerDNS Authoritative
+#removendo o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute),
-#pti.intra (Zone named), pti.intra (), SOA ()
+#pti.intra (Zone named), pti.intra (), SOA (Type of register)
 sudo pdnsutil delete-rrset pti.intra pti.intra SOA
 
-#criando o registro do tipo SOA () da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record ()
 sudo pdnsutil add-record pti.intra pti.intra SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
 
-#criando o registro do tipo A () da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record ()
 sudo pdnsutil add-record pti.intra ns1.pti.intra A 3600 172.16.1.20
 
-#criando o registro do tipo A () da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record ()
 sudo pdnsutil add-record pti.intra pti.intra A 3600 172.16.1.20
 
-#criando o registro do tipo A () da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record ()
 sudo pdnsutil add-record pti.intra wsvaamonde.pti.intra A 3600 172.16.1.20
 
@@ -513,10 +513,11 @@ sudo systemctl status pdnsadmin.service pdnsadmin.socket
 
 =========================================================================================
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO AUDITD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Auditd realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/22-auditd.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/23-powerdns.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioauditd #desafioaudit #desafiosecurity
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiopowerdns #desafiopowerdnsadmin
+
