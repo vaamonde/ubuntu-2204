@@ -1,0 +1,17 @@
+[Unit]
+Description=PowerDNS-Admin
+Requires=pdnsadmin.socket
+After=network.target
+
+[Service]
+PIDFile=/run/pdnsadmin/pid
+User=pdns
+Group=pdns
+WorkingDirectory=/var/www/html/pdns
+ExecStart=/var/www/html/pdns/flask/bin/gunicorn --pid /run/pdnsadmin/pid --bind unix:/run/pdnsadmin/socket 'powerdnsadmin:create_app()'
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

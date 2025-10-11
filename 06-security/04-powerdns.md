@@ -427,32 +427,42 @@ sudo pdnsutil list-all-zones
 sudo pdnsutil zone list pti.intra
 
 #removendo o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute),
-#pti.intra (Zone named), pti.intra (), SOA (Type of register)
+#opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), pti.intra (Zone named),
+#pti.intra (record name), SOA (Type of register - start of authority)
 sudo pdnsutil delete-rrset pti.intra pti.intra SOA
 
 #criando o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: add-record ()
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), pti.intra (zone name), pti.intra (record name), SOA (Type SOA - Start os Authority), 3600 (TTL - Time to Live),
+#ns1.pti.intra (NS - primary DNS server), hostmaster.pti.intra. (responsible mail), 2025100801 (number of serial zone),
+#3600 (TTL - time to live zone), 600 (retry zone), 604800 (expire zone), 86400 (minimum negative TTIL)
 sudo pdnsutil add-record pti.intra pti.intra SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
 
 #criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: add-record ()
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), pti.intra (zone name), ns1. pti.intra (record name NS - name server), A (type IPv4 record), 3600 (TTL - Time
+# to Live), 172.16.1.20 (IPv4 Address record name)
 sudo pdnsutil add-record pti.intra ns1.pti.intra A 3600 172.16.1.20
 
 #criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: add-record ()
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), pti.intra (zone name), pti.intra (record name), A (type IPv4 record), 3600 (TTL - Time to Live), 172.16.1.20
+#(IPv4 Address record name)
 sudo pdnsutil add-record pti.intra pti.intra A 3600 172.16.1.20
 
 #criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: add-record ()
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), pti.intra (zone name), wsvaamonde.pti.intra (record name), A (type IPv4 record), 3600 (TTL - Time to Live),
+#172.16.1.20 (IPv4 Address record name)
 sudo pdnsutil add-record pti.intra wsvaamonde.pti.intra A 3600 172.16.1.20
 
 #atualizando os registros da Zona Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: rectify-zone ()
+#opções do comando pdnsutil: rectify-zone (Calculates the 'ordername' and 'auth' fields for a zone called ZONE so 
+#they comply with DNSSEC settings), pti.intra (zone named)
 sudo pdnsutil rectify-zone pti.intra
 
 #atualizando e reiniciando o serviço do PowerDNS Authoritative
-#opção do comando pdns_control: reload () 
+#opção do comando pdns_control: reload (Instruct the server to reload all its zones, this will not add new zones) 
 sudo pdns_control reload
 
 #listando Zona Interna criada com os novos registros no PowerDNS Authoritative
@@ -462,48 +472,93 @@ sudo pdnsutil zone list pti.intra
 
 ## 18_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
 ```bash
+#testando o resolução da Zona Interna criada no PowerDNS Authoritative
+#opção do comando dig: pti.intra (Zona Interna), @127.0.0.1 (loopback), -p (port)
 dig pti.intra @127.0.0.1 -p 5300
+
+#testando a resolução de Nomes da Zona Interna criada no PowerDNS Authoritative
+#opção do comando dig: wsvaamonde.pti.intra (REgister Type A), @127.0.0.1 (loopback), -p (port)
 dig wsvaamonde.pti.intra @127.0.0.1 -p 5300
+
+#testando a resolução de Zona Interna e Externas utilizando o PowerDNS Recursor
+nslookup pti.intra
+nslookup google.com
 ```
 
-### =================== IMPLEMENTAÇÃO DO POWERDNS ADMIN = EM DESENVOLVIMENTO =====================
+## 19_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** o aplicativo e os arquivos de configuração do *PowerDNS Admin* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/PowerDNS-Admin/PowerDNS-Admin/releases
+
+```bash
+#acessando diretório temporário do Ubuntu Server
 cd /tmp
-wget https://github.com/PowerDNS-Admin/PowerDNS-Admin/archive/refs/tags/v0.4.2.tar.gz
-tar -zxvf v0.4.2.tar.gz
-sudo mv -v PowerDNS*/ /var/www/html/pdns
+
+#fazendo o download do PowerDNS Admin do site Oficial do Github (Link atualizado em: 10/10/2025)
+#opção do comando wget: -O (output-document)
+wget -O pdns-admin.tar.gz https://github.com/PowerDNS-Admin/PowerDNS-Admin/archive/refs/tags/v0.4.2.tar.gz
+
+#descompactando o arquivo do PowerDNS Admin
+#opção do comando tar: -z (gzip), -x (extract), -v (verbose), -f (file)
+tar -zxvf pdns-admin.tar.gz
+
+#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DO DESTINO CONFORME NECESSIDADE
+#movendo o conteúdo do PowerDNS Admin para o diretório do NGINX Server
+#opção do comando mv: -v (verbose)
+#opção do caractere curinga * (asterisco): Qualquer coisa
+sudo mv -v PowerDNS-Admin*/ /var/www/html/pdns/
+```
+
+## 20_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
+```bash
+#atualizando o arquivo de configuração do PowerDNS Admin
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /var/www/html/pdns/powerdnsadmin/default_config.py https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/default_config.py
+
+#atualizando o arquivo de configuração do PowerDNS Admin do NGINX Server
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/nginx/conf.d/pdns-admin.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-admin.conf
+
+#atualizando o arquivo de inicialização do serviço do PowerDNS Admin
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/systemd/system/pdnsadmin.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdnsadmin.service
+
+#atualizando o arquivo de socket do serviço do PowerDNS Admin
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/systemd/system/pdnsadmin.socket https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdnsadmin.socket
+
+#criando o arquivo e diretório de runtime do PowerDNS Admin
+#opção do comando mkdir: -v (verbose)
+#opção do comando chown: -R (recursive), -v (verbose)
+sudo mkdir -v /run/pdnsadmin/
+sudo chown -Rv pdns: /run/pdnsadmin/
+echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf
+
+```
 
 cd /var/www/html/pdns/
 virtualenv -p python3 flask
 source ./flask/bin/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-deactivate
-
-sudo vim /var/www/html/pdns/powerdnsadmin/default_config.py
-
-cd /var/www/html/pdns/
-source ./flask/bin/activate
 export FLASK_APP=powerdnsadmin/__init__.py
 flask db upgrade
 yarn install --pure-lockfile
 flask assets build
 deactivate
 
+
+
 sudo vim /etc/nginx/conf.d/pdns-admin.conf
 sudo nginx -t
 
 sudo chown -Rv www-data:www-data /var/www/html/pdns
-
-sudo vim /etc/systemd/system/pdnsadmin.service
-
-sudo vim /etc/systemd/system/pdnsadmin.socket
-
-echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf
-sudo mkdir -v /run/pdnsadmin/
-sudo chown -Rv pdns: /run/pdnsadmin/
 sudo chown -Rv pdns: /var/www/html/pdns/powerdnsadmin/
 
+sudo vim /etc/systemd/system/pdnsadmin.service
+sudo vim /etc/systemd/system/pdnsadmin.socket
+
 sudo systemctl daemon-reload
+sudo systemctl restart nginx
 sudo systemctl enable --now pdnsadmin.service pdnsadmin.socket
 sudo systemctl status pdnsadmin.service pdnsadmin.socket
 
