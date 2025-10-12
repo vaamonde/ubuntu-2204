@@ -105,6 +105,7 @@ sudo dpkg -l libssl1.1
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
 curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg > /dev/null
 ```
 
@@ -112,7 +113,8 @@ curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearm
 ```bash
 #adicionando o repositório local do PostgreSQL Server no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "deb http://apt.postgresql.org/pub/repos/apt jammy-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
+echo "deb http://apt.postgresql.org/pub/repos/apt jammy-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list > /dev/null
 ```
 
 ## 04_ Atualizando as Listas do Apt e Instalando o PostgreSQL Server e Client no Ubuntu Server
