@@ -110,8 +110,11 @@ sudo systemctl disable --now systemd-resolved
 sudo rm -rfv /etc/resolv.conf
 
 #atualizando o arquivo resolv.conf com servidor DNS Temporário do Google
+#opção do comando echo: -e (enable interpretation of backslash escapes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+#opção do caracter especial de escape \n: number line
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
+echo -e "nameserver 8.8.8.8 \nnameserver 2001:4860:4860::8888" | sudo tee /etc/resolv.conf > /dev/null
 
 #testando a resolução de nomes temporários do DNS no Ubuntu Server
 sudo nslookup google.com
@@ -139,16 +142,19 @@ curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /u
 ```bash
 #criando o arquivo do repositório do Apt do PowerDNS Authoritative no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
 echo "deb [signed-by=/usr/share/keyrings/powerdns-auth-5.0.gpg] http://repo.powerdns.com/ubuntu jammy-auth-50 main" | sudo tee /etc/apt/sources.list.d/pdns-auth.list > /dev/null
 
 #criando o arquivo do repositório do Apt do PowerDNS Recursor no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
 echo "deb [signed-by=/usr/share/keyrings/powerdns-recur-5.3.gpg] http://repo.powerdns.com/ubuntu jammy-rec-53 main" | sudo tee /etc/apt/sources.list.d/pdns-recur.list > /dev/null
 
 #criando o arquivo de preferências do PowerDNS no Ubuntu Server
 #opção do comando echo: -e (enable interpretation of backslash escapes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do caracter especial de escape \n: number line
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
 echo -e "Package: pdns-* \nPin: origin repo.powerdns.com \nPin-Priority: 600" | sudo tee /etc/apt/preferences.d/powerdns > /dev/null
 ```
 
@@ -288,7 +294,7 @@ exit
 ## 12_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do MySQL Server no Ubuntu Server
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do PowerDNS Authoritative
-#opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
+#opção do redirecionador de entrada < (menor): Redireciona a entrada padrão (STDIN)
 #opções do comando mysql: -u (user), -p (password), powerdns (database)
 sudo mysql -u powerdns -p powerdns < /usr/share/pdns-backend-mysql/schema/schema.mysql.sql
 
@@ -385,8 +391,11 @@ INSERT
 ESC SHIFT :x <Enter>
 
 #atualizando o arquivo resolv.conf com servidor do PowerDNS Recursor
+#opção do comando echo: -e (enable interpretation of backslash escapes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "nameserver 172.16.1.20" | sudo tee /etc/resolv.conf
+#opção do caracter especial de escape \n: number line
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
+echo -e "nameserver 172.16.1.20 \nnameserver 2804:14c:90:8938::20" | sudo tee /etc/resolv.conf > /dev/null
 ```
 
 ## 15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server
@@ -551,9 +560,10 @@ sudo wget -v -O /etc/systemd/system/pdnsadmin.service https://raw.githubusercont
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/systemd/system/pdnsadmin.socket https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdnsadmin.socket
 
-#criando o arquivo e diretório de runtime do PowerDNS Admin
+#criando o diretório e arquivo de runtime do PowerDNS Admin
 #opção do comando mkdir: -v (verbose)
 #opção do comando chown: -R (recursive), -v (verbose), pdns: (user and group)
+#opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
 sudo mkdir -v /run/pdnsadmin/
 sudo chown -Rv pdns: /run/pdnsadmin/
 echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf > /dev/null
