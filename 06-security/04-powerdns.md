@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/10/2025<br>
-#Data de atualização: 11/10/2025<br>
-#Versão: 0.04<br>
+#Data de atualização: 12/10/2025<br>
+#Versão: 0.05<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,7 +19,32 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/23-powerdn
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiopowerdns #desafiopowerdnsadmin
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server<br>
+#02_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server<br>
+#03_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#04_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#05_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server<br>
+#06_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server<br>
+#07_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#08_ Localização dos diretórios principais do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#09_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server<br>
+#10_ Criando a Base de Dados do PowerDNS Authoritative no MySQL Server no Ubuntu Server<br>
+#11_ Testando o acesso a Base de Dados do PowerDNS Authoritative no MySQL Server no Ubuntu Server<br>
+#12_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do MySQL Server no Ubuntu Server<br>
+#13_ Atualizando os arquivos de configuração do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#14_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server<br>
+#15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server<br>
+#16_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#17_ Criando uma Zona de Pesquisa Interna no PowerDNS Authoritative no Ubuntu Server<br>
+#18_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server<br>
+#19_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server<br>
+#20_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server<br>
+#21_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server<br>
+#22_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server<br>
+#23_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server<br>
+#24_ Desativando o site padrão do NGINX Server no Ubuntu Server<br>
+#25_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server<br>
+#26_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin<br>
 
 Site Oficial do PowerDNS: https://www.powerdns.com/<br>
 Site Oficial do PowerDNS Admin: https://www.poweradmin.org/
@@ -49,7 +74,7 @@ Link da vídeo aula:
 
 **OBSERVAÇÃO IMPORTANTE:** É RECOMENDADO UTILIZADO O NGINX SERVER PARA AS CONFIGURAÇÕES DO POWERDNS ADMIN, CUIDADO COM A INSTALAÇÃO DO APACHE2 SERVER PARA NÃO ENTRAR EM CONFLITO NAS CONFIGURAÇÕES, RECOMENDADO INSTALAR O NGINX SERVER DE FORMA SIMPLES, SEM CONFIGURAÇÃO EXTRA DO PHP-FPM.
 
-## 01_Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server
+## 01_ Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
 #opção do comando apt: update (Resynchronize the package index files from their sources)
@@ -377,7 +402,6 @@ echo "nameserver 172.16.1.20" | sudo tee /etc/resolv.conf
 ```
 
 ## 15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server
-
 ```bash
 #parando o serviço do PowerDNS Authoritative no Ubuntu Server
 #opção do comando systemctl: stop (Stop (deactivate) one or more units)
@@ -411,7 +435,7 @@ sudo lsof -nP -iTCP:'53,5300' -sTCP:LISTEN
 sudo lsof -nP -iUDP:'53,5300'
 ```
 
-## 17_ Criando uma Zona Interna no PowerDNS Authoritative no Ubuntu Server
+## 17_ Criando uma Zona de Pesquisa Interna no PowerDNS Authoritative no Ubuntu Server
 ```bash
 #criando a Zona Interna no PowerDNS Authoritative
 #opções do comando pdnsutil: create-zone (Create an empty zone named ZONE), pti.intra (Zone named), 
@@ -425,6 +449,14 @@ sudo pdnsutil list-all-zones
 #listando apenas a Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
 sudo pdnsutil zone list pti.intra
+
+#verificando erros na Zona Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: check-zone (Check zone ZONE for correctness)
+sudo pdnsutil check-zone pti.intra
+
+#habilitando o suporte ao DNSSEC na Zona Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
+sudo pdnsutil secure-zone pti.intra
 
 #removendo o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), pti.intra (Zone named),
@@ -456,14 +488,20 @@ sudo pdnsutil add-record pti.intra pti.intra A 3600 172.16.1.20
 #172.16.1.20 (IPv4 Address record name)
 sudo pdnsutil add-record pti.intra wsvaamonde.pti.intra A 3600 172.16.1.20
 
+#criando o registro do tipo CNAME (Canonical Name) da Zona Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), pti.intra (zone name), wsvaamonde.pti.intra (record name), A (type IPv4 record), 3600 (TTL - Time to Live),
+#172.16.1.20 (IPv4 Address record name)
+sudo pdnsutil add-record pti.intra pdns.pti.intra CNAME 3600 "wsvaamonde.pti.intra"
+
 #atualizando os registros da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: rectify-zone (Calculates the 'ordername' and 'auth' fields for a zone called ZONE so 
 #they comply with DNSSEC settings), pti.intra (zone named)
 sudo pdnsutil rectify-zone pti.intra
 
-#atualizando e reiniciando o serviço do PowerDNS Authoritative
+#recarregar a Zona Interna do PowerDNS Authoritative sem reiniciar o serviço
 #opção do comando pdns_control: reload (Instruct the server to reload all its zones, this will not add new zones) 
-sudo pdns_control reload
+sudo pdns_control reload pti.intra
 
 #listando Zona Interna criada com os novos registros no PowerDNS Authoritative
 #opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
@@ -473,12 +511,12 @@ sudo pdnsutil zone list pti.intra
 ## 18_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
 ```bash
 #testando o resolução da Zona Interna criada no PowerDNS Authoritative
-#opção do comando dig: pti.intra (Zona Interna), @127.0.0.1 (loopback), -p (port)
-dig pti.intra @127.0.0.1 -p 5300
+#opção do comando dig: @127.0.0.1 (loopback), -p (port), pti.intra (Zona Interna)
+dig @127.0.0.1 -p 5300 pti.intra
 
 #testando a resolução de Nomes da Zona Interna criada no PowerDNS Authoritative
-#opção do comando dig: wsvaamonde.pti.intra (REgister Type A), @127.0.0.1 (loopback), -p (port)
-dig wsvaamonde.pti.intra @127.0.0.1 -p 5300
+#opção do comando dig: @127.0.0.1 (loopback), -p (port), wsvaamonde.pti.intra (Register Type A)
+dig @127.0.0.1 -p 5300 wsvaamonde.pti.intra
 
 #testando a resolução de Zona Interna e Externas utilizando o PowerDNS Recursor
 nslookup pti.intra
@@ -490,7 +528,7 @@ nslookup google.com
 **OBSERVAÇÃO IMPORTANTE:** o aplicativo e os arquivos de configuração do *PowerDNS Admin* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/PowerDNS-Admin/PowerDNS-Admin/releases
 
 ```bash
-#acessando diretório temporário do Ubuntu Server
+#acessando o diretório temporário do Ubuntu Server
 cd /tmp
 
 #fazendo o download do PowerDNS Admin do site Oficial do Github (Link atualizado em: 10/10/2025)
@@ -502,7 +540,7 @@ wget -O pdns-admin.tar.gz https://github.com/PowerDNS-Admin/PowerDNS-Admin/archi
 tar -zxvf pdns-admin.tar.gz
 
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DO DESTINO CONFORME NECESSIDADE
-#movendo o conteúdo do PowerDNS Admin para o diretório do NGINX Server
+#movendo o conteúdo do PowerDNS Admin para o diretório de site padrão do NGINX Server
 #opção do comando mv: -v (verbose)
 #opção do caractere curinga * (asterisco): Qualquer coisa
 sudo mv -v PowerDNS-Admin*/ /var/www/html/pdns/
@@ -570,7 +608,7 @@ sudo vim  /etc/nginx/conf.d/pdns-admin.conf
 INSERT
 ```
 ```bash
-#alterar a linha 22 da variável do nome do servidor
+#alterar a linha 22 da variável do nome do servidor do NGINX Server
 server_name pdns.pti.intra;
 ```
 ```bash
@@ -578,8 +616,7 @@ server_name pdns.pti.intra;
 ESC SHIFT :x <Enter>
 ```
 
-## 22_ Configurando o Ambiente Virtual e Dependências do PowerDNS Admin no Ubuntu Server
-
+## 22_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server
 ```bash
 #Acessando o diretório de instalação do PowerDNS-Admin no servidor NGINX
 cd /var/www/html/pdns/
@@ -621,7 +658,10 @@ sudo chown -Rv www-data:www-data /var/www/html/pdns
 #alterando as permissões do diretório de administração do PowerDNS Admin no NGINX Server
 #opções do comando chown: -R (recursive), -v (verbose), pdns: (user/owner default)
 sudo chown -Rv pdns: /var/www/html/pdns/powerdnsadmin/
+```
 
+## 24_ Desativando o site padrão do NGINX Server no Ubuntu Server
+```bash
 #removendo o arquivo de configuração do site padrão do NGINX Server
 #opção do comando rm: -v (verbose)
 sudo rm -v /etc/nginx/sites-enabled/default
@@ -629,32 +669,48 @@ sudo rm -v /etc/nginx/sites-enabled/default
 #testando os arquivos de configuração do NGINX Server
 #opção do comando nginx: -t (test config files)
 sudo nginx -t
+
+#reiniciando o serviço do NGINX Server no Ubuntu Server
+#opção do comando systemctl: restart (Stop and then start one or more units), status (runtime status 
+#information)
+sudo systemctl restart nginx
+sudo systemctl status nginx
 ```
 
-## 24_ Habilitando e iniciando os serviços do NGINX Server e do PowerDNS Admin no Ubuntu Server
+## 25_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server
 ```bash
+#habilitando o serviço do PowerDNS Admin no Ubuntu Server
+#opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), enable (Enable 
+#one or more units), --now (When used with enable, the units will also be started), start (Start (activate)
+#one or more units), status (runtime status information)
 sudo systemctl daemon-reload
-sudo systemctl restart nginx
 sudo systemctl enable --now pdnsadmin.service pdnsadmin.socket
+sudo systemctl start pdnsadmin.service pdnsadmin.socket
 sudo systemctl status pdnsadmin.service pdnsadmin.socket
 ```
 
-## 25_ Acessando via navegador o PowerDNS Admin
-172.16.1.20
+## 26_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin
+```bash
+#utilizar os navegadores para testar o acesso ao PowerDNS Admin
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver
+```
+```bash
+#registrando uma conta de acesso ao PowerDNS Admin
 Create an account
   Enter your personal details below
-    First name: Robson
-    Last name: Vaamonde
-    Email: vaamonde@pti.intra
-    Username: vaamonde
-    Password: pti@2018
-    Retype password: pti@2018
+    First name: Seu Nome
+    Last name: Seu Sobrenome
+    Email: seu_email@seu_domínio.intra
+    Username: SEU_USUÁRIO
+    Password: SUA_SENHA_SEGURA
+    Retype password: CONFIRMAR_SUA_sENHA
     Captcha: 123456
   <Register>
+```
 
 ========================================DESAFIOS=========================================
 
-**#12_ DESAFIO-01:** 
+**#27_ DESAFIO-01:** 
 
 =========================================================================================
 
