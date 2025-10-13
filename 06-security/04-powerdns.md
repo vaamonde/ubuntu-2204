@@ -294,8 +294,8 @@ exit
 ## 12_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do MySQL Server no Ubuntu Server
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do PowerDNS Authoritative
-#opção do redirecionador de entrada < (menor): Redireciona a entrada padrão (STDIN)
 #opções do comando mysql: -u (user), -p (password), powerdns (database)
+#opção do redirecionador de entrada < (menor): Redireciona a entrada padrão (STDIN)
 sudo mysql -u powerdns -p powerdns < /usr/share/pdns-backend-mysql/schema/schema.mysql.sql
 
 #conectando no banco de dados MySQL Server com o usuário powerdns
@@ -349,7 +349,7 @@ sudo vim /etc/powerdns/pdns.d/pdns-mysql.conf
 INSERT
 ```
 ```bash
-#alterar a linha de: 20 até 32 das variáveis de conexão do MySQL Server
+#alterar as linhas de: 20 até 32 das variáveis de conexão do MySQL Server
 gmysql-host=127.0.0.1
 gmysql-port=3306
 gmysql-dbname=powerdns
@@ -367,7 +367,7 @@ sudo vim /etc/powerdns/pdns.conf
 INSERT
 ```
 ```bash
-#alterar a linha de: 33 até 38 das variáveis
+#alterar as linhas de: 33 até 38 das variáveis
 local-address=127.0.0.1
 local-port=5300
 server-id=auth.pti.intra
@@ -383,7 +383,7 @@ sudo vim /etc/powerdns/recursor.conf
 INSERT
 ```
 ```bash
-#alterar a linha de: 17 até 65 das variáveis dos endereços IPv4 e IPv4
+#alterar as linhas de: 17 até 65 das variáveis dos endereços IPv4 e IPv4
 #Zonas Internas de encaminhamento e encaminhadores externos de DNS Server
 ```
 ```bash
