@@ -261,14 +261,28 @@ sudo -u postgres psql
 \q
 ```
 
-## 11_ Configurando a Senha do Usuário Admin (postgres) no Ubuntu Server
+## 11_ Configurando a Senha do Usuário Admin do PostgreSQL Server (postgres) no Ubuntu Server
 ```bash
-#configurando a senha de acesso ao PostgreSQL Server
+#configurando a senha de acesso do usuário postgres do PostgreSQL Server
 #opção do comando sudo: -u (user)
 #opção do comando psql: --command (execute the given command string)
 sudo -u postgres psql --command '\password postgres'
   Enter new password for user "postgres": SUA_SENHA_SEGURA
   Enter it again: SUA_SENHA_SEGURA
+
+#testando a conexão com o cliente do PostgreSQL Server
+#opções do comando psql: -U (username), -h (hostname), -W (no-password)
+psql -U postgres -h localhost -W
+
+#lista todas as bases de dados disponíveis no servidor
+#opção do comando \l: (list databases)
+#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\l
+
+#saindo do PostgreSQL Server
+#opção do comando \q: (quit)
+#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\q
 ```
 
 ## 12_ Atualizando os arquivos de configurações do PostgreSQL Server no Ubuntu Server
