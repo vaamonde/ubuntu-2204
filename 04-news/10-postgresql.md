@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 26/09/2025<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.02<br>
+#Data de atualização: 14/10/2025<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POSTGRESQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PostgreSQL realizado com sucesso!!! #BoraParaPrática*
 
@@ -32,9 +32,10 @@ Conteúdo estudado nesse desafio:<br>
 #11_ Configurando a Senha do Usuário Admin (postgres) no Ubuntu Server<br>
 #12_ Atualizando os arquivos de configurações do PostgreSQL Server no Ubuntu Server<br>
 #13_ Editando os arquivos de configurações do PostgreSQL Server no Ubuntu Server<br>
-#14_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
-#15_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
-#16_ Desafios do Banco de Dados PostgreSQL Server.<br>
+#14_ Criando um usuário DBA (Data Base Administrator) do PostgreSQL Server no Ubuntu Server<br>
+#15_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
+#16_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
+#17_ Desafios do Banco de Dados PostgreSQL Server.<br>
 
 Site Oficial do PostgreSQL: https://www.postgresql.org/<br>
 Site Oficial do DBeaver: https://dbeaver.io/<br>
@@ -214,50 +215,51 @@ exit
 #testando a conexão no PostgreSQL com o usuário postgres usando o client psql
 #opção do comando sudo: -u (user)
 sudo -u postgres psql
-
-#lista informações da conexão atual (usuário, banco, host, porta)
-#opção do comando \conninfo: (database information connect)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+```
+```sql
+--lista informações da conexão atual (usuário, banco, host, porta)
+--opção do comando \conninfo: (database information connect)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \conninfo
 
-#lista as conexões abertas e muda para outro banco, se desejado
-#opção do comando \c: (connection database)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--lista as conexões abertas e muda para outro banco, se desejado
+--opção do comando \c: (connection database)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \c
 
-#lista todos os usuários e seus papéis/roles de segurança
-#opção do comando \dg: (database roles)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--lista todos os usuários e seus papéis/roles de segurança
+--opção do comando \dg: (database roles)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \dg
 
-#lista todas as bases de dados disponíveis no servidor
-#opção do comando \l: (list databases)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--lista todas as bases de dados disponíveis no servidor
+--opção do comando \l: (list databases)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \l
 
-#lista os espaços de tabelas do servidor
-#opção do comando \db: (database tablespaces)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--lista os espaços de tabelas do servidor
+--opção do comando \db: (database tablespaces)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \db
 
-#lista todos os esquemas do banco atual
-#opção do comando \dn: (database namespaces)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--lista todos os esquemas do banco atual
+--opção do comando \dn: (database namespaces)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \dn
 
-#lista todas as funções definidas no banco atual
-#opção do comando \df: (describe functions)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--lista todas as funções definidas no banco atual
+--opção do comando \df: (describe functions)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \df
 
-#mostra as variáveis de configuração em tempo real
-#opção do comando \set: (show psql settings)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--mostra as variáveis de configuração em tempo real
+--opção do comando \set: (show psql settings)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \set
 
-#saindo do PostgreSQL Server
-#opção do comando \q: (quit)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--saindo do PostgreSQL Server
+--opção do comando \q: (quit)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \q
 ```
 
@@ -273,15 +275,16 @@ sudo -u postgres psql --command '\password postgres'
 #testando a conexão com o cliente do PostgreSQL Server
 #opções do comando psql: -U (username), -h (hostname), -W (no-password)
 psql -U postgres -h localhost -W
-
-#lista todas as bases de dados disponíveis no servidor
-#opção do comando \l: (list databases)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+```
+```sql
+--lista todas as bases de dados disponíveis no servidor
+--opção do comando \l: (list databases)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \l
 
-#saindo do PostgreSQL Server
-#opção do comando \q: (quit)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+--saindo do PostgreSQL Server
+--opção do comando \q: (quit)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \q
 ```
 
@@ -347,14 +350,63 @@ sudo journalctl -xeu postgresql
 #testando a conexão no PostgreSQL com o usuário postgres usando o client psql
 #opção do comando sudo: -u (user)
 sudo -u postgres psql
-
-#saindo do PostgreSQL Server
-#opção do comando \q: (quit)
-#mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+```
+```sql
+--saindo do PostgreSQL Server
+--opção do comando \q: (quit)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
 \q
 ```
 
-## 14_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux
+## 14_ Criando um usuário DBA (Data Base Administrator) do PostgreSQL Server no Ubuntu Server
+```bash
+#conectando no PostgreSQL com o usuário postgres usando o client psql
+#opção do comando sudo: -u (user)
+sudo -u postgres psql
+```
+```sql
+--criando o usuário DBA localhost
+--mais informações acesse: https://www.postgresql.org/docs/8.0/sql-createuser.html
+CREATE USER dba WITH SUPERUSER PASSWORD 'pti@2018';
+
+--listando todos os usuários do PostgreSQL Server
+--opção do comando \du: (Lists database roles)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\du 
+
+--listando o usuário DBA diretamente na tabela pg_roles
+--OBSERVAÇÃO: Se aparecer a letra: t (True) na coluna: rolsuper significa que o usuário e Superusuário
+--mais informações acesse: https://www.w3schools.com/postgresql/postgresql_select.php
+SELECT rolname, rolsuper, rolcreaterole, rolcreatedb, rolcanlogin FROM pg_roles WHERE rolname = 'dba';
+
+--listando o usuário DBA diretamente na tabela pg_user
+--OBSERVAÇÃO: Se aparecer a letra: t (True) significa que o usuário e Superusuário
+--mais informações acesse: https://www.w3schools.com/postgresql/postgresql_select.php
+SELECT usesuper FROM pg_user WHERE usename = 'dba';
+
+--saindo do PostgreSQL Server
+--opção do comando \q: (quit)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\q
+```
+```bash
+#testando a conexão com o cliente do PostgreSQL Server
+#opções do comando psql: -U (username), -h (hostname), -W (no-password), -d (dbname)
+psql -U dba -h localhost -W -d postgres
+```
+```sql
+--lista todas as bases de dados disponíveis no servidor
+--opção do comando \l: (list databases)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\l
+
+--saindo do PostgreSQL Server
+--opção do comando \q: (quit)
+--mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html
+\q
+```
+
+## 15_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux
 
 Link para download do DBeaver Community: https://dbeaver.io/download/
 
@@ -384,7 +436,7 @@ Menu
       <Finish>
 ```
 
-## 15_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
+## 16_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux
 
 ```bash
 #instalando a Extensão do PostgreSQL Server no VSCode
@@ -410,9 +462,9 @@ VSCode
 
 ========================================DESAFIOS=========================================
 
-**#16_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
+**#17_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson), DENTRO DESSE BANCO DE DADOS CRIAR UMA TABELA COM O NOME: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) COM AS SEGUINTES COLUNAS: __`Nome (Tipo Texto)`__ e __`Idade (Tipo Numérico)`__ (TUDO EM MINÚSCULO), DENTRO DESSA TABELA CRIAR UM REGISTRO COM: __`Seu Nome e Sobrenome e Sua Idade`__ (VEJA O SITE W3SCHOOLS). **OBSERVAÇÃO IMPORTANTE:** NÃO PRECISA CRIAR CHAVE PRIMÁRIA (Primary Key) NA SUA TABELA.
 
-**#17_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO POSTEGRESQL SERVER __`postgres`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
+**#18_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO PROCEDIMENTO DE CONFIGURAÇÃO DO *OPENSSH* NO GRUPO DO POSTEGRESQL SERVER __`postgres`__ PARA ADMINISTRAR O SERVIDOR SEM A NECESSIDADE DO COMANDO SUDO.
 
 =========================================================================================
 
