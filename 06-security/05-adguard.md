@@ -8,9 +8,9 @@
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/10/2025<br>
 #Data de atualização: 14/10/2025<br>
-#Versão: 0.01<br>
+#Versão: 0.02<br>
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ADGUARD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do AdGuard realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ADGUARD HOME SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do AdGuard Home realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -19,7 +19,13 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/24-adguard
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioadguard #desafioadguardhome
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando AdGuard Home utilizando o script automatizado no Ubuntu Server<br>
+#02_ Verificando o Serviço e Versão do AdGuard no Ubuntu Server<br>
+#03_ Verificando as Portas de Conexão do DNS e do AdGuard Home no Ubuntu Server<br>
+#04_ Localização dos Arquivos de Configuração do CMS Wordpress no Ubuntu Server<br>
+#05_ Desativando a Resolução de Nomes de DNS do Systemd Resolved no Ubuntu Server<br>
+#06_ Configurando e acessando o AdGuard Home remotamente via navegador<br>
+#07_ Verificando novamente as Portas de Conexão do DNS e do AdGuard Home no Ubuntu Server<br>
 
 Site Oficial do AdGuard: https://adguard.com/pt_br/welcome.html<br>
 
@@ -30,7 +36,7 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
-**O QUE É E PARA QUE SERVER O ADGUARD HOME:** .
+**O QUE É E PARA QUE SERVER O ADGUARD HOME:** O AdGuard Home é um servidor DNS local com foco em bloqueio de anúncios, rastreadores, sites maliciosos e domínios indesejados, funcionando como uma camada de proteção e privacidade para toda a rede.
 
 [![AdGuard Home](http://img.youtube.com/vi//0.jpg)]( "AdGuard Home")
 
@@ -84,7 +90,14 @@ sudo lsof -nP -iTCP:'53,3000' -sTCP:LISTEN
 sudo lsof -nP -iTCP:'53'
 ```
 
-## 03_ Desativando a Resolução de Nomes de DNS do Systemd Resolved no Ubuntu Server
+## 04_ Localização dos Arquivos de Configuração do CMS Wordpress no Ubuntu Server
+```bash
+/opt/AdGuardHome/              <-- Diretório padrão das configurações do AdGuard Home
+/opt/AdGuardHome/AdGuardHome   <-- Executável do AdGuard Home
+/opt/AdGuardHome/data/         <-- Diretório das informações do AdGuard Home
+```
+
+## 05_ Desativando a Resolução de Nomes de DNS do Systemd Resolved no Ubuntu Server
 ```bash
 #criando o diretório de configuração do AdGuard Home do Systemd Resolved no Ubuntu Server
 #opção do comando mkdir: -v (verbose)
@@ -94,15 +107,58 @@ sudo mkdir -v /etc/systemd/resolved.conf.d/
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/systemd/resolved.conf.d/adguardhome.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/adguardhome.conf
 
-#removendo e atualizando arquivo de configuração do resolv.conf no Ubuntu Server
-sudo mv /etc/resolv.conf /etc/resolv.conf.backup
+#fazendo um backup do arquivo de configuração do resolv.conf no Ubuntu Server
+#opção do comando mv: -v (verbose)
+sudo mv -v /etc/resolv.conf /etc/resolv.conf.old
+
+#criando o link simbolico do arquivo de configuração do resolv.conf no Ubuntu Server
+#opção do comando ln: -s (symbolic link)
 sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 #reiniciando o serviço do Systemd Resolved no Ubuntu Server
+#opção do comando systemctl: reload-or-restart (Reload one or more units if they support it)
 sudo systemctl reload-or-restart systemd-resolved
+
+#verificando o status do serviço do Systemd Resolved no Ubuntu Server
+#opção do comando systemctl: status (Show terse runtime status information about one or more units)
+sudo systemctl status systemd-resolved
 ```
 
-## 04_ Opções de Configuração do AdGuard 
+## 06_ Configurando e acessando o AdGuard Home remotamente via navegador
+```bash
+#utilizar os navegadores para configurar o AdGuard Home
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
+
+01/05 - Bem-vindo(a) ao AdGuard Home!
+<Começar>
+
+02/05 - Interface web de administrador
+  Interface de escuta: Todas interfaces
+  Porta: 80
+  Servidor DNS
+    Interface de escuta: Todas interfaces
+    Porta: 53
+<Proximo>
+
+03/05 - Autenticação
+  Nome de usuário: seu_usuário
+  Senha: sua_senha
+  Confirmar senha: confirmar_sua_senha
+<Próximo>
+
+04/05 - Configure seus dispositivos
+<Próximo>
+
+05/05 - Parabéns!
+<Abrir painel>
+
+AdGuard Home
+  Nome de usuário: seu_usuário
+  Senha: sua_senha
+<Entrar>
+```
+
+## 07_ Verificando novamente as Portas de Conexão do DNS e do AdGuard Home no Ubuntu Server
 ```bash
 #verificando a porta padrão TCP-53 e 80 e UDP-53 do AdGuard Home
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
@@ -112,15 +168,16 @@ sudo lsof -nP -iTCP:'53'
 
 ========================================DESAFIOS=========================================
 
-**#28_ DESAFIO-01:** 
+**#08_ DESAFIO-01:** 
 
 =========================================================================================
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ADGUARD HOME SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do AdGuard Home realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/23-powerdns.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/24-adguard.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiopowerdns #desafiopowerdnsadmin
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioadguard #desafioadguardhome
+
 
