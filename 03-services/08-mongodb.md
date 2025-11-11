@@ -90,7 +90,7 @@ wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
 #opção do comando dpkg: -i (install), * (all - Qualquer coisa)
 sudo dpkg -i libssl*.deb
 
-#verificando a biblioteca Libssl instalado no Ubuntu Server
+#verificando a instalação da biblioteca Libssl no Ubuntu Server
 #opção do comando dpkg: -l (list)
 sudo dpkg -l libssl1.1
 ```
@@ -136,7 +136,7 @@ sudo apt update
 ```bash
 #verificando a compatibilidade de recursos dos Processadores INTEL e AMD
 #Intel e AMD AVX (Advanced Vector Extensions) e SSE (Streaming SIMD Extensions)
-#opções do comando grep: -i (ignore-case), -E (extended-regexp)
+#opções do comando grep: -i (ignore-case), -E (extended-regexp - function or)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo lscpu | grep -i -E "avx|sse"
 ```
