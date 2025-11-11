@@ -19,7 +19,15 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/13-unifi.p
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioubiquiti #desafiounifi
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando as dependências do Unifi Network no Ubuntu Server<br>
+#02_ Instalando as dependências do Java do Unifi Network no Ubuntu Server<br>
+#03_ Instalando as Dependências do Libssl do Unifi Network no Ubuntu Server<br>
+#04_ Adicionando o Repositório do Unifi Network no Ubuntu Server<br>
+#05_ Instalando o Unifi Network no Ubuntu Server<br>
+#06_ Verificando o Serviço e Versão do Unifi Network no Ubuntu Server<br>
+#07_ Verificando as Portas de Conexão do Unifi Network no Ubuntu Server<br>
+#08_ Localização dos Arquivos de Configuração do Unifi Network no Ubuntu Server<br>
+#09_ Adicionado o Usuário Local no Grupo Padrão do Unifi Network no Ubuntu Server<br>
 
 Site Oficial da Ubiquiti: https://ui.com/<br>
 Site Oficial do Unifi Network: https://ui.com/download/releases/network-server
@@ -74,7 +82,7 @@ software-properties-common build-essential
 sudo apt install openjdk-21-jdk openjdk-21-jre
 ```
 
-## 03_ Instalando as Dependências do Libssl do Unifi Network no Ubuntu S
+## 03_ Instalando as Dependências do Libssl do Unifi Network no Ubuntu Server
 **OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 
 ```bash
@@ -99,11 +107,11 @@ Versão Oficial (atualizada em: 11/11/2025): https://community.ui.com/releases/U
 #criando o repositório do Unifi Network no Ubuntu Server
 echo 'deb [ arch=amd64,arm64 ] https://www.ui.com/downloads/unifi/debian stable ubiquiti' | sudo tee /etc/apt/sources.list.d/100-ubnt-unifi.list
 
-#baixando a chave GPG do site oficial da Ubiquiti Unifi
+#baixando e instalando a chave GPG do site oficial da Ubiquiti Unifi no Ubuntu Server
 #opção do comando wget: -O (output document file)
 sudo wget -O /etc/apt/trusted.gpg.d/unifi-repo.gpg https://dl.ui.com/unifi/unifi-repo.gpg
 
-#atualizando as listas do sources.list com o novo repositório da Unifi
+#atualizando as listas do sources.list com o novo repositório da Unifi no Ubuntu Server
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 ```
@@ -119,7 +127,7 @@ sudo apt install unifi
 ## 06_ Verificando o Serviço e Versão do Unifi Network no Ubuntu Server
 
 ```bash
-#verificando o serviço do Unifi Network
+#verificando o serviço do Unifi Network no Ubuntu Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
 #start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
 #one or more units)
@@ -128,7 +136,7 @@ sudo systemctl restart unifi
 sudo systemctl stop unifi
 sudo systemctl start unifi
 
-#analisando os Log's e mensagens de erro do Unifi Network
+#analisando os Log's e mensagens de erro do Unifi Network no Ubuntu Server
 #opção do comando journalctl: -t (identifier), x (catalog), e (pager-end), u (unit)
 sudo journalctl -t unifi
 sudo journalctl -xeu unifi
@@ -183,9 +191,29 @@ sudo getent group unifi
 exit
 ```
 
+## 10_ Acessando e Configurando o Unifi Network via navegador
+
+```bash
+#utilizar os navegadores para configurar o Unifi Network
+firefox ou google chrome: https://endereço_ipv4_ubuntuserver:8443
+
+#Informações que serão solicitadas na configuração via Unifi Network
+Name Your UniFi Network Server
+  Server Name: Nome do Seu Servidor
+  Country Region: Região do Seu Servidor
+  (ON) I agree to end User License Agreement and Terms of Service
+  <Next>
+Sign In to Your UI Account
+  UI Account Email: Seu Email ou Usuário do Unifi
+  Password: Sua Senha de Acesso
+  <Sign In>
+Security Verification
+  <Sign In>
+```
+
 ========================================DESAFIOS=========================================
 
-**#20_ DESAFIO-01:** 
+**#11_ DESAFIO-01:** 
 
 =========================================================================================
 
