@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 24/06/2025<br>
-#Versão: 0.13<br>
+#Data de atualização: 10/11/2025<br>
+#Versão: 0.14<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -31,6 +31,7 @@ Conteúdo estudado nessa configuração:<br>
 #06_ Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora) no Ubuntu Server<br>
 #07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server<br>
 #08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server<br>
+#09_ Alterando as Configurações do Teclado e Console no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
 
 **O QUE É E PARA QUE SERVER O LOCALE:** O Locale é uma combinação de geografia, idioma e cultura. Para entender Localidade, considere a diferença entre os Estados Unidos e o Reino Unido. Ambos compartilham um idioma comum, mas usam unidades de medida completamente diferentes. Os Estados Unidos usam o idioma inglês, mas usam milhas, graus Fahrenheit e galões, enquanto o Reino Unido usa quilômetros, graus Celsius e litros.
 
@@ -128,6 +129,8 @@ Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 **OBSERVAÇÃO IMPORTANTE:** geralmente mudar para o Time Zone de __`America/Sao_Paulo`__ a hora fica errada no sistema, nesse caso podemos mudar para __`America/Fortaleza`__ ou __`America/Bahia`__ esse error é por causa do **Fuso Horário** em relação ao __`Horário de Verão`__ que não existe mais no Brasil (foi criado em 1931 pelo Governo Getúlio Vargas, só começou a ser aplicado no Brasil em 1985 no Governo José Sarney e foi cancelado em 2018 no Governo Bolsonaro).
 
 **OBSERVAÇÃO IMPORTANTE:** Até o momento (25/06/2025), o horário de verão 2025 está em __`Processo de Avaliação`__ pelo Governo Federal. De acordo com o ministro de Minas e Energia, **Alexandre Silveira**, a volta da medida será analisada com base na *situação hídrica e na segurança energética*. "Nós temos a segurança energética assegurada, há o início de um processo de restabelecimento ainda muito modesto da nossa condição hídrica. Temos condições de chegar depois do verão em condição de avaliar, sim, a volta dessa política em 2025"
+
+**OBSERVAÇÃO IMPORTANTE:** Até a data de 10/11/2025, o horário de verão não está previsto para ocorrer no Brasil em 2026. A medida foi suspensa por decreto em 2019 (decreto número: 9.772, de 25 de abril de 2019) e, até o momento, o governo federal decidiu por não retomá-la, nem para o período de 2025/2026.
 
 **OBSERVAÇÃO:** ALTERAR O LOCALE CONFORME A LOCALIDADE DO SEU SERVIDOR, MAIS INFORMAÇÕES SOBRE TIMEZONE ACESSE: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -231,4 +234,36 @@ sudo date -s 13:30:00
 sudo hwclock --show
 sudo hwclock --systohc
 sudo hwclock --hctosys
+```
+
+## 09_ Alterando as Configurações do Teclado e Console no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+
+```bash
+#verificando as configurações do Teclado no Ubuntu Server
+sudo cat /etc/default/keyboard
+	XKBMODEL="pc105" (Padrão 105 teclas pc105)
+	XKBLAYOUT="br" (Layout de Teclado Português Brasileiro ABNT2)
+```
+```bash
+#reconfigurando o Teclado no Ubuntu Server
+sudo dpkg-reconfigure keyboard-configuration
+	Keyboard model: Generic 105-Key PC (intl <- Internacional) <Enter>;
+	Country of origin for the keyboard: Portuguese (Brazil) <Enter>;
+	Keyboard layout: Portuguese (Brazil) (Padrão ABNT-2) <Enter>;
+	Key to function as AltGr: Right Alt (AltGr) <Enter>;
+		(The Default for the Keyboard Layout (O padrão para o layout do teclado));
+	No Compose Key (Nenhuma combinação de composição) <Enter>.
+```
+```bash
+#verificando as configurações do UTF-8 (8-bit Unicode Transformation Format) e Console (Bash/Shell)
+sudo cat /etc/default/console-setup
+	CHARMAP="UTF-8"
+```
+```bash
+#reconfigurando o UTF-8 e Console no Ubuntu Server
+sudo dpkg-reconfigure console-setup
+	UTF-8 <Enter>;
+	Guess optimal character set (Supor o melhor conjunto de caracteres) <Enter>;
+	Fixed <Enter>;
+	8x16 <Enter>.
 ```

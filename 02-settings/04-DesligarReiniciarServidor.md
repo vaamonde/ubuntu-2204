@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 25/06/2025<br>
-#Versão: 0.09<br>
+#Data de atualização: 10/11/2025<br>
+#Versão: 0.10<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -37,21 +37,21 @@ Conteúdo estudado desses comandos:<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=NbA-k5-iLWA
 
-## 01_ Desligando e reinicializando o servidor com halt no Ubuntu Server
+## 01_ Desligando e reinicializando o servidor com halt (parar) no Ubuntu Server
 ```bash
 #opção do comando halt: -p (poweroff), --reboot (reboot host)
 sudo halt -p
 sudo halt --reboot
 ```
 
-## 02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server
+## 02_ Desligando e reinicializando o servidor com poweroff (desligar) no Ubuntu Server
 ```bash
 #opção do comando poweroff: --reboot (reboot host)
 sudo poweroff
 sudo poweroff --reboot
 ```
 
-## 03_ Desligando e reinicializando o servidor com init no Ubuntu Server
+## 03_ Desligando e reinicializando o servidor com init (inicialização) no Ubuntu Server
 
 **OBSERVAÇÃO:** O *init* é o primeiro processo iniciado durante a inicialização do sistema de computador. O init é um processo daemon que continua executando até o sistema ser desligado. O init trabalha no conceito de *Runlevel (níveis de execução)*, no GNU/Linux temos basicamente **08 (oito) tipos de Runlevels**: 
 
@@ -74,14 +74,14 @@ sudo init 0
 sudo init 6
 ```
 
-## 04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server
+## 04_ Desligando e reinicializando o servidor com reboot (reinício) no Ubuntu Server
 ```bash
 #opção do comando reboot: --halt (shutdown host)
 sudo reboot --halt
 sudo reboot
 ```
 
-## 05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server
+## 05_ Desligando e reinicializando o servidor com shutdown (desligar) no Ubuntu Server
 ```bash
 #opção do comando shutdown: -P (poweroff), -h (halt 60 second default), -r (reboot), -c (cancel)
 #now (Shutdown immediately), 19:50 (Shutdown at 19:50 pm), +20 (Shutdown in 20 minutes)

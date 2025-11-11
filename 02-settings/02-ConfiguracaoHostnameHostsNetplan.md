@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 07/10/2025<br>
-#Versão: 0.22<br>
+#Data de atualização: 10/11/2025<br>
+#Versão: 0.23<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -33,7 +33,7 @@ Conteúdo estudado nessa configuração:<br>
 #08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
 #09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
 #10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
-#11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
+#11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
 
 **O QUE É E PARA QUE SERVER O IPV4:** O IPv4 (Internet Protocol version 4) é o protocolo de endereçamento que permite a identificação e comunicação entre dispositivos em redes, como a Internet ou uma rede local (LAN).
 
@@ -483,6 +483,7 @@ ssh seu_usuário@SEU_ENDEREÇO_IPV4_UBUNTU_SERVER
 The authenticity of host 'SEU_ENDEREÇO_IPV4_UBUNTU_SERVER' can't be established.
 ECDSA key fingerprint is SHA256:5yoVsKHMrn3FP/LBW1fyPTtVlt3og9jmyXPPkki/BY0.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes <Enter>
+
 seu_usuário@SEU_ENDEREÇO_IPV4's password: sua_senha <Enter> (Por motivo de segurança a senha não aparece no Terminal)
 
 seu_usuário@wsseunome:~$ (Acesso ao Terminal Remoto (Bash/Shell) via SSH)
