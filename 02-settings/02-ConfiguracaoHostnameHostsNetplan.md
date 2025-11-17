@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/11/2025<br>
-#Versão: 0.23<br>
+#Data de atualização: 17/11/2025<br>
+#Versão: 0.24<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -283,6 +283,7 @@ ls -lh /etc/netplan/
 sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
 #editando o arquivo de configuração do Netplan
+#sudo vim 00-installer-config.yaml (ARQUIVO ANTIGO)
 sudo vim /etc/netplan/50-cloud-init.yaml
 
 #entrando no modo de edição do editor de texto VIM
