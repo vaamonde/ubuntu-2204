@@ -107,13 +107,26 @@ sudo systemctl reload nginx
 sudo systemctl stop nginx
 sudo systemctl start nginx
 
-#analisando os Log's e mensagens de erro do Servidor do NGINX Server
+#verificando o serviço do PHP-FPM
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
+#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units), reload (Asks all units 
+#listed on the command line to reload their configuration)
+sudo systemctl status php8.1-fpm
+sudo systemctl restart php8.1-fpm
+sudo systemctl reload php8.1-fpm
+sudo systemctl stop php8.1-fpm
+sudo systemctl start php8.1-fpm
+
+#analisando os Log's e mensagens de erro do Servidor do NGINX Server e PHP-FPM
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu nginx
+sudo journalctl -xeu php8.1-fpm
 
-#verificando os arquivos de configuração do NGINX Server
+#verificando os arquivos de configuração do NGINX Server e PHP-FPM
 #opção do comando nginx: -t (Do not run, just test the configuration file)
+#opção do comando php: -i (PHP information)
 sudo nginx -t
+sudo php -i 
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.

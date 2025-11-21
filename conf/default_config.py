@@ -41,7 +41,8 @@ SESSION_TYPE = 'sqlalchemy'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'pdns.db')
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 #
-# Configuração do acesso ao Banco de Dados do MySQL do PowerDNS Admin
+# Configuração do acesso ao Banco de Dados do PostgreSQL do PowerDNS Admin
+SQLA_DB_DRIVER = 'postgresql'
 SQLA_DB_USER = 'powerdns'
 SQLA_DB_PASSWORD = 'powerdns'
 SQLA_DB_HOST = 'powerdns'

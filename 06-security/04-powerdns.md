@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/10/2025<br>
-#Data de atualização: 12/10/2025<br>
-#Versão: 0.05<br>
+#Data de atualização: 20/11/2025<br>
+#Versão: 0.06<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
@@ -71,30 +71,46 @@ x.AI Grok: https://grok.com/<br>
 
 Link da vídeo aula: 
 
-**OBSERVAÇÃO IMPORTANTE:** O POWERDNS SERVER E POWERDNS ADMIN POSSUI AS DEPENDÊNCIAS DO *BANCO DE DADOS MYSQL SERVER* E DO *FRAMEWORKS NODE.JS*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **03 DO MYSQL SERVER 8 E NA ETAPA 05 DO NODE.JS**.
+**OBSERVAÇÃO IMPORTANTE:** O POWERDNS SERVER E POWERDNS ADMIN POSSUI A DEPENDÊNCIA DO *BANCO DE DADOS POSTGRESQL*, ESSE APLICATIVO JÁ FOI INSTALADO NA ETAPA: **10 DO POSTGRESQL SERVER 18**.
 
-**OBSERVAÇÃO IMPORTANTE:** É RECOMENDADO UTILIZADO O NGINX SERVER PARA AS CONFIGURAÇÕES DO POWERDNS ADMIN, CUIDADO COM A INSTALAÇÃO DO APACHE2 SERVER PARA NÃO ENTRAR EM CONFLITO NAS CONFIGURAÇÕES, RECOMENDADO INSTALAR O NGINX SERVER DE FORMA SIMPLES, SEM CONFIGURAÇÃO EXTRA DO PHP-FPM.
+**OBSERVAÇÃO IMPORTANTE:** É RECOMENDADO UTILIZADO O NGINX SERVER PARA AS CONFIGURAÇÕES DO POWERDNS ADMIN, CUIDADO COM A INSTALAÇÃO DO APACHE2 SERVER PARA NÃO ENTRAR EM CONFLITO NAS CONFIGURAÇÕES, RECOMENDADO INSTALAR O NGINX SERVER DE FORMA SIMPLES, SEM CONFIGURAÇÃO EXTRA DO PHP-FPM. 
 
-## 01_ Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server
+## 01_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
 ```bash
-#atualizando as listas do Apt
-#opção do comando apt: update (Resynchronize the package index files from their sources)
+#Script de configuração do Repositório do Node.JS (VERSÃO ESTÁVEL ATÉ O MOMENTO: 22.x EM: 11/11/2025)
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
+#opção do comando sudo: -E (preserve-env)
+sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash
+```
+
+## 02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
+```bash
+#atualizando as listas do Apt com o novo repositório do Node.JS
+#opção do comando apt: update (Resynchronize the package index files from their sources
 sudo apt update
 
-#instalando as dependências do PowerDNS Authoritative, Recursor  Admin no Ubuntu Server
+#Instalando o Node.JS e NPM (Node Package Manager)
+#opção do comando apt: install (install is followed by one or more package names)
+sudo apt install nodejs
+```
+
+## 03_ Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server
+```bash
+#instalando as dependências do PowerDNS Authoritative, Recursor Admin no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install nginx python3-dev libsasl2-dev libldap2-dev libssl-dev libxml2-dev libxslt1-dev \
 libxmlsec1-dev libffi-dev pkg-config apt-transport-https virtualenv build-essential libmariadb-dev \
 git python3-flask libpq-dev vim gnupg gcc g++ make software-properties-common tree build-essential \
-ca-certificates apt-transport-https curl ssl-cert
+ca-certificates apt-transport-https curl ssl-cert php-pgsql
 
 #instalando a dependência do PowerDNS Admin do Yarn
 #opção do comando npm: install (install a package), -g (in global mode)
 sudo npm install -g yarn
 ```
 
-## 02_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server
+## 04_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server
 ```bash
 #parando o serviço do Systemtd Resolved do Ubuntu Server
 #opção do comando systemctl: stop (Stop (deactivate) one or more units specified on the command line)
@@ -116,29 +132,33 @@ sudo rm -rfv /etc/resolv.conf
 #opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
 echo -e "nameserver 8.8.8.8 \nnameserver 2001:4860:4860::8888" | sudo tee /etc/resolv.conf > /dev/null
 
+#listando o conteúdo do arquivo resolv.conf com servidor DNS Temporário do Google
+#opção do comando cat: -n (number line)
+cat -n /etc/resolv.conf
+
 #testando a resolução de nomes temporários do DNS no Ubuntu Server
 sudo nslookup google.com
 ```
 
-## 03_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 05_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o PowerDNS Authoritative e Recursor possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://repo.powerdns.com/
 
 ```bash
-#download da Chave GPG do PowerDNS Authoritative (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.0.x EM: 10/10/2025)
+#download da Chave GPG do PowerDNS Authoritative (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.0.x EM: 20/11/2025)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
 curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-auth-5.0.gpg
 
-#download da Chave GPG do PowerDNS Recursor (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.3.x EM: 10/10/2025)
+#download da Chave GPG do PowerDNS Recursor (VERSÃO ESTÁVEL ATÉ O MOMENTO: 5.3.x EM: 11/11/2025)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
 curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo gpg --dearmor -o /usr/share/keyrings/powerdns-recur-5.3.gpg
 ```
 
-## 04_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 06_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server
 ```bash
 #criando o arquivo do repositório do Apt do PowerDNS Authoritative no Ubuntu Server
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -158,20 +178,20 @@ echo "deb [signed-by=/usr/share/keyrings/powerdns-recur-5.3.gpg] http://repo.pow
 echo -e "Package: pdns-* \nPin: origin repo.powerdns.com \nPin-Priority: 600" | sudo tee /etc/apt/preferences.d/powerdns > /dev/null
 ```
 
-## 05_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server
+## 07_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório no Ubuntu Server
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 ```
 
-## 06_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
+## 08_ Instalando o PowerDNS Authoritative, Recursor e Backend PostgreSQL no Ubuntu Server
 ```bash
-#instando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server
-sudo apt install pdns-server pdns-recursor pdns-backend-mysql 
+#instando o PowerDNS Authoritative, Recursor e Backend PostgreSQL no Ubuntu Server
+sudo apt install pdns-server pdns-recursor pdns-backend-pgsql
 ```
 
-## 07_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 09_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O POWERDNS AUTHORITATIVE E O RECURSOR ESTÃO CONFIGURADOS NA MESMA PORTA (53/UDP) CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO DO POWERDNS AUTHORITATIVE SERVER, ESSA FALHA SERÁ CORRIGIDA NAS CONFIGURAÇÕES DO SERVIDOR.
 
@@ -191,6 +211,7 @@ sudo systemctl start pdns pdns-recursor
 sudo journalctl -xeu pdns
 sudo journalctl -xeu pdns-recursor
 ```
+
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
@@ -200,19 +221,19 @@ sudo pdns_server --version     #consultando a versão do PowerDNS Authoritative
 sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
 ```
 
-## 08_ Localização dos diretórios principais do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 10_ Localização dos diretórios principais do PowerDNS Authoritative e Recursor no Ubuntu Server
 ```bash
 /etc/powerdns/*                        <-- Diretório dos arquivos de configuração do serviço do PowerDNS
 /etc/powerdns/pdns.conf                <-- Arquivo de configuração principal do serviço do PowerDNS Authoritative
 /etc/powerdns/recursor.conf            <-- Arquivo de configuração principal do serviço do PowerDNS Recursor
 /etc/powerdns/pdns.d/                  <-- Diretório dos arquivos de configuração do PowerDNS Authoritative
 /etc/powerdns/pdns.d/bind.conf         <-- Arquivo de configuração da Base de Dados Backend do Bind9 DNS Server
-/etc/powerdns/pdns.d/pdns-mysql.conf   <-- Arquivo de configuração da Base de Dados Backend do MySQL Server
+/etc/powerdns/pdns.d/pdns-pgsql.conf   <-- Arquivo de configuração da Base de Dados Backend do PostgreSQL Server
 /etc/powerdns/recursor.d/              <-- Diretório dos arquivos de configuração do PowerDNS Recursor
 /var/lib/powerdns/                     <-- Diretório dos arquivos de Zonas de Domínio do PowerDNS Authoritative
 ```
 
-## 09_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
+## 11_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
@@ -224,99 +245,93 @@ sudo usermod -a -G pdns $USER
 sudo getent group pdns
 ```
 
-## 10_ Criando a Base de Dados do PowerDNS Authoritative no MySQL Server no Ubuntu Server
+## 12_ Criando a Base de Dados do PowerDNS Authoritative no PostgreSQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO MYSQL SERVER UTILIZADO PELO POWERDNS AUTHORITATIVE ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO MYSQL SERVER E NEM CRIAR USUÁRIOS REMOTOS UTILIZANDO O @ (ARROBA).
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO POWERDNS AUTHORITATIVE ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS UTILIZANDO.
 
 ```bash
-#acessando o MySQL Server com o usuário Root
-#opções do comando mysql: -u (user), -p (password)
-sudo mysql -u root -p
+#conectando no PostgreSQL Server utilizando o cliente psql
+#opção do comando sudo: -u (user), psql (terminal PostgreSQL)
+sudo -u postgres psql
 ```
 ```sql
 /* Criando o Banco de Dados do PowerDNS Authoritative com o nome: powerdns */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
-/* Mais informações acesse: https://www.w3schools.com/mysql/mysql_create_db.asp */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-database.html */
+/* Mais informações acesse:  */
+/* Mais informações acesse:  */
 CREATE DATABASE powerdns;
+
+/* Listando o Banco de Dados criado do PowerDNS Authoritative no PostgreSQL Server */
+/* Mais informações acesse:  */
+\l powerdns
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO LOCAL, COM A OPÇÃO: __`LOCALHOST`__.
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO LOCAL.
 
 ```sql
 /* Criando o usuário e senha da Base de Dados do PowerDNS Authoritative */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-user.html */
-CREATE USER 'powerdns'@'localhost' IDENTIFIED WITH mysql_native_password BY 'powerdns';
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
+/* Mais informações acesse:  */
+CREATE USER powerdns WITH PASSWORD 'SUA_SENHA_SEGURA';
 
-/* Aplicando as permissões de acesso do usuário do PowerDNS Authoritative */
-/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO CONFORME NECESSIDADE */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
-GRANT USAGE ON *.* TO 'powerdns'@'localhost';
-GRANT ALL PRIVILEGES ON powerdns.* TO 'powerdns'@'localhost';
+/* Listando o Usuário do PowerDNS Authoritative criado no PostgreSQL Server */
+/* Mais informações acesse:  */
+\du powerdns
 
-/* aplicando todas as mudanças na base de dados do MySQL Server */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
-FLUSH PRIVILEGES;
+/* Alterando o dono da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
+/* Mais informações acesse:  */
+ALTER DATABASE powerdns OWNER TO powerdns;
 
-/* Verificando o Usuário do PowerDNS Authoritative foi criado no Banco de Dados MySQL Server */
-/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
-SELECT user,host,authentication_string FROM mysql.user WHERE user='powerdns';
+/* Alterando as permissões da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
+/* Mais informações acesse:  */
+GRANT ALL PRIVILEGES ON DATABASE powerdns TO powerdns;
 
-/* Visualizando as bases de dados do MySQL Server */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
-SHOW DATABASES;
+/* Conectando no Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
+/* Mais informações acesse:  */
+\connect powerdns;
 
-/* Acessando o Banco de Dados powerdns */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
-USE powerdns;
-
-/* Saindo do Banco de Dados MySQL Server */
-exit
+/* Saindo do Banco de Dados PostgreSQL Server */
+\q
 ```
 
-## 11_ Testando o acesso a Base de Dados do PowerDNS Authoritative no MySQL Server no Ubuntu Server
+## 13_ Testando o acesso a Base de Dados do PowerDNS Authoritative no PostgreSQL Server no Ubuntu Server
 ```bash
-#conectando no banco de dados MySQL Server com o usuário powerdns
-#opções do comando mysql: -u (user), -p (password)
-sudo mysql -u powerdns -p
+#conectando no banco de dados PostgreSQL Server com o usuário powerdns
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to)
+sudo psql --username powerdns --password --host localhost --dbname powerdns
 ```
 ```sql
-/* Listando os Bancos de Dados do MySQL Server */
-SHOW DATABASES;
+/* verificando as informações do Banco de Dados do PowerDNS Authoritative no PostgreSQL Server */
+/* Mais informações acesse:  */
+\conninfo
 
-/* Acessando o Banco de Dados PowerDNS Server */
-USE powerdns;
-
-/* Saindo do Banco de Dados MySQL Server*/
-exit
+/* Saindo do Banco de Dados PostgreSQL Server */
+\q
 ```
 
-## 12_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do MySQL Server no Ubuntu Server
+## 14_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do PowerDNS Authoritative
-#opções do comando mysql: -u (user), -p (password), powerdns (database)
-#opção do redirecionador de entrada < (menor): Redireciona a entrada padrão (STDIN)
-sudo mysql -u powerdns -p powerdns < /usr/share/pdns-backend-mysql/schema/schema.mysql.sql
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to), --echo-all (view output script), --file (file script execution)
+sudo psql --username powerdns --password --host localhost --dbname powerdns --echo-all --file /usr/share/pdns-backend-pgsql/schema/schema.pgsql.sql
 
-#conectando no banco de dados MySQL Server com o usuário powerdns
-#opções do comando mysql: -u (user), -p (password)
-sudo mysql -u powerdns -p
+#conectando no banco de dados PostgreSQL Server com o usuário powerdns
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to)
+sudo psql --username powerdns --password --host localhost --dbname powerdns
 ```
 ```sql
-/* Listando os Bancos de Dados do MySQL Server */
-SHOW DATABASES;
+/* Verificando as informações das Tabelas do PowerDNS Authoritative no PostgreSQL Server */
+/* Mais informações acesse:  */
+\dt
 
-/* Acessando o Banco de Dados PowerDNS Authoritative */
-USE powerdns;
-
-/* Verificando as Tabelas criadas pelo Script */
-SHOW TABLES;
-
-/* Saindo do Banco de Dados MySQL Server*/
-exit
+/* Saindo do Banco de Dados PostgreSQL Server */
+\q
 ```
 
-## 13_ Atualizando os arquivos de configuração do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 15_ Atualizando os arquivos de configuração do PowerDNS Authoritative e Recursor no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do PowerDNS Authoritative Backend Bind9 DNS Server do Github
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO ESTÁ SENDO DESATIVADO O RECURSO DE BANCO DE DADOS
@@ -324,9 +339,9 @@ exit
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/powerdns/pdns.d/bind.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-bind.conf
 
-#atualizando o arquivo de configuração do PowerDNS Authoritative do Backend MySQL Server do Github
+#atualizando o arquivo de configuração do PowerDNS Authoritative do Backend PostgreSQL Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/powerdns/pdns.d/pdns-mysql.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-mysql.conf
+sudo wget -v -O /etc/powerdns/pdns.d/pdns-pgsql.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/pdns-pgsql.conf
 
 #atualizando o arquivo de configuração do PowerDNS Authoritative do Github
 #opção do comando wget: -v (verbose), -O (output file)
@@ -339,22 +354,22 @@ sudo wget -v -O /etc/powerdns/recursor.conf https://raw.githubusercontent.com/va
 
 ## 14_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O ARQUIVO DE CONFIGURAÇÃO DO BACKEND BIND9 SERVER ESTÁ COM TODAS AS LINHAS COMENTADAS PARA NÃO ENTRAR EM CONFLITO COM O BACKEND DO MYSQL SERVER.
+**OBSERVAÇÃO IMPORTANTE:** O ARQUIVO DE CONFIGURAÇÃO DO BACKEND BIND9 SERVER ESTÁ COM TODAS AS LINHAS COMENTADAS PARA NÃO ENTRAR EM CONFLITO COM O BACKEND DO POSTGRESQL SERVER.
 
 ```bash
-#editar o arquivo de configuração do PowerDNS Backend MySQL Server
-sudo vim /etc/powerdns/pdns.d/pdns-mysql.conf
+#editar o arquivo de configuração do PowerDNS Backend PostgreSQL Server
+sudo vim /etc/powerdns/pdns.d/pdns-pgsql.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
-#alterar as linhas de: 20 até 32 das variáveis de conexão do MySQL Server
-gmysql-host=127.0.0.1
-gmysql-port=3306
-gmysql-dbname=powerdns
-gmysql-user=powerdns
-gmysql-password=powerdns
+#alterar as linhas de: 20 até 32 das variáveis de conexão do PostgreSQL Server
+gpgsql-host=127.0.0.1
+gpgsql-port=5432
+gpgsql-dbname=powerdns
+gpgsql-user=powerdns
+gpgsql-password=powerdns
 ```
 ```bash
 #salvar e sair do arquivo
@@ -395,7 +410,11 @@ ESC SHIFT :x <Enter>
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do caracter especial de escape \n: number line
 #opção do redirecionador de saída > (maior): Redireciona a saída padrão (STDOUT)
-echo -e "nameserver 172.16.1.20 \nnameserver 2804:14c:90:8938::20" | sudo tee /etc/resolv.conf > /dev/null
+echo -e "nameserver 172.16.1.20 \nnameserver 2804:14c:90:8697::20" | sudo tee /etc/resolv.conf > /dev/null
+
+#listando o conteúdo do arquivo resolv.conf com servidor DNS Temporário do Google
+#opção do comando cat: -n (number line)
+sudo cat -n /etc/resolv.conf
 ```
 
 ## 15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server
@@ -404,7 +423,7 @@ echo -e "nameserver 172.16.1.20 \nnameserver 2804:14c:90:8938::20" | sudo tee /e
 #opção do comando systemctl: stop (Stop (deactivate) one or more units)
 sudo systemctl stop pdns
 
-#testando o serviço do PowerDNS Authoritative se está conectando com o Backend
+#testando o serviço do PowerDNS Authoritative se está conectando com o Backend PostgreSQL Server
 #opção do comando pdns_server: 
 #OBSERVAÇÃO: para finalizar o teste do serviço do PowerDNS Authoritative pressione: Ctrl+C
 sudo pdns_server --daemon=no --guardian=no --loglevel=9
@@ -426,9 +445,9 @@ sudo journalctl -xeu pdns-recursor
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando as portas padrões TCP-53 e 5300 e UDP-53 e 5300 do PowerDNS Authoritative e Recursor
+#verificando as portas padrões TCP-53 e 5300 e UDP-53 e 5300 e TCP-8081 do PowerDNS Authoritative e Recursor
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'53,5300' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'53,5300,8181' -sTCP:LISTEN
 sudo lsof -nP -iUDP:'53,5300'
 ```
 
@@ -502,6 +521,10 @@ sudo pdns_control reload
 #listando todas as Zonas Internas do PowerDNS Authoritative
 #opções do comando pdnsutil: list-all-zones (List all zones named)
 sudo pdnsutil list-all-zones
+
+#listando apenas a Zona Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
+sudo pdnsutil zone list pti.intra
 ```
 
 ## 18_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
@@ -527,7 +550,7 @@ nslookup google.com
 #acessando o diretório temporário do Ubuntu Server
 cd /tmp
 
-#fazendo o download do PowerDNS Admin do site Oficial do Github (Link atualizado em: 10/10/2025)
+#fazendo o download do PowerDNS Admin do site Oficial do Github (Link atualizado em: 20/11/2025)
 #opção do comando wget: -O (output-document)
 wget -O pdns-admin.tar.gz https://github.com/PowerDNS-Admin/PowerDNS-Admin/archive/refs/tags/v0.4.2.tar.gz
 
@@ -587,7 +610,8 @@ PORT = 9191
 SALT = 'pwerdns'
 SECRET_KEY = 'powerdns'
 
-#alterar as linhas de: 48 até 48 das variáveis de conexão do MySQL Server
+#alterar as linhas de: 45 até 49 das variáveis de conexão do PostgreSQL Server
+SQLA_DB_DRIVER = 'postgresql'
 SQLA_DB_USER = 'powerdns'
 SQLA_DB_PASSWORD = 'powerdns'
 SQLA_DB_HOST = 'powerdns'
@@ -787,6 +811,22 @@ Zone Management
       SOA-EDIT-API: (Default) - Default
   <Create Zone>
 ```
+```bash
+#habilitando a atualização da Zona de Pesquisa Inversa no PowerDNS Admin
+Zone Management
+  Dashboard
+    Zones in-addr.arpa
+      Clique em: sua_zona_reversa
+        <Zone Settings>
+          Change Zone Account
+            Account: hostmaster <Update Account>
+          Zone Access Control
+            Click on users to move from between columns: seu_usuário
+          <Save Changes>
+          Auto PTR creation
+            Allow automatic reverse pointer creation on record updates? (ON)
+              New setting created and updated. <Close>
+```
 
 ## 27_ Testando as resoluções de Zona de Pesquisa Inversa do PowerDNS Authoritative no Ubuntu Server
 ```bash
@@ -795,7 +835,7 @@ Zone Management
 dig @127.0.0.1 -p 5300 -x 172.16.1.20
 
 #testando a resolução de Zona Reversa Interna utilizando o PowerDNS Recursor
-nslookup 172.16.1.20
+nslookup -type=ptr 172.16.1.20
 ```
 
 ========================================DESAFIOS=========================================
