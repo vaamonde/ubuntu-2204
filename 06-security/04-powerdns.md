@@ -286,7 +286,7 @@ ALTER DATABASE powerdns OWNER TO powerdns;
 /* Mais informações acesse:  */
 GRANT ALL PRIVILEGES ON DATABASE powerdns TO powerdns;
 
-/* Alterando os privilégios do Esquema Público da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Alterando os privilégios do Esquema Público da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
 /* Mais informações acesse:  */
 GRANT ALL PRIVILEGES ON SCHEMA public TO powerdns;
 
@@ -451,7 +451,7 @@ sudo journalctl -xeu pdns-recursor
 ```bash
 #verificando as portas padrões TCP-53 e 5300 e UDP-53 e 5300 e TCP-8081 do PowerDNS Authoritative e Recursor
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'53,5300,8181' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'53,5300,8081' -sTCP:LISTEN
 sudo lsof -nP -iUDP:'53,5300'
 ```
 
