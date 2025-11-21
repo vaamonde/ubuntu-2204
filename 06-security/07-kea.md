@@ -65,7 +65,7 @@ sudo apt update
 ```bash
 #instalando o Kea DHCP Server IPv4 no Ubuntu Server
 #opção do comando apt:
-sudo apt install isc-kea-dhcp4-server isc-kea-common isc-kea-admin isc-kea-dhcp-ddns
+sudo apt install isc-kea-dhcp4-server isc-kea-common isc-kea-admin isc-kea-dhcp-ddns isc-kea-pgsql
 ```
 
 ## 04_ Habilitando o Serviço do Kea DHCP Server IPv4 no Ubuntu Server
@@ -165,6 +165,96 @@ sudo wget -v -O /etc/kea/kea-dhcp4.conf https://raw.githubusercontent.com/vaamon
 #atualizando o arquivo de configuração do Kea DHCP DDNS do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/kea/kea-dhcp-ddns.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/kea-dhcp-ddns.conf
+```
+
+## 12_ Criando a Base de Dados do Kea DHCP4 Server no PostgreSQL Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO KEA DHCP4 SERVER ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS.
+
+```bash
+#conectando no PostgreSQL Server utilizando o cliente psql
+#opção do comando sudo: -u (user), psql (terminal PostgreSQL)
+sudo -u postgres psql
+```
+```sql
+/* Criando o Banco de Dados do Kea DHCP4 Server com o nome: keadhcp4 */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
+/* Mais informações acesse:  */
+/* Mais informações acesse:  */
+CREATE DATABASE keadhcp4;
+
+/* Listando o Banco de Dados criado do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+\l keadhcp4
+```
+
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO LOCAL.
+
+```sql
+/* Criando o usuário e senha da Base de Dados do Kea DHCP4 Server */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
+/* Mais informações acesse:  */
+CREATE USER keadhcp4 WITH PASSWORD 'SUA_SENHA_SEGURA';
+
+/* Listando o Usuário do Kea DHCP4 Server criado no PostgreSQL Server */
+/* Mais informações acesse:  */
+\du keadhcp4
+
+/* Alterando o dono da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+ALTER DATABASE keadhcp4 OWNER TO keadhcp4;
+
+/* Alterando os privilégios da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+GRANT ALL PRIVILEGES ON DATABASE keadhcp4 TO keadhcp4;
+
+/* Alterando os privilégios do Esquema Público da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+GRANT ALL PRIVILEGES ON SCHEMA public TO keadhcp4;
+
+/* Conectando no Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+\connect keadhcp4;
+
+/* Saindo do Banco de Dados PostgreSQL Server */
+\q
+```
+
+## 13_ Testando o acesso a Base de Dados do Kea DHCP4 Server no PostgreSQL Server no Ubuntu Server
+```bash
+#conectando no banco de dados PostgreSQL Server com o usuário keadhcp4
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to)
+sudo psql --username keadhcp4 --password --host localhost --dbname keadhcp4
+```
+```sql
+/* verificando as informações do Banco de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+\conninfo
+
+/* Saindo do Banco de Dados PostgreSQL Server */
+\q
+```
+
+## 14_ Populando as Tabelas no Banco de Dados do Kea DHCP4 Server utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
+```bash
+#importando o esquema e os dados iniciais do banco de dados do Kea DHCP4 Server
+#opções do comando kea-admin: db-init (Initializes new database), pgsql (PostgreSQL Backend), -u (username), 
+#-p (password), -n (database name), -h (hostname), -P (port)
+sudo kea-admin db-init pgsql -u keadhcp4 -p keadhcp4 -n keadhcp4 -h localhost -P 5432
+
+#conectando no banco de dados PostgreSQL Server com o usuário keadhcp4
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to)
+sudo psql --username keadhcp4 --password --host localhost --dbname keadhcp4
+```
+```sql
+/* Verificando as informações das Tabelas do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+\dt
+
+/* Saindo do Banco de Dados PostgreSQL Server */
+\q
 ```
 
 ## 10_ Editando o arquivo de configuração do Kea DHCP Server IPv4 no Ubuntu Server

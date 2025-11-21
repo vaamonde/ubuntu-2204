@@ -247,7 +247,7 @@ sudo getent group pdns
 
 ## 12_ Criando a Base de Dados do PowerDNS Authoritative no PostgreSQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO POWERDNS AUTHORITATIVE ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS UTILIZANDO.
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO POWERDNS AUTHORITATIVE ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS.
 
 ```bash
 #conectando no PostgreSQL Server utilizando o cliente psql
@@ -285,6 +285,10 @@ ALTER DATABASE powerdns OWNER TO powerdns;
 /* Alterando as permissões da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
 /* Mais informações acesse:  */
 GRANT ALL PRIVILEGES ON DATABASE powerdns TO powerdns;
+
+/* Alterando os privilégios do Esquema Público da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* Mais informações acesse:  */
+GRANT ALL PRIVILEGES ON SCHEMA public TO powerdns;
 
 /* Conectando no Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
 /* Mais informações acesse:  */
