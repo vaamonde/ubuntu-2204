@@ -54,9 +54,10 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados
-           relacional? Qual o seu percentual de uso para aplicações emergentes.
-Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o PostgreSQL Server?
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados relacional? Qual o seu percentual de uso para aplicações emergentes.
+```
+```bash
+Prompt-02: Quais as principais Big Techs no Brasil e no mundo que utiliza o PostgreSQL Server?
 ```
 
 **O QUE É E PARA QUE SERVER O POSTGRESQL SERVER:** O PostgreSQL Server é um Sistema Gerenciador de Banco de Dados Relacional (SGBD) de código aberto, robusto e extremamente poderoso, utilizado para armazenar, organizar e gerenciar grandes volumes de dados de maneira segura, confiável e eficiente. Ele é amplamente adotado em aplicações que exigem alta disponibilidade, desempenho, escalabilidade e integridade dos dados.
@@ -76,9 +77,11 @@ Link da vídeo aula:
 ## 01_ Instalando as Dependências do PostgreSQL Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do PostgreSQL Server no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
 zlib1g-dev apt-transport-https build-essential software-properties-common gnupg ca-certificates \
@@ -121,15 +124,20 @@ echo "deb http://apt.postgresql.org/pub/repos/apt jammy-pgdg main" | sudo tee /e
 ## 04_ Atualizando as Listas do Apt e Instalando o PostgreSQL Server e Client no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório do PostgreSQL Server
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o PostgreSQL Server e Client (versão 18) no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install postgresql-18 postgresql-client-18
 ```
 
 ## 05_ Habilitando o Serviço do PostgreSQL Server no Ubuntu Server
 ```bash
 #habilitando o serviço do PostgreSQL Server
+#opções do comando systemctl: daemon-load (Reload the systemd manager configuration), enable
+#(Enable one or more units or unit instances), start (Start (activate) one or more units specified
+#on the command line)
 sudo systemctl daemon-reload
 sudo systemctl enable postgresql
 sudo systemctl start postgresql
@@ -274,7 +282,7 @@ sudo -u postgres psql --command '\password postgres'
 
 #testando a conexão com o cliente do PostgreSQL Server
 #opções do comando psql: -U (username), -h (hostname), -W (no-password)
-psql -U postgres -h localhost -W
+sudo psql -U postgres -h localhost -W
 ```
 ```sql
 --lista todas as bases de dados disponíveis no servidor

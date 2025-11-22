@@ -197,7 +197,7 @@ Entendendo a saída do comando: __`ifconfig`__ (NÃO COMENTADO NO VÍDEO)<br>
 #opção do comando route: -n (number)
 #opções do comando ip: route (Routing table entry)
 sudo route -n
-sudo ip route
+sudo ip route show
 ```
 
 Entendendo a saída do comando: __`route`__ (NÃO COMENTADO NO VÍDEO)<br>
@@ -305,7 +305,7 @@ network:
       # Desabilitando o suporte da configuração automática do IPv6 na interface física
       # OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
       # na sua rede o recurso do IPv6, caso contrário fazer a configuração adequada
-      # do Link Local do IPv6.
+      # do Link Local do IPv6 adicionando a opção: ipv6
       link-local: []
       #
       # Desabilitando o suporte ao DHCP Client IPv4 na interface física

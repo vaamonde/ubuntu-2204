@@ -42,11 +42,13 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual sistema operacional que mais se destacada em serviços para Web Site Local
-           (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
-Prompt-02: qual distribuição GNU/Linux lidera o mercado de servidores locais (on-premises)
-           e nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
-Prompt-03: quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
+Prompt-01: Qual sistema operacional que mais se destacada em serviços para Web Site Local (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
+```
+```bash
+Prompt-02: Qual distribuição GNU/Linux lidera o mercado de servidores Locais (on-premises) e Nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
+```
+```bash
+Prompt-03: Quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
 ```
 
 **O QUE É E PARA QUE SERVER O ON-PREMISES:** O "on-premises" se refere a uma infraestrutura de TI que está localizada fisicamente nas instalações da empresa. Isso significa que os servidores, bancos de dados, aplicações e demais recursos de TI são hospedados, gerenciados e mantidos internamente pela equipe da empresa, em vez de serem executados em uma nuvem pública como AWS, Azure ou Google Cloud.
@@ -200,9 +202,9 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 
 06) Network connections
     enp0s3 eth - (o nome lógico da placa de rede pode mudar de equipamento para equipamento)
-    DHCPv4 172.16.1.XXX/24 (altere o Endereço IPv4 conforme a sua necessidade)
+    DHCPv4 172.16.1.XXX/24 (endereço IPv4 pode mudar dependendo da sua rede)
     #OBSERVAÇÃO IMPORTANTE: VERIFICAR O ENDEREÇO IPv4 QUE VOCÊ ESTÁ USANDO NA SUA REDE 
-    #INTERNA PARA ADAPTAR NO SEU CENÁRIO.
+    #INTERNA PARA ADAPTAR NO SEU CENÁRIO NA AULA DE CONFIGURAÇÃO DE REDE ESTÁTICA.
 <Done>
 
 07) Configure proxy
@@ -242,8 +244,8 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
     Your name: Seu Nome e Sobrenome <Tab>
     Your servers name: wsseunome <Tab>
     Pick a username: seu_usuário <Tab>
-    Choose a passwords: sua_senha <Tab>
-    Confirm your passwords: sua_senha <Tab>
+    Choose a passwords: sua_senha_segura <Tab>
+    Confirm your passwords: repetir_sua_senha <Tab>
 <Done>
 
 12) Upgrade to Ubuntu Pro

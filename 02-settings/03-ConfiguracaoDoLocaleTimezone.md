@@ -241,29 +241,29 @@ sudo hwclock --hctosys
 ```bash
 #verificando as configurações do Teclado no Ubuntu Server
 sudo cat /etc/default/keyboard
-	XKBMODEL="pc105" (Padrão 105 teclas pc105)
-	XKBLAYOUT="br" (Layout de Teclado Português Brasileiro ABNT2)
+  XKBMODEL="pc105" (Padrão 105 teclas pc105)
+  XKBLAYOUT="br" (Layout de Teclado Português Brasileiro ABNT2)
 ```
 ```bash
 #reconfigurando o Teclado no Ubuntu Server
 sudo dpkg-reconfigure keyboard-configuration
-	Keyboard model: Generic 105-Key PC (intl <- Internacional) <Enter>;
-	Country of origin for the keyboard: Portuguese (Brazil) <Enter>;
-	Keyboard layout: Portuguese (Brazil) (Padrão ABNT-2) <Enter>;
-	Key to function as AltGr: Right Alt (AltGr) <Enter>;
-		(The Default for the Keyboard Layout (O padrão para o layout do teclado));
-	No Compose Key (Nenhuma combinação de composição) <Enter>.
+  Keyboard model: Generic 105-Key PC (intl <- Internacional) <Enter>;
+  Country of origin for the keyboard: Portuguese (Brazil) <Enter>;
+  Keyboard layout: Portuguese (Brazil) (Padrão ABNT-2) <Enter>;
+  Key to function as AltGr: Right Alt (AltGr) <Enter>;
+    (The Default for the Keyboard Layout (O padrão para o layout do teclado));
+  No Compose Key (Nenhuma combinação de composição) <Enter>.
 ```
 ```bash
 #verificando as configurações do UTF-8 (8-bit Unicode Transformation Format) e Console (Bash/Shell)
 sudo cat /etc/default/console-setup
-	CHARMAP="UTF-8"
+  CHARMAP="UTF-8"
 ```
 ```bash
 #reconfigurando o UTF-8 e Console no Ubuntu Server
 sudo dpkg-reconfigure console-setup
-	UTF-8 <Enter>;
-	Guess optimal character set (Supor o melhor conjunto de caracteres) <Enter>;
-	Fixed <Enter>;
-	8x16 <Enter>.
+  UTF-8 <Enter>;
+  Guess optimal character set (Supor o melhor conjunto de caracteres) <Enter>;
+  Fixed <Enter>;
+  8x16 <Enter>.
 ```

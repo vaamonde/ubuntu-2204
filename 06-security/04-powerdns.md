@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/10/2025<br>
-#Data de atualização: 20/11/2025<br>
-#Versão: 0.06<br>
+#Data de atualização: 22/11/2025<br>
+#Versão: 0.08<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
@@ -16,38 +16,43 @@ COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTA
 
 LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/23-powerdns.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiopowerdns #desafiopowerdnsadmin
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiopowerdns #desafiopowerdnsadmin #deafiopowerdnsrecursor
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server<br>
-#02_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server<br>
-#03_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
-#04_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
-#05_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server<br>
-#06_ Instalando o PowerDNS Authoritative, Recursor e Backend MySQL no Ubuntu Server<br>
-#07_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
-#08_ Localização dos diretórios principais do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
-#09_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server<br>
-#10_ Criando a Base de Dados do PowerDNS Authoritative no MySQL Server no Ubuntu Server<br>
-#11_ Testando o acesso a Base de Dados do PowerDNS Authoritative no MySQL Server no Ubuntu Server<br>
-#12_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do MySQL Server no Ubuntu Server<br>
-#13_ Atualizando os arquivos de configuração do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
-#14_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server<br>
-#15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server<br>
-#16_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
-#17_ Criando uma Zona de Pesquisa Interna no PowerDNS Authoritative no Ubuntu Server<br>
-#18_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server<br>
-#19_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server<br>
-#20_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server<br>
-#21_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server<br>
-#22_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server<br>
-#23_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server<br>
-#24_ Desativando o site padrão do NGINX Server no Ubuntu Server<br>
-#25_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server<br>
-#26_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin<br>
-#27_ Testando as resoluções de Zona de Pesquisa Inversa do PowerDNS Authoritative no Ubuntu Server<br>
+#01_ Adicionando o Repositório do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server<br>
+#02_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server<br>
+#03_ Instalando as dependências do PowerDNS Authoritative, Recursor e do Admin no Ubuntu Server<br>
+#04_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server<br>
+#05_ Baixando e instalando a Chave GPG do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#06_ Criando o repositório do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#07_ Atualizando as Lista do Apt com o novo Repositório do PowerDNS no Ubuntu Server<br>
+#08_ Instalando o PowerDNS Authoritative, Recursor e Backend PostgreSQL no Ubuntu Server<br>
+#09_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#10_ Localização dos diretórios principais do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#11_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server<br>
+#12_ Criando a Base de Dados do PowerDNS Authoritative no PostgreSQL Server no Ubuntu Server<br>
+#13_ Testando o acesso a Base de Dados do PowerDNS Authoritative no PostgreSQL Server no Ubuntu Server<br>
+#14_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server<br>
+#15_ Atualizando os arquivos de configuração do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#16_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server<br>
+#17_ Testando o serviço do PowerDNS Authoritative e Backend PostgreSQL no Ubuntu Server<br>
+#18_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server<br>
+#19_ Criando uma Zona de Pesquisa Direta Interna no PowerDNS Authoritative no Ubuntu Server<br>
+#20_ Criando uma Zona de Pesquisa Reversa Interna no PowerDNS Authoritative no Ubuntu Server<br>
+#21_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server<br>
+#22_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server<br>
+#23_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server<br>
+#24_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server<br>
+#25_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server<br>
+#26_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server<br>
+#27_ Desativando o site padrão do NGINX Server no Ubuntu Server<br>
+#28_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server<br>
+#29_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin<br>
+#30_ Desafio do PowerDNS Authoritative e Recursor<br>
 
 Site Oficial do PowerDNS: https://www.powerdns.com/<br>
+Site Oficial do PowerDNS Authoritative: https://www.powerdns.com/powerdns-authoritative-server<br>
+Site Oficial do PowerDNS Recursor: https://www.powerdns.com/powerdns-recursor<br>
 Site Oficial do PowerDNS Admin: https://www.poweradmin.org/
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
@@ -101,9 +106,9 @@ sudo apt install nodejs
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install nginx python3-dev libsasl2-dev libldap2-dev libssl-dev libxml2-dev libxslt1-dev \
-libxmlsec1-dev libffi-dev pkg-config apt-transport-https virtualenv build-essential libmariadb-dev \
-git python3-flask libpq-dev vim gnupg gcc g++ make software-properties-common tree build-essential \
-ca-certificates apt-transport-https curl ssl-cert php-pgsql
+libxmlsec1-dev libffi-dev pkg-config apt-transport-https virtualenv build-essential curl ssl-cert \
+git python3-flask libpq-dev vim gnupg gcc g++ make software-properties-common tree ca-certificates \
+php-pgsql libmariadb-dev
 
 #instalando a dependência do PowerDNS Admin do Yarn
 #opção do comando npm: install (install a package), -g (in global mode)
@@ -134,7 +139,7 @@ echo -e "nameserver 8.8.8.8 \nnameserver 2001:4860:4860::8888" | sudo tee /etc/r
 
 #listando o conteúdo do arquivo resolv.conf com servidor DNS Temporário do Google
 #opção do comando cat: -n (number line)
-cat -n /etc/resolv.conf
+sudo cat -n /etc/resolv.conf
 
 #testando a resolução de nomes temporários do DNS no Ubuntu Server
 sudo nslookup google.com
@@ -188,7 +193,8 @@ sudo apt update
 ## 08_ Instalando o PowerDNS Authoritative, Recursor e Backend PostgreSQL no Ubuntu Server
 ```bash
 #instando o PowerDNS Authoritative, Recursor e Backend PostgreSQL no Ubuntu Server
-sudo apt install pdns-server pdns-recursor pdns-backend-pgsql
+#opção do comando apt: install (install is followed by one or more package names)
+sudo apt install pdns-server pdns-recursor pdns-backend-pgsql pdns-tools
 ```
 
 ## 09_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
@@ -231,6 +237,7 @@ sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
 /etc/powerdns/pdns.d/pdns-pgsql.conf   <-- Arquivo de configuração da Base de Dados Backend do PostgreSQL Server
 /etc/powerdns/recursor.d/              <-- Diretório dos arquivos de configuração do PowerDNS Recursor
 /var/lib/powerdns/                     <-- Diretório dos arquivos de Zonas de Domínio do PowerDNS Authoritative
+/var/log/powerdns/                     <-- Diretório dos arquivos de Logs do PowerDNS Authoritative e Recursor
 ```
 
 ## 11_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
@@ -257,12 +264,12 @@ sudo -u postgres psql
 ```sql
 /* Criando o Banco de Dados do PowerDNS Authoritative com o nome: powerdns */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
-/* Mais informações acesse:  */
-/* Mais informações acesse:  */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-createdatabase.html */
 CREATE DATABASE powerdns;
 
 /* Listando o Banco de Dados criado do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* opção do comando \l: (list databases) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \l powerdns
 ```
 
@@ -271,30 +278,34 @@ CREATE DATABASE powerdns;
 ```sql
 /* Criando o usuário e senha da Base de Dados do PowerDNS Authoritative */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
-/* Mais informações acesse:  */
+/* mais informações acesse: https://www.postgresql.org/docs/8.0/sql-createuser.html */
 CREATE USER powerdns WITH PASSWORD 'SUA_SENHA_SEGURA';
 
 /* Listando o Usuário do PowerDNS Authoritative criado no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* opção do comando \du: (Lists database roles) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \du powerdns
 
 /* Alterando o dono da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-alterdatabase.html */
 ALTER DATABASE powerdns OWNER TO powerdns;
 
 /* Alterando as permissões da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-grant.html */
 GRANT ALL PRIVILEGES ON DATABASE powerdns TO powerdns;
 
 /* Alterando os privilégios do Esquema Público da Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-grant.html */
 GRANT ALL PRIVILEGES ON SCHEMA public TO powerdns;
 
 /* Conectando no Base de Dados do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* opção do comando \connect: (establish a database connection) */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/ecpg-sql-connect.html */
 \connect powerdns;
 
 /* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \q
 ```
 
@@ -307,10 +318,13 @@ sudo psql --username powerdns --password --host localhost --dbname powerdns
 ```
 ```sql
 /* verificando as informações do Banco de Dados do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* opção do comando \conninfo: (Outputs information about the current database connection) */
+/* Mais informações acesse: https://www.postgresql.org/docs/9.1/app-psql.html*/
 \conninfo
 
 /* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \q
 ```
 
@@ -328,10 +342,13 @@ sudo psql --username powerdns --password --host localhost --dbname powerdns
 ```
 ```sql
 /* Verificando as informações das Tabelas do PowerDNS Authoritative no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* opção do comando \dt: (For each relation (table, view, index, sequence, or foreign table))
+/* Mais informações acesse: https://www.postgresql.org/docs/9.1/app-psql.html*/
 \dt
 
 /* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \q
 ```
 
@@ -356,7 +373,7 @@ sudo wget -v -O /etc/powerdns/pdns.conf https://raw.githubusercontent.com/vaamon
 sudo wget -v -O /etc/powerdns/recursor.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/recursor.conf
 ```
 
-## 14_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server
+## 16_ Editando os arquivos de configuração dos serviços do PowerDNS no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** O ARQUIVO DE CONFIGURAÇÃO DO BACKEND BIND9 SERVER ESTÁ COM TODAS AS LINHAS COMENTADAS PARA NÃO ENTRAR EM CONFLITO COM O BACKEND DO POSTGRESQL SERVER.
 
@@ -386,7 +403,7 @@ sudo vim /etc/powerdns/pdns.conf
 INSERT
 ```
 ```bash
-#alterar as linhas de: 33 até 38 das variáveis
+#alterar as linhas de: 34 até 38 das variáveis
 local-address=127.0.0.1
 local-port=5300
 server-id=auth.pti.intra
@@ -421,14 +438,17 @@ echo -e "nameserver 172.16.1.20 \nnameserver 2804:14c:90:8697::20" | sudo tee /e
 sudo cat -n /etc/resolv.conf
 ```
 
-## 15_ Testando o serviço do PowerDNS Authoritative e Backend MySQL no Ubuntu Server
+## 17_ Testando o serviço do PowerDNS Authoritative e Backend PostgreSQL no Ubuntu Server
 ```bash
 #parando o serviço do PowerDNS Authoritative no Ubuntu Server
 #opção do comando systemctl: stop (Stop (deactivate) one or more units)
 sudo systemctl stop pdns
 
 #testando o serviço do PowerDNS Authoritative se está conectando com o Backend PostgreSQL Server
-#opção do comando pdns_server: 
+#opção do comando pdns_server: --daemon (Indicate  if  the  server should run in the background 
+#as a real daemon, or in the foreground), --guardian (Run pdns_server inside a guardian. This 
+#guardian  monitors  the performance  of  the inner pdns_server instance), --loglevel (Set the 
+#logging level)
 #OBSERVAÇÃO: para finalizar o teste do serviço do PowerDNS Authoritative pressione: Ctrl+C
 sudo pdns_server --daemon=no --guardian=no --loglevel=9
 
@@ -444,109 +464,268 @@ sudo journalctl -xeu pdns
 sudo journalctl -xeu pdns-recursor
 ```
 
-## 16_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 18_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando as portas padrões TCP-53 e 5300 e UDP-53 e 5300 e TCP-8081 do PowerDNS Authoritative e Recursor
+#verificando as portas padrões TCP-53, 5300 e 8081 e UDP-53 e 5300 do PowerDNS Authoritative e Recursor
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'53,5300,8081' -sTCP:LISTEN
 sudo lsof -nP -iUDP:'53,5300'
 ```
 
-## 17_ Criando uma Zona de Pesquisa Interna no PowerDNS Authoritative no Ubuntu Server
+## 19_ Criando uma Zona de Pesquisa Direta Interna no PowerDNS Authoritative no Ubuntu Server
+
+# 📘 Conceito Básico sobre os Registro do PowerDNS Authoritative
+
+| Termo | O que é | Para que serve / Função |
+|------|---------|--------------------------|
+| **Zona de Pesquisa Direta (Forward Zone)** | Zona/arquivo DNS que resolve *nomes → endereços IP*. | Permite consultar um nome (ex.: `www.exemplo.com`) e obter o IP correspondente. |
+| **DNSSEC** | Extensão de segurança para DNS. | Garante autenticidade e integridade das respostas usando assinaturas digitais; evita ataques como DNS Spoofing. |
+| **Registro SOA (Start of Authority)** | Primeiro registro da zona DNS. | Define o servidor autoritativo principal e parâmetros da zona (serial, refresh, retry, expire). |
+| **Registro NS (Name Server)** | Registro que especifica os servidores DNS da zona. | Informa quais servidores são responsáveis por responder pelas consultas daquela zona. |
+| **Registro A** | Mapeia um nome para um endereço IPv4. | Usado para resolver **nome → IPv4**, como `www → 192.168.1.10`. |
+| **Registro CNAME** | Registro de alias (apelido) para outro nome. | Permite que um nome seja um apelido de outro nome, facilitando gerenciamento (`loja → www`). |
+
 ```bash
 #criando a Zona de Pesquisa Direta Interna no PowerDNS Authoritative
 #opções do comando pdnsutil: create-zone (Create an empty zone named ZONE), pti.intra (Zone named), 
 #ns1.pti.intra (Create register record NS1 with Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil create-zone pti.intra ns1.pti.intra
 
 #listando todas as Zonas Internas do PowerDNS Authoritative
 #opções do comando pdnsutil: list-all-zones (List all zones named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil list-all-zones
 
-#listando apenas a Zona Interna criada no PowerDNS Authoritative
+#listando apenas a Zona Direta Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil zone list pti.intra
 
 #verificando erros na Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: check-zone (Check zone ZONE for correctness)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil check-zone pti.intra
 
 #habilitando o suporte ao DNSSEC na Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil secure-zone pti.intra
 
 #removendo o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), pti.intra (Zone named),
 #pti.intra (record name), SOA (Type of register - start of authority)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil delete-rrset pti.intra pti.intra SOA
 
 #criando o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
 #TTL.), pti.intra (zone name), pti.intra (record name), SOA (Type SOA - Start os Authority), 3600 (TTL - Time to Live),
 #ns1.pti.intra (NS - primary DNS server), hostmaster.pti.intra. (responsible mail), 2025100801 (number of serial zone),
-#3600 (TTL - time to live zone), 600 (retry zone), 604800 (expire zone), 86400 (minimum negative TTIL)
+# 3600 (TTL - time to live zone), 600 (retry zone), 604800 (expire zone), 86400 (minimum negative TTIL)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record pti.intra pti.intra SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
 
-#criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo A (IPv4 Address) e AAAA (IPv6 Address) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
-#TTL.), pti.intra (zone name), ns1. pti.intra (record name NS - name server), A (type IPv4 record), 3600 (TTL - Time
-# to Live), 172.16.1.20 (IPv4 Address record name)
+#TTL.), pti.intra (zone name), ns1. pti.intra (record name NS - name server), A (type IPv4 record), AAAA (type IPv6
+#record) 3600 (TTL - Time to Live), 172.16.1.20 - 2804:14c:90:8697::20 (IPv4 and IPv6 Address record name)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record pti.intra ns1.pti.intra A 3600 172.16.1.20
+sudo pdnsutil add-record pti.intra ns1.pti.intra AAAA 3600 2804:14c:90:8697::20
 
-#criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo A (IPv4 Address) e AAAA (IPv6 Address) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
-#TTL.), pti.intra (zone name), pti.intra (record name), A (type IPv4 record), 3600 (TTL - Time to Live), 172.16.1.20
-#(IPv4 Address record name)
+#TTL.), pti.intra (zone name), pti.intra (record name), A (type IPv4 record), AAAA (type IPv6 record) 3600 (TTL-Time
+#to Live), 172.16.1.20 - 2804:14c:90:8697::20 (IPv4 and IPV6 Address record name)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record pti.intra pti.intra A 3600 172.16.1.20
+sudo pdnsutil add-record pti.intra pti.intra AAAA 3600 2804:14c:90:8697::20
 
-#criando o registro do tipo A (IPv4 Address) da Zona Interna criada no PowerDNS Authoritative
+#criando o registro do tipo A (IPv4 Address) e AAAA (IPv6 Address) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
-#TTL.), pti.intra (zone name), wsvaamonde.pti.intra (record name), A (type IPv4 record), 3600 (TTL - Time to Live),
-#172.16.1.20 (IPv4 Address record name)
+#TTL.), pti.intra (zone name), wsvaamonde.pti.intra (record name), A (type IPv4 record), AAAA (type IPv6 record), 
+# 3600 (TTL - Time to Live), 172.16.1.20 - 2804:14c:90:8697::20 (IPv4 and IPv6 Address record name)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record pti.intra wsvaamonde.pti.intra A 3600 172.16.1.20
+sudo pdnsutil add-record pti.intra wsvaamonde.pti.intra AAAA 3600 2804:14c:90:8697::20
 
 #criando o registro do tipo CNAME (Canonical Name) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
 #TTL.), pti.intra (zone name), wsvaamonde.pti.intra (record name), A (type IPv4 record), 3600 (TTL - Time to Live),
-#172.16.1.20 (IPv4 Address record name)
+# 172.16.1.20 (IPv4 Address record name)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record pti.intra pdns.pti.intra CNAME 3600 "wsvaamonde.pti.intra"
 
 #atualizando os registros das Zonas Internas criadas no PowerDNS Authoritative
-#opções do comando pdnsutil: rectify-all-zone 
+#opções do comando pdnsutil: rectify-all-zone
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil rectify-all-zones
 
 #recarregar todas as Zonas Internas do PowerDNS Authoritative sem reiniciar o serviço
-#opção do comando pdns_control: reload (Instruct the server to reload all its zones, this will not add new zones) 
+#opção do comando pdns_control: reload (Instruct the server to reload all its zones, this will not add new zones)
+#mais informações acesse: https://doc.powerdns.com/authoritative/manpages/pdns_control.1.html
 sudo pdns_control reload
 
 #listando todas as Zonas Internas do PowerDNS Authoritative
 #opções do comando pdnsutil: list-all-zones (List all zones named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil list-all-zones
 
 #listando apenas a Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil zone list pti.intra
 ```
 
-## 18_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
+## 20_ Criando uma Zona de Pesquisa Reversa Interna no PowerDNS Authoritative no Ubuntu Server
+
+# 📘 Conceito Básico sobre os Registro do PowerDNS Authoritative
+
+| **Termo** | **O que é** | **Para que serve / Função** |
+| --------- | ----------- | --------------------------- |
+| **Zona de Pesquisa Reversa (Reverse Zone)** | Parte do DNS responsável por mapear **endereços IP para nomes de host**. Utiliza `in-addr.arpa` (IPv4) e `ip6.arpa` (IPv6). | Permite a **resolução reversa**, essencial para logs, auditorias, autenticações, e vários serviços como e-mail, DHCP, Kerberos e validações de segurança. |
+| **DNSSEC**  | Extensão de segurança que adiciona **assinaturas digitais** aos registros DNS. | Garante **autenticidade, integridade e verificação criptográfica** da zona. Protege contra envenenamento de cache e respostas forjadas.|
+| **Registro SOA (Start of Authority)** | Primeiro registro obrigatório da zona. Define o servidor principal, e-mail responsável, serial e informações de atualização. | Identifica a **autoridade** da zona reversa e controla a sincronização entre servidores DNS.|
+| **Registro NS (Name Server)** | Registros que apontam para os servidores DNS autoritativos da zona. | Define **quais servidores** respondem oficialmente pela zona reversa. Sem NS, não há autoridade DNS. |
+| **Registro PTR (Pointer Record)** | Registro que faz o mapeamento de **IP → nome DNS** (oposto do A/AAAA). | Permite identificar o nome de um host a partir do IP. Essencial para logs, e-mail (rDNS), auditoria, integração com DHCP e serviços internos. |
+
+
 ```bash
+#criando a Zona de Pesquisa Reversa Interna no PowerDNS Authoritative
+#opções do comando pdnsutil: create-zone (Create an empty zone named ZONE), pti.intra (Zone named), 
+#ns1.pti.intra (Create register record NS1 with Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil create-zone 1.16.172.in-addr.arpa ns1.pti.intra
+
+#listando todas as Zonas Internas do PowerDNS Authoritative
+#opções do comando pdnsutil: list-all-zones (List all zones named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil list-all-zones
+
+#listando apenas a Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone list 1.16.172.in-addr.arpa
+
+#verificando erros na Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: check-zone (Check zone ZONE for correctness)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil check-zone 1.16.172.in-addr.arpa
+
+#habilitando o suporte ao DNSSEC na Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil secure-zone 1.16.172.in-addr.arpa
+
+#removendo o registro do tipo SOA (start of authority) da Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), pti.intra (Zone named),
+#pti.intra (record name), SOA (Type of register - start of authority)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil delete-rrset 1.16.172.in-addr.arpa 1.16.172.in-addr.arpa SOA
+
+#criando o registro do tipo SOA (start of authority) da Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), pti.intra (zone name), pti.intra (record name), SOA (Type SOA - Start os Authority), 3600 (TTL - Time to Live),
+#ns1.pti.intra (NS - primary DNS server), hostmaster.pti.intra. (responsible mail), 2025100801 (number of serial zone),
+# 3600 (TTL - time to live zone), 600 (retry zone), 604800 (expire zone), 86400 (minimum negative TTIL)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil add-record 1.16.172.in-addr.arpa 1.16.172.in-addr.arpa SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
+
+#criando o registro do tipo PTR (IPv4 Address) da Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), 1.16.172.in-addr.arpa (zone name), 20.1.16.172.in-addr.arpa (register IPv4), PTR (point register), 3600 (TTL
+#Time to Live)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil add-record 1.16.172.in-addr.arpa 20.1.16.172.in-addr.arpa PTR 3600 pti.intra
+sudo pdnsutil add-record 1.16.172.in-addr.arpa 20.1.16.172.in-addr.arpa PTR 3600 ns1.pti.intra
+sudo pdnsutil add-record 1.16.172.in-addr.arpa 20.1.16.172.in-addr.arpa PTR 3600 wsvaamonde.pti.intra
+
+#atualizando os registros das Zonas Internas criadas no PowerDNS Authoritative
+#opções do comando pdnsutil: rectify-all-zone
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil rectify-all-zones
+
+#recarregar todas as Zonas Internas do PowerDNS Authoritative sem reiniciar o serviço
+#opção do comando pdns_control: reload (Instruct the server to reload all its zones, this will not add new zones)
+#mais informações acesse: https://doc.powerdns.com/authoritative/manpages/pdns_control.1.html
+sudo pdns_control reload
+
+#listando todas as Zonas Internas do PowerDNS Authoritative
+#opções do comando pdnsutil: list-all-zones (List all zones named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil list-all-zones
+
+#listando apenas a Zona Reversa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone 1.16.172.in-addr.arpa
+```
+
+## 21_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
+```bash
+#testando a resolução direta do PowerDNS Recursor com encaminhamento para o PowerDNS Authoritative
+sudo nslookup pti.intra
+
+#testando a resolução de nomes do Tipo SOA do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=SOA pti.intra
+
+#testando a resolução de nomes do Tipo NS do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=NS pti.intra
+
+#testando a resolução de nomes do Tipo A (IPv4) do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=A pti.intra
+
+#testando a resolução de nomes do Tipo AAAA (IPv6) do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=AAAA pti.intra
+
+#testando a resolução de nomes do Tipo A (IPv4) do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=A wsvaamonde.pti.intra
+
+#testando a resolução de nomes do Tipo AAAA (IPv6) do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=AAAA wsvaamonde.pti.intra
+
+#testando a resolução de nomes do Tipo A (IPv4) do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=A ns1.pti.intra
+
+#testando a resolução de nomes do Tipo AAAA (IPv6) do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=AAAA ns1.pti.intra
+
+#testando a resolução de nomes do Tipo CNAME do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=CNAME pdns.pti.intra
+
+#testando a resolução reversa do PowerDNS Recursor com encaminhamento para o PowerDNS Authoritative
+sudo nslookup 172.16.1.20
+
+#testando a resolução reversa do Tipo PTR do PowerDNS Authoritative
+#opção do comando nslookup: -type (query type filter)
+sudo nslookup -type=PTR 172.16.1.20
+
+#testando a resolução de nomes externos do PowerDNS Recursor
+sudo nslookup google.com
+
 #testando o resolução da Zona Interna criada no PowerDNS Authoritative
 #opção do comando dig: @127.0.0.1 (loopback), -p (port), pti.intra (Zona Interna)
-dig @127.0.0.1 -p 5300 pti.intra
+sudo dig @127.0.0.1 -p 5300 pti.intra
 
 #testando a resolução de Nomes da Zona Interna criada no PowerDNS Authoritative
 #opção do comando dig: @127.0.0.1 (loopback), -p (port), wsvaamonde.pti.intra (Register Type A)
-dig @127.0.0.1 -p 5300 wsvaamonde.pti.intra
-
-#testando a resolução de Zona Interna e Externas utilizando o PowerDNS Recursor
-nslookup pti.intra
-nslookup google.com
+sudo dig @127.0.0.1 -p 5300 wsvaamonde.pti.intra
 ```
 
-## 19_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
+## 22_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o aplicativo e os arquivos de configuração do *PowerDNS Admin* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/PowerDNS-Admin/PowerDNS-Admin/releases
 
@@ -569,7 +748,7 @@ tar -zxvf pdns-admin.tar.gz
 sudo mv -v PowerDNS-Admin*/ /var/www/html/pdns/
 ```
 
-## 20_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
+## 23_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do PowerDNS Admin
 #opção do comando wget: -v (verbose), -O (output file)
@@ -596,7 +775,7 @@ sudo chown -Rv pdns: /run/pdnsadmin/
 echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf > /dev/null
 ```
 
-## 21_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
+## 24_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do PowerDNS Admin
 #opção do comando wget: -v (verbose), -O (output file)
@@ -641,21 +820,24 @@ server_name pdns.pti.intra;
 ESC SHIFT :x <Enter>
 ```
 
-## 22_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server
+## 25_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server
 ```bash
 #Acessando o diretório de instalação do PowerDNS-Admin no servidor NGINX
 cd /var/www/html/pdns/
 
 #Criando um ambiente virtual isolado em Python 3 para o PowerDNS-Admin
+#opção do comando virtualenv: -p (virtual python isolation)
 virtualenv -p python3 flask
 
 #Ativando o ambiente virtual Python (modo ativo)
 source ./flask/bin/activate
 
 #Atualizando o gerenciador de pacotes pip dentro do ambiente virtual
+#opção do comando python: -m (module), pip install (install module), --upgrade (upgrade module)
 python -m pip install --upgrade pip
 
 #Instalando todas as dependências Python listadas no arquivo requirements.txt
+#opção do comando pip: install (install module), -r ()
 pip install -r requirements.txt
 
 #Definindo a variável de ambiente FLASK_APP apontando para o aplicativo principal do PowerDNS-Admin
@@ -674,7 +856,7 @@ flask assets build
 deactivate
 ```
 
-## 23_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server
+## 26_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server
 ```bash
 #alterando as permissões do diretório de instalação do PowerDNS Admin no NGINX Server
 #opções do comando chown: -R (recursive), -v (verbose), www-data:www-data (user/owner and group default)
@@ -685,7 +867,7 @@ sudo chown -Rv www-data:www-data /var/www/html/pdns
 sudo chown -Rv pdns: /var/www/html/pdns/powerdnsadmin/
 ```
 
-## 24_ Desativando o site padrão do NGINX Server no Ubuntu Server
+## 27_ Desativando o site padrão do NGINX Server no Ubuntu Server
 ```bash
 #removendo o arquivo de configuração do site padrão do NGINX Server
 #opção do comando rm: -v (verbose)
@@ -706,7 +888,7 @@ sudo systemctl status nginx
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
-## 25_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server
+## 28_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server
 ```bash
 #habilitando o serviço do PowerDNS Admin no Ubuntu Server
 #opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), enable (Enable 
@@ -723,7 +905,7 @@ sudo journalctl -xeu pdnsadmin
 sudo journalctl -xeu pdnsadmin.socket
 ```
 
-## 26_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin
+## 29_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin
 ```bash
 #utilizar os navegadores para testar o acesso ao PowerDNS Admin
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
@@ -832,19 +1014,9 @@ Zone Management
               New setting created and updated. <Close>
 ```
 
-## 27_ Testando as resoluções de Zona de Pesquisa Inversa do PowerDNS Authoritative no Ubuntu Server
-```bash
-#testando o resolução da Zona Reversa Interna criada no PowerDNS Admin
-#opção do comando dig: @127.0.0.1 (loopback), -p (port), -x (addr), 172.16.1.20 (Zona Reversa Interna)
-dig @127.0.0.1 -p 5300 -x 172.16.1.20
-
-#testando a resolução de Zona Reversa Interna utilizando o PowerDNS Recursor
-nslookup -type=ptr 172.16.1.20
-```
-
 ========================================DESAFIOS=========================================
 
-**#28_ DESAFIO-01:** 
+**#30_ DESAFIO-01:** 
 
 =========================================================================================
 

@@ -47,8 +47,7 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de
-          Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
 ```
 
 **O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
@@ -150,15 +149,15 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
 ## 04_ Localização dos Arquivos de Configuração do Apache2 Server e do PHP 8.x no Ubuntu Server
 ```bash
-/etc/apache2/                  <-- Diretório de configuração do Apache2 Server
-/etc/apache2/apache2.conf      <-- Arquivo de configuração do Apache2 Server
-/etc/apache2/ports.conf        <-- Arquivo de configuração das Portas do Apache2 Server
-/etc/apache2/sites-available/  <-- Diretório padrão dos Sites Acessíveis do Apache2 Server
-/etc/apache2/conf-available/   <-- Diretório padrão das Configurações Acessíveis do Apache2 Server
-/etc/php/                      <-- Diretório de configuração do PHP 7.x ou 8.x
-/etc/php/8.x/apache2/php.ini   <-- Arquivo de configuração do PHP 8.x do Apache2 Server
-/var/www/html/                 <-- Diretório padrão das Hospedagem de Site do Apache2 Server
-/var/log/apache2/              <-- Diretório padrão dos Logs do Apache2 Server
+/etc/apache2/                   <-- Diretório de configuração do Apache2 Server
+/etc/apache2/apache2.conf       <-- Arquivo de configuração do Apache2 Server
+/etc/apache2/ports.conf         <-- Arquivo de configuração das Portas do Apache2 Server
+/etc/apache2/sites-available/   <-- Diretório padrão dos Sites Acessíveis do Apache2 Server
+/etc/apache2/conf-available/    <-- Diretório padrão das Configurações Acessíveis do Apache2 Server
+/etc/php/                       <-- Diretório de configuração do PHP 7.x ou 8.x
+/etc/php/8.x/apache2/php.ini    <-- Arquivo de configuração do PHP 8.x do Apache2 Server
+/var/www/html/                  <-- Diretório padrão das Hospedagem de Site do Apache2 Server
+/var/log/apache2/               <-- Diretório padrão dos Logs do Apache2 Server
 ```
 
 ## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server no Ubuntu Server
