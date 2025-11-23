@@ -130,7 +130,7 @@ sudo systemctl disable --now systemd-resolved
 #opção do comando rm: -r (recursive), -f (force), -v (verbose)
 sudo rm -rfv /etc/resolv.conf
 
-#atualizando o arquivo resolv.conf com servidor DNS Temporário do Google
+#atualizando o arquivo resolv.conf com servidores DNS Temporários do Google
 #opção do comando echo: -e (enable interpretation of backslash escapes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do caracter especial de escape \n: number line
@@ -237,17 +237,17 @@ sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
 /etc/powerdns/pdns.d/pdns-pgsql.conf   <-- Arquivo de configuração da Base de Dados Backend do PostgreSQL Server
 /etc/powerdns/recursor.d/              <-- Diretório dos arquivos de configuração do PowerDNS Recursor
 /var/lib/powerdns/                     <-- Diretório dos arquivos de Zonas de Domínio do PowerDNS Authoritative
-/var/log/powerdns/                     <-- Diretório dos arquivos de Logs do PowerDNS Authoritative e Recursor
+/var/log/syslog e auth                 <-- Arquivos de Logs do PowerDNS Authoritative e Recursor
 ```
 
-## 11_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS no Ubuntu Server
+## 11_ Adicionado o Usuário Local no Grupo Padrão do PowerDNS Authoritative e Recursor no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
 #nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G pdns $USER
 
-#verificando as informações do grupo PDNS do PowerDNS
+#verificando as informações do grupo PDNS do PowerDNS Authoritative e Recursor
 #opção do comando getent: group (the database system group)
 sudo getent group pdns
 ```
@@ -328,7 +328,7 @@ sudo psql --username powerdns --password --host localhost --dbname powerdns
 \q
 ```
 
-## 14_ Populando as Tabelas no Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
+## 14_ Populando o Banco de Dados do PowerDNS Authoritative utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do PowerDNS Authoritative
 #opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
@@ -456,12 +456,23 @@ sudo cat -n /etc/resolv.conf
 #opção do comando systemctl: stop (Stop (deactivate) one or more units)
 sudo systemctl stop pdns
 
+#testando o arquivo de configuração do PowerDNS Authoritative
+#opção do comando pdns_server: --config (Show the current configuration)
+#mais informações acesse: https://doc.powerdns.com/authoritative/manpages/pdns_server.1.html
+sudo pdns_server --config
+
+#testando o arquivo de configuração do PowerDNS Authoritative
+#opção do comando pdns_recursor: --config (Show the current configuration)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-recursor/pdns_recursor.1.en.html
+sudo pdns_recurso --config
+
 #testando o serviço do PowerDNS Authoritative se está conectando com o Backend PostgreSQL Server
 #opção do comando pdns_server: --daemon (Indicate  if  the  server should run in the background 
 #as a real daemon, or in the foreground), --guardian (Run pdns_server inside a guardian. This 
 #guardian  monitors  the performance  of  the inner pdns_server instance), --loglevel (Set the 
 #logging level)
 #OBSERVAÇÃO: para finalizar o teste do serviço do PowerDNS Authoritative pressione: Ctrl+C
+#mais informações acesse: https://doc.powerdns.com/authoritative/manpages/pdns_server.1.html
 sudo pdns_server --daemon=no --guardian=no --loglevel=9
 
 #reiniciando os serviços do PowerDNS Authoritative e Recursor
@@ -474,6 +485,9 @@ sudo systemctl status pdns pdns-recursor
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu pdns
 sudo journalctl -xeu pdns-recursor
+
+#testando as métricas do PowerDNS Authoritative utilizando o Web Server Interno
+curl http://127.0.0.1:8081/metrics
 ```
 
 ## 18_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server
@@ -531,6 +545,11 @@ sudo pdnsutil check-zone pti.intra
 #opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil secure-zone pti.intra
+
+#visualizando detalhes da Zona Direta Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone show (Shows various details of the zone called ZONE)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone show pti.intra
 
 #removendo o registro do tipo SOA (start of authority) da Zona Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), pti.intra (Zone named),
@@ -638,6 +657,11 @@ sudo pdnsutil check-zone 1.16.172.in-addr.arpa
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil secure-zone 1.16.172.in-addr.arpa
 
+#visualizando detalhes da Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone show (Shows various details of the zone called ZONE)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone show 1.16.172.in-addr.arpa
+
 #removendo o registro do tipo SOA (start of authority) da Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), *.in-addr.arpa (Zone named),
 #*.in-addr.arpa (record name), SOA (Type of register - start of authority)
@@ -740,6 +764,11 @@ sudo pdnsutil check-zone 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
 #opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil secure-zone 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
+
+#visualizando detalhes da Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone show (Shows various details of the zone called ZONE)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone show 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
 
 #removendo o registro do tipo SOA (start of authority) da Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), *.ip6.arpa (Zone named),
@@ -857,6 +886,10 @@ sudo dig @127.0.0.1 -p 5300 -x 2804:14c:90:8697::20 +noall +answer
 
 #testando a resolução de nomes externos do PowerDNS Recursor
 sudo nslookup google.com
+
+#analisando os Logs de Pesquisa de Resolução de Nomes do PowerDNS Recursor
+#opção do comando tcpdump: -n (Don't convert addresses), -i (interface), any (all interface), port (port list)
+sudo tcpdump -ni any port 53
 ```
 
 ## 22_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
@@ -971,19 +1004,22 @@ source ./flask/bin/activate
 python -m pip install --upgrade pip
 
 #Instalando todas as dependências Python listadas no arquivo requirements.txt
-#opção do comando pip: install (install module), -r ()
+#opção do comando pip: install (install module), -r (requirement)
 pip install -r requirements.txt
 
 #Definindo a variável de ambiente FLASK_APP apontando para o aplicativo principal do PowerDNS-Admin
 export FLASK_APP=powerdnsadmin/__init__.py
 
 #Atualizando o banco de dados interno do Flask (migrações com o Alembic)
+#opção do comando falsk: db
 flask db upgrade
 
 #Instalando as dependências de frontend (JavaScript/CSS) usando o Yarn
+#opção do comando yarn: install (), --pure-lockfile
 yarn install --pure-lockfile
 
 #Gerando (compilando) os arquivos estáticos do frontend do Flask
+#opção do comando flask: assets
 flask assets build
 
 #Desativando o ambiente virtual Python (voltando ao shell normal)
@@ -1119,23 +1155,26 @@ Zone Management
               New setting created and updated. <Close>
 ```
 ```bash
-#criando a Zona de Pesquisa Inversa no PowerDNS Admin
-Zone Management
-  Create Zone
-    Zone Editor
-      Zone Name: 1.16.172.in-addr.arpa
-      Zone Override Record: (NO) - Default
-      Account: hostmaster
-      Zone Type: (ON) Native
-      Zone Template: (None) - Default
-      SOA-EDIT-API: (Default) - Default
-  <Create Zone>
-```
-```bash
-#habilitando a atualização da Zona de Pesquisa Inversa no PowerDNS Admin
+#habilitando a atualização da Zona de Pesquisa Reversa IPv4 no PowerDNS Admin
 Zone Management
   Dashboard
     Zones in-addr.arpa
+      Clique em: sua_zona_reversa
+        <Zone Settings>
+          Change Zone Account
+            Account: hostmaster <Update Account>
+          Zone Access Control
+            Click on users to move from between columns: seu_usuário
+          <Save Changes>
+          Auto PTR creation
+            Allow automatic reverse pointer creation on record updates? (ON)
+              New setting created and updated. <Close>
+```
+```bash
+#habilitando a atualização da Zona de Pesquisa Reversa IPv6 no PowerDNS Admin
+Zone Management
+  Dashboard
+    Zones ip6.arpa
       Clique em: sua_zona_reversa
         <Zone Settings>
           Change Zone Account
