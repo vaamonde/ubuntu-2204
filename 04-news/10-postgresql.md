@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 26/09/2025<br>
-#Data de atualização: 14/10/2025<br>
-#Versão: 0.03<br>
+#Data de atualização: 23/11/2025<br>
+#Versão: 0.04<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POSTGRESQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PostgreSQL realizado com sucesso!!! #BoraParaPrática*
 
@@ -164,7 +164,7 @@ sudo journalctl -xeu postgresql
 
 ```bash
 #verificando a versão do PostgreSQL Server
-#opcão do comando postgres: -V (version)
+#opção do comando postgres: -V (version)
 /usr/lib/postgresql/18/bin/postgres --version
 
 #verificando a versão do Client do PostgreSQL Server

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/10/2025<br>
-#Data de atualização: 22/11/2025<br>
-#Versão: 0.08<br>
+#Data de atualização: 23/11/2025<br>
+#Versão: 0.09<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POWERDNS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PowerDNS realizado com sucesso!!! #BoraParaPrática*
 
@@ -117,11 +117,11 @@ sudo npm install -g yarn
 
 ## 04_ Desativando o Serviço do Systemd e Resolução de DNS do Resolved do Ubuntu Server
 ```bash
-#parando o serviço do Systemtd Resolved do Ubuntu Server
+#parando o serviço do Systemd Resolved do Ubuntu Server
 #opção do comando systemctl: stop (Stop (deactivate) one or more units specified on the command line)
 sudo systemctl stop systemd-resolved
 
-#desabilitando o serviço do Systemtd Resolved do Ubuntu Server
+#desabilitando o serviço do Systemd Resolved do Ubuntu Server
 #opções do comando systemctl: disable (Disables one or more units), --now (When used with disable, 
 #the units will also be disabled service)
 sudo systemctl disable --now systemd-resolved
@@ -194,7 +194,7 @@ sudo apt update
 ```bash
 #instando o PowerDNS Authoritative, Recursor e Backend PostgreSQL no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install pdns-server pdns-recursor pdns-backend-pgsql pdns-tools
+sudo apt install pdns-server pdns-recursor pdns-backend-pgsql pdns-tools ipv6calc
 ```
 
 ## 09_ Verificando os serviços do PowerDNS Authoritative e Recursor no Ubuntu Server
@@ -247,7 +247,7 @@ sudo pdns_recursor --version   #consultando a versão do PowerDNS Recursor
 #nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G pdns $USER
 
-#verificando informações do grupo PDNS do PowerDNS
+#verificando as informações do grupo PDNS do PowerDNS
 #opção do comando getent: group (the database system group)
 sudo getent group pdns
 ```
@@ -352,8 +352,20 @@ sudo psql --username powerdns --password --host localhost --dbname powerdns
 \q
 ```
 
-## 15_ Atualizando os arquivos de configuração do PowerDNS Authoritative e Recursor no Ubuntu Server
+## 15_ Atualizando os arquivos de configuração do PowerDNS Authoritative, Recursor e Backend no Ubuntu Server
 ```bash
+#fazendo o backup do arquivo de configuração do PowerDNS Authoritative Backend Bind9 DNS Server
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/powerdns/pdns.d/bind.conf /etc/powerdns/pdns.d/bind.conf.old
+
+#fazendo o backup do arquivo de configuração do PowerDNS Authoritative
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/powerdns/pdns.conf /etc/powerdns/pdns.conf.old
+
+#fazendo o backup do arquivo de configuração do PowerDNS Recursor
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/powerdns/recursor.conf /etc/powerdns/recursor.conf.old
+
 #atualizando o arquivo de configuração do PowerDNS Authoritative Backend Bind9 DNS Server do Github
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO ESTÁ SENDO DESATIVADO O RECURSO DE BANCO DE DADOS
 #UTILIZANDO O SERVIÇO DO BIND9 DNS SERVER COMO SERVIÇO DE BACKEND DO POWERDNS AUTHORITATIVE
@@ -465,6 +477,11 @@ sudo journalctl -xeu pdns-recursor
 ```
 
 ## 18_ Verificando a Porta de Conexão do PowerDNS Authoritative e Recursor no Ubuntu Server
+
+| Protocolo | Porta | O que é utilizado? | Quando é utilizado? | PowerDNS Authoritative | PowerDNS Recursor |
+|----------|-------|--------------------|----------------------|------------------------|--------------------|
+| **UDP**  | 53    | Consultas rápidas e leves | Resoluções comuns de DNS; respostas pequenas (geralmente até 512 bytes, EDNS pode ampliar) | Responde a consultas comuns dos clientes e recursivos | Envia e recebe consultas rápidas; prefere UDP para desempenho |
+| **TCP**  | 53    | Conexões confiáveis e com controle | Respostas grandes (DNSSEC, muitos registros), transferência de zona (AXFR/IXFR), fallback quando o UDP falha | Necessário para transferências de zona e respostas grandes; usado como fallback | Usado para respostas grandes ou quando UDP é bloqueado/insuficiente; fallback |
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -581,7 +598,7 @@ sudo pdnsutil list-all-zones
 sudo pdnsutil zone list pti.intra
 ```
 
-## 20_ Criando uma Zona de Pesquisa Reversa Interna no PowerDNS Authoritative no Ubuntu Server
+## 20_ Criando uma Zona de Pesquisa Reversa IPv4 in-addr.arpa Interna no PowerDNS Authoritative no Ubuntu Server
 
 # 📘 Conceito Básico sobre os Registro do PowerDNS Authoritative
 
@@ -595,8 +612,8 @@ sudo pdnsutil zone list pti.intra
 
 
 ```bash
-#criando a Zona de Pesquisa Reversa Interna no PowerDNS Authoritative
-#opções do comando pdnsutil: create-zone (Create an empty zone named ZONE), pti.intra (Zone named), 
+#criando a Zona de Pesquisa Reversa IPv4 in-addr.arpa Interna no PowerDNS Authoritative
+#opções do comando pdnsutil: create-zone (Create an empty zone named ZONE), *.in-addr.arpa (Zone named), 
 #ns1.pti.intra (Create register record NS1 with Zone named)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil create-zone 1.16.172.in-addr.arpa ns1.pti.intra
@@ -606,39 +623,38 @@ sudo pdnsutil create-zone 1.16.172.in-addr.arpa ns1.pti.intra
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil list-all-zones
 
-#listando apenas a Zona Reversa Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
+#listando apenas a Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone list (List same zone named), *.in-addr.arpa (Zone named)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil zone list 1.16.172.in-addr.arpa
 
-#verificando erros na Zona Reversa Interna criada no PowerDNS Authoritative
+#verificando erros na Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: check-zone (Check zone ZONE for correctness)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil check-zone 1.16.172.in-addr.arpa
 
-#habilitando o suporte ao DNSSEC na Zona Reversa Interna criada no PowerDNS Authoritative
+#habilitando o suporte ao DNSSEC na Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil secure-zone 1.16.172.in-addr.arpa
 
-#removendo o registro do tipo SOA (start of authority) da Zona Reversa Interna criada no PowerDNS Authoritative
-#opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), pti.intra (Zone named),
-#pti.intra (record name), SOA (Type of register - start of authority)
+#removendo o registro do tipo SOA (start of authority) da Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), *.in-addr.arpa (Zone named),
+#*.in-addr.arpa (record name), SOA (Type of register - start of authority)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil delete-rrset 1.16.172.in-addr.arpa 1.16.172.in-addr.arpa SOA
 
-#criando o registro do tipo SOA (start of authority) da Zona Reversa Interna criada no PowerDNS Authoritative
+#criando o registro do tipo SOA (start of authority) da Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
-#TTL.), pti.intra (zone name), pti.intra (record name), SOA (Type SOA - Start os Authority), 3600 (TTL - Time to Live),
+#TTL.), *.in-addr.arpa (zone name), *.in-addr.arpa (record name), SOA (Type SOA - Start os Authority), 3600 (TTL - Time to Live),
 #ns1.pti.intra (NS - primary DNS server), hostmaster.pti.intra. (responsible mail), 2025100801 (number of serial zone),
 # 3600 (TTL - time to live zone), 600 (retry zone), 604800 (expire zone), 86400 (minimum negative TTIL)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record 1.16.172.in-addr.arpa 1.16.172.in-addr.arpa SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
 
-#criando o registro do tipo PTR (IPv4 Address) da Zona Reversa Interna criada no PowerDNS Authoritative
+#criando o registro do tipo PTR (IPv4 Address) da Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
-#TTL.), 1.16.172.in-addr.arpa (zone name), 20.1.16.172.in-addr.arpa (register IPv4), PTR (point register), 3600 (TTL
-#Time to Live)
+#TTL.), *.in-addr.arpa (zone name), 20.1.16.172.in-addr.arpa (register IPv4), PTR (point register), 3600 (TTL Time to Live)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil add-record 1.16.172.in-addr.arpa 20.1.16.172.in-addr.arpa PTR 3600 pti.intra
 sudo pdnsutil add-record 1.16.172.in-addr.arpa 20.1.16.172.in-addr.arpa PTR 3600 ns1.pti.intra
@@ -659,10 +675,113 @@ sudo pdns_control reload
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
 sudo pdnsutil list-all-zones
 
-#listando apenas a Zona Reversa Interna criada no PowerDNS Authoritative
+#listando apenas a Zona Reversa IPv4 in-addr.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone list (List same zone named) *.in-addr.arpa (Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone list 1.16.172.in-addr.arpa
+```
+
+## 20_ Criando uma Zona de Pesquisa Reversa IPv6 ip6.arpa Interna no PowerDNS Authoritative no Ubuntu Server
+
+# 📘 Conceito Básico sobre os Registro do PowerDNS Authoritative
+
+| **Termo** | **O que é** | **Para que serve / Função** |
+| --------- | ----------- | --------------------------- |
+| **Zona de Pesquisa Reversa (Reverse Zone)** | Parte do DNS responsável por mapear **endereços IP para nomes de host**. Utiliza `in-addr.arpa` (IPv4) e `ip6.arpa` (IPv6). | Permite a **resolução reversa**, essencial para logs, auditorias, autenticações, e vários serviços como e-mail, DHCP, Kerberos e validações de segurança. |
+| **DNSSEC** | Extensão de segurança que adiciona **assinaturas digitais** aos registros DNS. | Garante **autenticidade, integridade e verificação criptográfica** da zona. Protege contra envenenamento de cache e respostas forjadas.|
+| **Registro SOA (Start of Authority)** | Primeiro registro obrigatório da zona. Define o servidor principal, e-mail responsável, serial e informações de atualização. | Identifica a **autoridade** da zona reversa e controla a sincronização entre servidores DNS.|
+| **Registro NS (Name Server)** | Registros que apontam para os servidores DNS autoritativos da zona. | Define **quais servidores** respondem oficialmente pela zona reversa. Sem NS, não há autoridade DNS. |
+| **Registro PTR (Pointer Record)** | Registro que faz o mapeamento de **IP → nome DNS** (oposto do A/AAAA). | Permite identificar o nome de um host a partir do IP. Essencial para logs, e-mail (rDNS), auditoria, integração com DHCP e serviços internos. |
+
+| **Termo** | **O que é** | **Para que serve / Função** |
+|-----------|-------------|-----------------------------|
+| **IPv6 Address** | Endereço de 128 bits dividido em 8 blocos de 16 bits (hextetos). | Identificar unicamente um host na rede IPv6. É a base para conversão em nibbles para DNS reverso. |
+| **Hexteto** | Bloco de 16 bits representado por 4 dígitos hexadecimais (ex: `2001`). | Organiza o IPv6 em partes legíveis. Cada hexteto será convertido em 4 nibbles no reverse DNS. |
+| **Hexadecimal** | Sistema numérico base 16 (0–9 / A–F). | Representa cada parte do IPv6 de forma compacta; cada dígito hex equivale a 1 nibble. |
+| **Nibble** | Unidade de 4 bits (metade de 1 byte). | No DNS reverso IPv6, cada nibble vira uma entrada individual do domínio `.ip6.arpa`. |
+| **Unpacking** | Processo de expandir o IPv6 (ex: `2001:db8::1`) para forma completa. | Necessário para converter todos os dígitos hexadecimais e gerar corretamente a zona reversa IPv6. |
+| **Reverse IPv6** | Nome da zona reversa `ip6.arpa`. | Usado para mapear um IPv6 completo até o hostname, invertendo nibble por nibble.|
+| **ip6.arpa** | Domínio especial reservado para reverso IPv6. | Recebe a representação invertida em nibbles do IPv6 completo; utilizado por servidores DNS Recursivos. |
+| **PTR Record** | Registro que mapeia os nibbles invertidos para um hostname. | Permite resolução reversa IPv6 — ex: qual hostname pertence ao IPv6 consultado. |
+
+```bash
+#convertendo a Subrede IPv6 de Hexteto para Nibble utilizando o comando IPv6Calc no Ubuntu Server
+#opção do comando ipv6calc: --quiet (be more quiet), --out (specify output type) revnibbles.arpa
+#(convert IPv6 Address to nibble)
+sudo ipv6calc --quiet --out revnibbles.arpa 2804:14c:90:8697::/64
+
+#convertendo o Endereço IPv6 de Hexteto para Nibble utilizando o comando IPv6Calc no Ubuntu Server
+#opção do comando ipv6calc: --quiet (be more quiet), --out (specify output type) revnibbles.arpa
+#(convert IPv6 Address to nibble)
+sudo ipv6calc -q --out revnibbles.arpa 2804:14c:90:8697::20
+
+#criando a Zona de Pesquisa Reversa IPv6 ip6.arpa Interna no PowerDNS Authoritative
+#opções do comando pdnsutil: create-zone (Create an empty zone named ZONE), *.ip6.arpa (Zone named), 
+#ns1.pti.intra (Create register record NS1 with Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil create-zone 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa ns1.pti.intra
+
+#listando todas as Zonas Internas do PowerDNS Authoritative
+#opções do comando pdnsutil: list-all-zones (List all zones named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil list-all-zones
+
+#listando apenas a Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: zone list (List same zone named) *.ip6.arpa (Zone named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil zone list 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
+
+#verificando erros na Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: check-zone (Check zone ZONE for correctness)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil check-zone 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
+
+#habilitando o suporte ao DNSSEC na Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: secure-zone (Configures a zone called ZONE with reasonable DNSSEC settings)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil secure-zone 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
+
+#removendo o registro do tipo SOA (start of authority) da Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: delete-rrset (Delete named RRSET from zone. NAME must be absolute), *.ip6.arpa (Zone named),
+#*.ip6.arpa (record name), SOA (Type of register - start of authority)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil delete-rrset 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa SOA
+
+#criando o registro do tipo SOA (start of authority) da Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), *.ip6.arpa (zone name), *.ip6.arpa (record name), SOA (Type SOA - Start os Authority), 3600 (TTL - Time to Live),
+#ns1.pti.intra (NS - primary DNS server), hostmaster.pti.intra. (responsible mail), 2025100801 (number of serial zone),
+# 3600 (TTL - time to live zone), 600 (retry zone), 604800 (expire zone), 86400 (minimum negative TTIL)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil add-record 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa SOA 3600 "ns1.pti.intra. hostmaster.pti.intra. 2025100801 3600 600 604800 86400"
+
+#criando o registro do tipo PTR (IPv6 Address) da Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
+#opções do comando pdnsutil: add-record (Add one or more records of NAME and TYPE to ZONE with CONTENT and optional
+#TTL.), *.ip6.arpa (zone name),*.ip6.arpa (register IPv6), PTR (point register), 3600 (TTL - Time to Live)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil add-record 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa 0.2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa PTR 3600 pti.intra
+sudo pdnsutil add-record 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa 0.2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa PTR 3600 ns1.pti.intra
+sudo pdnsutil add-record 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa 0.2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa PTR 3600 wsvaamonde.pti.intra
+
+#atualizando os registros das Zonas Internas criadas no PowerDNS Authoritative
+#opções do comando pdnsutil: rectify-all-zone
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil rectify-all-zones
+
+#recarregar todas as Zonas Internas do PowerDNS Authoritative sem reiniciar o serviço
+#opção do comando pdns_control: reload (Instruct the server to reload all its zones, this will not add new zones)
+#mais informações acesse: https://doc.powerdns.com/authoritative/manpages/pdns_control.1.html
+sudo pdns_control reload
+
+#listando todas as Zonas Internas do PowerDNS Authoritative
+#opções do comando pdnsutil: list-all-zones (List all zones named)
+#mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
+sudo pdnsutil list-all-zones
+
+#listando apenas a Zona Reversa IPv6 ip6.arpa Interna criada no PowerDNS Authoritative
 #opções do comando pdnsutil: zone list (List same zone named) pti.intra (Zone named)
 #mais informações acesse: https://manpages.debian.org/testing/pdns-server/pdnsutil.1.en.html
-sudo pdnsutil zone 1.16.172.in-addr.arpa
+sudo pdnsutil zone list 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
 ```
 
 ## 21_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
@@ -708,21 +827,36 @@ sudo nslookup -type=CNAME pdns.pti.intra
 
 #testando a resolução reversa do PowerDNS Recursor com encaminhamento para o PowerDNS Authoritative
 sudo nslookup 172.16.1.20
+sudo nslookup 2804:14c:90:8697::20
 
 #testando a resolução reversa do Tipo PTR do PowerDNS Authoritative
 #opção do comando nslookup: -type (query type filter)
 sudo nslookup -type=PTR 172.16.1.20
+sudo nslookup -type=PTR 2804:14c:90:8697::20
+
+#testando o resolução da Zona Interna criada no PowerDNS Authoritative
+#opção do comando dig: @127.0.0.1 (loopback), -p (port), pti.intra (Zona Interna), A (Register Type IPv4),
+# AAAA (Register Type IPv6), +noall (This option sets or clears all display flags), +answer (This option 
+#displays [or does not display] the answer section of a reply)
+sudo dig @127.0.0.1 -p 5300 pti.intra A +noall +answer
+sudo dig @127.0.0.1 -p 5300 pti.intra AAAA +noall +answer
+
+#testando a resolução de Nomes da Zona Interna criada no PowerDNS Authoritative
+#opção do comando dig: @127.0.0.1 (loopback), -p (port), pti.intra (Zona Interna), A (Register Type IPv4),
+# AAAA (Register Type IPv6), +noall (This option sets or clears all display flags), +answer (This option 
+#displays [or does not display] the answer section of a reply)
+sudo dig @127.0.0.1 -p 5300 wsvaamonde.pti.intra A +noall +answer
+sudo dig @127.0.0.1 -p 5300 wsvaamonde.pti.intra AAAA +noall +answer
+
+#testando a resolução de Nomes da Zona Interna criada no PowerDNS Authoritative
+#opção do comando dig: @127.0.0.1 (loopback), -p (port), pti.intra (Zona Interna), A (Register Type IPv4),
+# AAAA (Register Type IPv6), +noall (This option sets or clears all display flags), +answer (This option 
+#displays [or does not display] the answer section of a reply)
+sudo dig @127.0.0.1 -p 5300 -x 172.16.1.20 +noall +answer
+sudo dig @127.0.0.1 -p 5300 -x 2804:14c:90:8697::20 +noall +answer
 
 #testando a resolução de nomes externos do PowerDNS Recursor
 sudo nslookup google.com
-
-#testando o resolução da Zona Interna criada no PowerDNS Authoritative
-#opção do comando dig: @127.0.0.1 (loopback), -p (port), pti.intra (Zona Interna)
-sudo dig @127.0.0.1 -p 5300 pti.intra
-
-#testando a resolução de Nomes da Zona Interna criada no PowerDNS Authoritative
-#opção do comando dig: @127.0.0.1 (loopback), -p (port), wsvaamonde.pti.intra (Register Type A)
-sudo dig @127.0.0.1 -p 5300 wsvaamonde.pti.intra
 ```
 
 ## 22_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
