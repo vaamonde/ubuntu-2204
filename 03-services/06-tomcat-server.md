@@ -7,10 +7,10 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 30/09/2025<br>
-#Versão: 0.32<br>
+#Data de atualização: 24/11/2025<br>
+#Versão: 0.33<br>
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat11 realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
@@ -70,7 +70,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 ## 01_ Instalando as Dependências do Apache Tomcat Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19 e 21*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao *OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment)*.
+**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19, 21 e 25*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao *OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment)*.
 
 ```bash
 #atualizando as lista do apt
@@ -79,7 +79,7 @@ sudo apt update
 #instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
 #OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle
 #OBSERVAÇÃO: OpenJRE é um software necessário para que os programas em Java funcionem corretamente.
-sudo apt install git vim openjdk-21-jdk openjdk-21-jre software-properties-common build-essential
+sudo apt install git vim openjdk-25-jdk openjdk-25-jre software-properties-common build-essential
 ```
 
 ## 02_ Verificando as Versões do Java OpenJDK e OpenJRE instalado no Ubuntu Server
@@ -114,11 +114,11 @@ Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomc
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 30/09/2025)
+#download da última versão do Apache TomCAT Server (link atualizado em 24/11/2025)
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.11/bin/apache-tomcat-11.0.11.tar.gz
+wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.14/bin/apache-tomcat-11.0.14.tar.gz
 ```
 
 ## 04_ Descompactando e instalando o Apache Tomcat 11.x no Ubuntu Server
@@ -347,7 +347,7 @@ Clique em: Manager App
 
 =========================================================================================
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat10 realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat11 realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E CONTEÚDO DO DESAFIO ABAIXO: 
 
