@@ -705,7 +705,7 @@ sudo pdnsutil list-all-zones
 sudo pdnsutil zone list 1.16.172.in-addr.arpa
 ```
 
-## 20_ Criando uma Zona de Pesquisa Reversa IPv6 ip6.arpa Interna no PowerDNS Authoritative no Ubuntu Server
+## 21_ Criando uma Zona de Pesquisa Reversa IPv6 ip6.arpa Interna no PowerDNS Authoritative no Ubuntu Server
 
 # 📘 Conceito Básico sobre os Registro do PowerDNS Authoritative
 
@@ -813,7 +813,7 @@ sudo pdnsutil list-all-zones
 sudo pdnsutil zone list 7.9.6.8.0.9.0.0.c.4.1.0.4.0.8.2.ip6.arpa
 ```
 
-## 21_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
+## 22_ Testando as resoluções de Zonas e Nomes DNS no PowerDNS Authoritative no Ubuntu Server
 ```bash
 #testando a resolução direta do PowerDNS Recursor com encaminhamento para o PowerDNS Authoritative
 sudo nslookup pti.intra
@@ -892,7 +892,7 @@ sudo nslookup google.com
 sudo tcpdump -ni any port 53
 ```
 
-## 22_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
+## 23_ Fazendo o download do PowerDNS Admin e descompactando no diretório padrão do NGINX Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** o aplicativo e os arquivos de configuração do *PowerDNS Admin* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/PowerDNS-Admin/PowerDNS-Admin/releases
 
@@ -915,7 +915,7 @@ tar -zxvf pdns-admin.tar.gz
 sudo mv -v PowerDNS-Admin*/ /var/www/html/pdns/
 ```
 
-## 23_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
+## 24_ Atualizando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
 ```bash
 #atualizando o arquivo de configuração do PowerDNS Admin
 #opção do comando wget: -v (verbose), -O (output file)
@@ -942,7 +942,7 @@ sudo chown -Rv pdns: /run/pdnsadmin/
 echo "d /run/pdnsadmin 0755 pdns pdns -" | sudo tee /etc/tmpfiles.d/pdnsadmin.conf > /dev/null
 ```
 
-## 24_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
+## 25_ Editando os arquivos de configuração do PowerDNS Admin no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do PowerDNS Admin
 #opção do comando wget: -v (verbose), -O (output file)
@@ -987,7 +987,7 @@ server_name pdns.pti.intra;
 ESC SHIFT :x <Enter>
 ```
 
-## 25_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server
+## 26_ Configurando o Ambiente Virtual e instalando as Dependências do PowerDNS Admin no Ubuntu Server
 ```bash
 #Acessando o diretório de instalação do PowerDNS-Admin no servidor NGINX
 cd /var/www/html/pdns/
@@ -1026,7 +1026,7 @@ flask assets build
 deactivate
 ```
 
-## 26_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server
+## 27_ Alterando as permissões dos diretórios do PowerDNS Admin no Ubuntu Server
 ```bash
 #alterando as permissões do diretório de instalação do PowerDNS Admin no NGINX Server
 #opções do comando chown: -R (recursive), -v (verbose), www-data:www-data (user/owner and group default)
@@ -1037,7 +1037,7 @@ sudo chown -Rv www-data:www-data /var/www/html/pdns
 sudo chown -Rv pdns: /var/www/html/pdns/powerdnsadmin/
 ```
 
-## 27_ Desativando o site padrão do NGINX Server no Ubuntu Server
+## 28_ Desativando o site padrão do NGINX Server no Ubuntu Server
 ```bash
 #removendo o arquivo de configuração do site padrão do NGINX Server
 #opção do comando rm: -v (verbose)
@@ -1058,7 +1058,7 @@ sudo systemctl status nginx
 sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 ```
 
-## 28_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server
+## 29_ Habilitando e iniciando os serviços do PowerDNS Admin no Ubuntu Server
 ```bash
 #habilitando o serviço do PowerDNS Admin no Ubuntu Server
 #opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), enable (Enable 
@@ -1075,7 +1075,7 @@ sudo journalctl -xeu pdnsadmin
 sudo journalctl -xeu pdnsadmin.socket
 ```
 
-## 29_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin
+## 30_ Acessando e configurando o PowerDNS Authoritative via navegador no PowerDNS Admin
 ```bash
 #utilizar os navegadores para testar o acesso ao PowerDNS Admin
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
@@ -1189,7 +1189,7 @@ Zone Management
 
 ========================================DESAFIOS=========================================
 
-**#30_ DESAFIO-01:** 
+**#31_ DESAFIO-01:** 
 
 =========================================================================================
 

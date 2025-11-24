@@ -34,12 +34,11 @@ x.AI Grok: https://grok.com/<br>
 
 **O QUE É E PARA QUE SERVER O ISC.ORG:** ISC.org significa Internet Systems Consortium, uma organização sem fins lucrativos fundada em 1994 para desenvolver e manter softwares essenciais para o funcionamento da Internet mundial. A ISC é responsável por alguns dos principais projetos de infraestrutura da Internet, entre eles: BIND 9 → Servidor DNS autoritativo e recursivo mais usado do mundo, Kea DHCP Server → Novo servidor DHCP modular, rápido e moderno, ISC DHCP (dhcpd) → Antigo servidor DHCP clássico (DESCONTINUADO EM 2022), Stork → Plataforma de monitoramento e administração Kea/BIND, AFTR/GW → Soluções de transição IPv4/IPv6, RFCs e padrões de Internet. A ISC é uma das organizações que historicamente participa da padronização da Internet através da IETF.
 
-**O QUE É E PARA QUE SERVER O KEA DHCP SERVER:** O Kea DHCP Server é um servidor DHCP moderno desenvolvido pela ISC (Internet Systems Consortium) — a mesma organização que criou o ISC DHCP (dhcpd) e o BIND9. Ele foi projetado para substituir o antigo ISC DHCP, trazendo mais desempenho, modularidade, segurança e capacidade de automação.
-O Kea é hoje o servidor DHCP mais avançado e atualizado disponível no mercado open-source..
+**O QUE É E PARA QUE SERVER O KEA DHCP SERVER:** O Kea DHCP Server é um servidor DHCP moderno desenvolvido pela ISC (Internet Systems Consortium) — a mesma organização que criou o ISC DHCP (dhcpd) e o BIND9. Ele foi projetado para substituir o antigo ISC DHCP, trazendo mais desempenho, modularidade, segurança e capacidade de automação. O Kea é hoje o servidor DHCP mais avançado e atualizado disponível no mercado open-source.
 
-**O QUE É E PARA QUE SERVER O KEA DHCP DDNS:** O Kea DHCP DDNS (Dynamic DNS Update) é o componente do ecossistema Kea responsável por atualizar automaticamente os registros DNS (A, AAAA e PTR) sempre que um cliente DHCP recebe ou libera um endereço IP. Ele funciona como um módulo intermediário entre o Kea DHCP Server e o servidor DNS autoritativo (ex.: BIND9, PowerDNS), garantindo que as informações de DNS estejam sempre sincronizadas com os leases do DHCP..
+**O QUE É E PARA QUE SERVER O KEA DHCP DDNS:** O Kea DHCP DDNS (Dynamic DNS Update) é o componente do ecossistema Kea responsável por atualizar automaticamente os registros DNS (A, AAAA e PTR) sempre que um cliente DHCP recebe ou libera um endereço IP. Ele funciona como um módulo intermediário entre o Kea DHCP Server e o servidor DNS autoritativo (ex.: BIND9, PowerDNS), garantindo que as informações de DNS estejam sempre sincronizadas com os leases do DHCP.
 
-**O QUE É E PARA QUE SERVER O KEA CONTROL AGENT:** O Kea Control Agent é um componente oficial do ecossistema Kea DHCP Server, desenvolvido pela ISC, que funciona como uma API REST intermediária entre o administrador (ou outras ferramentas) e os serviços DHCP do Kea (DHCPv4 e DHCPv6). Ele atua como um “tradutor” entre comandos HTTP/REST e os comandos internos dos servidores DHCP, permitindo que toda a administração do Kea seja feita remotamente e de forma segu
+**O QUE É E PARA QUE SERVER O KEA CONTROL AGENT:** O Kea Control Agent é um componente oficial do ecossistema Kea DHCP Server, desenvolvido pela ISC, que funciona como uma API REST intermediária entre o administrador (ou outras ferramentas) e os serviços DHCP do Kea (DHCPv4 e DHCPv6). Ele atua como um “tradutor” entre comandos HTTP/REST e os comandos internos dos servidores DHCP, permitindo que toda a administração do Kea seja feita remotamente e de forma segura.
 
 **O QUE É E PARA QUE SERVER O KEA HOOKS:** Kea Hooks são módulos adicionais (plugins) que estendem e personalizam o funcionamento padrão do Kea DHCP Server. Eles permitem adicionar novas funcionalidades, modificar comportamentos internos do servidor e integrar o Kea com outros sistemas — sem precisar alterar o código-fonte. Pense nos hooks como “extensões” ou “add-ons” que deixam o Kea muito mais flexível e poderoso.
 
@@ -51,126 +50,238 @@ O Kea é hoje o servidor DHCP mais avançado e atualizado disponível no mercado
 
 Link da vídeo aula: 
 
-## 01_ Adicionando o Repositório do Kea e Stork no Ubuntu Server
+## 01_ Adicionando o Repositório do Kea Server e do Stork Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** O KEA DHCP SERVER IPV/IPV6 E STORK SERVER/AGENT POSSUI A DEPENDÊNCIA DO *BANCO DE DADOS POSTGRESQL SERVER*, ESSE APLICATIVOS JÁ FOI INSTALADO NA ETAPA: **12 DO POSTGRESQL SERVER**.
+
 ```bash
-#adicionando o repositório do Kea via script automatizado (Mais simples e eficiente)
+#adicionando o repositório do Kea Server via script automatizado (Mais simples e eficiente)
 #opções do comando curl: -1 (), -s (silent), -L (location), -f (form)
 #opções do comando sudo: -E (preserve-env), bash (bash terminal)
 #opção do redirecionador de saída | (piper): 
 curl -1sLf 'https://dl.cloudsmith.io/public/isc/kea-3-0/setup.deb.sh' | sudo -E bash
 
-#adicionando o repositório do Stork via script automatizado (Mais simples e eficiente)
+#adicionando o repositório do Stork Server via script automatizado (Mais simples e eficiente)
 #opções do comando curl: -1 (), -s (silent), -L (location), -f (form)
 #opções do comando sudo: -E (preserve-env), bash (bash terminal)
 #opção do redirecionador de saída | (piper): 
 curl -1sLf 'https://dl.cloudsmith.io/public/isc/stork/setup.deb.sh' | sudo -E bash
 ```
 
-## 02_ Atualizando os Repositórios do Kea e Stork no Ubuntu Server
+## 02_ Atualizando os Repositórios do Kea Server e do Stork Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório do Kea e Stork
 #opção do comando apt: update (Resynchronize the package index files from their sources
 sudo apt update
 ```
 
-## 03_ Instalando o Kea DHCP Server IPv4 no Ubuntu Server
+## 03_ Instalando o Kea DHCP Server IPv4, IPv6 e DDNS e Control Agent no Ubuntu Server
 ```bash
-#instalando o Kea DHCP Server IPv4 no Ubuntu Server
+#instalando o Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install isc-kea-dhcp4-server isc-kea-common isc-kea-admin isc-kea-dhcp-ddns isc-kea-pgsql \
-isc-kea-ctrl-agent isc-kea-hooks
+sudo apt install isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
+isc-kea-common isc-kea-admin isc-kea-pgsql  isc-kea-hooks ipcalc ipv6calc
 ```
 
-## 04_ Habilitando os Serviços do Kea DHCP Server IPv4, Kea DHCP DDNS e Kea Control Agent no Ubuntu Server
+## 04_ Habilitando os Serviços do Kea DHCP Server IPv4, IPV6, DDNS e Control Agent no Ubuntu Server
 ```bash
-#habilitando os serviços do Kea DHCP Server IPv4, Kea DHCP DDNS e do Kea Control Agent
+#habilitando os serviços do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent
 #opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
 #enable (Enable one or more units)
 sudo systemctl daemon-reload
-sudo systemctl enable isc-kea-dhcp4-server isc-kea-dhcp-ddns isc-kea-ctrl-agent
+sudo systemctl enable isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
 
-#iniciando somente o serviço do Kea DHCP Server IPv4
+#iniciando os serviços do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent
 #opção do comando systemctl: start (Start (activate) one or more units)
-sudo systemctl start isc-kea-dhcp4-server
+sudo systemctl start isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
 ```
 
-## 05_ Verificando o Serviço e Versão do Kea DHCP Server IPv4 no Ubuntu Server
+## 05_ Verificando os Serviços e Versão do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O ISC-KEA-DHCP-DDNS-SERVER NÃO SERÁ INICIALIZADO DEVIDO A FALHA DE CONFIGURAÇÃO DO SERVIÇO, ESSA FALHA SERÁ CORRIGIDA NAS CONFIGURAÇÕES DO SERVIDOR.
+
 ```bash
-#verificando o serviço do Kea DHCP Server
+#verificando os serviços do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
 #stop (Stop (deactivate) one or more units), start (Start (activate) one or more units), reload (Asks all units 
 #listed on the command line to reload their configuration)
-sudo systemctl status isc-kea-dhcp4-server
-sudo systemctl restart isc-kea-dhcp4-server
-sudo systemctl reload isc-kea-dhcp4-server
-sudo systemctl stop isc-kea-dhcp4-server
-sudo systemctl start isc-kea-dhcp4-server
+sudo systemctl status isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
+sudo systemctl restart isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
+sudo systemctl reload isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
+sudo systemctl stop isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
+sudo systemctl start isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
 
-#analisando os Log's e mensagens de erro do Kea DHCP Server
+#analisando os Log's e mensagens de erro do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu isc-kea-dhcp4-server
+sudo journalctl -xeu isc-kea-dhcp6-server
+sudo journalctl -xeu isc-kea-dhcp-ddns-server
+sudo journalctl -xeu isc-kea-ctrl-agent
 
-#verificando os arquivos de configuração do Kea DHCP Server
-#opção do comando kea-dhcp4: -t (config-file)
+#verificando os arquivos de configuração do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent
+#opção do comando kea-dhcp4, kea-dhcp6, kea-dhcp-ddns: -t (config-file)
 sudo kea-dhcp4 -t /etc/kea/kea-dhcp4.conf
+sudo kea-dhcp6 -t /etc/kea/kea-dhcp6.conf
+sudo kea-dhcp-ddns -t /etc/kea/kea-dhcp-ddns.conf
+sudo kea-ctrl-agent -t /etc/kea/kea-ctrl-agent.conf
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#opção do comando kea-dhcp4: -V (extended version)
+#verificando as versões do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent
+#opção do comando kea-dhcp4, kea-dhcp6, kea-dhcp-ddns: -V (extended version)
 sudo kea-dhcp4 -V
+sudo kea-dhcp6 -V
+sudo kea-dhcp-ddns -V
+sudo kea-ctrl-agent -V
 ```
 
-## 06_ Verificando a Porta de Conexão do Kea DHCP Server IPv4 no Ubuntu Server
+## 06_ Verificando a Porta de Conexão do Kea DHCP Server IPv4, IPv6 e DHCP-DDNS no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão UDP-67 do Kea DHCP Server
+#verificando a porta padrão UDP-67 e 53001 do Kea DHCP Server IPv4 e IPv6 e do Kea DHCP-DDNS
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iUDP:'67'
+sudo lsof -nP -iUDP:'67,53001'
 ```
 
-## 07_ Localização dos Arquivos de Configuração do Kea DHCP Server IPv4 no Ubuntu Server
+## 07_ Localização dos Arquivos de Configuração do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server
 ```bash
 /etc/kea                               <-- Diretório de configuração do Kea DHCP Server
 /etc/kea/kea-dhcp4.conf                <-- Arquivo de configuração padrão do Kea DHCP Server IPv4
+/etc/kea/kea-dhcp6.conf                <-- Arquivo de configuração padrão do Kea DHCP Server IPv6
 /etc/kea/kea-dhcp-ddns.conf            <-- Arquivo de configuração padrão do Kea DHCP DDNS
 /etc/kea/kea-ctrl-agent.conf           <-- Arquivo de configuração padrão do Kea Control Agent
-/var/lib/kea                           <-- Diretório padrão dos Leases (Alugueis) do Kea DHCP Server IPv4
-/var/lib/kea/dhcp4.leases              <-- Arquivo de Leases (Alugueis) do Kea DHCP Server IPv4
+/var/lib/kea                           <-- Diretório padrão dos Leases (Alugueis) do Kea DHCP Server IPv4 e IPv6
+/var/lib/kea/dhcp4.leases.csv          <-- Arquivo de Leases (Alugueis) do Kea DHCP Server IPv4
+/var/lib/kea/dhcp6.leases.csv          <-- Arquivo de Leases (Alugueis) do Kea DHCP Server IPv6
 /var/log/kea                           <-- Diretório padrão dos Logs do Kea DHCP Server
 /usr/lib/x86_64-linux-gnu/kea/hooks/   <-- Diretório padrão dos Hooks do Kea DHCP Server
 ```
 
-## 08_ Adicionado o Usuário Local no Grupo Padrão do Kea DHCP Server IPv4 no Ubuntu Server
+## 08_ Adicionado o Usuário Local no Grupo Padrão do Kea DHCP Server IPv4, IPv6 no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
 #OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
 #nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G _kea $USER
 
-#fazendo login em um novo grupo do _KEA
-newgrp _kea
-
-#verificando os identificadores de usuário e grupos
-id
-
-#verificando informações do grupo _KEA do Kea DHCP Server IPv4
+#verificando informações do grupo _KEA do Kea DHCP Server IPv4 e IPv6
 #opção do comando getent: group (the database system group)
 sudo getent group _kea
-
-#recomendo fazer logout do usuário para testar as permissões de grupos
-#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
-exit
 ```
 
-## 09_ Atualizando os arquivos de configuração do Kea DHCP Server IPv4 no Ubuntu Server
+## 10_ Criando a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO KEA SERVER ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS.
+
+```bash
+#conectando no PostgreSQL Server utilizando o cliente psql
+#opção do comando sudo: -u (user), psql (terminal PostgreSQL)
+sudo -u postgres psql
+```
+```sql
+/* Criando o Banco de Dados do Kea Server com o nome: keaserver */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-createdatabase.html */
+CREATE DATABASE keaserver;
+
+/* Listando o Banco de Dados criado do Kea Server no PostgreSQL Server */
+/* opção do comando \l: (list databases) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\l keaserver
+```
+
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO LOCAL.
+
+```sql
+/* Criando o usuário e senha da Base de Dados do Kea Server */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
+/* mais informações acesse: https://www.postgresql.org/docs/8.0/sql-createuser.html */
+CREATE USER keaserver WITH PASSWORD 'SUA_SENHA_SEGURA';
+
+/* Listando o Usuário do Kea Server criado no PostgreSQL Server */
+/* opção do comando \du: (Lists database roles) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\du keaserver
+
+/* Alterando o dono da Base de Dados do Kea Server no PostgreSQL Server */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-alterdatabase.html */
+ALTER DATABASE keaserver OWNER TO keaserver;
+
+/* Alterando os privilégios da Base de Dados do Kea Server no PostgreSQL Server */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-grant.html */
+GRANT ALL PRIVILEGES ON DATABASE keaserver TO keaserver;
+
+/* Alterando os privilégios do Esquema Público da Base de Dados do Kea Server no PostgreSQL Server */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-grant.html */
+GRANT ALL PRIVILEGES ON SCHEMA public TO keaserver;
+
+/* Conectando no Base de Dados do Kea Server no PostgreSQL Server */
+/* opção do comando \connect: (establish a database connection) */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/ecpg-sql-connect.html */
+\connect keaserver;
+
+/* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\q
+```
+
+## 11_ Testando o acesso a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server
+```bash
+#conectando no banco de dados PostgreSQL Server com o usuário keaserver
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to)
+sudo psql --username keaserver --password --host localhost --dbname keaserver
+```
+```sql
+/* verificando as informações do Banco de Dados do Kea DHCP4 Server no PostgreSQL Server */
+/* opção do comando \conninfo: (Outputs information about the current database connection) */
+/* Mais informações acesse: https://www.postgresql.org/docs/9.1/app-psql.html*/
+\conninfo
+
+/* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\q
+```
+
+## 12_ Populando as Tabelas no Banco de Dados do Kea Server utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
+```bash
+#importando o esquema e os dados iniciais do banco de dados do Kea Server
+#opções do comando kea-admin: db-init (Initializes new database), pgsql (PostgreSQL Backend), -u (username), 
+#-p (password), -n (database name), -h (hostname), -P (port)
+sudo kea-admin db-init pgsql -u keaserver -p keaserver -n keaserver -h localhost -P 5432
+
+#conectando no banco de dados PostgreSQL Server com o usuário keaserver
+#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
+#--dbname (database name to connect to)
+sudo psql --username keaserver --password --host localhost --dbname keaserver
+```
+```sql
+/* Verificando as informações das Tabelas do Kea Server no PostgreSQL Server */
+/* opção do comando \dt: (For each relation (table, view, index, sequence, or foreign table))
+/* Mais informações acesse: https://www.postgresql.org/docs/9.1/app-psql.html*/
+\dt
+
+/* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\q
+```
+
+## 09_ Atualizando os arquivos de configuração do Kea DHCP Server IPv4, IPv6 no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do Kea DHCP Server IPv4
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/kea/kea-dhcp4.conf /etc/kea/kea-dhcp4.conf.old
+
+#fazendo o backup do arquivo de configuração do Kea DHCP Server IPv6
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/kea/kea-dhcp4.conf /etc/kea/kea-dhcp6.conf.old
 
 #fazendo o backup do arquivo de configuração do Kea DHCP DDNS
 #opção do comando cp: -v (verbose)
@@ -184,6 +295,10 @@ sudo cp -v /etc/kea/kea-ctrl-agent.conf /etc/kea/kea-ctrl-agent.conf.old
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/kea/kea-dhcp4.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/kea-dhcp4.conf
 
+#atualizando o arquivo de configuração do Kea DHCP Server IPv6 do Github
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/kea/kea-dhcp6.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/kea-dhcp6.conf
+
 #atualizando o arquivo de configuração do Kea DHCP DDNS do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/kea/kea-dhcp-ddns.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/kea-dhcp-ddns.conf
@@ -193,97 +308,7 @@ sudo wget -v -O /etc/kea/kea-dhcp-ddns.conf https://raw.githubusercontent.com/va
 sudo wget -v -O /etc/kea/kea-ctrl-agent.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/kea-ctrl-agent.conf
 ```
 
-## 10_ Criando a Base de Dados do Kea DHCP4 Server no PostgreSQL Server no Ubuntu Server
-
-**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO KEA DHCP4 SERVER ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS.
-
-```bash
-#conectando no PostgreSQL Server utilizando o cliente psql
-#opção do comando sudo: -u (user), psql (terminal PostgreSQL)
-sudo -u postgres psql
-```
-```sql
-/* Criando o Banco de Dados do Kea DHCP4 Server com o nome: keadhcp4 */
-/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
-/* Mais informações acesse:  */
-/* Mais informações acesse:  */
-CREATE DATABASE keadhcp4;
-
-/* Listando o Banco de Dados criado do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-\l keadhcp4
-```
-
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO LOCAL.
-
-```sql
-/* Criando o usuário e senha da Base de Dados do Kea DHCP4 Server */
-/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
-/* Mais informações acesse:  */
-CREATE USER keadhcp4 WITH PASSWORD 'SUA_SENHA_SEGURA';
-
-/* Listando o Usuário do Kea DHCP4 Server criado no PostgreSQL Server */
-/* Mais informações acesse:  */
-\du keadhcp4
-
-/* Alterando o dono da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-ALTER DATABASE keadhcp4 OWNER TO keadhcp4;
-
-/* Alterando os privilégios da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-GRANT ALL PRIVILEGES ON DATABASE keadhcp4 TO keadhcp4;
-
-/* Alterando os privilégios do Esquema Público da Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-GRANT ALL PRIVILEGES ON SCHEMA public TO keadhcp4;
-
-/* Conectando no Base de Dados do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-\connect keadhcp4;
-
-/* Saindo do Banco de Dados PostgreSQL Server */
-\q
-```
-
-## 11_ Testando o acesso a Base de Dados do Kea DHCP4 Server no PostgreSQL Server no Ubuntu Server
-```bash
-#conectando no banco de dados PostgreSQL Server com o usuário keadhcp4
-#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
-#--dbname (database name to connect to)
-sudo psql --username keadhcp4 --password --host localhost --dbname keadhcp4
-```
-```sql
-/* verificando as informações do Banco de Dados do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-\conninfo
-
-/* Saindo do Banco de Dados PostgreSQL Server */
-\q
-```
-
-## 12_ Populando as Tabelas no Banco de Dados do Kea DHCP4 Server utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
-```bash
-#importando o esquema e os dados iniciais do banco de dados do Kea DHCP4 Server
-#opções do comando kea-admin: db-init (Initializes new database), pgsql (PostgreSQL Backend), -u (username), 
-#-p (password), -n (database name), -h (hostname), -P (port)
-sudo kea-admin db-init pgsql -u keadhcp4 -p keadhcp4 -n keadhcp4 -h localhost -P 5432
-
-#conectando no banco de dados PostgreSQL Server com o usuário keadhcp4
-#opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
-#--dbname (database name to connect to)
-sudo psql --username keadhcp4 --password --host localhost --dbname keadhcp4
-```
-```sql
-/* Verificando as informações das Tabelas do Kea DHCP4 Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-\dt
-
-/* Saindo do Banco de Dados PostgreSQL Server */
-\q
-```
-
-## 13_ Editando o arquivo de configuração do Kea DHCP Server IPv4 no Ubuntu Server
+## 13_ Editando os arquivos de configuração do Kea DHCP Server IPv4, IPv6, DDNS e Control Agent no Ubuntu Server
 ```bash
 #editar o arquivo de configuração do Kea DHCP Server IPv4
 sudo vim /etc/kea/kea-dhcp4.conf
@@ -344,29 +369,36 @@ sudo kea-ctrl-agent -t /etc/kea/kea-ctrl-agent.conf
 
 #reiniciar o serviço do Kea DHCP Server, Kea DHCP DDNS e do Kea Control Agent
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units)
-sudo systemctl restart isc-kea-dhcp4-server isc-kea-dhcp-ddns isc-kea-ctrl-agent
-sudo systemctl status isc-kea-dhcp4-server isc-kea-dhcp-ddns isc-kea-ctrl-agent
+sudo systemctl restart isc-kea-dhcp4-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
+sudo systemctl status isc-kea-dhcp4-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
 
 #analisando os Log's e mensagens de erro do Kea DHCP Server, Kea DHCP DDNS e do Kea Control Agent
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu isc-kea-dhcp4-server
-sudo journalctl -xeu isc-kea-dhcp-ddns
+sudo journalctl -xeu isc-kea-dhcp-ddns-server
 sudo journalctl -xeu isc-kea-ctrl-agent
 
-#verificando a porta padrão UDP-67, UDP-53001 e TCP-8000 do Kea DHCP Server, Kea DHCP DDNS e Kea Control Agent
+#verificando a porta padrão UDP-67 do Kea DHCP4 Server, UDP-53001 do Kea DHCP DDNS e TCP-8000 do Kea Control Agent
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iUDP:'67,53001'
 sudo lsof -nP -iTCP:'8000' -sTCP:LISTEN
 ```
 
 ## 14_ Instalando o Stork Server no Ubuntu Server
-
-**OBSERVAÇÃO IMPORTANTE:** O STORK SERVER E AGENT POSSUI A DEPENDÊNCIA DO *BANCO DE DADOS POSTGRESQL SERVER*, ESSE APLICATIVOS JÁ FOI INSTALADO NA ETAPA: **12 DO POSTGRESQL SERVER**.
-
 ```bash
 #instalando o Stork Server no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 sudo apt install isc-stork-server
+
+#criando o diretório de configuração do Hooks do Stork Server
+#opção do comando mkdir: -p (parents), -v (verbose)
+sudo mkdir -pv /usr/lib/stork-server/hooks
+
+#alterando as permissões de diretórios do Stork Server no Ubuntu Server
+#opção do comando chown: -R (recursive), -v (verbose), stork-server (owner), stork-server (group)
+#opção do comando chmod: -R (recursive), -v (verbose), 775 (OWNER=RWX, GROUP=RWX, OTHER=R-X)
+sudo chown -Rv stork-server:stork-server /usr/lib/stork-server/hooks
+sudo chmod -Rv 775 /usr/lib/stork-server/hooks
 ```
 
 ## 15_ Criando a Base de Dados do Stork Server no PostgreSQL Server no Ubuntu Server
@@ -379,15 +411,15 @@ sudo apt install isc-stork-server
 sudo -u postgres psql
 ```
 ```sql
-/* Criando o Banco de Dados do Stork Server com o nome: stork */
+/* Criando o Banco de Dados do Stork Server com o nome: storkserver */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
-/* Mais informações acesse:  */
-/* Mais informações acesse:  */
-CREATE DATABASE stork;
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-createdatabase.html */
+CREATE DATABASE storkserver;
 
 /* Listando o Banco de Dados criado do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-\l stork
+/* opção do comando \l: (list databases) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\l storkserver
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO LOCAL.
@@ -395,50 +427,57 @@ CREATE DATABASE stork;
 ```sql
 /* Criando o usuário e senha da Base de Dados do Stork Server */
 /* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DO USUÁRIO E SENHA CONFORME NECESSIDADE */
-/* Mais informações acesse:  */
-CREATE USER stork WITH PASSWORD 'SUA_SENHA_SEGURA';
+/* mais informações acesse: https://www.postgresql.org/docs/8.0/sql-createuser.html */
+CREATE USER storkserver WITH PASSWORD 'SUA_SENHA_SEGURA';
 
 /* Listando o Usuário do Stork Server criado no PostgreSQL Server */
-/* Mais informações acesse:  */
-\du stork
+/* opção do comando \du: (Lists database roles) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
+\du storkserver
 
 /* Alterando o dono da Base de Dados do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-ALTER DATABASE stork OWNER TO stork;
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-alterdatabase.html */
+ALTER DATABASE storkserver OWNER TO storkserver;
 
 /* Alterando as permissões da Base de Dados do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-GRANT ALL PRIVILEGES ON DATABASE stork TO stork;
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-grant.html */
+GRANT ALL PRIVILEGES ON DATABASE storkserver TO storkserver;
 
 /* Alterando os privilégios do Esquema Público da Base de Dados do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-GRANT ALL PRIVILEGES ON SCHEMA public TO stork;
+/* Mais informações acesse: https://www.postgresql.org/docs/current/sql-grant.html */
+GRANT ALL PRIVILEGES ON SCHEMA public TO storkserver;
 
 /* Conectando no Base de Dados do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
-\connect stork;
+/* opção do comando \connect: (establish a database connection) */
+/* Mais informações acesse: https://www.postgresql.org/docs/current/ecpg-sql-connect.html */
+\connect storkserver;
 
 /* Criando a extensão do PostgreSQL Crypto da Base de Dados do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* Mais informações acesse:  https://www.postgresql.org/docs/current/sql-createextension.html */
 CREATE EXTENSION pgcrypto;
 
 /* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \q
 ```
 
 ## 16_ Testando o acesso a Base de Dados do Stork Server no PostgreSQL Server no Ubuntu Server
 ```bash
-#conectando no banco de dados PostgreSQL Server com o usuário stork
+#conectando no banco de dados PostgreSQL Server com o usuário storkserver
 #opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
 #--dbname (database name to connect to)
-sudo psql --username stork --password --host localhost --dbname stork
+sudo psql --username storkserver --password --host localhost --dbname storkserver
 ```
 ```sql
 /* verificando as informações do Banco de Dados do Stork Server no PostgreSQL Server */
-/* Mais informações acesse:  */
+/* opção do comando \conninfo: (Outputs information about the current database connection) */
+/* Mais informações acesse: https://www.postgresql.org/docs/9.1/app-psql.html*/
 \conninfo
 
 /* Saindo do Banco de Dados PostgreSQL Server */
+/* opção do comando \q: (quit) */
+/* mais informações acesse: https://www.postgresql.org/docs/current/app-psql.html */
 \q
 ```
 
@@ -465,9 +504,13 @@ INSERT
 #alterar as linhas de: 17 até 21 das variáveis de conexão do PostgreSQL Server
 STORK_DATABASE_HOST=localhost
 STORK_DATABASE_PORT=5432
-STORK_DATABASE_NAME=stork
-STORK_DATABASE_USER_NAME=stork
+STORK_DATABASE_NAME=storkserver
+STORK_DATABASE_USER_NAME=storkserver
 STORK_DATABASE_PASSWORD=SUA_SENHA_SEGURA
+#
+#alterar as linhas de: 32 até 3 das variáveis de conexão do Stork Server
+STORK_REST_HOST=0.0.0.0
+STORK_REST_PORT=8080
 ```
 ```bash
 #salvar e sair do arquivo
@@ -534,19 +577,9 @@ sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 #nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G stork-server $USER
 
-#fazendo login em um novo grupo do STORK-SERVER
-newgrp stork-server
-
-#verificando os identificadores de usuário e grupos
-id
-
 #verificando informações do grupo STORK-SERVER do Stork Server
 #opção do comando getent: group (the database system group)
 sudo getent group stork-server
-
-#recomendo fazer logout do usuário para testar as permissões de grupos
-#OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
-exit
 ```
 
 ## 24_ Testando e configurando o Stork Server via Terminal e Navegador
@@ -580,19 +613,13 @@ Dashboard for ISC Kea and ISC BIND 9;
   Password: admin
 <Sign In>
 
-#Alteração da senha do Stork Server
+#Alteração da senha do usuário Admin do Stork Server
 Change Password
   New password settings
     Current password: admin
     New password: SUA_SENHA_SEGURA
     Confirm password: CONFIRMA_SUA_SENHA
-  <Save>  
-
-#Gerando a chave de integração do Agent do Stork Server
-Services
-  Machines
-    <Installing Stork Agent on a New Machine>
-      The server token value is: COPIAR_SEU_TOKEN
+  <Save>
 ```
 
 ## 25_ Instalando o Agente do Stork no Ubuntu Server
@@ -632,7 +659,7 @@ STORK_AGENT_HOST=127.0.0.1
 STORK_AGENT_PORT=8888
 STORK_AGENT_LISTEN_STORK_ONLY=false
 STORK_AGENT_LISTEN_PROMETHEUS_ONLY=false
-STORK_AGENT_SKIP_TLS_CERT_VERIFICATION=fa
+STORK_AGENT_SKIP_TLS_CERT_VERIFICATION=false
 ```
 ```bash
 #salvar e sair do arquivo
@@ -675,9 +702,38 @@ sudo stork-agent -v
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-8080 e TCP-8888 do Stork Server e Stork Agent
+#verificando a porta padrão TCP-8080 Stork Server, TCP-8888 Stork Agent e TCP-9119 Prometheus Bind 9
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'8080,8888' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'8080,8888,9119' -sTCP:LISTEN
+```
+
+## 24_ Autorizando o Stork Agent no Stork Server no Ubuntu Server
+
+```bash
+#utilizar os navegadores para configurar o Stork Server
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
+
+#Tela de login do Stork Server
+Dashboard for ISC Kea and ISC BIND 9;
+  Email/login: admin
+  Password: SUA_SENHA_SEGURA
+<Sign In>
+
+#Autorizando o Stork Agent no Stork Server
+Services
+  Machines
+    Unauthorized
+      Hostname: (ON) 127.0.0.1 - Location: 127.0.0.1:8888
+    <Authorize selected>
+
+#Monitorando a Máquina Autorizada do Stork Agent no Stork Server
+Services
+  Machines
+    Authorized
+      Hostname: wsvaamonde.pti.intra - Location: 127.0.0.1:8888
+        Daemons:  DHCPv4
+                  DHCPv6
+                  CA (Control Agent)
 ```
 
 ========================================DESAFIOS=========================================
