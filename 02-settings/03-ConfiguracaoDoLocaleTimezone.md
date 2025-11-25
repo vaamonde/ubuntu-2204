@@ -208,7 +208,7 @@ Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 | **Packet count**  | `1`                                 | Número de pacotes trocados desde a última inicialização. |
 | **Frequency**     | `-458,403ppm`                       | Ajuste de frequência aplicado ao relógio do sistema para mantê-lo sincronizado. |
 
-## 07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server
+## 07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server (SOMENTE SE NECESSÁRIO)
 
 **OBSERVAÇÃO IMPORTANTE:** só utilizar as configurações de Data e Hora em modo manual caso as configurações de sincronismo automático não funcione de forma adequada, não recomendo a configuração de Data e Hora em modo manual, isso é um alerta de erro de sistema (BIOS/Hardware ou Rede/Internet).
 
@@ -223,9 +223,9 @@ sudo date +%H:%M:%S
 sudo date -s 13:30:00
 ```
 
-## 08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server
+## 08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server (SOMENTE SE NECESSÁRIO)
 
-**OBSERVAÇÃO IMPORTANTE:** mesmo cenário da utilização do comando __`date`__, a da Data e hora da BIOS do Hardware é mantida pela *CMOS e Bateria* que mantém essa hora armazenada, caso a Data e Hora de BIOS esteja errada, recomendo verificar a Bateria pois já é um sinal de falha de Hardware, no GNU/Linux você pode sincronizar a Data e Hora de Software para o Hardware e vice-versa, também, não é recomendo a sua utilização.
+**OBSERVAÇÃO IMPORTANTE:** mesmo cenário da utilização do comando __`date`__, a da Data e Hora da BIOS do Hardware é mantida pela *CMOS e Bateria* que mantém essa hora armazenada, caso a Data e Hora de BIOS esteja errada, recomendo verificar a Bateria pois já é um sinal de falha de Hardware, no GNU/Linux você pode sincronizar a Data e Hora de Software para o Hardware e vice-versa, também, não é recomendo a sua utilização.
 
 ```bash
 #sincronizando a data hora de software e hardware manual no Ubuntu Server
@@ -240,9 +240,10 @@ sudo hwclock --hctosys
 
 ```bash
 #verificando as configurações do Teclado no Ubuntu Server
-sudo cat /etc/default/keyboard
-  XKBMODEL="pc105" (Padrão 105 teclas pc105)
-  XKBLAYOUT="br" (Layout de Teclado Português Brasileiro ABNT2)
+#opção do comando cat: -n (number line)
+sudo cat -n /etc/default/keyboard
+  XKBMODEL="pc105"  (Padrão 105 teclas pc105)
+  XKBLAYOUT="br"    (Layout de Teclado Português Brasileiro ABNT2)
 ```
 ```bash
 #reconfigurando o Teclado no Ubuntu Server
@@ -256,7 +257,8 @@ sudo dpkg-reconfigure keyboard-configuration
 ```
 ```bash
 #verificando as configurações do UTF-8 (8-bit Unicode Transformation Format) e Console (Bash/Shell)
-sudo cat /etc/default/console-setup
+#opção do comando cat: -n (number line)
+sudo cat -n /etc/default/console-setup
   CHARMAP="UTF-8"
 ```
 ```bash
@@ -266,4 +268,8 @@ sudo dpkg-reconfigure console-setup
   Guess optimal character set (Supor o melhor conjunto de caracteres) <Enter>;
   Fixed <Enter>;
   8x16 <Enter>.
+```
+```bash
+#reiniciando o servidor para aplicar as mudanças do Teclado e Console
+sudo reboot
 ```
