@@ -394,9 +394,9 @@ sudo netplan --debug try
 
 | Servidor DNS | Endereços IPv4 | Endereços IPv6 |
 |--------------| ---------------| ---------------|
-| Google | 8.8.8.8 e 8.8.4.4 | 2001:4860:4860::8888 e 2001:4860:4860::8844 |
-| Quad9 | 9.9.9.9 e 149.112.112.112 | 2620:fe::fe e 2620:fe::9 |
-| CloudFlare |  1.1.1.1 e 1.1.1.1 | 2606:4700:4700::1111 e 2606:4700:4700::1001 |
+| **Google** | 8.8.8.8 e 8.8.4.4 | 2001:4860:4860::8888 e 2001:4860:4860::8844 |
+| **Quad9** | 9.9.9.9 e 149.112.112.112 | 2620:fe::fe e 2620:fe::9 |
+| **CloudFlare** |  1.1.1.1 e 1.1.1.1 | 2606:4700:4700::1111 e 2606:4700:4700::1001 |
 
 ```bash
 #editando o arquivo de configuração do Systemd Resolved no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
