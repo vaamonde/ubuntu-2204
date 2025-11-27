@@ -53,13 +53,13 @@ sudo apt install apt-transport-https software-properties-common git vim
 
 ## 02_ Instalando a Chave GPG do Grafana Server no Ubuntu Server
 ```bash
-#baixando a Chave GPG do Grafana Server
+#baixando e instalando a Chave GPG do Grafana Server no Ubuntu Server
 #opção do comando wget: -q (quiet), -O (output-document)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
 sudo wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
 
-#adicionando o Repositório do Grafana Server (versão BETA)
+#adicionando o Repositório do Grafana Server no Ubuntu Server
 #OBSERVAÇÃO IMPORTANTE: caso queira instalar a versão atual altere a palavra: beta por: stable
 #OBSERVAÇÃO IMPORTANTE: na data de: 14/05/2024 a Versão BETA 11 do Grafana se tornou STABLE.
 #opção do comando tee: -a (append)
@@ -172,18 +172,18 @@ exit
 
 ## 09_ Localização dos diretórios e arquivos principais do Grafana Server no Ubuntu Server
 ```bash
-/usr/share/grafana*          <-- Diretório do Site do Grafava Server
-/var/log/grafana*            <-- Diretório dos arquivos de Logs do serviço do Grafana Server
-/var/lib/grafana*            <-- Diretório dos banco de dados do Grafana Server
-/var/lib/grafana/plugins*    <-- Diretório dos Plugins do Grafana Server
-/etc/grafana/*               <-- Diretório das configurações do Grafana Server
-/etc/grafana/grafana.ini     <-- Arquivo de Configuração e Inicialização do Grafana Server
-/etc/default/grafana-server  <-- Arquivo de Configuração do Serviço do Grafana Server
+/etc/grafana/*                <-- Diretório das configurações do Grafana Server
+/etc/grafana/grafana.ini      <-- Arquivo de Configuração e Inicialização do Grafana Server
+/etc/default/grafana-server   <-- Arquivo de Configuração do Serviço do Grafana Server
+/usr/share/grafana*           <-- Diretório do Site do Grafava Server
+/var/log/grafana*             <-- Diretório dos arquivos de Logs do serviço do Grafana Server
+/var/lib/grafana*             <-- Diretório dos banco de dados do Grafana Server
+/var/lib/grafana/plugins*     <-- Diretório dos Plugins do Grafana Server
 ```
 
 ## 10_ Configurando o Grafana Server via Navegador
 ```bash
-#acessar via navegador o Grafana
+#acessando via navegador o Grafana Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
 #configurações iniciais do Grafana Server
@@ -192,6 +192,7 @@ Welcome to Grafana
   Password: admin 
 <Log In>
 
+#atualizar a senha do usuário do Grafana Server
 Update your password
   New password: pti@2018
   Confirm new password: pti@2018 
