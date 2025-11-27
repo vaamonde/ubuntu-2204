@@ -80,7 +80,7 @@ sudo apt update
 #instalando o Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 sudo apt install isc-kea-dhcp4-server isc-kea-dhcp6-server isc-kea-dhcp-ddns-server isc-kea-ctrl-agent
-isc-kea-common isc-kea-admin isc-kea-pgsql  isc-kea-hooks ipcalc ipv6calc
+isc-kea-common isc-kea-admin isc-kea-pgsql isc-kea-hooks ipcalc ipv6calc
 ```
 
 ## 04_ Habilitando os Serviços do Kea DHCP Server IPv4, IPV6, DDNS e Control Agent no Ubuntu Server
