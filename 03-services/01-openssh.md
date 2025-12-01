@@ -44,7 +44,8 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no mundo para acesso remoto de servidores Locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é mais utilizado?
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no mundo para acesso remoto de
+servidores Locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é mais utilizado?
 ```
 
 **O QUE É E PARA QUE SERVER O OPENSSH:** O *OpenSSH (Open Secure Shell)* é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
