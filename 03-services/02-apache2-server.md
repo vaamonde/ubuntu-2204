@@ -47,7 +47,9 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem
+de páginas de Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso
+para aplicações emergentes.
 ```
 
 **O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
