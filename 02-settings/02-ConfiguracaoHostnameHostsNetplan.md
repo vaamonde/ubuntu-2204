@@ -319,11 +319,12 @@ network:
       addresses: [SEU_ENDEREÇO_IPv4/CIDR]
       #
       # Configuração do Endereço IPv4/CIDR e IPv6/CIDR para o seu cenário utilizando
-      # endereço IPv6 Unicast Global
-      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv6 e IPv6 separados por Traço
+      # endereço IPv6 Unicast Global e Link Local
+      # OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 e IPv6 separados por Traço
       #addresses:
       #  - SEU_ENDEREÇO_IPv4/CIDR
-      #  - SEU_ENDEREÇO_IPv6/CIDR
+      #  - SEU_ENDEREÇO_IPv6_UNICAST_GLOBAL/CIDR
+      #  - SEU_ENDEREÇO_IPv6_LINK_LOCAL/CIDR
       #
       # Configuração do Gateway Padrão (Rota Padrão) para o seu cenário
       # OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo utilizar 
@@ -338,7 +339,8 @@ network:
         # Configuração da Rota Padrão IPv6 (cuidado com o traço antes da opção: to)
         #- to: default
           # Configuração do endereço IPv6 do Gateway para o seu cenário
-          #via: SEU_ENDEREÇO_DE_GATEWAY_IPv6
+          #via: SEU_ENDEREÇO_DE_GATEWAY_IPv6_UNICAST_GLOBAL
+          #via: SEU_ENDEREÇO_DE_GATEWAY_IPV6_LINK_LOCAL
           #
       # Configuração dos servidores de DNS Server Preferencial e Alternativo
       nameservers:
