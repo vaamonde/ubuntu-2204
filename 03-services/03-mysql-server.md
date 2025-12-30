@@ -72,9 +72,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 ## 01_ Instalando o MySQL Server e Client no Ubuntu Server
 ```bash	
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o MySQL Server e Client
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 mysqltuner
 ```
 

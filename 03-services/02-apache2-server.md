@@ -75,9 +75,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 ## 01_ Instalando o Apache2 Server e PHP 8.x no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Apache2 Server
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
 zlib1g-dev apt-transport-https
@@ -89,6 +91,7 @@ zlib1g-dev apt-transport-https
 
 ```bash
 #instalando o Apache2 Server, PHP 8.x e suas dependências (SUPORTE EXTRA DE DEPENDÊNCIAS)
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \
 php-opcache php-readline php-bcmath php-curl php-intl php-mbstring php-xml php-zip php-soap php-json \

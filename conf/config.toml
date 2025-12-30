@@ -1,0 +1,83 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 30/12/2025
+# Data de atualização: 30/12/2025
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do Netronome Server v0.8.x
+#
+#====== BLOCO DE CONFIGURAÇÃO PADRÃO ======
+#
+# Bloco de Configuração do Banco de Dados do Netronome
+[database]
+type = "sqlite"
+path = "netronome.db"
+#
+# Bloco de Configuração do Servidor do Netronome
+[server]
+host = "0.0.0.0"
+port = 7575
+#
+# Bloco de Configuração dos Logs do Netronome
+[logging]
+level = "info"
+#
+# Bloco de Configuração da Subrede de Acesso ao Netronome
+[auth]
+whitelist = ["172.16.1.0/24"]
+#
+# Bloco de Configuração do Speedtest do Netronome
+[speedtest]
+timeout = 30
+#
+# Bloco de Configuração do Iperf do Netronome
+[speedtest.iperf]
+test_duration = 10
+parallel_conns = 4
+timeout = 60
+#
+# Bloco de Configuração do Librespedd do Netronome
+[speedtest.librespeed]
+timeout = 60
+#
+# Bloco de Configuração do Iperf Ping do Netronome
+[speedtest.iperf.ping]
+count = 5
+interval = 1000
+timeout = 10
+#
+# Bloco de Configuração da Sessão do Netronome
+[session]
+session_secret = "3fb8aa7f8cb1912c084dbc861ccfdc056c287e60fa3a03720e09da018ad9edbe"
+#
+# Bloco de Configuração do Database do GeoIP do Netronome
+[geoip]
+country_database_path = "/root/.config/netronome/GeoLite2-Country.mmdb"
+asn_database_path = "/root/.config/netronome/GeoLite2-ASN.mmdb"
+#
+# Bloco de Configuração do Packetloss do Netronome
+[packetloss]
+enabled = true
+default_interval = 3600
+default_packet_count = 10
+max_concurrent_monitors = 10
+privileged_mode = true
+#
+# Bloco de Configuração do Monitor de Netronome
+[monitor]
+enabled = true
+reconnect_interval = "30s"
+#
+# Bloco de Configuração do Tailscale do Netronome
+[tailscale]
+enabled = false
+method = "auto"
+agent_port = 8200
+auto_discover = true
+discovery_interval = "5m"
+discovery_port = 8200

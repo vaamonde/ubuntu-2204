@@ -1,0 +1,12 @@
+[Unit]
+Description=Netronome Service for %i
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=%i
+Group=%i
+ExecStart=/usr/local/bin/netronome serve --config=/root/.config/netronome/config.toml
+
+[Install]
+WantedBy=multi-user.target
