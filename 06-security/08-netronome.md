@@ -49,7 +49,7 @@ sudo apt update
 #instalando as dependências do Netronome Server no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
-sudo apt install iperf3 traceroute mtr vnstat
+sudo apt install iperf3 traceroute mtr vnstat apache2 php
 
 #baixando a dependência do Librespeed-Cli do Site Oficial do Ubuntu (link atualizado em: 30/12/2025)
 #opção do comando wget: -O (output file name)
@@ -96,20 +96,23 @@ wget -v -O /root/.config/netronome/config.toml https://raw.githubusercontent.com
 
 #download do arquivo de configuração do Librespeed Server
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /root/.config/netronome/config.toml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/config.toml
+wget -v -O /root/.config/netronome/librespeed-servers.json https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/librespeed-servers.json
 
-#download do arquivo da Base de Dados de GeoIP Lite ANS
+#download do arquivo da Base de Dados de GeoIP Lite ANS (link atualizado em: 30/12/2025)
+#projeto oficial do Github: https://github.com/P3TERX/GeoLite.mmdb
 #opção do comando wget: -v (verbose), -O (output file)
 wget -v -O /root/.config/netronome/GeoLite2-ASN.mmdb https://git.io/GeoLite2-ASN.mmdb
 
-#download do arquivo da Base de Dados de GeoIP Lite Country
+#download do arquivo da Base de Dados de GeoIP Lite Country (link atualizado em: 30/12/2025)
+#projeto oficial do Github: https://github.com/P3TERX/GeoLite.mmdb
 #opção do comando wget: -v (verbose), -O (output file)
 wget -v -O /root/.config/netronome/GeoLite2-Country.mmdb https://git.io/GeoLite2-Country.mmdb
 
-#download do arquivo da Base de Dados de GeoIP Lite Country
+#download do arquivo de serviço do Netronome Server
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O //etc/systemd/system/netronome.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/netronome.service
+wget -v -O /etc/systemd/system/netronome.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/netronome.service
 ```
+
 
 ========================================DESAFIOS=========================================
 

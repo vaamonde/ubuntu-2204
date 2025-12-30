@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "wsvaamonde",
+    "server": "https://172.16.1.20/backend",
+    "dlURL": "garbage.php",
+    "ulURL": "empty.php",
+    "pingURL": "empty.php",
+    "getIpURL": "getIP.php"
+  }
+]
