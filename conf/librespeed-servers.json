@@ -2,7 +2,16 @@
   {
     "id": 1,
     "name": "wsvaamonde",
-    "server": "https://172.16.1.20/backend",
+    "server": "http://172.16.1.20/backend",
+    "dlURL": "garbage.php",
+    "ulURL": "empty.php",
+    "pingURL": "empty.php",
+    "getIpURL": "getIP.php"
+  },
+  {
+    "id": 2,
+    "name": "ctsvaamonde",
+    "server": "http://172.16.1.30/backend",
     "dlURL": "garbage.php",
     "ulURL": "empty.php",
     "pingURL": "empty.php",

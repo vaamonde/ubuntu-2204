@@ -1,0 +1,13 @@
+[Unit]
+Description=iperf3 server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/iperf3 -s -1 -p 5201 --logfile /var/log/iperf3.log
+Restart=always
+RestartSec=3
+RuntimeMaxSec=3600
+
+[Install]
+WantedBy=multi-user.target

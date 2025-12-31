@@ -111,7 +111,12 @@ wget -v -O /root/.config/netronome/GeoLite2-Country.mmdb https://git.io/GeoLite2
 #download do arquivo de serviço do Netronome Server
 #opção do comando wget: -v (verbose), -O (output file)
 wget -v -O /etc/systemd/system/netronome.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/netronome.service
+
+#download do arquivo de serviço do IPerf3 Server
+#opção do comando wget: -v (verbose), -O (output file)
+wget -v -O /etc/systemd/system/iperf3.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/iperf3.service
 ```
+
 
 
 ========================================DESAFIOS=========================================

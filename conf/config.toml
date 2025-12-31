@@ -6,42 +6,46 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 30/12/2025
-# Data de atualização: 30/12/2025
-# Versão: 0.01
+# Data de atualização: 31/12/2025
+# Versão: 0.02
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do Netronome Server v0.8.x
 #
 #====== BLOCO DE CONFIGURAÇÃO PADRÃO ======
-#
-# Bloco de Configuração do Banco de Dados do Netronome
-[database]
-type = "sqlite"
-path = "netronome.db"
 #
 # Bloco de Configuração do Servidor do Netronome
 [server]
 host = "0.0.0.0"
 port = 7575
 #
+# Bloco de Configuração do Banco de Dados SQLite do Netronome
+[database]
+type = "sqlite"
+path = "netronome.db"
+#
 # Bloco de Configuração dos Logs do Netronome
+# Opções dos logs: trace, debug, info, warn, error, fatal, panic
 [logging]
 level = "info"
 #
 # Bloco de Configuração da Subrede de Acesso ao Netronome
 [auth]
-whitelist = ["172.16.1.0/24"]
+whitelist = ["127.0.0.1/32", "172.16.1.0/24"]
 #
 # Bloco de Configuração do Speedtest do Netronome
 [speedtest]
 timeout = 30
 #
-# Bloco de Configuração do Iperf do Netronome
+# Bloco de Configuração do Iperf3 do Netronome
 [speedtest.iperf]
 test_duration = 10
 parallel_conns = 4
 timeout = 60
+ping_count = 5
+ping_interval = 1000
+ping_timeout = 10
 #
-# Bloco de Configuração do Librespedd do Netronome
+# Bloco de Configuração do Librespeed do Netronome
 [speedtest.librespeed]
 timeout = 60
 #
