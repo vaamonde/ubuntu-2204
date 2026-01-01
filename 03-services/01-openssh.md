@@ -120,18 +120,18 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 
 ## 04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server
 ```bash
-/etc/ssh/              <-- Diretório de configuração do OpenSSH Server e Client
-/etc/ssh/sshd_config   <-- Arquivo de configuração do OpenSSH Server
-/etc/ssh/ssh_config    <-- Arquivo de configuração do OpenSSH Client
-/etc/hosts.deny        <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Deny
-/etc/hosts.allow       <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Allow
-/etc/issue.net         <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
-/etc/issue             <-- Arquivo de configuração do Prompt de Login do Ubuntu Server para acesso local
-/var/log/              <-- Diretório de Logs do Sistema Operacional Ubuntu Server
-/var/log/syslog        <-- Log principal do Sistema Operacional Ubuntu Server
-/var/log/auth.log      <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
-/var/log/allow-*.log   <-- Log principal dos acessos remoto do TCP Wrappers Allow do OpenSSH Server
-/var/log/deny.log      <-- Log principal dos acesso negados do TCP Wrappers Deny do OpenSSH Server
+/etc/ssh/                <-- Diretório de configuração do OpenSSH Server e Client
+/etc/ssh/sshd_config     <-- Arquivo de configuração do OpenSSH Server
+/etc/ssh/ssh_config      <-- Arquivo de configuração do OpenSSH Client
+/etc/hosts.deny          <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Deny
+/etc/hosts.allow         <-- Arquivo de configuração do Firewall de Aplicação TCP Wrappers Allow
+/etc/issue.net           <-- Arquivo de configuração do Banner do Ubuntu Server para acesso remoto
+/etc/issue               <-- Arquivo de configuração do Prompt de Login do Ubuntu Server para acesso local
+/var/log/                <-- Diretório de Logs do Sistema Operacional Ubuntu Server
+/var/log/syslog          <-- Log principal do Sistema Operacional Ubuntu Server
+/var/log/auth.log        <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
+/var/log/allow-ssh.log   <-- Log principal dos acessos remoto do TCP Wrappers Allow do OpenSSH Server
+/var/log/deny.log        <-- Log principal dos acesso negados do TCP Wrappers Deny do OpenSSH Server
 ```
 
 ## 05_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server
@@ -193,7 +193,7 @@ ESC SHIFT :set number <Enter>
 INSERT
 ```
 ```bash
-#inserir as informações na linha: 33
+#inserir as informações na linha: 34
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.allow

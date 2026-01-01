@@ -23,15 +23,15 @@
 # que vai acessar o serviço), Shell Command (comando que será executado depois que
 # acessar o serviço)
 #
-# Opções das variáveis do Hosts Deny: ALL (The universal wildcard, always matches)
-# date -u (--universal), %d (The daemon process name), %c (Client information), 
-# %r (The clients port number), %p (The daemon process id)
+# Opções das variáveis do Hosts Allow: date -u (--universal), %d (The daemon process name),
+# %R (The servers port number), %A (The server host address), %N (The server host name),
+# %c (Client information), %r (The clients port number), %p (The daemon process id)
 #
 #=================== BLOCO DE CONFIGURAÇÃO DA NEGAÇÃO DOS DAEMON ===================
 #
 # Negando todas as Redes de acessar remotamente os serviços no Servidor Ubuntu
 # DAEMON     CLIENT     SHELL COMMAND
-ALL: ALL: spawn /bin/echo "$(date -u) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/deny.log
+ALL: ALL: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/deny.log
 #
 # Exemplos de configuração do TCPWrappers do arquivo hosts.deny:
 # Negando uma subrede ou nome de domínio FQDN para um serviço

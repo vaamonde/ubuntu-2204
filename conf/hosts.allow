@@ -23,14 +23,15 @@
 # que vai acessar o serviço), Shell Command (comando que será executado depois que
 # acessar o serviço)
 #
-# Opções das variáveis do Hosts Allow: date -u (--universal), %d (The daemon process name), 
+# Opções das variáveis do Hosts Allow: date -u (--universal), %d (The daemon process name),
+# %R (The servers port number), %A (The server host address), %N (The server host name),
 # %c (Client information), %r (The clients port number), %p (The daemon process id)
 #
 #=================== BLOCO DE CONFIGURAÇÃO DA LIBERAÇÃO DOS DAEMON ===================
 #
 # Permitindo a Rede 172.16.1.0/24 se autenticar remotamente no Servidor de OpenSSH
 # DAEMON     CLIENT     SHELL COMMAND
-sshd: 172.16.1.0/24: spawn /bin/echo "$(date -u) | Serviço Remoto %d | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
+sshd: 172.16.1.0/24: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
 #
 # =================== Exemplos de configuração do TCPWrappers do arquivo hosts.allow: ===================
 #
