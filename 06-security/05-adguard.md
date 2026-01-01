@@ -42,7 +42,6 @@ x.AI Grok: https://grok.com/<br>
 
 Link da vídeo aula: 
 
-
 ## 01_ Instalando AdGuard Home utilizando o script automatizado no Ubuntu Server
 ```bash
 #instalando o AdGuard via script da comunidade automatizado (Mais simples e eficiente)
@@ -84,7 +83,7 @@ sudo /opt/AdGuardHome/AdGuardHome --version
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-53 e 3000 e UDP-53 do AdGuard Home
+#verificando a porta padrão TCP-53 e TCP-3000 e UDP-53 do AdGuard Home
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'53,3000' -sTCP:LISTEN
 sudo lsof -nP -iTCP:'53'
@@ -111,7 +110,7 @@ sudo wget -v -O /etc/systemd/resolved.conf.d/adguardhome.conf https://raw.github
 #opção do comando mv: -v (verbose)
 sudo mv -v /etc/resolv.conf /etc/resolv.conf.old
 
-#criando o link simbolico do arquivo de configuração do resolv.conf no Ubuntu Server
+#criando o link simbólico do arquivo de configuração do resolv.conf no Ubuntu Server
 #opção do comando ln: -s (symbolic link)
 sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
@@ -129,6 +128,7 @@ sudo systemctl status systemd-resolved
 #utilizar os navegadores para configurar o AdGuard Home
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
+#configurações básicas via Web do AdGuard Home
 01/05 - Bem-vindo(a) ao AdGuard Home!
 <Começar>
 
@@ -160,7 +160,7 @@ AdGuard Home
 
 ## 07_ Verificando novamente as Portas de Conexão do DNS e do AdGuard Home no Ubuntu Server
 ```bash
-#verificando a porta padrão TCP-53 e 80 e UDP-53 do AdGuard Home
+#verificando a porta padrão TCP-53 e TCP-80 e UDP-53 do AdGuard Home
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'53,80' -sTCP:LISTEN
 sudo lsof -nP -iTCP:'53'

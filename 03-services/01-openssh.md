@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 01/10/2025<br>
-#Versão: 0.29<br>
+#Data de atualização: 01/01/2026<br>
+#Versão: 0.30<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,17 +19,18 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/01-openssh
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioopenssh #desafiossh
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando o OpenSSH Server e Client no Ubuntu Server;<br>
-#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server;<br>
-#03_ Verificando a Porta de Conexão do OpenSSH Server no Ubuntu Server;<br>
-#04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server;<br>
-#05_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server;<br>
-#06_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server;<br>
-#07_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash;<br>
-#08_ Criando um usuário Administrador no Ubuntu Server;<br>
-#09_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server;<br>
-#10_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server;<br>
-#11_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
+#01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
+#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
+#03_ Verificando a Porta de Conexão do OpenSSH Server no Ubuntu Server<br>
+#04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server<br>
+#05_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server<br>
+#06_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server<br>
+#07_ Editando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server<br>
+#08_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash<br>
+#09_ Criando um usuário Administrador no Ubuntu Server<br>
+#10_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server<br>
+#11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server<br>
+#12_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
@@ -61,6 +62,8 @@ servidores Locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é m
 **O QUE É E PARA QUE SERVER O BLUE TEAM:** Blue Team é o time de *Defesa em Cibersegurança*. É o grupo responsável por: *proteger, monitorar e responder a ataques cibernéticos* dentro de uma organização. Eles trabalham de forma **Proativa e Reativa**, com foco total na segurança defensiva.
 
 **O QUE É E PARA QUE SERVER O RED TEAM:** Red Team é o time de *Ataque em Cibersegurança*. A missão deles é *simular ataques reais contra a infraestrutura da empresa* para encontrar **Falhas** e testar a eficácia das *defesas (Blue Team)*. Eles são os __`"hackers éticos ofensivos"`__ dentro da organização — tudo é feito com autorização e objetivo de melhorar a segurança.
+
+**O QUE É E PARA QUE SERVER O PURPLE TEAM:** Purple Team é um modelo colaborativo de segurança da informação que integra as equipes Red Team (ataque) e Blue Team (defesa). O foco não é “quem vence”, mas aprender juntos, melhorar processos e aumentar a maturidade da segurança da organização. Em vez de o Red atacar e o Blue apenas reagir, o Purple promove troca contínua de conhecimento, testes controlados e melhorias rápidas.
 
 [![OpenSSH Server](http://img.youtube.com/vi/-cforvm_oV0/0.jpg)](https://www.youtube.com/watch?v=-cforvm_oV0 "OpenSSH Server")
 
@@ -99,7 +102,8 @@ sudo journalctl -xeu ssh
 
 ```bash
 #verificando as versões do OpenSSH Server e Client
-#opção do comando sshd e ssh: -V (version)
+#opção do comando sshd e sshd: -V (version)
+#opção do comando ssh: -V (version)
 sudo sshd -V
 sudo ssh -V
 ```
@@ -126,9 +130,38 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 /var/log/              <-- Diretório de Logs do Sistema Operacional Ubuntu Server
 /var/log/syslog        <-- Log principal do Sistema Operacional Ubuntu Server
 /var/log/auth.log      <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
+/var/log/allow-*.log   <-- Log principal dos acessos remoto do TCP Wrappers Allow do OpenSSH Server
+/var/log/deny.log      <-- Log principal dos acesso negados do TCP Wrappers Deny do OpenSSH Server
 ```
 
-## 05_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server
+## 05_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server
+```bash
+#fazendo o backup do arquivo de configuração do OpenSSH Server
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
+
+#atualizando o arquivo de configuração do OpenSSH Server do Ubuntu Server do Github
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
+
+#atualizando o arquivo de configuração do Banner do Ubuntu Server do Github
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
+
+#atualizando o arquivo de configuração do Prompt de Login do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/issue https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue
+
+#atualizando o arquivo de configuração do TCP Wrapper hosts allow do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/hosts.allow https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/hosts.allow
+
+#atualizando o arquivo de configuração do TCP Wrapper hosts deny do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/hosts.deny https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/hosts.deny
+```
+
+## 06_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server
 ```bash
 #editando o arquivo de configuração de Negação de Serviço e Host
 sudo vim /etc/hosts.deny
@@ -140,7 +173,7 @@ ESC SHIFT :set number <Enter>
 INSERT
 ```
 ```bash
-#inserir as informações na linha: 17
+#inserir as informações na linha: 34
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.deny
@@ -160,7 +193,7 @@ ESC SHIFT :set number <Enter>
 INSERT
 ```
 ```bash
-#inserir as informações na linha: 10
+#inserir as informações na linha: 33
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.allow
@@ -171,24 +204,8 @@ sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR
 ESC SHIFT :x <Enter>
 ```
 
-## 06_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server
+## 07_ Editando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server
 ```bash
-#fazendo o backup do arquivo de configuração do OpenSSH Server
-#opção do comando cp: -v (verbose)
-sudo cp -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old
-
-#atualizando o arquivo de configuração do OpenSSH Server do Github
-#opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/ssh/sshd_config https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/sshd_config
-
-#atualizando arquivo de configuração do Banner do Ubuntu Server do Github
-#opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/issue.net https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue.net
-
-#atualizando arquivo de configuração do Prompt de Login do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
-#opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O /etc/issue https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/issue
-
 #editando o arquivo de configuração do OpenSSH Server
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/sshd_config
 sudo vim /etc/ssh/sshd_config
@@ -265,7 +282,7 @@ sudo journalctl -t sshd
 sudo journalctl -xeu ssh
 ```
 
-## 07_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash
+## 08_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash
 ```bash
 #acessando o OpenSSH via Powershell
 Windows
@@ -349,7 +366,7 @@ NAME   LINE   TIME   IDLE   PID COMMENT   EXIT<br>
 users
 ```
 
-## 08_ Criando um usuário Administrador no Ubuntu Server
+## 09_ Criando um usuário Administrador no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, *NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO:* __`admin`__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE **FORÇA BRUTA (BRUTE FORCE)** QUE USA ESSE USUÁRIO PARA *INVADIR SERVIDORES*. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
 
@@ -387,7 +404,7 @@ sudo cat -n /etc/group | grep admin
 sudo getent group admin
 ```
 
-## 09_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server
+## 10_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server
 ```bash
 #adicionando o usuário Admin ao grupo do SUDO
 #opção do comando usermod: -a (append), -G (groups)
@@ -404,7 +421,7 @@ sudo id admin
 sudo getent group sudo
 ```
 
-## 10_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server
+## 11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** fazer o teste de *Login no Terminal* do Ubuntu Server na Máquina Virtual para verificar se está tudo **OK** na autenticação do usuário __`admin`__.
 
@@ -427,9 +444,9 @@ Atalho: Alt + F1
 
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
+**#12_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
 
-**#12_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
+**#13_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
 
 =========================================================================================
 
