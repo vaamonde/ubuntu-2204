@@ -163,6 +163,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 /etc/php/8.x/apache2/php.ini    <-- Arquivo de configuração do PHP 8.x do Apache2 Server
 /var/www/html/                  <-- Diretório padrão das Hospedagem de Site do Apache2 Server
 /var/log/apache2/               <-- Diretório padrão dos Logs do Apache2 Server
+/var/run/apache2/               <-- Diretório do Pid de Processo e Socket do Apache2 Server
 ```
 
 ## 05_ Adicionando o Usuário Local no Grupo Padrão do Apache2 Server no Ubuntu Server

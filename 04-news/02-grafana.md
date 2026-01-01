@@ -84,13 +84,15 @@ sudo vim /etc/default/grafana-server
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
-
-  #principais variáveis do Grafana Server (padrão não alterar)
-  GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
-  GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
-  LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
-  DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
-
+```
+```bash
+#principais variáveis do Grafana Server (padrão não alterar)
+GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
+GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
+LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
+DATA_DIR=/var/lib/grafana     (localização do banco de dados do Grafana Server)
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
@@ -99,17 +101,19 @@ sudo vim /etc/grafana/grafana.ini
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
+```
+```bash
+#descomentar a variável protocol = na linha: 32
+protocol = http
 
-  #descomentar a variável protocol = na linha: 32
-  protocol = http
+#descomentar a variável ;http_port = na linha 41
+http_port = 3000
 
-  #descomentar a variável ;http_port = na linha 41
-  http_port = 3000
-
-  #descomentar a variável ;domain = na linha 44
-  #altere o nome de domínio conforme o seu cenário
-  domain = pti.intra
-
+#descomentar a variável ;domain = na linha 44
+#altere o nome de domínio conforme o seu cenário
+domain = pti.intra
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```

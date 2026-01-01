@@ -49,7 +49,8 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados relacional? Qual o seu percentual de uso para aplicações emergentes.
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento 
+de dados relacional? Qual o seu percentual de uso para aplicações emergentes.
 ```
 ```bash
 Prompt-02: Quais as principais Big Techs no Brasil e no mundo que utiliza o MySQL Server?

@@ -132,6 +132,7 @@ sudo lsof -nP -iTCP:'22' -sTCP:LISTEN
 /var/log/auth.log        <-- Log principal das autenticações do Sistema Operacional Ubuntu Server
 /var/log/allow-ssh.log   <-- Log principal dos acessos remoto do TCP Wrappers Allow do OpenSSH Server
 /var/log/deny.log        <-- Log principal dos acesso negados do TCP Wrappers Deny do OpenSSH Server
+/var/run/sshd/           <-- Diretório do Pid de Processo e Socket do OpenSSH Server
 ```
 
 ## 05_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server

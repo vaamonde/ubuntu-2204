@@ -84,8 +84,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
 ```bash
-#download do Prometheus do Github (Link atualizado no dia 26/09/2025)
-wget https://github.com/prometheus/prometheus/releases/download/v3.6.0/prometheus-3.6.0.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 01/01/2026)
+wget https://github.com/prometheus/prometheus/releases/download/v3.8.1/prometheus-3.8.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -138,8 +138,8 @@ sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
-#download do Node Exporter do Github (Link atualizado no dia 26/09/2025)
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+#download do Node Exporter do Github (Link atualizado no dia 01/01/2026)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -412,8 +412,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
-#download do Node Exporter do Github (Link atualizado no dia 11/05/2025)
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+#download do Node Exporter do Github (Link atualizado no dia 01/01/2026)
+wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-amd64.tar.gz
 
 #listando o download do arquivo do Node Exporter
 #opção do comando ls: -l (long listing), -h (human-readable)

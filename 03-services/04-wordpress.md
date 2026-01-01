@@ -103,7 +103,7 @@ sudo mysql -u root -p
 CREATE DATABASE wordpress;
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`@LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
 
 ```sql
 /* Criando o usuário e senha da Base de Dados do WordPress */
@@ -169,13 +169,21 @@ sudo mv -v wordpress/ /var/www/html/wp/
 
 ```bash
 #alterando as permissões dos diretórios e arquivos do WordPress
+
+#alterando do dono e grupo padrão do diretório do Worpress
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
+sudo chown -Rfv www-data.www-data /var/www/html/wp/
+
+#localizando e alterando as permissões de diretórios do Wordpress
 #opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 2775 (Set-GID=2, Dono=RWX, Grupo=RWS, Outros=R-X)
+#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
+sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
+
+#localizando e alterando as permissões de arquivos do Wordpress
+#opção do comando find: . (path), -type d (directory), type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 2664 (Set-GID=2, Dono=RW-, Grupo=RWS, Outros=R--)
 #opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
-sudo chown -Rfv www-data.www-data /var/www/html/wp/
-sudo find /var/www/html/wp/. -type d -exec chmod -v 2775 {} \;
 sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 ```
 

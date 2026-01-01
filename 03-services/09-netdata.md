@@ -179,16 +179,17 @@ exit
 
 ## 08_ Localização dos Arquivos de Configuração do Netdata Agent no Ubuntu Server
 ```bash
-/etc/netdata/netdata.conf          <-- arquivo de configuração do serviço do Netdata Agent
-/etc/netdata/apps_groups.conf      <-- arquivo de configuração dos Grupos de Aplicativos do Netdata Agent
-/etc/netdata/go.d/apache.conf      <-- arquivo de monitoramento do Apache2 Server
-/etc/netdata/go.d/httpcheck.conf   <-- arquivo de monitoramento do HTTP Endpoint Check
-/etc/netdata/go.d/mongodb.conf     <-- arquivo de monitoramento do MongoDB Server
-/etc/netdata/go.d/mysql.conf       <-- arquivo de monitoramento do MySQL Server
-/etc/netdata/go.d/ping.conf        <-- arquivo de monitoramento do ICMP Ping
-/etc/netdata/go.d/portcheck.conf   <-- arquivo de monitoramento do TCP/UDP Port Endpoint Check
-/etc/netdata/go.d/tomcat.conf      <-- arquivo de monitoramento do Apache Tomcat Server
-/var/log/netdata                   <-- diretório dos arquivos de Logs do Netdata
+/etc/netdata/                      <-- Diretório padrão das configurações do Netdata Agent
+/etc/netdata/netdata.conf          <-- Arquivo de configuração do serviço do Netdata Agent
+/etc/netdata/apps_groups.conf      <-- Arquivo de configuração dos Grupos de Aplicativos do Netdata Agent
+/etc/netdata/go.d/apache.conf      <-- Arquivo de monitoramento do Apache2 Server
+/etc/netdata/go.d/httpcheck.conf   <-- Arquivo de monitoramento do HTTP Endpoint Check
+/etc/netdata/go.d/mongodb.conf     <-- Arquivo de monitoramento do MongoDB Server
+/etc/netdata/go.d/mysql.conf       <-- Arquivo de monitoramento do MySQL Server
+/etc/netdata/go.d/ping.conf        <-- Arquivo de monitoramento do ICMP Ping
+/etc/netdata/go.d/portcheck.conf   <-- Arquivo de monitoramento do TCP/UDP Port Endpoint Check
+/etc/netdata/go.d/tomcat.conf      <-- Arquivo de monitoramento do Apache Tomcat Server
+/var/log/netdata                   <-- Diretório dos arquivos de Logs do Netdata Agent
 ```
 
 ## 09_ Testando e acessando as configurações do Netdata Agent via Terminal e Navegador

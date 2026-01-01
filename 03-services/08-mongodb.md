@@ -102,18 +102,18 @@ sudo dpkg -l libssl1.1
 Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
 
 ```bash
-#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.0 EM: 31/08/2025)
+#download da Chave GPG do MongoDB Server (VERSÃO ESTÁVEL ATÉ O MOMENTO: 8.2 EM: 01/01/2026)
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador | (piper): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando gpg: -o (output)
-curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | sudo gpg --dearmor -o /usr/share/keyrings/mongodb-server-8.2.gpg
 ```
 
 ## 03_ Criando o repositório do MongoDB Server no Ubuntu Server
 ```bash
-#criando o arquivo do repositório Apt do MongoDB no Ubuntu Server
+#criando o arquivo do repositório Apt do MongoDB no Ubuntu Server (REPOSITÓRIO ATUALIZADO EM 01/01/2026)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.2.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.2.list
 ```
 
 ## 04_ Atualizando as Lista do Apt com o novo Repositório do MongoDB Server no Ubuntu Server
@@ -196,6 +196,7 @@ sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 /etc/mongod.conf   <-- Arquivo de configuração do MongoDB Server
 /var/log/mongodb   <-- Diretório dos arquivos de Logs do MongoDB Sever
 /var/lib/mongodb   <-- Diretório dos arquivos de Banco de Dados do MongoDB Server
+/var/run/mongodb   <-- Diretório do Pid de Processo e Socket do MongoDB Server
 ```
 
 ## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server no Ubuntu Server

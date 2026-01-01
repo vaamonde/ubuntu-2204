@@ -104,7 +104,7 @@ Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 #opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 #opção do comando sudo: -E (preserve-env)
-sudo curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash
+sudo curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash
 ```
 
 ## 03_ Instalando a Versão LTS do Node.JS e do NPM (Node Packet Manager) no Ubuntu Server
