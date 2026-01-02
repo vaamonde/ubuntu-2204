@@ -58,5 +58,5 @@ EOF
 # ========== BLOCO FINAL DO SCRIPT ==========
 #
 echo -e "Página do SIMET atualizada com sucesso!!! \n"
-echo -e "URL Remota do Medidor Simente: $SIMET_URL \n"
+echo -e "URL Remota do Medidor Simet: $SIMET_URL \n"
 echo -e "URL Local: http://localhost ou http://IPv4_SERVIDOR_UBUNTU"

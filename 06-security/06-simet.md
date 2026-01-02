@@ -19,9 +19,20 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/25-simet.p
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosimet #desafionicbr
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando o Lighttpd Server no Ubuntu Server<br>
+#02_ Verificando o Serviço e Versão do Lighttpd Server no Ubuntu Server<br>
+#03_ Verificando a Porta de Conexão do Lighttpd Server no Ubuntu Server<br>
+#04_ Instalando Medidor Simet utilizando o script automatizado no Ubuntu Server<br>
+#05_ Verificando o Serviço e Versão do Medidor Simet no Ubuntu Server<br>
+#06_ Verificando a Porta de Conexão do Medidor Simet no Ubuntu Server<br>
+#07_ Localização dos Arquivos de Configuração do Medidor Simet no Ubuntu Server<br>
+#08_ Adicionando o Usuário Local no Grupo Padrão do Medidor Simet no Ubuntu Server<br>
+#09_ Executando o Medidor Simet pela primeira vez no Ubuntu Server<br>
+#10_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador<br>
+#11_ Desafios da implementação do Medidor Simet<br>
 
 Site Oficial do SIMET: https://beta.simet.nic.br/<br>
+Site Oficial do Medidor SIMET: https://medicoes.nic.br/<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -30,9 +41,10 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
-**O QUE É E PARA QUE SERVER O SIMET:** .
+**O QUE É E PARA QUE SERVER O SIMET:** O SIMET (Sistema de Medição de Tráfego de Internet) é uma plataforma oficial do NIC.br / CGI.br criada para medir, monitorar e analisar a qualidade da conexão com a Internet no Brasil.
+Ele pode ser usado tanto por usuários finais quanto por empresas, provedores, escolas e órgãos públicos.
 
-[![SIMET](http://img.youtube.com/vi//0.jpg)]( "SIMET")
+[![Medidor SIMET](http://img.youtube.com/vi//0.jpg)]( "Medidor SIMET")
 
 Link da vídeo aula: 
 
@@ -92,8 +104,8 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 wget https://download.simet.nic.br/medidores/simet-ma/linux/simet-ma.run
 
 #alterando as permissões de execução do script do Medidor Simet
-#opção do comando chmod: +x ()
-chmod +x simet-ma.run
+#opção do comando chmod: -v (verbose), +x (additional execution for all)
+chmod -v +x simet-ma.run
 
 #instalando o Medidor Simet no Ubuntu Server
 sudo ./simet-ma.run
@@ -142,14 +154,15 @@ sudo lsof -nP -iTCP:'22000' -sTCP:ESTABLISHED
 **OBSERVAÇÃO IMPORTANTE:** por padrão o agendamento de atualizações das medições do Simet é executado a cada: 4 horas (240 minutos), você pode alterar ou adicionar mais opções por dia, mês, semana, etc. conforme necessidade.
 
 ```bash
-/opt/simet                   <-- Diretório de configuração do Medidor Simet
-/opt/simet/bin               <-- Diretório dos binários do Medidor Simet
-/opt/simet/etc               <-- Diretório das configurações do Medidor Simet
-/opt/simet/lib               <-- Diretório das bibliotecas do Medidor Simet
-/var/log/syslog              <-- Arquivo principal dos Logs do Medidor Simet
-/etc/cron.d/siment-ma        <-- Arquivo de agendamento do Medidor Simet
-/etc/cron.daily/siment-ma    <-- Arquivo de agendamento diário do Medidor Simet
-/etc/cron.weekly/siment-ma   <-- Arquivo de agendamento semanal do Medidor Simet
+/opt/simet                           <-- Diretório de configuração do Medidor Simet
+/opt/simet/bin                       <-- Diretório dos binários do Medidor Simet
+/opt/simet/etc                       <-- Diretório das configurações do Medidor Simet
+/opt/simet/lib                       <-- Diretório das bibliotecas do Medidor Simet
+/opt/simet/lib/simet/simet-ma.conf   <-- Arquivo de configuração padrão do Medidor Simet
+/var/log/syslog                      <-- Arquivo principal dos Logs do Medidor Simet
+/etc/cron.d/siment-ma                <-- Arquivo de agendamento do Medidor Simet
+/etc/cron.daily/siment-ma            <-- Arquivo de agendamento diário do Medidor Simet
+/etc/cron.weekly/siment-ma           <-- Arquivo de agendamento semanal do Medidor Simet
 ```
 
 ## 08_ Adicionando o Usuário Local no Grupo Padrão do Medidor Simet no Ubuntu Server
@@ -186,18 +199,41 @@ sudo -u nicbr-simet /opt/simet/bin/simet-ma_run.sh -v
 /opt/simet/bin/simet_view_results.sh --url
 ```
 
+## 10_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador
+
+**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+
+| Código | Significado                                     |
+| ------ | ----------------------------------------------- |
+| 200    | OK (Sucesso)                                    |
+| 301    | Moved Permanently (Redirecionamento permanente) |
+| 302    | Found (Redirecionamento temporário)             |
+| 403    | Forbidden (Acesso negado)                       |
+| 404    | Not Found (Não encontrado)                      |
+| 500    | Internal Server Error                           |
+
+```bash
+#testando o acesso a páginas index.html no Lighttpd Server
+#opção do comando curl: -I (Fetch the headers only)
+curl -I http://127.0.0.1:80/
+```
+```bash
+#utilizar os navegadores para testar o acesso remoto o Medidor Simet
+firefox ou google chrome: http://endereço_ipv4_ubuntuserver
+```
+
 ========================================DESAFIOS=========================================
 
-**#08_ DESAFIO-01:** 
+**#11_ DESAFIO-01:** 
 
 =========================================================================================
 
-**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ADGUARD HOME SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do AdGuard Home realizado com sucesso!!! #BoraParaPrática*
+**OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO SIMET SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Simet realizado com sucesso!!! #BoraParaPrática*
 
 COMPARTILHAR O SELO DO DESAFIO NAS SUAS REDES SOCIAIS (LINKEDIN, FACEBOOK, INSTAGRAM) MARCANDO: ROBSON VAAMONDE COM AS HASHTAGS E COPIANDO O CONTEÚDO DO DESAFIO ABAIXO: 
 
-LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/24-adguard.png
+LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/25-simet.png
 
-#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioadguard #desafioadguardhome
+#boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosimet #desafionicbr
 
 
