@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 12/11/2025<br>
-#Data de atualização: 12/11/2025<br>
-#Versão: 0.01<br>
+#Data de atualização: 02/01/2026<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO SIMET SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Simet realizado com sucesso!!! #BoraParaPrática*
 
@@ -25,11 +25,12 @@ Conteúdo estudado nesse desafio:<br>
 #04_ Instalando Medidor Simet utilizando o script automatizado no Ubuntu Server<br>
 #05_ Verificando o Serviço e Versão do Medidor Simet no Ubuntu Server<br>
 #06_ Verificando a Porta de Conexão do Medidor Simet no Ubuntu Server<br>
-#07_ Localização dos Arquivos de Configuração do Medidor Simet no Ubuntu Server<br>
-#08_ Adicionando o Usuário Local no Grupo Padrão do Medidor Simet no Ubuntu Server<br>
-#09_ Executando o Medidor Simet pela primeira vez no Ubuntu Server<br>
-#10_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador<br>
-#11_ Desafios da implementação do Medidor Simet<br>
+#07_ Criando o diretório e arquivo de configuração padrão do Medidor Simet no Ubuntu Server<br>
+#08_ Localização dos Arquivos de Configuração do Medidor Simet no Ubuntu Server<br>
+#09_ Adicionando o Usuário Local no Grupo Padrão do Medidor Simet no Ubuntu Server<br>
+#10_ Executando o Medidor Simet pela primeira vez no Ubuntu Server<br>
+#11_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador<br>
+#12_ Desafios da implementação do Medidor Simet<br>
 
 Site Oficial do SIMET: https://beta.simet.nic.br/<br>
 Site Oficial do Medidor SIMET: https://medicoes.nic.br/<br>
@@ -149,23 +150,35 @@ sudo journalctl -xeu simet-lmapd
 sudo lsof -nP -iTCP:'22000' -sTCP:ESTABLISHED
 ```
 
-## 07_ Localização dos Arquivos de Configuração do Medidor Simet no Ubuntu Server
+## 07_ Criando o diretório e arquivo de configuração padrão do Medidor Simet no Ubuntu Server
+```bash
+#criando o diretório de configuração padrão do Medidor Simet
+#opção do comando mkdir: -p (parents), -v (verbose)
+sudo mkdir -pv /opt/simet/lib/simet/conf.d/
+
+#atualizando o arquivo de configuração padrão do Medidor Simet
+#opção do comando wget: -v (verbose), -O (output file)
+wget -v -O /opt/simet/lib/simet/conf.d/15-simetbox.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/15-simetbox.conf
+```
+
+## 08_ Localização dos Arquivos de Configuração do Medidor Simet no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** por padrão o agendamento de atualizações das medições do Simet é executado a cada: 4 horas (240 minutos), você pode alterar ou adicionar mais opções por dia, mês, semana, etc. conforme necessidade.
 
 ```bash
-/opt/simet                           <-- Diretório de configuração do Medidor Simet
-/opt/simet/bin                       <-- Diretório dos binários do Medidor Simet
-/opt/simet/etc                       <-- Diretório das configurações do Medidor Simet
-/opt/simet/lib                       <-- Diretório das bibliotecas do Medidor Simet
-/opt/simet/lib/simet/simet-ma.conf   <-- Arquivo de configuração padrão do Medidor Simet
-/var/log/syslog                      <-- Arquivo principal dos Logs do Medidor Simet
-/etc/cron.d/siment-ma                <-- Arquivo de agendamento do Medidor Simet
-/etc/cron.daily/siment-ma            <-- Arquivo de agendamento diário do Medidor Simet
-/etc/cron.weekly/siment-ma           <-- Arquivo de agendamento semanal do Medidor Simet
+/opt/simet                                     <-- Diretório de configuração do Medidor Simet
+/opt/simet/bin                                 <-- Diretório dos binários do Medidor Simet
+/opt/simet/etc                                 <-- Diretório das configurações do Medidor Simet
+/opt/simet/lib                                 <-- Diretório das bibliotecas do Medidor Simet
+/opt/simet/lib/simet/simet-ma.conf             <-- Arquivo de configuração padrão do Medidor Simet
+/opt/simet/lib/simet/conf.d/15-simetbox.conf   <-- Arquivo de configuração do servidor do Medidor Simet
+/var/log/syslog                                <-- Arquivo principal dos Logs do Medidor Simet
+/etc/cron.d/siment-ma                          <-- Arquivo de agendamento do Medidor Simet
+/etc/cron.daily/siment-ma                      <-- Arquivo de agendamento diário do Medidor Simet
+/etc/cron.weekly/siment-ma                     <-- Arquivo de agendamento semanal do Medidor Simet
 ```
 
-## 08_ Adicionando o Usuário Local no Grupo Padrão do Medidor Simet no Ubuntu Server
+## 09_ Adicionando o Usuário Local no Grupo Padrão do Medidor Simet no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
@@ -183,7 +196,7 @@ sudo getent group nicbr-simet
 exit
 ```
 
-## 09_ Executando o Medidor Simet pela primeira vez no Ubuntu Server
+## 10_ Executando o Medidor Simet pela primeira vez no Ubuntu Server
 ```bash
 #registrando o Medidor Simet para o envio das informações remotas
 #opção do comando sudo: -u (other-user)
@@ -199,7 +212,7 @@ sudo -u nicbr-simet /opt/simet/bin/simet-ma_run.sh -v
 /opt/simet/bin/simet_view_results.sh --url
 ```
 
-## 10_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador
+## 11_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador
 
 **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
@@ -222,9 +235,21 @@ curl -I http://127.0.0.1:80/
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 ```
 
+**OBSERVAÇÃO:** Tabela de referência das colunas do Medidor Simet Remoto
+
+| Coluna                | O que mede                         | O que indica na prática |
+|----------------------|-----------------------------------|--------------------------|
+| DOWNLOAD (Mbit/s)    | Velocidade de recebimento de dados | Taxa real de download do link; impacta streaming, downloads e acesso a serviços |
+| UPLOAD (Mbit/s)      | Velocidade de envio de dados       | Taxa real de upload; impacta envio de arquivos, backups, videoconferência e servidores |
+| LAT (ms)             | Latência (tempo de resposta)       | Tempo que um pacote leva para ir e voltar; quanto menor, melhor para aplicações em tempo real |
+| JITTER (ms)          | Variação da latência               | Indica estabilidade do link; valores altos afetam VoIP, chamadas e streaming |
+| PERDA (%)            | Perda de pacotes                   | Percentual de pacotes perdidos; ideal próximo de 0%, perdas indicam instabilidade |
+| SERVIDOR DE MEDIÇÃO  | Ponto de teste do SIMET            | Servidor utilizado no teste; influencia latência e resultados conforme localização |
+
+
 ========================================DESAFIOS=========================================
 
-**#11_ DESAFIO-01:** 
+**#12_ DESAFIO-01:** 
 
 =========================================================================================
 
