@@ -19,7 +19,20 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-firebir
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiofirebird
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando as Dependências do FirebirdSQL Server no Ubuntu Server<br>
+#02_ Download do FirebirdSQL Server 5.x do site Oficial no Ubuntu Server<br>
+#03_ Descompactando e instalando o FirebirdSQL Server 5.x no Ubuntu Server<br>
+#04_ Habilitando o Serviço do FirebirdSQL Server no Ubuntu Server<br>
+#05_ Verificando o Serviço e Versão do FirebirdSQL Server no Ubuntu Server<br>
+#06_ Verificando a Porta de Conexão do FirebirdSQL Server no Ubuntu Server<br>
+#07_ Localização dos Arquivos de Configuração do FirebirdSQL Server no Ubuntu Server<br>
+#08_ Adicionando o Usuário Local no Grupo Padrão do FirebirdSQL Server no Ubuntu Server<br>
+#09_ Testando a conexão com o FirebirdSQL Server local no Ubuntu Server<br>
+#10_ Atualizando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server<br>
+#11_ Editando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server<br>
+#12_ Conectando no FirebirdSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
+#13_ Integrando o FirebirdSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
+#14_ Desafios do FirebirdSQL Server<br>
 
 Site Oficial do PostgreSQL: https://www.firebirdsql.org/<br>
 Site Oficial do DBeaver: https://dbeaver.io/

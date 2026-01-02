@@ -19,7 +19,35 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/26-kea.png
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiokea #desafiostork
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Adicionando o Repositório do Kea Server e do Stork Server no Ubuntu Server<br>
+#02_ Atualizando os Repositórios do Kea Server e do Stork Server no Ubuntu Server<br>
+#03_ Instalando o Kea DHCP Server IPv4, IPv6 e DDNS e Control Agent no Ubuntu Server<br>
+#04_ Habilitando os Serviços do Kea DHCP Server IPv4, IPV6, DDNS e Control Agent no Ubuntu Server<br>
+#05_ Verificando os Serviços e Versão do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server<br>
+#06_ Verificando a Porta de Conexão do Kea DHCP Server IPv4, IPv6 e DHCP-DDNS no Ubuntu Server<br>
+#07_ Localização dos Arquivos de Configuração do Kea DHCP Server IPv4, IPv6, DDNS e do Control Agent no Ubuntu Server<br>
+#08_ Adicionado o Usuário Local no Grupo Padrão do Kea DHCP Server IPv4, IPv6 no Ubuntu Server<br>
+#09_ Criando a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server<br>
+#10_ Testando o acesso a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server<br>
+#11_ Populando as Tabelas no Banco de Dados do Kea Server utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server<br>
+#12_ Atualizando os arquivos de configuração do Kea DHCP Server IPv4, IPv6 no Ubuntu Server<br>
+#13_ Editando os arquivos de configuração do Kea DHCP Server IPv4, IPv6, DDNS e Control Agent no Ubuntu Server<br>
+#14_ Instalando o Stork Server no Ubuntu Server<br>
+#15_ Criando a Base de Dados do Stork Server no PostgreSQL Server no Ubuntu Server<br>
+#16_ Testando o acesso a Base de Dados do Stork Server no PostgreSQL Server no Ubuntu Server<br>
+#17_ Atualizando o arquivo de configuração do Stork Server no Ubuntu Server<br>
+#18_ Editando o arquivo de configuração do Stork Server no Ubuntu Server<br>
+#19_ Habilitando o Serviço do Stork Server no Ubuntu Server<br>
+#20_ Verificando o Serviço e Versão do Stork Server no Ubuntu Server<br>
+#21_ Verificando a Porta de Conexão do Stork Server no Ubuntu Server<br>
+#22_ Localização dos Arquivos de Configuração do Stork Server no Ubuntu Server<br>
+#23_ Adicionado o Usuário Local no Grupo Padrão do Stork Server no Ubuntu Server<br>
+#24_ Testando e configurando o Stork Server via Terminal e Navegador<br>
+#25_ Instalando o Agente do Stork no Ubuntu Server<br>
+#26_ Verificando o Serviço e Versão do Stork Agent no Ubuntu Server<br>
+#27_ Verificando a Porta de Conexão do Stork Agent no Ubuntu Server<br>
+#28_ Autorizando o Stork Agent no Stork Server no Ubuntu Server<br>
+#29_ Desafios do Kea DHCP Server.<br>
 
 Site Oficial do ISC.org: https://www.isc.org/<br>
 Site Oficial do Kea DHCP: https://www.isc.org/kea/<br>
@@ -173,7 +201,7 @@ sudo usermod -a -G _kea $USER
 sudo getent group _kea
 ```
 
-## 10_ Criando a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server
+## 09_ Criando a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO O BANCO DE DADOS DO POSTGRESQL SERVER UTILIZADO PELO KEA SERVER ESTÁ NO MESMO SERVIDOR PARA EFEITO DE DESEMPENHO E SEGURANÇA, NÃO É RECOMENDO HABILITAR O RECURSO DE CONEXÃO REMOTA DO POSTGRESQL SERVER E NEM CRIAR USUÁRIOS REMOTOS.
 
@@ -230,7 +258,7 @@ GRANT ALL PRIVILEGES ON SCHEMA public TO keaserver;
 \q
 ```
 
-## 11_ Testando o acesso a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server
+## 10_ Testando o acesso a Base de Dados do Kea Server no PostgreSQL Server no Ubuntu Server
 ```bash
 #conectando no banco de dados PostgreSQL Server com o usuário keaserver
 #opções do comando psql: --username (database user name), --password (password user), --host (database server host), 
@@ -249,7 +277,7 @@ sudo psql --username keaserver --password --host localhost --dbname keaserver
 \q
 ```
 
-## 12_ Populando as Tabelas no Banco de Dados do Kea Server utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
+## 11_ Populando as Tabelas no Banco de Dados do Kea Server utilizando o arquivo de esquema do PostgreSQL Server no Ubuntu Server
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do Kea Server
 #opções do comando kea-admin: db-init (Initializes new database), pgsql (PostgreSQL Backend), -u (username), 
@@ -273,7 +301,7 @@ sudo psql --username keaserver --password --host localhost --dbname keaserver
 \q
 ```
 
-## 09_ Atualizando os arquivos de configuração do Kea DHCP Server IPv4, IPv6 no Ubuntu Server
+## 12_ Atualizando os arquivos de configuração do Kea DHCP Server IPv4, IPv6 no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do Kea DHCP Server IPv4
 #opção do comando cp: -v (verbose)
@@ -707,7 +735,7 @@ sudo stork-agent -v
 sudo lsof -nP -iTCP:'8080,8888,9119' -sTCP:LISTEN
 ```
 
-## 24_ Autorizando o Stork Agent no Stork Server no Ubuntu Server
+## 28_ Autorizando o Stork Agent no Stork Server no Ubuntu Server
 
 ```bash
 #utilizar os navegadores para configurar o Stork Server
@@ -738,7 +766,7 @@ Services
 
 ========================================DESAFIOS=========================================
 
-**#08_ DESAFIO-01:** 
+**#29_ DESAFIO-01:** 
 
 =========================================================================================
 

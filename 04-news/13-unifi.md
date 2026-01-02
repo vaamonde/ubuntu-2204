@@ -28,6 +28,7 @@ Conteúdo estudado nesse desafio:<br>
 #07_ Verificando as Portas de Conexão do Unifi Network no Ubuntu Server<br>
 #08_ Localização dos Arquivos de Configuração do Unifi Network no Ubuntu Server<br>
 #09_ Adicionado o Usuário Local no Grupo Padrão do Unifi Network no Ubuntu Server<br>
+#10_ Acessando e Configurando o Unifi Network via navegador<br>
 
 Site Oficial da Ubiquiti: https://ui.com/<br>
 Site Oficial do Unifi Network: https://ui.com/download/releases/network-server
