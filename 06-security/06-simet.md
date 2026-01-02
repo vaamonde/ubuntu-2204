@@ -210,6 +210,11 @@ sudo -u nicbr-simet /opt/simet/bin/simet-ma_run.sh -v
 #gerando a URL de visualização remota dos resultados do Medidor Simet
 #opção do script simet_view_results.sh: --url (output URL view report)
 /opt/simet/bin/simet_view_results.sh --url
+
+#gerando a página Index do Lighttpd com o redirecionamento do Medidor Simet Remoto
+#opção do comando curl: -f (fail), -s (silent), -S (show-error), -L (location)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+curl -fsSL https://raw.githubusercontent.com/vaamonde/ubuntu-2204/refs/heads/main/conf/gera_simet_dashboard.sh | sudo bash
 ```
 
 ## 11_ Testando o acesso ao Lighttpd Server no Terminal e no Navegador
@@ -245,7 +250,6 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 | JITTER (ms)          | Variação da latência               | Indica estabilidade do link; valores altos afetam VoIP, chamadas e streaming |
 | PERDA (%)            | Perda de pacotes                   | Percentual de pacotes perdidos; ideal próximo de 0%, perdas indicam instabilidade |
 | SERVIDOR DE MEDIÇÃO  | Ponto de teste do SIMET            | Servidor utilizado no teste; influencia latência e resultados conforme localização |
-
 
 ========================================DESAFIOS=========================================
 
