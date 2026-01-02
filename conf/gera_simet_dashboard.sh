@@ -1,25 +1,42 @@
 #!/bin/bash
-
-# Comando SIMET
+# Autor: Robson Vaamonde<br>
+# Procedimentos em TI: http://procedimentosemti.com.br<br>
+# Bora para Prática: http://boraparapratica.com.br<br>
+# Robson Vaamonde: http://vaamonde.com.br<br>
+# Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi<br>
+# Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica<br>
+# Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
+# YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
+# Data de criação: 01/01/2026<br>
+# Data de atualização: 01/01/2026<br>
+# Versão: 0.01<br>
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
+#
+# ========== BLOCO DE CONFIGURAÇÃO DAS VARIÁVEIS DO SCRIPT ==========
+#
+# Variável da localização do comando do Medidor Simet para gerar a URL dos resultados
 SIMET_CMD="/opt/simet/bin/simet_view_results.sh --url"
-
-# Diretório do site
+#
+# Variável do Document Root (Diretório) padrão do site do Lighttpd Server
 WEB_DIR="/var/www/html"
+#
+# Variável do nome do arquivo Index para a geração da páginas de redirecionamento
 HTML_FILE="$WEB_DIR/index.html"
-
-# Cria diretório se não existir
-mkdir -p "$WEB_DIR"
-
-# Captura a URL (remove espaços e quebras extras)
+#
+# Variável da Captura da URL do Medidor Simet (remove espaços e quebras extras)
 SIMET_URL=$($SIMET_CMD | tr -d '[:space:]')
-
-# Validação simples
+#
+# ========== BLOCO DE VALIDAÇÃO DO SCRIPT ==========
+#
+# Validação simples da geração da URL do Medidor do Simet
 if [[ ! "$SIMET_URL" =~ ^https?:// ]]; then
     echo "Erro: URL do SIMET inválida"
     exit 1
 fi
-
-# Gera o HTML com redirecionamento
+#
+# ========== BLOCO DE GERAÇÃO DA PÁGINAS HTML DO SCRIPT ==========
+#
+# Gera a páginas HTML com redirecionamento para URL do Medidor Simet
 cat <<EOF > "$HTML_FILE"
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -37,6 +54,9 @@ cat <<EOF > "$HTML_FILE"
 </body>
 </html>
 EOF
-
-echo "Página do SIMET atualizada com sucesso:"
-echo "$SIMET_URL"
+#
+# ========== BLOCO FINAL DO SCRIPT ==========
+#
+echo -e "Página do SIMET atualizada com sucesso!!! \n"
+echo -e "URL Remota do Medidor Simente: $SIMET_URL \n"
+echo -e "URL Local: http://localhost ou http://IPv4_SERVIDOR_UBUNTU"
