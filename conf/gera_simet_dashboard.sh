@@ -8,8 +8,8 @@
 # Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 # YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 # Data de criação: 01/01/2026<br>
-# Data de atualização: 01/01/2026<br>
-# Versão: 0.01<br>
+# Data de atualização: 03/01/2026<br>
+# Versão: 0.02<br>
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 #
 # ========== BLOCO DE CONFIGURAÇÃO DAS VARIÁVEIS DO SCRIPT ==========
@@ -26,6 +26,12 @@ HTML_FILE="$WEB_DIR/index.html"
 # Variável da Captura da URL do Medidor Simet (remove espaços e quebras extras)
 SIMET_URL=$($SIMET_CMD | tr -d '[:space:]')
 #
+# Variável de criação da data do Cache Buster da URL do Medidor Simet
+CACHE_BUSTER=$(date +%s)
+#
+# Variável da Captura da URL do Medidor Simet com o Cache Buster
+SIMET_URL_CLEAN="${SIMET_URL}?cb=${CACHE_BUSTER}"
+#
 # ========== BLOCO DE VALIDAÇÃO DO SCRIPT ==========
 #
 # Validação simples da geração da URL do Medidor do Simet
@@ -34,7 +40,7 @@ if [[ ! "$SIMET_URL" =~ ^https?:// ]]; then
     exit 1
 fi
 #
-# ========== BLOCO DE GERAÇÃO DA PÁGINAS HTML DO SCRIPT ==========
+# ========== BLOCO DE GERAÇÃO DA PÁGINA HTML DO SCRIPT ==========
 #
 # Gera a páginas HTML com redirecionamento para URL do Medidor Simet
 cat <<EOF > "$HTML_FILE"
@@ -42,14 +48,19 @@ cat <<EOF > "$HTML_FILE"
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL='$SIMET_URL'">
+    <!-- Força não usar cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Redirecionamento -->
+    <meta http-equiv="refresh" content="0; URL='$SIMET_URL_CLEAN'">
     <title>SIMET – Monitoramento de Link</title>
 </head>
 <body>
-    <p>Redirecionando para o Dashboard do SIMET...</p>
+    <p>Redirecionando para o Dashboard do Medidor do SIMET...</p>
     <p>
         Caso não seja redirecionado automaticamente,
-        <a href="$SIMET_URL">clique aqui</a>.
+        <a href="$SIMET_URL_CLEAN">clique aqui</a>.
     </p>
 </body>
 </html>

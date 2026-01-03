@@ -50,7 +50,7 @@ Site Oficial do Graylog: https://graylog.org/<br>
 
 **O QUE É E PARA QUE SERVER O NXLOG:** O NXLog é uma ferramenta avançada para coleta, processamento e envio de logs em ambientes Windows, Linux e Unix. Ele é usado para centralizar logs de sistemas, aplicações e dispositivos de rede, oferecendo suporte a diversos formatos e protocolos.
 
-[![Graylog](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog")
+[![Graylog Server](http://img.youtube.com/vi/_Hp8fuKdfCo/0.jpg)](https://www.youtube.com/watch?v=_Hp8fuKdfCo "Graylog Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
@@ -114,8 +114,16 @@ sudo apt update
 sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/urandom  | head -c${1:-32}) apt install --install-recommends opensearch
 ```
 
-## 04_ Editando o arquivo de configuração do OpenSearch no Ubuntu Server
+## 04_ Atualizando e editando o arquivo de configuração do OpenSearch no Ubuntu Server
 ```bash
+#fazendo o backup do arquivo de configuração do OpenSearch (NÃO COMENTADO NO VÍDEO)
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/opensearch/opensearch.yml /etc/opensearch/opensearch.yml.old
+
+#atualizando o arquivo de configuração do OpenSSH Server do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/opensearch/opensearch.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/opensearch.yml
+
 #editando o arquivo de configuração do OpenSearch
 sudo vim /etc/opensearch/opensearch.yml
 

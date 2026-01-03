@@ -1,0 +1,69 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
+# Data de criação: 03/01/2026
+# Data de atualização: 03/01/2026
+# Versão: 0.01
+# Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
+# Testado e homologado para a versão do OpenSearch v2.19.x
+#
+# ======== BLOCO DE CONFIGURAÇÃO PADRÃO DO OPENSEARCH ========
+#
+# configuração do nome padrão do cluster do OpenSearch do Graylog Server
+cluster.name: graylog
+#
+# configuração do nome do node do servidor do OpenSearch
+node.name: wsvaamonde
+#
+# configuração da liberação do host e redes do OpenSearch
+network.host: 0.0.0.0
+#
+# configuração do tipo de descoberta do OpenSearch
+discovery.type: single-node
+#
+# configuração da criação automática do indexadores do OpenSearch
+action.auto_create_index: false
+#
+# caminho da base de dados do OpenSearch
+path.data: /var/lib/opensearch
+#
+# caminho dos arquivos de logs do OpenSearch
+path.logs: /var/log/opensearch
+#
+# configuração para desabilitar a segurança dos plugins do OpenSearch
+plugins.security.disabled: true
+#
+# ======== BLOCO DE CONFIGURAÇÃO DA SEGURANÇA DO OPENSEARCH ========
+######## AVISO: DEIXAR AS CONFIGURAÇÕES PADRÃO DO OPENSEARCH ########
+plugins.security.ssl.transport.pemcert_filepath: esnode.pem
+plugins.security.ssl.transport.pemkey_filepath: esnode-key.pem
+plugins.security.ssl.transport.pemtrustedcas_filepath: root-ca.pem
+plugins.security.ssl.transport.enforce_hostname_verification: false
+plugins.security.ssl.http.enabled: true
+plugins.security.ssl.http.pemcert_filepath: esnode.pem
+plugins.security.ssl.http.pemkey_filepath: esnode-key.pem
+plugins.security.ssl.http.pemtrustedcas_filepath: root-ca.pem
+plugins.security.allow_unsafe_democertificates: true
+plugins.security.allow_default_init_securityindex: true
+plugins.security.authcz.admin_dn: ['CN=kirk,OU=client,O=client,L=test,C=de']
+plugins.security.audit.type: internal_opensearch
+plugins.security.enable_snapshot_restore_privilege: true
+plugins.security.check_snapshot_restore_write_privileges: true
+plugins.security.restapi.roles_enabled: [all_access, security_rest_api_access]
+plugins.security.system_indices.enabled: true
+plugins.security.system_indices.indices: [.plugins-ml-agent, .plugins-ml-config, .plugins-ml-connector,
+  .plugins-ml-controller, .plugins-ml-model-group, .plugins-ml-model, .plugins-ml-task,
+  .plugins-ml-conversation-meta, .plugins-ml-conversation-interactions, .plugins-ml-memory-meta,
+  .plugins-ml-memory-message, .plugins-ml-stop-words, .opendistro-alerting-config,
+  .opendistro-alerting-alert*, .opendistro-anomaly-results*, .opendistro-anomaly-detector*,
+  .opendistro-anomaly-checkpoints, .opendistro-anomaly-detection-state, .opendistro-reports-*,
+  .opensearch-notifications-*, .opensearch-notebooks, .opensearch-observability, .ql-datasources,
+  .opendistro-asynchronous-search-response*, .replication-metadata-store, .opensearch-knn-models,
+  .geospatial-ip2geo-data*, .plugins-flow-framework-config, .plugins-flow-framework-templates,
+  .plugins-flow-framework-state]
+node.max_local_storage_nodes: 3
+# ======== FIM DO BLOCO DE CONFIGURAÇÃO DA SEGURANÇA DO OPENSEARCH ========

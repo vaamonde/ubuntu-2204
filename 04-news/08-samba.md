@@ -63,7 +63,7 @@ sudo apt update
 
 #instalando o Samba Server no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install samba samba-common samba-testsuite samba-vfs-modules smbclient
+sudo apt install samba samba-common samba-testsuite samba-vfs-modules smbclient acl
 ```
 
 ## 02_ Verificando o Serviço e Versão do Samba Server no Ubuntu Server
@@ -109,7 +109,7 @@ sudo nmbd -V
 #135: End Point Mapper (DCE/RPC Locator Service), 137: NetBIOS Name Service, 138: NetBIOS 
 #Datagram, 139: NetBIOS Session, 445: SMB (Server Message Block	
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'135,137,138,139,445' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'135-139,445' -sTCP:LISTEN
 ```
 
 ## 04_ Localização dos Arquivos de Configuração do Samba Server no Ubuntu Server
@@ -131,8 +131,19 @@ sudo mkdir -pv /wsvaamonde/samba/arquivos
 sudo chown -Rv nobody:nogroup /wsvaamonde/samba/arquivos
 
 #alterando as permissões de Dono, Grupo e Outros da Pasta Compartilhada do Samba Server
-#opções do comando chmod: -R (recursive), -v (verbose), 2777 (RWX=User,RWS=Group,RWW=Others)
+#opções do comando chmod: -R (recursive), -v (verbose), 2777 (RWX=User,RWS=Group,RWX=Others)
 sudo chmod -Rv 2777 /wsvaamonde/samba/arquivos
+
+#verificando as ACL (access control list) da Pasta Compartilhada do Samba Server
+sudo getfacl /wsvaamonde/samba/arquivos
+
+#testando a criação e escrita da arquivos da Pasta Compartilhada do Samba Server
+#opção do comando sudo: -u (other-user)
+sudo -u nobody touch /wsvaamonde/samba/arquivos/teste_guest.txt
+
+#listando o conteúdo do diretório da Pasta Compartilhada do Samba Server
+#opção do comando ls: -l (long listing format), -h (human-readable), -a (all)
+ls -lha /wsvaamonde/samba/arquivos/
 ```
 
 ## 06_ Atualizando o arquivo de Configuração do Samba Server no Ubuntu Server
@@ -155,6 +166,15 @@ sudo vim /etc/samba/smb.conf
 INSERT
 ```
 ```bash
+#alterar o caminho e descrição da pasta compartilhada pública no Samba Server
+# partir da linha: 32 até 38
+[publica]
+  comment = Pasta Publica
+  path = /wsvaamonde/samba/arquivos
+  browsable = yes
+  guest ok = yes
+  read only = no
+  create mask = 0755
 ```
 ```bash
 #salvar e sair do arquivo
@@ -172,12 +192,28 @@ sudo systemctl restart smbd
 sudo systemctl status smbd
 ```
 
-## 08_ Listando os compartilhamento de Pastas no Samba Server no Ubuntu Server
+## 08_ Listando o compartilhamento da Pasta Pública no Samba Server no Ubuntu Server
 ```bash
-#listando os compartilhamentos do Samba Server
+#listando todos os compartilhamentos do Samba Server
 #opção do comando smbclient: -L (list), -U (user), % (anonymous)
 sudo smbclient -L //localhost/publica -U %
+
+#acessando a pasta compartilhada Pública do Samba Server
+#opção do comando smbclient: -N (no-pass)
+sudo smbclient //localhost/publica -N
+
+#testando as acl's (access control list)da pasta compartilhada Pública do Samba Server
+#opção do comando smbcacls: -U (user), % (anonymous)
+sudo smbcacls //localhost/publica teste_guest.txt -U %
+
+#verificando o status de acesso a pasta compartilhada Pública do Samba Server
+sudo smbstatus
+
+#testando a resolução do nome do servidor do Samba Server
+#opção do comando nmblookup: -S (status)
+sudo nmblookup -S wsvaamonde
 ```
+
 
 ========================================DESAFIOS=========================================
 
