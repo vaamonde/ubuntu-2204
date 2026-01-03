@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 29/05/2025<br>
-#Data de atualização: 29/05/2025<br>
-#Versão: 0.01<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.02<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO SAMBA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Samba realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,7 +19,14 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/21-samba.p
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosamba #desafiosambashare
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando o Samba Server no Ubuntu Server;<br>
+#02_ Verificando o Serviço e Versão do Samba Server no Ubuntu Server;<br>
+#03_ Verificando as Portas de Conexão do Samba Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do Samba Server no Ubuntu Server;<br>
+#05_ Criando a estrutura de Diretórios do Samba Server no Ubuntu Server;<br>
+#06_ Atualizando o arquivo de Configuração do Samba Server no Ubuntu Server;<br>
+#07_ Editando o o arquivo de Configuração do Samba Server no Ubuntu Server;<br>
+#08_ Listando os compartilhamento de Pastas no Samba Server no Ubuntu Server;<br>
 
 Site Oficial do SAMBA: https://www.samba.org/
 
@@ -51,9 +58,11 @@ Link da vídeo aula:
 ## 01_ Instalando o Samba Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Samba Server no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install samba samba-common samba-testsuite samba-vfs-modules smbclient
 ```
 
@@ -126,7 +135,7 @@ sudo chown -Rv nobody:nogroup /wsvaamonde/samba/arquivos
 sudo chmod -Rv 2777 /wsvaamonde/samba/arquivos
 ```
 
-## 06_ Atualizando os arquivos de Configuração do Samba Server no Ubuntu Server
+## 06_ Atualizando o arquivo de Configuração do Samba Server no Ubuntu Server
 ```bash
 #fazendo um backup do arquivo de configuração do Samba Server
 #opção do comando cp: -v (verbose)
@@ -135,7 +144,10 @@ sudo cp -v /etc/samba/smb.conf /etc/samba/smb.conf.old
 #atualizando o arquivo de configuração do Samba Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/samba/smb.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/smb.conf
+```
 
+## 07_ Editando o o arquivo de Configuração do Samba Server no Ubuntu Server
+```bash
 #editando o arquivo de configuração do Samba Server
 sudo vim /etc/samba/smb.conf
 
@@ -158,7 +170,10 @@ sudo testparm -s
 #start one or more units),
 sudo systemctl restart smbd
 sudo systemctl status smbd
+```
 
+## 08_ Listando os compartilhamento de Pastas no Samba Server no Ubuntu Server
+```bash
 #listando os compartilhamentos do Samba Server
 #opção do comando smbclient: -L (list), -U (user), % (anonymous)
 sudo smbclient -L //localhost/publica -U %

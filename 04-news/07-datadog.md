@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 22/04/2024<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.10<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.11<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO DATADOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Datadog realizado com sucesso!!! #BoraParaPrática*
 
@@ -81,15 +81,19 @@ Install your first Datadog Agent
 <Finish>
 
 #verificando o serviços do Datadog Agent no Ubuntu Server
+#opção do comando systemctl: status (runtime status information),
 sudo systemctl status datadog-agent
 
 #verificando a versão do Datadog Agent no Ubuntu Server
+#opção do comando datadog-agent: version (Print version info)
 sudo datadog-agent version
 
 #verificando o status de conexão do Datadog Agent no Ubuntu Server
+#opção do comando datadog-agent: status (List of commands to display the status of the Datadog Agent)
 sudo datadog-agent status
 
 #checando as informações do Datadog Agent no Ubuntu Server
+#opção do comando datadog-agent: diagnose (Execute connectivity diagnosis on your system)
 sudo datadog-agent diagnose
 ```
 
@@ -107,16 +111,20 @@ Datadog
             Run this command to install or update...
             DD_API_KEY=SEU_TOKEN_AQUI DD_SITE="us5.datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 
-#verificando o serviços do Datadog Agent no Linux Mint
+#verificando o serviços do Datadog Agent no Ubuntu Server
+#opção do comando systemctl: status (runtime status information),
 sudo systemctl status datadog-agent
 
-#verificando a versão do Datadog Agent no Linux Mint
+#verificando a versão do Datadog Agent no Ubuntu Server
+#opção do comando datadog-agent: version (Print version info)
 sudo datadog-agent version
 
-#verificando o status de conexão do Datadog Agent no Linux Mint
+#verificando o status de conexão do Datadog Agent no Ubuntu Server
+#opção do comando datadog-agent: status (List of commands to display the status of the Datadog Agent)
 sudo datadog-agent status
 
-#checando as informações do Datadog Agent no Linux Mint
+#checando as informações do Datadog Agent no Ubuntu Server
+#opção do comando datadog-agent: diagnose (Execute connectivity diagnosis on your system)
 sudo datadog-agent diagnose
 ```
 
@@ -150,6 +158,7 @@ firefox ou google chrome: http://127.0.0.1:5002/
 Get-Service datadogagent
 
 #verificando a porta de conexão do Datadog Agent no Powershell
+#opção do comando netstat: -a (Display All connections), -n (Display addresses and port numbers)
 netstat -an | findstr 5002
 ```
 

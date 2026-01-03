@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 23/09/2025<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.02<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NGINX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do NGINX realizado com sucesso!!! #BoraParaPrática*
 
@@ -49,7 +49,7 @@ x.AI Grok: https://grok.com/<br>
 **PERGUNTA PARA A IA**
 ```bash
 Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de
-          Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
+Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
 ```
 
 **O QUE É E PARA QUE SERVER O NGINX SERVER:** O NGINX Server é um servidor web de alto desempenho que também pode atuar como proxy reverso, balanceador de carga, servidor de e-mail (IMAP/POP3/SMTP) e cache de conteúdo. Ele foi criado para ser rápido, leve e escalável, ideal para lidar com grande volume de conexões simultâneas sem consumir muitos recursos do servidor.
@@ -75,16 +75,17 @@ Link da vídeo aula:
 ## 01_ Instalando o NGINX Server e PHP 8.x no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do NGINX Server
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
 zlib1g-dev apt-transport-https
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* DESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
-
 
 ```bash
 #instalando o NGINX Server, PHP 8.x e suas dependências (SUPORTE EXTRA DE DEPENDÊNCIAS)
@@ -97,7 +98,7 @@ php-ldap php-apcu php-gmp
 
 ## 02_ Verificando o Serviço e Versão do NGINX Server e do PHP no Ubuntu Server
 ```bash
-#verificando o serviço do NGINX Server
+#verificando o serviço do NGINX Server no Ubuntu Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
 #stop (Stop (deactivate) one or more units), start (Start (activate) one or more units), reload (Asks all units 
 #listed on the command line to reload their configuration)
@@ -107,7 +108,7 @@ sudo systemctl reload nginx
 sudo systemctl stop nginx
 sudo systemctl start nginx
 
-#verificando o serviço do PHP-FPM
+#verificando o serviço do PHP-FPM  no Ubuntu Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
 #stop (Stop (deactivate) one or more units), start (Start (activate) one or more units), reload (Asks all units 
 #listed on the command line to reload their configuration)
@@ -117,15 +118,20 @@ sudo systemctl reload php8.1-fpm
 sudo systemctl stop php8.1-fpm
 sudo systemctl start php8.1-fpm
 
-#analisando os Log's e mensagens de erro do Servidor do NGINX Server e PHP-FPM
+#analisando os Log's e mensagens de erro do Servidor do NGINX Server
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu nginx
+
+#analisando os Log's e mensagens de erro do Servidor do PHP-FPM
+#opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu php8.1-fpm
 
-#verificando os arquivos de configuração do NGINX Server e PHP-FPM
+#verificando o arquivo de configuração do NGINX Server
 #opção do comando nginx: -t (Do not run, just test the configuration file)
-#opção do comando php: -i (PHP information)
 sudo nginx -t
+
+#verificando o arquivo de configuração do PHP-FPM
+#opção do comando php: -i (PHP information)
 sudo php -i 
 ```
 
@@ -191,20 +197,13 @@ sudo getent group www-data
 exit
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** caso a conexão do SSH trave, você pode utilizar os caracteres de escape para finalizar conexões SSH.
-
-```bash
-#forçando um logout/logoff utilizando os caracteres: ~ (til) e . (ponto)
-~.
-```
-
 ## 06_ Configurando o suporte ao PHP-FPM no NGINX Server no Ubuntu Server
 ```bash
 #fazendo o backup do site padrão do NGINX Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/nginx/sites-available/default /etc/nginx/sites-available/default.old
 
-#atualizando o arquivo de configuração do NGINX Server do Github (NÃO COMENTADO NO VÍDEO)
+#atualizando o arquivo de configuração do NGINX Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/nginx/sites-available/default https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/default
 

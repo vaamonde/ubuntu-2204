@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.32<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.33<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -32,7 +32,7 @@ Conteúdo estudado nesse desafio:<br>
 #11_ Criando o usuário de monitoramento do MongoDB Server do Netdata Agent no Ubuntu Server;<br>
 #12_ Acessando o diretório de configuração do Netdata Agent no Ubuntu Server;<br>
 #13_ Configurando o serviço de monitoramento do Apache2 Server no Netdata Agent;<br>
-#14_ Configurando o serviço de monitoramento do Apache TomCAT Server no Netdata Agent;<br>
+#14_ Configurando o serviço de monitoramento do Apache Tomcat Server no Netdata Agent;<br>
 #15_ Configurando o serviço de monitoramento do MySQL Server no Netdata Agent;<br>
 #16_ Configurando o serviço de monitoramento do MongoDB Server no Netdata Agent;<br>
 #17_ Configurando o serviço de monitoramento do ICMP no Netdata Agent;<br>
@@ -40,7 +40,7 @@ Conteúdo estudado nesse desafio:<br>
 #19_ Configurando o serviço de monitoramento do HTTP Endpoint no Netdata Agent;<br>
 #20_ Aplicando as mudanças e reiniciando o serviço do Netdata Agent no Ubuntu Server;<br>
 #21_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server;<br>
-#22_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO);<br>
+#22_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**;<br>
 #23_ Desafio da Integração do Netdata Server com o Cloud.<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
@@ -65,9 +65,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=KaNmgc43vlw
 ## 01_ Instalando as Dependências do Netdata Agent no Ubuntu Server
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Netdata Agent
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https \
 ca-certificates zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python3 \
@@ -189,6 +191,7 @@ exit
 /etc/netdata/go.d/ping.conf        <-- Arquivo de monitoramento do ICMP Ping
 /etc/netdata/go.d/portcheck.conf   <-- Arquivo de monitoramento do TCP/UDP Port Endpoint Check
 /etc/netdata/go.d/tomcat.conf      <-- Arquivo de monitoramento do Apache Tomcat Server
+/etc/cron.daily/                   <-- Diretório das atualizações diárias do Netdata Agent
 /var/log/netdata                   <-- Diretório dos arquivos de Logs do Netdata Agent
 ```
 
@@ -315,10 +318,10 @@ Ctrl + X
     File Name to Write: <Enter>
 ```
 
-## 14_ Configurando o serviço de monitoramento do Apache TomCAT Server no Netdata Agent
+## 14_ Configurando o serviço de monitoramento do Apache Tomcat Server no Netdata Agent
 
 ```bash
-#configuração do serviço de monitoramento do Apache TomCAT Server
+#configuração do serviço de monitoramento do Apache Tomcat Server
 #Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/web-servers-and-web-proxies/tomcat
 sudo ./edit-config go.d/tomcat.conf
 
@@ -535,7 +538,7 @@ sudo find / -type f -exec grep -H 'root' {} \;
 #http://127.0.0.1/ (Target request test)
 sudo ab -n 100000 -c 1000 http://127.0.0.1/
 
-#fazendo várias requisições simultâneas no Apache TomCAT
+#fazendo várias requisições simultâneas no Apache Tomcat Server
 #opções do comando ab: -n (Number of requests to perform for the benchmarking session.),
 #-c (Number of multiple requests to perform at a time. Default is one request at a time),
 #http://127.0.0.1:8080/agenda (Target request test)

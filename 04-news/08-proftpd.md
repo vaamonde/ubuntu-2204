@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2025<br>
-#Data de atualização: 26/05/2025<br>
-#Versão: 0.05<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.06<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROFTPD SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do ProFTPD realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,18 +19,19 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/20-proftpd
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioproftpd #desafioftp
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando o ProFTPD Server no Ubuntu Server<br>
-#02_ Verificando o Serviço e Versão do ProFTPD Server no Ubuntu Server<br>
-#03_ Verificando a Porta de Conexão do ProFTPD Server no Ubuntu Server<br>
-#04_ Localização dos Arquivos de Configuração do ProFTPD Server no Ubuntu Server<br>
-#05_ Atualizando os arquivos de configuração do ProFTPD Server no Ubuntu Server<br>
-#06_ Acessando remotamente o ProFTPD Server via Powershell, Terminal e Git Bash.<br>
-#07_ Instalando o via FileZilla no Windows e GNU/Linux<br>
-#08_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux<br>
-#09_ Integrando o FTP no Visual Studio Code VSCode o Windows e GNU/Linux
-#10_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server<br>
-#11_ Gerenciando o servidor ProFTPD Server via Webmin<br>
-#12_ Desafios de Usuários e Acesso Remoto do ProFTPD Server.<br>
+#01_ Instalando o ProFTPD Server no Ubuntu Server;<br>
+#02_ Verificando o Serviço e Versão do ProFTPD Server no Ubuntu Server;<br>
+#03_ Verificando a Porta de Conexão do ProFTPD Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do ProFTPD Server no Ubuntu Server;<br>
+#05_ Atualizando os arquivos de configuração do ProFTPD Server no Ubuntu Server;<br>
+#06_ Editando o arquivo de configuração do ProFTPD Server no Ubuntu Server;<br>
+#07_ Acessando remotamente o ProFTPD Server via Powershell, Terminal e Git Bash;<br>
+#08_ Instalando o via FileZilla no Windows e GNU/Linux;<br>
+#09_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux;<br>
+#10_ Integrando o FTP no Visual Studio Code VSCode o Windows e GNU/Linux;<br>
+#11_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server;<br>
+#12_ Gerenciando o servidor ProFTPD Server via Webmin;<br>
+#13_ Desafios de Usuários e Acesso Remoto do ProFTPD Server.<br>
 
 Site Oficial do ProFTPD: http://www.proftpd.org/<br>
 Site Oficial do Projeto FileZilla: https://filezilla-project.org/
@@ -53,9 +54,11 @@ Link da vídeo aula:
 ## 01_ Instalando o ProFTPD Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o ProFTPD Server no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install proftpd-basic proftpd-core
 ```
 
@@ -130,7 +133,10 @@ sudo wget -v -O /etc/shells https://raw.githubusercontent.com/vaamonde/ubuntu-22
 #atualizando o arquivo de configuração do ProFTPD Server do Github
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/proftpd/proftpd.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/proftpd.conf
+```
 
+## 06_ Editando o arquivo de configuração do ProFTPD Server no Ubuntu Server
+```bash
 #editando o arquivo de configuração do ProFTPD Server
 #mais informações veja a documentação oficial em: http://www.proftpd.org/docs/howto/ConfigFile.html
 sudo vim /etc/proftpd/proftpd.conf
@@ -172,7 +178,7 @@ sudo journalctl -xeu proftpd
 sudo lsof -nP -iTCP:'21' -sTCP:LISTEN
 ```
 
-## 06_ Acessando remotamente o ProFTPD Server via Powershell, Terminal, Git Bash e Gerenciador de Arquivos.
+## 07_ Acessando remotamente o ProFTPD Server via Powershell, Terminal, Git Bash e Gerenciador de Arquivos.
 
 **OBSERVAÇÃO IMPORTANTE:** O comando ftp tem várias opções, após se autenticar no ProFTPD Server para obter ajuda sobre o comando digite o carácter: __`?`__ (interrogação), a maioria dos comando do FTP são baseados nos comandos antigos do __`MSDOS`__ e do __`BASH`__.
 
@@ -207,7 +213,7 @@ Gerenciador de Arquivos NEMO
       Senha..: SUA_SENHA
 ```
 
-## 07_ Instalando o FileZilla no Microsoft Windows e GNU/Linux Mint
+## 08_ Instalando o FileZilla no Microsoft Windows e GNU/Linux Mint
 
 Site oficial do FileZilla: https://filezilla-project.org/
 
@@ -216,9 +222,11 @@ Site oficial do FileZilla: https://filezilla-project.org/
 Atalho Terminal: Ctrl+Alt+T
 
 #atualizando as listas do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o FileZilla no Linux Mint
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install filezilla
 ```
 ```bash
@@ -229,7 +237,7 @@ Link de download: https://filezilla-project.org/download.php?platform=win64
 Clicar em: <Download FileZilla Client>
 ```
 
-## 08_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux
+## 09_ Acessando o servidor ProFTPD Server via FileZilla no Windows ou GNU/Linux
 ```bash
 #executando o cliente do FileZilla no Windows ou GNU/Linux
 Pesquisar por: FileZilla Client
@@ -259,7 +267,7 @@ Gerenciador de Sites
   <OK>
 ```
 
-## 09_ Integrando o FTP no Visual Studio Code VSCode o Windows e GNU/Linux
+## 10_ Integrando o FTP no Visual Studio Code VSCode o Windows e GNU/Linux
 ```bash
 #abrir o VSCode no Windows ou GNU/Linux instalar a Extensão do FTP
 code
@@ -284,7 +292,7 @@ code
   Clicar em: SEU_ENDEREÇO_IPV4_SERVIDOR@21
 ```
 
-## 10_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server
+## 11_ Criando um usuário de FTP do serviço de CMS Wordpress no Ubuntu Server
 
 ```bash
 #criando o usuário de FTP do CMS Wordpress no Ubuntu Server
@@ -305,7 +313,7 @@ sudo getent passwd wordpress
 sudo getent group www-data
 ```
 
-## 11_ Gerenciando o servidor ProFTPD Server via Webmin
+## 12_ Gerenciando o servidor ProFTPD Server via Webmin
 ```bash
 #acessar via navegador o Webmin
 firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
@@ -328,13 +336,13 @@ Webmin
 
 ========================================DESAFIOS=========================================
 
-**#12_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
+**#13_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
 
-**#13_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
+**#14_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
 
-**#14_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
+**#15_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
 
-**#15_ DESAFIO-04:** ADICIONAR O MONITORAMENTO DA PORTA DO PROFTPD NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
+**#16_ DESAFIO-04:** ADICIONAR O MONITORAMENTO DA PORTA DO PROFTPD NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
 
 =========================================================================================
 

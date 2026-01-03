@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/11/2025<br>
-#Versão: 0.14<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.15<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -23,15 +23,15 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado nessa configuração:<br>
-#01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server<br>
-#02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server<br>
-#03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server<br>
-#04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server<br>
-#05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server<br>
-#06_ Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora) no Ubuntu Server<br>
-#07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server<br>
-#08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server<br>
-#09_ Alterando as Configurações do Teclado e Console no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#01_ Verificando as informações do Locale (Localidade) do Sistema Operacional Ubuntu Server;<br>
+#02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server;<br>
+#03_ Verificando as informações do Timezone (Fuso Horário) do Sistema Operacional Ubuntu Server;<br>
+#04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server;<br>
+#05_ Configurando o Sincronismo de Data e Hora com o Protocolo NTP no Ubuntu Server;<br>
+#06_ Reinicializar o serviço do Systemd Timesyncd (Sincronismo de Data e Hora) no Ubuntu Server;<br>
+#07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server;<br>
+#08_ Sincronizando Data e Hora do Sistema Operacional com o Hardware (BIOS) no Ubuntu Server;<br>
+#09_ Alterando as Configurações do Teclado e Console no Ubuntu Server **(NÃO COMENTADO NO VÍDEO)**.<br>
 
 **O QUE É E PARA QUE SERVER O LOCALE:** O Locale é uma combinação de geografia, idioma e cultura. Para entender Localidade, considere a diferença entre os Estados Unidos e o Reino Unido. Ambos compartilham um idioma comum, mas usam unidades de medida completamente diferentes. Os Estados Unidos usam o idioma inglês, mas usam milhas, graus Fahrenheit e galões, enquanto o Reino Unido usa quilômetros, graus Celsius e litros.
 

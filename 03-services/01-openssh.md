@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 01/01/2026<br>
-#Versão: 0.30<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.31<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,17 +19,17 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/01-openssh
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafioopenssh #desafiossh
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando o OpenSSH Server e Client no Ubuntu Server<br>
-#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server<br>
-#03_ Verificando a Porta de Conexão do OpenSSH Server no Ubuntu Server<br>
-#04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server<br>
-#05_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server<br>
-#06_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server<br>
-#07_ Editando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server<br>
-#08_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash<br>
-#09_ Criando um usuário Administrador no Ubuntu Server<br>
-#10_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server<br>
-#11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server<br>
+#01_ Instalando o OpenSSH Server e Client no Ubuntu Server;<br>
+#02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server;<br>
+#03_ Verificando a Porta de Conexão do OpenSSH Server no Ubuntu Server;<br>
+#04_ Localização dos Arquivos de Configuração do OpenSSH Server no Ubuntu Server;<br>
+#05_ Atualizando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server;<br>
+#06_ Habilitando a segurança de acesso ao OpenSSH Server no Ubuntu Server;<br>
+#07_ Editando os arquivos de configuração do OpenSSH Server e do Banner no Ubuntu Server;<br>
+#08_ Acessando remotamente o OpenSSH Server via Powershell, PuTTY e Git Bash;<br>
+#09_ Criando um usuário Administrador no Ubuntu Server;<br>
+#10_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server;<br>
+#11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server;<br>
 #12_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
@@ -101,10 +101,12 @@ sudo journalctl -xeu ssh
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do OpenSSH Server e Client
+#verificando as versões do OpenSSH Server
 #opção do comando sshd e sshd: -V (version)
-#opção do comando ssh: -V (version)
 sudo sshd -V
+
+#verificando as versões do OpenSSH Client
+#opção do comando ssh: -V (version)
 sudo ssh -V
 ```
 

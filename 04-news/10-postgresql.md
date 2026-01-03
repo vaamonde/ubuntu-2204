@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 26/09/2025<br>
-#Data de atualização: 23/11/2025<br>
-#Versão: 0.04<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.05<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POSTGRESQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do PostgreSQL realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,22 +19,22 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/10-postgre
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiopostgresql
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependências do PostgreSQL Server no Ubuntu Server<br>
-#02_ Baixando e instalando a Chave GPG do PostgreSQL Server no Ubuntu Server<br>
-#03_ Criando o repositório local do PostgreSQL Server no Ubuntu Server<br>
-#04_ Atualizando as Listas do Apt e Instalando o PostgreSQL Server e Client no Ubuntu Server<br>
-#05_ Habilitando o Serviço do PostgreSQL Server no Ubuntu Server<br>
-#06_ Verificando o Serviço e Versão do PostgreSQL Server e do Client Psql no Ubuntu Server<br>
-#07_ Verificando a Porta de Conexão do PostgreSQL Server no Ubuntu Server<br>
-#08_ Localização dos Arquivos de Configuração do PostgreSQL Server no Ubuntu Server<br>
-#09_ Adicionando o Usuário Local no Grupo Padrão do PostgreSQL Server no Ubuntu Server<br>
-#10_ Testando a conexão com o PostgreSQL Server local no Ubuntu Server<br>
-#11_ Configurando a Senha do Usuário Admin (postgres) no Ubuntu Server<br>
-#12_ Atualizando os arquivos de configurações do PostgreSQL Server no Ubuntu Server<br>
-#13_ Editando os arquivos de configurações do PostgreSQL Server no Ubuntu Server<br>
-#14_ Criando um usuário DBA (Data Base Administrator) do PostgreSQL Server no Ubuntu Server<br>
-#15_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
-#16_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
+#01_ Instalando as Dependências do PostgreSQL Server no Ubuntu Server;<br>
+#02_ Baixando e instalando a Chave GPG do PostgreSQL Server no Ubuntu Server;<br>
+#03_ Criando o repositório local do PostgreSQL Server no Ubuntu Server;<br>
+#04_ Atualizando as Listas do Apt e Instalando o PostgreSQL Server e Client no Ubuntu Server;<br>
+#05_ Habilitando o Serviço do PostgreSQL Server no Ubuntu Server;<br>
+#06_ Verificando o Serviço e Versão do PostgreSQL Server e do Client Psql no Ubuntu Server;<br>
+#07_ Verificando a Porta de Conexão do PostgreSQL Server no Ubuntu Server;<br>
+#08_ Localização dos Arquivos de Configuração do PostgreSQL Server no Ubuntu Server;<br>
+#09_ Adicionando o Usuário Local no Grupo Padrão do PostgreSQL Server no Ubuntu Server;<br>
+#10_ Testando a conexão com o PostgreSQL Server local no Ubuntu Server;<br>
+#11_ Configurando a Senha do Usuário Admin (postgres) no Ubuntu Server;<br>
+#12_ Atualizando os arquivos de configurações do PostgreSQL Server no Ubuntu Server;<br>
+#13_ Editando os arquivos de configurações do PostgreSQL Server no Ubuntu Server;<br>
+#14_ Criando um usuário DBA (Data Base Administrator) do PostgreSQL Server no Ubuntu Server;<br>
+#15_ Conectando no PostgreSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux;<br>
+#16_ Integrando o PostgreSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux.<br>
 #17_ Desafios do Banco de Dados PostgreSQL Server.<br>
 
 Site Oficial do PostgreSQL: https://www.postgresql.org/<br>
@@ -54,7 +54,8 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados relacional? Qual o seu percentual de uso para aplicações emergentes.
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados
+relacional? Qual o seu percentual de uso para aplicações emergentes.
 ```
 ```bash
 Prompt-02: Quais as principais Big Techs no Brasil e no mundo que utiliza o PostgreSQL Server?

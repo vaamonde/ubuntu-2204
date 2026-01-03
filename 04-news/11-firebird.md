@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 01/10/2025<br>
-#Data de atualização: 01/10/2025<br>
-#Versão: 0.02<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO POSTGRESQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Firebird realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,20 +19,20 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/11-firebir
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafiosql #desafiofirebird
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as Dependências do FirebirdSQL Server no Ubuntu Server<br>
-#02_ Download do FirebirdSQL Server 5.x do site Oficial no Ubuntu Server<br>
-#03_ Descompactando e instalando o FirebirdSQL Server 5.x no Ubuntu Server<br>
-#04_ Habilitando o Serviço do FirebirdSQL Server no Ubuntu Server<br>
-#05_ Verificando o Serviço e Versão do FirebirdSQL Server no Ubuntu Server<br>
-#06_ Verificando a Porta de Conexão do FirebirdSQL Server no Ubuntu Server<br>
-#07_ Localização dos Arquivos de Configuração do FirebirdSQL Server no Ubuntu Server<br>
-#08_ Adicionando o Usuário Local no Grupo Padrão do FirebirdSQL Server no Ubuntu Server<br>
-#09_ Testando a conexão com o FirebirdSQL Server local no Ubuntu Server<br>
-#10_ Atualizando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server<br>
-#11_ Editando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server<br>
-#12_ Conectando no FirebirdSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux<br>
-#13_ Integrando o FirebirdSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux<br>
-#14_ Desafios do FirebirdSQL Server<br>
+#01_ Instalando as Dependências do FirebirdSQL Server no Ubuntu Server;<br>
+#02_ Download do FirebirdSQL Server 5.x do site Oficial no Ubuntu Server;<br>
+#03_ Descompactando e instalando o FirebirdSQL Server 5.x no Ubuntu Server;<br>
+#04_ Habilitando o Serviço do FirebirdSQL Server no Ubuntu Server;<br>
+#05_ Verificando o Serviço e Versão do FirebirdSQL Server no Ubuntu Server;<br>
+#06_ Verificando a Porta de Conexão do FirebirdSQL Server no Ubuntu Server;<br>
+#07_ Localização dos Arquivos de Configuração do FirebirdSQL Server no Ubuntu Server;<br>
+#08_ Adicionando o Usuário Local no Grupo Padrão do FirebirdSQL Server no Ubuntu Server;<br>
+#09_ Testando a conexão com o FirebirdSQL Server local no Ubuntu Server;<br>
+#10_ Atualizando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server;<br>
+#11_ Editando o arquivo de configuração do FirebirdSQL Server no Ubuntu Server;<br>
+#12_ Conectando no FirebirdSQL Server utilizando o DBeaver Community Edition no Windows ou GNU/Linux;<br>
+#13_ Integrando o FirebirdSQL Server com o Visual Studio Code VSCode no Windows ou GNU/Linux;<br>
+#14_ Desafios do FirebirdSQL Server.<br>
 
 Site Oficial do PostgreSQL: https://www.firebirdsql.org/<br>
 Site Oficial do DBeaver: https://dbeaver.io/
@@ -49,8 +49,10 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados
-           relacional? Qual o seu percentual de uso para aplicações emergentes.
+Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento 
+de dados relacional? Qual o seu percentual de uso para aplicações emergentes.
+```
+```bash
 Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o PostgreSQL Server?
 ```
 
@@ -71,9 +73,11 @@ Link da vídeo aula:
 ## 01_ Instalando as Dependências do FirebirdSQL Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do FirebirdSQL Server no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim libicu-dev libncurses5 libtommath1 libtommath-dev unixodbc unixodbc-dev
 ```
@@ -106,6 +110,9 @@ sudo ./Firebird*/install.sh
 ## 04_ Habilitando o Serviço do FirebirdSQL Server no Ubuntu Server
 ```bash
 #habilitando o serviço do FirebirdSQL Server no Ubuntu Server
+#opções do comando systemctl: daemon-load (Reload the systemd manager configuration), enable
+#(Enable one or more units or unit instances), start (Start (activate) one or more units specified
+#on the command line)
 sudo systemctl daemon-reload
 sudo systemctl enable firebird
 sudo systemctl start firebird
@@ -188,7 +195,7 @@ exit
 #testando a conexão no FirebirdSQL com o usuário SYSADMIN usando o client isql
 sudo /opt/firebird/bin/isql
   SQL> CONNECT "/opt/firebird/examples/empbuild/employee.fdb"
-  CON> USER 'SYSDBA' PASSWORD 'pti@2018';
+  CON> USER 'SYSDBA' PASSWORD 'SUA_SENHA_SEGURA';
   SQL> SHOW TABLES;
   SQL> QUIT;
 ```

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/01/2023<br>
-#Data de atualização: 31/08/2025<br>
-#Versão: 0.39<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.40<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MONGODB SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do MongoDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -36,7 +36,7 @@ Conteúdo estudado nesse desafio:<br>
 #15_ Acessando o MongoDB "COM" e "SEM" autenticação no MongoSH (Shell) no Ubuntu Server;<br>
 #16_ Integrando o MongoDB Server com o Compass GUI (Graphical User Interface) (Windows ou GNU/Linux);<br>
 #17_ Integrando o MongoDB Server com o Visual Studio Code VSCode (Windows ou GNU/Linux);<br>
-#18_ Fazendo o Backup do Banco de Dados do MongoDB Server (NÃO COMENTADO NO VÍDEO);<br>
+#18_ Fazendo o Backup do Banco de Dados do MongoDB Server **(NÃO COMENTADO NO VÍDEO)**;<br>
 #19_ Desafios de Criação de Banco de Dados no MongoDB Local e no Cloud do Atlas.<br>
 
 Site Oficial do MongoDB: https://www.mongodb.com/<br>
@@ -134,7 +134,7 @@ sudo apt update
 5. https://www.mongodb.com/community/forums/t/installing-mongodb-5-0-on-a-qemu-vm/166192
 
 ```bash
-#verificando a compatibilidade de recursos dos Processadores INTEL e AMD
+#verificando a compatibilidade de recursos dos Processadores INTEL e AMD (NÃO COMENTADO NO VÍDEO)
 #Intel e AMD AVX (Advanced Vector Extensions) e SSE (Streaming SIMD Extensions)
 #opções do comando grep: -i (ignore-case), -E (extended-regexp - function or)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -176,8 +176,10 @@ sudo journalctl -xeu mongod
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando as versões do MongoDB Server e do Mongo Shell
+#verificando as versões do MongoDB Server
 sudo mongod --version
+
+#verificando as versões do Mongo Shell
 sudo mongosh --version
 ```
 
@@ -231,7 +233,7 @@ mongosh
 
 **OBSERVAÇÃO IMPORTANTE:** Diferente do *MySQL Server* o MongoDB Server é um Banco de Dados **Não Relacional (No-SQL)**, seu conceito e diferente do **Banco de Dados Relacional** os nomes muda um pouco (SÓ FAZER O DE-PARA):
 
-|               DE T-SQL              |                PARA NO-SQL                |
+|             **DE T-SQL**            |              **PARA NO-SQL**              |
 |-------------------------------------|-------------------------------------------|
 |   Banco de Dados Relacional MySQL   |   Banco de Dados Não Relacional MongoDB   |
 |      Database (Banco de Dados)      |         Database (Banco de Dados)         |
@@ -503,7 +505,7 @@ show collections
 **OBSERVAÇÃO:** NOVAMENTE FAZER VÁRIOS REGISTROS NA BASE DE DADOS AGENDA ANTES DE FAZER A RESTAURAÇÃO.
 
 ```bash
-#saindo o MongoDB Server
+#saindo do MongoDB Server
 exit
 
 #restaurando o backup da base de dados Agenda

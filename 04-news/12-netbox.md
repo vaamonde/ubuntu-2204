@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 05/10/2025<br>
-#Data de atualização: 05/10/2025<br>
-#Versão: 0.03<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.04<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETBOX SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netbox realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,25 +19,25 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/12-netbox.
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionetbox #desafionetboxlabs
 
 Conteúdo estudado nesse desafio:<br>
-#01_ Instalando as dependências do Netbox Labs Community no Ubuntu Server<br>
-#02_ Instalando o Banco de Dados em memória Redis Server no Ubuntu Server<br>
-#03_ Criando a Base de Dados do Netbox Labs Community no PostgreSQL Server no Ubuntu Server<br>
-#04_ Baixando o Netbox Labs Community do Github no Ubuntu Server<br>
-#05_ Descompactando e instalando o Netbox Labs Community no Ubuntu Server<br>
-#06_ Localização dos Arquivos de Configuração do Netbox Labs Community no Ubuntu Server<br>
-#07_ Criando o Usuário de Serviço do Netbox Labs Community no Ubuntu Server<br>
-#08_ Alterando as Permissões do Diretório do Netbox Labs Community no Ubuntu Server<br>
-#09_ Gerando a Chave Secreta da instalação do Netbox Labs Community no Ubuntu Server<br>
-#10_ Atualizando o arquivo configuração do Netbox Labs Community no Ubuntu Server<br>
-#11_ Editando os arquivos de configurações do Netbox Labs Community no Ubuntu Server<br>
-#12_ Atualizando as configurações do Netbox Labs Community no Ubuntu Server<br>
-#13_ Criando a conta de Super Usuário do Netbox Labs Community no Ubuntu Server<br>
-#14_ Atualizando os arquivos de serviço do Netbox Labs Community no Ubuntu Server<br>
-#15_ Verificando os Serviços do Netbox Labs Community no Ubuntu Server<br>
-#16_ Verificando o porta padrão de Conexão do NetBox WSGI Service<br>
-#17_ Gerando o Certificado SSL Auto-Assinado do Netbox Labs Community no Ubuntu Server<br>
-#18_ Instalando e configurando o NGINX Server no Ubuntu Server<br>
-#19_ Testando e configurando o Netbox Labs Community via Terminal e Navegador<br>
+#01_ Instalando as dependências do Netbox Labs Community no Ubuntu Server;<br>
+#02_ Instalando o Banco de Dados em memória Redis Server no Ubuntu Server;<br>
+#03_ Criando a Base de Dados do Netbox Labs Community no PostgreSQL Server no Ubuntu Server;<br>
+#04_ Baixando o Netbox Labs Community do Github no Ubuntu Server;<br>
+#05_ Descompactando e instalando o Netbox Labs Community no Ubuntu Server;<br>
+#06_ Localização dos Arquivos de Configuração do Netbox Labs Community no Ubuntu Server;<br>
+#07_ Criando o Usuário de Serviço do Netbox Labs Community no Ubuntu Server;<br>
+#08_ Alterando as Permissões do Diretório do Netbox Labs Community no Ubuntu Server;<br>
+#09_ Gerando a Chave Secreta da instalação do Netbox Labs Community no Ubuntu Server;<br>
+#10_ Atualizando o arquivo configuração do Netbox Labs Community no Ubuntu Server;<br>
+#11_ Editando os arquivos de configurações do Netbox Labs Community no Ubuntu Server;<br>
+#12_ Atualizando as configurações do Netbox Labs Community no Ubuntu Server;<br>
+#13_ Criando a conta de Super Usuário do Netbox Labs Community no Ubuntu Server;<br>
+#14_ Atualizando os arquivos de serviço do Netbox Labs Community no Ubuntu Server;<br>
+#15_ Verificando os Serviços do Netbox Labs Community no Ubuntu Server;<br>
+#16_ Verificando o porta padrão de Conexão do NetBox WSGI Service;<br>
+#17_ Gerando o Certificado SSL Auto-Assinado do Netbox Labs Community no Ubuntu Server;<br>
+#18_ Instalando e configurando o NGINX Server no Ubuntu Server;<br>
+#19_ Testando e configurando o Netbox Labs Community via Terminal e Navegador.<br>
 
 Site Oficial do Netbox Labs: https://netboxlabs.com/<br>
 Site Oficial do Netbox Community: https://github.com/netbox-community<br>
@@ -70,9 +70,11 @@ Link da vídeo aula:
 
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Netbox Labs Community
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python3 python3-pip python3-venv python3-dev unzip pwgen \
 xz-utils bzip2 curl ghostscript zlib1g zlib1g-dev apt-transport-https build-essential \
@@ -82,6 +84,7 @@ libxml2-dev libxslt1-dev libffi-dev libpq-dev libssl-dev
 ## 02_ Instalando o Banco de Dados em memória Redis Server no Ubuntu Server
 ```bash
 #instalando o Redis Server no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install redis-server
 
 #verificando o serviço do Redis Server no Ubuntu Server
@@ -198,7 +201,7 @@ sudo psql --username netbox --password --host localhost netbox
 #OBSERVAÇÃO IMPORTANTE: o tempo todo o Netbox Labs Community sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://github.com/netbox-community/netbox/
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O /tmp/netbox.tar.gz https://github.com/netbox-community/netbox/archive/refs/tags/v4.4.2.tar.gz
+wget -v -O /tmp/netbox.tar.gz https://github.com/netbox-community/netbox/archive/refs/tags/v4.4.9.tar.gz
 
 #listando o download do arquivo do Netbox Labs Community
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -369,6 +372,9 @@ sudo cp -v /opt/netbox/contrib/gunicorn.py /opt/netbox/gunicorn.py
 sudo cp -v /opt/netbox/contrib/*.service /etc/systemd/system/
 
 #habilitando os serviços do Netbox Labs Community
+#opções do comando systemctl: daemon-load (Reload the systemd manager configuration), enable
+#(Enable one or more units or unit instances), start (Start (activate) one or more units specified
+#on the command line)
 sudo systemctl daemon-reload
 sudo systemctl enable netbox netbox-rq
 sudo systemctl start netbox netbox-rq
@@ -410,16 +416,19 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 ## 18_ Instalando e configurando o serviço do NGINX Server no Ubuntu Server
 ```bash
 #instalando o NGINX Server no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install nginx nginx-common nginx-core
 
 #atualizando o arquivo do site padrão do Netbox Labs Community no NGINX Server
 #opção do comando cp: -v (verbose)
 sudo cp -v /opt/netbox/contrib/nginx.conf /etc/nginx/sites-available/netbox
 
-#habilitando o site do Netbox Labs Community no NGINX Server
+#removendo o site padrão do NGINX Server
 #opção do comando rm: -v (verbose)
-#opção do comando ln: -s (symbolic link)
 sudo rm -v /etc/nginx/sites-enabled/default
+
+#criando o link simbólico do site do Netbox Labs Community no NGINX Server
+#opção do comando ln: -s (symbolic link)
 sudo ln -s /etc/nginx/sites-available/netbox /etc/nginx/sites-enabled/netbox
 
 #reiniciando o serviço do NGINX Server

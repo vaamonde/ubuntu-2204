@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 11/11/2025<br>
-#Data de atualização: 11/11/2025<br>
-#Versão: 0.01<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.02<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO UNIFI SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Unifi realizado com sucesso!!! #BoraParaPrática*
 

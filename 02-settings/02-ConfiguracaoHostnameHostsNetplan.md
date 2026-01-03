@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 17/11/2025<br>
-#Versão: 0.24<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.25<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -23,17 +23,17 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado nessa configuração:<br>
-#01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server<br>
-#02_ Alterando as entradas no arquivo Hosts do Ubuntu Server<br>
-#03_ Instalando os principais software de rede no Ubuntu Server<br>
-#04_ Verificando as informações do Hardware de Rede no Ubuntu Server<br>
-#05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
-#06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
-#07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
-#08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
-#09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
-#10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
-#11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH<br>
+#01_ Alterando o nome FQDN (Fully Qualified Domain Name) do Ubuntu Server;<br>
+#02_ Alterando as entradas no arquivo Hosts do Ubuntu Server;<br>
+#03_ Instalando os principais software de rede no Ubuntu Server;<br>
+#04_ Verificando as informações do Hardware de Rede no Ubuntu Server;<br>
+#05_ Verificando as informações de Endereços IPv4 no Ubuntu Server;<br>
+#06_ Alterando as configurações da Placa de Rede do Ubuntu Server;<br>
+#07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server;<br>
+#08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server **(NÃO COMENTADO NO VÍDEO)**;<br>
+#09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server **(NÃO COMENTADO NO VÍDEO)**;<br>
+#10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server;<br>
+#11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH.<br>
 
 **O QUE É E PARA QUE SERVER O IPV4:** O IPv4 (Internet Protocol version 4) é o protocolo de endereçamento que permite a identificação e comunicação entre dispositivos em redes, como a Internet ou uma rede local (LAN).
 

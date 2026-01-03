@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 10/11/2025<br>
-#Versão: 0.10<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.11<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -23,11 +23,11 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado desses comandos:<br>
-#01_ Desligando e reinicializando o servidor com halt no Ubuntu Server<br>
-#02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server<br>
-#03_ Desligando e reinicializando o servidor com init no Ubuntu Server<br>
-#04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server<br>
-#05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server<br>
+#01_ Desligando e reinicializando o servidor com halt no Ubuntu Server;<br>
+#02_ Desligando e reinicializando o servidor com poweroff no Ubuntu Server;<br>
+#03_ Desligando e reinicializando o servidor com init no Ubuntu Server;<br>
+#04_ Desligando e reinicializando o servidor com reboot no Ubuntu Server;<br>
+#05_ Desligando e reinicializando o servidor com shutdown no Ubuntu Server.<br>
 
 **O QUE É E PARA QUE SERVER O SHUTDOWN:** O comando shutdown é usado em sistemas operacionais baseados em Unix/Linux e no Windows para desligar, reiniciar ou suspender o sistema de maneira controlada. Ele é útil para garantir que todos os processos sejam encerrados corretamente, evitando perda de dados ou corrupção do sistema.
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.12<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.13<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
@@ -60,14 +60,17 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Graylog Server
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apt-transport-https software-properties-common git vim wget curl \
 gnupg2 uuid-runtime pwgen dirmngr build-essential
 
 #instalando as dependências do OpenJDK e OpenJRE (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: install (install is followed by one or more package names)
 #OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle
 #OBSERVAÇÃO: OpenJRE é um software necessário para que os programas em Java funcionem corretamente.
 sudo apt install openjdk-21-jdk openjdk-21-jre
@@ -97,9 +100,10 @@ echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.o
 
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando o OpenSearch
+#criando a senha do usuário admin e instalando o OpenSearch no Ubuntu Server
 #opção do comando tr: -d (delete), -c (complement)
 #opção do comando head: -c (bytes)
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
@@ -117,38 +121,42 @@ sudo vim /etc/opensearch/opensearch.yml
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
+```
+```bash
+#descomentar e alterar o valor da variável cluster.name na linha: 17
+cluster.name: graylog
 
-  #descomentar e alterar o valor da variável cluster.name na linha: 17
-  cluster.name: graylog
+#descomentar e alterar o valor da variável node.name na linha: 23
+node.name: wsvaamonde
 
-  #descomentar e alterar o valor da variável node.name na linha: 23
-  node.name: wsvaamonde
+#descomentar e alterar o valor da variável network.host na linha: 55
+network.host: 0.0.0.0
 
-  #descomentar e alterar o valor da variável network.host na linha: 55
-  network.host: 0.0.0.0
-
-  #adicionar as opção abaixo no final do arquivo a partir da linha: 160
-  discovery.type: single-node
-  action.auto_create_index: false
-  plugins.security.disabled: true
-
+#adicionar as opção abaixo no final do arquivo a partir da linha: 160
+discovery.type: single-node
+action.auto_create_index: false
+plugins.security.disabled: true
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
 
-## 05_ Editando o arquivo de configuração JVM (Java Virtual Machine) do OpenSearch no Ubuntu Server
+## 05_ Editando o arquivo de configuração do JVM (Java Virtual Machine) do OpenSearch no Ubuntu Server
 ```bash
 #editando o arquivo de configuração JVM (Java Virtual Machine)
 sudo vim /etc/opensearch/jvm.options
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
-
-  #manter o padrão das configurações do Heap Space a partir da linha: 22
-  #padrão do tamanho inicial e máximo da memória do JVM: 1GB
-  -Xms1g
-  -Xmx1g
-
+```
+```bash
+#manter o padrão das configurações do Heap Space a partir da linha: 22
+#padrão do tamanho inicial e máximo da memória do JVM: 1GB
+-Xms1g
+-Xmx1g
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
@@ -168,6 +176,8 @@ echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
 ## 07_ Habilitando o Serviço do OpenSearch no Ubuntu Server
 ```bash
 #habilitando o serviço do OpenSearch
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable opensearch
 sudo systemctl restart opensearch
@@ -176,6 +186,9 @@ sudo systemctl restart opensearch
 ## 08_ Verificando o Serviço e Versão do OpenSearch no Ubuntu Server
 ```bash
 #verificando o serviço do OpenSearch
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status opensearch
 sudo systemctl restart opensearch
 sudo systemctl stop opensearch
@@ -216,10 +229,10 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Graylog* sofre alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última versão do software no Link: https://packages.graylog2.org/packages
 
 ```bash
-#baixando o repositório do Graylog Server (Link atualizado no dia 11/05/2025)
-wget https://packages.graylog2.org/repo/packages/graylog-6.3-repository_latest.deb
+#baixando o repositório do Graylog Server (Link atualizado no dia 03/01/2026)
+wget https://packages.graylog2.org/repo/packages/graylog-7.1-repository_latest.deb
 
-#instalando o repositório do Graylog
+#instalando o repositório do Graylog Server no Ubuntu Server
 #opção do comando dpkg: -i (install)
 sudo dpkg -i graylog-*.deb
 ```
@@ -227,10 +240,12 @@ sudo dpkg -i graylog-*.deb
 ## 11_ Instalando o Graylog Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o Sources List do Graylog Server
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Graylog Server
-#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opções do comando apt: install (install is followed by one or more package names),
+#--install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends graylog-server
 ```
 
@@ -239,7 +254,7 @@ sudo apt install --install-recommends graylog-server
 **OBSERVAÇÃO IMPORTANTE:** COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS CONFIGURAÇÕES DAS VARIÁVEIS DO GRAYLOG SERVER NAS PRÓXIMAS ETAPAS.
 
 ```bash
-#gerando a senha aleatório da variável: password_secret
+#gerando a senha aleatório da variável: password_secret do Graylog Server
 #opção do comando tr: -d (delete), -c (complement)
 #opção do comando head: -c (bytes)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
@@ -247,7 +262,7 @@ sudo apt install --install-recommends graylog-server
 #opção do bloco de agrupamento $(): Executa comandos numa subshell, retornando o resultado
 < /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo;
 
-#gerando a senha aleatório da variável: root_password_sha2
+#gerando a senha aleatório da variável: root_password_sha2 do Graylog Server
 #opção do comando echo: -n (do not output the trailing newline)
 #opção do comando head: -1 (lines)
 #opção do comando tr: -d (delete)
@@ -265,29 +280,31 @@ sudo vim /etc/graylog/server/server.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
+```
+```bash
+#copiar e colar a senha da variável password_secret na linha: 57
+password_secret = COLAR_SUA_SENHA_GERADA
 
-  #copiar e colar a senha da variável password_secret na linha: 57
-  password_secret = COLAR_SUA_SENHA_GERADA
+#copiar e colar a senha da variável root_password_sha2 na linha: 68
+root_password_sha2 = COLAR_SUA_SENHA_GERADA
 
-  #copiar e colar a senha da variável root_password_sha2 na linha: 68
-  root_password_sha2 = COLAR_SUA_SENHA_GERADA
+#descomentar a alterar o valor da variável root_timezone na linha: 76
+#OBSERVAÇÃO: CUIDADO COM ESSA VARIÁVEL, O SISTEMA JÁ FOI CONFIGURADO COM O UTC
+#America / São Paulo no inicio da configuração do Ubuntu Server.
+root_timezone = America/Sao_Paulo
 
-  #descomentar a alterar o valor da variável root_timezone na linha: 76
-  #OBSERVAÇÃO: CUIDADO COM ESSA VARIÁVEL, O SISTEMA JÁ FOI CONFIGURADO COM O UTC
-  #America / São Paulo no inicio da configuração do Ubuntu Server.
-  root_timezone = America/Sao_Paulo
+#descomentar e alterar o valor da variável http_bind_address na linha: 104
+http_bind_address = 0.0.0.0:9000
 
-  #descomentar e alterar o valor da variável http_bind_address na linha: 104
-  http_bind_address = 0.0.0.0:9000
+#descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
+elasticsearch_hosts = http://172.16.1.20:9200
 
-  #descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
-  elasticsearch_hosts = http://172.16.1.20:9200
-
-  #alterando o valor da variável mongodb_uri na linha: 578
-  #OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
-  #utilizando usuário e senha.
-  mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
-
+#alterando o valor da variável mongodb_uri na linha: 578
+#OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
+#utilizando usuário e senha.
+mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
@@ -312,16 +329,18 @@ db.createUser({
 })
 ```
 ```bash
-#verificando o usuário criado no MongoDB
+#verificando o usuário criado no MongoDB Server
 db.getUser("graylog")
 
-#saindo do MongoDB
+#saindo do MongoDB Server
 quit
 ```
 
 ## 15_ Habilitando o Serviço do Graylog Server no Ubuntu Server
 ```bash
 #habilitando o serviço do Graylog Server
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable graylog-server
 sudo systemctl restart graylog-server
@@ -330,6 +349,9 @@ sudo systemctl restart graylog-server
 ## 16_ Verificando o Serviço e Versão do Graylog Server no Ubuntu Server
 ```bash
 #verificando o serviço do Graylog Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status graylog-server
 sudo systemctl restart graylog-server
 sudo systemctl stop graylog-server
@@ -362,10 +384,22 @@ sudo lsof -nP -iTCP:'9000' -sTCP:LISTEN
 ## 18_ Adicionado o Usuário Local nos Grupos do OpenSearch e do Graylog Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G opensearch $USER
 sudo usermod -a -G graylog $USER
+
+#fazendo login em um novo grupo do OpenSearch e do Graylog Server
+newgrp opensearch
 newgrp graylog
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo OPENSEARCH e GRAYLOG do OpenSearch e do Graylog Server
+#opção do comando getent: group (the database system group)
+sudo getent group opensearch
+sudo getent group graylog
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
@@ -402,7 +436,7 @@ Welcome
     Inputs
       Select input: Syslog UDP <Launch new input>
 
-#configurando o Input do Syslog UDP
+#configurando o Input do Syslog UDP no Graylog Server
 Launch new Syslog UDP input
   Node: XXXX/wsvaamonde.pti.intra
   Title: wsvaamonde
@@ -411,12 +445,14 @@ Launch new Syslog UDP input
   Encoding (optional): UTF-8
 <Launch Input>
 
-#verificando a porta de conexão do Input do Graylog
+#verificando a porta de conexão do Input do Graylog Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
 sudo lsof -nP -iUDP:'1514'
 
-#configurando a exportação dos Logs do Rsyslog para o Graylog
+#configurando a exportação dos Logs do Rsyslog do Ubuntu Server para o Graylog Server
+
 #verificando o status de serviço do Rsyslog
+#opção do comando systemctl: status (runtime status information)
 sudo systemctl status rsyslog
 
 #criando o arquivo de exportação dos Logs
@@ -424,14 +460,18 @@ sudo vim /etc/rsyslog.d/70-graylog.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
-
-  #copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-  *.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
-
+```
+```bash
+#copiar a colar a exportação dos Logs do Rsyslog para o Graylog Server
+*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
 #reiniciar e verificar o serviço do Rsyslog
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart rsyslog
 sudo systemctl status rsyslog
 ```
@@ -441,10 +481,11 @@ sudo systemctl status rsyslog
 **OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO É CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO DE REDE QUE VOCÊ ESTÁ OBTENDO OS LOGS.
 
 ### Exportando dos Logs do GNU/Linux Mint para o Graylog Server
-
 ```bash
-#configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog
+#configurando a exportação dos Logs do Rsyslog do Linux Mint para o Graylog Server
+
 #verificando o status de serviço do Rsyslog
+#opção do comando systemctl: status (runtime status information)
 sudo systemctl status rsyslog
 
 #criando o arquivo de exportação dos Logs
@@ -452,21 +493,26 @@ sudo vim /etc/rsyslog.d/70-graylog.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
-
-  #copiar a colar a exportação dos Logs do Rsyslog para o Graylog
-  *.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
-
+```
+```bash
+#copiar a colar a exportação dos Logs do Rsyslog para o Graylog Server
+*.* @172.16.1.20:1514;RSYSLOG_SyslogProtocol23Format
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
 #reiniciar e verificar o serviço do Rsyslog
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart rsyslog
 sudo systemctl status rsyslog
 ```
 
 ### Exportando dos Logs do Microsoft Windows para o Graylog Server
 ```bash
-#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog
+#configurando a exportação dos Logs do Event Viewer do Windows 10 para o Graylog Server
+
 #baixando o software NXLog-CE (Community Edition) do site oficial:
 Link de download: https://nxlog.co/downloads/nxlog-ce#nxlog-community-edition
   Available Downloads
@@ -559,7 +605,7 @@ Welcome
     Inputs
       Select input: GELF UDP <Launch new input>
 
-#configurando o Input do GELF UDP
+#configurando o Input do GELF UDP do Windows 10 no Graylog Server
 Launch new GELF UDP input
   Node: XXXX/wsvaamonde.pti.intra
   Title: windows10

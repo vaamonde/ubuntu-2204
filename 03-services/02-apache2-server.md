@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.31<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.32<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -47,9 +47,8 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem
-de páginas de Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso
-para aplicações emergentes.
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de 
+Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
 ```
 
 **O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.
@@ -128,6 +127,10 @@ sudo journalctl -xeu apache2
 #verificando os arquivos de configuração do Apache2 Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando apache2ctl: configtest (Run a configuration file syntax test)
 sudo apache2ctl configtest 
+
+#verificando o arquivo de configuração do PHP (NÃO COMENTADO NO VÍDEO)
+#opção do comando php: -i (PHP information)
+sudo php -i 
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.

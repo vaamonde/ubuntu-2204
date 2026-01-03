@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2024<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.15<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.16<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO INFLUXDB SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do InfluxDB realizado com sucesso!!! #BoraParaPrática*
 
@@ -33,9 +33,9 @@ Conteúdo estudado nessa implementação:<br>
 #12_ Habilitando o Serviço do Telegraf no Ubuntu Server;<br>
 #13_ Verificando o Serviço e Versão do Telegraf no Ubuntu Server;<br>
 #14_ Criando um Data Explorer do Telegraf no InfluxDB2;<br>
-#15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows;<br>
-#16_ Integrando o InfluxDB2 no Grafana;<br>
-#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>
+#15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows **(NÃO COMENTADO NO VÍDEO)**;<br>
+#16_ Integrando o InfluxDB2 no Grafana Server **(NÃO COMENTADO NO VÍDEO)**;<br>
+#17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**.<br>
 
 Site Oficial do InfluxDB: https://www.influxdata.com/<br>
 
@@ -50,9 +50,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=yBmRjTRz2DU
 ## 01_ Instalando as Dependências do InfluxDB2 e do Telegraf no Ubuntu Server
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do InfluxDB2 e do Telegraf
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install apt-transport-https software-properties-common git vim wget curl gnupg2
 ```
 
@@ -77,16 +79,20 @@ sudo echo "deb [signed-by=/usr/share/keyrings/influxdb.gpg] https://repos.influx
 ## 03_ Instalando o InfluxDB2 e Telegraf no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o InfluxDB2 e Telegraf
-#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opões do comando apt: install (install is followed by one or more package names),
+#--install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends influxdb2 telegraf
 ```
 
 ## 04_ Habilitando o Serviço do InfluxDB2 no Ubuntu Server
 ```bash
 #habilitando o serviço do InfluxDB2
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable influxdb
 sudo systemctl restart influxdb
@@ -95,6 +101,9 @@ sudo systemctl restart influxdb
 ## 05_ Verificando o Serviço e Versão do InfluxDB2 no Ubuntu Server
 ```bash
 #verificando o serviço do InfluxDB2
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status influxdb
 sudo systemctl restart influxdb
 sudo systemctl stop influxdb
@@ -109,10 +118,12 @@ sudo journalctl -xeu influxdb
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando a versão do InfluxDB2 e do InfluxDB2-Client
+#verificando a versão do InfluxDB2
 #opção do comando influxd: version (version)
-#opção do comando influx: version (version)
 sudo influxd version
+
+#verificando a versão do InfluxDB2-Client
+#opção do comando influx: version (version)
 sudo influx version
 ```
 
@@ -129,10 +140,22 @@ sudo lsof -nP -iTCP:'8086' -sTCP:LISTEN
 ## 07_ Adicionado o Usuário Local no Grupo Padrão do InfluxDB2 e do Telegraf no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G influxdb $USER
 sudo usermod -a -G telegraf $USER
+
+#fazendo login em um novo grupo do InfluxDB2 e do Telegraf
 newgrp influxdb
+newgrp telegraf
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo INFLUXDB e TELEGRAF do InfluxDB2 e do Telegraf
+#opção do comando getent: group (the database system group)
+sudo getent group influxdb
+sudo getent group telegraf
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
@@ -190,31 +213,33 @@ sudo vim /etc/telegraf/telegraf.conf
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
+```
+```bash
+#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
 
-  #OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
-  #OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+[[outputs.influxdb_v2]]
 
-  #descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
-  [[outputs.influxdb_v2]]
+#descomentar e alterar a variável: urls na linha: 350
+urls = ["http://172.16.1.20:8086"]
 
-  #descomentar e alterar a variável: urls na linha: 350
-  urls = ["http://172.16.1.20:8086"]
+#descomentar e colar o Token na variável: token na linha: 353
+token = "COLAR_SEU_TOKEN"
 
-  #descomentar e colar o Token na variável: token na linha: 353
-  token = "COLAR_SEU_TOKEN"
+#descomentar e alterar o variável: organization na linha: 356
+organization = "boraparapratica"
 
-  #descomentar e alterar o variável: organization na linha: 356
-  organization = "boraparapratica"
+#descomentar e alterar a variável: bucket na linha: 359
+bucket = "pti"
 
-  #descomentar e alterar a variável: bucket na linha: 359
-  bucket = "pti"
+#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
 
-  #OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
-  #EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
-
-  #configurações do Input Plugins a partir da linha: 4374
-  #métricas de Hardware da linha: 4379 até a linha: 4465
-
+#configurações do Input Plugins a partir da linha: 4374
+#métricas de Hardware da linha: 4379 até a linha: 4465
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 ```
@@ -222,6 +247,8 @@ ESC SHIFT : x <Enter>
 ## 12_ Habilitando o Serviço do Telegraf no Ubuntu Server
 ```bash
 #habilitando o serviço do Telegraf
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable telegraf
 sudo systemctl restart telegraf
@@ -230,6 +257,9 @@ sudo systemctl restart telegraf
 ## 13_ Verificando o Serviço e Versão do Telegraf no Ubuntu Server
 ```bash
 #verificando o serviço do Telegraf
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status telegraf
 sudo systemctl restart telegraf
 sudo systemctl stop telegraf
@@ -251,6 +281,7 @@ sudo telegraf --version
 
 ## 14_ Criando um Data Explorer do Telegraf no InfluxDB2
 ```bash
+#criando um Data Explorer do Telegraf no InfluxDB2
 Data Explorer
   Graph: Gauge
   Date Time: Local
@@ -283,17 +314,17 @@ Data Explorer
 <CONFIRM> 
 ```
 
-## 15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows
+## 15_ Instalando o Telegraf no Linux Mint e no Microsoft Windows (NÃO COMENTADO NO VÍDEO)
 
-### Instalação do Telegraf no Microsoft Windows
+### Instalação do Telegraf no Microsoft Windows (NÃO COMENTADO NO VÍDEO)
 
 **OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no Microsoft Windows (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
 
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Telegraf* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/influxdata/telegraf/releases
 
 ```bash
-#link para download direto do Telegraf (link atualizado em: 26/09/2025)
-https://dl.influxdata.com/telegraf/releases/telegraf-1.36.1_windows_amd64.zip
+#link para download direto do Telegraf (link atualizado em: 03/01/2025)
+https://dl.influxdata.com/telegraf/releases/telegraf-1.37.0_windows_amd64.zip
 
 #descompactar o arquivo Zipado do Telegraf (NÃO COMENTADO NO VÍDEO)
 Pasta de Download
@@ -332,40 +363,45 @@ cd 'C:\Program Files\telegraf\'
 
 #editando o arquivo de configuração do Telegraf (NÃO COMENTADO NO VÍDEO)
 notepad.exe .\telegraf.conf
+```
+```bash
+#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
 
-  #OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
-  #OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+[[outputs.influxdb_v2]]
 
-  #descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
-  [[outputs.influxdb_v2]]
+#descomentar e alterar a variável: urls na linha: 350
+urls = ["http://172.16.1.20:8086"]
 
-  #descomentar e alterar a variável: urls na linha: 350
-  urls = ["http://172.16.1.20:8086"]
+#descomentar e colar o Token na variável: token na linha: 353
+token = "COLAR_SEU_TOKEN"
 
-  #descomentar e colar o Token na variável: token na linha: 353
-  token = "COLAR_SEU_TOKEN"
+#descomentar e alterar o variável: organization na linha: 356
+organization = "boraparapratica"
 
-  #descomentar e alterar o variável: organization na linha: 356
-  organization = "boraparapratica"
+#descomentar e alterar a variável: bucket na linha: 359
+bucket = "pti"
 
-  #descomentar e alterar a variável: bucket na linha: 359
-  bucket = "pti"
+#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
 
-  #OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
-  #EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
-
-  #configurações do Input Plugins a partir da linha: 4374
-  #métricas de Hardware da linha: 4379 até a linha: 4465	
-
+#configurações do Input Plugins a partir da linha: 4374
+#métricas de Hardware da linha: 4379 até a linha: 4465
+```
+```bash
 #salvar e sair do arquivo
 Arquivo
   Salvar (CTRL+S)
   Sair
 
 #testando as configurações do Telegraf (NÃO COMENTADO NO VÍDEO)
+#opção do comando telegraf: --test (Run only inputs, output to stdout, and exit)
 .\telegraf.exe --test
 
 #instalando o serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+#opções do comando telegraf: --service (Install telegraf as a service), install (install telegraf), 
+#--config-directory (Read all config files from a directory)
 .\telegraf --service install --config-directory 'C:\Program Files\telegraf'
 
 #iniciando o serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
@@ -377,19 +413,22 @@ Get-Service telegraf
 #alterando a inicializando do serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
 Set-Service telegraf -StartupType Automatic
 
-#verificando a versão do Telegraf
+#verificando a versão do Telegraf (NÃO COMENTADO NO VÍDEO)
+#opções do comando telegraf: version (While telegraf will print out the version when running)
 .\telegraf version
 ```
 
-### Instalação do Telegraf no Microsoft Windows
+### Instalação do Telegraf no GNU/Linux Mint (NÃO COMENTADO NO VÍDEO)
 
 **OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no GNU/Linux Mint (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
 
 ```bash
 #atualizando as lista do apt (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Telegraf (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install apt-transport-https software-properties-common git vim wget curl gnupg2
 
 #baixando a Chave GPG do Telegraf (NÃO COMENTADO NO VÍDEO)
@@ -402,16 +441,18 @@ wget -q https://repos.influxdata.com/influxdata-archive_compat.key
 #opção do redirecionador > (maior): Redireciona a saída padrão (STDOUT)
 echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /usr/share/keyrings/influxdb.gpg > /dev/null
 
-#adicionando o Repositório do Telegraf (NÃO COMENTADO NO VÍDEO)
+#adicionando o Repositório do Telegraf no Linux Mint (NÃO COMENTADO NO VÍDEO)
 #opção do comando tee: -a (append)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo echo "deb [signed-by=/usr/share/keyrings/influxdb.gpg] https://repos.influxdata.com/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/influxdb.list > /dev/null
 
 #atualizando as listas do Apt com o novo repositório (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Telegraf (NÃO COMENTADO NO VÍDEO)
-#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opções do comando apt: install (install is followed by one or more package names),
+#--install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends telegraf
 
 #adicionado o usuário local no grupo do Telegraf (NÃO COMENTADO NO VÍDEO)
@@ -420,36 +461,42 @@ sudo usermod -a -G telegraf $USER
 
 #editando o arquivo de configuração do Telegraf (NÃO COMENTADO NO VÍDEO)
 sudo vim /etc/telegraf/telegraf.conf
+
+#entrando no modo de edição do editor de texto VIM
 INSERT
+```
+```bash
+#OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
+#OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
 
-  #OBSERVAÇÃO IMPORTANTE: O INFLUXDB2 INTEGRADO COM O PLUGIN DO TELEGRAF TEM MUITA
-  #OPÇÃO DE CONFIGURAÇÃO, O BLOCO DO PLUGINS COMEÇA A PARTIR DA LINHA: 339.
+#descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
+[[outputs.influxdb_v2]]
 
-  #descomentar o bloco de configuração: [[outputs.influxdb_v2]] na linha: 344
-  [[outputs.influxdb_v2]]
+#descomentar e alterar a variável: urls na linha: 350
+urls = ["http://172.16.1.20:8086"]
 
-  #descomentar e alterar a variável: urls na linha: 350
-  urls = ["http://172.16.1.20:8086"]
+#descomentar e colar o Token na variável: token na linha: 353
+token = "COLAR_SEU_TOKEN"
 
-  #descomentar e colar o Token na variável: token na linha: 353
-  token = "COLAR_SEU_TOKEN"
+#descomentar e alterar o variável: organization na linha: 356
+organization = "boraparapratica"
 
-  #descomentar e alterar o variável: organization na linha: 356
-  organization = "boraparapratica"
+#descomentar e alterar a variável: bucket na linha: 359
+bucket = "pti"
 
-  #descomentar e alterar a variável: bucket na linha: 359
-  bucket = "pti"
+#OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
+#EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
 
-  #OBSERVAÇÃO IMPORTANTE: HABILITANDO OS INPUT PLUGINS DE MONITORAMENTO DO TELEGRAF
-  #EXISTE MUITA OPÇÃO DE CONFIGURAÇÃO DE HARDWARE E SOFTWARE A PARTIR DA LINHA 4374
-
-  #configurações do Input Plugins a partir da linha: 4374
-  #métricas de Hardware da linha: 4379 até a linha: 4465
-
+#configurações do Input Plugins a partir da linha: 4374
+#métricas de Hardware da linha: 4379 até a linha: 4465
+```
+```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
 #habilitando o serviço do Telegraf (NÃO COMENTADO NO VÍDEO)
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable telegraf
 sudo systemctl restart telegraf
@@ -464,7 +511,7 @@ sudo journalctl -xeu telegraf
 sudo telegraf --version
 ```
 
-## 16_ Integrando o InfluxDB2 no Grafana
+## 16_ Integrando o InfluxDB2 no Grafana Server
 ```bash
 #acessando o Grafana Server (NÃO COMENTADO NO VÍDEO)
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
@@ -490,6 +537,7 @@ Open Menu
 #acessando o InfluxDB2 para gerar o Filtro de integração com o Grafana (NÃO COMENTADO NO VÍDEO)
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8086
 
+#criando um Data Explorer do InfluxDb2
 Data Explorer
   Graph: Gauge
   Date Time: Local
@@ -540,17 +588,18 @@ Open Menu
 ## 17_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install stress-ng s-tui
 
 #verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
 sudo stress-ng --version
 sudo s-tui --version
 
-#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#verificando a carga atual do servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 #HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
 sudo uptime
 
-#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#verificando o desempenho do servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo top
 
 #estressando a CPU, RAM, DISK e PROCESS utilizando o stress-ng (pressione Ctrl+C para abortar)
@@ -565,7 +614,7 @@ sudo top
 sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --timeout 900s
 
 #parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+sudo systemctl stop tomcat11.service mongod.service netdata.service webmin.service
 
 #fazendo uma busca no hard disk utilizando o comando find e grep (NÃO COMENTADO NO VÍDEO)
 #opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 

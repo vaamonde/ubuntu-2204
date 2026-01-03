@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 26/09/2025<br>
-#Versão: 0.21<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.22<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
@@ -23,12 +23,12 @@ Conteúdo estudado nessa implementação:<br>
 #02_ Criando os diretórios do Prometheus e Node Exporter no Ubuntu Server;<br>
 #03_ Baixando o Prometheus do Github no Ubuntu Server;<br>
 #04_ Descompactando o arquivo do Prometheus no Ubuntu Server;<br>
-#05_ Atualizando os arquivos de configuração do Prometheus no Ubuntu Server;<br>
+#05_ Atualizando os arquivos de executáveis do Prometheus no Ubuntu Server;<br>
 #06_ Baixando e atualizando os arquivos customizados do Prometheus no Ubuntu Server;<br>
 #07_ Alterando as permissões dos arquivos e diretórios do Prometheus no Ubuntu Server;<br>
 #08_ Instalando o Coletor de Métricas Node Exporter no Ubuntu Server;<br>
 #09_ Descompactando o arquivo do Node Exporter no Ubuntu Server;<br>
-#10_ Atualizando os arquivos de configuração do Node Exporter no Ubuntu Server;<br>
+#10_ Atualizando os arquivos de executáveis do Node Exporter no Ubuntu Server;<br>
 #11_ Baixando e atualizando os arquivos customizados do Node Exporter no Ubuntu Server;<br>
 #12_ Alterando as permissões do executável do Node Exporter no Ubuntu Server;<br>
 #13_ Habilitando o Serviço do Node Exporter no Ubuntu Server;<br>
@@ -44,7 +44,7 @@ Conteúdo estudado nessa implementação:<br>
 #23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows;<br>
 #24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus;<br>
 #25_ Integrando o Prometheus no Grafana Server;<br>
-#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>o.
+#26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**.<br>
 
 Site Oficial do Prometheus: https://prometheus.io/<br>
 
@@ -58,24 +58,33 @@ Link da vídeo aula: https://www.youtube.com/watch?v=0h6le4K6uEQ
 
 ## 01_ Criando os Grupos e os Usuários do Prometheus e do Node Exporter no Ubuntu Server
 ```bash
-#criação do grupo e usuário de serviço do Prometheus
-#opção do comando useradd: -s (shell), -g (group) 
+#criação do grupo do serviço do Prometheus
+#opção do comando groupadd: --system (Create a system group)
 sudo groupadd --system prometheus
+
+#criando o usuário do serviço do Prometheus
+#opções do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), 
+#--system (Create a system account). -g (group) 
 sudo useradd -s /sbin/nologin --no-create-home --system -g prometheus prometheus
 
-#criação do grupo e usuário de serviço do Node Exporter
-#opção do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), --system 
-#(Create a system account). -g (group) 
-#opções do comando usermod: -a (append), -G (groups)
+#criando o grupo do serviço do Node Exporter
+#opção do comando groupadd: --system (Create a system group)
 sudo groupadd --system node_exporter
+
+#criando o usuário do serviço do Node Exporter
+#opções do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), 
+#--system (Create a system account). -g (group) 
 sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_exporter
+
+#adicionando o usuário do serviço do Node Exporter no grupo do Prometheus
+#opções do comando usermod: -a (append), -G (groups)
 sudo usermod -a -G prometheus node_exporter
 ```
 
-## 02_ Criando os diretórios do Prometheus e Node Exporter no Ubuntu Server
+## 02_ Criando os diretórios do Prometheus e do Node Exporter no Ubuntu Server
 ```bash
-#criando o diretório de configuração e bibliotecas do Prometheus
-#opção do comando mkdir: =p (parents), -v (verbose)
+#criando os diretórios de configuração e bibliotecas do Prometheus e do Node Exporter
+#opção do comando mkdir: -p (parents), -v (verbose)
 sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 ```
 
@@ -101,7 +110,7 @@ ls -lh prometheus*
 tar -zxvf prometheus*.tar.gz 
 ```
 
-## 05_ Atualizando os arquivos de configuração do Prometheus no Ubuntu Server
+## 05_ Atualizando os arquivos executáveis do Prometheus no Ubuntu Server
 ```bash
 #atualizando os arquivos de configurações do Prometheus
 #opção do comando cp: -R (recursive), -v (verbose)
@@ -155,7 +164,7 @@ ls -lh node_exporter*
 tar -zxvf node_exporter*.tar.gz 
 ```
 
-## 10_ Atualizando os arquivos de configuração do Node Exporter no Ubuntu Server
+## 10_ Atualizando os arquivos de executáveis do Node Exporter no Ubuntu Server
 ```bash
 #atualizando os arquivos de configurações do Node Exporter
 #opção do comando cp: -R (recursive), -v (verbose)
@@ -192,6 +201,8 @@ sudo chmod -Rv 775 /usr/local/bin/node_exporter
 ## 13_ Habilitando o Serviço do Node Exporter no Ubuntu Server
 ```bash
 #habilitando o serviço do Node Exporter
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), start (Start (activate) one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
@@ -200,6 +211,9 @@ sudo systemctl start node_exporter
 ## 14_ Verificando o Serviço e Versão do Node Exporter no Ubuntu Server
 ```bash
 #verificando o serviço do Node Exporter
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status node_exporter
 sudo systemctl restart node_exporter
 sudo systemctl stop node_exporter
@@ -260,6 +274,8 @@ ESC SHIFT : x <Enter>
 ## 17_ Habilitando o Serviço do Prometheus no Ubuntu Server 
 ```bash
 #habilitando o serviço do Prometheus
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), start (Start (activate) one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable prometheus
 sudo systemctl start prometheus
@@ -268,6 +284,9 @@ sudo systemctl start prometheus
 ## 18_ Verificando o Serviço e Versão do Prometheus no Ubuntu Server 
 ```bash
 #verificando o serviço do Prometheus
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status prometheus
 sudo systemctl restart prometheus
 sudo systemctl stop prometheus
@@ -299,10 +318,22 @@ sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
 ## 20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter no Ubuntu Server 
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G prometheus $USER
 sudo usermod -a -G node_exporter $USER
-newgrp prometheus node_exporter
+
+#fazendo login em um novo grupo do Prometheus e Node Exporter
+newgrp prometheus
+newgrp node_exporter
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo PROMETHEUS e NODE_EXPORTER do Prometheus e Node Exporter
+#opção do comando getent: group (the database system group)
+sudo getent group prometheus
+sudo getent group node_exporter
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
@@ -380,14 +411,14 @@ Menu
 #acessando o diretório de Download do Perfil do Usuário
 cd c:\user\vaamonde\Download
 
-#instalando o Node Exporter
+#instalando o Node Exporter no Windows 10
 #opção do comando msiexec: -i (install)
 msiexec -i windows_exporter*.msi ENABLED_COLLECTORS=cpu,memory,net,logical_disk,os,system,logon,thermalzone
 
 #verificando o status de serviço do Node Exporter
 Get-Service 'windows_exporter'
 
-#verificando a porta de conexão do Node Exporter
+#verificando a porta padrão TCP-9182 do Node Exporter
 #opção do comando netstat: -a (All connections), -n (addresses and port numbers)
 netstat -an | findstr 9182
 ```
@@ -397,15 +428,17 @@ netstat -an | findstr 9182
 **OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no GNU/Linux Mint, Link de referência do download: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
-#criação do grupo e usuário de serviço do Node Exporter
-#opção do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), --system 
-#(Create a system account). -g (group) 
-#opções do comando usermod: -a (append), -G (groups)
+#criando o grupo do serviço do Node Exporter
+#opção do comando groupadd: --system (Create a system group)
 sudo groupadd --system node_exporter
+
+#criando o usuário do serviço do Node Exporter
+#opções do comando useradd: -s (shell), --no-create-home (Do no create the user's home directory), 
+#--system (Create a system account). -g (group) 
 sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_exporter
 
-#criando o diretório de configuração e bibliotecas do Prometheus
-#opção do comando mkdir: =p (parents), -v (verbose)
+#criando os diretórios de configuração e bibliotecas do Prometheus e do Node Exporter
+#opção do comando mkdir: -p (parents), -v (verbose)
 sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 ```
 
@@ -425,7 +458,7 @@ ls -lh node_exporter*
 #opção do caractere curinga * (asterisco): Qualquer coisa
 tar -zxvf node_exporter*.tar.gz 
 
-#atualizando os arquivos de configurações do Node Exporter
+#atualizando os arquivos executáveis do Node Exporter
 #opção do comando cp: -R (recursive), -v (verbose)
 #opção do caractere curinga * (asterisco): Qualquer coisa
 sudo cp -Rv node_exporter*/node_exporter /usr/local/bin/
@@ -451,6 +484,8 @@ sudo chown -Rv node_exporter:node_exporter /etc/prometheus/node_exporter.conf
 sudo chmod -Rv 775 /usr/local/bin/node_exporter
 
 #habilitando o serviço do Node Exporter
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), start (Start (activate) one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
@@ -458,13 +493,14 @@ sudo systemctl start node_exporter
 #verificando a versão do Node Exporter
 sudo node_exporter --version
 
+#verificando a porta padrão TCP-900 do Node Exporter
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 ```
 
 ## 24_ Habilitando o monitoramento do Linux Mint e Windows no Prometheus
 ```bash
-#arquivo de configuração padrão do Prometheus
+#editando o arquivo de configuração padrão do Prometheus
 sudo vim /etc/prometheus/prometheus.yml
 
 #entrando no modo de edição do editor de texto VIM
@@ -488,6 +524,8 @@ scrape_configs:
 ESC SHIFT : x <Enter>
 
 #verificando o serviço do Prometheus
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart prometheus
 sudo systemctl status prometheus
 
@@ -524,20 +562,21 @@ Open Menu
         Data source: prometheus-wsvaamonde
 ```
 
-## 26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+## 26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install stress-ng s-tui
 
 #verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
 sudo stress-ng --version
 sudo s-tui --version
 
-#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#verificando a carga atual do servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 #HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
 sudo uptime
 
-#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#verificando o desempenho do servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo top
 
 #estressando a CPU, RAM, DISK e PROCESS utilizando o stress-ng (pressione Ctrl+C para abortar)
@@ -552,7 +591,7 @@ sudo top
 sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --timeout 900s
 
 #parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+sudo systemctl stop tomcat11.service mongod.service netdata.service webmin.service
 
 #fazendo uma busca no hard disk utilizando o comando find e grep (NÃO COMENTADO NO VÍDEO)
 #opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 

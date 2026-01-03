@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 01/10/2025<br>
-#Versão: 0.14<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.15<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -29,15 +29,15 @@ Site Oficial do Ubuntu CVE: https://ubuntu.com/security/cves<br>
 Site Oficial do Ubuntu Membership: https://wiki.ubuntu.com/Membership
 
 Conteúdo estudado nessa configuração:<br>
-#01_ Verificando as Informações do Sistema Operacional Ubuntu Server<br>
-#02_ Atualizando o Sistema Operacional Ubuntu Server<br>
-#03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server<br>
-#04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal<br>
-#05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server<br>
-#06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server<br>
-#07_ Verificando os repositórios de origem das atualizações no Ubuntu Server<br>
-#08_ Habilitando outros Serviços do Ubuntu Pro de Atualização<br>
-#09_ Atualizando o sistema com o suporte do Ubuntu Pro no Ubuntu Server<br>
+#01_ Verificando as Informações do Sistema Operacional Ubuntu Server;<br>
+#02_ Atualizando o Sistema Operacional Ubuntu Server;<br>
+#03_ Criando sua conta no Ubuntu One para registrar o Ubuntu Pro no Ubuntu Server;<br>
+#04_ Criando uma Assinatura do Ubuntu Pro Free para uso Pessoal;<br>
+#05_ Verificando a versão do Ubuntu Advantage Tools no Ubuntu Server;<br>
+#06_ Ativando a sua Assinatura do Ubuntu Pro no Ubuntu Server;<br>
+#07_ Verificando os repositórios de origem das atualizações no Ubuntu Server;<br>
+#08_ Habilitando outros Serviços do Ubuntu Pro de Atualização;<br>
+#09_ Atualizando o sistema com o suporte do Ubuntu Pro no Ubuntu Server.<br>
 
 **O QUE É E PARA QUE SERVER O UBUNTU PRO:** O Ubuntu Pro é uma versão do Ubuntu oferecida pela Canonical para nuvens públicas, focada em uso empresarial e de produção. Ele é baseado em componentes do Ubuntu, mas vem com um conjunto de serviços adicionais que são ativados prontos para uso. O Ubuntu Pro também fornece Extended Security Maintenance (ESM).
 
@@ -94,6 +94,14 @@ Entendendo a saída do arquivo: __`lsb-release`__ (NÃO COMENTADO NO VÍDEO)<br>
 
 ```bash
 #atualização completa do Ubuntu Server antes de instalar e configurar o Ubuntu Pro
+#opções do comando apt: update (Resynchronize the package index files from their sources), upgrade 
+#(Install the newest versions of all packages currently installed on the system from the sources 
+#enumerated in /etc/apt/sources.list.), full-upgrade (Perform the function of upgrade but may also 
+#remove installed packages if that is required in order to resolve a package conflict), dist-upgrade 
+#(dist-upgrade in addition to performing the function of upgrade, also intelligently handles changing 
+#dependencies with new versions of packages), autoremove (Autoremove is used to remove packages that 
+#were automatically installed to satisfy dependencies), autoclean (Like clean, autoclean clears out 
+#the local repository of retrieved package files)
 sudo apt update
 sudo apt upgrade
 sudo apt full-upgrade
@@ -211,7 +219,16 @@ sudo pro status
 **OBSERVAÇÃO IMPORTANTE:** após adicionar a licença do *Ubuntu Pro* é recomendado fazer um upgrade completo do sistema para testar o *Token* e as novas listas do **sources.list** do Ubuntu Pro.
 
 ```bash
-#atualizando o sistema operacional com suporte ao Ubuntu Pro
+#forçando uma atualização do sistema operacional com suporte do Ubuntu Pro habilitado
+#opções do comando apt: update (Resynchronize the package index files from their sources), upgrade 
+#(Install the newest versions of all packages currently installed on the system from the sources 
+#enumerated in /etc/apt/sources.list.), full-upgrade (Perform the function of upgrade but may also 
+#remove installed packages if that is required in order to resolve a package conflict), dist-upgrade 
+#(dist-upgrade in addition to performing the function of upgrade, also intelligently handles changing 
+#dependencies with new versions of packages), autoremove (Autoremove is used to remove packages that 
+#were automatically installed to satisfy dependencies), autoclean (Like clean, autoclean clears out 
+#the local repository of retrieved package files), clean (clean clears out the local repository of 
+#retrieved package files)
 sudo apt clean
 sudo apt update
 sudo apt upgrade
@@ -219,5 +236,7 @@ sudo apt full-upgrade
 sudo apt dist-upgrade
 sudo apt autoremove
 sudo apt autoclean
+
+#reiniciando o sistema para aplicar as mudanças
 sudo reboot
 ```

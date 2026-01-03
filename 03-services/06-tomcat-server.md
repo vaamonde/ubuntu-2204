@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 24/11/2025<br>
-#Versão: 0.33<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.34<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat11 realizado com sucesso!!! #BoraParaPrática*
 
@@ -35,7 +35,7 @@ Conteúdo estudado nesse desafio:<br>
 #14_ Testando o acesso ao Apache Tomcat Server no navegador;<br>
 #15_ Administrando o Apache Tomcat Server via navegador;<br>
 #16_ Conhecendo as opções de gerenciamento do Apache Tomcat Server via navegador;<br>
-#17_ Desafios do Servidor de Aplicação Apache TomCAT Server.<br>
+#17_ Desafios do Servidor de Aplicação Apache Tomcat Server.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -74,9 +74,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Java OpenJDK e OpenJRE utilizadas no Apache Tomcat
+#opção do comando apt: install (install is followed by one or more package names)
 #OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle
 #OBSERVAÇÃO: OpenJRE é um software necessário para que os programas em Java funcionem corretamente.
 sudo apt install git vim openjdk-25-jdk openjdk-25-jre software-properties-common build-essential
@@ -170,7 +172,7 @@ wget -v -O /etc/systemd/system/tomcat11.service https://raw.githubusercontent.co
 
 ## 06_ Criando o Usuário de Serviço do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
-#criando o usuário de serviço do Apache TomCAT
+#criando o usuário de serviço do Apache Tomcat Server
 #opção do comando useradd: -m (create-home), -d (home-dir), -U (user-group), -s (shell)
 useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 ```
@@ -189,7 +191,7 @@ chmod -Rv u+x /opt/tomcat/bin
 ## 08_ Habilitando o Serviço do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
 #habilitando o serviço do Apache Tomcat Server
-#opção do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
 #enable (Enable one or more units), start (Start (activate) one or more units)
 systemctl daemon-reload
 systemctl enable tomcat11
@@ -210,7 +212,7 @@ sudo systemctl restart tomcat11
 sudo systemctl stop tomcat11
 sudo systemctl start tomcat11
 
-#analisando os Log's e mensagens de erro do Servidor do TomCAT (NÃO COMENTADO NO VÍDEO)
+#analisando os Log's e mensagens de erro do Servidor do Tomcat (NÃO COMENTADO NO VÍDEO)
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu tomcat11
 

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 13/05/2025<br>
-#Versão: 0.26<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WAR-TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do War-Tomcat realizado com sucesso!!! #BoraParaPrática*
 
@@ -20,13 +20,13 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/07-tomcat-
 
 Conteúdo estudado nesse desafio:<br>
 #01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE;<br>
-#02_ Acessando o Apache TomCAT Server pelo Navegador;<br>
-#03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache TomCAT Server;<br>
+#02_ Acessando o Apache Tomcat Server pelo Navegador;<br>
+#03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache Tomcat Server;<br>
 #04_ Criando a Base de Dados no MySQL Server do projeto da Agenda em Java;<br>
 #05_ Testando o acesso a Base de Dados DBAgenda com o usuário dbagenda;<br>
 #06_ Acessando novamente a Aplicação Agenda via Navegador e adicionando Registros;<br>
 #07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Serve;<br>
-#08_ Desafio de Deploy de Aplicações Java Web no Apache TomCAT Server.<br>
+#08_ Desafio de Deploy de Aplicações Java Web no Apache Tomcat Server.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
 Site Oficial do Apache Tomcat: https://tomcat.apache.org/<br>
@@ -85,13 +85,13 @@ LINK DE DOWNLOAD DO NOVO ARQUIVO WAR: https://github.com/vaamonde/ubuntu-2204/tr
 A) Arquivo: __`agenda.war`__ versão antiga atualizada pela Prof(a). Sirlene Sanches;<br>
 B) Arquivo: __`agenda_bootstrap.war`__ versão nova atualizada pela Prof(a). Sirlene Sanches.<br>
 
-## 02_ Acessando o Apache TomCAT Server pelo Navegador
+## 02_ Acessando o Apache Tomcat Server pelo Navegador
 ```bash
-#utilizar os navegadores para testar o WAR TomCAT
+#utilizar os navegadores para testar o WAR do Apache Tomcat Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080
 ```
 
-## 03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache TomCAT Server
+## 03_ Fazendo o Deploy da Aplicação Agenda de Contatos no Apache Tomcat Server
 ```bash
 Clique em: Manager App
   Usuário padrão: admin
@@ -114,7 +114,7 @@ Clique em: <Acessar>
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda de Contatos em JavaEE
 ```bash
-#litando o conteúdo do diretório Webapps do Apache Tomcat
+#litando o conteúdo do diretório Webapps do Apache Tomcat Server
 #opção do comando ls: -l (long listing format), -h (human-readable)
 ls -lh /opt/tomcat/webapps
 ```
@@ -181,7 +181,7 @@ exit
 
 ## 06_ Acessando novamente a Aplicação DBAgenda via Navegador e adicionando Registros
 ```bash
-#utilizar os navegadores para testar o WAR do Apache TomCAT
+#utilizar os navegadores para testar o WAR do Apache Tomcat Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 Clique em: <Acessar>
@@ -239,7 +239,7 @@ exit
 **OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DBAGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS (TRUNCADOS) DO BANCO DE DADOS.
 
 ```bash
-#utilizar os navegadores para testar o WAR do Apache TomCAT
+#utilizar os navegadores para testar o WAR do Apache Tomcat Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 
 Clique em: <Acessar>

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 01/10/2025<br>
-#Versão: 0.29<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.30<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -27,7 +27,7 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Habilitando os módulos do Apache2 Server utilizados pelo CMS WordPress no Ubuntu Server;<br>
 #07_ Testando e configurando o CMS Wordpress via Terminal e Navegador;<br>
 #08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores;<br>
-#09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress<br>
+#09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress;<br>
 #10_ Desafio de Postagem, Temas e Plugins do CMS WordPress.<br>
 
 Site Oficial do Apache2: https://httpd.apache.org/<br>
@@ -56,7 +56,7 @@ x.AI Grok: https://grok.com/<br>
 **PERGUNTA PARA A IA**
 ```bash
 Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? 
-           Qual o seu percentual de uso para aplicações emergentes.
+Qual o seu percentual de uso para aplicações emergentes.
 ```
 
 **O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo *CMS (Content Management System)* de código aberto, amplamente utilizado para criar, editar e gerenciar **Sites**, **Blogs** e **E-Commerce** de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em *PHP* e utiliza o *MySQL ou MariaDB* como banco de dados.
@@ -149,20 +149,18 @@ exit
 
 ## 03_ Fazendo o download do WordPress e descompactando no diretório padrão do Apache2 Server no Ubuntu Server
 ```bash
-#acessando diretório temporário do Ubuntu Server
-cd /tmp
-
 #fazendo o download do WordPress do site Oficial do Brasil
-#opção do comando wget: -O (output-document)
-wget -O wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
+#opção do comando wget: -v (verbose), -O (output file)
+wget -v -O /tmp/wordpress.zip https://br.wordpress.org/latest-pt_BR.zip 
 
 #descompactando o arquivo do WordPress
-unzip wordpress.zip
+#opção do comando unzip: -d (An  optional  directory  to which to extract files)
+unzip /tmp/wordpress.zip -d /tmp
 
 #OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DO DESTINO CONFORME NECESSIDADE
 #movendo o conteúdo do WordPress para o diretório do Apache2 Server
 #opção do comando mv: -v (verbose)
-sudo mv -v wordpress/ /var/www/html/wp/
+sudo mv -v /tmp/wordpress/ /var/www/html/wp/
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS PARA APLICAR DE FORMA CORRETA AS MUDANÇAS DAS PERMISSÕES CONFORME A SUA NECESSIDADE.
@@ -170,7 +168,7 @@ sudo mv -v wordpress/ /var/www/html/wp/
 ```bash
 #alterando as permissões dos diretórios e arquivos do WordPress
 
-#alterando do dono e grupo padrão do diretório do Worpress
+#alterando do dono e grupo padrão do diretório do WordPress
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
 sudo chown -Rfv www-data.www-data /var/www/html/wp/
 
@@ -331,7 +329,7 @@ Configurações
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 ```
 
-## 09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress.
+## 09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress (SOMENTE SE NECESSÁRIO).
 
 **OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na *tabela de configuração do Wordpress no MySQL Server*, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 

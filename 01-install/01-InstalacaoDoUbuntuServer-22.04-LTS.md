@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 16/09/2025<br>
-Versão: 0.24<br>
+Data de atualização: 03/01/2026<br>
+Versão: 0.25<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -26,12 +26,12 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado nessa instalação:<br>
-#01_ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS<br>
-#02_ Segunda etapa: Criação da Máquina Virtual do UbuntuWebserver no Oracle VirtualBOX<br>
-#03_ Terceira Etapa: Configurações da Máquina Virtual do UbuntuWebserver<br>
-#04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO)<br>
-#05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS<br>
-#06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal<br>
+#01_ Primeira etapa: Download da ISO do Ubuntu Server 22.04.x LTS;<br>
+#02_ Segunda etapa: Criação da Máquina Virtual do UbuntuWebserver no Oracle VirtualBOX;<br>
+#03_ Terceira Etapa: Configurações da Máquina Virtual do UbuntuWebserver;<br>
+#04_ Quarta Etapa: Iniciando a Instalação do Ubuntu Server 22.04.x LTS (localizar a ISO);<br>
+#05_ Quinta Etapa: Instalação e Configuração do Ubuntu Server 22.04.x LTS;<br>
+#06_ Sexta Etapa: Acessando o Ubuntu Server pela primeira vez via Terminal.<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -42,10 +42,12 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: Qual sistema operacional que mais se destacada em serviços para Web Site Local (on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
+Prompt-01: Qual sistema operacional que mais se destacada em serviços para Web Site Local
+(on-premises) e Cloud (nuvem) no Brasil e no Mundo, por que ele é o mais usado?
 ```
 ```bash
-Prompt-02: Qual distribuição GNU/Linux lidera o mercado de servidores Locais (on-premises) e Nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
+Prompt-02: Qual distribuição GNU/Linux lidera o mercado de servidores Locais (on-premises)
+e Nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais usadas?
 ```
 ```bash
 Prompt-03: Quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.17<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.18<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -32,7 +32,7 @@ Conteúdo estudado nessa implementação:<br>
 #11_ Criando um Data Sources do MySQL Server no Grafana Server;<br>
 #12_ Criando um Dashboard do Banco de Dados DBAgenda;<br>
 #13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana no Ubuntu Server;<br>
-#14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico.<br>
+#14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**.<br>
 
 Site Oficial do Grafana: https://grafana.com/<br>
 
@@ -45,9 +45,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 ## 01_ Instalando as Dependências do Grafana Server no Ubuntu Server
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Grafana Server
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install apt-transport-https software-properties-common git vim
 ```
 
@@ -70,15 +72,21 @@ echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com st
 ## 03_ Instalando o Grafana Server no Ubuntu Server
 ```bash
 #atualizando as listas do Apt com o novo repositório
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Grafana
-#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opções do comando apt: install (install is followed by one or more package names), 
+#--install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends grafana
 ```
 
 ## 04_ Editando os arquivos de configuração do Grafana Server no Ubuntu Server
 ```bash
+#fazendo o backup do arquivo de configuração do Grafana Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/default/grafana-server /etc/default/grafana-server.old
+
 #editando o arquivo de configuração do Grafana Server
 sudo vim /etc/default/grafana-server
 
@@ -121,6 +129,8 @@ ESC SHIFT : x <Enter>
 ## 05_ Habilitando o Serviço do Grafana Server no Ubuntu Server
 ```bash
 #habilitando o serviço do Grafana Server
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable grafana-server
 sudo systemctl restart grafana-server
@@ -129,12 +139,15 @@ sudo systemctl restart grafana-server
 ## 06_ Verificando o Serviço e Versão do Grafana Server no Ubuntu Server
 ```bash
 #verificando o serviço do Grafana Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status grafana-server
 sudo systemctl restart grafana-server
 sudo systemctl stop grafana-server
 sudo systemctl start grafana-server
 
-#analisando os Log's e mensagens de erro do Servidor do Grafana
+#analisando os Log's e mensagens de erro do Servidor do Grafana Server
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t grafana
 sudo journalctl -xeu grafana-server
@@ -145,8 +158,10 @@ sudo journalctl -xeu grafana-server
 ```bash
 #verificando a versão do Grafana Server
 #opção do comando grafana-server: -v (version)
-#opção do comando grafana-cli: -v (version)
 sudo grafana-server -v
+
+#verificando a versão do Grafana Cli
+#opção do comando grafana-cli: -v (version)
 sudo grafana-cli -v
 ```
 
@@ -165,9 +180,19 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 ## 08_ Adicionado o Usuário Local no Grupo Padrão do Grafana Server no Ubuntu Server
 ```bash
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
+#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
+#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G grafana $USER
+
+#fazendo login em um novo grupo do Grafana Server
 newgrp grafana
+
+#verificando os identificadores de usuário e grupos
 id
+
+#verificando informações do grupo GRAFANA do Grafana Server
+#opção do comando getent: group (the database system group)
+sudo getent group grafana
 
 #recomendo fazer logout do usuário para testar as permissões de grupos
 #OBSERVAÇÃO: você pode utilizar o comando: exit ou tecla de atalho: Ctrl +D
@@ -198,8 +223,8 @@ Welcome to Grafana
 
 #atualizar a senha do usuário do Grafana Server
 Update your password
-  New password: pti@2018
-  Confirm new password: pti@2018 
+  New password: SUA_SENHA_SEGURA
+  Confirm new password: SUA_SENHA_SEGURA 
 <Submit>
 ```
 
@@ -282,9 +307,12 @@ Open Menu
 ## 13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana no Ubuntu Server
 ```bash
 #instalando o Plugin do Zabbix Server no Grafana
+#opções do comando grafana-cli: plugins (), install ()
 sudo grafana-cli plugins install alexanderzobnin-zabbix-app
 
 #reiniciar o serviço do Grafana Server
+#opções do comando systemctl: restart (Stop and then start one or more units), status 
+#(runtime status information)
 sudo systemctl restart grafana-server
 sudo systemctl status grafana-server
 ```
@@ -347,20 +375,21 @@ Open Menu
       #gráfico de utilização da NETWORK
 ```
 
-## 14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico
+## 14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
 ```bash
 #instalando o software stress-ng e s-tui no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install stress-ng s-tui
 
 #verificando a versão do stress-ng e do s-tui (NÃO COMENTADO NO VÍDEO)
 sudo stress-ng --version
 sudo s-tui --version
 
-#verificando a carga atual do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#verificando a carga atual do servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 #HORA ATUAL | TEMPO DE ATIVIDADE | NÚMERO DE USUÁRIOS LOGADOS | MÉDIA DE CARGA CPU 1=100% - (1M) (5M) (15M)
 sudo uptime
 
-#verificando o desempenho do servidor Ubuntu (NÃO COMENTADO NO VÍDEO)
+#verificando o desempenho do servidor Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 sudo top
 
 #estressando a CPU, RAM, DISK e PROCESS utilizando o stress-ng (pressione Ctrl+C para abortar)
@@ -375,7 +404,7 @@ sudo top
 sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --timeout 900s
 
 #parando alguns serviços do Ubuntu Server (NÃO COMENTADO NO VÍDEO)
-sudo systemctl stop tomcat10.service mongod.service netdata.service webmin.service
+sudo systemctl stop tomcat11.service mongod.service netdata.service webmin.service
 
 #fazendo uma busca no hard disk utilizando o comando find e grep (NÃO COMENTADO NO VÍDEO)
 #opções do comando find: / (root device), -type f (files), -exec (exec command), grep -H 

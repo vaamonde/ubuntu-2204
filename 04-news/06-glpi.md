@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 01/10/2025<br>
-#Versão: 0.14<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.15<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
@@ -52,13 +52,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
 ```bash
-#instalando as dependências do GLPI Help Desk
+#instalando as dependências do GLPI Help Desk no Ubuntu Server
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install php-curl php-gd php-intl php-pear php-imagick php-imap php-memcache php-pspell \
 php-mysql php-tidy php-xmlrpc php-mbstring php-ldap php-cas php-apcu php-json php-xml php-cli \
@@ -76,10 +78,13 @@ xz-utils libgs9 libgs9-common php-opcache php-dev pwgen libmcrypt-dev zlib1g zli
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 sudo mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root -p mysql
 
-#reiniciar o serviço do MySQL Server 
+#reiniciar o serviço do MySQL Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart mysql
 sudo systemctl status mysql
 
+#acessando o MySQL Server utilizando o usuário Root
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
@@ -148,9 +153,9 @@ Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/glp
 #acessando diretório temporário do Ubuntu Server
 cd /tmp
 
-#download da última versão do GLPI Help Desk (link atualizado em 26/09/2025)
+#download da última versão do GLPI Help Desk (link atualizado em 03/01/2026)
 #opção do comando wget: -v (verbose), -O (output file)
-wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.20/glpi-10.0.20.tgz
+wget -v -O glpi.tgz https://github.com/glpi-project/glpi/releases/download/10.0.22/glpi-10.0.22.tgz
 ```
 
 ## 04_ Descompactando e instalando o GLPI Help Desk no Apache2 Server no Ubuntu Server
@@ -162,31 +167,44 @@ tar -xzvf glpi.tgz
 #movendo o conteúdo do diretório do GLPI Help Desk para o diretório /var/www/html
 #opção do comando mv: -v (verbose)
 sudo mv -v glpi/ /var/www/html/
+```
 
-#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
-#alterando as permissões dos diretórios e arquivos do GLPI Help Desk
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
+
+```bash
+#alterando as permissões de dono e grupo dos diretórios e arquivos do GLPI Help Desk
 #opção do comando chown: -R (recursive), -f (silent), -v (verbose), www-data (user), www-data (group)
+sudo chown -Rfv www-data.www-data /var/www/html/glpi/
+
+#localizando e alterando as permissões dos diretórios do GLPI Help Desk
 #opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
 #opção do comando chmod: -v (verbose), 755 (Dono=RWX, Grupo=R-X, Outros=R-X)
-#opção do comando chmod: -v (verbose), 644 (Dono=RW-, Grupo=R--, Outros=R--)
-#opção do comando chmod: -R (recursive), -v (verbose), 777 (Dono=RWX, Grupo=RWX, Outros=RWX)
-#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em loop
-sudo chown -Rfv www-data.www-data /var/www/html/glpi/
+#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em looping
 sudo find /var/www/html/glpi/. -type d -exec chmod -v 755 {} \;
+
+#localizando e alterando as permissões dos arquivos do GLPI Help Desk
+#opção do comando find: . (path), -type d (directory), , type f (file), -exec (execute command)
+#opção do comando chmod: -v (verbose), 644 (Dono=RW-, Grupo=R--, Outros=R--)
+#opção do comando {} \;: executa comandos em lote e aplica as permissões para cada arquivo/diretório em looping
 sudo find /var/www/html/glpi/. -type f -exec chmod -v 644 {} \;
+
+#alterando as permissões do diretório de configuração do GLPI Help Desk
+#opção do comando chmod: -v (verbose), 775 (Dono=RWX, Grupo=RWX, Outros=R-X)
 sudo chmod -Rv 775 /var/www/html/glpi/config/
+
+#alterando as permissões do diretório de arquivos e logs do GLPI Help Desk
+#opção do comando chmod: -R (recursive), -v (verbose), 777 (Dono=RWX, Grupo=RWX, Outros=RWX)
 sudo chmod -Rv 777 /var/www/html/glpi/files/_log
 ```
 
 ## 05_ Atualizando os Arquivos de Configuração do GLPI Help Desk no Ubuntu Server
 ```bash
-#download dos principais arquivos de configuração do GLPI Help Desk
+#download do arquivo de configuração do Virtual Host do Apache2 do GLPI Help Desk
 #opção do comando wget: -v (verbose), -O (output file)
-
-#download do arquivo de configuração do GLPI Help Desk
 sudo wget -v -O /etc/apache2/conf-available/glpi.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/glpi.conf
 
 #download do arquivo de agendamento do CRON GLPI Help Desk
+#opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/cron.d/glpi-cron https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/glpi-cron
 ```
 
@@ -299,6 +317,8 @@ sudo apachectl configtest
 sudo a2enconf glpi.conf
 
 #reiniciar o serviço do Apache2 Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart apache2
 sudo systemctl status apache2
 
@@ -414,9 +434,11 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8888/front/inventor
 
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Agent do GLPI Help Desk
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install libfile-which-perl liblwp-useragent-determined-perl libnet-ip-perl \
 libtext-template-perl libuniversal-require-perl libxml-treepp-perl libcpanel-json-xs-perl \
@@ -435,7 +457,7 @@ hdparm 7zip
 #baixando o Agent do GLPI do Github (link atualizado em: 26/09/2025)
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.15/glpi-agent_1.15-1_all.deb
 
-#instalando o Agent do GLPI Help Desk
+#instalando o Agent do GLPI Help Desk no Ubuntu Server
 #opção do comando dpkg: -i (install)
 sudo dpkg -i glpi-agent*.deb
 
@@ -463,6 +485,8 @@ tag = ServerLinux
 ESC SHIFT : x <Enter>
 
 #reiniciando o serviço do Agent do GLPI Help Desk
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units)
 sudo systemctl restart glpi-agent
 sudo systemctl status glpi-agent
 
@@ -482,9 +506,11 @@ sudo glpi-agent
 
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Agent do GLPI Help Desk
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install libfile-which-perl liblwp-useragent-determined-perl libnet-ip-perl \
 libtext-template-perl libuniversal-require-perl libxml-treepp-perl libcpanel-json-xs-perl \

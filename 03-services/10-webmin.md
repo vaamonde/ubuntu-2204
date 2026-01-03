@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 20/04/2023<br>
-#Data de atualização: 01/06/2025<br>
-#Versão: 0.18<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.19<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WEBMIN SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Webmin realizado com sucesso!!! #BoraParaPrática*
 
@@ -50,9 +50,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 ## 01_ Instalando as Dependências do Webmin no Ubuntu Server
 ```bash
 #atualizando as lista do apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do Webmin
+#opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime \
 libio-pty-perl apt-show-versions python2 python3 unzip apt-transport-https libdbi-perl \
@@ -73,10 +75,12 @@ sudo sh setup-repos.sh
 ## 03_ Instalando o Webmin no Ubuntu Server
 ```bash
 #atualizando as lista do apt com o novo repositório do Webmin
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando o Webmin
-#opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
+#opções do comando apt: install (install is followed by one or more package names), 
+#--install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends webmin
 ```
 
@@ -111,6 +115,8 @@ sudo journalctl -xeu webmin
 
 ```bash
 #verificando a versão do Webmin
+#opções do comando apt: list (list is used to display a list of packages), --installed (list
+#installed packet)
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 sudo apt list --installed | grep -i webmin 

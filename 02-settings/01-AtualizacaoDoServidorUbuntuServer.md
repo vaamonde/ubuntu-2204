@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 24/06/2025<br>
-#Versão: 0.08<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.09<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -23,17 +23,17 @@ Ciclo de Lançamento do Ubuntu Server: https://ubuntu.com/about/release-cycle<br
 Releases All Ubuntu Server: https://wiki.ubuntu.com/Releases
 
 Conteúdo estudado nessa atualização:<br>
-#01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server<br>
-#02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server<br>
-#03_ Atualizando todos os software no Ubuntu Server<br>
-#04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server<br>
-#05_ Forçando uma atualização e remoção de software desnecessários no Ubuntu Server<br>
-#06_ Removendo pacotes desnecessários no Ubuntu Server<br>
-#07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server<br>
-#08_ Limpando o cache local do sources.list no Ubuntu Server<br>
-#09_ Verificando todas as versões de softwares atualizados no Ubuntu Server<br>
-#10_ Verificando os Logs de atualização de software no Ubuntu Server<br>
-#11_ Reiniciando o sistema operacional do Ubuntu Server<br>
+#01_ Atualizando as Listas sources.list do Apt ou Apt-Get no Ubuntu Server;<br>
+#02_ Verificando todos os pacotes a serem utilizados no Ubuntu Server;<br>
+#03_ Atualizando todos os software no Ubuntu Server;<br>
+#04_ Forçando uma atualização completa de todos os software e dependências no Ubuntu Server;<br>
+#05_ Forçando uma atualização e remoção de software desnecessários no Ubuntu Server;<br>
+#06_ Removendo pacotes desnecessários no Ubuntu Server;<br>
+#07_ Fazendo a limpeza dos repositórios locais e pacotes desnecessários no Ubuntu Server;<br>
+#08_ Limpando o cache local do sources.list no Ubuntu Server;<br>
+#09_ Verificando todas as versões de softwares atualizados no Ubuntu Server;<br>
+#10_ Verificando os Logs de atualização de software no Ubuntu Server;<br>
+#11_ Reiniciando o sistema operacional do Ubuntu Server.<br>
 
 **O QUE É E PARA QUE SERVER O APT-GET OU APT:** O apt-get e o apt são ferramentas de linha de comando no sistema operacional Ubuntu (e outras distribuições baseadas em Debian) para gerenciar pacotes de software. Ambos são usados para instalar, atualizar, remover e consultar pacotes de software no sistema.
 
