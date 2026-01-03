@@ -120,7 +120,7 @@ sudo OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(tr -dc A-Z-a-z-0-9_@#%^-_=+ < /dev/uran
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/opensearch/opensearch.yml /etc/opensearch/opensearch.yml.old
 
-#atualizando o arquivo de configuração do OpenSSH Server do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
+#atualizando o arquivo de configuração do OpenSearch do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/opensearch/opensearch.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/opensearch.yml
 
@@ -131,19 +131,14 @@ sudo vim /etc/opensearch/opensearch.yml
 INSERT
 ```
 ```bash
-#descomentar e alterar o valor da variável cluster.name na linha: 17
+#alterar o valor da variável cluster.name na linha: 17
 cluster.name: graylog
 
-#descomentar e alterar o valor da variável node.name na linha: 23
+#alterar o valor da variável node.name na linha: 20
 node.name: wsvaamonde
 
-#descomentar e alterar o valor da variável network.host na linha: 55
+#alterar o valor da variável network.host na linha: 23
 network.host: 0.0.0.0
-
-#adicionar as opção abaixo no final do arquivo a partir da linha: 160
-discovery.type: single-node
-action.auto_create_index: false
-plugins.security.disabled: true
 ```
 ```bash
 #salvar e sair do arquivo
@@ -179,11 +174,17 @@ sudo sysctl -w vm.max_map_count=262144
 #opção do comando tee: -a (append)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
+
+#confirmando a alteração do valor de memória do JVM na inicialização do Kernel (NÃO COMENTADO NO VÍDEO)
+#opção do comando cat: -n (number line)
+#opção do comando grep: -i (ignore-case)
+#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
+sudo cat -n  /etc/sysctl.conf | grep -i vm.max_map_count
 ```
 
 ## 07_ Habilitando o Serviço do OpenSearch no Ubuntu Server
 ```bash
-#habilitando o serviço do OpenSearch
+#habilitando o serviço do OpenSearch no Ubuntu Server
 #opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
 #enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
@@ -283,6 +284,14 @@ echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut
 
 ## 13_ Editando o arquivo de configuração do Graylog Server no Ubuntu Server
 ```bash
+#fazendo o backup do arquivo de configuração do Graylog Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/graylog/server/server.conf /etc/graylog/server/server.conf.old
+
+#atualizando o arquivo de configuração do Graylog Server do Ubuntu Server do Github (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/graylog/server/server.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/server.conf
+
 #editando o arquivo de configuração do Graylog
 sudo vim /etc/graylog/server/server.conf
 
