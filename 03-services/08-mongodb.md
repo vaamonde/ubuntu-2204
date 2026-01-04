@@ -90,7 +90,7 @@ wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
 #opção do comando dpkg: -i (install), * (all - Qualquer coisa)
 sudo dpkg -i libssl*.deb
 
-#verificando a instalação da biblioteca Libssl no Ubuntu Server
+#verificando a instalação da biblioteca Libssl no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando dpkg: -l (list)
 sudo dpkg -l libssl1.1
 ```
@@ -295,7 +295,7 @@ db.createUser(
   {
     user: "admin",
     // altere a senha conforme a sua necessidade
-    pwd: "sua_senha",
+    pwd: "SUA_SENHA_SEGURA",
     // papeis que o usuário admin vai ter na base de dados
     roles: [
       { role: 'root', db: 'admin' },
