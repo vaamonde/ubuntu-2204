@@ -274,10 +274,11 @@ sudo apt install --install-recommends graylog-server
 #gerando a senha aleatório da variável: root_password_sha2 do Graylog Server
 #opção do comando echo: -n (do not output the trailing newline)
 #opção do comando head: -1 (lines)
-#opção do comando tr: -d (delete)
+#opção do comando tr: -d (delete), \n (line break)
 #opção do comando cut: -d (delimiter), -f (fields)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opção do redirecionador < (menor): Redireciona a entrada padrão (STDIN)
+#opção do operador lógico && (and): E lógico (AND)
 echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
   Enter Password: sua_senha
 ```
@@ -299,27 +300,27 @@ sudo vim /etc/graylog/server/server.conf
 INSERT
 ```
 ```bash
-#copiar e colar a senha da variável password_secret na linha: 57
+#alterando o valor da variável http_bind_address na linha: 18
+http_bind_address = 0.0.0.0:9000
+
+#copiar e colar a senha da variável password_secret na linha: 22
 password_secret = COLAR_SUA_SENHA_GERADA
 
-#copiar e colar a senha da variável root_password_sha2 na linha: 68
+#copiar e colar a senha da variável root_password_sha2 na linha: 26
 root_password_sha2 = COLAR_SUA_SENHA_GERADA
 
-#descomentar a alterar o valor da variável root_timezone na linha: 76
+#alterar o valor da variável root_timezone na linha: 29
 #OBSERVAÇÃO: CUIDADO COM ESSA VARIÁVEL, O SISTEMA JÁ FOI CONFIGURADO COM O UTC
 #America / São Paulo no inicio da configuração do Ubuntu Server.
 root_timezone = America/Sao_Paulo
 
-#descomentar e alterar o valor da variável http_bind_address na linha: 104
-http_bind_address = 0.0.0.0:9000
-
-#descomentar e alterar o valor da variável elasticsearch_hosts na linha: 193
-elasticsearch_hosts = http://172.16.1.20:9200
-
-#alterando o valor da variável mongodb_uri na linha: 578
+#alterar o valor da variável mongodb_uri na linha: 33
 #OBSERVAÇÃO IMPORTANTE: nesse cenário a conexão com o MongoDB está sendo feita
 #utilizando usuário e senha.
 mongodb_uri = mongodb://graylog:graylog@localhost:27017/graylog
+
+#descomentar e alterar o valor da variável elasticsearch_hosts na linha: 40
+elasticsearch_hosts = http://172.16.1.20:9200
 ```
 ```bash
 #salvar e sair do arquivo
@@ -332,7 +333,7 @@ ESC SHIFT : x <Enter>
 #opção do comando mongosh: admin (database) -u (username), -p (password)
 sudo mongosh admin -u admin -p
 
-#criando a base de dados Graylog Server
+#criando a base de dados Graylog Server no MongoDB Server
 use graylog;
 ```
 ```json
@@ -355,7 +356,7 @@ quit
 
 ## 15_ Habilitando o Serviço do Graylog Server no Ubuntu Server
 ```bash
-#habilitando o serviço do Graylog Server
+#habilitando o serviço do Graylog Server no Ubuntu Server
 #opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
 #enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
@@ -365,7 +366,7 @@ sudo systemctl restart graylog-server
 
 ## 16_ Verificando o Serviço e Versão do Graylog Server no Ubuntu Server
 ```bash
-#verificando o serviço do Graylog Server
+#verificando o serviço do Graylog Server no Ubuntu Server
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
 #start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
 #one or more units)
@@ -428,10 +429,15 @@ exit
 /etc/opensearch/*                <-- Diretório das configurações do OpenSearch
 /etc/opensearch/opensearch.yml   <-- Arquivo de configuração do Serviço do OpenSearch
 /etc/opensearch/jvm.options      <-- Arquivo de configuração do JVM do OpenSearch
+/var/log/opensearch/*            <-- Diretório dos Logs do OpenSearch
+/var/run/opensearch/*            <-- Diretório do PID do processo do OpenSearch
 /etc/graylog/*                   <-- Diretório das configurações do Graylog Server
 /etc/graylog/server/server.conf  <-- Arquivo de configuração do Graylog Server
-/var/log/opensearch/*            <-- Diretório dos Logs do OpenSearch
 /var/log/graylog/*               <-- Diretório dos Logs do Graylog Server
+/etc/mongod.conf                 <-- Arquivo de configuração do MongoDB Server
+/var/log/mongodb                 <-- Diretório dos arquivos de Logs do MongoDB Sever
+/var/lib/mongodb                 <-- Diretório dos arquivos de Banco de Dados do MongoDB Server
+/var/run/mongodb                 <-- Diretório do Pid de Processo e Socket do MongoDB Server
 ```
 
 ## 20_ Configurando o Graylog Server via Navegador
@@ -455,11 +461,18 @@ Welcome
 
 #configurando o Input do Syslog UDP no Graylog Server
 Launch new Syslog UDP input
-  Node: XXXX/wsvaamonde.pti.intra
-  Title: wsvaamonde
-  Bind Address: 172.16.1.20
-  Port: 1514
-  Encoding (optional): UTF-8
+  (ON) Global (Enabled) 
+      Title: wsvaamonde
+      Bind Address: 172.16.1.20
+      Port: 1514
+      No. of worker threads (optional): 2
+      Override source (optional): (Default)
+      Encoding (optional): UTF-8
+      (OFF) Force rDNS? (Disabled)
+      (ON) Allow overriding date? (Enabled)
+      (OFF) Store full message? (Disabled)
+      (OFF) Expand structured data? (Disabled)
+      Time Zone (optional): UTC-03:00 - America/Sao_Paulo
 <Launch Input>
 
 #verificando a porta de conexão do Input do Graylog Server
@@ -505,7 +518,7 @@ sudo systemctl status rsyslog
 #opção do comando systemctl: status (runtime status information)
 sudo systemctl status rsyslog
 
-#criando o arquivo de exportação dos Logs
+#criando o arquivo de exportação dos Logs do Rsyslog
 sudo vim /etc/rsyslog.d/70-graylog.conf
 
 #entrando no modo de edição do editor de texto VIM
@@ -624,11 +637,15 @@ Welcome
 
 #configurando o Input do GELF UDP do Windows 10 no Graylog Server
 Launch new GELF UDP input
-  Node: XXXX/wsvaamonde.pti.intra
-  Title: windows10
-  Bind Address: 172.16.1.20
-  Port: 12201
-  Encoding (optional): UTF-8
+  (ON) Global (Enabled) 
+      Title: windows10
+      Bind Address: 172.16.1.20
+      Port: 12201
+      Receive Buffer Size (optional): 262144 (Default)
+      No. of worker threads (optional): 2
+      Override source (optional): (Default)
+      Encoding (optional): UTF-8
+      Decompressed size limit (optional): 8388608 (Default)
 <Launch Input>
 
 #verificando a porta de conexão do Input do Graylog
@@ -638,11 +655,13 @@ sudo lsof -nP -iUDP:'12201'
 
 ## 24_ Verificando os Logs dos Eventos do Linux Mint e do Microsoft Windows 10
 ```bash
+#verificando as pesquisas de logs em tempo real do Graylog Server
 Graylog
   Search
     Select time range: 30 minutes
     (Play) Every 1 second
 
+#verificando o dashboard em tempo real do Graylog Server
 Graylog
   Dashboard
     Sources
