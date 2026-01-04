@@ -81,6 +81,10 @@ software-properties-common build-essential
 #OBSERVAÇÃO: OpenJRE é um software necessário para que os programas em Java funcionem corretamente.
 #opção do comando apt: install (install is followed by one or more package names)
 sudo apt install openjdk-21-jdk openjdk-21-jre
+
+#verificando a versão do Java instalado no Ubuntu Server
+#opção do comando java: --version (Prints product version to the output stream and exits)
+sudo java -version
 ```
 
 ## 03_ Instalando as Dependências do Libssl do Unifi Network no Ubuntu Server
@@ -102,7 +106,7 @@ sudo dpkg -l libssl1.1
 ## 04_ Adicionando o Repositório do Unifi Network no Ubuntu Server
 
 Repositório Oficial do Unifi Network: https://ui.com/download/releases/network-server<br>
-Versão Oficial (atualizada em: 11/11/2025): https://community.ui.com/releases/UniFi-Network-Application-9-5-21/92266721-6758-4f33-b3bc-9d8b66f3c96e
+Versão Oficial (atualizada em: 04/01/2026): https://community.ui.com/releases/UniFi-Network-Application-10-0-162/2efd581a-3a55-4c36-80bf-1267dbfc2aee
 
 ```bash
 #criando o repositório do Unifi Network no Ubuntu Server

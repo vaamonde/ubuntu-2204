@@ -56,7 +56,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 ## 01_ Instalando as Dependências do Graylog Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS NO-SQL MONGODB SERVER E DO OPENJDK/OPENJRE, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: 06 DO TOMCAT SERVER (VERSÃO DO OPENJDK E DO OPENJRE INSTALADO: 21) E NA ETAPA: 08 DO MONGODB SERVER (VERSÃO 8).
+**OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI A DEPENDÊNCIA DO BANCO DE DADOS NO-SQL MONGODB SERVER, ESSE APLICATIVO JÁ FOI INSTALADO NA ETAPA: 08 DO MONGODB SERVER (VERSÃO 8.x).
 
 ```bash
 #atualizando as lista do apt
@@ -74,6 +74,10 @@ gnupg2 uuid-runtime pwgen dirmngr build-essential
 #OBSERVAÇÃO: OpenJDK é uma implementação livre e gratuita da plataforma Java hoje da Oracle
 #OBSERVAÇÃO: OpenJRE é um software necessário para que os programas em Java funcionem corretamente.
 sudo apt install openjdk-21-jdk openjdk-21-jre
+
+#verificando a versão do Java instalado no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando java: --version (Prints product version to the output stream and exits)
+sudo java -version
 ```
 
 ## 02_ Baixando e instalando a Chave GPG do OpenSearch no Ubuntu Server
@@ -85,7 +89,9 @@ Exception in thread "main" org.graylog2.bootstrap.preflight.PreflightCheckExcept
 ```bash
 #baixando a chave GPG do OpenSearch (Link atualizado no dia 11/05/2025)
 #opção do comando curl: -o- (output file)
-#opção do comando gpg: -o (output file)
+#opção do comando gpg: --dearmor (Pack or unpack an arbitrary input into/from an OpenPGP ASCII ar‐mor)
+#--batch (single argument is a file with a detached signature), --yes (Assume "yes" on most questions)
+#-o (output file)
 #opção do redirecionador |: Conecta a saída padrão com a entrada padrão de outro comando
 curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/opensearch-keyring
 
@@ -179,7 +185,7 @@ echo 'vm.max_map_count=262144' | sudo tee -a /etc/sysctl.conf
 #opção do comando cat: -n (number line)
 #opção do comando grep: -i (ignore-case)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-sudo cat -n  /etc/sysctl.conf | grep -i vm.max_map_count
+sudo cat -n /etc/sysctl.conf | grep -i vm.max_map_count
 ```
 
 ## 07_ Habilitando o Serviço do OpenSearch no Ubuntu Server
@@ -219,7 +225,11 @@ curl -X GET "http://localhost:9200"
 #opção do comando curl: -X (request method), GET (method)
 curl -X GET http://localhost:9200/_cat/plugins?v
 
-#acessar via navegador o OpenSearch
+#verificando a versão do OpenSearch via Terminal no Ubuntu Server
+#opção do comando dpkg: -l (list)
+sudo dpkg -l opensearch
+
+#verificando a versão do OpenSearch via navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 ```
 
@@ -383,10 +393,9 @@ sudo journalctl -xeu graylog-server
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
-#verificando a versão do Graylog Server
-#opção do comando grep: - i (ignore-case)
-#opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
-sudo apt list | grep -i graylog
+#verificando a versão do Graylog Server no Ubuntu Server
+#opção do comando dpkg: -l (list)
+sudo dpkg -l graylog-server
 ```
 
 ## 17_ Verificando a Porta de Conexão do Graylog Server no Ubuntu Server

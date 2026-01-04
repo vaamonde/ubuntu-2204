@@ -355,7 +355,6 @@ curl -I http://127.0.0.1:8000/
 
 #utilizar os navegadores para testar a página do Netbox Labs Community
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8000
-firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8000
 
 #saindo do ambiente virtual (venv) do Netbox Labs Community
 deactivate

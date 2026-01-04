@@ -27,6 +27,8 @@ Conteúdo estudado nesse desafio:<br>
 #06_ Atualizando o arquivo de Configuração do Samba Server no Ubuntu Server;<br>
 #07_ Editando o o arquivo de Configuração do Samba Server no Ubuntu Server;<br>
 #08_ Listando os compartilhamento de Pastas no Samba Server no Ubuntu Server;<br>
+#09_ Montando o compartilhamento da Pasta Pública no Linux Mint e no Microsoft Windows<br>
+#10_ Desafios do Samba Server.<br>
 
 Site Oficial do SAMBA: https://www.samba.org/
 
@@ -106,8 +108,8 @@ sudo nmbd -V
 
 ```bash
 #verificando a porta padrão TCP-135, TCP-137, TCP-138, TCP-139 e TCP-445 do Samba Server
-#135: End Point Mapper (DCE/RPC Locator Service), 137: NetBIOS Name Service, 138: NetBIOS 
-#Datagram, 139: NetBIOS Session, 445: SMB (Server Message Block	
+# 135: End Point Mapper (DCE/RPC Locator Service), 137: NetBIOS Name Service, 138: NetBIOS 
+#Datagram, 139: NetBIOS Session, 445: SMB (Server Message Block
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'135-139,445' -sTCP:LISTEN
 ```
@@ -214,10 +216,45 @@ sudo smbstatus
 sudo nmblookup -S wsvaamonde
 ```
 
+## 09_ Montando o compartilhamento da Pasta Pública no Linux Mint e no Microsoft Windows
+```bash
+#listando e montando o compartilhamento do Samba Server no Linux Mint
+
+#listando todos os compartilhamentos do Samba Server
+#opção do comando smbclient: -L (list), -U (user), % (anonymous)
+smbclient -L //172.16.1.20/publica -U %
+
+#acessando a pasta compartilhada Pública do Samba Server
+#opção do comando smbclient: -N (no-pass)
+smbclient //172.16.1.20/publica -N
+
+#criando o diretório de ponto de montagem do problema CIFS do Samba Server
+#opção do comando mkdir: -p (parents), -v (verbose)
+sudo mkdir -pv /mnt/wsvaamonde
+
+#montando o compartilhamento utilizando o usuário guest (convidado) do Samba Server
+#opções do comando mount: -v (verbose), -t (types of fstype), -o (test-opts)
+sudo mount -v -t cifs //172.16.1.20/publica /mnt/wsvaamonde -o guest,dir_mode=0777,file_mode=0777,rw
+
+#verificando o ponto de montagem criado no Linux Mint
+#opção do comando mount: t (types of fstype)
+sudo mount -t cifs
+
+#desmontando o compartilhamento do ponto de montagem do Samba Server
+#opção do comando umount: -v (verbose)
+sudo umount -v /mnt/wsvaamonde
+
+#listando e montando o compartilhamento do Samba Server no Microsoft Windows
+
+net view \\172.16.1.20
+Get-SmbShare -ComputerName 172.16.1.20 | Format-Table Name, Path, Type
+net use P: \\172.16.1.20\publica /PERSISTENT:YES
+net use
+```
 
 ========================================DESAFIOS=========================================
 
-**#12_ DESAFIO-01:** 
+**#10_ DESAFIO-01:** 
 
 =========================================================================================
 

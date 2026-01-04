@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 02/06/2025<br>
-#Data de atualização: 03/06/2025<br>
-#Versão: 0.02<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO CLOUDFLARE SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do CloudFlare realizado com sucesso!!! #BoraParaPrática*
 

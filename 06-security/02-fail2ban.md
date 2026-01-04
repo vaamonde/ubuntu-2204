@@ -289,13 +289,15 @@ sudo ufw allow in log-all 22/tcp comment 'Liberando a entrada do acesso remoto v
 #configuração das regras de Saída (Outgoing) do Protocolo ICMP do Firewall UFW no Ubuntu Server
 #Editando o arquivo de configuração before.rules (ANTES DAS REGRAS) do UFW
 sudo vim /etc/ufw/before.rules
+
+#habilitando o recurso de número de linhas do Editor VIM
 ESC SHIFT :set number <Enter>
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
-#inserir as informações na linha: 39
+#inserir as informações a partir da linha: 39 (COPIAR E COLAR)
 #liberando a saída do protocolo ICMP (Permitindo o Ping - Echo Request)
 #opções do comando iptables usados pelo UFW: -A (append), -p (protocol), -j (jump target)
 # ok icmp codes for OUTPUT

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 25/06/2024<br>
-#Data de atualização: 28/03/2025<br>
-#Versão: 0.13<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.14<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO UFW SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Firewall UFW realizado com sucesso!!! #BoraParaPrática*
 
@@ -69,6 +69,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=PuahiojOEGA
 
 ```bash
 #Verificando qual o sistema de Firewall padrão configurado no Ubuntu Server
+#opção do comando update-alternatives: --config (Shows the available alternatives for a group of links)
 sudo update-alternatives --config iptables
 
 Existem 2 escolhas para a alternativa iptables (disponibiliza /usr/sbin/iptables).
@@ -84,10 +85,12 @@ Pressione <enter> para manter a escolha actual[*], ou digite o número da seleç
 
 ## 02_ Verificando a Versão e Status do Firewall UFW no Ubuntu Server
 ```bash
-#Verificando a versão do UFW
+#Verificando a versão do UFW instalada no Ubuntu Server
+#opção do comando ufw: version (show program's version number and exit)
 sudo ufw version
 
 #Verificando o status do UFW (Status padrão: inactive - inativo/desativado)
+#opção do comando ufw: status (show status of firewall and ufw managed rules)
 sudo ufw status
 ```
 
@@ -96,24 +99,29 @@ sudo ufw status
 **OBSERVAÇÃO IMPORTANTE:** CUIDADO QUANDO VOCÊ HABILITAR O UFW UTILIZANDO UMA CONEXÃO REMOTA, APÓS DIGITAR O COMANDO: *sudo ufw enable* A SEGUINTE MENSAGEM É MOSTRADA: *Command may disrupt existing ssh connections (O comando pode interromper as conexões ssh existentes)*, EM ALGUNS CENÁRIOS PODE ACONTECER A QUEDA (DESCONECTAR) DA CONEXÃO E VOCÊ NÃO CONSEGUIR MAIS ACESSAR O SERVIDOR REMOTAMENTE.
 
 ```bash
-#Habilitando e iniciando o Firewall UFW
+#Habilitando e iniciando o Firewall UFW no Ubuntu Server
+#opção do comando ufw: enable (reloads firewall and enables firewall on boot)
 sudo ufw enable
   Command may disrupt existing ssh connections. Proceed with operation (y|n)? y <Enter>
   Firewall is active and enabled on system startup
 
 #Verificando o status do UFW (Status padrão após habilitar o UFW: active - ativo/ativado)
+#opção do comando ufw: status (show status of firewall and ufw managed rules)
 sudo ufw status
 ```
 
 ## 04_ Verificando o Serviço do UFW no Ubuntu Server
 ```bash
-#Verificando o serviço do UFW
+#Verificando o serviço do Firewall UFW no Ubuntu Server
+#opções do comando systemctl: status (runtime status information), restart (Stop and then 
+#start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
+#one or more units)
 sudo systemctl status ufw
 sudo systemctl restart ufw
 sudo systemctl stop ufw
 sudo systemctl start ufw
 
-#Analisando os Log's e mensagens de erro do UFW
+#Analisando os Log's e mensagens de erro do Firewall UFW
 #opção do comando journalctl: x (catalog), e (pager-end), u (unit)
 sudo journalctl -xeu ufw
 ```
@@ -130,6 +138,8 @@ sudo journalctl -xeu ufw
 ## 06_ Verificando as Regras (RULES) de Entrada (INCOMING) e Saída (OUTGOING) padrão do UFW no Ubuntu Server
 ```bash
 #Verificando o Status das Regras (RULES) Detalhadas (VERBOSE) do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 
 #Entendo o Status das Regras (RULES) padrão (DEFAULT) do UFW
@@ -141,15 +151,18 @@ New profiles: skip  <-- PERFIL PADRÃO (SKIP - PULAR/NÃO UTILIZADO)
 
 ## 07_ Configurando a Regra (RULES) de Bloqueio (DENY) padrão (DEFAULT) de Entrada (INCOMING) do UFW no Ubuntu Server
 ```bash
-#OBSERVAÇÃO IMPORTANTE: por padrão no UFW temos basicamente 05 (cinco) regras/políticas padrão:
+#OBSERVAÇÃO IMPORTANTE: no Firewall UFW temos basicamente 05 (cinco) regras/políticas padrões:
 #allow (liberação), deny (negação), limit (limitação), reject (rejeição) e disable (desabilitado).
 
 #Configurando a Regra Padrão de Bloqueio de Entrada
+#opção do comando ufw: default (change the default policy for traffic going DIRECTION)
 sudo ufw default deny incoming
   Default incoming policy changed to 'deny'
   (be sure to update your rules accordingly)
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 ```
 
@@ -159,11 +172,14 @@ sudo ufw status verbose
 
 ```bash
 #Configurando a Regra Padrão de Bloqueio de Saída
+#opção do comando ufw: default (change the default policy for traffic going DIRECTION)
 sudo ufw default deny outgoing
   Default outgoing policy changed to 'deny'
   (be sure to update your rules accordingly)
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 ```
 
@@ -173,14 +189,18 @@ sudo ufw status verbose
 
 ```bash
 #Habilitando os Logs das Regras do UFW
+#opção do comando ufw: logging (Logged  packets use the LOG_KERN syslog facility)
 sudo ufw logging on
   Logging enabled
 
 #Configurando o Nível de Log de Baixo (LOW) para Médio (MEDIUM)
+#opção do comando ufw: logging (Logged  packets use the LOG_KERN syslog facility)
 sudo ufw logging medium
   Logging enabled
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 ```
 
@@ -225,15 +245,21 @@ sudo nmap -p- 172.16.1.20
 
 ```bash
 #Liberando (ALLOW) a Entrada (IN) da Interface (ON) Loopback (LO)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow in on lo
 
 #Liberando (ALLOW) a Saída (OUT) da Interface (ON) Loopback (LO)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow out on lo
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 
 #Verificando o Status das Regras (RULES) Numeradas (NUMBERED) do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), numbered 
+#(seen in the status numbered output)
 sudo ufw status numbered
 ```
 
@@ -249,24 +275,33 @@ sudo ufw status numbered
 
 ```bash
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (53/udp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow out 53/udp comment 'Liberando a saida para consulta do DNS'
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Consulta do Protocolo DNS (853/tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow out 853/tcp comment 'Liberando a saida para consulta do DNSTLS'
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Navegação do Protocolo HTTP (80/tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow out 80/tcp comment 'Liberando a saida para navegação do HTTP'
 
 #Regra de liberação (ALLOW) de Saída (OUT) da Navegação do Protocolo HTTPS (443/tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow out 443/tcp comment 'Liberando a saida para navegação do HTTPS'
 
 #Regra de liberação (ALLOW) de Saída (OUT) do Protocolo NTP (123/udp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow out 123/udp comment 'Liberando a saida para sincronismo do NTP'
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+#opção do comando ufw: status (show status of firewall and ufw managed rules), numbered 
+#(seen in the status numbered output)
 sudo ufw status numbered
 
 #Resolvendo o nome DNS do Google
@@ -290,13 +325,15 @@ ping google.com
 
 #Editando o arquivo de configuração before.rules (ANTES DAS REGRAS) do UFW
 sudo vim /etc/ufw/before.rules
+
+#Habilitando o recurso de número de linhas no Editor VIM
 ESC SHIFT :set number <Enter>
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```bash
-#inserir as informações na linha: 39
+#inserir as informações abaixo a partir da linha: 39
 #liberando a saída do protocolo ICMP (Permitindo o Ping - Echo Request)
 #opções do comando iptables usados pelo UFW: -A (append), -p (protocol), -j (jump target)
 # ok icmp codes for OUTPUT
@@ -310,6 +347,7 @@ INSERT
 ESC SHIFT :x <Enter>
 
 #Reiniciar as regras de firewall do UFW
+#opção do comando ufw: reload (reloads firewall rules)
 sudo ufw reload
   Firewall reloaded
 
@@ -330,15 +368,21 @@ ping google.com
 
 ```bash
 #Regra de liberação (ALLOW) de Entrada (IN) Logando Tudo (LOG-ALL) do Protocolo SSH (22/tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow in log-all 22/tcp comment 'Liberando a entrada do acesso remoto via SSH'
 
 #Regra de liberação (ALLOW) de Entrada (IN) do Protocolo HTTP (80/tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow in 80/tcp comment 'Liberando a entrada do protocolo HTTP'
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+#opção do comando ufw: status (show status of firewall and ufw managed rules), numbered 
+#(seen in the status numbered output)
 sudo ufw status numbered
 
 #Testando as portas de conexões remotas do SSH e HTTP via Telnet, Netcat ou NC
@@ -368,15 +412,21 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver
 
 ```bash
 #Liberando (ALLOW) a Sub-rede 172.16.1.0/24 (FROM) acessar o servidor (TO) do Grafana Server na porta (PORT) 3000 via protocolo HTTP (proto tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow from 172.16.1.0/24 to 172.16.1.20 port 3000 proto tcp comment 'Liberando a Sub-Rede para acessar o Grafana Server'
 
 #Liberando (ALLOW) o IPv4 172.16.1.114 (FROM) acessar o servidor (TO) do Webmin na porta (PORT) 10000 via protocolo HTTPS (proto tcp)
+#opção do comando ufw: allow (add allow rule)
 sudo ufw allow from 172.16.1.114 to 172.16.1.20 port 10000 proto tcp comment 'Liberando somente o IP para acessar o Webmin'
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+#opção do comando ufw: status (show status of firewall and ufw managed rules), numbered 
+#(seen in the status numbered output)
 sudo ufw status numbered
 
 #Testando o acesso via Navegador dos protocolos HTTP e HTTPS
@@ -390,12 +440,17 @@ firefox ou google chrome: https://endereço_ipv4_ubuntuserver:10000
 
 ```bash
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+#opção do comando ufw: status (show status of firewall and ufw managed rules), numbered 
+#(seen in the status numbered output)
 sudo ufw status numbered
 
 #Removendo (DELETE) a Regra (RULES) de Acesso ao Webmin (9) do endereço IPv4 172.16.1.114
+#opção do comando ufw: delete (deletes the corresponding RULE)
 sudo ufw delete 9
   Deleting:
     allow from 172.16.1.114 to 172.16.1.20 port 10000 proto tcp comment 'Liberando o IP para acessar o Webmin'
@@ -403,16 +458,21 @@ sudo ufw delete 9
   Rule deleted
 
 #Verificando as Regras Detalhadas padrão do UFW em modo Numerado
+#opção do comando ufw: status (show status of firewall and ufw managed rules), numbered 
+#(seen in the status numbered output)
 sudo ufw status numbered
 ```
 
 ## 17_ Reiniciando (RELOAD) as Regras de Firewall do UFW no Ubuntu Server
 ```bash
 #Reiniciando as regras de firewall do UFW
+#opção do comando ufw: reload (reloads firewall rules)
 sudo ufw reload
   Firewall reloaded
 
 #Verificando as Regras Detalhadas padrão do UFW
+#opção do comando ufw: status (show status of firewall and ufw managed rules), verbose 
+#(Use status verbose for extra information)
 sudo ufw status verbose
 ```
 
@@ -453,7 +513,7 @@ u) WINDOW=.......: tamanho da janela do pacote que o remetente deseja receber;
 v) RES=..........: bit está reservado para uso futuro, sem utilização, definido sempre com 0x00 (zero);
 w) ACK SYN URGP=.: conexão requer um handshake de três vias, URGP significa relevância urgência.
 
-#Visualizando os Logs em Tempo Real
+#Visualizando os Logs em Tempo Real do Firewall UFW
 #opção do comando tail: -f (follow)
 sudo tail -f /var/log/ufw.log 
 ```
@@ -473,9 +533,13 @@ Após a criação do arquivo digite o comando: *sudo ufw app update Nginx* para 
 
 ```bash
 #Listando os aplicativos disponíveis no UFW
+#opção do comando ufw: app (application integration by reading profiles), list (list the 
+#names of application profiles known to ufw)
 sudo ufw app list
 
 #Obtendo informações do aplicativo Apache no UFW
+#opção do comando ufw: app (application integration by reading profiles), info (Details on 
+#the firewall profile for a given application)
 sudo ufw app info 'Apache Full'
 
 #Baixando um modelo de aplicativo do MySQL do Github

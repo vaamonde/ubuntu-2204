@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/04/2024<br>
-#Data de atualização: 11/05/2025<br>
-#Versão: 0.20<br>
+#Data de atualização: 03/01/2026<br>
+#Versão: 0.21<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO VISUAL STUDIO SE VOCÊ CONSEGUIU INTEGRAR COM A SEGUINTE FRASE: *Integração do Visual Studio realizado com sucesso!!! #BoraParaPrática*
 
@@ -47,9 +47,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=V0Ddhelmi4Y
 
 ```bash
 #atualizando as listas do Apt
+#opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
 #instalando as dependências do VSCode no Linux Mint
+#opção do comando apt: install (install is followed by one or more package names)
 sudo apt install vim git python2 python3 cloc
 ```
 
@@ -85,11 +87,11 @@ sudo vim /etc/ssh/sshd_config
 INSERT
 ```
 ```bash
-#comentar as variáveis: ClientAliveInterval e ClientAliveCountMax a partir da linha: 104
+#comentar as variáveis: ClientAliveInterval e ClientAliveCountMax a partir da linha: 106 até 107
 #ClientAliveInterval 1800
 #ClientAliveCountMax 3
 
-#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 139
+#habilitar o recurso na variável: AllowTcpForwarding de: no para: yes na linha: 140
 AllowTcpForwarding yes
 ```
 ```bash
