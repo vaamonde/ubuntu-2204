@@ -133,6 +133,20 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
 **OBSERVAÇÃO IMPORTANTE:** por padrão o usuário *Root do MySQL Server* não tem senha para se logar no *MySQL Client Console*, sendo necessário fazer a configuração de **segurança** antes do servidor entrar em **produção**.
 
+**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA ÚLTIMA ATUALIZAÇÃO DE SEGURANÇA DO UBUNTU SERVER 22.04.5 LTS EM __`JANEIRO/2025`__ E DO MYSQL SERVER 8.0.44 O ACESSO AO MYSQL UTILIZANDO O CLIENTE (CONSOLE) SEM SENHA NÃO É MAIS PERMITIDO, SERÁ MOSTRADO A SEGUINTE MENSAGEM: __`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)`__, PARA RESOLVER ESSE PROBLEMA É PRECISO RODAR O SCRIPT DE SEGURANÇA PARA ACESSAR O MYSQL LOCAL.
+
+```bash
+#configurando a segurança de acesso ao MySQL Server (NÃO COMENTADO NO VÍDEO)
+sudo mysql_secure_installation
+  #mensagens que serão mostradas no Wizard do MySQL Secure Installation
+  Enter password for user root: SUA_SENHA_SEGURA <Enter>
+  Press y|Y for Yes, any other key for No: <Enter>
+  Change the password for root ? ((Press y|Y for Yes, any other key for No): <Enter>
+  Remove anonymous users? (Press y|Y for Yes, any other key for No): y <Enter>
+  Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y <Enter>
+  Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y <Enter>
+  Reload privilege tables now? (Press y|Y for Yes, any other key for No): y <Enter>
+```
 ```bash
 #opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p

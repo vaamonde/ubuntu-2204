@@ -151,10 +151,10 @@ exit
 **OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
 ```bash
-#importando o esquema e os dados iniciais do banco de dados do Zabbix Server
+#importando o esquema e os dados iniciais do banco de dados do Zabbix Server (CAMINHO ATUALIZADO PARA A VERSÃO 7.4)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opções do comando mysql: -u (user), -p (password), zabbix (database)
-sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
+sudo zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
 -uzabbix -pzabbix zabbix 
 
 #opções do comando mysql: -u (user), -p (password)
@@ -199,6 +199,14 @@ sudo cp -v /etc/zabbix/zabbix_server.conf /etc/zabbix/zabbix_server.conf.old
 #fazendo o backup do arquivo de configuração do Zabbix Agent2 (NÃO COMENTADO NO VÍDEO)
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf.old
+
+#download do arquivo de de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O //etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_server.conf
+
+#download do arquivo de configuração do Zabbix Agent2 (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/zabbix/zabbix_agent2.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_agent2.conf
 
 #editando o arquivo de configuração do Zabbix Server
 sudo vim /etc/zabbix/zabbix_server.conf
