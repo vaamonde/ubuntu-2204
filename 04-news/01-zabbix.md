@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.24<br>
+#Data de atualização: 06/01/2026<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -76,8 +76,8 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/downlo
 **OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO: 7.4 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
 
 ```bash
-#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 30/09/2025)
-wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
+#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 06/01/2025)
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Server e Agent2
 #opção do comando dpkg: -i (install)
@@ -151,10 +151,10 @@ exit
 **OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
 ```bash
-#importando o esquema e os dados iniciais do banco de dados do Zabbix Server (CAMINHO ATUALIZADO PARA A VERSÃO 7.4)
+#importando o esquema e os dados iniciais do banco de dados do Zabbix Server (CAMINHO ATUALIZADO PARA A VERSÃO 7.0)
 #opção do redirecionador | (pipe): Conecta a saída padrão com a entrada padrão de outro comando
 #opções do comando mysql: -u (user), -p (password), zabbix (database)
-sudo zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
+sudo zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | sudo mysql --default-character-set=utf8mb4 \
 -uzabbix -pzabbix zabbix 
 
 #opções do comando mysql: -u (user), -p (password)
@@ -202,7 +202,7 @@ sudo cp -v /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf.old
 
 #download do arquivo de de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
-sudo wget -v -O //etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_server.conf
+sudo wget -v -O /etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_server.conf
 
 #download do arquivo de configuração do Zabbix Agent2 (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
