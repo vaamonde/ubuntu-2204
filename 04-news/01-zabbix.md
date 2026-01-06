@@ -67,13 +67,13 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/downlo
 
 **OBSERVAÇÃO IMPORTANTE:** NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0 PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA *03/06/2024* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.0 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **LTS** DO ZABBIX SERVER 7.0, ESSE PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO (RECOMENDADO INSTALAR ESSA VERSÃO EM PRODUÇÃO).
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.2 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA __`10/12/2024`__ FOI LANÇADO A VERSÃO DO ZABBIX SERVER 7.2, NO FINAL DESSE ARQUIVO ESTOU DISPONIBILIZANDO O PROCEDIMENTO DE ATUALIZAÇÃO DA VERSÃO 7.0 PARA 7.2.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA *25/08/2025* FOI LANÇADO A VERSÃO LTS DO ZABBIX SERVER 7.4 PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA __`25/08/2025`__ FOI LANÇADO A VERSÃO DO ZABBIX SERVER 7.4, NO FINAL DESSE ARQUIVO ESTOU DISPONIBILIZANDO O PROCEDIMENTO DE ATUALIZAÇÃO DA VERSÃO 7.2 PARA 7.4.
 
-**OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO: 7.4 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
+**OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO AS OPÇÕES: 7.0 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
 
 ```bash
 #download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 06/01/2025)
@@ -83,6 +83,10 @@ wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix
 #opção do comando dpkg: -i (install)
 #opção do caractere curinga * (asterisco): Qualquer coisa
 sudo dpkg -i zabbix-release_latest*.deb
+
+#download da arquivo de prioridade do repositório do Zabbix Server em relação 
+#as configurações do suporte ao Ubuntu Pro com o ESM habilitado (NÃO COMENTADO NO VÍDEO)
+sudo wget -v -O /etc/apt/preferences.d/zabbix.pref https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix.pref
 ```
 
 ## 03_ Instalando o Zabbix Server, Frontend e Agent2 no Ubuntu Server
@@ -174,6 +178,9 @@ SHOW TABLES;
 /* Verificando os Usuários criados pelo Script */
 SELECT username,passwd FROM users;
 
+/* Verificando da Versão do Database Schema do Zabbix (NÃO COMENTADO NO VÍDEO) */
+SELECT * FROM dbversion;
+
 /* Saindo do Banco de Dados */
 exit
 ```
@@ -216,17 +223,24 @@ sudo vim /etc/zabbix/zabbix_server.conf
 INSERT
 ```
 ```bash
-#descomentar e alterar o valor da variável DBHost= na linha: 95
+#alterar o valor da variável SourceIP = na linha 22
+SourceIP=0.0.0.0
+
+#alterar o valor da variável DBHost= na linha: 47
 DBHost=localhost
 
-#deixar o padrão da variável DBName= na linha: 107
+#alterar o valor da variável DBName= na linha: 50
 DBName=zabbix
 
-#deixar o padrão da variável DBUser= na linha: 123
+#alterar o valor da variável DBUser= na linha: 53
 DBUser=zabbix
 
-#descomentar e alterar o valor da variável DBPassword= na linha: 131
+#alterar o valor da variável DBPassword= na linha: 56
 DBPassword=zabbix
+
+#alterar o valor da variável StatsAllowedIp= na linha 106
+StatsAllowedIP=127.0.0.1,172.16.1.0/24
+
 ```
 ```bash
 #salvar e sair do arquivo
@@ -239,20 +253,20 @@ sudo vim /etc/zabbix/zabbix_agent2.conf
 INSERT
 ```
 ```bash
-#alterar o valor da variável Server= na linha: 80
+#alterar o valor da variável ListenIP= na linha 19
+ListenIP=0.0.0.0
+
+#alterar o valor da variável Server= na linha: 48
 #alterar o endereço IPv4 do seu servidor conforme o seu cenário
 Server=172.16.1.20
 
-#alterar o valor da variável ServerActive= na linha: 133
-  #alterar o endereço IPv4 do seu servidor conforme o seu cenário
+#alterar o valor da variável ServerActive= na linha: 51
+#alterar o endereço IPv4 do seu servidor conforme o seu cenário
 ServerActive=172.16.1.20
 
-#alterar o valor da variável Hostname= na linha: 144
-  #alterar o nome do seu servidor conforme o seu cenário
+#alterar o valor da variável Hostname= na linha: 56
+#alterar o nome do seu servidor conforme o seu cenário
 Hostname=wsvaamonde
-
-#descomentar o valor da variável RefreshActiveChecks= na linha 204
-RefreshActiveChecks=5s
 ```
 ```bash
 #salvar e sair do arquivo
@@ -344,9 +358,9 @@ Yes: Remember me for 30 days
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando as portas padrões TCP-10050 e TCP-10051 do Zabbix Server
+#verificando as portas padrões TCP-80 Apache, TCP-10050 Zabbix Agent e TCP-10051 do Zabbix Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'10050,10051' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'80,10050,10051' -sTCP:LISTEN
 ```
 
 ## 12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server no Ubuntu Server
@@ -373,11 +387,14 @@ exit
 
 ## 13_ Localização dos diretórios principais do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
-/etc/zabbix/*                   <-- Diretório dos arquivos de Configuração do serviço do Zabbix
-/etc/zabbix/zabbix_server.conf  <-- Arquivo de Configuração do Zabbix Server
-/etc/zabbix/zabbix_agent2.conf  <-- Arquivo de Configuração do Zabbix Agent2
-/var/log/zabbix*                <-- Diretório dos arquivos de Logs do serviço do Zabbix
-/usr/share/zabbix*              <-- Diretório dos arquivos do Site do serviço do Zabbix
+/etc/zabbix/*                    <-- Diretório dos arquivos de Configuração do serviço do Zabbix Server e Agent
+/etc/zabbix/zabbix_server.conf   <-- Arquivo de Configuração do Zabbix Server
+/etc/zabbix/zabbix_agent2.conf   <-- Arquivo de Configuração do Zabbix Agent2
+/etc/zabbix/zabbix_agent2.d/*    <-- Diretório de arquivos extras e plugins do serviço do Zabbix Agent2
+/etc/zabbix/zabbix_server.d/*    <-- Diretório de arquivos extras e plugins do serviço do Zabbix Server
+/var/log/zabbix/*                <-- Diretório dos arquivos de Logs do serviço do Zabbix Server e Agent2
+/var/run/zabbix/*                <-- Diretório do PID dos processos do Zabbix Server e Agent2
+/usr/share/zabbix*               <-- Diretório dos arquivos do Site do serviço do Zabbix Server
 ```
 
 ## 14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10
