@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.18<br>
+#Data de atualização: 06/01/2026<br>
+#Versão: 0.19<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -86,6 +86,18 @@ sudo apt install --install-recommends grafana
 #fazendo o backup do arquivo de configuração do Grafana Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/default/grafana-server /etc/default/grafana-server.old
+
+#fazendo o backup do arquivo de inicialização do Grafana Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/grafana/grafana.ini /etc/grafana/grafana.ini.old
+
+#download do arquivo de configuração do Grafana Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/default/grafana-server https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/grafana-server
+
+#download do arquivo de inicialização do Grafana Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/grafana/grafana.ini https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/grafana.ini
 
 #editando o arquivo de configuração do Grafana Server
 sudo vim /etc/default/grafana-server

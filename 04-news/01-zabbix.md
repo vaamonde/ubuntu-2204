@@ -81,6 +81,7 @@ wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix
 
 #instalação do repositório do Zabbix Server e Agent2
 #opção do comando dpkg: -i (install)
+#opção do caractere curinga * (asterisco): Qualquer coisa
 sudo dpkg -i zabbix-release_latest*.deb
 ```
 
@@ -200,7 +201,7 @@ sudo cp -v /etc/zabbix/zabbix_server.conf /etc/zabbix/zabbix_server.conf.old
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf.old
 
-#download do arquivo de de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
+#download do arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_server.conf
 

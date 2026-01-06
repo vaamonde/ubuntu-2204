@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 21/04/2024<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.13<br>
+#Data de atualização: 06/01/2026<br>
+#Versão: 0.14<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAYLOG SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Graylog realizado com sucesso!!! #BoraParaPrática*
 
@@ -102,7 +102,7 @@ echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.o
 
 ## 03_ Instalando o OpenSearch no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** A versão do OpenSearch >=2.12 e superior agora requer a configuração da *OPENSEARCH_INITIAL_ADMIN_PASSWORD* variável de ambiente durante a instalação. A senha deve ter no mínimo oito caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
+**OBSERVAÇÃO IMPORTANTE:** A versão do OpenSearch >=2.12 e superior agora requer a configuração da __`OPENSEARCH_INITIAL_ADMIN_PASSWORD`__ variável de ambiente durante a instalação. A senha deve ter no mínimo: **8 (oito) caracteres** com pelo menos 1 (uma) letra maiúscula, 1 (uma) letra minúscula, 1 (um) número e 1 (um) caractere especial.
 
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
@@ -225,7 +225,7 @@ curl -X GET "http://localhost:9200"
 #opção do comando curl: -X (request method), GET (method)
 curl -X GET http://localhost:9200/_cat/plugins?v
 
-#verificando a versão do OpenSearch via Terminal no Ubuntu Server
+#verificando a versão do OpenSearch via Terminal no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando dpkg: -l (list)
 sudo dpkg -l opensearch
 
@@ -253,6 +253,7 @@ wget https://packages.graylog2.org/repo/packages/graylog-7.1-repository_latest.d
 
 #instalando o repositório do Graylog Server no Ubuntu Server
 #opção do comando dpkg: -i (install)
+#opção do caractere curinga * (asterisco): Qualquer coisa
 sudo dpkg -i graylog-*.deb
 ```
 
@@ -494,6 +495,10 @@ sudo lsof -nP -iUDP:'1514'
 #opção do comando systemctl: status (runtime status information)
 sudo systemctl status rsyslog
 
+#download do arquivo de configuração do Rsyslog (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/rsyslog.d/70-graylog.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/70-graylog.conf
+
 #criando o arquivo de exportação dos Logs
 sudo vim /etc/rsyslog.d/70-graylog.conf
 
@@ -526,6 +531,10 @@ sudo systemctl status rsyslog
 #verificando o status de serviço do Rsyslog
 #opção do comando systemctl: status (runtime status information)
 sudo systemctl status rsyslog
+
+#download do arquivo de configuração do Rsyslog (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/rsyslog.d/70-graylog.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/70-graylog.conf
 
 #criando o arquivo de exportação dos Logs do Rsyslog
 sudo vim /etc/rsyslog.d/70-graylog.conf
