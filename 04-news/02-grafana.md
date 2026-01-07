@@ -106,7 +106,7 @@ sudo vim /etc/default/grafana-server
 INSERT
 ```
 ```bash
-#principais variáveis do Grafana Server (padrão não alterar)
+#principais variáveis do Grafana Server (PADRÃO NÃO ALTERAR OS VALORES)
 GRAFANA_USER=grafana          (usuário do serviço do Grafana Server)
 GRAFANA_GROUP=grafana         (grupo do serviço do Grafana Server)
 LOG_DIR=/var/log/grafana      (localização dos arquivos de Log do Grafana Server)
