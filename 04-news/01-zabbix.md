@@ -65,7 +65,7 @@ software-properties-common git vim fping
 
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/download
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0 PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) É: 6.0.x
+**OBSERVAÇÃO IMPORTANTE:** NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0 PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) ATÉ A DATA DE GRAVAÇÃO DESSE VÍDEO É: 6.0.x
 
 **OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **LTS** DO ZABBIX SERVER 7.0, ESSE PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO (RECOMENDADO INSTALAR ESSA VERSÃO EM PRODUÇÃO).
 
@@ -83,7 +83,11 @@ wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix
 #opção do comando dpkg: -i (install)
 #opção do caractere curinga * (asterisco): Qualquer coisa
 sudo dpkg -i zabbix-release_latest*.deb
+```
 
+**OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** SE VOCÊ ESTIVER UTILIZANDO O UBUNTU PRO ATIVADO NO SEU SERVIDOR, OS RECURSOS DO ESM (EXPANDED SYSTEM MAINTENANCE) NÃO PERMITI INSTALAR AS VERSÕES MAIS NOVAS OU ATUALIZAR O ZABBIX SERVER E FRONTEND, SENDO NECESSÁRIO FAZER O PROCEDIMENTO ABAIXO PARA AUMENTAR O NÍVEL DE PRIORIDADE DO REPOSITÓRIO DO ZABBIX.
+
+```bash
 #download da arquivo de prioridade do repositório do Zabbix Server em relação 
 #as configurações do suporte ao Ubuntu Pro com o ESM habilitado (NÃO COMENTADO NO VÍDEO)
 sudo wget -v -O /etc/apt/preferences.d/zabbix.pref https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix.pref
@@ -91,7 +95,7 @@ sudo wget -v -O /etc/apt/preferences.d/zabbix.pref https://raw.githubusercontent
 
 ## 03_ Instalando o Zabbix Server, Frontend e Agent2 no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o *MySQL Server e do Apache2 Server*, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
+**OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o __`MySQL Server e do Apache2 Server`__, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
 
 ```bash
 #atualizando as lista do Apt com o novo repositório do Zabbix Server
@@ -117,6 +121,8 @@ CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 /* Criando o Usuário Zabbix com a Senha Zabbix do Banco de Dados Zabbix */
 CREATE USER 'zabbix'@'localhost' IDENTIFIED WITH mysql_native_password BY 'zabbix';
+
+/* Aplicando as permissões de acesso ao Banco de Dados do Zabbix*/ 
 GRANT USAGE ON *.* TO 'zabbix'@'localhost';
 GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
 FLUSH PRIVILEGES;
@@ -124,7 +130,7 @@ FLUSH PRIVILEGES;
 /* Habilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
 SET GLOBAL log_bin_trust_function_creators = 1;
 
-/* Listando os Bancos de Dados do MySQL */
+/* Listando os Bancos de Dados do MySQL Server */
 SHOW DATABASES;
 
 /* Verificando o Usuário Zabbix criado no Banco de Dados MySQL Server */
@@ -240,7 +246,6 @@ DBPassword=zabbix
 
 #alterar o valor da variável StatsAllowedIp= na linha 106
 StatsAllowedIP=127.0.0.1,172.16.1.0/24
-
 ```
 ```bash
 #salvar e sair do arquivo
@@ -358,7 +363,7 @@ Yes: Remember me for 30 days
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando as portas padrões TCP-80 Apache, TCP-10050 Zabbix Agent e TCP-10051 do Zabbix Server
+#verificando as portas padrões TCP-80 Apache2, TCP-10050 Zabbix Agent e TCP-10051 do Zabbix Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'80,10050,10051' -sTCP:LISTEN
 ```
@@ -403,18 +408,18 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/dow
 
 **OBSERVAÇÃO IMPORTANTE:** ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO ZABBIX AGENT.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA *03/06/2024* FOI LANÇADO A VERSÃO 7.0 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **7.0** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA *10/12/2024* FOI LANÇADO A VERSÃO 7.2 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA __`10/12/2024*`__ FOI LANÇADO A VERSÃO **7.2** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA *25/08/2024* FOI LANÇADO A VERSÃO 7.4 OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+**OBSERVAÇÃO IMPORTANTE:** NO DIA __`25/08/2024`__ FOI LANÇADO A VERSÃO **7.4** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
 ### Instalação do Agent2 do Zabbix Server no Microsoft Windows
 
 ```bash
 #Download do Agent do Zabbix para sistemas operacionais Microsoft
-#Windows, Any, amd64, v7.4, OpenSSL, MSI: Zabbix agent 2 v7.4.2 (ATUALIZADO NO DIA 26/09/2025)
-https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.2/zabbix_agent-7.4.2-windows-amd64-openssl.msi
+#Windows, Any, amd64, v7.4, OpenSSL, MSI: Zabbix agent 2 v7.4.6 (ATUALIZADO NO DIA 07/01/2026)
+https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.6/zabbix_agent2-7.4.6-windows-amd64-openssl.msi
 
 #Instalação Manual do Zabbix Agent 2 para Microsoft
 Pasta de Download
@@ -451,7 +456,7 @@ C:\Program Files\Zabbix Agent 2\
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download
 
 ```bash
-#SELECIONAR: 7.4 LTS, Ubuntu, 22.04 (Jammy), Agent 2
+#SELECIONAR: 7.4, Ubuntu, 22.04 (Jammy), Agent 2
 #download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 26/09/2025)
 wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
 

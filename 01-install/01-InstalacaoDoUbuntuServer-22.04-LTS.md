@@ -9,8 +9,8 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 Github Procedimentos em TI: https://github.com/vaamonde<br>
 Data de criação: 18/01/2023<br>
-Data de atualização: 03/01/2026<br>
-Versão: 0.25<br>
+Data de atualização: 07/01/2026<br>
+Versão: 0.26<br>
 Testado e homologado no GNU/Linux Ubuntu Server 22.04.x LTS
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
@@ -186,7 +186,7 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 <Enter>
 
 03) Installer update available
-    Version 25.04 of the installer is now available (24.08.1 is currently running)
+    Version 25.10 of the installer is now available (24.08.1 is currently running)
 <Continue without updating>
 
 04) Keyboard configuration
@@ -262,10 +262,13 @@ Link Oficial da Documentação de Instalação do Ubuntu Server: https://ubuntu.
 14) Featured Server Snaps
 <Done>
 
-15) Installation complete!
+15) Installing System
+    #Aguardar o final de instalação do servidor
+
+16) Installation complete!
 <Reboot Now>
 
-16) Please remove the installation medium, then press ENTER:
+17) Please remove the installation medium, then press ENTER:
 <Enter>
 ```
 

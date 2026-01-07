@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.09<br>
+#Data de atualização: 07/01/2026<br>
+#Versão: 0.10<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -66,9 +66,12 @@ sudo apt list --upgradable | cat -n
 #on the system from the sources enumerated in /etc/apt/sources.list.)
 sudo apt upgrade
   Do you want to continue? [Y/n] y <Enter>
+```
 
-#OBSERVAÇÃO: algumas vezes pode aparecer uma tela na cor: Rosa/Branca informando que alguns
-#serviços de rede serão reinicializados, isso é comum na distribuição Ubuntu Server.
+**OBSERVAÇÃO:** algumas vezes pode aparecer uma tela na cor: __`Rosa/Branca`__ informando que alguns serviços de rede serão reinicializados, isso é comum na distribuição Ubuntu Server.
+
+```bash
+#reinicialização dos serviços de rede do Ubuntu Server
 Daemons using outdated libraries
   Which services should be restarted?
 <OK>

@@ -282,6 +282,10 @@ ls -lh /etc/netplan/
 #sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old (ARQUIVO ANTIGO)
 sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
+#download do arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/netplan/50-cloud-init.yaml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/50-cloud-init.yaml
+
 #editando o arquivo de configuração do Netplan
 #sudo vim 00-installer-config.yaml (ARQUIVO ANTIGO)
 sudo vim /etc/netplan/50-cloud-init.yaml
