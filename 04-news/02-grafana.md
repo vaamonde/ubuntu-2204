@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 06/01/2026<br>
-#Versão: 0.19<br>
+#Data de atualização: 07/01/2026<br>
+#Versão: 0.20<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -233,7 +233,7 @@ Welcome to Grafana
   Password: admin 
 <Log In>
 
-#atualizar a senha do usuário do Grafana Server
+#atualização da senha do usuário Admin do Grafana Server
 Update your password
   New password: SUA_SENHA_SEGURA
   Confirm new password: SUA_SENHA_SEGURA 
@@ -317,48 +317,45 @@ Open Menu
 ```
 
 ## 13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana no Ubuntu Server
-```bash
-#instalando o Plugin do Zabbix Server no Grafana
-#opções do comando grafana-cli: plugins (), install ()
-sudo grafana-cli plugins install alexanderzobnin-zabbix-app
 
-#reiniciar o serviço do Grafana Server
-#opções do comando systemctl: restart (Stop and then start one or more units), status 
-#(runtime status information)
-sudo systemctl restart grafana-server
-sudo systemctl status grafana-server
-```
-
-**OBSERVAÇÃO IMPORTANTE:** nos testes feito utilizando o usuário padrão do Zabbix Server: __`Admin`__ acontecia o erro de autenticação, aparecendo sempre a mensagem de: *Incorrect user name or password or account is temporarily blocked*. Para corrigir essa falha fiz a criação de um novo usuário e a conexão foi feita com sucesso.
+**OBSERVAÇÃO IMPORTANTE:** nos testes feito utilizando o usuário padrão do Zabbix Server: __`Admin`__ acontecia o erro de autenticação, aparecendo sempre a mensagem de: *Incorrect user name or password or account is temporarily blocked*. Para corrigir essa falha foi feita a criação de um novo usuário e a conexão foi feita com sucesso.
 
 ```bash
 #acessando o Zabbix Server via Navegador
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
-
-#criação do usuário para a integração com o Grafana Server
+```
+```bash
+#criando o usuário para a integração com o Grafana Server
 Zabbix
   Users
     Users
       <Create User>
         User
-          Username: vaamonde
-          Name: Robson Vaamonde
+          Username: grafana
+          Name: Grafana Server
+          Grupos: Internal, Zabbix administrators
           Password: pti@2018
           Password (once again): pti@2018
         Permission
           Role: <Select>
             Super admin role
       <Add>
+```
 
-#habilitando o Plugin do Zabbix Server no Grafana Server
-Open Menu
+```bash
+#instalando e habilitando o Plugin do Zabbix Server no Grafana Server
+Open menu
   Administration
     Plugins and data
       Plugins
-        Search: Zabbix (clicar)
-        <Enabled>
+      #pesquisando o Plugin do Zabbix Server
+      Search: Zabbix
+        Clique em: Zabbix (By Grafana Labs)
+          Clique em: <Install>
+          #aguarde a instalação e depois habilite o Plugin
+          Clique em: <Enable>
 
-#criando o Data Source da Zabbix Server
+#criando o Data Source da Zabbix Server no Grafana Server
 Open Menu
   Connections
     Data sources
@@ -368,23 +365,45 @@ Open Menu
           Connection: http://172.16.1.20/zabbix/api_jsonrpc.php
           Zabbix Connection
             Auth type: User and password
-            Username: vaamonde
+            Username: grafana
             Password: pti@2018
       <Save and test>
 
-#criando o Dashboard padrão do Zabbix Server
+#criando o Dashboard padrão do Zabbix Server no Grafana Server
 Open Menu
-  New Dashboard
-    <+ Add visualization>
-      Select data source: wsvaamonde (Zabbix Server)
-
-      #gráfico de utilização da CPU
-
-      #gráfico de utilização da RAM
-
-      #gráfico de utilização do DISK
-
-      #gráfico de utilização da NETWORK
+ Dashboards
+    <+ Create dashboard>
+      <+ Add visualization>
+        Select data source: wsvaamonde Default (Zabbix Server)
+          #gráfico de utilização da CPU
+          Edite query name: CPU
+            Query type: Metrics
+            Group: Zabbix servers
+            Host: wsvaamonde
+            Item tag: component: cpu
+            Item: CPU utilization
+          #gráfico de utilização da RAM
+            Edite query name: CPU
+              Query type: Metrics
+              Group: Zabbix servers
+              Host: wsvaamonde
+              Item tag: component: memory
+              Item: Memory utilization
+          #gráfico de utilização do HARD DISK
+            Edite query name: CPU
+              Query type: Metrics
+              Group: Zabbix servers
+              Host: wsvaamonde
+              Item tag: component: storage
+              Item: Disk utilization
+          #gráfico de utilização da NETWORK
+            Edite query name: CPU
+              Query type: Metrics
+              Group: Zabbix servers
+              Host: wsvaamonde
+              Item tag: component: enp0s3
+              Item: Interface enp0s3: Bits received
+              Item: Interface enp0s3: Bits sent
 ```
 
 ## 14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)

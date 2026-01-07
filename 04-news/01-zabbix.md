@@ -439,8 +439,8 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/dow
 
 ```bash
 #Download do Agent do Zabbix para sistemas operacionais Microsoft
-#Windows, Any, amd64, v7.4, OpenSSL, MSI: Zabbix agent 2 v7.4.6 (ATUALIZADO NO DIA 07/01/2026)
-https://cdn.zabbix.com/zabbix/binaries/stable/7.4/7.4.6/zabbix_agent2-7.4.6-windows-amd64-openssl.msi
+#Windows, 10, 11, amd64, v7.0 LTS, OpenSSL, MSI: Zabbix agent 2 v7.0.x (ATUALIZADO NO DIA 07/01/2026)
+https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.22/zabbix_agent2-7.0.22-windows-amd64-openssl.msi
 
 #Instalação Manual do Zabbix Agent 2 para Microsoft
 Pasta de Download
@@ -477,9 +477,9 @@ C:\Program Files\Zabbix Agent 2\
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download
 
 ```bash
-#SELECIONAR: 7.4, Ubuntu, 22.04 (Jammy), Agent 2
-#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 26/09/2025)
-wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
+#SELECIONAR: 7.0 LTS, Ubuntu, 22.04 (Jammy), Agent 2
+#download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 06/01/2025)
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu22.04_all.deb
 
 #instalação do repositório do Zabbix Agent 2
 #opção do comando dpkg: -i (install)
