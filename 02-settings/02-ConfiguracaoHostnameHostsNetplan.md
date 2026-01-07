@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.25<br>
+#Data de atualização: 07/01/2026<br>
+#Versão: 0.26<br>
 
 Release Ubuntu Server 22.04.5: https://fridge.ubuntu.com/2024/09/13/ubuntu-22-04-5-lts-released/<br>
 Release Ubuntu Server 22.04.4: https://fridge.ubuntu.com/2024/02/22/ubuntu-22-04-4-lts-released/<br>
@@ -117,7 +117,7 @@ sudo apt update
 
 #instalando os pacotes e ferramentas de rede no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install bridge-utils ifenslave net-tools fping
+sudo apt install bridge-utils ifenslave net-tools fping lnav
 ```
 
 ## 04_ Verificando as informações do Hardware de Rede (Placa de Rede) no Ubuntu Server
@@ -254,6 +254,28 @@ Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<
 | `HOSTNAME`       | `wsvaamonde`                             | Nome de host atribuído ao cliente (pode ser usado para identificação na rede).                          |
 | `CLIENTID`       | `ffe2343f3e00020000ab11a1d5bc10296b8939` | Identificador único do cliente DHCP (gerado a partir da interface ou hardware).                         |
 
+```bash
+#verificando as informações de Status do Netplan no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando netplan: status (Query networking state of the running system)
+sudo netplan status
+```
+
+| Campo / Seção        | Descrição                                                                 | Exemplo / Valor                              |
+|---------------------|---------------------------------------------------------------------------|----------------------------------------------|
+| Interface           | Nome e índice da interface de rede                                         | enp0s3 (ethernet)                            |
+| Estado              | Estado atual da interface                                                   | UP                                          |
+| Gerenciador         | Serviço que está gerenciando a interface                                   | networkd                                    |
+| MAC Address         | Endereço físico (hardware) da interface                                     | 08:00:27:cd:e4:c0                            |
+| Addresses (IPv4)    | Endereço IPv4 atribuído à interface                                         | 10.26.46.21/24 (dhcp)                       |
+| Addresses (IPv6)    | Endereço IPv6 link-local                                                    | fe80::a00:27ff:fecd:e4c0/64                 |
+| DNS Addresses       | Servidores DNS configurados                                                 | 10.26.40.190, 10.1.1.195, 10.1.1.242        |
+| DNS Search          | Domínio usado para resolução de nomes                                       | pti.intra.br                              |
+| Routes (default)    | Rota padrão para acesso à internet                                          | default via 10.26.46.1                      |
+| Routes (host)       | Rotas específicas para destinos individuais                                 | 10.1.1.195 via 10.26.46.1                  |
+| Routes (network)    | Rota para a rede local                                                      | 10.26.46.0/24                               |
+| Metric              | Prioridade da rota (quanto menor, maior a prioridade)                      | 100 / 256                                   |
+| Origem da rota      | Como a rota foi obtida                                                      | dhcp / link                                 |
+
 ## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
 
 **OBSERVAÇÃO:** o nome do arquivo de configuração da placa de rede pode mudar dependendo da versão do Ubuntu Server. O arquivo: */etc/netplan/00-installer-config.yaml* e o Padrão do Ubuntu Server 22.04.x LTS, no Ubuntu Server 24.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digitar o comando: *ls -lh /etc/netplan* antes de editar o arquivo Netplan.
@@ -282,7 +304,7 @@ ls -lh /etc/netplan/
 #sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.old (ARQUIVO ANTIGO)
 sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.old
 
-#download do arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
+#download do arquivo de configuração do Netplan (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/netplan/50-cloud-init.yaml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/50-cloud-init.yaml
 
@@ -392,6 +414,10 @@ sudo netplan --debug apply
 #falha na hora de configurar a placa de rede ele reverte a configuração inicial
 #opções do comando netplan: --debug (enable debug messages), try (try to apply a new netplan config)
 sudo netplan --debug try
+
+#verificando o status das configurações do Netplan no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#opções do comando netplan: status (Query networking state of the running system)
+sudo netplan status
 ```
 
 ## 08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)

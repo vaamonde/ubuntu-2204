@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 06/01/2026<br>
-#Versão: 0.25<br>
+#Data de atualização: 07/01/2026<br>
+#Versão: 0.26<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -117,24 +117,35 @@ sudo mysql -u root -p
 ```
 ```sql
 /* Criando o Banco de Dados Zabbix Server */
+/* OBSERVAÇÃO IMPORTANTE: ALTERAR O NOME DA BASE DE DADOS CONFORME NECESSIDADE */
+/* Mais informações acesse: https://www.w3schools.com/mysql/mysql_create_db.asp */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-database.html */
 CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 
 /* Criando o Usuário Zabbix com a Senha Zabbix do Banco de Dados Zabbix */
+/* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ZABBIX CONFORME A SUA NECESSIDADE */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-user.html */
 CREATE USER 'zabbix'@'localhost' IDENTIFIED WITH mysql_native_password BY 'zabbix';
 
-/* Aplicando as permissões de acesso ao Banco de Dados do Zabbix*/ 
+/* Aplicando as permissões de acesso ao Banco de Dados do Zabbix*/
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
 GRANT USAGE ON *.* TO 'zabbix'@'localhost';
 GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
+
+/* aplicando todas as mudanças na base de dados do Zabbix */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
 /* Habilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
 SET GLOBAL log_bin_trust_function_creators = 1;
 
 /* Listando os Bancos de Dados do MySQL Server */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
 /* Verificando o Usuário Zabbix criado no Banco de Dados MySQL Server */
-SELECT user,host FROM mysql.user WHERE user='zabbix';
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
+SELECT user,host,authentication_string FROM mysql.user WHERE user='zabbix';
 
 /* Saindo do Banco de Dados */
 exit
@@ -148,9 +159,11 @@ sudo mysql -u zabbix -p
 ```
 ```sql
 /* Listando os Bancos de Dados do MySQL Server */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
 /* Acessando o Banco de Dados Zabbix Server */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE zabbix;
 
 /* Saindo do Banco de Dados do MySQL Server*/
@@ -230,7 +243,7 @@ INSERT
 ```
 ```bash
 #alterar o valor da variável SourceIP = na linha 22
-SourceIP=0.0.0.0
+SourceIP=ENDEREÇO_IPv4_SERVIDOR_UBUNTU
 
 #alterar o valor da variável DBHost= na linha: 47
 DBHost=localhost
@@ -244,8 +257,8 @@ DBUser=zabbix
 #alterar o valor da variável DBPassword= na linha: 56
 DBPassword=zabbix
 
-#alterar o valor da variável StatsAllowedIp= na linha 106
-StatsAllowedIP=127.0.0.1,172.16.1.0/24
+#alterar o valor da variável StatsAllowedIp= na linha 101
+StatsAllowedIP=127.0.0.1,SUA_SUB-REDE/CIDR
 ```
 ```bash
 #salvar e sair do arquivo
@@ -259,23 +272,31 @@ INSERT
 ```
 ```bash
 #alterar o valor da variável ListenIP= na linha 19
-ListenIP=0.0.0.0
+ListenIP=ENDEREÇO_IPv4_SERVIDOR_UBUNTU
 
 #alterar o valor da variável Server= na linha: 48
 #alterar o endereço IPv4 do seu servidor conforme o seu cenário
-Server=172.16.1.20
+Server=ENDEREÇO_IPv4_SERVIDOR_UBUNTU
 
 #alterar o valor da variável ServerActive= na linha: 51
 #alterar o endereço IPv4 do seu servidor conforme o seu cenário
-ServerActive=172.16.1.20
+ServerActive=ENDEREÇO_IPv4_SERVIDOR_UBUNTU
 
 #alterar o valor da variável Hostname= na linha: 56
 #alterar o nome do seu servidor conforme o seu cenário
-Hostname=wsvaamonde
+Hostname=SEU_NOME_DO_HOST
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
+
+#testando o arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando sshd: -T (text mode check configuration)
+sudo zabbix_server -T
+
+#testando o arquivo de configuração do Zabbix Agent2 (NÃO COMENTADO NO VÍDEO)
+#opção do comando sshd: -T (text mode check configuration)
+sudo zabbix_agent2 -T
 ```
 
 ## 08_ Habilitando o Serviço do Zabbix Server e Agent2 no Ubuntu Server

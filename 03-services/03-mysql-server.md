@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/01/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.30<br>
+#Data de atualização: 07/01/2026<br>
+#Versão: 0.31<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO MYSQL SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Mysql realizado com sucesso!!! #BoraParaPrática*
 
@@ -133,10 +133,16 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 
 **OBSERVAÇÃO IMPORTANTE:** por padrão o usuário *Root do MySQL Server* não tem senha para se logar no *MySQL Client Console*, sendo necessário fazer a configuração de **segurança** antes do servidor entrar em **produção**.
 
-**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA ÚLTIMA ATUALIZAÇÃO DE SEGURANÇA DO UBUNTU SERVER 22.04.5 LTS EM __`JANEIRO/2025`__ E DO MYSQL SERVER 8.0.44 O ACESSO AO MYSQL UTILIZANDO O CLIENTE (CONSOLE) SEM SENHA NÃO É MAIS PERMITIDO, SERÁ MOSTRADO A SEGUINTE MENSAGEM: __`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)`__, PARA RESOLVER ESSE PROBLEMA É PRECISO RODAR O SCRIPT DE SEGURANÇA PARA ACESSAR O MYSQL LOCAL.
+```bash
+#opções do comando mysql: -u (user), -p (password)
+sudo mysql -u root -p
+```
+
+**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA ÚLTIMA ATUALIZAÇÃO DE SEGURANÇA DO UBUNTU SERVER 22.04.5 LTS EM __`JANEIRO/2025`__ E DO MYSQL SERVER 8.0.44 O ACESSO AO MYSQL UTILIZANDO O CLIENTE (CONSOLE) COM SUPORTE AO UBUNTU PRO HABILITADO COM ESM (Expanded Security Maintenance) O RECURSO DE ACESSO SEM SENHA DO USUÁRIO ROOT NÃO É MAIS PERMITIDO, CASO VOCÊ TENTE SE LOGAR SERÁ MOSTRADO A SEGUINTE MENSAGEM: __`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)`__, PARA RESOLVER ESSE PROBLEMA É PRECISO RODAR O SCRIPT DE SEGURANÇA DO MYSQL SERVER PARA CONFIGURAR A SENHA LOCAL DO ROOT.
 
 ```bash
 #configurando a segurança de acesso ao MySQL Server (NÃO COMENTADO NO VÍDEO)
+#executar esse comando somente se o usuário do Root não acessar o terminal sem senha
 sudo mysql_secure_installation
   #mensagens que serão mostradas no Wizard do MySQL Secure Installation
   Enter password for user root: SUA_SENHA_SEGURA <Enter>
@@ -154,7 +160,7 @@ sudo mysql -u root -p
 
 ## 06_ Aplicando a segurança de acesso do usuário Root do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O MYSQL SERVER E CLIENT É __`CASE SENSITIVE`__, CUIDADO COM OS NOMES DOS: *BASE DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
+**OBSERVAÇÃO IMPORTANTE:** O MYSQL SERVER E O CLIENT É __`CASE SENSITIVE`__, CUIDADO COM OS NOMES DAS: *BASES DE DADOS, TABELAS, COLUNAS, USUÁRIOS, ETC...* NO MOMENTO DA CRIAÇÃO OU ATUALIZAÇÃO DAS INFORMAÇÕES NO SERVIDOR.
 
 ```sql
 /* visualizando as bases de dados do MySQL */

@@ -77,7 +77,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando as dependências do Apache2 Server
+#instalando as dependências do Apache2 Server e do PHP
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \

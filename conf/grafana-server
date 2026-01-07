@@ -5,46 +5,48 @@
 # YouTube: youtube.com/BoraParaPratica
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
-# Data de criação: 27/11/2025
-# Data de atualização: 27/11/2025
+# Data de criação: 07/01/2026
+# Data de atualização: 07/01/2026
 # Versão: 0.01
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
-# Testado e homologado para a versão do Grafana Server v12.x
+# Testado e homologado para a versão do Grafana Server v12.3.x
 #
-# Configurações básicas do servidor de Dashboard Grafana Server
+# Configurando o serviço do Grafana Server
 #
-# Usuário do sistema sob o qual o serviço Grafana é executado.
+# ======== BLOCO DE CONFIGURAÇÃO DA REDE ========
+#
+# configuração do nome do usuário do serviço do Grafana Server
 GRAFANA_USER=grafana
 #
-# Grupo associado ao usuário grafana.
+# configuração do grupo do usuário do serviço do Grafana Server
 GRAFANA_GROUP=grafana
 #
-# Diretório base dos arquivos do próprio software Grafana.
+# configuração do diretório home do serviço do Grafana Server
 GRAFANA_HOME=/usr/share/grafana
 #
-# Diretório onde ficam os arquivos de log do Grafana.
+# configuração do diretório de Log do serviço do Grafana Server
 LOG_DIR=/var/log/grafana
 #
-# Diretório que armazena dados persistentes.
+# configuração do diretório de Biblioteca do serviço do Grafana Server
 DATA_DIR=/var/lib/grafana
 #
-# Limite máximo de descritores de arquivos abertos pelo processo.
+# configuração do número máximo de arquivos abertos do serviço do Grafana Server
 MAX_OPEN_FILES=10000
 #
-# Diretório onde ficam todos os arquivos de configuração.
+# configuração do diretório de configuração do serviço do Grafana Server
 CONF_DIR=/etc/grafana
 #
-# Arquivo principal de configuração do Grafana.
+# configuração do arquivo do serviço do Grafana Server
 CONF_FILE=/etc/grafana/grafana.ini
 #
-# Indica se o serviço deve reiniciar automaticamente após atualizações.
+# configuração da reinicialização depois da atualização do Grafana Server
 RESTART_ON_UPGRADE=true
 #
-# Diretório onde plugins instalados ficam armazenados.
+# configuração do diretório dos Plugins do serviço do Grafana Server
 PLUGINS_DIR=/var/lib/grafana/plugins
 #
-# Diretório que contém arquivos YAML de provisionamento.
+# configuração do diretório do provisionamento do serviço do Grafana Server
 PROVISIONING_CFG_DIR=/etc/grafana/provisioning
 #
-# Local onde o arquivo de PID (Process ID) é escrito.
+# configuração do diretório do Pid de Processo do serviço do Grafana Server
 PID_FILE_DIR=/run/grafana

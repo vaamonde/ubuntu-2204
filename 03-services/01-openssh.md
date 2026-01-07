@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 18/04/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.31<br>
+#Data de atualização: 07/01/2026<br>
+#Versão: 0.32<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO OPENSSH SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do OpenSSH realizado com sucesso!!! #BoraParaPrática*
 
@@ -30,7 +30,8 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Criando um usuário Administrador no Ubuntu Server;<br>
 #10_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server;<br>
 #11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server;<br>
-#12_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
+#12_ Utilizando o comando LNAV (Logfile Navigator) no Ubuntu Server (NÃO COMENTADO NO VÍDEO);<br>
+#13_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
@@ -80,7 +81,7 @@ sudo apt update
 
 #instalando o OpenSSH Server e Client (SOMENTE SE NECESSÁRIO)
 #opção do comando apt: install (install is followed by one or more package names)
-sudo apt install openssh-server openssh-client openssl 
+sudo apt install openssh-server openssh-client openssl lnav
 ```
 
 ## 02_ Verificando o Serviço e Versão do OpenSSH Server e Client no Ubuntu Server
@@ -235,8 +236,8 @@ AllowGroups SEU_GRUPO_DO_USUÁRIO
 ESC SHIFT :x <Enter>
 
 #testando o arquivo de configuração do OpenSSH SERVER (NÃO COMENTADO NO VÍDEO)
-#opção do comando sshd: -t (text mode check configuration)
-sudo sshd -t
+#opção do comando sshd: -T (text mode check configuration)
+sudo sshd -T
 
 #editando o arquivo de configuração do Banner do Ubuntu Server
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/issue.net
@@ -445,11 +446,30 @@ Ctrl+D   #(atalho para sair do login)
 Atalho: Alt + F1
 ```
 
+## 12_ Utilizando o comando LNAV (Logfile Navigator) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+
+Documentação Oficial do Logfile Navigator: https://docs.lnav.org/en/latest/index.html
+
+```bash
+#Principais teclas de atalho do comando lnav
+A) Ctrl-u ou Ctrl-d: Role para cima e para baixo uma página de cada vez.
+B) g (minúsculo): Vá para o início do arquivo de log.
+C) G (maiúsculo): Vá para o final do arquivo de log.
+D) q (minúsculo): Sair do Logfile Navigator (Quit).
+E) e (minúsculo) ou E (maiúsculo): Encontrando erros nos arquivos.
+
+#verificando os Log's de acesso remoto do servidor Ubuntu com o comando lnav
+sudo lnav /var/log/auth.log
+sudo lnav /var/log/syslog
+sudo lnav /var/log/deny.log
+sudo lnav /var/log/allow-ssh.log
+```
+
 ========================================DESAFIOS=========================================
 
-**#12_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
+**#13_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
 
-**#13_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
+**#14_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
 
 =========================================================================================
 
