@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 07/01/2026<br>
-#Versão: 0.26<br>
+#Data de atualização: 08/01/2026<br>
+#Versão: 0.27<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -102,7 +102,7 @@ sudo wget -v -O /etc/apt/preferences.d/zabbix.pref https://raw.githubusercontent
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando o Zabbix Server e Agent2
+#instalando o Zabbix Server e Agent2 no Ubuntu Server
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
@@ -137,6 +137,7 @@ GRANT ALL PRIVILEGES ON zabbix.* TO 'zabbix'@'localhost';
 FLUSH PRIVILEGES;
 
 /* Habilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/set-character-set.html */
 SET GLOBAL log_bin_trust_function_creators = 1;
 
 /* Listando os Bancos de Dados do MySQL Server */
@@ -147,7 +148,7 @@ SHOW DATABASES;
 /* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host,authentication_string FROM mysql.user WHERE user='zabbix';
 
-/* Saindo do Banco de Dados */
+/* Saindo do Banco de Dados do MySQL Server */
 exit
 ```
 
@@ -166,7 +167,7 @@ SHOW DATABASES;
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE zabbix;
 
-/* Saindo do Banco de Dados do MySQL Server*/
+/* Saindo do Banco de Dados do MySQL Server */
 exit
 ```
 
@@ -186,18 +187,23 @@ sudo mysql -u zabbix -p
 ```
 ```sql
 /* Listando os Bancos de Dados do MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
 /* Acessando o Banco de Dados Zabbix */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/use.html */
 USE zabbix;
 
 /* Verificando as Tabelas criadas pelo Script */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SHOW TABLES;
 
 /* Verificando os Usuários criados pelo Script */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SELECT username,passwd FROM users;
 
 /* Verificando da Versão do Database Schema do Zabbix (NÃO COMENTADO NO VÍDEO) */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/select.html */
 SELECT * FROM dbversion;
 
 /* Saindo do Banco de Dados */
@@ -211,6 +217,7 @@ sudo mysql -u root -p
 ```
 ```sql
 /* Desabilitando a opção de Criação de Função log_bin_trust_function_creators no MySQL Server */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/set-character-set.html */
 SET GLOBAL log_bin_trust_function_creators = 0;
 
 /* Saindo do Banco de Dados */
@@ -272,6 +279,10 @@ StatsAllowedIP=127.0.0.1,SUA_SUB-REDE/CIDR
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
+#testando o arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
+#opção do comando sshd: -T (text mode check configuration)
+sudo zabbix_server -T
+
 #editando o arquivo de configuração do Zabbix Agent2
 sudo vim /etc/zabbix/zabbix_agent2.conf
 
@@ -298,35 +309,51 @@ Hostname=SEU_NOME_DO_HOST
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
-#testando o arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
-#opção do comando sshd: -T (text mode check configuration)
-sudo zabbix_server -T
-
 #testando o arquivo de configuração do Zabbix Agent2 (NÃO COMENTADO NO VÍDEO)
 #opção do comando sshd: -T (text mode check configuration)
 sudo zabbix_agent2 -T
+
+#editando o arquivo de configuração do SNMP Daemon (NÃO COMENTADO NO VÍDEO)
+sudo vim /etc/snmp/snmpd.conf
+
+#entrando no modo de edição do editor de texto VIM
+INSERT
+```
+```bash
+# alterar a localização física ou lógica do servidor na linha: 19
+sysLocation Servidores do Bora para Prática
+
+# alterar o valor do contato do responsável pelo servidor na linha: 22
+sysContact Robson Vaamonde <vaamonde@pti.intra>
+
+# alterar o endereço IPv4 da comunidade SNMP somente leitura na linha: 53
+rocommunity vaamonde 172.16.1.0/24
+```
+```bash
+#salvar e sair do arquivo
+ESC SHIFT : x <Enter>
 ```
 
 ## 08_ Habilitando o Serviço do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
-#habilitando o serviço do Zabbix Server e Agent2
+#habilitando o serviço do Zabbix Server, Zabbix Agent2 e do SNMPd Daemon
 #opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
 #enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable zabbix-server
-sudo systemctl restart zabbix-server zabbix-agent2 apache2
+sudo systemctl restart zabbix-server zabbix-agent2 apache2 snmpd
 ```
 
 ## 09_ Verificando o Serviço e Versão do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
-#verificando o serviço do Zabbix Server e Agent2
+#verificando o serviço do Zabbix Server, Zabbix Agent2 e do SNMPd Daemon
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
 #start one or more units), stop (Stop (deactivate) one or more units), start (Start (activate) 
 #one or more units)
-sudo systemctl status zabbix-server zabbix-agent2
-sudo systemctl restart zabbix-server zabbix-agent
-sudo systemctl stop zabbix-server zabbix-agent
-sudo systemctl start zabbix-server zabbix-agent
+sudo systemctl status zabbix-server zabbix-agent2 snmpd
+sudo systemctl restart zabbix-server zabbix-agent snmpd
+sudo systemctl stop zabbix-server zabbix-agent snmpd
+sudo systemctl start zabbix-server zabbix-agent snmpd
 
 #analisando os Log's e mensagens de erro do Servidor do Zabbix (NÃO COMENTADO NO VÍDEO)
 #opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
@@ -336,6 +363,11 @@ sudo journalctl -xeu zabbix-server
 #opção do comando journalctl: -t (identifier), -x (catalog), -e (pager-end), -u (unit)
 sudo journalctl -t zabbix_agent2
 sudo journalctl -xeu zabbix-agent2
+
+#analisando os Log's e mensagens de erro do SNMPd Daemon (NÃO COMENTADO NO VÍDEO)
+#opção do comando journalctl: -x (catalog), -e (pager-end), -u (unit)
+sudo journalctl -u snmpd
+sudo journalctl -xeu snmpd
 ```
 
 **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
@@ -348,6 +380,10 @@ sudo zabbix_server -V
 #verificando a versão do Zabbix Agent2
 #opção do comando zabbix_agent2: -V (version)
 sudo zabbix_agent2 -V
+
+#verificando a versão do SNMPd Daemon
+#opção do comando snmpd: -v (version)
+sudo snmpd -v
 ```
 
 ## 10_ Configurando o Zabbix Server via Navegador
@@ -387,7 +423,7 @@ Yes: Remember me for 30 days
 <Sign in>
 ```
 
-## 11_ Verificando a Porta de Conexão do Zabbix Server e Agent2 no Ubuntu Server
+## 11_ Verificando as Portas de Conexão do Zabbix Server, Zabbix Agent2 e do SNMPd no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
@@ -395,6 +431,10 @@ Yes: Remember me for 30 days
 #verificando as portas padrões TCP-80 Apache2, TCP-10050 Zabbix Agent e TCP-10051 do Zabbix Server
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
 sudo lsof -nP -iTCP:'80,10050,10051' -sTCP:LISTEN
+
+#verificando a porta padrão UDP-161 do SNMPd Daemon
+#opção do comando lsof: -n (network number), -P (port number), -i (list IP Address)
+sudo lsof -nP -iUDP:'161'
 ```
 
 ## 12_ Adicionado o Usuário Local no Grupo Padrão do Zabbix Server no Ubuntu Server
@@ -426,6 +466,8 @@ exit
 /etc/zabbix/zabbix_agent2.conf   <-- Arquivo de Configuração do Zabbix Agent2
 /etc/zabbix/zabbix_agent2.d/*    <-- Diretório de arquivos extras e plugins do serviço do Zabbix Agent2
 /etc/zabbix/zabbix_server.d/*    <-- Diretório de arquivos extras e plugins do serviço do Zabbix Server
+/etc/snmp/*                      <-- Diretório de arquivos de Configuração do SNMP e SNMPd Daemon
+/etc/snmp/snmp.conf              <-- Arquivo de Configuração do SNMPd Daemon
 /var/log/zabbix/*                <-- Diretório dos arquivos de Logs do serviço do Zabbix Server e Agent2
 /var/run/zabbix/*                <-- Diretório do PID dos processos do Zabbix Server e Agent2
 /usr/share/zabbix*               <-- Diretório dos arquivos do Site do serviço do Zabbix Server

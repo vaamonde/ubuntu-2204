@@ -238,7 +238,7 @@ sudo mysql -u dba -p
 ```
 ```sql
 /* visualizando as bases de dados do MySQL */
-/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
 /* saindo do MySQL Client Console */

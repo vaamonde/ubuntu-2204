@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 07/01/2026<br>
-#Versão: 0.20<br>
+#Data de atualização: 08/01/2026<br>
+#Versão: 0.21<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -38,7 +38,7 @@ Site Oficial do Grafana: https://grafana.com/<br>
 
 **O QUE É E PARA QUE SERVER O GRAFANA:** O Grafana é uma plataforma open-source para visualização, monitoramento e análise de dados em tempo real. Ele permite criar dashboards interativos que exibem métricas coletadas de diversas fontes, como bancos de dados, sistemas de monitoramento, IoT e aplicações.
 
-[![Grafana](http://img.youtube.com/vi/vD1aFVcgdlo/0.jpg)](https://www.youtube.com/watch?v=vD1aFVcgdlo "Grafana")
+[![Grafana Server](http://img.youtube.com/vi/vD1aFVcgdlo/0.jpg)](https://www.youtube.com/watch?v=vD1aFVcgdlo "Grafana Server")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=vD1aFVcgdlo
 
@@ -75,7 +75,7 @@ echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com st
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando o Grafana
+#instalando o Grafana Server no Ubuntu Server
 #opções do comando apt: install (install is followed by one or more package names), 
 #--install-recommends (Consider suggested packages as a dependency for installing)
 sudo apt install --install-recommends grafana
