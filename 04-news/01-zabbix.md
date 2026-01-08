@@ -227,6 +227,10 @@ sudo cp -v /etc/zabbix/zabbix_server.conf /etc/zabbix/zabbix_server.conf.old
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf.old
 
+#fazendo o backup do arquivo de configuração do SNMP Daemon (NÃO COMENTADO NO VÍDEO)
+#opção do comando cp: -v (verbose)
+sudo cp -v /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.old
+
 #download do arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_server.conf
@@ -234,6 +238,10 @@ sudo wget -v -O /etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com
 #download do arquivo de configuração do Zabbix Agent2 (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/zabbix/zabbix_agent2.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_agent2.conf
+
+#download do arquivo de configuração do SNMP Daemon (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/snmp/snmpd.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/snmpd.conf
 
 #editando o arquivo de configuração do Zabbix Server
 sudo vim /etc/zabbix/zabbix_server.conf
