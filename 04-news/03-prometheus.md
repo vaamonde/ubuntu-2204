@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.22<br>
+#Data de atualização: 09/01/2026<br>
+#Versão: 0.23<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
@@ -85,7 +85,8 @@ sudo usermod -a -G prometheus node_exporter
 ```bash
 #criando os diretórios de configuração e bibliotecas do Prometheus e do Node Exporter
 #opção do comando mkdir: -p (parents), -v (verbose)
-sudo mkdir -pv /etc/prometheus /var/lib/prometheus
+#opção do bloco de agrupamento {} (chaves): Agrupa comandos em um bloco
+sudo mkdir -pv /etc/prometheus/{targets,rules} /var/lib/prometheus
 ```
 
 ## 03_ Baixando o Prometheus do Github no Ubuntu Server
@@ -93,8 +94,8 @@ sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
 ```bash
-#download do Prometheus do Github (Link atualizado no dia 01/01/2026)
-wget https://github.com/prometheus/prometheus/releases/download/v3.8.1/prometheus-3.8.1.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 09/01/2026)
+wget https://github.com/prometheus/prometheus/releases/download/v3.9.1/prometheus-3.9.1.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -112,12 +113,11 @@ tar -zxvf prometheus*.tar.gz
 
 ## 05_ Atualizando os arquivos executáveis do Prometheus no Ubuntu Server
 ```bash
-#atualizando os arquivos de configurações do Prometheus
+#atualizando os arquivos binários do Prometheus no Ubuntu Server
 #opção do comando cp: -R (recursive), -v (verbose)
 #opção do caractere curinga * (asterisco): Qualquer coisa
 #opção do bloco de agrupamento {} (chaves): Agrupa comandos em um bloco
 sudo cp -Rv prometheus*/{prometheus,promtool} /usr/local/bin/
-sudo cp -Rv prometheus*/{consoles/,console_libraries/} /etc/prometheus/
 ```
 
 ## 06_ Baixando e atualizando os arquivos customizados do Prometheus no Ubuntu Server
@@ -129,6 +129,10 @@ sudo wget -v -O /etc/systemd/system/prometheus.service https://raw.githubusercon
 #download do arquivo de configuração padrão do Prometheus
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/prometheus.yml
+
+#download do arquivo de configuração dos alertas periódicos do Prometheus (NÃO COMENTADO NO VÍDEO)
+#opção do comando wget: -v (verbose), -O (output file)
+sudo wget -v -O /etc/prometheus/rules/alertas-node-linux.yml https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/alertas-node-linux.yml
 ```
 
 ## 07_ Alterando as permissões dos arquivos e diretórios do Prometheus no Ubuntu Server
@@ -254,21 +258,38 @@ sudo vim /etc/prometheus/prometheus.yml
 INSERT
 ```
 ```yaml
-#alterar os valores das viráveis a partir da linha: 42
+#alterar os valores das viráveis a partir da linha: 23
+external_labels:
+  monitor: "prometheus-wsvaamonde"
+  ambiente: "laboratorio"
+
+#alterar os valores das viráveis a partir da linha: 55
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
       - targets: ["172.16.1.20:9091"]
+        labels:
+          servico: "prometheus"
+          sistema: "linux"
 
-#alterar os valores das variáveis a partir da linha: 51
+#alterar os valores das variáveis a partir da linha: 68
 scrape_configs:
   - job_name: "wsvaamonde"
     static_configs:
       - targets: ["172.16.1.20:9100"]
+        labels:
+          host: "wsvaamonde"
+          sistema: "linux"
+          funcao: "servidor"
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
+
+#testando o arquivo de configuração do Prometheus (NÃO COMENTADO NO VÍDEO)
+#opção do comando sudo: -u (Run the command as a user other than the default target user)
+#opções do comando promtool: check config (Check if the config files are valid or not) 
+sudo -u prometheus promtool check config /etc/prometheus/prometheus.yml
 ```
 
 ## 17_ Habilitando o Serviço do Prometheus no Ubuntu Server 
@@ -302,7 +323,12 @@ sudo journalctl -xeu prometheus
 
 ```bash
 #verificando a versão do Prometheus
+#opção do comando prometheus: --version (Show application version.)
 sudo prometheus --version
+
+#verificado a versão do Promtool do Prometheus
+#opção do comando promtool: --version (Show application version.)
+sudo promtool --version
 ```
 
 ## 19_ Verificando a Porta de Conexão do Prometheus no Ubuntu Server 
@@ -342,10 +368,11 @@ exit
 
 ## 21_ Localização dos diretórios e arquivos principais do Prometheus e Node Exporter no Ubuntu Server 
 ```bash
-/etc/prometheus/*                   <-- Diretório de configuração do Prometheus
-/etc/prometheus/prometheus.yml      <-- Arquivo de configuração do Prometheus
-/etc/prometheus/node_exporter.conf  <-- Arquivo de configuração do Node Exporter
-/var/lib/prometheus/*               <-- Diretório de armazenamento dos binários e dados do Prometheus
+/etc/prometheus/*                              <-- Diretório de configuração do Prometheus
+/etc/prometheus/prometheus.yml                 <-- Arquivo de configuração do Prometheus
+/etc/prometheus/node_exporter.conf             <-- Arquivo de configuração do Node Exporter
+/etc/prometheus/rules/alertas-node-linux.yml   <-- Arquivo de configuração dos alertas do Node Exporter
+/var/lib/prometheus/*                          <-- Diretório de armazenamento dos binários e dados do Prometheus
 ```
 
 ## 22_ Configurando o Prometheus e o Node Exporter via Navegador
@@ -358,39 +385,44 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
 #verificando os alvos monitorados do Prometheus
 Status
-  Targets
+  Targets health
     Prometheus
       Endpoint: http://172.16.1.20:9091/metrics
     wsvaamonde
       Endpoint: http://172.16.1.20:9100/metrics
 
-#verificando a versões do Sistema Operacional
-a) Expression: node_os_info{job="wsvaamonde"} <Execute>
+Query
+  Table
+  #verificando a versão do Sistema Operacional
+  a) Expression: node_os_info{job="wsvaamonde"} <Execute>
 
-#verificando informações de Hard Disk
-b) Expression: node_disk_info{job="wsvaamonde"} <Execute>
+  #verificando informações de Hard Disk
+  b) Expression: node_disk_info{job="wsvaamonde"} <Execute>
 
-#verificando informações da BIOS e da Placa Mãe
-c) Expression: node_dmi_info{job="wsvaamonde"} <Execute>
+  #verificando informações da BIOS e da Placa Mãe
+  c) Expression: node_dmi_info{job="wsvaamonde"} <Execute>
 
-#verificando a quantidade de Memória Ativa em Bytes
-d) Expression: node_memory_Active_bytes{job="wsvaamonde"} <Execute> - <Graph>
+  #verificando a quantidade de Memória Ativa em Bytes
+  d) Expression: node_memory_Active_bytes{job="wsvaamonde"} <Execute> - <Graph>
 
-#verificando a quantidade total de processos por segundos da CPU
-e) Expression: node_cpu_seconds_total{job="wsvaamonde"} <Execute> - <Graph>
+  #verificando a quantidade total de processos por segundos da CPU
+  e) Expression: node_cpu_seconds_total{job="wsvaamonde"} <Execute> - <Graph>
 
-#verificando o incremento do Total de CPU por segundos em 1m
-#rate = taxa | [1m] = intervalo
-f) Expression: rate(node_cpu_seconds_total{job="wsvaamonde"}[1m]) <Execute> - <Graph>
-g) Expression: rate(node_cpu_seconds_total{cpu="0",job="wsvaamonde"}[1m]) <Execute> - <Graph>
+  #verificando o incremento do Total de CPU por segundos em 1m
+  #rate = taxa | [1m] = intervalo
+  f) Expression: rate(node_cpu_seconds_total{job="wsvaamonde"}[1m]) <Execute> - <Graph>
+  g) Expression: rate(node_cpu_seconds_total{cpu="0",job="wsvaamonde"}[1m]) <Execute> - <Graph>
 
-#verificando o incremente do Total de Pacotes Enviados e Recebidos da Interface de Rede
-#rate = taxa | [10m] = intervalo | *8/1024/1024 = fórmula para conversão em Kbps ou Mbps
-h) rate(node_network_receive_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
-i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
+  #verificando o incremente do Total de Pacotes Enviados e Recebidos da Interface de Rede
+  #rate = taxa | [10m] = intervalo | *8/1024/1024 = fórmula para conversão em Kbps ou Mbps
+  h) rate(node_network_receive_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
+  i) rate(node_network_transmit_bytes_total{device="enp0s3", job="wsvaamonde"}[10m])*8/1024/1024
 
 #acessando o Node Exporter do Ubuntu Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9100
+
+#verificando as métricas On-Line do Node Exporter
+Metrics
 ```
 
 ## 23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows
@@ -534,7 +566,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9091
 
 #verificando os alvos monitorados do Prometheus
 Status
-  Targets
+  Targets health
 ```
 
 ## 25_ Integrando o Prometheus no Grafana Server
@@ -542,7 +574,7 @@ Status
 #acessando o Grafana Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
 
-#criando um Data Sources do Prometheus
+#criando um Data Sources do Prometheus no Grafana Server
 Open Menu
   Connections
     Data Sources
@@ -553,7 +585,7 @@ Open Menu
             Prometheus server URL: http://172.16.1.20:9091
       <Save & Test>
 
-#criando o Dashboard do Prometheus
+#criando o Dashboard do Prometheus no Grafana Server
 Open Menu
   Dashboards
     <Create Dashboard>
