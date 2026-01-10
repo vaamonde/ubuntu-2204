@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 04/02/2022
-# Data de atualização: 09/01/2026
-# Versão: 0.06
+# Data de atualização: 10/01/2026
+# Versão: 0.07
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do Prometheus 3.9.x e Node Exporter 1.10.x
 #
@@ -24,14 +24,6 @@ global:
     monitor: "prometheus-wsvaamonde"
     ambiente: "laboratorio"
 #
-# Configuração do File Service Discovery do Prometheus
-file_sd_configs:
-  #Configuração do diretório de descobertas do Prometheus
-  - files:
-      - /etc/prometheus/targets/*.yml
-    #Tempo de atualização do intervalo de descoberta do Prometheus
-    refresh_interval: 1m
-# 
 # Configuração do Sistema de Gerenciamento de Alertas do Prometheus
 alerting:
   alertmanagers:
@@ -53,8 +45,18 @@ rule_files:
 # Configurações do Serviço do Prometheus (alterado a Porta para 9091 para não entrar
 # em conflito com o serviço do OpenFire, porta padrão do Prometheus é a 9090)
 scrape_configs:
-  # Nome do serviço que o Prometheus vai monitorar
-  - job_name: "prometheus"
+#
+# Configuração do File Service Discovery do Prometheus
+  - job_name: "prometheus-fsd"
+    file_sd_configs:
+    #Configuração do diretório de descobertas do Prometheus
+    - files:
+        - "/etc/prometheus/targets/*.yml"
+      #Tempo de atualização do intervalo de descoberta do Prometheus
+      refresh_interval: 1m
+#
+# Nome do serviço que o Prometheus vai monitorar
+  - job_name: "prometheus-srv"
     # Inicio da definição das configurações estáticas
     static_configs:
       # Endereço, Porta e Rótulos do alvo monitorado

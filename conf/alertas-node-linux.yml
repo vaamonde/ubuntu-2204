@@ -6,8 +6,8 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 04/02/2022
-# Data de atualização: 09/01/2026
-# Versão: 0.06
+# Data de atualização: 10/01/2026
+# Versão: 0.07
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do Prometheus 3.9.x e Node Exporter 1.10.x
 #
@@ -49,6 +49,7 @@ groups:
       description: "Uso de disco acima de 90% no host {{ $labels.instance }} ({{ $labels.mountpoint }})."
   #
   # Configuração do alerta de: Uso elevado de Processamento
+  - alert: Processamento
     expr: node_load15 > count by (instance) (node_cpu_seconds_total{mode="system"})
     for: 5m
     labels:

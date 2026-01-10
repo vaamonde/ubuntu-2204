@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 09/01/2026<br>
-#Versão: 0.23<br>
+#Data de atualização: 10/01/2026<br>
+#Versão: 0.24<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
@@ -79,6 +79,14 @@ sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_ex
 #adicionando o usuário do serviço do Node Exporter no grupo do Prometheus
 #opções do comando usermod: -a (append), -G (groups)
 sudo usermod -a -G prometheus node_exporter
+
+#verificando os grupos do Prometheus e do Node Exporter criados no Ubuntu Server
+#opção do comando getent: group (show enumerate the group database)
+sudo getent group
+
+#verificando os usuários do Prometheus e do Node Exporter criados no Ubuntu Server
+#opção do comando getent: passwd (show enumerate the passwd database)
+sudo getent passwd
 ```
 
 ## 02_ Criando os diretórios do Prometheus e do Node Exporter no Ubuntu Server
@@ -258,12 +266,12 @@ sudo vim /etc/prometheus/prometheus.yml
 INSERT
 ```
 ```yaml
-#alterar os valores das viráveis a partir da linha: 23
+#alterar os valores das viráveis a partir da linha: 22
 external_labels:
   monitor: "prometheus-wsvaamonde"
   ambiente: "laboratorio"
 
-#alterar os valores das viráveis a partir da linha: 55
+#alterar os valores das viráveis a partir da linha: 58
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
@@ -336,9 +344,9 @@ sudo promtool --version
 **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
-#verificando a porta padrão TCP-9091 do Prometheus
+#verificando a porta padrão TCP-9100 do Node Exporter e TCP-9091 do Prometheus
 #opção do comando lsof: -n (network number), -P (port number), -i (list IP Address), -s (alone directs)
-sudo lsof -nP -iTCP:'9091' -sTCP:LISTEN
+sudo lsof -nP -iTCP:'9100,9091' -sTCP:LISTEN
 ```
 
 ## 20_ Adicionado o Usuário Local nos Grupos do Prometheus e Node Exporter no Ubuntu Server 
@@ -391,6 +399,7 @@ Status
     wsvaamonde
       Endpoint: http://172.16.1.20:9100/metrics
 
+#fazendo consultas simples do Prometheus
 Query
   Table
   #verificando a versão do Sistema Operacional
@@ -539,23 +548,29 @@ sudo vim /etc/prometheus/prometheus.yml
 INSERT
 ```
 ```yaml
-#alterar os valores das viráveis a partir da linha: 54
-scrape_configs:
-  - job_name: "linuxmint213"
-    static_configs:
-      - targets: ["172.16.1.100:9100"]
+#descomentar e alterar os valores das viráveis a partir da linha: 78
+- job_name: "linuxmint213"
+  static_configs:
+    - targets: ["172.16.1.:9100"]
+      labels:
+        host: "linuxmint213"
+        sistema: "linux"
+        funcao: "desktop"
 
-#alterar os valores das variáveis a partir da linha: 44
-scrape_configs:
-  - job_name: "windows10"
-    static_configs:
-      - targets: ["172.16.1.101:9182"]
+#descomentar e alterar os valores das viráveis a partir da linha: 86
+- job_name: "windows10"
+  static_configs:
+    - targets: ["172.16.1.:9182"]
+      labels:
+        host: "linuxmint213"
+        sistema: "windows"
+        funcao: "desktop"
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
-#verificando o serviço do Prometheus
+#reiniciando e verificando o serviço do Prometheus
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
 #start one or more units)
 sudo systemctl restart prometheus
@@ -569,7 +584,7 @@ Status
   Targets health
 ```
 
-## 25_ Integrando o Prometheus no Grafana Server
+## 25_ Integrando o Prometheus e Node Exporter no Grafana Server
 ```bash
 #acessando o Grafana Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver:3000
