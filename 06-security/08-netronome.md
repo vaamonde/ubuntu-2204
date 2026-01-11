@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 30/12/2025<br>
-#Data de atualização: 31/12/2025<br>
-#Versão: 0.02<br>
+#Data de atualização: 11/01/2026<br>
+#Versão: 0.03<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETRONOME SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netronome realizado com sucesso!!! #BoraParaPrática*
 
@@ -19,12 +19,22 @@ LINK DO SELO: https://github.com/vaamonde/ubuntu-2204/blob/main/selos/26-netrono
 #boraparapratica #boraparaprática #vaamonde #robsonvaamonde #procedimentosemti #ubuntuserver #ubuntuserver2204 #desafiovaamonde #desafioboraparapratica #desafionetronome
 
 Conteúdo estudado nesse desafio:<br>
-#01_ 
+#01_ Instalando as dependências do Netronome Server no Ubuntu Server<br>
+#02_ Instalando o Netronome Server do Projeto do Github no Ubuntu Server<br>
+#03_ Instalando o SpeedTest do Projeto do Github no Ubuntu Server<br>
+#04_ Configurando o Netronome Server no Ubuntu Server<br>
+#05_ Atualizando os arquivos de configuração do Netronome Server no Ubuntu Server<br>
+#06_ Habilitando os Serviços do Netronome e Iperf3 Server no Ubuntu Server<br>
+#07_ Verificando os Serviços e Versão do Netronome e Iperf3 Server no Ubuntu Server<br>
+#08_ Verificando as Portas de Conexões do Apache2, Netronome e Iperf3 Server no Ubuntu Server<br>
+#09_ Localização dos Arquivos de Configuração do Netronome Server e Agent no Ubuntu Server<br>
+#10_ Editando o arquivo de configuração do Netronome Server no Ubuntu Server<br>
+#11_ Instalando o Netronome Agent do Projeto do Github no Ubuntu Server<br>
 
 Site Oficial do Netronome: https://netrono.me/<br>
-Github Oficial do Projeto: https://github.com/autobrr/netronome<br>
+Github Oficial do Projeto Netronome: https://github.com/autobrr/netronome<br>
 Site Oficial do Librespeed: https://librespeed.org/<br>
-Github Oficial do Projeto: https://github.com/librespeed/speedtest<br>
+Github Oficial do Projeto Librespeed: https://github.com/librespeed/speedtest<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
@@ -208,7 +218,7 @@ sudo lsof -nP -iTCP:'80,5201,7575' -sTCP:LISTEN
 /var/log/syslog                                   <-- Arquivo de Log padrão do Netronome Server e Agent
 ```
 
-# 10_ Editando o arquivo de configuração do Netronome Server no Ubuntu Server
+## 10_ Editando o arquivo de configuração do Netronome Server no Ubuntu Server
 ```bash
 #editando o arquivo de configuração do Netronome Server
 sudo vim /root/.config/netronome/config.toml
@@ -273,13 +283,12 @@ curl -sL https://netrono.me/install-agent | sudo bash
 05) Enter the port number (default: 8200): <Enter>
 06) Enter disk mounts to include (comma-separated, e.g., /mnt/storage,/mnt/backup): <Enter>
 07) Enter disk mounts to exclude (comma-separated, e.g., /boot,/tmp): /boot,/tmp <Enter>
-
 ```
 
 
 ========================================DESAFIOS=========================================
 
-**#08_ DESAFIO-01:** 
+**#12_ DESAFIO-01:** 
 
 =========================================================================================
 

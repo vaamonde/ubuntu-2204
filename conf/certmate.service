@@ -1,0 +1,14 @@
+[Unit]
+Description=CertMate SSL Certificate Manager
+After=network.target
+
+[Service]
+Type=simple
+User=certmate
+WorkingDirectory=/opt/certmate
+Environment=PATH=/opt/certmate/venv/bin
+ExecStart=/opt/certmate/venv/bin/gunicorn --bind 0.0.0.0:8000 --workers 4 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
