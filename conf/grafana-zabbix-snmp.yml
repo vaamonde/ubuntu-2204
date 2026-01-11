@@ -1,0 +1,230 @@
+#Configuração da visualização da Utilização da CPU via Zabbix SNMP
+Data source: Zabbix wsvaamonde
+  cpu (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: component: cpu
+    Item: CPU utilization
+Visualization: Gauge
+  Panel options:
+    Title: CPU Zabbix SNMP
+    Description: Utilização da CPU obtida do Zabbix SNMP
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da RAM via Zabbix SNMP
+Data source: Zabbix wsvaamonde
+  ram (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: component: memory
+    Item: Memory utilization
+Visualization: Gauge
+  Panel options:
+    Title: RAM Zabbix SNMP
+    Description: Utilização da RAM obtida do Zabbix SNMP
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da RAM via Zabbix SNMP
+Data source: Zabbix wsvaamonde
+  ram (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: component: memory
+    Item: Memory utilization
+Visualization: Gauge
+  Panel options:
+    Title: RAM Zabbix SNMP
+    Description: Utilização da RAM obtida do Zabbix SNMP
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização do HD via Zabbix SNMP
+Data source: Zabbix wsvaamonde
+  hd (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: disk: sda
+    Item: sda: Disk utilization
+Visualization: Gauge
+  Panel options:
+    Title: HD Zabbix SNMP
+    Description: Utilização do HD obtida do Zabbix SNMP
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da NIC via Zabbix SNMP
+Data source: Zabbix wsvaamonde
+  received (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: Interface: enp0s3
+    Item: Interface enp0s3(): Bits received 
+  sent (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: Interface: enp0s3
+    Item: Interface enp0s3(): Bits sent
+Visualization: Pie chart
+  Panel options:
+    Title: NIC Zabbix SNMP
+    Description: Utilização da NIC obtida do Zabbix SNMP
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Pie chart:
+    Pie chart type: Donut
+    Slice sorting: Descending
+    Labels: Percent
+  Tooltip:
+    Tooltip mode: Hidden
+  Legend:
+    Visibility: (OFF)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+<Save dashboard>
