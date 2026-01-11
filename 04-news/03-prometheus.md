@@ -612,7 +612,7 @@ Open Menu
 Data source: prometheus-wsvaamonde
   cpu (wsvaamonde)
     Code:
-      Metrics browser: 100 - (avg(irate(node_cpu_seconds_total{job="wsvaamonde",mode="idle"}[30m])) * 100)
+      Metrics browser: 100 - (avg(irate(node_cpu_seconds_total{job="wsvaamonde",mode="idle"}[1m])) * 100)
 Visualization: Gauge
   Panel options:
     Title: CPU Prometheus

@@ -20,8 +20,8 @@ groups:
   #
   # Configuração do alerta de: Uso elevado de CPU
   - alert: CPUAlta
-    expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
-    for: 5m
+    expr: 100 - (avg without (cpu, mode)(rate(node_cpu_seconds_total{mode="idle"}[1m]))) * 100 > 80
+    for: 1m
     labels:
       severity: warning
     annotations:
@@ -30,8 +30,8 @@ groups:
   #
   # Configuração do alerta de: Uso elevado de Memória RAM
   - alert: MemoriaAlta
-    expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 85
-    for: 5m
+    expr: (1 - (node_memory_MemAvailable_bytes{job="wsvaamonde"} / node_memory_MemTotal_bytes{job="wsvaamonde"})) * 100 > 80
+    for: 1m
     labels:
       severity: warning
     annotations:
@@ -40,8 +40,8 @@ groups:
   #
   # Configuração do alerta de: Uso elevado de Hard Disk Cheio
   - alert: DiscoCheio
-    expr: (1 - (node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"})) * 100 > 90
-    for: 5m
+    expr: (1 - (node_filesystem_avail_bytes{job="wsvaamonde",device="/dev/mapper/ubuntu--vg-ubuntu--lv"} / node_filesystem_size_bytes{job="wsvaamonde",device="/dev/mapper/ubuntu--vg-ubuntu--lv"})) * 100 > 80
+    for: 1m
     labels:
       severity: critical
     annotations:
@@ -50,10 +50,20 @@ groups:
   #
   # Configuração do alerta de: Uso elevado de Processamento
   - alert: Processamento
-    expr: node_load15 > count by (instance) (node_cpu_seconds_total{mode="system"})
-    for: 5m
+    expr: node_load15 > count without (cpu, mode) (node_cpu_seconds_total{job="wsvaamonde",mode="idle"})
+    for: 1m
     labels:
       severity: warning
     annotations:
       summary: "Load Average elevado"
       description: "Load 15 maior que o número de CPUs no host {{ $labels.instance }}."
+  #
+  # Configuração do alerta de: Uso elevado de I/O de Disco
+  - alert: IOAlto
+    expr: rate(node_disk_io_time_seconds_total{job="wsvaamonde"}[1m]) > 0.8
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Disco com I/O elevado"
+      description: "Disco com I/O acima de 80% no host {{ $labels.instance }}."
