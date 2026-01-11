@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 08/01/2026<br>
-#Versão: 0.27<br>
+#Data de atualização: 11/01/2026<br>
+#Versão: 0.28<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -337,7 +337,7 @@ ESC SHIFT : x <Enter>
 ## 08_ Habilitando o Serviço do Zabbix Server e Agent2 no Ubuntu Server
 ```bash
 #habilitando o serviço do Zabbix Server, Zabbix Agent2 e do SNMPd Daemon
-#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration), 
+#opções do comando systemctl: daemon-reload (Reload the systemd manager configuration),
 #enable (Enable one or more units), restart (Stop and then start one or more units)
 sudo systemctl daemon-reload
 sudo systemctl enable zabbix-server

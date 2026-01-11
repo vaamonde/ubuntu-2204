@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 10/01/2026<br>
-#Versão: 0.24<br>
+#Data de atualização: 11/01/2026<br>
+#Versão: 0.25<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO PROMETHEUS SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Prometheus realizado com sucesso!!! #BoraParaPrática*
 
@@ -600,13 +600,183 @@ Open Menu
             Prometheus server URL: http://172.16.1.20:9091
       <Save & Test>
 
-#criando o Dashboard do Prometheus no Grafana Server
+#criando um Dashboard Básico do Prometheus no Grafana Server
 Open Menu
   Dashboards
     <Create Dashboard>
     <+ Add visualization>
       Select data source
         Data source: prometheus-wsvaamonde
+
+#Configuração da visualização da Utilização da CPU via Prometheus
+Data source: prometheus-wsvaamonde
+  cpu (wsvaamonde)
+    Code:
+      Metrics browser: 100 - (avg(irate(node_cpu_seconds_total{job="wsvaamonde",mode="idle"}[30m])) * 100)
+Visualization: Gauge
+  Panel options:
+    Title: CPU Prometheus
+    Description: Utilização da CPU obtida do Prometheus
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da RAM via Prometheus
+Data source: prometheus-wsvaamonde
+  ram (wsvaamonde)
+    Code:
+      Metrics browser: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes * 100
+Visualization: Gauge
+  Panel options:
+    Title: RAM Prometheus
+    Description: Utilização da RAM obtida do Prometheus
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização do HD via Prometheus
+Data source: prometheus-wsvaamonde
+  hd (wsvaamonde)
+    Code:
+      Metrics browser: sum by (device) (rate(node_disk_io_time_seconds_total[1m])) * 100
+Visualization: Gauge
+  Panel options:
+    Title: RAM Prometheus
+    Description: Utilização da RAM obtida do Prometheus
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: sda
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da NIC via Prometheus
+Data source: prometheus-wsvaamonde
+  received (wsvaamonde)
+    Code:
+      Metrics browser: rate(node_network_receive_bytes_total{host="wsvaamonde",device="enp0s3"}[1m])
+  transmited (wsvaamonde)
+    Code:
+      Metrics browser: rate(node_network_transmit_bytes_total{host="wsvaamonde",device="enp0s3"}[1m])
+Visualization: Pie chart
+  Panel options:
+    Title: NIC Zabbix SNMP
+    Description: Utilização da NIC obtida do Zabbix SNMP
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: {device="enp0s3",funcao="servidor",host="wsvaamonde",instance="172.16.1.20:9100",job="wsvaamonde",sistema="linux"}
+  Pie chart:
+    Pie chart type: Donut
+    Slice sorting: Descending
+    Labels: Percent
+  Tooltip:
+    Tooltip mode: Hidden
+  Legend:
+    Visibility: (OFF)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+<Save dashboard>
 ```
 
 ## 26_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)

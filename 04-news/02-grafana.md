@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 08/01/2026<br>
-#Versão: 0.21<br>
+#Data de atualização: 11/01/2026<br>
+#Versão: 0.22<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GRAFANA SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Grafana realizado com sucesso!!! #BoraParaPrática*
 
@@ -375,35 +375,192 @@ Open Menu
     <+ Create dashboard>
       <+ Add visualization>
         Select data source: wsvaamonde Default (Zabbix Server)
-          #gráfico de utilização da CPU
-          Edite query name: CPU
-            Query type: Metrics
-            Group: Zabbix servers
-            Host: wsvaamonde
-            Item tag: component: cpu
-            Item: CPU utilization
-          #gráfico de utilização da RAM
-            Edite query name: CPU
-              Query type: Metrics
-              Group: Zabbix servers
-              Host: wsvaamonde
-              Item tag: component: memory
-              Item: Memory utilization
-          #gráfico de utilização do HARD DISK
-            Edite query name: CPU
-              Query type: Metrics
-              Group: Zabbix servers
-              Host: wsvaamonde
-              Item tag: component: storage
-              Item: Disk utilization
-          #gráfico de utilização da NETWORK
-            Edite query name: CPU
-              Query type: Metrics
-              Group: Zabbix servers
-              Host: wsvaamonde
-              Item tag: component: enp0s3
-              Item: Interface enp0s3: Bits received
-              Item: Interface enp0s3: Bits sent
+
+#Configuração da visualização da Utilização da CPU via Zabbix Agent2
+Data source: Zabbix wsvaamonde
+  cpu (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: component: cpu
+    Item: CPU utilization
+Visualization: Gauge
+  Panel options:
+    Title: CPU Zabbix Agent
+    Description: Utilização da CPU obtida do Zabbix Agent
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da RAM via Zabbix Agent2
+Data source: Zabbix wsvaamonde
+  ram (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: component: memory
+    Item: Memory utilization
+Visualization: Gauge
+  Panel options:
+    Title: RAM Zabbix Agent
+    Description: Utilização da RAM obtida do Zabbix Agent
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização do HD via Zabbix Agent2
+Data source: Zabbix wsvaamonde
+  hd (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: disk: sda
+    Item: sda: Disk utilization
+
+Visualization: Gauge
+  Panel options:
+    Title: HD Zabbix Agent
+    Description: Utilização do Hard Disk obtida do Zabbix Agent
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: (Numeric Fields)
+  Gauge:
+    Orientation: Auto
+    Show threshold label: (OFF)
+    Show threshold markers: (ON)
+    Neutral: (DEFAULT)
+  Text size:
+    Title: (DEFAULT)
+    Value: (DEFAULT)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+  Thresholds:
+    %80
+    %60
+    %0 Base
+    Thresholds mode: Percentage
+<Save dashboard>
+
+#Configuração da visualização da Utilização da NIC via Zabbix Agent2
+Data source: Zabbix wsvaamonde
+  received (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: Interface: enp0s3
+    Item: Interface enp0s3(): Bits received 
+  sent (wsvaamonde)
+    Query type: Metrics
+    Group: Zabbix servers
+    Host: wsvaamonde
+    Item tag: Interface: enp0s3
+    Item: sda: Interface enp0s3(): Bits sent
+Visualization: Pie chart
+  Panel options:
+    Title: NIC Zabbix Agent
+    Description: Utilização da NIC obtida do Zabbix Agent
+    Transparent background: (OFF)
+    Panel links: (DEFAULT)
+    Repeat options: (DEFAULT)
+  Value options:
+    Show: Calculate
+    Calculation: Last*
+    Fields: Numeric Fields
+  Pie chart:
+    Pie chart type: Donut
+    Slice sorting: Descending
+    Labels: Percent
+  Tooltip:
+    Tooltip mode: Hidden
+  Legend:
+    Visibility: (OFF)
+  Standard options:
+    Unit: Parcent (0-100)
+    Min: (DEFAULT)
+    Max: (DEFAULT)
+    Field min/max: (OFF)
+    Decimal: (DEFAULT)
+    Display name: (DEFAULT)
+    Color scheme: (DEFAULT)
+    No value: (DEFAULT)
+  Data links and actions:
+    Data links: (DEFAULT)
+  Value mappings: (DEFAULT)
+<Save dashboard>
 ```
 
 ## 14_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
