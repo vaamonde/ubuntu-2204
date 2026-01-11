@@ -34,7 +34,8 @@ Conteúdo estudado nessa implementação:<br>
 #13_ Localização dos diretórios principais do Zabbix Server e Agent2 no Ubuntu Server;<br>
 #14_ Instalando os Agentes do Zabbix no Linux Mint e no Windows 10;<br>
 #15_ Criando os Hosts de Monitoramento dos Agentes no Zabbix Server;<br>
-#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**.<br>
+#16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**;<br>
+#17_ Upgrade de versão do Zabbix Server versão 7.0 para 7.4 (NÃO COMENTADO NO VÍDEO).<br>
 
 Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
@@ -692,6 +693,74 @@ Modes
 #Saindo do s-tui
 Control Options
   <Quit> <Enter>
+```
+
+## 17_ Upgrade de versão do Zabbix Server versão 7.0 para 7.4 (NÃO COMENTADO NO VÍDEO)
+
+Mais informações acesse o Link Oficial do Zabbix Server Upgrade: https://www.zabbix.com/documentation/current/en/manual/installation/upgrade
+
+```bash
+#parando o serviço do Zabbix Server e Agent no Ubuntu Server
+#opção do comando systemctl: stop
+sudo systemctl stop zabbix-server zabbix-agent2
+
+#criando o diretório do backup das configurações do Zabbix Server e Agent no Ubuntu Server
+#opções do comando mkdir: -p (), -v (verbose)
+sudo mkdir -pv /opt/zabbix-backup/ 
+
+#executando o backup das configurações do Zabbix Server e Agent no Ubuntu Server
+#opções do comando cp: -v (verbose), -R (recursive)
+sudo cp -v /etc/zabbix/zabbix_server.conf /opt/zabbix-backup/ 
+sudo cp -v /etc/apache2/conf-enabled/zabbix.conf /opt/zabbix-backup/
+sudo cp -Rv /usr/share/zabbix/ /opt/zabbix-backup/ 
+sudo cp -Rv /usr/share/zabbix-* /opt/zabbix-backup/
+
+#listando o conteúdo do diretório de backup do Zabbix Server e Agent no Ubuntu Server
+#opções do comando ls: -l (), -h ()
+sudo ls -lh /opt/zabbix-backup/
+
+#removendo o repositório do Apt do Zabbix Server e Agent LTS 7.0
+#opções do comando rm: -R (recursive), -f (force), -v (verbose)
+sudo rm -Rfv /etc/apt/sources.list.d/zabbix.list
+
+#download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 11/01/2025)
+wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
+
+#instalando o repositório do Zabbix Server e Agent LTS 7.4
+#opção do comando dpkg: -i (install)
+#opção do caractere curinga * (asterisco): Qualquer coisa
+sudo dpkg -i zabbix-release_latest*.deb
+  #digitar a opção: Y (Yes) e pressionar <Enter>
+  *** zabbix.list (Y/I/N/O/D/Z) [padrão=N] ? Y <Enter>
+
+#atualizando as lista do Apt com o novo repositório do Zabbix Server e Agent
+#opção do comando apt: update (Resynchronize the package index files from their sources)
+sudo apt update
+
+#atualizando as versões do Zabbix Server e Agent
+#opção do comando apt: install (install is followed by one or more package names), 
+#--only-upgrade (Do not install new packages, will install upgrades for already installed packages 
+#only and ignore requests to install new packages)
+sudo apt install --only-upgrade zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
+zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
+  #digitar a opção: N (Not) e pressionar <Enter>
+  *** zabbix_server.conf (Y/I/N/O/D/Z) [padrão=N] ? N <Enter>
+
+#reiniciar os serviços do Apache2 Server, Zabbix Server e Agent
+#opção do comando systemctl: restart (Stop and then start one or more units)
+sudo systemctl restart apache2 zabbix-server zabbix-agent2 
+
+#verificando o status de serviço do Apache2 Server, Zabbix Server e Agent
+#opção do comando systemctl: status (runtime status information)
+sudo systemctl status apache2 zabbix-server zabbix-agent2 
+
+#verificando a versão do Zabbix Server
+#opção do comando zabbix_server: -V (version)
+sudo zabbix_server -V
+
+#verificando a versão do Zabbix Agent2
+#opção do comando zabbix_agent2: -V (version)
+sudo zabbix_agent2 -V
 ```
 
 =========================================================================================
