@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 07/03/2024<br>
-#Data de atualização: 11/01/2026<br>
-#Versão: 0.28<br>
+#Data de atualização: 12/01/2026<br>
+#Versão: 0.29<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO ZABBIX SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do Zabbix realizado com sucesso!!! #BoraParaPrática*
 
@@ -45,7 +45,7 @@ Site Oficial do Zabbix: https://www.zabbix.com/<br>
 
 Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
-## 01_ Instalando as Dependências do Zabbix Server e Agent2 no Ubuntu Server
+## 01_ Instalando as Dependências do Zabbix Server, Frontend e Agent2 no Ubuntu Server
 
 **OBSERVAÇÃO IMPORTANTE:** O ZABBIX POSSUI AS DEPENDÊNCIAS DO *BANCO DE DADOS MYSQL SERVER* E DO *APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8**.
 
@@ -62,7 +62,7 @@ sudo apt install --install-recommends traceroute nmap snmp snmpd snmp-mibs-downl
 software-properties-common git vim fping
 ```
 
-## 02_ Adicionando o Repositório do Zabbix no Ubuntu Server
+## 02_ Adicionando o Repositório do Zabbix Server, Frontend e Agent2 no Ubuntu Server
 
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/download
 
@@ -103,7 +103,7 @@ sudo wget -v -O /etc/apt/preferences.d/zabbix.pref https://raw.githubusercontent
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando o Zabbix Server e Agent2 no Ubuntu Server
+#instalando o Zabbix Server, Frontend e Agent2 no Ubuntu Server
 #opção do comando apt: --install-recommends (Consider suggested packages as a dependency for installing)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install --install-recommends zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf \
@@ -174,7 +174,7 @@ exit
 
 ## 06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
+**OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE, DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do Zabbix Server (CAMINHO ATUALIZADO PARA A VERSÃO 7.0)
@@ -191,19 +191,19 @@ sudo mysql -u zabbix -p
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
 
-/* Acessando o Banco de Dados Zabbix */
+/* Acessando o Banco de Dados Zabbix Server */
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/use.html */
 USE zabbix;
 
-/* Verificando as Tabelas criadas pelo Script */
+/* Verificando as Tabelas criadas pelo Script do Zabbix Server */
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SHOW TABLES;
 
-/* Verificando os Usuários criados pelo Script */
+/* Verificando os Usuários criados pelo Script do Zabbix Server */
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SELECT username,passwd FROM users;
 
-/* Verificando da Versão do Database Schema do Zabbix (NÃO COMENTADO NO VÍDEO) */
+/* Verificando da Versão do Database Schema do Zabbix Server (NÃO COMENTADO NO VÍDEO) */
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/select.html */
 SELECT * FROM dbversion;
 
@@ -225,7 +225,7 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 exit
 ```
 
-## 07_ Editando os arquivos de Configuração do Zabbix Server e Agent2 no Ubuntu Server
+## 07_ Editando os arquivos de Configuração do Zabbix Server, Agent2 e do SNMP no Ubuntu Server
 ```bash
 #fazendo o backup do arquivo de configuração do Zabbix Server (NÃO COMENTADO NO VÍDEO)
 #opção do comando cp: -v (verbose)
@@ -235,7 +235,7 @@ sudo cp -v /etc/zabbix/zabbix_server.conf /etc/zabbix/zabbix_server.conf.old
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf.old
 
-#fazendo o backup do arquivo de configuração do SNMP Daemon (NÃO COMENTADO NO VÍDEO)
+#fazendo o backup do arquivo de configuração do SNMPd Daemon (NÃO COMENTADO NO VÍDEO)
 #opção do comando cp: -v (verbose)
 sudo cp -v /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.old
 
@@ -247,7 +247,7 @@ sudo wget -v -O /etc/zabbix/zabbix_server.conf https://raw.githubusercontent.com
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/zabbix/zabbix_agent2.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/zabbix_agent2.conf
 
-#download do arquivo de configuração do SNMP Daemon (NÃO COMENTADO NO VÍDEO)
+#download do arquivo de configuração do SNMPd Daemon (NÃO COMENTADO NO VÍDEO)
 #opção do comando wget: -v (verbose), -O (output file)
 sudo wget -v -O /etc/snmp/snmpd.conf https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/snmpd.conf
 
@@ -322,13 +322,13 @@ INSERT
 ```
 ```bash
 # alterar a localização física ou lógica do servidor na linha: 19
-sysLocation Servidores do Bora para Prática
+sysLocation LOCALIZAÇÃO_SERVIDOR_SNMP
 
 # alterar o valor do contato do responsável pelo servidor na linha: 22
-sysContact Robson Vaamonde <vaamonde@pti.intra>
+sysContact NOME_SOBRENOME_RESPONSÁVEL <seu_email@seu.domínio>
 
-# alterar o endereço IPv4 da comunidade SNMP somente leitura na linha: 53
-rocommunity vaamonde 172.16.1.0/24
+# alterar o endereço de sub-rede IPv4 da comunidade SNMP somente leitura na linha: 53
+rocommunity SUA_COMUNIDADE SUA_SUBREDE/CIDR
 ```
 ```bash
 #salvar e sair do arquivo
@@ -345,7 +345,7 @@ sudo systemctl enable zabbix-server
 sudo systemctl restart zabbix-server zabbix-agent2 apache2 snmpd
 ```
 
-## 09_ Verificando o Serviço e Versão do Zabbix Server e Agent2 no Ubuntu Server
+## 09_ Verificando o Serviço e Versão do Zabbix Server, Agent2 e do SNMP no Ubuntu Server
 ```bash
 #verificando o serviço do Zabbix Server, Zabbix Agent2 e do SNMPd Daemon
 #opções do comando systemctl: status (runtime status information), restart (Stop and then 
@@ -387,7 +387,7 @@ sudo zabbix_agent2 -V
 sudo snmpd -v
 ```
 
-## 10_ Configurando o Zabbix Server via Navegador
+## 10_ Configurando o Zabbix Server e Frontend via Navegador
 ```bash
 #acessar via navegador o Zabbix Server
 firefox ou google chrome: http://endereço_ipv4_ubuntuserver/zabbix
@@ -408,7 +408,7 @@ Welcome to Zabbix 7.0
     Password: zabbix
     <Next step>
   Settings
-    Zabbix server name: wsvaamonde
+    Zabbix server name: NOME_DO_SEU_SERVIDOR
     Default time zone: (UTC-03:00) America/Sao_Paulo
     Default theme: Dark
     <Next step>
@@ -489,11 +489,11 @@ Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/dow
 ### Instalação do Agent2 do Zabbix Server no Microsoft Windows
 
 ```bash
-#Download do Agent do Zabbix para sistemas operacionais Microsoft
+#Download do Agent do Zabbix para sistemas operacionais Microsoft Windows
 #Windows, 10, 11, amd64, v7.0 LTS, OpenSSL, MSI: Zabbix agent 2 v7.0.x (ATUALIZADO NO DIA 07/01/2026)
 https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.22/zabbix_agent2-7.0.22-windows-amd64-openssl.msi
 
-#Instalação Manual do Zabbix Agent 2 para Microsoft
+#Instalação Manual do Zabbix Agent 2 para Microsoft Windows
 Pasta de Download
   Welcome to the Zabbix Agent 2 (64-bit) Setup Wizard <Next>
   End-User License Agreement
@@ -501,10 +501,10 @@ Pasta de Download
   Custom Setup
     (On) Zabbix Agent 2 (64-bit) <Next>
   Zabbix Agent service configuration
-    Host name: windows10
-    Zabbix server IP/DNS: 172.16.1.20
+    Host name: SEU_NOME_DO_HOST
+    Zabbix server IP/DNS: ENDEREÇO_IPv4_SERVIDOR_UBUNTU
     Agent listen port: 10050
-    Server or Proxy for active checks: 172.16.1.20
+    Server or Proxy for active checks: ENDEREÇO_IPv4_SERVIDOR_UBUNTU
     (Off) Enable PSK
     (On) Add agent location to the PATH <Next>
   Ready to install Zabbix Agent 2 (64-bit) <Install>
@@ -542,6 +542,7 @@ sudo apt update
 
 #instalando as dependências do Zabbix Agent2
 #opção do comando apt: install (install is followed by one or more package names)
+#opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install traceroute nmap snmp snmpd snmp-mibs-downloader apt-transport-https \
 software-properties-common git vim
 
@@ -559,15 +560,15 @@ INSERT
 ```bash
 #alterar o valor da variável Server= na linha: 80
 #alterar o endereço IPv4 do seu servidor conforme o seu cenário
-Server=172.16.1.20
+Server=ENDEREÇO_IPv4_SERVIDOR_UBUNTU
 
 #alterar o valor da variável ServerActive= na linha: 133
 #alterar o endereço IPv4 do seu servidor conforme o seu cenário
-ServerActive=172.16.1.20
+ServerActive=ENDEREÇO_IPv4_SERVIDOR_UBUNTU
 
 #alterar o valor da variável Hostname= na linha: 144
 #alterar o nome do seu desktop conforme o seu cenário
-Hostname=linuxmint213
+Hostname=SEU_NOME_DO_HOST
 
 #descomentar o valor da variável RefreshActiveChecks= na linha 204
 RefreshActiveChecks=5s
@@ -601,8 +602,8 @@ Data collection
   Hosts
     <Create host>
       Host
-        Host name: linuxmint213
-        Visible name: linuxmint213
+        Host name: SEU_NOME_DO_HOST
+        Visible name: SEU_NOME_DO_HOST
         Templates: <Select>
           Template group: <Select>
             Templates/Operating systems
@@ -627,8 +628,8 @@ Data collection
   Hosts
     <Create host>
       Host
-        Host name: windows10
-        Visible name: windows10
+        Host name: SEU_NOME_DO_HOST
+        Visible name: SEU_NOME_DO_HOST
         Templates: <Select>
           Template group: <Select>
             Templates/Operating systems
@@ -644,6 +645,11 @@ Data collection
         Monitored by proxy: (no proxy)
         Enable: On
       <Add>
+```
+
+### Criando o Host de Monitoramento do Ubuntu Server SNMPd (NÃO COMENTADO NO VÍDEO)
+```bash
+#Criação do Host Ubuntu Server SNMP no Zabbix Server
 ```
 
 ## 16_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico (NÃO COMENTADO NO VÍDEO)
@@ -705,39 +711,51 @@ Mais informações acesse o Link Oficial do Zabbix Server Upgrade: https://www.z
 sudo systemctl stop zabbix-server zabbix-agent2
 
 #criando o diretório do backup das configurações do Zabbix Server e Agent no Ubuntu Server
-#opções do comando mkdir: -p (), -v (verbose)
+#opções do comando mkdir: -p (parents), -v (verbose)
 sudo mkdir -pv /opt/zabbix-backup/ 
 
-#executando o backup das configurações do Zabbix Server e Agent no Ubuntu Server
+#executando o backup das configurações do Zabbix Server e Agent2 no Ubuntu Server
 #opções do comando cp: -v (verbose), -R (recursive)
-sudo cp -v /etc/zabbix/zabbix_server.conf /opt/zabbix-backup/ 
+sudo cp -v /etc/zabbix/zabbix_server.conf /opt/zabbix-backup/
+sudo cp -v /etc/zabbix/zabbix_agent2.conf /opt/zabbix-backup/
 sudo cp -v /etc/apache2/conf-enabled/zabbix.conf /opt/zabbix-backup/
 sudo cp -Rv /usr/share/zabbix/ /opt/zabbix-backup/ 
 sudo cp -Rv /usr/share/zabbix-* /opt/zabbix-backup/
 
-#listando o conteúdo do diretório de backup do Zabbix Server e Agent no Ubuntu Server
-#opções do comando ls: -l (), -h ()
+#executando o backup da base de dados do Zabbix Server do MySQL Server
+#opções do comando mysqldump: -u (user name to use when connecting to the server), 
+#-p (password to use when connecting to the server), --single-transaction (This 
+#option sends a START TRANSACTION SQL statement to the server before dumping data), 
+#--routines (Included stored routines (procedures and functions) for the dumped 
+#databases in the output), --triggers (Include triggers for each dumped table in the 
+#output), --events (Include Event Scheduler events for the dumped databases in the output)
+#opção da contra barra (\): criar uma quebra de linha no terminal
+mysqldump -u zabbix -p zabbix --single-transaction --routines --triggers \
+--events zabbix > /opt/zabbix-backup/zabbix_backup.sql
+
+#listando o conteúdo do diretório de backup do Zabbix Server e Agent2 no Ubuntu Server
+#opções do comando ls: -l (long listing format), -h (human-readable)
 sudo ls -lh /opt/zabbix-backup/
 
-#removendo o repositório do Apt do Zabbix Server e Agent LTS 7.0
+#removendo o repositório do Sources.List do Apt do Zabbix Server e Agent2 LTS 7.0
 #opções do comando rm: -R (recursive), -f (force), -v (verbose)
 sudo rm -Rfv /etc/apt/sources.list.d/zabbix.list
 
 #download do repositório do Zabbix Server LTS 7.4 (LINK ATUALIZADO EM: 11/01/2025)
 wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu22.04_all.deb
 
-#instalando o repositório do Zabbix Server e Agent LTS 7.4
+#instalando o repositório do Zabbix Server e Agent2 LTS 7.4
 #opção do comando dpkg: -i (install)
 #opção do caractere curinga * (asterisco): Qualquer coisa
 sudo dpkg -i zabbix-release_latest*.deb
   #digitar a opção: Y (Yes) e pressionar <Enter>
   *** zabbix.list (Y/I/N/O/D/Z) [padrão=N] ? Y <Enter>
 
-#atualizando as lista do Apt com o novo repositório do Zabbix Server e Agent
+#atualizando as lista do Apt com o novo repositório do Zabbix Server e Agent2
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#atualizando as versões do Zabbix Server e Agent
+#atualizando as versões do Zabbix Server e Agent2
 #opção do comando apt: install (install is followed by one or more package names), 
 #--only-upgrade (Do not install new packages, will install upgrades for already installed packages 
 #only and ignore requests to install new packages)
@@ -746,11 +764,11 @@ zabbix-sql-scripts zabbix-agent2 zabbix-agent2-plugin-*
   #digitar a opção: N (Not) e pressionar <Enter>
   *** zabbix_server.conf (Y/I/N/O/D/Z) [padrão=N] ? N <Enter>
 
-#reiniciar os serviços do Apache2 Server, Zabbix Server e Agent
+#reiniciar os serviços do Apache2 Server, Zabbix Server e Agent2
 #opção do comando systemctl: restart (Stop and then start one or more units)
 sudo systemctl restart apache2 zabbix-server zabbix-agent2 
 
-#verificando o status de serviço do Apache2 Server, Zabbix Server e Agent
+#verificando o status de serviço do Apache2 Server, Zabbix Server e Agent2
 #opção do comando systemctl: status (runtime status information)
 sudo systemctl status apache2 zabbix-server zabbix-agent2 
 
