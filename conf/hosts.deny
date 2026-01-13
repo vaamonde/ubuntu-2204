@@ -7,8 +7,8 @@
 # Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 # YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 # Data de criação: 01/01/2026<br>
-# Data de atualização: 01/01/2026<br>
-# Versão: 0.01<br>
+# Data de atualização: 13/01/2026<br>
+# Versão: 0.02<br>
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 #
 # Comando utilizado para verificar se o serviço (daemon) de rede tem suporte ao 
@@ -34,7 +34,7 @@
 ALL: ALL: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/deny.log
 #
 # Exemplos de configuração do TCPWrappers do arquivo hosts.deny:
-# Negando uma subrede ou nome de domínio FQDN para um serviço
+# Negando uma Sub-Rede ou nome de domínio FQDN para um serviço
 # DAEMON     CLIENT     SHELL COMMAND
 #sshd: 172.16.1. : spawn /bin/echo "$(date) Conexão Recusada - SSH - IP %a" >> /var/log/deny.log
 #sshd: 172.16.1.0/255.255.255.0: spawn /bin/echo "$(date) Conexão Recusada - SSH - IP %a" >> /var/log/deny.logg

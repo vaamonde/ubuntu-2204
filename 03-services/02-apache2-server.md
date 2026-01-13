@@ -77,7 +77,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=p6fnF1fZ1j4
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando as dependências do Apache2 Server e do PHP
+#instalando as dependências do Apache2 Server e do PHP no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl ghostscript zlib1g \
@@ -89,7 +89,7 @@ zlib1g-dev apt-transport-https
 **OBSERVAÇÃO IMPORTANTE:** FOI ADICIONAR MAIS *DEPENDÊNCIAS DOS PACOTES DO PHP*, CONFORME VÁRIOS RELATOS NO GITHUB E NO CANAL DO YOUTUBE DO BORA PARA PRÁTICA, AS DEPENDÊNCIAS DO **WORDPRESS** E DO **GLPI HELP DESK** FORAM ADICIONADAS NESSE PROCEDIMENTO PARA FACILITAR A IMPLEMENTAÇÃO DESSAS FERRAMENTAS, LEMBRANDO QUE NOS PROCEDIMENTOS DE INSTALAÇÃO DESSAS SOLUÇÕES AINDA CONTINUA COM ESSAS DEPENDÊNCIAS.
 
 ```bash
-#instalando o Apache2 Server, PHP 8.x e suas dependências (SUPORTE EXTRA DE DEPENDÊNCIAS)
+#instalando o Apache2 Server, PHP 8.x e suas dependências no Ubuntu Server (SUPORTE EXTRA DE DEPENDÊNCIAS)
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install apache2 apache2-utils apache2-bin apache2-data php php-cli php-common php-mysql \

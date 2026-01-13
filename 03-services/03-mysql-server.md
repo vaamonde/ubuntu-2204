@@ -76,7 +76,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7tl4TuxhuKg
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando o MySQL Server e Client
+#instalando o MySQL Server e Client no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 mysqltuner
 ```
@@ -84,8 +84,8 @@ sudo apt install git vim libproj22 proj-data mysql-server-8.0 mysql-client-8.0 m
 ## 02_ Verificando o Serviço e Versão do MySQL Server no Ubuntu Server
 ```bash
 #verificando o serviço do MySQL Server
-#opções do comando systemctl: status (runtime status information), restart (Stop and then start one or more units),
-#stop (Stop (deactivate) one or more units), start (Start (activate) one or more units)
+#opções do comando systemctl: status (runtime status information), restart (Stop and then start one
+#or more units), stop (Stop (deactivate) one or more units), start (Start (activate) one or more units)
 sudo systemctl status mysql
 sudo systemctl restart mysql
 sudo systemctl stop mysql
@@ -138,7 +138,7 @@ sudo lsof -nP -iTCP:'3306' -sTCP:LISTEN
 sudo mysql -u root -p
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA ÚLTIMA ATUALIZAÇÃO DE SEGURANÇA DO UBUNTU SERVER 22.04.5 LTS EM __`JANEIRO/2025`__ E DO MYSQL SERVER 8.0.44 O ACESSO AO MYSQL UTILIZANDO O CLIENTE (CONSOLE) COM SUPORTE AO UBUNTU PRO HABILITADO COM ESM (Expanded Security Maintenance) O RECURSO DE ACESSO SEM SENHA DO USUÁRIO ROOT NÃO É MAIS PERMITIDO, CASO VOCÊ TENTE SE LOGAR SERÁ MOSTRADO A SEGUINTE MENSAGEM: __`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)`__, PARA RESOLVER ESSE PROBLEMA É PRECISO RODAR O SCRIPT DE SEGURANÇA DO MYSQL SERVER PARA CONFIGURAR A SENHA LOCAL DO ROOT.
+**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA ÚLTIMA ATUALIZAÇÃO DE SEGURANÇA DO UBUNTU SERVER 22.04.5 LTS EM __`JANEIRO/2026`__ E DO MYSQL SERVER 8.0.44 O ACESSO AO MYSQL UTILIZANDO O CLIENTE (CONSOLE) COM SUPORTE AO UBUNTU PRO HABILITADO COM ESM (Expanded Security Maintenance) O RECURSO DE ACESSO SEM SENHA DO USUÁRIO ROOT NÃO É MAIS PERMITIDO, CASO VOCÊ TENTE SE LOGAR SERÁ MOSTRADO A SEGUINTE MENSAGEM: __`ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)`__, PARA RESOLVER ESSE PROBLEMA É PRECISO RODAR O SCRIPT DE SEGURANÇA DO MYSQL SERVER PARA CONFIGURAR A SENHA LOCAL DO USUÁRIO ROOT DO MYSQL (NÃO CONFUNDIR COM O USUÁRIO ROOT DO UBUNTU SERVER).
 
 ```bash
 #configurando a segurança de acesso ao MySQL Server (NÃO COMENTADO NO VÍDEO)
@@ -274,9 +274,20 @@ mysql -u dba -p
 ```
 ```sql
 /* testando os direitos do usuário DBA no MySQL Server */
+
+/* visualizando as bases de dados do MySQL */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-databases.html */
 SHOW DATABASES;
+
+/* utilizando a base de dados mysql */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE mysql;
+
+/* mostrando as tabelas criadas na base de dados mysql */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/show-tables.html */
 SHOW TABLES;
+
+/* saindo do MySQL Client Console */
 exit
 ```
 
@@ -321,6 +332,7 @@ sudo systemctl status mysql
 sudo journalctl -xeu mysql
 
 #acessar o MySQL Server como Root
+#opções do comando mysql: -u (user), -p (password)
 sudo mysql -u root -p
 ```
 
@@ -328,14 +340,23 @@ sudo mysql -u root -p
 
 ```sql
 /* criando o usuário Root Remoto do MySQL Server */
-
-/* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO ROOT CONFORME A SUA NECESSIDADE */
+/* OBSERVAÇÃO: ALTERAR A SENHA DO USUÁRIO DBA CONFORME A SUA NECESSIDADE */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/create-user.html */
 CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'sua_senha';
+
+/* alterando as permissões do usuário Root Remoto do MySQL Server */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/grant.html */
 GRANT ALL ON *.* TO 'root'@'%';
+
+/* aplicando todas as mudanças na base de dados */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/8.4/en/flush.html */
 FLUSH PRIVILEGES;
 
 /* verificando o usuário Root Remoto e Root Local do MySQL Server */
+/* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host,authentication_string FROM mysql.user WHERE user='root';
+
+/* saindo do MySQL Client Console */
 exit
 ```
 

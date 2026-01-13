@@ -7,8 +7,8 @@
 # Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 # YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 # Data de criação: 01/01/2026<br>
-# Data de atualização: 08/01/2026<br>
-# Versão: 0.02<br>
+# Data de atualização: 13/01/2026<br>
+# Versão: 0.03<br>
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64
 #
 # Comando utilizado para verificar se o serviço (daemon) de rede tem suporte ao 
@@ -29,17 +29,17 @@
 #
 #=================== BLOCO DE CONFIGURAÇÃO DA LIBERAÇÃO DOS DAEMON ===================
 #
-# Permitindo a Rede 172.16.1.0/24 se autenticar remotamente no Servidor de OpenSSH
+# Permitindo a Sub-Rede se autenticar remotamente no Servidor de OpenSSH
 # DAEMON     CLIENT     SHELL COMMAND
-sshd: 172.16.1.0/24: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
+sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
 #
-# Permitindo a Rede 172.16.1.0/24 obter os dados remotamente no Servidor de SNMPd
+# Permitindo a Sub-Rede obter os dados remotamente no Servidor de SNMPd
 # DAEMON     CLIENT     SHELL COMMAND
-#snmpd: 172.16.1.0/24: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
+#snmpd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
 #
 # =================== Exemplos de configuração do TCPWrappers do arquivo hosts.allow: ===================
 #
-# Permitindo uma Subrede ou nome de domínio FQDN
+# Permitindo uma Sub-Rede ou nome de domínio FQDN
 # DAEMON     CLIENT     SHELL COMMAND
 #sshd: 172.16.1. : spawn /bin/echo "$(date) Conexão Liberada - SSH - IP %a" >> /var/log/allow-ssh.log
 #sshd: 172.16.1.0/255.255.255.0: spawn /bin/echo "$(date) Conexão Liberada - SSH - IP %a" >> /var/log/allow-ssh.log
