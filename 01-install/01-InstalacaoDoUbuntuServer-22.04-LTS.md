@@ -52,6 +52,17 @@ e Nuvem (cloud) no Brasil e no mundo? por que essas distribuições são as mais
 ```bash
 Prompt-03: Quais as principais Big Techs no Brasil e no mundo que utiliza o GNU/Linux?
 ```
+```bash
+Prompt-04: estava recentemente em um evento de Infraestrutura de Redes, surgiu uma dúvida? qual
+o exato momento da Infra utilizando Cloud e Infra utilizando On-Premises (local) no Brasil? foi
+comentado que o custo para manter uma Infra em Cloud está muito caro e as empresas estão pensando
+em voltar para o On-Premises (misto entre Cloud e Local tipo Hibrido)? Isso é verdade? Tem algum
+relatório ou estatísticas para isso? Sei que é difícil prever o futuro (sei que você não sabe
+disso e não foi feito para isso) mais vale a pena voltar para os servidores locais novamente?
+Como por exemplo: Windows Server Local (Active Directory), Servidores de Arquivos (File Server e 
+Storage), Firewall/Proxy e Links Redundantes, etc... Vale a pena voltar a estudar e se aprofundar 
+no seguimento de Infraestrutura local?
+```
 
 **O QUE É E PARA QUE SERVER O ON-PREMISES:** O "on-premises" se refere a uma infraestrutura de TI que está localizada fisicamente nas instalações da empresa. Isso significa que os servidores, bancos de dados, aplicações e demais recursos de TI são hospedados, gerenciados e mantidos internamente pela equipe da empresa, em vez de serem executados em uma nuvem pública como AWS, Azure ou Google Cloud.
 

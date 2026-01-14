@@ -1,5 +1,5 @@
 [Unit]
-Description=Tomcat11
+Description=Apache Tomcat11
 After=network.target
 
 [Service]

@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 14/04/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.33<br>
+#Data de atualização: 13/01/2026<br>
+#Versão: 0.34<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO NETDATA SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Netdata realizado com sucesso!!! #BoraParaPrática*
 
@@ -142,6 +142,10 @@ sudo lsof -nP -iTCP:'19999' -sTCP:LISTEN
 ## 06_ Habilitando as atualizações automática do Netdata Agent no Ubuntu Server
 ```bash
 #habilitando o suporte para atualização do Netdata Agent
+#opção do script netdata-updater.sh: --enable-auto-updates (The command netdata-updater.sh
+#--enable-auto-updates is used to re-enable the daily automatic updates for a Netdata agent
+#installation that was originally installed using the kickstart.sh script or a similar 
+#method which relies on the internal updater.)
 sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 ```
 ```bash
@@ -153,16 +157,18 @@ ls -lh /etc/cron.daily/
 **OBSERVAÇÃO IMPORTANTE:** caso queira atualizar manualmente o Netdata Agent digite o mesmo comando do agendamento de atualizações do Netdata Agent no terminal.
 
 ```bash
-#atualizando manualmente o Netdata Agent (SÓ EXECUTAR ESSE COMANDO SE NECESSÁRIO)
+#atualizando manualmente o Netdata Agent (SÓ EXECUTAR ESSE COMANDO SE FOR NECESSÁRIO)
 #opção do ./: execução de script desenvolvido em Shell Script .sh
 sudo /usr/libexec/netdata/./netdata-updater.sh
 ```
 
 ## 07_ Adicionado o Usuário Local no Grupo Padrão do Netdata Agent no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+
 ```bash
+#adicionando o usuário local (logado) no grupo do Netdata Agent
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G netdata $USER
 
 #fazendo login em um novo grupo do Netdata
@@ -250,7 +256,7 @@ FLUSH PRIVILEGES;
 /* Mais informações acesse: https://www.w3schools.com/sql/sql_ref_select.asp */
 SELECT user,host FROM mysql.user WHERE user="netdata";
 
-/* saindo do MySQL */
+/* saindo do MySQL Server */
 exit
 ```
 
@@ -399,14 +405,13 @@ Ctrl + X
 
 ## 18_ Configurando o serviço de monitoramento das Portas TCP Endpoint no Netdata Agent
 
+**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Robots of Distributed Denial-of-Service) e CoinMiners (Malware de Criptomineração ou Cryptojacking)*, segue lista de alguns Bots (Robôs): **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
+
 ```bash
 #configuração do serviço de monitoramento das Portas TCP Endpoint
 #Mais informações acesse: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/tcp-udp-endpoints
 sudo ./edit-config go.d/portcheck.conf
 ```
-
-**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Robots of Distributed Denial-of-Service) e CoinMiners (Malware de Criptomineração ou Cryptojacking)*, segue lista de alguns Bots (Robôs): **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
-
 ```bash
 #editar as informações a partir da linha: 04
 #portas: 80 (Apache2 Server), 3306 (MySQL Server), 8080 (Apache TomCAT), 19999 (Netdata Agent),

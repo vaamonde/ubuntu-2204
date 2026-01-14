@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.32<br>
+#Data de atualização: 13/01/2026<br>
+#Versão: 0.33<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO APACHE2 SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Apache2 realizado com sucesso!!! #BoraParaPrática*
 
@@ -49,6 +49,14 @@ x.AI Grok: https://grok.com/<br>
 ```bash
 Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para hospedagem de páginas de 
 Internet (html, css, javascript, php, etc.)? Qual o seu percentual de uso para aplicações emergentes.
+```
+```bash
+Prompt-02: Por que esse software é o mais utilizado, por que o Microsoft Windows Server com o IIS não 
+está mais no topo da lista dos principais serviços de hospedagem de sites dinâmicos?
+```
+```bash
+Prompt-03: Você recomendaria o Microsoft Windows Server, XAMP ou WAMP para essa implementação em Larga
+Escala (produção de uma empresa de Médio ou Grande porte), poderia me explicar o por que?
 ```
 
 **O QUE É E PARA QUE SERVER O APACHE2 SERVER:** O Servidor *HTTP (Hypertext Transfer Protocol)* Apache2 ou Servidor Apache2 ou HTTP Daemon Apache2 ou somente Apache2, é o servidor web livre criado em **1995** por um grupo de desenvolvedores da *NCSA (National Center for Supercomputing Applications)*, tendo como base o servidor web NCSA HTTPd criado por Rob McCool.

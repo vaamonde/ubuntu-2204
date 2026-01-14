@@ -37,6 +37,16 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
+```bash
+Prompt-01: qual o nome do sistema operacional mais utilizado no Brasil e no Mundo para implementar
+todos esses recursos? Qual o seu percentual de uso para aplicações emergentes.
+```
+```bash
+Prompt-02: em servidores GNU/Linux de produção, interno (on-premises) ou em Cloud (nuvem) 
+você recomenda usar ambiente gráfico ou WebGUI para a sua administração? Qual os riscos de 
+instalar um aplicativo desse em servidores de Website, Banco de Dados e aplicações de Back-End?
+```
+
 Site Oficial do Webmin: https://webmin.com/<br>
 
 **O QUE É E PARA QUE SERVER O WEBGUI:** Um *WebGUI (Web Graphical User Interface)* é uma interface gráfica baseada em web que permite a interação com sistemas ou softwares através de uma página da web, ao invés de utilizar uma interface tradicional com base em texto ou em um aplicativo de desktop. Ele geralmente utiliza tecnologias como HTML, CSS, JavaScript e frameworks modernos para fornecer uma experiência interativa e visual ao usuário.
@@ -53,7 +63,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=QEpOrGZbEl8
 #opção do comando apt: update (Resynchronize the package index files from their sources)
 sudo apt update
 
-#instalando as dependências do Webmin
+#instalando as dependências do Webmin no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 #opção da contra barra (\): criar uma quebra de linha no terminal
 sudo apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime \

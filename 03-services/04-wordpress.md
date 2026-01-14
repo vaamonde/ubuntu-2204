@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 16/01/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.30<br>
+#Data de atualização: 13/01/2026<br>
+#Versão: 0.31<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO WORDPRESS SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do WordPress realizado com sucesso!!! #BoraParaPrática*
 
@@ -55,8 +55,8 @@ x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
 ```bash
-Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? 
-Qual o seu percentual de uso para aplicações emergentes.
+Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? Qual
+o seu percentual de uso para aplicações emergentes.
 ```
 
 **O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo *CMS (Content Management System)* de código aberto, amplamente utilizado para criar, editar e gerenciar **Sites**, **Blogs** e **E-Commerce** de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em *PHP* e utiliza o *MySQL ou MariaDB* como banco de dados.
@@ -132,7 +132,7 @@ SHOW DATABASES;
 /* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE wordpress;
 
-/* Saindo do Banco de Dados */
+/* Saindo do Banco de Dados MySQL Server */
 exit
 ```
 ```bash
@@ -143,7 +143,12 @@ sudo mysql -u wordpress -p
 ```sql
 /* visualizando a base de dados do WordPress e acessando o Banco para testar a conexão */
 SHOW DATABASES;
+
+/* Acessando o Banco de Dados wordpress */
+/* Mais informações acesse: https://dev.mysql.com/doc/refman/9.0/en/use.html */
 USE wordpress;
+
+/* Saindo do Banco de Dados MySQL Server*/
 exit
 ```
 
@@ -153,11 +158,14 @@ exit
 #opção do comando wget: -v (verbose), -O (output file)
 wget -v -O /tmp/wordpress.zip https://br.wordpress.org/latest-pt_BR.zip 
 
-#descompactando o arquivo do WordPress
+#descompactando o arquivo do WordPress no diretório Temp
 #opção do comando unzip: -d (An  optional  directory  to which to extract files)
 unzip /tmp/wordpress.zip -d /tmp
+```
 
-#OBSERVAÇÃO IMPORTANTE: ALTERAR O CAMINHO DO DESTINO CONFORME NECESSIDADE
+**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS NO DOCUMENT ROOT DO APACHE2 SERVER CONFORME SUA NECESSIDADE.
+
+```bash
 #movendo o conteúdo do WordPress para o diretório do Apache2 Server
 #opção do comando mv: -v (verbose)
 sudo mv -v /tmp/wordpress/ /var/www/html/wp/
@@ -187,13 +195,14 @@ sudo find /var/www/html/wp/. -type f -exec chmod -v 2664 {} \;
 
 ## 04_ Localização dos Arquivos de Configuração do CMS Wordpress no Ubuntu Server
 ```bash
-/var/www/html/wp/wp-admin/      <-- Diretório que contém os arquivos do painel administrativo;
-/var/www/html/wp/wp-includes/   <-- Diretório que contém os arquivos centrais do core do WordPress;
-/var/www/html/wp/wp-content/    <-- Diretório que contém os arquivos que você pode customizar:
-                                    themes/: temas instalados, plugins/: plugins instalados e 
-                                    uploads/: mídias enviadas (imagens, vídeos, PDFs, etc).
-/var/www/html/wp/wp-content/    <-- Diretório que contém os Logs do CMS Wordpress se habilitado;
-/var/www/html/wp/wp-config.php  <-- Arquivo de configuração principal do CMS Wordpress.
+/var/www/html/wp/wp-admin/             <-- Diretório que contém os arquivos do painel administrativo;
+/var/www/html/wp/wp-includes/          <-- Diretório que contém os arquivos centrais do core do WordPress;
+/var/www/html/wp/wp-content/           <-- Diretório que contém os arquivos que você pode customizar:
+/var/www/html/wp/wp-content/themes/    <-- Diretório dos temas instalados do CMS Wordpress
+/var/www/html/wp/wp-content/plugins/   <-- Diretório dos plugins instalados do CMS Wordpress
+/var/www/html/wp/wp-content/uploads/   <-- Diretório das mídias enviadas do CMS Wordpress (imagens, vídeos, PDFs, etc).
+/var/www/html/wp/wp-content/           <-- Diretório que contém os Logs do CMS Wordpress se habilitado;
+/var/www/html/wp/wp-config.php         <-- Arquivo de configuração principal do CMS Wordpress.
 ```
 
 ## 05_ Editando o arquivo de conexão com o Banco de Dados e Salt do CMS WordPress
@@ -313,10 +322,10 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
 
 ## 08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores
 
-**OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores de DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanentes do Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no Wordpress.
+**OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores de DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanentes do CMS Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no CMS Wordpress.
 
 ```bash
-#Configuração dos Links Permanentes do WordPress
+#Configuração dos Links Permanentes do CMS WordPress
 Configurações
   Links permanentes
     Configurações de Links Permanentes

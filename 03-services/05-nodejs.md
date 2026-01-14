@@ -51,6 +51,19 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: estou começando no mundo de desenvolvimento de software, tanto para Web como para 
+Desktop, qual linguagem de programação e framework seria melhor iniciar os meus estudos?. Mesmo 
+não tendo muito conhecendo em lógica de programação?
+```
+```bash
+Prompt-02: no Brasil, os profissionais Dev Junior, ainda tem possibilidade de trabalhar na área, 
+recentemente estava em um grande evento de TI que foi comentado que a IA (AI) está comendo pelas 
+beiradas esses profissionais, isso é verdade? ainda tem possibilidade de entrar nessa área para 
+ganhar 15K de Home Office (brincadeira a parte...)
+```
+
 **O QUE É E PARA QUE SERVER O NODE.JS:** O Node.js é um ambiente de execução de código *JavaScript* no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
 
 **O QUE É E PARA QUE SERVER O JAVASCRIPT:** O *JavaScript* é uma linguagem de programação interpretada, dinâmica e orientada a objetos, amplamente utilizada para adicionar interatividade, lógica e funcionalidades avançadas em páginas web. Ele é executado diretamente nos navegadores e, com o advento de tecnologias como o Node.js, também pode ser usado no back-end e em outros ambiente
@@ -113,7 +126,7 @@ sudo curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash
 #opção do comando apt: update (Resynchronize the package index files from their sources
 sudo apt update
 
-#Instalando o Node.JS e NPM (Node Package Manager)
+#Instalando o Node.JS e NPM (Node Package Manager) no Ubuntu Server
 #opção do comando apt: install (install is followed by one or more package names)
 sudo apt install nodejs
 ```
@@ -286,6 +299,7 @@ Ctrl + C
 #opção do comando ps: -u (userlist)
 ps -u
 
+#finalizando o processo do Node.JS via PID com o comando Kill
 #opção do comando kill: -9 (Kill all processes you can kill)
 kill -9 PID_ID
 ```

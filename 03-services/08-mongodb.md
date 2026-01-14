@@ -55,6 +55,20 @@ Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
+```bash
+Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados
+não relacional? Qual o seu percentual de uso para aplicações emergentes.
+```
+```bash
+Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o MongoDB Server?
+```
+```bash
+Prompt-03: vale apena estudar as linguagens de programação utilizando o Frameworks Node.JS e 
+Electron para desenvolver aplicações Desktop com Banco de Dados MongoDB junto com o Driver 
+Mongoose? Isso ainda vale a pena para o mercado atual e futuro de software, tanto no Brasil 
+como no Mundo desenvolver aplicativos Desktops? 
+```
+
 **O QUE É E PARA QUE SERVER O MONGODB SERVER:** MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 **O QUE É E PARA QUE SERVER O JSON:** * JSON significa *JavaScript Object Notation*. É um formato leve de troca de dados, muito usado na comunicação entre sistemas, principalmente **Web e APIs**. Apesar do nome vir do JavaScript, o JSON é *independente de linguagem* — funciona com Python, Java, C#, PHP, Node.js, Go, etc.
@@ -202,10 +216,12 @@ sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 ```
 
 ## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+
 ```bash
+#adicionando o usuário local (logado) no grupo do MongoDB Server
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G mongodb $USER
 
 #fazendo login em um novo grupo do MONGODB

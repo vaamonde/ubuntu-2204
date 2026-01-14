@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 19/01/2023<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.34<br>
+#Data de atualização: 13/01/2026<br>
+#Versão: 0.35<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO TOMCAT SE VOCÊ CONSEGUIU FAZER O DESAFIO COM A SEGUINTE FRASE: *Desafio do Tomcat11 realizado com sucesso!!! #BoraParaPrática*
 
@@ -55,6 +55,15 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+
+**PERGUNTA PARA A IA**
+```bash
+Prompt-01: qual a melhor plataforma de software e sistema operacional para fazer o Deploy de uma 
+aplicação desenvolvida em Eclipse utilizando o JavaEE?
+```
+```bash
+Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o JAVA e Apache Tomcat?
+```
 
 **O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O *Apache Tomcat* é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
 
@@ -108,7 +117,7 @@ sudo update-java-alternatives --list
 
 Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
 
-**OBSERVAÇÃO IMPORTANTE:** EM OUTUBRO DE 2024 FOI ANUNCIADO A VERSÃO 11.x DO APACHE TOMCAT, EM ABRIL DE 2025 A VERSÃO 11.0.6 FOI LANÇADA COM VÁRIAS CORREÇÕES SE TORNANDO UMA VERSÃO ESTÁVEL PARA IMPLEMENTAÇÃO, APÓS TODOS OS TESTES FEITO NA NOVA VERSÃO DO APACHE TOMCAT, ESSA DOCUMENTAÇÃO FOI ATUALIZADA PARA A VERSÃO MAIS RECENTE D (ATUAL 07/05/2025: 11.0.6), MAIS INFORMAÇÕES ACESSE O LINK OFICIAL DO APACHE TOMCAT EM: https://tomcat.apache.org/tomcat-11.0-doc/changelog.html
+**OBSERVAÇÃO IMPORTANTE:** EM OUTUBRO DE 2024 FOI ANUNCIADO A VERSÃO 11.x DO APACHE TOMCAT, EM ABRIL DE 2025 A VERSÃO 11.0.6 FOI LANÇADA COM VÁRIAS CORREÇÕES SE TORNANDO UMA VERSÃO ESTÁVEL PARA IMPLEMENTAÇÃO, APÓS TODOS OS TESTES FEITO NA NOVA VERSÃO DO APACHE TOMCAT, ESSA DOCUMENTAÇÃO FOI ATUALIZADA PARA A VERSÃO MAIS RECENTE DO APACHE TOMCAT (ATUAL 13/06/2026: 11.0.15), MAIS INFORMAÇÕES ACESSE O LINK OFICIAL DO APACHE TOMCAT EM: https://tomcat.apache.org/tomcat-11.0-doc/changelog.html
 
 
 ```bash
@@ -116,8 +125,8 @@ Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomc
 #opção do comando sudo: -i (login)
 sudo -i
 
-#download da última versão do Apache TomCAT Server (link atualizado em 31/12/2025)
-#OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache TomCAT Server sofre alteração, antes
+#download da última versão do Apache Tomcat Server (link atualizado em 31/12/2025)
+#OBSERVAÇÃO IMPORTANTE: o tempo todo o Apache Tomcat Server sofre alteração, antes
 #de fazer o download do arquivo verifique a versão no link: https://dlcdn.apache.org/tomcat/
 #opção do comando wget: -v (verbose), -O (output file)
 wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.15/bin/apache-tomcat-11.0.15.tar.gz
@@ -125,18 +134,18 @@ wget -v -O /tmp/tomcat11.tar.gz https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.
 
 ## 04_ Descompactando e instalando o Apache Tomcat 11.x no Ubuntu Server
 ```bash
-#descompactando o download do arquivo do Apache TomCAT
+#descompactando o download do arquivo do Apache Tomcat
 #opção do comando tar: -x (extract), -z (gzip), -v (verbose), -f (file), -C (directory)
 tar -xzvf /tmp/tomcat11.tar.gz -C /tmp
 
-#movendo o conteúdo do diretório do Apache TomCAT para o diretório /opt
+#movendo o conteúdo do diretório do Apache Tomcat para o diretório /opt
 #opção do comando mv: -v (verbose)
 mv -v /tmp/apache-tomcat* /opt/tomcat
 ```
 
 ## 05_ Atualizando os arquivos de configuração do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
-#download dos principais arquivos de configuração do Apache TomCAT Server
+#download dos principais arquivos de configuração do Apache Tomcat Server
 #opção do comando wget: -v (verbose), -O (output file)
 
 #PRIMEIRO: download do arquivo de configuração do Servidor Apache Tomcat
@@ -166,7 +175,7 @@ wget -v -O /opt/tomcat/webapps/docs/META-INF/context.xml https://raw.githubuserc
 
 #OITAVO: download do arquivo de configuração da Inicialização do Apache Tomcat
 #OBSERVAÇÃO IMPORTANTE: NESSE ARQUIVO NA LINHA: 11 FICA A CONFIGURAÇÃO DA VERSÃO
-#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 21.x NO DIA: 07/05/2024
+#DO OPENJDK UTILIZADO, POR PADRÃO FOI ATUALIZADO PARA A VERSÃO 25.x NO DIA: 13/01/2026
 wget -v -O /etc/systemd/system/tomcat11.service https://raw.githubusercontent.com/vaamonde/ubuntu-2204/main/conf/tomcat11.service
 ```
 
@@ -179,11 +188,11 @@ useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 
 ## 07_ Alterando as Permissões do Diretório do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
-#alterando as permissões de dono e grupo
+#alterando as permissões de dono e grupo do diretório do Apache Tomcat
 #opção do comando chown: -R (recursive), -v (verbose), tomcat:tomcat (user and group)
 chown -Rv tomcat:tomcat /opt/tomcat
 
-#alterando as permissões de acesso a arquivos e diretórios
+#alterando as permissões de acesso a arquivos e diretórios do Apache Tomcat
 #opção do comando chmod: -R (recursive), -v (verbose), u+x (user added execute/search)
 chmod -Rv u+x /opt/tomcat/bin
 ```
@@ -239,21 +248,23 @@ sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 
 ## 11_ Localização dos Arquivos de Configuração do Apache Tomcat Server 11.x no Ubuntu Server
 ```bash
-/opt/tomcat                        <-- Diretório de configuração do Apache Tomcat Server
-/opt/tomcat/bin                    <-- Diretório do binário (executável) do Apache Tomcat Server
-/opt/tomcat/conf                   <-- Diretório das configurações do Apache Tomcat Server
-/opt/tomcat/conf/server.xml        <-- Arquivo de configuração do Servidor do Apache Tomcat Server
-/opt/tomcat/conf/tomcat-users.xml  <-- Arquivo de configuração dos Usuários do Apache Tomcat Server
-/opt/tomcat/conf/context.xml       <-- Arquivo de configuração do Contexto do Apache Tomcat Server
-/opt/tomcat/logs                   <-- Diretório dos Logs do Apache Tomcat Server
-/opt/tomcat/webapps                <-- Diretório das Aplicações Web do Apache Tomcat Server
+/opt/tomcat                         <-- Diretório de configuração do Apache Tomcat Server
+/opt/tomcat/bin                     <-- Diretório do binário (executável) do Apache Tomcat Server
+/opt/tomcat/conf                    <-- Diretório das configurações do Apache Tomcat Server
+/opt/tomcat/conf/server.xml         <-- Arquivo de configuração do Servidor do Apache Tomcat Server
+/opt/tomcat/conf/tomcat-users.xml   <-- Arquivo de configuração dos Usuários do Apache Tomcat Server
+/opt/tomcat/conf/context.xml        <-- Arquivo de configuração do Contexto do Apache Tomcat Server
+/opt/tomcat/logs                    <-- Diretório dos Logs do Apache Tomcat Server
+/opt/tomcat/webapps                 <-- Diretório das Aplicações Web do Apache Tomcat Server
 ```
 
 ## 12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server no Ubuntu Server
+
+**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+
 ```bash
+#adicionando o usuário local (logado) no grupo do Apache Tomcat
 #opções do comando usermod: -a (append), -G (groups), $USER (environment variable)
-#OBSERVAÇÃO IMPORTANTE: você pode substituir a variável de ambiente $USER pelo
-#nome do usuário existente no sistema para adicionar no Grupo desejado.
 sudo usermod -a -G tomcat $USER
 
 #fazendo login em um novo grupo do TOMCAT
@@ -262,7 +273,7 @@ newgrp tomcat
 #verificando os identificadores de usuário e grupos
 id
 
-#verificando informações do grupo TOMCAT do Apache TomCAT
+#verificando informações do grupo TOMCAT do Apache Tomcat
 #opção do comando getent: group (the database system group)
 sudo getent group tomcat
 
@@ -273,7 +284,7 @@ exit
 
 ## 13_ Editando o arquivo de configuração de usuários do Apache Tomcat Server no Ubuntu Server
 ```bash
-#editando o arquivo de criação de usuários do Tomcat
+#editando o arquivo de criação de usuários do Apache Tomcat
 sudo vim /opt/tomcat/conf/tomcat-users.xml
 
 #entrando no modo de edição do editor de texto VIM
