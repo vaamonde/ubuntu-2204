@@ -33,7 +33,7 @@
 # DAEMON     CLIENT     SHELL COMMAND
 sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
 #
-# Permitindo a Sub-Rede obter os dados remotamente no Servidor de SNMPd
+# Permitindo a Sub-Rede obter os dados remotamente no Servidor de SNMPd do Zabbix Server
 # DAEMON     CLIENT     SHELL COMMAND
 #snmpd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
 #

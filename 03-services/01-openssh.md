@@ -31,7 +31,7 @@ Conteúdo estudado nesse desafio:<br>
 #10_ Adicionando o usuário Admin no grupo SUDO (Super User Do) do Ubuntu Server;<br>
 #11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server;<br>
 #12_ Utilizando o comando LNAV (Logfile Navigator) no Ubuntu Server (NÃO COMENTADO NO VÍDEO);<br>
-#13_ Desafios de Usuários e Acesso Remoto do OpenSSH.<br>
+#13_ Desafios de Usuários e Acesso Remoto do OpenSSH (Etapas: 13 até 14).<br>
 
 Site Oficial do OpenSSH: https://www.openssh.com/<br>
 Site Oficial do OpenSSL: https://www.openssl.org/<br>
@@ -45,10 +45,8 @@ DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
 
 **PERGUNTA PARA A IA**
-```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no mundo para acesso remoto de
-servidores Locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é mais utilizado?
-```
+
+> **Prompt-01:** Qual o nome do *software* mais utilizado no Brasil e no mundo para acesso remoto de servidores Locais (on-premises) ou em Cloud (Nuvem)? por que esse protocolo é mais utilizado?
 
 **O QUE É E PARA QUE SERVER O OPENSSH:** O *OpenSSH (Open Secure Shell)* é um conjunto de ferramentas que fornece soluções para comunicação segura em redes. Ele implementa o *Protocolo SSH (Secure Shell)*, permitindo conexões criptografadas e seguras entre computadores em redes públicas ou privadas. É amplamente utilizado em sistemas Linux e Unix, mas também está disponível para outros sistemas operacionais, como o Windows.
 
@@ -181,7 +179,7 @@ INSERT
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: A OPÇÃO ALL: ALL BLOQUEIA TODOS OS SERVIÇOS (DAEMONS) E REDE/HOSTS.
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.deny
-ALL: ALL
+ALL: ALL: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/deny.log
 ```
 ```bash
 #salvar e sair do arquivo
@@ -201,7 +199,7 @@ INSERT
 #lista de serviço: lista de hosts: comando
 #OBSERVAÇÃO: ALTERAR A REDE OU ENDEREÇO IPv4 CONFORME A SUA NECESSIDADE
 #mais informações veja a documentação oficial em: https://linux.die.net/man/5/hosts.allow
-sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR
+sshd: ENDEREÇO_DA_SUA_SUB-REDE/SEU_CIDR: spawn /bin/echo "$(date -u) | Serviço Local %d | Porta Local %R | Host Local %A | Hostname %N | Host Remoto %c | Porta Remota %r | Processo Local %p" >> /var/log/allow-ssh.log
 ```
 ```bash
 #salvar e sair do arquivo
@@ -327,24 +325,24 @@ sudo w
 
 | Valores | Descrição |
 |---------|-----------|
-| 14:28:13 | Data e Hora Atual do Sistema; |
-| up 16 min | Período de Tempo Ativo; |
-| 1 user | Número de Usuários Logados; |
-| load average: 0,00, 0,00, 0,00 | Médias de Cargas do Sistema (1, 5 e 15 minutos). |
+| **14:28:13** | Data e Hora Atual do Sistema; |
+| **up 16 min** | Período de Tempo Ativo; |
+| **1 user** | Número de Usuários Logados; |
+| **load average: 0,00, 0,00, 0,00** | Médias de Cargas do Sistema (1, 5 e 15 minutos). |
 
 **OBSERVAÇÃO IMPORTANTE 02:** no comando: __`w`__ ele mostra as informações separadas por colunas:<br>
 USER   TTY   FROM   LOGIN@   IDLE   JCPU   PCPU   WHAT<br>
 
 | Colunas | Descrição | 
 |---------|-----------|
-| USER | usuário logado; |
-| TTY | terminal do usuário |
-| FROM | origem da conexão; |
-| LOGIN@ | hora do login do usuário; |
-| IDLE | tempo ocioso do usuário; |
-| JCPU | tempo de CPU dos processos do TTY; |
-| PCPU | tempo de CPU do processo do último comando o usuário; |
-| WHAT | processo atual do usuário. |
+| **USER** | usuário logado; |
+| **TTY** | terminal do usuário |
+| **FROM** | origem da conexão; |
+| **LOGIN@** | hora do login do usuário; |
+| **IDLE** | tempo ocioso do usuário; |
+| **JCPUv** | tempo de CPU dos processos do TTY; |
+| **PCPU** | tempo de CPU do processo do último comando o usuário; |
+| **WHAT** | processo atual do usuário. |
 
 ```bash
 #verificando os usuários logados remotamente no Ubuntu Server
@@ -357,13 +355,13 @@ NAME   LINE   TIME   IDLE   PID COMMENT   EXIT<br>
 
 | Colunas | Descrição | 
 |---------|-----------|
-| NAME | usuário logado; |
-| LINE | terminal do usuário; |
-| TIME | data e hora do login do usuário; |
-| IDLE | tempo ocioso do usuário; |
-| PID | identificação do processo; |
-| COMMENT | origem da conexão do usuário; |
-| EXIT | saída do processo. |
+| **NAME** | usuário logado; |
+| **LINE** | terminal do usuário; |
+| **TIME** | data e hora do login do usuário; |
+| **IDLE** | tempo ocioso do usuário; |
+| **PID** | identificação do processo; |
+| **COMMENT** | origem da conexão do usuário; |
+| **EXIT** | saída do processo. |
 
 ```bash
 #verificando os usuários logados no Ubuntu Server
@@ -372,9 +370,9 @@ users
 
 ## 09_ Criando um usuário Administrador no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, *NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO:* __`admin`__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE **FORÇA BRUTA (BRUTE FORCE)** QUE USA ESSE USUÁRIO PARA *INVADIR SERVIDORES*. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
+> **OBSERVAÇÃO IMPORTANTE:** NESSE EXEMPLO ESTÁ SENDO CRIADO UM USUÁRIO ADMIN PARA A ADMINISTRAÇÃO DO SERVIDOR, *NÃO RECOMENDO CRIAR UM USUÁRIO CHAMADO:* __`admin`__ POIS É UM USUÁRIO CONHECIDO E EXISTE VÁRIOS SOFTWARE DE **FORÇA BRUTA (BRUTE FORCE)** QUE USA ESSE USUÁRIO PARA *INVADIR SERVIDORES*. NESSE EXEMPLO SERÁ CRIADO APENAS PARA EFEITO DE APRENDIZAGEM.
 
-**OBSERVAÇÃO** Mais informações veja o Site do Wikipedia das 10.000 senhas mais comuns: https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords
+> **OBSERVAÇÃO** Mais informações veja o Site do Wikipedia das 10.000 senhas mais comuns: https://en.wikipedia.org/wiki/Wikipedia:10,000_most_common_passwords
 
 ```bash
 #criando o usuário Admin local no Ubuntu Server
@@ -427,7 +425,7 @@ sudo getent group sudo
 
 ## 11_ Se logando no Terminal TTY (Teletype Bash/Shell) do Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** fazer o teste de *Login no Terminal* do Ubuntu Server na Máquina Virtual para verificar se está tudo **OK** na autenticação do usuário __`admin`__.
+> **OBSERVAÇÃO IMPORTANTE:** fazer o teste de *Login no Terminal* do Ubuntu Server na Máquina Virtual para verificar se está tudo **OK** na autenticação do usuário __`admin`__.
 
 ```bash
 #abrindo um segundo Terminal TTY (Teletype) no Ubuntu Server
@@ -467,9 +465,9 @@ sudo lnav /var/log/allow-ssh.log
 
 ========================================DESAFIOS=========================================
 
-**#13_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
+> **#13_ DESAFIO-01:** PERMITIR QUE O USUÁRIO: __`admin`__ SE CONECTE REMOTAMENTE NO SERVIDOR UBUNTU SERVER VIA SSH UTILIZANDO O *POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX*.
 
-**#14_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
+> **#14_ DESAFIO-02:** CRIAR UM USUÁRIO COM O SEU NOME, EXEMPLO: __`robson`__ (TUDO EM MINÚSCULO), FAZER O MESMO PROCEDIMENTO PARA ADICIONAR O SEU USUÁRIO AO GRUPO: __`sudo`__ E PERMITIR QUE O SEU USUÁRIO ACESSE O SERVIDOR UBUNTU SERVER REMOTAMENTE VIA **SSH** (TESTAR AS CONEXÕES NO POWERSHELL, PUTTY, GIT BASH OU TERMINAL NO LINUX).
 
 =========================================================================================
 
