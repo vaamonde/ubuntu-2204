@@ -131,14 +131,14 @@ sudo lspci -v | grep -i ethernet | cat -n
 ```
 
 Entendendo a saída do comando: __`lspci`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo                                 | Descrição                                                                                    |
-| ------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `1`                                   | Número da linha gerado pelo `cat -n`                                                         |
-| `00:03.0`                             | **Endereço do dispositivo PCI** no barramento: Bus 00, Device 03, Function 0                 |
-| `Ethernet controller`                 | Tipo do dispositivo detectado – neste caso, uma **controladora de rede Ethernet**            |
-| `Intel Corporation`                   | **Fabricante** do hardware identificado                                                      |
-| `82540EM Gigabit Ethernet Controller` | Modelo exato da **placa de rede Gigabit** (10/100/1000 Mbps) da Intel                        |
-| `(rev 02)`                            | **Revisão do hardware** (Revision ID 02) – pode indicar atualizações de firmware ou hardware |
+| Campo | Descrição |
+| ----- | --------- |
+| **1** | Número da linha gerado pelo `cat -n` |
+| **00:03.0** | **Endereço do dispositivo PCI** no barramento: Bus 00, Device 03, Function 0 |
+| **Ethernet controller** | Tipo do dispositivo detectado – neste caso, uma **controladora de rede Ethernet** |
+| **Intel Corporation** | **Fabricante** do hardware identificado |
+| **82540EM Gigabit Ethernet Controller** | Modelo exato da **placa de rede Gigabit** (10/100/1000 Mbps) da Intel |
+| **(rev 02)** | **Revisão do hardware** (Revision ID 02) – pode indicar atualizações de firmware ou hardware |
 
 ```bash
 #verificando os detalhes do hardware de Placa de Rede instalada no Ubuntu Server
@@ -147,23 +147,23 @@ sudo lshw -class network
 ```
 
 Entendendo a saída do comando: __`lshw`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo           | Descrição                                                         |
-| --------------- | ----------------------------------------------------------------- |
-| `description`   | Tipo da interface (ex.: Ethernet, Wireless)                       |
-| `product`       | Modelo da placa de rede                                           |
-| `vendor`        | Fabricante da placa                                               |
-| `physical id`   | Identificador físico (posição no barramento)                      |
-| `bus info`      | Caminho do barramento PCI                                         |
-| `logical name`  | Nome lógico atribuído à interface (ex.: enp0s3)                   |
-| `version`       | Revisão do hardware (Revision ID)                                 |
-| `serial`        | Endereço MAC da interface                                         |
-| `size`          | Velocidade atual da conexão (ex.: 1Gbit/s)                        |
-| `capacity`      | Velocidade máxima suportada                                       |
-| `width`         | Largura do barramento PCI                                         |
-| `clock`         | Frequência do barramento                                          |
-| `capabilities`  | Recursos suportados (ex.: duplex, autonegociação, tipos de mídia) |
-| `configuration` | Parâmetros ativos, como driver, IP, velocidade e status do link   |
-| `resources`     | Recursos alocados pelo sistema (IRQ, memória, portas de I/O)      |
+| Campo | Descrição | 
+| ------| --------- |
+| **description** | Tipo da interface (ex.: Ethernet, Wireless) |
+| **product** | Modelo da placa de rede |
+| **vendor** | Fabricante da placa |
+| **physical id** | Identificador físico (posição no barramento) |
+| **bus info** | Caminho do barramento PCI |
+| **logical name** | Nome lógico atribuído à interface (ex.: enp0s3) |
+| **version** | Revisão do hardware (Revision ID) |
+| **serial** | Endereço MAC da interface |
+| **size** | Velocidade atual da conexão (ex.: 1Gbit/s) |
+| **capacity** | Velocidade máxima suportada |
+| **width** | Largura do barramento PCI |
+| **clock** | Frequência do barramento |
+| **capabilities** | Recursos suportados (ex.: duplex, autonegociação, tipos de mídia) |
+| **configuration** | Parâmetros ativos, como driver, IP, velocidade e status do link |
+| **resources** | Recursos alocados pelo sistema (IRQ, memória, portas de I/O) |
 
 ## 05_ Verificando as informações de Endereços IPv4 no Ubuntu Server
 ```bash

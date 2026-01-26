@@ -68,7 +68,7 @@ sudo apt upgrade
   Do you want to continue? [Y/n] y <Enter>
 ```
 
-**OBSERVAÇÃO:** algumas vezes pode aparecer uma tela na cor: __`Rosa/Branca`__ informando que alguns serviços de rede serão reinicializados, isso é comum na distribuição Ubuntu Server.
+> **OBSERVAÇÃO:** algumas vezes pode aparecer uma tela na cor: __`Rosa/Branca`__ informando que alguns serviços de rede serão reinicializados, isso é comum na distribuição Ubuntu Server.
 
 ```bash
 #reinicialização dos serviços de rede do Ubuntu Server
