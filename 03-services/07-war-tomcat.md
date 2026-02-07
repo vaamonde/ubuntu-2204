@@ -46,6 +46,9 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+Perplexity: https://www.perplexity.ai/<br>
+
+> **Prompt-01:** Para rodar uma aplicação desenvolvida em Eclipse utilizando o JAVA para vários usuários simultâneos, é melhor criar um arquivo to tipo WAR e publicar no Apache TomCat? Qual outra aplicação poderia fazer a mesma coisa?
 
 **O QUE É E PARA QUE SERVER O JAVA ECLIPSE:** Na verdade, *"Java Eclipse"* é uma forma popular de se referir ao *Eclipse IDE (Integrated Development Environment)* voltado para desenvolvimento em Java. Ou seja: Eclipse é uma IDE gratuita e de código aberto usada principalmente para programar em Java, mas também suporta outras linguagens como C, C++, Python, PHP e muito mais.
 
@@ -65,13 +68,13 @@ Link da vídeo aula: https://www.youtube.com/watch?v=DTduw0NKQvo
 
 ## 01_ Fazendo o download do WAR do Apache Tomcat Server desenvolvido em JavaEE
 
-**OBSERVAÇÃO IMPORTANTE:** o projeto da Agenda desenvolvida em **JavaEE** do *Prof.José de Assis* no seu Github está desatualizado, o projeto que está no Github foi feito na versão anterior do *Java e do Apache TomCAT*, para resolver esse problema ele **Compilou um novo WAR** que está no meu repositório do Github para essa aula.
+> **OBSERVAÇÃO IMPORTANTE:** o projeto da Agenda desenvolvida em **JavaEE** do *Prof.José de Assis* no seu Github está desatualizado, o projeto que está no Github foi feito na versão anterior do *Java e do Apache TomCAT*, para resolver esse problema ele **Compilou um novo WAR** que está no meu repositório do Github para essa aula.
 
 Github do projeto do Prof. José de Assis: https://github.com/professorjosedeassis
 
 Repositório do Projeto do Github do Prof. José de Assis: https://github.com/professorjosedeassis/javaEE 
 
-**OBSERVAÇÃO:** esse novo *WAR do Projeto da Agenda* foi customizado e melhorado pela *Prof(a). Sirlene Sanches*, criando uma nova estrutura em **CSS** deixando o ambiente mais bonito.
+> **OBSERVAÇÃO:** esse novo *WAR do Projeto da Agenda* foi customizado e melhorado pela *Prof(a). Sirlene Sanches*, criando uma nova estrutura em **CSS** deixando o ambiente mais bonito.
 
 ```bash
 #Download do arquivo WAR (DESCONTINUADO: NÃO RECOMENDO MAIS UTILIZAR ESSE ARQUIVO)
@@ -110,7 +113,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 Clique em: <Acessar>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda de Contatos pela primeira vez será apresentado uma *mensagem de erro de conexão e falha do Java*: __`HTTP Status 500 – Internal Server Error`__, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
+> **OBSERVAÇÃO IMPORTANTE:** acessando a aplicação Agenda de Contatos pela primeira vez será apresentado uma *mensagem de erro de conexão e falha do Java*: __`HTTP Status 500 – Internal Server Error`__, esse erro está associado a **Conexão com o Banco de Dados no MySQL Server** que ainda não foi criado, após a sua criação o sistema irá funcionar perfeitamente.
 
 ## 04_ Criando a Base de Dados no MySQL Server do projeto da Agenda de Contatos em JavaEE
 ```bash
@@ -131,7 +134,7 @@ CREATE DATABASE dbagenda;
 SHOW DATABASES;
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO: __`LOCALHOST`__ NO BANCO DE DADOS MYSQL SERVER, *USUÁRIOS REMOTOS* SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO ESTIVER NO MESMO SERVIDOR DE APLICAÇÃO.
+> **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE SEGURANÇA SERÁ CRIADO UM USUÁRIO: __`LOCALHOST`__ NO BANCO DE DADOS MYSQL SERVER, *USUÁRIOS REMOTOS* SOMENTE SE O SERVIDOR DE BANCO DE DADOS NÃO ESTIVER NO MESMO SERVIDOR DE APLICAÇÃO.
 
 ```sql
 /* Criando o Usuário DBAgenda com a Senha DBAgenda do Banco de Dados DBAgenda*/
@@ -189,7 +192,7 @@ Clique em: <Acessar>
 
 ## 07_ Fazendo o Backup e Restore do Banco de Dados DBAgenda no MySQL Server
 
-**OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários *Registros no Banco de Dados do DBAgenda*, depois testar os procedimentos de **Dump e Restore do Banco de Dados** e verificar se as informações ainda estão integras.
+> **OBSERVAÇÃO IMPORTANTE:** para esse teste, recomendo adicionar vários *Registros no Banco de Dados do DBAgenda*, depois testar os procedimentos de **Dump e Restore do Banco de Dados** e verificar se as informações ainda estão integras.
 
 ```bash
 #acessando o MySQL Server via console
@@ -236,7 +239,7 @@ SELECT * FROM contatos;
 exit
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DBAGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS (TRUNCADOS) DO BANCO DE DADOS.
+> **OBSERVAÇÃO IMPORTANTE:** ATUALIZAR A PÁGINA DO SISTEMA DBAGENDA NO SEU NAVEGADOR PARA VERIFICAR SE TODOS OS REGISTRO FORAM DELETADOS (TRUNCADOS) DO BANCO DE DADOS.
 
 ```bash
 #utilizar os navegadores para testar o WAR do Apache Tomcat Server
@@ -245,9 +248,9 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:8080/agenda
 Clique em: <Acessar>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
+> **OBSERVAÇÃO IMPORTANTE:** PARA ESSA SIMULAÇÃO, RECOMENDO ADICIONAR VÁRIOS REGISTROS NA TABELA CONTATOS, DEPOIS FAZER A RESTAURAÇÃO DO BANCO.
 
-**CUIDADO!!!!!!** PARA ESSE PROCEDIMENTO, SERÁ REMOVIDO TODO O CONTEÚDO EXISTENTE E RESTAURADO O BACKUP ANTERIOR, OS DADOS DIGITADOS SERÃO PERDIDOS É OS DADOS ANTIGO DO BACKUP SERÁ RESTAURADO.
+> **CUIDADO!!!!!!** PARA ESSE PROCEDIMENTO, SERÁ REMOVIDO TODO O CONTEÚDO EXISTENTE E RESTAURADO O BACKUP ANTERIOR, OS DADOS DIGITADOS SERÃO PERDIDOS É OS DADOS ANTIGO DO BACKUP SERÁ RESTAURADO.
 
 ```bash
 #restaurando o backup do banco de dados DBAgenda
@@ -278,13 +281,13 @@ Clique em: <Acessar>
 
 ========================================DESAFIOS=========================================
 
-**#08_ DESAFIO-01:** FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: __`Hello World`__ DO PROJETO DO GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO O LINK DO APP: http://endereço_ipv4_ubuntuserver:8080/helloworld/
+> **#08_ DESAFIO-01:** FAZER O DOWNLOAD E O DEPLOY DA APLICAÇÃO JAVA: __`Hello World`__ DO PROJETO DO GITHUB: https://github.com/vaamonde/ubuntu-2204/tree/main/war - APÓS O DEPLOY SERÁ CRIADO O LINK DO APP: http://endereço_ipv4_ubuntuserver:8080/helloworld/
 
-**#09_ DESAFIO-02:** DELETAR A BASE DE DADOS: __`dbagenda`__ E O USUÁRIO: __`dbagenda`__ DO MYSQL SERVER (VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP E TESTAR A CONEXÃO NO NAVEGADOR.
+> **#09_ DESAFIO-02:** DELETAR A BASE DE DADOS: __`dbagenda`__ E O USUÁRIO: __`dbagenda`__ DO MYSQL SERVER (VEJA O SITE W3SCHOOLS), RECRIAR NOVAMENTE A BASE DE DADOS E USUÁRIO, IMPORTAR O BACKUP E TESTAR A CONEXÃO NO NAVEGADOR.
 
-**#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`agenda`__ APÓS A SUA REMOÇÃO FAZER O DEPLOY NOVAMENTE COM O NOME DO ARQUIVO ALTERADO PARA: __`novaagenda`__, VERIFICAR SE O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
+> **#10_ DESAFIO-03:** FAZER O UNDEPLOY DA APLICAÇÃO: __`agenda`__ APÓS A SUA REMOÇÃO FAZER O DEPLOY NOVAMENTE COM O NOME DO ARQUIVO ALTERADO PARA: __`novaagenda`__, VERIFICAR SE O ACESSO AO BANCO DE DADOS FOI FEITO COM SUCESSO.
 
-**#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO *WAR TOMCAT DA AGENDA E DO SAMPLE HELLO WORLD NO WORDPRESS* PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
+> **#11_ DESAFIO-04:** ADICIONAR OS LINKS DOS DESAFIOS DO *WAR TOMCAT DA AGENDA E DO SAMPLE HELLO WORLD NO WORDPRESS* PARA FACILITAR O ACESSO A TODAS AS APLICAÇÕES E COMEÇAR A CRIAR UMA INTEGRAÇÃO DE TODAS AS TECNOLOGIAS ESTUDADAS ATÉ AGORA.
 
 =========================================================================================
 

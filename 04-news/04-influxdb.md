@@ -115,7 +115,7 @@ sudo journalctl -t influxd-systemd-start.sh
 sudo journalctl -xeu influxdb
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do InfluxDB2
@@ -129,7 +129,7 @@ sudo influx version
 
 ## 06_ Verificando a Porta de Conexão do InfluxDB2 no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-8086 do InfluxDB2
@@ -204,7 +204,7 @@ Load Data
     <SAVE>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** COPIAR O TOKEN GERADO PARA ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO DO TELEGRAF, ELE TAMBÉM SERÁ UTILIZADO NA INTEGRAÇÃO COM O GRAFANA: <COPY TO CLIPBOARD>
+> **OBSERVAÇÃO IMPORTANTE:** COPIAR O TOKEN GERADO PARA ADICIONAR NO ARQUIVO DE CONFIGURAÇÃO DO TELEGRAF, ELE TAMBÉM SERÁ UTILIZADO NA INTEGRAÇÃO COM O GRAFANA: <COPY TO CLIPBOARD>
 
 ## 11_ Editando o arquivo de configuração do Telegraf no Ubuntu Server
 ```bash
@@ -271,7 +271,7 @@ sudo journalctl -t telegraf
 sudo journalctl -xeu telegraf
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Telegraf
@@ -318,9 +318,9 @@ Data Explorer
 
 ### Instalação do Telegraf no Microsoft Windows (NÃO COMENTADO NO VÍDEO)
 
-**OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no Microsoft Windows (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
+> **OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no Microsoft Windows (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
 
-**OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Telegraf* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/influxdata/telegraf/releases
+> **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Telegraf* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/influxdata/telegraf/releases
 
 ```bash
 #link para download direto do Telegraf (link atualizado em: 03/01/2025)
@@ -350,7 +350,7 @@ C:\Arquivos de Programas
     <CONTINUAR>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** fazer a configuração e instalação do Telegraf utilizando o Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
+> **OBSERVAÇÃO IMPORTANTE:** fazer a configuração e instalação do Telegraf utilizando o Powershell em modo Administrador. (NÃO COMENTADO NO VÍDEO)
 
 ```bash
 Menu
@@ -420,7 +420,7 @@ Set-Service telegraf -StartupType Automatic
 
 ### Instalação do Telegraf no GNU/Linux Mint (NÃO COMENTADO NO VÍDEO)
 
-**OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no GNU/Linux Mint (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
+> **OBSERVAÇÃO IMPORTANTE:** Instalação do Telegraf no GNU/Linux Mint (NÃO COMENTADO NO VÍDEO), Link de referência do download: https://github.com/influxdata/telegraf/releases
 
 ```bash
 #atualizando as lista do apt (NÃO COMENTADO NO VÍDEO)

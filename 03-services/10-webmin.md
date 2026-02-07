@@ -30,24 +30,21 @@ Conteúdo estudado nesse desafio:<br>
 #09_ Configurações Básicas do Webmin;<br>
 #10_ Desafios do Webmin e Cockpit.<br>
 
+Site Oficial do Webmin: https://webmin.com/<br>
+
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
 Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+Perplexity: https://www.perplexity.ai/<br>
 
-```bash
-Prompt-01: qual o nome do sistema operacional mais utilizado no Brasil e no Mundo para implementar
-todos esses recursos? Qual o seu percentual de uso para aplicações emergentes.
-```
-```bash
-Prompt-02: em servidores GNU/Linux de produção, interno (on-premises) ou em Cloud (nuvem) 
-você recomenda usar ambiente gráfico ou WebGUI para a sua administração? Qual os riscos de 
-instalar um aplicativo desse em servidores de Website, Banco de Dados e aplicações de Back-End?
-```
+**PERGUNTA PARA A IA**
 
-Site Oficial do Webmin: https://webmin.com/<br>
+> **Prompt-01:**  qual o nome do sistema operacional mais utilizado no Brasil e no Mundo para implementar todos esses recursos? Qual o seu percentual de uso para aplicações emergentes.
+
+> **Prompt-02:** em servidores GNU/Linux de produção, interno (on-premises) ou em Cloud (nuvem) você recomenda usar ambiente gráfico ou WebGUI para a sua administração? Qual os riscos de instalar um aplicativo desse em servidores de Website, Banco de Dados e aplicações de Back-End?
 
 **O QUE É E PARA QUE SERVER O WEBGUI:** Um *WebGUI (Web Graphical User Interface)* é uma interface gráfica baseada em web que permite a interação com sistemas ou softwares através de uma página da web, ao invés de utilizar uma interface tradicional com base em texto ou em um aplicativo de desktop. Ele geralmente utiliza tecnologias como HTML, CSS, JavaScript e frameworks modernos para fornecer uma experiência interativa e visual ao usuário.
 
@@ -121,7 +118,7 @@ sudo journalctl -t webmin
 sudo journalctl -xeu webmin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
 
 ```bash
 #verificando a versão do Webmin
@@ -134,7 +131,7 @@ sudo apt list --installed | grep -i webmin
 
 ## 06_ Verificando a Porta de Conexão do Webmin no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-10000 do Webmin
@@ -150,16 +147,16 @@ sudo lsof -nP -iTCP:'10000' -sTCP:LISTEN
 
 ## 08_ Testando o acesso ao Webmin no Terminal e no Navegador
 
-**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+> **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
-| Código | Significado                                     |
-| ------ | ----------------------------------------------- |
-| 200    | OK (Sucesso)                                    |
-| 301    | Moved Permanently (Redirecionamento permanente) |
-| 302    | Found (Redirecionamento temporário)             |
-| 403    | Forbidden (Acesso negado)                       |
-| 404    | Not Found (Não encontrado)                      |
-| 500    | Internal Server Error                           |
+| Código | Significado |
+| ------ | ----------- |
+| **200** | OK (Sucesso) |
+| **301** | Moved Permanently (Redirecionamento permanente) |
+| **302** | Found (Redirecionamento temporário) |
+| **403** | Forbidden (Acesso negado) |
+| **404** | Not Found (Não encontrado) |
+| **500** | Internal Server Error |
 
 ```bash
 #testando o acesso as páginas do Webmin (NÃO COMENTADO NO VÍDEO)
@@ -203,13 +200,13 @@ Webmin
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE __`COCKPIT`__ NO UBUNTU SERVER, ANALISAR AS DIFERENÇAS ENTRE O *WEBMIN E O COCKPIT* OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN GUI (Graphical User Interface) WEB PARA A ADMINISTRAÇÃO DO UBUNTU SERVER, COMENTAR NA DESCRIÇÃO DESSE VÍDEO.
+> **#10_ DESAFIO-01:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DO SOFTWARE __`COCKPIT`__ NO UBUNTU SERVER, ANALISAR AS DIFERENÇAS ENTRE O *WEBMIN E O COCKPIT* OU SUGERIR UMA NOVA SOLUÇÃO DE ADMIN GUI (Graphical User Interface) WEB PARA A ADMINISTRAÇÃO DO UBUNTU SERVER, COMENTAR NA DESCRIÇÃO DESSE VÍDEO.
 
-**#11_ DESAFIO-02:** ADICIONAR O MONITORAMENTO DAS PORTAS DO WEBMIN E DO COCKPIT NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
+> **#11_ DESAFIO-02:** ADICIONAR O MONITORAMENTO DAS PORTAS DO WEBMIN E DO COCKPIT NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
 
-**#12_ DESAFIO-03:** ESTUDAR O MATERIAL DE MONITORAMENTO DO __`HTTP ENDPOINT`__ DO NETDATA PARA VERIFICAR OS STATUS DE PÁGINA DE TODOS OS SERVIÇOS CONFIGURADO ATÉ AGORA, VERIFICAR O LINK: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/http-endpoints
+> **#12_ DESAFIO-03:** ESTUDAR O MATERIAL DE MONITORAMENTO DO __`HTTP ENDPOINT`__ DO NETDATA PARA VERIFICAR OS STATUS DE PÁGINA DE TODOS OS SERVIÇOS CONFIGURADO ATÉ AGORA, VERIFICAR O LINK: https://learn.netdata.cloud/docs/collecting-metrics/synthetic-checks/http-endpoints
 
-**#13_ DESAFIO-04:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN E COCKPIT IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
+> **#13_ DESAFIO-04:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO WEBMIN E COCKPIT IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
 

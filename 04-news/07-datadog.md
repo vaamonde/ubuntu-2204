@@ -34,7 +34,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=tmcyPRGSHf4
 
 ## 01_ Criando uma conta no Site Oficial do Datadog On-Line
 
-**OBSERVAÇÃO IMPORTANTE:** Diferente dos outros sistemas de monitoramento de servidores, o Datadog utilizada sua estrutura em Cloud para monitorar e gerenciar as métricas dos serviços de rede utilizando apenas os agentes para o envio das informações.
+> **OBSERVAÇÃO IMPORTANTE:** Diferente dos outros sistemas de monitoramento de servidores, o Datadog utilizada sua estrutura em Cloud para monitorar e gerenciar as métricas dos serviços de rede utilizando apenas os agentes para o envio das informações.
 
 ```bash
 #criando uma Conta Free no Datadog
@@ -42,7 +42,7 @@ Link dos valores de contas: https://www.datadoghq.com/pricing/
     Clique em: Free - Starting At $0 <START FREE TRIAL>
 ```
 
-**OBSERVAÇÃO:** a conta Free do Datadog permite manter as métricas dos servidores por apenas **1 (um) dia** e conectar apenas **05 (cinco) Agentes (Hosts) de Monitoramento**, para uma empresa pequena é mais do que suficiente.
+> **OBSERVAÇÃO:** a conta Free do Datadog permite manter as métricas dos servidores por apenas **1 (um) dia** e conectar apenas **05 (cinco) Agentes (Hosts) de Monitoramento**, para uma empresa pequena é mais do que suficiente.
 
 ```bash
 #criando o cadastro no Site do Datadog (NÃO PRECISA DE CARTÃO DE CRÉDITO)
@@ -71,7 +71,7 @@ Tell us about your stack
 
 ## 02_ Baixando a Instalando o Agente no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** Para você prosseguir e necessário fazer a instalação do *Agent do Datadog* copiando as informações de como instalar no GNU/Linux, sendo a forma mais simples utilizar o recurso de instalação automática. Nesse método é adicionado automaticamente a **Key (Chave)** de integração com o site do Datadog.
+> **OBSERVAÇÃO IMPORTANTE:** Para você prosseguir e necessário fazer a instalação do *Agent do Datadog* copiando as informações de como instalar no GNU/Linux, sendo a forma mais simples utilizar o recurso de instalação automática. Nesse método é adicionado automaticamente a **Key (Chave)** de integração com o site do Datadog.
 
 ```bash
 Install your first Datadog Agent
@@ -97,7 +97,7 @@ sudo datadog-agent status
 sudo datadog-agent diagnose
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Após alguns minutos e mostrado o *Host (Computador)* no Dashboard padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
+> **OBSERVAÇÃO IMPORTANTE:** Após alguns minutos e mostrado o *Host (Computador)* no Dashboard padrão do Datadog, aguardar até o Agente se comunicar com o site e enviar as métricas.
 
 ## 03_ Baixando a Instalando os Agentes no Linux Mint e Windows 10
 

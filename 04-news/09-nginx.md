@@ -85,7 +85,7 @@ sudo apt install git vim perl python2 python3 unzip pwgen xz-utils bzip2 curl gh
 zlib1g-dev apt-transport-https
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* DESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
+> **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* DESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
 ```bash
 #instalando o NGINX Server, PHP 8.x e suas dependências (SUPORTE EXTRA DE DEPENDÊNCIAS)
@@ -135,7 +135,7 @@ sudo nginx -t
 sudo php -i 
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do NGINX Server
@@ -149,7 +149,7 @@ sudo php -v
 
 ## 03_ Verificando a Porta de Conexão do NGINX Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-80 do NGINX Server
@@ -175,7 +175,7 @@ sudo lsof -nP -iTCP:'80' -sTCP:LISTEN
 
 ## 05_ Adicionando o Usuário Local no Grupo Padrão do NGINX Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+> **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
 #adicionando o usuário local (logado) no grupo do NGINX Server
@@ -244,9 +244,9 @@ sudo journalctl -xeu nginx
 
 ## 07_ Criando um diretório de Teste do HTML e PHP do NGINX Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM __`DIRETÓRIOS DE PROJETOS DE SITES`__ QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO AS LINGUAGENS __`HTML5, CSS5, JAVASCRIPT, PHP7/8, ETC.`__ DEVIDO A ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS E CONECTADOS NA CONSTRUÇÃO DO SITE.
+> **OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM __`DIRETÓRIOS DE PROJETOS DE SITES`__ QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO AS LINGUAGENS __`HTML5, CSS5, JAVASCRIPT, PHP7/8, ETC.`__ DEVIDO A ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS E CONECTADOS NA CONSTRUÇÃO DO SITE.
 
-**OBSERVAÇÃO IMPORTANTE:** SEMPRE CRIAR ARQUIVOS E DIRETÓRIOS TUDO EM: __`minúsculo`__ NÃO UTILIZAR: __`acentuação, caracteres especiais, espaço em branco, etc`__ CRIAR ARQUIVOS E DIRETÓRIOS COM NOMES __`pequenos e objetivos`__. LEMBRE-SE QUE O GNU/LINUX É: __`CASE SENSITIVE`__.
+> **OBSERVAÇÃO IMPORTANTE:** SEMPRE CRIAR ARQUIVOS E DIRETÓRIOS TUDO EM: __`minúsculo`__ NÃO UTILIZAR: __`acentuação, caracteres especiais, espaço em branco, etc`__ CRIAR ARQUIVOS E DIRETÓRIOS COM NOMES __`pequenos e objetivos`__. LEMBRE-SE QUE O GNU/LINUX É: __`CASE SENSITIVE`__.
 
 ```bash
 #acessando o diretório padrão dos Sites do NGINX Server (DocumentRoot)
@@ -275,11 +275,11 @@ cd teste
 
 ## 08_ Criando páginas HTML e PHP para testar o NGINX Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
+> **OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar os arquivos: *teste.html, teste.php e phpinfo.php* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
 
-**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+> **OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
 
-**OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
+> **OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
 
 ```bash
 #criando o arquivo em HTML
@@ -392,16 +392,16 @@ ESC SHIFT :x <Enter>
 
 ## 09_ Testando o acesso ao NGINX Server e o PHP no Terminal e no Navegador
 
-**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+> **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
-| Código | Significado                                     |
-| ------ | ----------------------------------------------- |
-| 200    | OK (Sucesso)                                    |
-| 301    | Moved Permanently (Redirecionamento permanente) |
-| 302    | Found (Redirecionamento temporário)             |
-| 403    | Forbidden (Acesso negado)                       |
-| 404    | Not Found (Não encontrado)                      |
-| 500    | Internal Server Error                           |
+| Código | Significado |
+| ------ | ----------- |
+| **200** | OK (Sucesso) |
+| **301** | Moved Permanently (Redirecionamento permanente) |
+| **302** | Found (Redirecionamento temporário) |
+| **403** | Forbidden (Acesso negado) |
+| **404** | Not Found (Não encontrado) |
+| **500** | Internal Server Error |
 
 ```bash
 #testando o acesso as páginas do NGINX Server
@@ -424,13 +424,13 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/teste/
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO NGINX EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
+> **#10_ DESAFIO-01:** CRIAR UM NOVO DIRETÓRIO NA RAIZ DO NGINX EM: __`/var/www/html`__ COM: __`seunome`__ (TUDO EM MINÚSCULO - SOMENTE O PRIMEIRO NOME, EXEMPLO: robson) PARA UM NOVO SITE, DENTRO DO SEU DIRETÓRIO CRIAR UMA NOVA PÁGINA EM HTML CHAMADA: __`index.html`__ (TUDO EM MINÚSCULA), ADICIONAR MAIS OPÇÕES (MÍNIMO DE 03 OPÇÕES NOVAS) DO HTML5 (VEJA O SITE W3SCHOOLS) E COLOCAR __`02 (DUAS) IMAGENS`__ NA PÁGINA.
 
-**#11_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
+> **#11_ DESAFIO-02:** NO SEU NOVO DIRETÓRIO CRIAR UM ARQUIVO EM PHP CHAMADO: __`seunome.php`__, ADICIONAR __`MAIS OPÇÕES DO PHP (MÍNIMO DE 02 OPÇÕES NOVAS)`__ (VEJA O SITE W3SCHOOLS) TESTAR NO SEU NAVEGADOR AS MUDANÇAS. **DICA-01:** FAZER OS *HYPERLINK* DAS PÁGINAS: __`index.html`__ COM A PÁGINA PHP __`seunome.php`__ PARA FACILITAR O ACESSO E COMEÇAR UM PROJETO DE SITE. **DICA-02:** RECOMENDO PESQUISAR A FUNÇÃO DE *DATA E HORA* DO PHP PARA ADICIONAR NA PÁGINA OU OUTRAS FUNÇÕES DO SEU INTERESSE.
 
-**#12_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO DO *OPENSSH SERVER* NO GRUPO DO NGINX __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO NGINX E NOS DIRETÓRIOS DOS SITES CRIADOS.
+> **#12_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO SISTEMA NA ETAPA DE CONFIGURAÇÃO DO *OPENSSH SERVER* NO GRUPO DO NGINX __`www-data`__, TESTAR AS PERMISSÕES DE ACESSO NOS DIRETÓRIOS DO NGINX E NOS DIRETÓRIOS DOS SITES CRIADOS.
 
-**#13_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
+> **#13_ NOVO DESAFIO-04:** CONHECER O PROJETO: *https://profreehost.com/*, CRIAR UMA CONTA: *Free Register Now*, FAZER AS CONFIGURAÇÕES BÁSICAS DO SEU DOMÍNIO E REPLICAR OS __`DESAFIOS 01 E 02`__ NO SITE ON-LINE (CLOUD). **OBSERVAÇÃO:** UTILIZAR O DOMÍNIO: __`unaux.com`__ PARA A CRIAÇÃO DO DOMÍNIO (MENOS RESTRIÇÃO DE ACESSO).
 
 =========================================================================================
 

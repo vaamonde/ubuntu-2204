@@ -175,22 +175,22 @@ sudo ip address show
 ```
 
 Entendendo a saída do comando: __`ifconfig`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo                                                   | Descrição                                   |
-| ------------------------------------------------------- | ------------------------------------------- |
-| `enp0s3`                                                | Nome lógico da interface Ethernet detectada |
-| `flags=4163<...>`                                       | Flags da interface (ex.: UP = ativa, RUNNING = link OK, MULTICAST = suporta multicast) |
-| `mtu 1500`                                              | Tamanho máximo do pacote (MTU - Maximum Transmission Unit) |
-| `inet 172.16.1.20`                                      | Endereço IPv4 atribuído à interface |
-| `netmask 255.255.255.0`                                 | Máscara de sub-rede |
-| `broadcast 172.16.1.255`                                | Endereço de broadcast IPv4 |
-| `ether 08:00:27:b5:3b:c0`                               | Endereço MAC da interface (Ethernet) |
-| `txqueuelen 1000`                                       | Tamanho da fila de transmissão de pacotes |
-| `RX packets 3470`                                       | Total de pacotes recebidos |
-| `RX bytes 624611`                                       | Total de bytes recebidos |
-| `RX errors / dropped / overruns / frame`                | Contadores de erro durante a recepção |
-| `TX packets 1854`                                       | Total de pacotes enviados |
-| `TX bytes 314064`                                       | Total de bytes enviados |
-| `TX errors / dropped / overruns / carrier / collisions` | Contadores de erro durante a transmissão |
+| Campo | Descrição |
+| ----- | --------- |
+| **enp0s3** | Nome lógico da interface Ethernet detectada |
+| **flags=4163<...>** | Flags da interface (ex.: UP = ativa, RUNNING = link OK, MULTICAST = suporta multicast) |
+| **mtu 1500** | Tamanho máximo do pacote (MTU - Maximum Transmission Unit) |
+| **inet 172.16.1.20** | Endereço IPv4 atribuído à interface |
+| **netmask 255.255.255.0** | Máscara de sub-rede |
+| **broadcast 172.16.1.255** | Endereço de broadcast IPv4 |
+| **ether 08:00:27:b5:3b:c0** | Endereço MAC da interface (Ethernet) |
+| **txqueuelen 1000** | Tamanho da fila de transmissão de pacotes |
+| **RX packets 3470** | Total de pacotes recebidos |
+| **RX bytes 624611** | Total de bytes recebidos |
+| **RX errors / dropped / overruns / frame** | Contadores de erro durante a recepção |
+| **TX packets 1854** | Total de pacotes enviados |
+| **TX bytes 314064** | Total de bytes enviados |
+| **TX errors / dropped / overruns / carrier / collisions** | Contadores de erro durante a transmissão |
 
 ```bash
 #verificando as configurações de Gateway (route) no Ubuntu Server
@@ -201,16 +201,16 @@ sudo ip route show
 ```
 
 Entendendo a saída do comando: __`route`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo           | Valor          | Descrição                                                                    |
-| --------------- | -------------- | ---------------------------------------------------------------------------- |
-| **Destination** | `0.0.0.0`      | Endereço de destino. `0.0.0.0` indica a **rota padrão (default route)**.     |
-| **Gateway**     | `172.16.1.254` | Endereço IP do **gateway** usado para essa rota.                             |
-| **Genmask**     | `0.0.0.0`      | Máscara de sub-rede usada para o destino. Em `0.0.0.0`, abrange toda a rede. |
-| **Flags**       | `UG`           | Indica que a rota está **Up (U)** e usa um **Gateway (G)**.                  |
-| **Metric**      | `0`            | Prioridade da rota. Menor valor = maior prioridade.                          |
-| **Ref**         | `0`            | Referência (obsoleto, sempre zero no Linux).                                 |
-| **Use**         | `0`            | Contador de vezes que a rota foi usada (pode ser zero).                      |
-| **Iface**       | `enp0s3`       | Interface de rede usada para essa rota.                                      |
+| Campo | Valor | Descrição |
+| ----- | ----- | --------- |
+| **Destination** | *0.0.0.0* | Endereço de destino. `0.0.0.0` indica a **rota padrão (default route)** |
+| **Gateway** | *172.16.1.254* | Endereço IP do **gateway** usado para essa rota. |
+| **Genmask** | *0.0.0.0* | Máscara de sub-rede usada para o destino. Em `0.0.0.0`, abrange toda a rede. |
+| **Flags** | *UG* | Indica que a rota está **Up (U)** e usa um **Gateway (G)**. |
+| **Metric** | *0* | Prioridade da rota. Menor valor = maior prioridade. |
+| **Ref** | *0* | Referência (obsoleto, sempre zero no Linux). |
+| **Use** | *0* | Contador de vezes que a rota foi usada (pode ser zero). |
+| **Iface** | *enp0s3* | Interface de rede usada para essa rota. |
 
 ```bash
 #verificando as informações de cache dos Servidores DNS (resolução de nomes)
@@ -219,18 +219,18 @@ sudo resolvectl status
 ```
 
 Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo                | Valor                    | Descrição    |
-| -------------------- | -------------------------| -------------|
-| **Protocols**        | `-LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported` | Lista de protocolos de resolução **desativados** globalmente. DNSSEC está desativado ou não suportado. |
-| **resolv.conf mode** | `stub`                                           | Indica que o `/etc/resolv.conf` está em modo *stub* e gerenciado pelo `systemd-resolved`. |
+| Campo | Valor | Descrição |
+| ----- | ------| ----------|
+| **Protocols** | *-LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported* | Lista de protocolos de resolução **desativados** globalmente. DNSSEC está desativado ou não suportado. |
+| **resolv.conf mode** | *stub* | Indica que o `/etc/resolv.conf` está em modo *stub* e gerenciado pelo `systemd-resolved`. |
 
-| Campo              | Valor                      | Descrição  |
-| ------------------ | ---------------------------| ---------- |
-| **Link**           | `2 (enp0s3)`                                                   | Interface de rede usada para resolução DNS |
-| **Current Scopes** | `DNS`                                                          | Indica que a interface está usando o escopo DNS |
-| **Protocols**      | `+DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported` | Protocolos ativados/desativados para essa interface. `+LLMNR` está ativo; `-mDNS` e `-DNSOverTLS` estão desativados |
-| **DNS Servers**    | `8.8.8.8, 8.8.4.4`                                             | Servidores DNS configurados para a interface |
-| **DNS Domain**     | `pti.intra`                                                    | Domínio de busca DNS configurado para a interface |
+| Campo | Valor | Descrição |
+| ----- | ------| --------- |
+| **Link** | *2 (enp0s3)* | Interface de rede usada para resolução DNS |
+| **Current Scopes** | *DNS* | Indica que a interface está usando o escopo DNS |
+| **Protocols** | *+DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported* | Protocolos ativados/desativados para essa interface. `+LLMNR` está ativo; `-mDNS` e `-DNSOverTLS` estão desativados |
+| **DNS Servers** | *8.8.8.8, 8.8.4.4* | Servidores DNS configurados para a interface |
+| **DNS Domain** | *pti.intra* | Domínio de busca DNS configurado para a interface |
 
 ```bash
 #verificando as informações de Leases (Alugueis) do DHCP Client no Ubuntu Server
@@ -239,20 +239,20 @@ sudo cat -n /run/systemd/netif/leases/*
 ```
 
 Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<br>
-| **Campo**        | **Valor (Exemplo)**                      | **Descrição**                                                                                           |
-| ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `ADDRESS`        | `172.16.1.131`                           | Endereço IP atribuído pelo servidor DHCP para a interface de rede.                                      |
-| `NETMASK`        | `255.255.255.0`                          | Máscara de sub-rede associada ao endereço IP, define o tamanho da rede.                                 |
-| `ROUTER`         | `172.16.1.254`                           | Gateway padrão fornecido pelo servidor DHCP, usado para acessar redes externas.                         |
-| `SERVER_ADDRESS` | `172.16.1.254`                           | Endereço IP do servidor DHCP que atendeu a requisição.                                                  |
-| `NEXT_SERVER`    | `172.16.1.254`                           | Próximo servidor no processo DHCP (geralmente usado para boot PXE ou TFTP).                             |
-| `T1`             | `43200` (12h)                            | Tempo em segundos até o cliente iniciar a **renovação** do lease com o servidor DHCP.                   |
-| `T2`             | `75600` (21h)                            | Tempo em segundos até o cliente tentar **renovar com outro servidor DHCP** se o primeiro não responder. |
-| `LIFETIME`       | `86400` (24h)                            | Tempo total de validade do lease em segundos (expiração do IP).                                         |
-| `DNS`            | `172.16.1.254`                           | Servidor(es) DNS fornecido(s) pelo DHCP.                                                                |
-| `DOMAINNAME`     | `apto.intra`                             | Nome de domínio fornecido pelo servidor DHCP, usado para resolução DNS.                                 |
-| `HOSTNAME`       | `wsvaamonde`                             | Nome de host atribuído ao cliente (pode ser usado para identificação na rede).                          |
-| `CLIENTID`       | `ffe2343f3e00020000ab11a1d5bc10296b8939` | Identificador único do cliente DHCP (gerado a partir da interface ou hardware).                         |
+| Campo | Valor (Exemplo) | Descrição |
+| ----- | --------------- | --------- |
+| **ADDRESS** | *172.16.1.131* | Endereço IP atribuído pelo servidor DHCP para a interface de rede. |
+| **NETMASK** | *255.255.255.0* | Máscara de sub-rede associada ao endereço IP, define o tamanho da rede. |
+| **ROUTER** | *172.16.1.254* | Gateway padrão fornecido pelo servidor DHCP, usado para acessar redes externas. |
+| **SERVER_ADDRESS** | *172.16.1.254* | Endereço IP do servidor DHCP que atendeu a requisição. |
+| **NEXT_SERVER** | *172.16.1.254* | Próximo servidor no processo DHCP (geralmente usado para boot PXE ou TFTP). |
+| **T1** | *43200 (12h)* | Tempo em segundos até o cliente iniciar a **renovação** do lease com o servidor DHCP. |
+| **T2** | *75600 (21h)* | Tempo em segundos até o cliente tentar **renovar com outro servidor DHCP** se o primeiro não responder. |
+| **LIFETIME** | *86400 (24h)* | Tempo total de validade do lease em segundos (expiração do IP).|
+| **DNS** | *172.16.1.254* | Servidor(es) DNS fornecido(s) pelo DHCP. |
+| **DOMAINNAME** | *apto.intra* | Nome de domínio fornecido pelo servidor DHCP, usado para resolução DNS. |
+| **HOSTNAME** | *wsvaamonde* | Nome de host atribuído ao cliente (pode ser usado para identificação na rede). |
+| **CLIENTID** | *ffe2343f3e00020000ab11a1d5bc10296b8939* | Identificador único do cliente DHCP (gerado a partir da interface ou hardware). |
 
 ```bash
 #verificando as informações de Status do Netplan no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
@@ -260,21 +260,21 @@ Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<
 sudo netplan status
 ```
 
-| Campo / Seção        | Descrição                                                                 | Exemplo / Valor                              |
-|---------------------|---------------------------------------------------------------------------|----------------------------------------------|
-| Interface           | Nome e índice da interface de rede                                         | enp0s3 (ethernet)                            |
-| Estado              | Estado atual da interface                                                   | UP                                          |
-| Gerenciador         | Serviço que está gerenciando a interface                                   | networkd                                    |
-| MAC Address         | Endereço físico (hardware) da interface                                     | 08:00:27:cd:e4:c0                            |
-| Addresses (IPv4)    | Endereço IPv4 atribuído à interface                                         | 10.26.46.21/24 (dhcp)                       |
-| Addresses (IPv6)    | Endereço IPv6 link-local                                                    | fe80::a00:27ff:fecd:e4c0/64                 |
-| DNS Addresses       | Servidores DNS configurados                                                 | 10.26.40.190, 10.1.1.195, 10.1.1.242        |
-| DNS Search          | Domínio usado para resolução de nomes                                       | pti.intra.br                              |
-| Routes (default)    | Rota padrão para acesso à internet                                          | default via 10.26.46.1                      |
-| Routes (host)       | Rotas específicas para destinos individuais                                 | 10.1.1.195 via 10.26.46.1                  |
-| Routes (network)    | Rota para a rede local                                                      | 10.26.46.0/24                               |
-| Metric              | Prioridade da rota (quanto menor, maior a prioridade)                      | 100 / 256                                   |
-| Origem da rota      | Como a rota foi obtida                                                      | dhcp / link                                 |
+| Campo / Seção | Descrição | Exemplo / Valor |
+|---------------|-----------|-----------------|
+| **Interface** | Nome e índice da interface de rede  | *enp0s3 (ethernet)* |
+| **Estado** | Estado atual da interface | *UP* |
+| **Gerenciador** | Serviço que está gerenciando a interface  | *networkd* |
+| **MAC Address** | Endereço físico (hardware) da interface | *08:00:27:cd:e4:c0* |
+| **Addresses (IPv4)** | Endereço IPv4 atribuído à interface | *10.26.46.21/24 (dhcp)* |
+| **Addresses (IPv6)** | Endereço IPv6 link-local | *fe80::a00:27ff:fecd:e4c0/64* |
+| **DNS Addresses** | Servidores DNS configurados | *10.26.40.190, 10.1.1.195, 10.1.1.242* |
+| **DNS Search** | Domínio usado para resolução de nomes | *pti.intra.br* |
+| **Routes (default)** | Rota padrão para acesso à internet | *default via 10.26.46.1* |
+| **Routes (host)** | Rotas específicas para destinos individuais | *10.1.1.195 via 10.26.46.1* |
+| **Routes (network)** | Rota para a rede local | *10.26.46.0/24* |
+| **Metric** | Prioridade da rota (quanto menor, maior a prioridade) | *100 / 256* |
+| **Origem da rota** | Como a rota foi obtida | *dhcp / link* |
 
 ## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
 
@@ -426,9 +426,9 @@ sudo netplan status
 
 | Servidor DNS | Endereços IPv4 | Endereços IPv6 |
 |--------------| ---------------| ---------------|
-| **Google** | 8.8.8.8 e 8.8.4.4 | 2001:4860:4860::8888 e 2001:4860:4860::8844 |
-| **Quad9** | 9.9.9.9 e 149.112.112.112 | 2620:fe::fe e 2620:fe::9 |
-| **CloudFlare** |  1.1.1.1 e 1.1.1.1 | 2606:4700:4700::1111 e 2606:4700:4700::1001 |
+| **Google** | *8.8.8.8 e 8.8.4.4* | *2001:4860:4860::8888 e 2001:4860:4860::8844* |
+| **Quad9** | *9.9.9.9 e 149.112.112.112* | *2620:fe::fe e 2620:fe::9* |
+| **CloudFlare** | *1.1.1.1 e 1.1.1.1* | *2606:4700:4700::1111 e 2606:4700:4700::1001* |
 
 ```bash
 #editando o arquivo de configuração do Systemd Resolved no Ubuntu Server (NÃO COMENTADO NO VÍDEO)

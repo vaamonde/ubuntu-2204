@@ -59,20 +59,20 @@ sudo cat -n /etc/os-release
 ```
 
 Entendendo a saída do arquivo: __`os-release`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Linha | Campo                | Valor                                                            | Descrição                        |
-| ----- | -------------------- | ---------------------------------------------------------------- | -------------------------------- |
-| 1     | `PRETTY_NAME`        | `"Ubuntu 22.04.5 LTS"`                                           | Nome completo e legível da distribuição.                         |
-| 2     | `NAME`               | `"Ubuntu"`                                                       | Nome genérico da distribuição.                                   |
-| 3     | `VERSION_ID`         | `"22.04"`                                                        | Versão principal da distribuição (sem revisões menores).         |
-| 4     | `VERSION`            | `"22.04.5 LTS (Jammy Jellyfish)"`                                | Versão completa com número de release e codinome.                |
-| 5     | `VERSION_CODENAME`   | `jammy`                                                          | Codinome da versão em desenvolvimento.                           |
-| 6     | `ID`                 | `ubuntu`                                                         | Identificador do sistema operacional.                            |
-| 7     | `ID_LIKE`            | `debian`                                                         | Sistemas operacionais semelhantes (compatibilidade).             |
-| 8     | `HOME_URL`           | `https://www.ubuntu.com/`                                        | Página oficial do Ubuntu.                                        |
-| 9     | `SUPPORT_URL`        | `https://help.ubuntu.com/`                                       | Página de suporte oficial da distribuição.                       |
-| 10    | `BUG_REPORT_URL`     | `https://bugs.launchpad.net/ubuntu/`                             | URL para relatar bugs do sistema operacional.                    |
-| 11    | `PRIVACY_POLICY_URL` | `https://www.ubuntu.com/legal/terms-and-policies/privacy-policy` | Política de privacidade da Canonical/Ubuntu.                     |
-| 12    | `UBUNTU_CODENAME`    | `jammy`                                                          | Codinome do release estável (mesmo valor de `VERSION_CODENAME`). |
+| Campo | Valor | Descrição |
+| ----- | ----- | --------- |
+| **PRETTY_NAME** | *"Ubuntu 22.04.5 LTS"* | Nome completo e legível da distribuição. |
+| **NAME** | *"Ubuntu"* | Nome genérico da distribuição. |
+| **VERSION_ID** | *"22.04"* | Versão principal da distribuição (sem revisões menores). |
+| **VERSION** | *"22.04.5 LTS (Jammy Jellyfish)"* | Versão completa com número de release e codinome. |
+| **VERSION_CODENAME** | *jammy* | Codinome da versão em desenvolvimento. |
+| **ID** | *ubuntu* | Identificador do sistema operacional. |
+| **ID_LIKE** | *debian* | Sistemas operacionais semelhantes (compatibilidade). |
+| **HOME_URL** | *https://www.ubuntu.com/* | Página oficial do Ubuntu. |
+| **SUPPORT_URL** | *https://help.ubuntu.com/* | Página de suporte oficial da distribuição. |
+| **BUG_REPORT_URL** | *https://bugs.launchpad.net/ubuntu/* | URL para relatar bugs do sistema operacional. |
+| **PRIVACY_POLICY_URL** | *https://www.ubuntu.com/legal/terms-and-policies/privacy-policy* | Política de privacidade da Canonical/Ubuntu. |
+| **UBUNTU_CODENAME** | *jammy* | Codinome do release estável (mesmo valor de `VERSION_CODENAME`). |
 
 ```bash
 #verificando as informações específicas do Sistema Operacional
@@ -81,12 +81,12 @@ sudo cat -n /etc/lsb-release
 ```
 
 Entendendo a saída do arquivo: __`lsb-release`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Linha | Campo                 | Valor                  | Descrição                                                                        |
-| ----- | --------------------- | ---------------------- | -------------------------------------------------------------------------------- |
-| 1     | `DISTRIB_ID`          | `Ubuntu`               | Identificador da distribuição conforme o padrão **LSB** (*Linux Standard Base*). |
-| 2     | `DISTRIB_RELEASE`     | `22.04`                | Versão principal da distribuição Ubuntu.                                         |
-| 3     | `DISTRIB_CODENAME`    | `jammy`                | Codinome da versão (`jammy` = Jammy Jellyfish).                                  |
-| 4     | `DISTRIB_DESCRIPTION` | `"Ubuntu 22.04.5 LTS"` | Descrição completa da distribuição e número de release.                          |
+| Campo | Valor | Descrição |
+| ----- | ----- | --------- |
+| **DISTRIB_ID** | *Ubuntu* | Identificador da distribuição conforme o padrão **LSB** (*Linux Standard Base*). |
+| **DISTRIB_RELEASE** | *22.04* | Versão principal da distribuição Ubuntu. |
+| **DISTRIB_CODENAME** | *jammy* | Codinome da versão (`jammy` = Jammy Jellyfish). |
+| **DISTRIB_DESCRIPTION** | *"Ubuntu 22.04.5 LTS"* | Descrição completa da distribuição e número de release. |
 
 ## 02_ Atualizando o Sistema Operacional Ubuntu Server
 

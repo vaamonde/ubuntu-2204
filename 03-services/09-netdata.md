@@ -43,14 +43,15 @@ Conteúdo estudado nesse desafio:<br>
 #22_ Estressando o Servidor Ubuntu Server para verificar as mudanças no Gráfico **(NÃO COMENTADO NO VÍDEO)**;<br>
 #23_ Desafio da Integração do Netdata Server com o Cloud.<br>
 
+Site Oficial do Netdata: https://www.netdata.cloud/<br>
+
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
 Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
-
-Site Oficial do Netdata: https://www.netdata.cloud/<br>
+Perplexity: https://www.perplexity.ai/<br>
 
 **O QUE É E PARA QUE SERVER O NETDATA:** Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
 
@@ -91,7 +92,7 @@ git clone https://github.com/netdata/netdata --depth=100 --recursive
 
 ## 03_ Compilando e Instalando o Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o processo de compilação e instalação do Netdata Agent via Github demora bastante, dependendo do seu hardware pode demorar mais de: **30 minutos** para baixar as dependências, compilar e instalar o Netdata Agent no Ubuntu Server, aguarde!!!!!!!
+> **OBSERVAÇÃO IMPORTANTE:** o processo de compilação e instalação do Netdata Agent via Github demora bastante, dependendo do seu hardware pode demorar mais de: **30 minutos** para baixar as dependências, compilar e instalar o Netdata Agent no Ubuntu Server, aguarde!!!!!!!
 
 ```bash
 #acessando o diretório clonado e instalando o Netdata Agent
@@ -121,7 +122,7 @@ sudo systemctl start netdata
 sudo journalctl -xeu netdata
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Netdata Agent
@@ -131,7 +132,7 @@ sudo netdata -v
 
 ## 05_ Verificando a Porta de Conexão do Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-19999 do Netdata Agent
@@ -154,7 +155,7 @@ sudo /usr/libexec/netdata/netdata-updater.sh --enable-auto-updates
 ls -lh /etc/cron.daily/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** caso queira atualizar manualmente o Netdata Agent digite o mesmo comando do agendamento de atualizações do Netdata Agent no terminal.
+> **OBSERVAÇÃO IMPORTANTE:** caso queira atualizar manualmente o Netdata Agent digite o mesmo comando do agendamento de atualizações do Netdata Agent no terminal.
 
 ```bash
 #atualizando manualmente o Netdata Agent (SÓ EXECUTAR ESSE COMANDO SE FOR NECESSÁRIO)
@@ -164,7 +165,7 @@ sudo /usr/libexec/netdata/./netdata-updater.sh
 
 ## 07_ Adicionado o Usuário Local no Grupo Padrão do Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+> **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
 #adicionando o usuário local (logado) no grupo do Netdata Agent
@@ -203,17 +204,16 @@ exit
 
 ## 09_ Testando e acessando as configurações do Netdata Agent via Terminal e Navegador
 
-**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+> **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
-| Código | Significado                                     |
-| ------ | ----------------------------------------------- |
-| 200    | OK (Sucesso)                                    |
-| 301    | Moved Permanently (Redirecionamento permanente) |
-| 302    | Found (Redirecionamento temporário)             |
-| 400    | Bad Request (solicitação malformada)            |
-| 403    | Forbidden (Acesso negado)                       |
-| 404    | Not Found (Não encontrado)                      |
-| 500    | Internal Server Error                           |
+| Código | Significado |
+| ------ | ----------- |
+| **200** | OK (Sucesso) |
+| **301** | Moved Permanently (Redirecionamento permanente) |
+| **302** | Found (Redirecionamento temporário) |
+| **403** | Forbidden (Acesso negado) |
+| **404** | Not Found (Não encontrado) |
+| **500** | Internal Server Error |
 
 ```bash
 #testando o acesso as páginas do Netdata Agent (NÃO COMENTADO NO VÍDEO)
@@ -221,7 +221,7 @@ exit
 curl -I http://127.0.0.1:19999/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por padrão o acesso ao Netdata Agent não solicita usuário e senha, o acesso está liberado para todas as Redes Locais (LAN) ou Remotas (WAN), o processo de segurança do Netdata Agent é baseado nas configurações de Regras de Acesso a URL da Aplicação feitas no arquivo: __`/etc/netdata/netdata.conf`__, regras de Firewall utilizando o: __`iptables`__ ou __`ufw`__ e a configuração do recurso de Proxy com Autenticação do __`Apache2 Server ou NGINX Server`__, recursos esses que não serão abordados nesse curso.
+> **OBSERVAÇÃO IMPORTANTE:** Por padrão o acesso ao Netdata Agent não solicita usuário e senha, o acesso está liberado para todas as Redes Locais (LAN) ou Remotas (WAN), o processo de segurança do Netdata Agent é baseado nas configurações de Regras de Acesso a URL da Aplicação feitas no arquivo: __`/etc/netdata/netdata.conf`__, regras de Firewall utilizando o: __`iptables`__ ou __`ufw`__ e a configuração do recurso de Proxy com Autenticação do __`Apache2 Server ou NGINX Server`__, recursos esses que não serão abordados nesse curso.
 
 ```bash
 #acessar o Netdata Agent via navegador
@@ -293,7 +293,7 @@ quit
 
 ## 12_ Acessando o diretório de configuração do Netdata Agent no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do *Netdata Agent*, os arquivos de configuração são baseados na *Linguagem de Programação Python e Go (Golang)* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
+> **OBSERVAÇÃO IMPORTANTE:** cuidado na hora de configurar os serviços de monitoramento do *Netdata Agent*, os arquivos de configuração são baseados na *Linguagem de Programação Python e Go (Golang)* utilizando o conceito do **YAML (YAML Ain't Markup Language)**, não se utiliza __`TAB`__ sempre utilizar __`02 (dois)`__ espaços para indentar o código.
 
 ```bash
 #acessando o diretório de configuração do Netdata Aget
@@ -306,7 +306,7 @@ ls -lh
 
 ## 13_ Configurando o serviço de monitoramento do Apache2 Server no Netdata Agent
 
-**OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O COMANDO: __`./edit-config`__ UTILIZA O EDITOR DE TEXTO **NANO**, SEUS COMANDOS E TECLAS DE ATALHO SÃO DIFERENTES DO EDITOR DE TEXTO **VIM**, CUIDADO!!!!.
+> **OBSERVAÇÃO IMPORTANTE:** POR PADRÃO O COMANDO: __`./edit-config`__ UTILIZA O EDITOR DE TEXTO **NANO**, SEUS COMANDOS E TECLAS DE ATALHO SÃO DIFERENTES DO EDITOR DE TEXTO **VIM**, CUIDADO!!!!.
 
 ```bash
 #configuração do serviço de monitoramento do Apache2 Server
@@ -405,7 +405,7 @@ Ctrl + X
 
 ## 18_ Configurando o serviço de monitoramento das Portas TCP Endpoint no Netdata Agent
 
-**OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Robots of Distributed Denial-of-Service) e CoinMiners (Malware de Criptomineração ou Cryptojacking)*, segue lista de alguns Bots (Robôs): **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
+> **OBSERVAÇÃO IMPORTANTE:** após várias análises dos *Logs do OpenSSH*, principalmente do arquivo: *sudo cat -n /var/log/auth.log | grep ssh* apresentou a seguinte mensagem de erro constante a cada **5 segundos**: __`Connection closed by: ENDEREÇO_IPV4 port PORTA_ALEATÓRIA - error: kex_exchange_ identification: Connection closed by remote host`__. Esse error muitas vezes está associado a *conexões remotas não autorizadas* no Ubuntu Server rodando o OpenSSH na **Porta Padrão: 22**, após pesquisar nos Fóruns foi identificado um **Software Malicioso (Malware/Boot)** de *Força Bruta (Brute Force)* que fica escaneando servidores OpenSSH na Porta Padrão para implementação de *Bots DDoS (Robots of Distributed Denial-of-Service) e CoinMiners (Malware de Criptomineração ou Cryptojacking)*, segue lista de alguns Bots (Robôs): **ShellBot, Tsunami, Bot DDos ChinaZ, XMRing CoinMiner Mirai, Gafgy e XorDDos**, nesse cenário a falha está associada ao *Monitoramento da Porta do SSH* utilizado pelo Netdata Agent, após remover a porta: 22 a falha dos Logs foi resolvida.
 
 ```bash
 #configuração do serviço de monitoramento das Portas TCP Endpoint
@@ -469,7 +469,7 @@ sudo systemctl list-units --type=service --state=running
 
 ## 21_ Verificando todas as Portas de Serviços de Rede no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no vídeo as portas listadas com o comando: *nmap* só listou as portas conhecidas, para listar todas as portas adicionei a opção: __`-p-`__ (**OBSERVAÇÃO:** COM ESSA OPÇÃO HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
+> **OBSERVAÇÃO IMPORTANTE:** no vídeo as portas listadas com o comando: *nmap* só listou as portas conhecidas, para listar todas as portas adicionei a opção: __`-p-`__ (**OBSERVAÇÃO:** COM ESSA OPÇÃO HABILITADA O PROCESSO DE ESCANEAMENTO DE PORTAS DEMORA UM POUCO).
 
 ```bash
 #verificando todas as portas abertas no Ubuntu Server
@@ -506,16 +506,16 @@ sudo stress-ng --hdd 8 --io 8 --vm 18 --cpu 8 --stack 4 --fork 8 --exec 4 --time
 
 Entendendo as opções do comando __`*stress-ng*`__
 
-| ID | Opção | Descrição |
-|----|-------|-----------|
-| 01 | --hdd 8 | Cria 8 workers (trabalhos) que fazem operações intensas de leitura e escrita em disco (testa o I/O de disco). |
-| 02 | --io 8 | Cria 8 workers (trabalhos) que realizam chamadas de entrada e saída (I/O) para testar o subsistema de arquivos/dispositivos. |
-| 03 | --vm 18 | Cria 18 workers (trabalhos) que alocam e acessam memória (RAM), simulando uso intenso da memória. |
-| 04 | --cpu 8 | Cria 8 workers (trabalhos) que usam a CPU ao máximo (100%), rodando cálculos matemáticos. |
-| 05 | --stack 4 | Cria 4 process (processos) que usam chamadas recursivas profundas, estressando a pilha (stack) de memória (ram) de cada thread (unidade de execução). |
-| 06 | --fork 8 | Cria 8 process (processos) que ficam criando e destruindo novos processos rapidamente (estressa o gerenciamento de processos do kernel). |
-| 07 | --exec 4 | Cria 4 process (processos) que executam repetidamente programas simples (testa a função exec() e o sistema de arquivos). |
-| 08 | --timeout 900 | Executa todos esses testes por 900 segundos (ou seja, 15 minutos), e depois para automaticamente. |
+| Opção | Descrição |
+|-------|-----------|
+| **--hdd 8** | Cria 8 workers (trabalhos) que fazem operações intensas de leitura e escrita em disco (testa o I/O de disco). |
+| **--io 8** | Cria 8 workers (trabalhos) que realizam chamadas de entrada e saída (I/O) para testar o subsistema de arquivos/dispositivos. |
+| **--vm 18** | Cria 18 workers (trabalhos) que alocam e acessam memória (RAM), simulando uso intenso da memória. |
+| **--cpu 8** | Cria 8 workers (trabalhos) que usam a CPU ao máximo (100%), rodando cálculos matemáticos. |
+| **--stack 4** | Cria 4 process (processos) que usam chamadas recursivas profundas, estressando a pilha (stack) de memória (ram) de cada thread (unidade de execução). |
+| **--fork 8** | Cria 8 process (processos) que ficam criando e destruindo novos processos rapidamente (estressa o gerenciamento de processos do kernel). |
+| **--exec 4** | Cria 4 process (processos) que executam repetidamente programas simples (testa a função exec() e o sistema de arquivos). |
+| **-timeout 900** | Executa todos esses testes por 900 segundos (ou seja, 15 minutos), e depois para automaticamente. |
 
 ```bash
 #estressando a CPU utilizando o s-tui
@@ -552,27 +552,27 @@ sudo ab -n 100000 -c 1000 http://127.0.0.1:8080/agenda
 
 Entendendo as opções de métricas do comando __`*ab*`__
 
-| ID | Opção | Descrição |
-|----|-------|-----------|
-| 01 | Server Software: Apache/2.4.52 | Informa o software do servidor HTTP que respondeu às requisições |
-| 02 | Server Hostname: 127.0.0.1 | Endereço do host (IP ou nome) onde o benchmark foi executado | 
-| 03 | Server Port: 80 | Porta TCP usada para as conexões HTTP (padrão é 80) | 
-| 04 | Document Path: / | Caminho do recurso requisitado no servidor web | 
-| 05 | Document Length: 10671 bytes | Tamanho da resposta HTML em bytes por requisição |
-| 06 | Concurrency Level: 1000 | Número de conexões simultâneas realizadas durante o teste |
-| 07 | Time taken for tests: 13.720 seconds | Tempo total gasto para concluir todas as requisições do teste |
-| 08 | Complete requests: 100000 | Número total de requisições realizadas com sucesso |
-| 09 | Failed requests: 0 | Número de requisições que falharam (timeout, erro de conexão, etc) |
-| 10 | Total transferred: 1094500000 bytes | Quantidade total de dados transferidos, incluindo cabeçalhos HTTP |
-| 11 | HTML transferred: 1067100000 bytes | Quantidade total de conteúdo HTML transferido, excluindo cabeçalhos |
-| 12 | Requests per second: 7288.73 [#/sec] (mean) | Número médio de requisições concluídas por segundo |
-| 13 | Time per request: 137.198 [ms] (mean) | Tempo médio para concluir uma requisição, considerando todas as concorrências |
-| 14 | Time per request: 0.137 [ms] (mean, across all concurrent requests) | Tempo médio por requisição individual (tempo total dividido pelo número total de requests) |
-| 15 | Transfer rate: 77905.47 [Kbytes/sec] received | Taxa média de transferência de dados durante o teste |
-| 16 | Connection Times (ms): min=0 mean=4 [+/-sd]=65.5 median=0 max=3069 | Tempo de estabelecimento de conexão (TCP handshake): mínimo, médio, mediana e máximo |
-| 17 | Processing Times (ms): min=10 mean=123 [+/-sd]=895.5 median=52 max=13599 | Tempo de processamento no servidor: do envio da requisição até início da resposta |
-| 18 | Waiting Time (ms): min=0 mean=121 [+/-sd]=894.2 median=52 max=13594 | Tempo ocioso aguardando a resposta: é um subconjunto do tempo de processamento |
-| 19 | Total Time (ms): min=42 mean=127 [+/-sd]=903.9 median=53 max=13711 | Tempo total para completar a requisição: conexão + processamento + resposta |
+| Opção | Descrição |
+|-------|-----------|
+| **Server Software: Apache/2.4.52** | Informa o software do servidor HTTP que respondeu às requisições |
+| **Server Hostname: 127.0.0.1** | Endereço do host (IP ou nome) onde o benchmark foi executado | 
+| **Server Port: 80** | Porta TCP usada para as conexões HTTP (padrão é 80) | 
+| **Document Path: /** | Caminho do recurso requisitado no servidor web | 
+| **Document Length: 10671 bytes** | Tamanho da resposta HTML em bytes por requisição |
+| **Concurrency Level: 1000** | Número de conexões simultâneas realizadas durante o teste |
+| **Time taken for tests: 13.720 seconds** | Tempo total gasto para concluir todas as requisições do teste |
+| **Complete requests: 100000** | Número total de requisições realizadas com sucesso |
+| **Failed requests: 0** | Número de requisições que falharam (timeout, erro de conexão, etc) |
+| **Total transferred: 1094500000 bytes** | Quantidade total de dados transferidos, incluindo cabeçalhos HTTP |
+| **HTML transferred: 1067100000 bytes** | Quantidade total de conteúdo HTML transferido, excluindo cabeçalhos |
+| **Requests per second: 7288.73 [#/sec] (mean)** | Número médio de requisições concluídas por segundo |
+| **Time per request: 137.198 [ms] (mean)** | Tempo médio para concluir uma requisição, considerando todas as concorrências |
+| **Time per request: 0.137 [ms] (mean, across all concurrent requests)** | Tempo médio por requisição individual (tempo total dividido pelo número total de requests) |
+| **Transfer rate: 77905.47 [Kbytes/sec] received** | Taxa média de transferência de dados durante o teste |
+| **Connection Times (ms): min=0 mean=4 [+/-sd]=65.5 median=0 max=3069** | Tempo de estabelecimento de conexão (TCP handshake): mínimo, médio, mediana e máximo |
+| **Processing Times (ms): min=10 mean=123 [+/-sd]=895.5 median=52 max=13599** | Tempo de processamento no servidor: do envio da requisição até início da resposta |
+| **Waiting Time (ms): min=0 mean=121 [+/-sd]=894.2 median=52 max=13594** | Tempo ocioso aguardando a resposta: é um subconjunto do tempo de processamento |
+| **Total Time (ms): min=42 mean=127 [+/-sd]=903.9 median=53 max=13711** | Tempo total para completar a requisição: conexão + processamento + resposta |
 
 ```bash
 #fazendo várias requisições de consultas simultâneas no MySQL Server
@@ -599,15 +599,15 @@ iperf3 -c IP_SERVER_IPERF3_REMOTO -l 128
 
 Entendendo as opções de métricas do comando __`*iperf3*`__
 
-| ID  | Opção              | Descrição                                                                                  |
-|-----|--------------------|--------------------------------------------------------------------------------------------|
-| 01  | ID                 | Identificador único para cada teste ou fluxo de dados. Cada conexão ou métrica é associada a um ID distinto.       |
-| 02  | Interval           | Intervalo de tempo durante o qual as métricas são calculadas. Em um teste contínuo, o `iperf3` calcula os dados para intervalos definidos (geralmente em segundos). |
-| 03  | Transfer           | Quantidade total de dados transferidos durante o teste, em bytes ou em uma unidade mais legível como megabytes (MB) ou gigabytes (GB). |
-| 04  | Bitrate            | Taxa de transferência de dados durante o teste, medida em bits por segundo (bps), Kbps, Mbps ou Gbps. Reflete o desempenho da conexão em termos de velocidade de download/upload. |
-| 05  | Retr               | Retransmissões de pacotes, ou seja, o número de pacotes que foram enviados novamente devido a falhas ou perda de pacotes durante a transmissão. |
-| 06  | Cwnd               | Tamanho da janela de congestionamento (congestion window) no TCP. O TCP usa uma janela de congestionamento para controlar a quantidade de dados não confirmados que podem ser enviados antes de esperar por um reconhecimento. Quanto maior o valor, mais dados podem ser enviados sem confirmação. |
-| 07  | Total Datagrams    | Número total de pacotes de dados enviados ou recebidos durante o teste, aplicável especialmente aos testes UDP. Cada datagrama representa um pacote UDP. |
+| Opção | Descrição |
+|-------|-----------|
+| **ID** | Identificador único para cada teste ou fluxo de dados. Cada conexão ou métrica é associada a um ID distinto. |
+| **Interval** | Intervalo de tempo durante o qual as métricas são calculadas. Em um teste contínuo, o `iperf3` calcula os dados para intervalos definidos (geralmente em segundos). |
+| **Transfer** | Quantidade total de dados transferidos durante o teste, em bytes ou em uma unidade mais legível como megabytes (MB) ou gigabytes (GB). |
+| **Bitrate** | Taxa de transferência de dados durante o teste, medida em bits por segundo (bps), Kbps, Mbps ou Gbps. Reflete o desempenho da conexão em termos de velocidade de download/upload. |
+| **Retr** | Retransmissões de pacotes, ou seja, o número de pacotes que foram enviados novamente devido a falhas ou perda de pacotes durante a transmissão. |
+| **Cwnd** | Tamanho da janela de congestionamento (congestion window) no TCP. O TCP usa uma janela de congestionamento para controlar a quantidade de dados não confirmados que podem ser enviados antes de esperar por um reconhecimento. Quanto maior o valor, mais dados podem ser enviados sem confirmação. |
+| **Total Datagrams** | Número total de pacotes de dados enviados ou recebidos durante o teste, aplicável especialmente aos testes UDP. Cada datagrama representa um pacote UDP. |
 
 ```bash
 #fazendo várias requisições de consultas simultâneas no MongoDB Server
@@ -706,11 +706,11 @@ sudo mongotop   --authenticationDatabase admin -u seu_usuário -p sua_senha
 
 ========================================DESAFIOS=========================================
 
-**#23_ DESAFIO-01:** FAZER A INTEGRAÇÃO DO NETDATA AGENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE INTEGRAÇÃO: __`15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent`__, LINK: https://www.youtube.com/watch?v=5MrH8L5cSIU
+> **#23_ DESAFIO-01:** FAZER A INTEGRAÇÃO DO NETDATA AGENT COM O NETDATA CLOUD, UTILIZE O VÍDEO DE INTEGRAÇÃO: __`15-netdata.sh Configurando o Netdata Cloud integrado com o Netdata Agent`__, LINK: https://www.youtube.com/watch?v=5MrH8L5cSIU
 
-**#24_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O: __`seu_usuário`__ CRIADOS NO DESAFIO DO OPENSSH NO GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+> **#24_ DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O: __`seu_usuário`__ CRIADOS NO DESAFIO DO OPENSSH NO GRUPO DO NETDATA PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
-**#25_ DESAFIO-03:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
+> **#25_ DESAFIO-03:** ADICIONAR O HYPER LINK NO WORDPRESS PARA FACILITAR O ACESSO AO NETDATA, IGUAL A TODOS OS DESAFIOS FEITO ATÉ AGORA.
 
 =========================================================================================
 

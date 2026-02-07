@@ -55,15 +55,14 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+Perplexity: https://www.perplexity.ai/<br>
 
 **PERGUNTA PARA A IA**
-```bash
-Prompt-01: qual a melhor plataforma de software e sistema operacional para fazer o Deploy de uma 
+
+> **Prompt-01:** qual a melhor plataforma de software e sistema operacional para fazer o Deploy de uma 
 aplicação desenvolvida em Eclipse utilizando o JavaEE?
-```
-```bash
-Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o JAVA e Apache Tomcat?
-```
+
+> **Prompt-02:** quais as principais Big Techs no Brasil e no mundo que utiliza o JAVA e Apache Tomcat?
 
 **O QUE É E PARA QUE SERVER O APACHE TOMCAT SERVER:** O *Apache Tomcat* é um servidor web Java, mais especificamente, um container de servlets. O Tomcat implementa, dentre outras de menor relevância, as tecnologias Java Servlet e JavaServer Pages e não é um container Enterprise JavaBeans. Desenvolvido pela Apache Software Foundation, é distribuído como software livre.
 
@@ -79,7 +78,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=TcC7cijfub0
 
 ## 01_ Instalando as Dependências do Apache Tomcat Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19, 21 e 25*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao *OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment)*.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server 22.04.x temos as versões disponíveis do **OpenJDK** e do **OpenJRE**:* 8, 11, 17, 18, 19, 21 e 25*, cuidado na versão do Java que você está usando no seu projeto e a compatibilidade de versão do *Apache TomCAT* em relação ao *OpenJDK (Java Development Kit) e OpenJRE (Java Runtime Environment)*.
 
 ```bash
 #atualizando as lista do apt
@@ -113,11 +112,11 @@ sudo update-java-alternatives --list
 
 ## 03_ Download do Apache Tomcat Server 11.x do site Oficial no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** recomendo que o procedimento abaixo seja feito utilizando o usuário: __`root`__ do Ubuntu Server para facilitar a instalação e configuração do *Apache Tomcat Server 11.x*.
+> **OBSERVAÇÃO IMPORTANTE:** recomendo que o procedimento abaixo seja feito utilizando o usuário: __`root`__ do Ubuntu Server para facilitar a instalação e configuração do *Apache Tomcat Server 11.x*.
 
 Link Oficial das versões do Apache Tomcat Server: https://dlcdn.apache.org/tomcat/
 
-**OBSERVAÇÃO IMPORTANTE:** EM OUTUBRO DE 2024 FOI ANUNCIADO A VERSÃO 11.x DO APACHE TOMCAT, EM ABRIL DE 2025 A VERSÃO 11.0.6 FOI LANÇADA COM VÁRIAS CORREÇÕES SE TORNANDO UMA VERSÃO ESTÁVEL PARA IMPLEMENTAÇÃO, APÓS TODOS OS TESTES FEITO NA NOVA VERSÃO DO APACHE TOMCAT, ESSA DOCUMENTAÇÃO FOI ATUALIZADA PARA A VERSÃO MAIS RECENTE DO APACHE TOMCAT (ATUAL 13/06/2026: 11.0.15), MAIS INFORMAÇÕES ACESSE O LINK OFICIAL DO APACHE TOMCAT EM: https://tomcat.apache.org/tomcat-11.0-doc/changelog.html
+> **OBSERVAÇÃO IMPORTANTE:** EM OUTUBRO DE 2024 FOI ANUNCIADO A VERSÃO 11.x DO APACHE TOMCAT, EM ABRIL DE 2025 A VERSÃO 11.0.6 FOI LANÇADA COM VÁRIAS CORREÇÕES SE TORNANDO UMA VERSÃO ESTÁVEL PARA IMPLEMENTAÇÃO, APÓS TODOS OS TESTES FEITO NA NOVA VERSÃO DO APACHE TOMCAT, ESSA DOCUMENTAÇÃO FOI ATUALIZADA PARA A VERSÃO MAIS RECENTE DO APACHE TOMCAT (ATUAL 13/06/2026: 11.0.15), MAIS INFORMAÇÕES ACESSE O LINK OFICIAL DO APACHE TOMCAT EM: https://tomcat.apache.org/tomcat-11.0-doc/changelog.html
 
 
 ```bash
@@ -229,7 +228,7 @@ sudo journalctl -xeu tomcat11
 sudo bash /opt/tomcat/bin/configtest.sh
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Apache Tomcat Server
@@ -238,7 +237,7 @@ sudo bash /opt/tomcat/bin/version.sh
 
 ## 10_ Verificando a Porta de Conexão do Apache Tomcat Server 11.x no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-8080 do Apache Tomcat Server
@@ -260,7 +259,7 @@ sudo lsof -nP -iTCP:'8080' -sTCP:LISTEN
 
 ## 12_ Adicionado o Usuário Local no Grupo Padrão do Apache Tomcat Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+> **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
 #adicionando o usuário local (logado) no grupo do Apache Tomcat
@@ -313,16 +312,16 @@ sudo systemctl status tomcat11
 
 ## 14_ Testando o acesso ao Apache Tomcat Server no Terminal e no Navegador
 
-**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+> **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
-| Código | Significado                                     |
-| ------ | ----------------------------------------------- |
-| 200    | OK (Sucesso)                                    |
-| 301    | Moved Permanently (Redirecionamento permanente) |
-| 302    | Found (Redirecionamento temporário)             |
-| 403    | Forbidden (Acesso negado)                       |
-| 404    | Not Found (Não encontrado)                      |
-| 500    | Internal Server Error                           |
+| Código | Significado |
+| ------ | ----------- |
+| **200** | OK (Sucesso) |
+| **301** | Moved Permanently (Redirecionamento permanente) |
+| **302** | Found (Redirecionamento temporário) |
+| **403** | Forbidden (Acesso negado) |
+| **404** | Not Found (Não encontrado) |
+| **500** | Internal Server Error |
 
 ```bash
 #testando o acesso as páginas do Apache TomCAT Server (NÃO COMENTADO NO VÍDEO)
@@ -346,17 +345,17 @@ Clique em: Manager App
 
 | Opção | Descrição |
 |-------|-----------|
-| 🔧 Server Status | Exibe informações em tempo real sobre o estado do servidor |
-| 📦 Manager App | Interface para gerenciar aplicações web implantadas no Tomcat |
-| 🏠 Host Manager | Permite criar e gerenciar Virtual Hosts diretamente pela interface web |
+| 🔧 **Server Status** | Exibe informações em tempo real sobre o estado do servidor |
+| 📦 **Manager App** | Interface para gerenciar aplicações web implantadas no Tomcat |
+| 🏠 **Host Manager** | Permite criar e gerenciar Virtual Hosts diretamente pela interface web |
 
 ========================================DESAFIOS=========================================
 
-**#17_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat11`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat11`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
+> **#17_ DESAFIO-01:** FAZER A CRIAÇÃO DE __`02 (DOIS) NOVOS USUÁRIOS`__ PARA ADMINISTRAR O APACHE TOMCAT SERVER, PRIMEIRO USUÁRIO: __`tomcat11`__ (TUDO EM MINÚSCULO) SENHA: __`tomcat11`__, SEGUNDO USUÁRIO: __`seu_nome`__ (TUDO EM MINÚSCULO) SENHA: __`sua_senha`__, MANTENDO O USUÁRIO: __`admin`__ NO APACHE TOMCAT (O APACHE TOMCAT VAI SER ADMINISTRADO POR 03 (TRÊS) USUÁRIOS), TESTAR O ACESSO AO APACHE TOMCAT COM OS USUÁRIOS E VERIFICAR SE ESTÃO TENDO DIREITOS PARA ADMINISTRAR O SERVIDOR. 
 
-**OBSERVAÇÃO IMPORTANTE:** RECOMENDO UTILIZAR DOIS NAVEGADORES DIFERENTES PARA ESSE TESTE, O USUÁRIO E SENHA DO APACHE TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR, VOCÊ PODE UTILIZAR O RECURSO DOS NAVEGADORES: __`Mozilla Firefox - Nova Janela Privada`__, __`Google Chrome - Nova Janela de Navegação Anonima`__ ou __`Microsoft Edge - Nova Janela InPrivate`__ QUE RESOLVE ESSE PROBLEMA.
+> **OBSERVAÇÃO IMPORTANTE:** RECOMENDO UTILIZAR DOIS NAVEGADORES DIFERENTES PARA ESSE TESTE, O USUÁRIO E SENHA DO APACHE TOMCAT GERALMENTE FICA EM CACHE NO NAVEGADOR, VOCÊ PODE UTILIZAR O RECURSO DOS NAVEGADORES: __`Mozilla Firefox - Nova Janela Privada`__, __`Google Chrome - Nova Janela de Navegação Anonima`__ ou __`Microsoft Edge - Nova Janela InPrivate`__ QUE RESOLVE ESSE PROBLEMA.
 
-**#18: DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O SEU: __`seu_usuário`__ NO GRUPO DO APACHE TOMCAT: __`tomcat`__  PARA ADMINISTRAR O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
+> **#18: DESAFIO-02:** ADICIONAR O USUÁRIO: __`admin`__ E O SEU: __`seu_usuário`__ NO GRUPO DO APACHE TOMCAT: __`tomcat`__  PARA ADMINISTRAR O APACHE TOMCAT SERVER SEM PRECISAR DO COMANDO SUDO.
 
 =========================================================================================
 

@@ -55,18 +55,18 @@ sudo poweroff --reboot
 
 **OBSERVAÇÃO:** O *init* é o primeiro processo iniciado durante a inicialização do sistema de computador. O init é um processo daemon que continua executando até o sistema ser desligado. O init trabalha no conceito de *Runlevel (níveis de execução)*, no GNU/Linux temos basicamente **08 (oito) tipos de Runlevels**: 
 
-| ID | VALOR | DESCRIÇÃO |
-|----|-------|-----------|
-| 01 | init 0 | Shutdown (Desligar) |
-| 02 | init 1 | Single user mode or emergency mode (Modo de usuário único ou modo de emergência) |
-| 03 | init 2 | No network (Sem rede) |
-| 04 | init 3 | Network is present (A rede está presente) |
-| 05 | init 4 | It is similar to runlevel 3 (É semelhante ao nível de execução 3) |
-| 06 | init 5 | Network is present (A rede está presente) |
-| 07 | init 6 | This runlevel is defined to system restart (Este nível de execução é definido para reiniciar o sistema) |
-| 08 | init s | Tells the init command to enter the maintenance mode (Diz ao comando init para entrar no modo de manutenção) |
-| 09 | init S | Same as init s (O mesmo que init s) |
-| 10 | init m | Same as init s and init S e init M - Same as init s or init S or init m (O mesmo que init s e init S e init M - O mesmo que init s ou init S ou init m) |
+| VALOR | DESCRIÇÃO |
+|-------|-----------|
+| **init 0** | Shutdown (Desligar) |
+| **init 1** | Single user mode or emergency mode (Modo de usuário único ou modo de emergência) |
+| **init 2** | No network (Sem rede) |
+| **init 3** | Network is present (A rede está presente) |
+| **init 4** | It is similar to runlevel 3 (É semelhante ao nível de execução 3) |
+| **init 5** | Network is present (A rede está presente) |
+| **init 6** | This runlevel is defined to system restart (Este nível de execução é definido para reiniciar o sistema) |
+| **init s** | Tells the init command to enter the maintenance mode (Diz ao comando init para entrar no modo de manutenção) |
+| **init S** | Same as init s (O mesmo que init s) |
+| **init m** | Same as init s and init S e init M - Same as init s or init S or init m (O mesmo que init s e init S e init M - O mesmo que init s ou init S ou init m) |
 
 ```bash
 #opção do comando init: 0 (halt), 6 (reboot)

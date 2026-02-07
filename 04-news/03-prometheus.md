@@ -99,7 +99,7 @@ sudo mkdir -pv /etc/prometheus/{targets,rules} /var/lib/prometheus
 
 ## 03_ Baixando o Prometheus do Github no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
 ```bash
 #download do Prometheus do Github (Link atualizado no dia 09/01/2026)
@@ -156,7 +156,7 @@ sudo chmod -Rv 775 /etc/prometheus/ /var/lib/prometheus/
 
 ## 08_ Instalando o Coletor de Métricas Node Exporter no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
 #download do Node Exporter do Github (Link atualizado no dia 01/01/2026)
@@ -237,7 +237,7 @@ sudo journalctl -t node_exporter
 sudo journalctl -xeu node_exporter
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Node Exporter
@@ -246,7 +246,7 @@ sudo node_exporter --version
 
 ## 15_ Verificando a Porta de Conexão do Node Exporter no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-9100 do Node Exporter
@@ -256,7 +256,7 @@ sudo lsof -nP -iTCP:'9100' -sTCP:LISTEN
 
 ## 16_ Editando o arquivo de configuração do Prometheus no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Prometheus e baseado no formato de serialização de dados legíveis *YAML (Yet Another Markup Language)* utilizado pela linguagem de programação Python, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
+> **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do Prometheus e baseado no formato de serialização de dados legíveis *YAML (Yet Another Markup Language)* utilizado pela linguagem de programação Python, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
 
 ```bash
 #arquivo de configuração padrão do Prometheus
@@ -327,7 +327,7 @@ sudo journalctl -t prometheus
 sudo journalctl -xeu prometheus
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
 
 ```bash
 #verificando a versão do Prometheus
@@ -341,7 +341,7 @@ sudo promtool --version
 
 ## 19_ Verificando a Porta de Conexão do Prometheus no Ubuntu Server 
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-9100 do Node Exporter e TCP-9091 do Prometheus
@@ -385,7 +385,7 @@ exit
 
 ## 22_ Configurando o Prometheus e o Node Exporter via Navegador
 
-**OBSERVAÇÃO IMPORTANTE:** Quando você acessa o Prometheus via Navegador e aparece a seguinte mensagem de aviso em vermelho: *Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results*. Esse erro está associado a falha de sincronismo da Data e Hora em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os equipamentos ou utilizar o Protocolo **NTP (Network Time Protocol)** para sincronizar a data/hora de forma correta. 
+> **OBSERVAÇÃO IMPORTANTE:** Quando você acessa o Prometheus via Navegador e aparece a seguinte mensagem de aviso em vermelho: *Warning: Error fetching server time: Detected 65.21499991416931 seconds time difference between your browser and the server. Prometheus relies on accurate time and time drift might cause unexpected query results*. Esse erro está associado a falha de sincronismo da Data e Hora em relação o Servidor e Cliente, para resolver essa falha é necessário acertar a Data Hora entre os equipamentos ou utilizar o Protocolo **NTP (Network Time Protocol)** para sincronizar a data/hora de forma correta. 
 
 ```bash
 #acessando o Prometheus via navegador
@@ -436,9 +436,9 @@ Metrics
 
 ## 23_ Instalando o Node Exporter no Linux Mint e no Microsoft Windows
 
-**OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no Microsoft Windows, Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
+> **OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no Microsoft Windows, Link de referência do download: https://github.com/prometheus-community/windows_exporter/releases
 
-**OBSERVAÇÃO IMPORTANTE:** fazer a instalação do Prometheus Windows Exporter utilizando o Powershell em modo Administrador.
+> **OBSERVAÇÃO IMPORTANTE:** fazer a instalação do Prometheus Windows Exporter utilizando o Powershell em modo Administrador.
 
 ### Instalação do Node Exporter no Microsoft Windows
 ```bash
@@ -466,7 +466,7 @@ netstat -an | findstr 9182
 
 ### Instalação do Node Exporter no GNU/Linux Mint
 
-**OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no GNU/Linux Mint, Link de referência do download: https://github.com/prometheus/node_exporter/releases/
+> **OBSERVAÇÃO IMPORTANTE:** Instalação do Node Exporter no GNU/Linux Mint, Link de referência do download: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
 #criando o grupo do serviço do Node Exporter
@@ -483,7 +483,7 @@ sudo useradd -s /sbin/nologin --no-create-home --system -g node_exporter node_ex
 sudo mkdir -pv /etc/prometheus /var/lib/prometheus
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o executável do *Node Exporter do Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/node_exporter/releases/
 
 ```bash
 #download do Node Exporter do Github (Link atualizado no dia 01/01/2026)

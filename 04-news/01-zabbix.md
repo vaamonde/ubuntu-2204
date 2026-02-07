@@ -47,7 +47,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=ms5_qLThRTg
 
 ## 01_ Instalando as Dependências do Zabbix Server, Frontend e Agent2 no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O ZABBIX POSSUI AS DEPENDÊNCIAS DO *BANCO DE DADOS MYSQL SERVER* E DO *APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8**.
+> **OBSERVAÇÃO IMPORTANTE:** O ZABBIX POSSUI AS DEPENDÊNCIAS DO *BANCO DE DADOS MYSQL SERVER* E DO *APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP E NA ETAPA: 03 DO MYSQL SERVER 8**.
 
 ```bash
 #atualizando as lista do apt
@@ -66,15 +66,15 @@ software-properties-common git vim fping
 
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/download
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0 PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) ATÉ A DATA DE GRAVAÇÃO DESSE VÍDEO É: 6.0.x
+> **OBSERVAÇÃO IMPORTANTE:** NESSE VÍDEO ESTÁ SENDO INSTALADO E CONFIGURADO A VERSÃO 7.0 PRE-RELEASE (BETA - NÃO OFICIAL LTS), A VERSÃO LTS (Long Time Support) ATÉ A DATA DE GRAVAÇÃO DESSE VÍDEO É: 6.0.x
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **LTS** DO ZABBIX SERVER 7.0, ESSE PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO (RECOMENDADO INSTALAR ESSA VERSÃO EM PRODUÇÃO).
+> **OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **LTS** DO ZABBIX SERVER 7.0, ESSE PROCEDIMENTO JÁ FOI ATUALIZADO PARA ESSA VERSÃO (RECOMENDADO INSTALAR ESSA VERSÃO EM PRODUÇÃO).
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA __`10/12/2024`__ FOI LANÇADO A VERSÃO DO ZABBIX SERVER 7.2, NO FINAL DESSE ARQUIVO ESTOU DISPONIBILIZANDO O PROCEDIMENTO DE ATUALIZAÇÃO DA VERSÃO 7.0 PARA 7.2.
+> **OBSERVAÇÃO IMPORTANTE:** NO DIA __`10/12/2024`__ FOI LANÇADO A VERSÃO DO ZABBIX SERVER 7.2, NO FINAL DESSE ARQUIVO ESTOU DISPONIBILIZANDO O PROCEDIMENTO DE ATUALIZAÇÃO DA VERSÃO 7.0 PARA 7.2.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA __`25/08/2025`__ FOI LANÇADO A VERSÃO DO ZABBIX SERVER 7.4, NO FINAL DESSE ARQUIVO ESTOU DISPONIBILIZANDO O PROCEDIMENTO DE ATUALIZAÇÃO DA VERSÃO 7.2 PARA 7.4.
+> **OBSERVAÇÃO IMPORTANTE:** NO DIA __`25/08/2025`__ FOI LANÇADO A VERSÃO DO ZABBIX SERVER 7.4, NO FINAL DESSE ARQUIVO ESTOU DISPONIBILIZANDO O PROCEDIMENTO DE ATUALIZAÇÃO DA VERSÃO 7.2 PARA 7.4.
 
-**OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO AS OPÇÕES: 7.0 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
+> **OBSERVAÇÃO IMPORTANTE:** NAS CONFIGURAÇÕES DE DOWNLOAD DO REPOSITÓRIO DO ZABBIX SERVER FOI SELECIONADO AS OPÇÕES: 7.0 LTS, Ubuntu, 22.04 (Jammy amd64, arm64), Server, Frontend, Agent 2, MySQL e Apache.
 
 ```bash
 #download do repositório do Zabbix Server LTS 7.0 (LINK ATUALIZADO EM: 06/01/2025)
@@ -86,7 +86,7 @@ wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix
 sudo dpkg -i zabbix-release_latest*.deb
 ```
 
-**OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** SE VOCÊ ESTIVER UTILIZANDO O UBUNTU PRO ATIVADO NO SEU SERVIDOR, OS RECURSOS DO ESM (EXPANDED SYSTEM MAINTENANCE) NÃO PERMITI INSTALAR AS VERSÕES MAIS NOVAS OU ATUALIZAR O ZABBIX SERVER E FRONTEND, SENDO NECESSÁRIO FAZER O PROCEDIMENTO ABAIXO PARA AUMENTAR O NÍVEL DE PRIORIDADE DO REPOSITÓRIO DO ZABBIX.
+> **OBSERVAÇÃO IMPORTANTE (NÃO COMENTADO NO VÍDEO):** SE VOCÊ ESTIVER UTILIZANDO O UBUNTU PRO ATIVADO NO SEU SERVIDOR, OS RECURSOS DO ESM (EXPANDED SYSTEM MAINTENANCE) NÃO PERMITI INSTALAR AS VERSÕES MAIS NOVAS OU ATUALIZAR O ZABBIX SERVER E FRONTEND, SENDO NECESSÁRIO FAZER O PROCEDIMENTO ABAIXO PARA AUMENTAR O NÍVEL DE PRIORIDADE DO REPOSITÓRIO DO ZABBIX.
 
 ```bash
 #download da arquivo de prioridade do repositório do Zabbix Server em relação 
@@ -96,7 +96,7 @@ sudo wget -v -O /etc/apt/preferences.d/zabbix.pref https://raw.githubusercontent
 
 ## 03_ Instalando o Zabbix Server, Frontend e Agent2 no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o __`MySQL Server e do Apache2 Server`__, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
+> **OBSERVAÇÃO IMPORTANTE:** para a instalação do Zabbix Server é necessário ter instalado e configurado de forma correta o __`MySQL Server e do Apache2 Server`__, no caso do Banco de Dados MySQL Server pode ficar em outro servidor (Recomendado). Também existe a possibilidade de instalar os Serviços do Zabbix Server em servidores separados (Recomendado).
 
 ```bash
 #atualizando as lista do Apt com o novo repositório do Zabbix Server
@@ -174,7 +174,7 @@ exit
 
 ## 06_ Populando as Tabelas no Banco de Dados do Zabbix Server utilizando o arquivo de Esquema do MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE, DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
+> **OBSERVAÇÃO IMPORTANTE:** O PROCEDIMENTO DE CRIAÇÃO E POPULAÇÃO DAS TABELAS DO ZABBIX SERVER, DEPENDENDO DO SEU HARDWARE, DEMORA BASTANTE, SÓ AGUARDAR O TÉRMINO.
 
 ```bash
 #importando o esquema e os dados iniciais do banco de dados do Zabbix Server (CAMINHO ATUALIZADO PARA A VERSÃO 7.0)
@@ -371,7 +371,7 @@ sudo journalctl -u snmpd
 sudo journalctl -xeu snmpd
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
 
 ```bash
 #verificando a versão do Zabbix Server
@@ -426,7 +426,7 @@ Yes: Remember me for 30 days
 
 ## 11_ Verificando as Portas de Conexão do Zabbix Server, Zabbix Agent2 e do SNMPd no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando as portas padrões TCP-80 Apache2, TCP-10050 Zabbix Agent e TCP-10051 do Zabbix Server
@@ -478,13 +478,13 @@ exit
 
 Link de referência do download Oficial do Zabbix: https://www.zabbix.com/br/download_agents
 
-**OBSERVAÇÃO IMPORTANTE:** ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO ZABBIX AGENT.
+> **OBSERVAÇÃO IMPORTANTE:** ATÉ O MOMENTO DA GRAVAÇÃO DESSE VÍDEO, O AGENTE PARA O SISTEMA MICROSOFT NÃO DISPONIBILIZA A VERSÃO 7.0, SOMENTE A VERSÃO 6.4.x DO ZABBIX AGENT.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **7.0** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+> **OBSERVAÇÃO IMPORTANTE:** NO DIA __`03/06/2024`__ FOI LANÇADO A VERSÃO **7.0** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA __`10/12/2024*`__ FOI LANÇADO A VERSÃO **7.2** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+> **OBSERVAÇÃO IMPORTANTE:** NO DIA __`10/12/2024*`__ FOI LANÇADO A VERSÃO **7.2** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
-**OBSERVAÇÃO IMPORTANTE:** NO DIA __`25/08/2024`__ FOI LANÇADO A VERSÃO **7.4** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
+> **OBSERVAÇÃO IMPORTANTE:** NO DIA __`25/08/2024`__ FOI LANÇADO A VERSÃO **7.4** OFICIAL DO AGENT PARA MICROSOFT WINDOWS.
 
 ### Instalação do Agent2 do Zabbix Server no Microsoft Windows
 

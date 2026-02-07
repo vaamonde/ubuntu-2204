@@ -48,7 +48,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 
 ## 01_ Instalando as Dependências do GLPI Help Desk no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS *MYSQL SERVER E DO APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP** E NA ETAPA: **03 DO MYSQL SERVER 8**.
+> **OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DO BANCO DE DADOS *MYSQL SERVER E DO APACHE2 SERVER*, ESSES APLICATIVOS JÁ FORAM INSTALADO NAS ETAPAS: **02 DO APACHE2 SERVER E PHP** E NA ETAPA: **03 DO MYSQL SERVER 8**.
 
 ```bash
 #atualizando as lista do apt
@@ -56,7 +56,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=Et4Ac24vt6w
 sudo apt update
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
+> **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
 ```bash
 #instalando as dependências do GLPI Help Desk no Ubuntu Server
@@ -70,7 +70,7 @@ xz-utils libgs9 libgs9-common php-opcache php-dev pwgen libmcrypt-dev zlib1g zli
 
 ## 02_ Criando a Base de Dados do GLPI Help Desk no MySQL Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DE *TIMEZONE E DATA HORA CORRETA*, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: **03 DO LOCALE E TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER**.
+> **OBSERVAÇÃO IMPORTANTE:** O GLPI POSSUI AS DEPENDÊNCIAS DE *TIMEZONE E DATA HORA CORRETA*, ESSAS CONFIGURAÇÕES JÁ FORAM FEITAS NO PROCEDIMENTO: **03 DO LOCALE E TIMEZONE DAS CONFIGURAÇÕES INICIAIS DO UBUNTU SERVER**.
 
 ```bash
 #habilitando o recurso de TimeZone do GLPI no MySQL Server
@@ -104,7 +104,7 @@ GRANT ALL PRIVILEGES ON glpi10.* TO 'glpi10';
 FLUSH PRIVILEGES;
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** CUIDADO COM AS CONFIGURAÇÕES DA TIMEZONE DO GLPI HELP, ESSAS CONFIGURAÇÕES PRECISA SER FEITA NO SISTEMA OPERACIONAL DO UBUNTU SERVER (ETAPA: 03 DAS CONFIGURAÇÕES DE DADA E HORA), NO MYSQL SERVER E NO PHP PARA FUNCIONAR CORRETAMENTE.
+> **OBSERVAÇÃO IMPORTANTE:** CUIDADO COM AS CONFIGURAÇÕES DA TIMEZONE DO GLPI HELP, ESSAS CONFIGURAÇÕES PRECISA SER FEITA NO SISTEMA OPERACIONAL DO UBUNTU SERVER (ETAPA: 03 DAS CONFIGURAÇÕES DE DADA E HORA), NO MYSQL SERVER E NO PHP PARA FUNCIONAR CORRETAMENTE.
 
 ```sql
 /* Configurando o Recurso de TimeZone do Usuário GLPI Help Desk */
@@ -143,11 +143,11 @@ exit
 
 ## 03_ Baixando o Projeto do GLPI Help Desk do Github no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Help Desk sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Help Desk sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi/releases
 
 Link Oficial das versões do GLPI Help Desk: https://github.com/glpi-project/glpi/releases
 
-**OBSERVAÇÃO IMPORTANTE:** O GLPI HELP DESK VERSÃO 10.x POSSUI COMPATIBILIDADE COM A VERSÃO DO PHP 8.1 (PADRÃO DO UBUNTU SERVER 22.04.x LTS), A PARTIR DA VERSÃO 11.x DO GLPI É OBRIGATÓRIO UTILIZAR O PHP NAS VERSÕES 8.2 OU SUPERIOR, ESSE PROCEDIMENTO NÃO SERÁ ATUALIZADO PARA A VERSÃO 11.x DO GLPI DEVIDO A INCOMPATIBILIDADE DE VERSÕES DO PHP, RECOMENDO UTILIZAR A VERSÃO 24.04.x DO UBUNTU SERVER PARA ESSA IMPLEMENTAÇÃO.
+> **OBSERVAÇÃO IMPORTANTE:** O GLPI HELP DESK VERSÃO 10.x POSSUI COMPATIBILIDADE COM A VERSÃO DO PHP 8.1 (PADRÃO DO UBUNTU SERVER 22.04.x LTS), A PARTIR DA VERSÃO 11.x DO GLPI É OBRIGATÓRIO UTILIZAR O PHP NAS VERSÕES 8.2 OU SUPERIOR, ESSE PROCEDIMENTO NÃO SERÁ ATUALIZADO PARA A VERSÃO 11.x DO GLPI DEVIDO A INCOMPATIBILIDADE DE VERSÕES DO PHP, RECOMENDO UTILIZAR A VERSÃO 24.04.x DO UBUNTU SERVER PARA ESSA IMPLEMENTAÇÃO.
 
 ```bash
 #acessando diretório temporário do Ubuntu Server
@@ -169,7 +169,7 @@ tar -xzvf glpi.tgz
 sudo mv -v glpi/ /var/www/html/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
+> **OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA ALTERAÇÃO DAS PERMISSÕES CONFORME A SUA NECESSIDADE
 
 ```bash
 #alterando as permissões de dono e grupo dos diretórios e arquivos do GLPI Help Desk
@@ -329,7 +329,7 @@ sudo journalctl -xeu apache2
 
 ## 08_ Verificando a Porta de Conexão do GLPI Help Desk no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-8888 do GLPI Help Desk
@@ -451,7 +451,7 @@ libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-
 hdparm 7zip
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 
 ```bash
 #baixando o Agent do GLPI do Github (link atualizado em: 26/09/2025)
@@ -523,7 +523,7 @@ libnet-ssh2-perl libxml-libxml-perl libyaml-perl libyaml-tiny-perl libossp-uuid-
 hdparm 7zip
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 
 ```bash
 #baixando o Agent do GLPI do Github (link atualizado em: 26/09/2025)
@@ -570,7 +570,7 @@ sudo glpi-agent
 
 ### Instalação do GLPI Agent no Microsoft Windows 10
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agent/releases/
 
 ```bash
 #baixando o Agent do GLPI Help Desk do Github (link atualizado em: 26/09/2025)
@@ -637,7 +637,7 @@ netstat -an | findstr 62354
 firefox ou google chrome: http://endereço_ipv4_windows10:62354/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent Monitor sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo o GLPI Agent Monitor sofre alteração, antes de fazer o download do arquivo verifique a versão no link: https://github.com/glpi-project/glpi-agentmonitor/releases/
 
 ```bash
 #baixando o Agent Monitor do GLPI Help Desk do Github (link atualizado em: 26/09/2025)

@@ -165,7 +165,7 @@ sudo journalctl -t grafana
 sudo journalctl -xeu grafana-server
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção
 
 ```bash
 #verificando a versão do Grafana Server
@@ -179,9 +179,9 @@ sudo grafana-cli -v
 
 ## 07_ Verificando a Porta de Conexão do Grafana Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
-**OBSERVAÇÃO IMPORTANTE:** CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O **NODE.JS E OS SEUS DESAFIOS**, POR PADRÃO A PRIMEIRA APLICAÇÃO EM *JAVASCRIPT* FEITA UTILIZANDO O RECURSO DO **EXPRESS** ESTÁ NA PORTA: __`3000`__, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
+> **OBSERVAÇÃO IMPORTANTE:** CUIDADO NO PROCEDIMENTO DE INSTALAR E CONFIGURAR O **NODE.JS E OS SEUS DESAFIOS**, POR PADRÃO A PRIMEIRA APLICAÇÃO EM *JAVASCRIPT* FEITA UTILIZANDO O RECURSO DO **EXPRESS** ESTÁ NA PORTA: __`3000`__, RECOMENDO MUDAR A PORTA DA APLICAÇÃO OU DESATIVAR A MESMA PARA NÃO ENTRAR EM CONFLITO COM O GRAFANA SERVER.
 
 ```bash
 #verificando a porta padrão TCP-3000 do Grafana Server
@@ -318,7 +318,7 @@ Open Menu
 
 ## 13_ Adicionando o Plugin do Dashboard do Zabbix Server no Grafana no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** nos testes feito utilizando o usuário padrão do Zabbix Server: __`Admin`__ acontecia o erro de autenticação, aparecendo sempre a mensagem de: *Incorrect user name or password or account is temporarily blocked*. Para corrigir essa falha foi feita a criação de um novo usuário e a conexão foi feita com sucesso.
+> **OBSERVAÇÃO IMPORTANTE:** nos testes feito utilizando o usuário padrão do Zabbix Server: __`Admin`__ acontecia o erro de autenticação, aparecendo sempre a mensagem de: *Incorrect user name or password or account is temporarily blocked*. Para corrigir essa falha foi feita a criação de um novo usuário e a conexão foi feita com sucesso.
 
 ```bash
 #acessando o Zabbix Server via Navegador

@@ -50,19 +50,13 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+Perplexity: https://www.perplexity.ai/<br>
 
 **PERGUNTA PARA A IA**
-```bash
-Prompt-01: estou começando no mundo de desenvolvimento de software, tanto para Web como para 
-Desktop, qual linguagem de programação e framework seria melhor iniciar os meus estudos?. Mesmo 
-não tendo muito conhecendo em lógica de programação?
-```
-```bash
-Prompt-02: no Brasil, os profissionais Dev Junior, ainda tem possibilidade de trabalhar na área, 
-recentemente estava em um grande evento de TI que foi comentado que a IA (AI) está comendo pelas 
-beiradas esses profissionais, isso é verdade? ainda tem possibilidade de entrar nessa área para 
-ganhar 15K de Home Office (brincadeira a parte...)
-```
+
+> **Prompt-01:** estou começando no mundo de desenvolvimento de software, tanto para Web como para Desktop, qual linguagem de programação e framework seria melhor iniciar os meus estudos?. Mesmo não tendo muito conhecendo em lógica de programação?
+
+> **Prompt-02:** no Brasil, os profissionais Dev Junior, ainda tem possibilidade de trabalhar na área, recentemente estava em um grande evento de TI que foi comentado que a IA (AI) está comendo pelas beiradas esses profissionais, isso é verdade? ainda tem possibilidade de entrar nessa área para ganhar 15K de Home Office (brincadeira a parte...)
 
 **O QUE É E PARA QUE SERVER O NODE.JS:** O Node.js é um ambiente de execução de código *JavaScript* no lado do servidor, construído sobre o motor V8, que é o mesmo usado no navegador Google Chrome. Ele permite que desenvolvedores criem aplicativos rápidos e escaláveis utilizando JavaScript fora do navegado
 
@@ -91,7 +85,7 @@ build-essential ca-certificates apt-transport-https
 
 Repositório Oficial do Node.JS via Nodesource: https://deb.nodesource.com/
 
-**OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node.JS no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
+> **OBSERVAÇÃO IMPORTANTE:** é indicado utilizar sempre a versão *LTS (Long Time Support)* do Node.JS em servidores de Produção, consulte sempre a versão LTS no Site Oficial do Node.JS no Link: https://nodejs.org/en e no Link: https://nodejs.org/en/about/previous-releases
 
 ```bash
 #Script de configuração do Repositório do Node.JS foi descontinuado, não é mais indicado
@@ -133,7 +127,7 @@ sudo apt install nodejs
 
 ## 04_ Verificando as Versões do Node.JS e NPM (Node Package Manager) no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Node.JS
@@ -147,7 +141,7 @@ sudo npm -v
 
 ## 05_ Criando um Projeto Simples para Testar o Node.JS no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM *DIRETÓRIOS DE PROJETOS* QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO O *FRAMEWORKS NODE.JS* DEVIDO AS DEPENDÊNCIAS E ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS NO MOMENTO DA INICIALIZAÇÃO DO PROJETO.
+> **OBSERVAÇÃO IMPORTANTE:** SEMPRE TRABALHAR COM *DIRETÓRIOS DE PROJETOS* QUANDO VOCÊ ESTÁ DESENVOLVENDO APLICAÇÕES UTILIZANDO O *FRAMEWORKS NODE.JS* DEVIDO AS DEPENDÊNCIAS E ESTRUTURA DE ARQUIVOS/DIRETÓRIOS QUE SERÃO CRIADOS NO MOMENTO DA INICIALIZAÇÃO DO PROJETO.
 
 ```bash
 #criando o diretório do projeto de teste do Node.JS no perfil do seu usuário
@@ -178,11 +172,11 @@ ls -lha
 
 ## 06_ Criando um Projeto Simples do Node.JS no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar o arquivo: *index.js* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
+> **OBSERVAÇÃO IMPORTANTE:** nesse exemplo vamos editar o arquivo: *index.js* utilizando o Editor de Texto em Linha de Comando: __`vim`__.
 
-**OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
+> **OBSERVAÇÃO IMPORTANTE:** no Microsoft Windows utilizando o *Powershell* no processo de copiar e colar o código HTML ou PHP ele desconfigura o código, recomendo utilizar no Windows o software **PuTTY ou Git Bash** para editar os códigos ou copiar e colar. No Linux Mint e macOS essa falha não acontece.
 
-**OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
+> **OBSERVAÇÃO:** tanto no Microsoft Windows como no GNU/Linux (Linux Mint, Ubuntu Desktop, etc...) ou no macOS recomendo sempre utilizar o *Editor de Texto em Modo Gráfico IDE Microsoft Visual Studio*, por padrão ele já entende toda a codificação: *HTML, PHP, JavaScript, JSON, etc...*, facilitando a criação e modificação dos arquivos desse curso.
 
 ```bash
 #Criando o arquivo index.js do projeto do Node.JS
@@ -239,7 +233,7 @@ ESC SHIFT :x <Enter>
 
 ## 07_ Executando o Projeto Simples do Node.JS utilizando o Express no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** existe também o comando: __`bg`__ que faz a mesma coisa do caractere: *& (E-Comercial)* colocando a aplicação em **background** e liberando o terminal.
+> **OBSERVAÇÃO IMPORTANTE:** existe também o comando: __`bg`__ que faz a mesma coisa do caractere: *& (E-Comercial)* colocando a aplicação em **background** e liberando o terminal.
 
 ```bash
 #opção do comando &: background
@@ -248,7 +242,7 @@ node index.js &
 
 ## 08_ Verificando a Porta de Conexão do Node.JS Express no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-3000 do Node.JS Express
@@ -258,17 +252,16 @@ sudo lsof -nP -iTCP:'3000' -sTCP:LISTEN
 
 ## 09_ Testando e acessando o Projeto Simples do Node.JS via Terminal e Navegador
 
-**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+> **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
-| Código | Significado                                     |
-| ------ | ----------------------------------------------- |
-| 200    | OK (Sucesso)                                    |
-| 301    | Moved Permanently (Redirecionamento permanente) |
-| 302    | Found (Redirecionamento temporário)             |
-| 400    | Bad Request (solicitação malformada)            |
-| 403    | Forbidden (Acesso negado)                       |
-| 404    | Not Found (Não encontrado)                      |
-| 500    | Internal Server Error                           |
+| Código | Significado |
+| ------ | ----------- |
+| **200** | OK (Sucesso) |
+| **301** | Moved Permanently (Redirecionamento permanente) |
+| **302** | Found (Redirecionamento temporário) |
+| **403** | Forbidden (Acesso negado) |
+| **404** | Not Found (Não encontrado) |
+| **500** | Internal Server Error |
 
 ```bash
 #testando o acesso as páginas do Node.JS (NÃO COMENTADO NO VÍDEO)
@@ -292,7 +285,7 @@ fg
 Ctrl + C
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** caso você não consiga trazer os processos que estão em *Segundo Plano (Background)* para o *Primeiro Plano (Foreground)* para finalizar o processo, você pode utilizar o comando: *ps -u* e na coluna: **PID** finalizar o processo com o comando: *kill -9 PID*
+> **OBSERVAÇÃO IMPORTANTE:** caso você não consiga trazer os processos que estão em *Segundo Plano (Background)* para o *Primeiro Plano (Foreground)* para finalizar o processo, você pode utilizar o comando: *ps -u* e na coluna: **PID** finalizar o processo com o comando: *kill -9 PID*
 
 ```bash
 #exemplo de finalizar o processo utilizando o comando ps para descobrir o PID (Process ID)
@@ -314,10 +307,10 @@ ls -lha
 
 | Arquivo/Diretório | Descrição |
 |-------------------|-----------|
-| index.js | Arquivo principal do servidor e serviço do Node.js |
-| package.json | Arquivo de configuração do projeto Node.js |
-| package-lock.json | Arquivo das versões dos pacotes do projeto Node.js |
-| node_modules/ | Diretório dos pacotes e dependências do projeto Node.js |
+| **index.js** | Arquivo principal do servidor e serviço do Node.js |
+| **package.json** | Arquivo de configuração do projeto Node.js |
+| **package-lock.json** | Arquivo das versões dos pacotes do projeto Node.js |
+| **node_modules/** | Diretório dos pacotes e dependências do projeto Node.js |
 
 ```bash
 #Verificando a Árvore do Projeto do Node.JS
@@ -330,9 +323,9 @@ tree -sh --sort=size --du
 
 ========================================DESAFIOS=========================================
 
-**#12_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR __`02 (DUAS) IMAGENS`__ E FAZER OS **HYPER LINKS** PARA ACESSAR O CMS WORDPRESS.
+> **#12_ DESAFIO-01:** FAZER A CRIAÇÃO DE UM NOVO PROJETO DO NODE.JS EXPRESS, CRIAR UM DIRETÓRIO COM: __`seu_nome`__ (TUDO EM MINÚSCULO) NA RAIZ DO PERFIL DO SEU USUÁRIO: __`/home/seu_usuário`__, CRIAR UMA PÁGINA DENTRO DO SEU DIRETÓRIO CHAMADA: __`seunome.js`__ (TUDO EM MINÚSCULO), MUDAR A MENSAGEM NO BROWSER PARA: __`Meu novo projeto em Node.JS - Seu Nome e Sobrenome`__, MUDAR A PORTA DO PROJETO PARA __`3030`__ , ADICIONAR MAIS RECURSOS DO NODE.JS NO SEU PROJETO (VEJA O SITE W3SCHOOLS), COMO POR EXEMPLO: *Data e Hora Dinâmica*, ADICIONAR __`02 (DUAS) IMAGENS`__ E FAZER OS **HYPER LINKS** PARA ACESSAR O CMS WORDPRESS.
 
-**#13_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS SEGUINDO O MESMO PROCEDIMENTO DO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
+> **#13_ DESAFIO-02:** DEIXAR OS DOIS PROJETOS DO NODE.JS RODANDO EM SEGUNDO PLANO (BACKGROUND), NO WORDPRESS CRIAR OS HYPER LINKS PARA OS PROJETOS SEGUINDO O MESMO PROCEDIMENTO DO *DESAFIO-03 DO WORDPRESS* PARA AS PÁGINAS *HTML E PHP*, NÃO ESQUEÇA DE TESTAR O ACESSO.
 
 =========================================================================================
 

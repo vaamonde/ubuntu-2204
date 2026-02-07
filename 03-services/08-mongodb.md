@@ -54,20 +54,15 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+Perplexity: https://www.perplexity.ai/<br>
 
-```bash
-Prompt-01: qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados
-não relacional? Qual o seu percentual de uso para aplicações emergentes.
-```
-```bash
-Prompt-02: quais as principais Big Techs no Brasil e no mundo que utiliza o MongoDB Server?
-```
-```bash
-Prompt-03: vale apena estudar as linguagens de programação utilizando o Frameworks Node.JS e 
-Electron para desenvolver aplicações Desktop com Banco de Dados MongoDB junto com o Driver 
-Mongoose? Isso ainda vale a pena para o mercado atual e futuro de software, tanto no Brasil 
-como no Mundo desenvolver aplicativos Desktops? 
-```
+**PERGUNTA PARA A IA**
+
+> **Prompt-01:**  Qual o nome do software mais utilizado no Brasil e no Mundo para armazenamento de dados não relacional? Qual o seu percentual de uso para aplicações emergentes.
+
+> **Prompt-02:** quais as principais Big Techs no Brasil e no mundo que utiliza o MongoDB Server?
+
+> **Prompt-03:** vale apena estudar as linguagens de programação utilizando o Frameworks Node.JS e Electron para desenvolver aplicações Desktop com Banco de Dados MongoDB junto com o Driver Mongoose? Isso ainda vale a pena para o mercado atual e futuro de software, tanto no Brasil como no Mundo desenvolver aplicativos Desktops? 
 
 **O QUE É E PARA QUE SERVER O MONGODB SERVER:** MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
@@ -94,7 +89,7 @@ sudo apt update
 sudo apt install git vim build-essential software-properties-common gnupg apt-transport-https ca-certificates
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 
 ```bash
 #download da última versão do Libssl (link atualizado em 15/08/2025)
@@ -111,7 +106,7 @@ sudo dpkg -l libssl1.1
 
 ## 02_ Baixando e instalando a Chave GPG do MongoDB Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o MongoDB Server possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://www.mongodb.org/static/pgp/
+> **OBSERVAÇÃO IMPORTANTE:** o MongoDB Server possui várias versões, para verificar as *chaves GPG* de cada versão acesse o link: https://www.mongodb.org/static/pgp/
 
 Mais informações acesse: https://www.mongodb.com/pt-br/docs/manual/release-notes/
 
@@ -139,7 +134,7 @@ sudo apt update
 
 ## 05_ Instalando o MongoDB Server e Shell no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM **ALGUMAS FALHAS E INCOMPATIBILIDADE** EM PROCESSADORES __`INTEL`__ OU __`AMD`__ QUE NÃO TEM OS PRINCIPAIS *RECURSOS OU TECNOLOGIAS* QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
+> **OBSERVAÇÃO IMPORTANTE:** CONFORME VÁRIOS RELATOS E DOCUMENTAÇÃO NO GITHUB NA GUIA ISSUES: https://github.com/vaamonde/ubuntu-2204/issues O MONGODB SERVER TEM **ALGUMAS FALHAS E INCOMPATIBILIDADE** EM PROCESSADORES __`INTEL`__ OU __`AMD`__ QUE NÃO TEM OS PRINCIPAIS *RECURSOS OU TECNOLOGIAS* QUE SÃO UTILIZADAS PELO MONGODB SERVER, CAUSANDO A FALHA DE INICIALIZAÇÃO DO SERVIÇO, VEJA O LINK: https://github.com/vaamonde/ubuntu-2204/issues/7 E OS LINKS DO FÓRUM DO MONGODB PARA MAIS DETALHES: 
 
 1. https://www.mongodb.com/pt-br/docs/manual/administration/production-notes/
 2. https://pt.wikipedia.org/wiki/Advanced_Vector_Extensions
@@ -187,7 +182,7 @@ sudo journalctl -t mongod
 sudo journalctl -xeu mongod
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando as versões do MongoDB Server
@@ -199,7 +194,7 @@ sudo mongosh --version
 
 ## 08_ Verificando a Porta de Conexão do MongoDB Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-27017 do MongoDB Server
@@ -217,7 +212,7 @@ sudo lsof -nP -iTCP:'27017' -sTCP:LISTEN
 
 ## 10_ Adicionado o Usuário Local no Grupo Padrão do MongoDB Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
+> **OBSERVAÇÃO IMPORTANTE:** você pode substituir a variável de ambiente: __`$USER`__ pelo nome do usuário existente no sistema para adicionar no Grupo desejado.
 
 ```bash
 #adicionando o usuário local (logado) no grupo do MongoDB Server
@@ -272,7 +267,7 @@ mongosh
 | Update    |  UPDATE            |   db.collection.updateOne()  |
 | Delete    |  DELETE            |   db.collection.deleteOne()  |
 
-**OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos os recursos de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só muda a forma como trabalhamos com os *dados/informações* em cada Banco de Dados.
+> **OBSERVAÇÃO IMPORTANTE:** No MySQL Server como no MongoDB Server temos os recursos de: **DDL (Data Definition Language), DML (Data Manipulation Language), DTL (Data Transaction Language), DQL (Data Query Language) e DCL (Data Control Language)**, seu conceito é o mesmo só muda a forma como trabalhamos com os *dados/informações* em cada Banco de Dados.
 
 ```bash
 #exibindo os bancos de dados existentes no MongoDB
@@ -300,9 +295,9 @@ mongosh
 use admin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações **Node.JS** junto com o recurso de conexão do MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
+> **OBSERVAÇÃO IMPORTANTE:** na gravação do vídeo não consta os dois papeis que foram adicionados posteriormente na linha roles: *"root" e "clusterAdmin"*, conforme testes e comentários nos vídeos, no momento do desenvolvimento de aplicações **Node.JS** junto com o recurso de conexão do MongoDB utilizando o **Mongoose** acontecia uma falha de: __`"Erro de permissão"`__, essa falha foi corrigida adicionando essas *"Roles"* na criação do usuário e na conexão com o Banco de Dados foi adicionado a opção: *?authSource=admin*
 
-**OBSERVAÇÃO IMPORTANTE:** No software *MongoDB Compass*, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de *acesso de permissão para monitorar o MongoDB* e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário **admin** conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
+> **OBSERVAÇÃO IMPORTANTE:** No software *MongoDB Compass*, na aba de Performance, tanto no GNU/Linux ou no Microsoft Windows a falha de *acesso de permissão para monitorar o MongoDB* e apresentada com a seguinte mensagem: *Command "top" returned error "not authorized on admin to execute command { top: 1, lsid: { id: UUID("ed17ae23-570c-4652-a151-b0875183faa1") }, $db: "admin" }", and other 2 problems. View all*, para resolver essa e outras falhas foi adicionado mais *Roles (Papéis)* no usuário **admin** conforme o link: https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/
 
 ```javascript
 // criando o usuário de administração do MongoDB Server
@@ -373,7 +368,7 @@ security:
 ESC SHIFT :x <ENTER>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** A PARTIR DA VERSÃO DO MONGODB SERVER 8.0.x NÃO ESTÁ MAIS DISPONÍVEL AS OPÇÕES DE VALIDAÇÃO DA SINTAXE (SYNTAX) DO ARQUIVO DE CONFIGURAÇÃO: __`mongod.conf`__ NAS OPÇÕES DO COMANDO: __`mongod`__, ERROS DE CONFIGURAÇÃO SÃO MOSTRADOS NOS ARQUIVOS DE LOG DO SERVIÇO.
+> **OBSERVAÇÃO IMPORTANTE:** A PARTIR DA VERSÃO DO MONGODB SERVER 8.0.x NÃO ESTÁ MAIS DISPONÍVEL AS OPÇÕES DE VALIDAÇÃO DA SINTAXE (SYNTAX) DO ARQUIVO DE CONFIGURAÇÃO: __`mongod.conf`__ NAS OPÇÕES DO COMANDO: __`mongod`__, ERROS DE CONFIGURAÇÃO SÃO MOSTRADOS NOS ARQUIVOS DE LOG DO SERVIÇO.
 
 ```bash
 #validando as opções YAML do arquivo de configuração do MongoDB Server
@@ -471,14 +466,14 @@ VSCode
 
 Utilizar o aplicativo de Teste desenvolvido em Node.JS/Electron/Mongoose no Microsoft Windows (SEM VERSÃO PARA LINUX ATÉ O MOMENTO), Link para download da versão: https://github.com/vaamonde/ubuntu-2204/releases
 
-**OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM *STRINGS DE CONEXÃO DO MONGODB* O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO **UNICODE**.
+> **OBSERVAÇÃO IMPORTANTE:** LEIA A DOCUMENTAÇÃO NO GITHUB SOBRE CARACTERES ESPECIAIS NA SENHA DO USUÁRIO, POR PADRÃO NÃO É PERMITIDO EM *STRINGS DE CONEXÃO DO MONGODB* O USO DE ALGUNS CARACTERES, SENDO NECESSÁRIO FAZER A CONVERSÃO **UNICODE**.
 
 ```bash
 #String URI (Uniform Resource Identifier) de Conexão com o Banco de Dados do MongoDB
 mongodb://seu_usuário:sua_senha@ip_do_server:27017/agenda?authSource=admin
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** UTILIZAR A APLICAÇÃO AGENDA PARA FAZER A CRIAÇÃO DE VÁRIOS **DOCUMENTS** NO **COLLECTION** **CONTATOS** DA BASE DE DADOS **AGENDA**, FAZER O BACKUP DEPOIS, REMOVER TODOS OS DADOS E VERIFICAR SE O SISTEMA NÃO TEM MAIS CONTATOS REGISTRADOS NA BASE DE DADOS AGENDA.
+> **OBSERVAÇÃO IMPORTANTE:** UTILIZAR A APLICAÇÃO AGENDA PARA FAZER A CRIAÇÃO DE VÁRIOS **DOCUMENTS** NO **COLLECTION** **CONTATOS** DA BASE DE DADOS **AGENDA**, FAZER O BACKUP DEPOIS, REMOVER TODOS OS DADOS E VERIFICAR SE O SISTEMA NÃO TEM MAIS CONTATOS REGISTRADOS NA BASE DE DADOS AGENDA.
 
 ```bash
 #criando o backup (dump) da base de dados Agenda do MongoDB
@@ -516,9 +511,9 @@ db.contatos.drop()
 show collections
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** No MongoDB Server, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existirá mais a Base de Dados Agenda.
+> **OBSERVAÇÃO IMPORTANTE:** No MongoDB Server, se uma Base de Dados não possuir **Collections** ela será removida automaticamente do servidor, se você digitar o comando: *show dbs* não existirá mais a Base de Dados Agenda.
 
-**OBSERVAÇÃO:** NOVAMENTE FAZER VÁRIOS REGISTROS NA BASE DE DADOS AGENDA ANTES DE FAZER A RESTAURAÇÃO.
+> **OBSERVAÇÃO:** NOVAMENTE FAZER VÁRIOS REGISTROS NA BASE DE DADOS AGENDA ANTES DE FAZER A RESTAURAÇÃO.
 
 ```bash
 #saindo do MongoDB Server
@@ -551,15 +546,15 @@ exit
 
 ========================================DESAFIOS=========================================
 
-**#19_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO MONGODB COMPASS (VEJA O SITE W3SCHOOLS).
+> **#19_ DESAFIO-01:** CRIAR UM BANCO DE DADOS COM O: __`seu_nome`__ (TUDO EM MINÚSCULO), DENTRO DESSE BANCO DE DADOS CRIAR UM COLLECTION CHAMADO: __`cadastro`__ (TUDO EM MINÚSCULO) E DENTRO DESSE COLLECTION INSERIR OS FIELDS E DOCUMENTS: __`nome: Seu Nome e Sobrenome, idade: Sua Idade`__ LISTAR AS INFORMAÇÕES NO MONGOSH, VSCODE OU NO MONGODB COMPASS (VEJA O SITE W3SCHOOLS).
 
-**#20_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO **DESAFIO-01**, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. 
+> **#20_ DESAFIO-02:** CONHECER O PROJETO: __`MongoDB Atlas`__, FAZER O CADASTRO NO SITE OFICIAL PARA A CRIAÇÃO DE UMA __`CONTA FREE`__ NO LINK: https://www.mongodb.com/cloud/atlas/register, ESCOLHER A OPÇÃO: __`LEARN FREE`__, FINALIZAR O CADASTRO CRIANDO UM USUÁRIO E FAZER A CRIAÇÃO DO MESMO BANCO DE DADOS DO **DESAFIO-01**, TESTAR A CONEXÃO NO MONGODB COMPASS E NO VSCODE. 
 
-**OBSERVAÇÃO:** VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
+> **OBSERVAÇÃO:** VEJA A DOCUMENTAÇÃO NA OPÇÃO DE: CONNECT EM: __`MongoDB for VS Code`__, CUIDADO PRINCIPALMENTE COM AS OPÇÕES DE CARACTERES ESPECIAIS NA SENHA, VEJA A DOCUMENTAÇÃO ABAIXO:
 
 https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
 
-**#21_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO DESAFIO DO *OPENSSH* NO GRUPO DO MONGODB SERVER: __`mongodb`__ PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
+> **#21_ DESAFIO-03:** ADICIONAR O USUÁRIO: __`admin`__ E O USUÁRIO: __`seu_usuário`__ CRIADOS NO DESAFIO DO *OPENSSH* NO GRUPO DO MONGODB SERVER: __`mongodb`__ PARA FACILITAR A ADMINISTRAÇÃO E GERENCIAMENTO SEM A NECESSIDADE DO SUDO.
 
 =========================================================================================
 

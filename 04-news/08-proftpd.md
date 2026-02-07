@@ -83,7 +83,7 @@ sudo journalctl -xeu proftpd
 sudo proftpd -td10
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do ProFTPD Server
@@ -93,7 +93,7 @@ sudo proftpd -v
 
 ## 03_ Verificando a Porta de Conexão do ProFTPD Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-21 do ProFTPD Server
@@ -180,7 +180,7 @@ sudo lsof -nP -iTCP:'21' -sTCP:LISTEN
 
 ## 07_ Acessando remotamente o ProFTPD Server via Powershell, Terminal, Git Bash e Gerenciador de Arquivos.
 
-**OBSERVAÇÃO IMPORTANTE:** O comando ftp tem várias opções, após se autenticar no ProFTPD Server para obter ajuda sobre o comando digite o carácter: __`?`__ (interrogação), a maioria dos comando do FTP são baseados nos comandos antigos do __`MSDOS`__ e do __`BASH`__.
+> **OBSERVAÇÃO IMPORTANTE:** O comando ftp tem várias opções, após se autenticar no ProFTPD Server para obter ajuda sobre o comando digite o carácter: __`?`__ (interrogação), a maioria dos comando do FTP são baseados nos comandos antigos do __`MSDOS`__ e do __`BASH`__.
 
 ```bash
 #acessando o ProFTPD via Powershell
@@ -336,13 +336,13 @@ Webmin
 
 ========================================DESAFIOS=========================================
 
-**#13_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
+> **#13_ DESAFIO-01:** CRIAR UM NOVO USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DE TESTE: __`/var/www/html/teste`__ DAS PÁGINAS HTML E PHP UTILIZADO NA IMPLEMENTAÇÃO DO APACHE2 SERVER.
 
-**#14_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
+> **#14_ DESAFIO-02:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO APACHE2 SERVER: __`/var/www/html/seunome`__ DAS PÁGINAS HTML E PHP.
 
-**#15_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
+> **#15_ DESAFIO-03:** CRIAR MAIS UM USUÁRIO DE FTP (QUALQUER NOME E SENHA) PARA TER ACESSO SOMENTE AO DIRETÓRIO DO DESAFIO DO CMS WORDPRESS: __`/var/www/html/site`__.
 
-**#16_ DESAFIO-04:** ADICIONAR O MONITORAMENTO DA PORTA DO PROFTPD NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
+> **#16_ DESAFIO-04:** ADICIONAR O MONITORAMENTO DA PORTA DO PROFTPD NO __`NETDATA`__ NA OPÇÃO DE: __`TCP Endpoint`__.
 
 =========================================================================================
 

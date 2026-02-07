@@ -52,12 +52,11 @@ Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
+Perplexity: https://www.perplexity.ai/<br>
 
 **PERGUNTA PARA A IA**
-```bash
-Prompt-01: Qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? Qual
-o seu percentual de uso para aplicações emergentes.
-```
+
+> **Prompt-01:** Qual o nome do software mais utilizado no Brasil e no Mundo para sites dinâmicos CMS? Qual o seu percentual de uso para aplicações emergentes.
 
 **O QUE É E PARA QUE SERVER O WORDPRESS:** O WordPress é um sistema de gerenciamento de conteúdo *CMS (Content Management System)* de código aberto, amplamente utilizado para criar, editar e gerenciar **Sites**, **Blogs** e **E-Commerce** de forma intuitiva, sem a necessidade de conhecimento avançado em programação. Ele é baseado em *PHP* e utiliza o *MySQL ou MariaDB* como banco de dados.
 
@@ -78,7 +77,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=J6xVAocGyZg
 sudo apt update
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
+> **OBSERVAÇÃO IMPORTANTE:** POR MOTIVO DE COMPATIBILIDADE, FOI REMOVIDO A *NUMERAÇÃO DA VERSÃO DO PHP* NESSE PROCEDIMENTO, TODO O CENÁRIO IRÁ INSTALAR SEMPRE A ÚLTIMA VERSÃO DISPONÍVEL NO UBUNTU SERVER, VERSÃO ATUALIZADA DO PHP NO UBUNTU SERVER 22.04: **8.1 (ATUALIZADO EM: 26/09/2024)**.
 
 ```bash
 #instalando as dependências do WordPress
@@ -103,7 +102,7 @@ sudo mysql -u root -p
 CREATE DATABASE wordpress;
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`@LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
+> **OBSERVAÇÃO IMPORTANTE:** ALTERAR O NOME DO USUÁRIO E SENHA CONFORME SUA NECESSIDADE, NESSE CENÁRIO ESTÁ SENDO CRIADO UM USUÁRIO REMOTO, QUANDO NÃO SE ADICIONA A OPÇÃO: __`@LOCALHOST`__ OU: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DE USUÁRIOS NO MYSQL, ELE ENTENDE QUE O USUÁRIO SERÁ REMOTO, ADICIONANDO AUTOMATICAMENTE O CARÁCTER DE: __`% (PORCENTAGEM)`__ NA CRIAÇÃO DO USUÁRIO.
 
 ```sql
 /* Criando o usuário e senha da Base de Dados do WordPress */
@@ -163,7 +162,7 @@ wget -v -O /tmp/wordpress.zip https://br.wordpress.org/latest-pt_BR.zip
 unzip /tmp/wordpress.zip -d /tmp
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS NO DOCUMENT ROOT DO APACHE2 SERVER CONFORME SUA NECESSIDADE.
+> **OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS NO DOCUMENT ROOT DO APACHE2 SERVER CONFORME SUA NECESSIDADE.
 
 ```bash
 #movendo o conteúdo do WordPress para o diretório do Apache2 Server
@@ -171,7 +170,7 @@ unzip /tmp/wordpress.zip -d /tmp
 sudo mv -v /tmp/wordpress/ /var/www/html/wp/
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS PARA APLICAR DE FORMA CORRETA AS MUDANÇAS DAS PERMISSÕES CONFORME A SUA NECESSIDADE.
+> **OBSERVAÇÃO IMPORTANTE:** ALTERAR O CAMINHO DA INSTALAÇÃO DO CMS WORDPRESS PARA APLICAR DE FORMA CORRETA AS MUDANÇAS DAS PERMISSÕES CONFORME A SUA NECESSIDADE.
 
 ```bash
 #alterando as permissões dos diretórios e arquivos do WordPress
@@ -233,7 +232,7 @@ define( 'DB_USER', 'wordpress' );
 define( 'DB_PASSWORD', 'wordpress' );
 ```
 
-O **salt (ou "sal", em português) do WordPress** é uma string aleatória usada para *aumentar a segurança da autenticação dos usuários*. Ele é combinado com senhas e outras informações sensíveis antes de serem armazenadas ou processadas, **dificultando que sejam quebradas por ataques como brute-force (força bruta - dicionário de senhas) ou rainbow tables (tabela arco-íris - reverter funções hash criptográficas)**.
+> **OBSERVAÇÃO IMPORTANTE:** O **salt (ou "sal", em português) do WordPress** é uma string aleatória usada para *aumentar a segurança da autenticação dos usuários*. Ele é combinado com senhas e outras informações sensíveis antes de serem armazenadas ou processadas, **dificultando que sejam quebradas por ataques como brute-force (força bruta - dicionário de senhas) ou rainbow tables (tabela arco-íris - reverter funções hash criptográficas)**.
 
 Link oficial para a geração do Salt do WordPress site: https://api.wordpress.org/secret-key/1.1/salt/
 
@@ -267,7 +266,7 @@ sudo systemctl status apache2
 sudo journalctl -xeu apache2
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do CMS Wordpress utilizando o arquivo version.php
@@ -278,16 +277,16 @@ sudo grep ^\$wp_version /var/www/html/wp/wp-includes/version.php
 
 ## 07_ Testando e configurando o CMS Wordpress via Terminal e Navegador
 
-**OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
+> **OBSERVAÇÃO:** Tabela de referência dos Códigos do HTTP mais comuns para tester no Terminal ou no Navegador.
 
-| Código | Significado                                     |
-| ------ | ----------------------------------------------- |
-| 200    | OK (Sucesso)                                    |
-| 301    | Moved Permanently (Redirecionamento permanente) |
-| 302    | Found (Redirecionamento temporário)             |
-| 403    | Forbidden (Acesso negado)                       |
-| 404    | Not Found (Não encontrado)                      |
-| 500    | Internal Server Error                           |
+| Código | Significado |
+| ------ | ----------- |
+| **200** | OK (Sucesso) |
+| **301** | Moved Permanently (Redirecionamento permanente) |
+| **302** | Found (Redirecionamento temporário) |
+| **403** | Forbidden (Acesso negado) |
+| **404** | Not Found (Não encontrado) |
+| **500** | Internal Server Error |
 
 ```bash
 #testando o acesso ao diretório de teste do Apache2 Server (NÃO COMENTADO NO VÍDEO)
@@ -322,7 +321,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/wp-login.php
 
 ## 08_ Correções de Falhas de Acesso ao CMS Wordpress ou Migração de Servidores
 
-**OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores de DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanentes do CMS Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no CMS Wordpress.
+> **OBSERVAÇÃO IMPORTANTE:** como não estamos utilizando *Servidores de DNS* e nem *Domínio/Subdomínio* é recomendado alterar as configurações de **Links Permanentes do CMS Wordpress**, com isso resolvemos uma falha de *JSON (JavaScript Object Notation)* na hora de salvar as mudanças no CMS Wordpress.
 
 ```bash
 #Configuração dos Links Permanentes do CMS WordPress
@@ -340,7 +339,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver/wp/
 
 ## 09_ Correções das Falhas de Mudança de Domínio ou de Rede do CMS Wordpress (SOMENTE SE NECESSÁRIO).
 
-**OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na *tabela de configuração do Wordpress no MySQL Server*, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
+> **OBSERVAÇÃO IMPORTANTE:** Quando você faz a implementação do *CMS Wordpress* em uma __`Rede Local ou Cloud`__, e precisa fazer a migração do Site para outra Rede com configurações diferentes, o CMS Wordpress não atualiza automaticamente os endereços **IPv4 ou Nome de Domínio** que estão registrados na *tabela de configuração do Wordpress no MySQL Server*, sendo necessário fazer essa atualização manualmente conforme Script SQL abaixo: **NÃO COMENTADO NO VÍDEO, USAR ESSA OPÇÃO SOMENTE SE NECESSÁRIO.**
 
 Mais informações acesse o Link dos Desenvolvedores do Wordpress: https://developer.wordpress.org/advanced-administration/upgrade/migrating/
 
@@ -367,27 +366,27 @@ exit
 
 ========================================DESAFIOS=========================================
 
-**#10_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA (THEME)`__ DO CMS WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGENS NO WORDPRESS DE QUALQUER CONTEÚDO/ASSUNTO, ADICIONANDO PELO MENOS __`02 (DUAS) IMAGENS`__ EM CADA POSTAGEM.
+> **#10_ DESAFIO-01:** FAZER A INSTALAÇÃO DE UM NOVO __`TEMA (THEME)`__ DO CMS WORDPRESS, FAZER A CRIAÇÃO DE __`02 (DUAS)`__ POSTAGENS NO WORDPRESS DE QUALQUER CONTEÚDO/ASSUNTO, ADICIONANDO PELO MENOS __`02 (DUAS) IMAGENS`__ EM CADA POSTAGEM.
 
-**#11_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO CMS WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
+> **#11_ DESAFIO-02:** FAZER A INSTALAÇÃO E CONFIGURAÇÃO DE __`02 (DOIS) PLUGINS`__ DO CMS WORDPRESS MAIS USADO NO DIA A DIA O: __`Wordfence Security FREE: (GET FREE LICENSE)`__ E: __`W3 Total Cache`__ (OBSERVAÇÃO: NÃO PRECISA FAZER AS CONFIGURAÇÕES, APENAS A INSTALAÇÃO).
 
-**#12_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR E CONFIGURAR OS __`ÍCONES DO GITHUB, LINKEDIN, INSTAGRAM E FACEBOOK`__ PARA AS SUAS CONTAS, ADICIONAR TAMBÉM OS LINKS PARA DOS SITES CRIADOS NO DESAFIO DO __`APACHE2 (Diretório /teste e /seunome)`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM *SISTEMA DE GESTÃO UNIFICADA* DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
+> **#12_ DESAFIO-03:** NO TEMA QUE VOCÊ INSTALOU, VERIFICAR A POSSIBILIDADE DE ADICIONAR E CONFIGURAR OS __`ÍCONES DO GITHUB, LINKEDIN, INSTAGRAM E FACEBOOK`__ PARA AS SUAS CONTAS, ADICIONAR TAMBÉM OS LINKS PARA DOS SITES CRIADOS NO DESAFIO DO __`APACHE2 (Diretório /teste e /seunome)`__, FACILITANDO O ACESSO A SUAS PÁGINAS CRIADAS EM __`HTML E PHP`__ E COMEÇAR A CRIAR UM *SISTEMA DE GESTÃO UNIFICADA* DE PÁGINAS DE INTERNET QUE SERÁ UTILIZADO EM TODO ESSE CURSO.
 
-**#13_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO **CMS WORDPRESS**, SEGUINDO OS PROCEDIMENTOS ABAIXO:
+> **#13_ DESAFIO-04:** FAZER A INSTALAÇÃO DE UM NOVO SITE DO **CMS WORDPRESS**, SEGUINDO OS PROCEDIMENTOS ABAIXO:
 
-|         Descrição           |     Informação     | Observação |
-|-----------------------------|--------------------|------------|
-| Path New Site               | /var/www/html/site | Nova localização do site |
-| Database Name               | newsite            | Nome do Banco de Dados |
-| User and Password Database  | newsite            | Usuário e Senha de conexão do Banco de Dados |
-| User and Password Wordpress | super              | Usuário e Senha de acesso ao CMS Wordpress
-| Wordpress Template Install  | Astra              | Tema (theme) do novo site do CMS Wordpress |
+| Descrição | Informação | Observação |
+|-----------|------------|------------|
+| **Path New Site** | */var/www/html/site* | Nova localização do site |
+| **Database Name** | *newsite* | Nome do Banco de Dados |
+| **User and Password Database** | *newsite* | Usuário e Senha de conexão do Banco de Dados |
+| **User and Password Wordpress** | *super* | Usuário e Senha de acesso ao CMS Wordpress
+| **Wordpress Template Install** | *Astra* | Tema (theme) do novo site do CMS Wordpress |
 
-**OBSERVAÇÃO** FINALIZAR AS CONFIGURAÇÕES VIA NAVEGADOR DO WORDPRESS E TESTAR O SEU ACESSO.
+> **OBSERVAÇÃO** FINALIZAR AS CONFIGURAÇÕES VIA NAVEGADOR DO WORDPRESS E TESTAR O SEU ACESSO.
 
-**#14_ NOVO DESAFIO-05:** FAZER O CADASTRADO NO SITE DO WORDPRESS FREE: https://wordpress.com/free/ SELECIONAR A OPÇÃO: __`<Start with Free>`__, EM CRIAR A SUA CONTA, SELECIONE O TIPO DE AUTENTICAÇÃO QUE VOCÊ PREFERIR, NA ESCOLHA DO DOMÍNIO DIGITE O SEU NOME, EXEMPLO: __`vaamonde`__ VERIFIQUE OS DOMÍNIOS DISPONÍVEIS DO TIPO: **GRATUITO** QUEM SÃO OS DOMÍNIOS: __`.wordpress.com`__ CLIQUE EM: **<Selecionar>**, NO TIPO DE PUBLICAÇÃO SELECIONE: **Construir um site escolar ou sem fins lucrativos**, ESCOLHA O SEU TEMA GRATUITO (RECOMENDADO O Retrospect OU da sua escolha), PERSONALIZE O SEU SITE, TENTE REPLICAR OS CONCEITOS APRENDIDOS NO WORDPRESS LOCAL.
+> **#14_ NOVO DESAFIO-05:** FAZER O CADASTRADO NO SITE DO WORDPRESS FREE: https://wordpress.com/free/ SELECIONAR A OPÇÃO: __`<Start with Free>`__, EM CRIAR A SUA CONTA, SELECIONE O TIPO DE AUTENTICAÇÃO QUE VOCÊ PREFERIR, NA ESCOLHA DO DOMÍNIO DIGITE O SEU NOME, EXEMPLO: __`vaamonde`__ VERIFIQUE OS DOMÍNIOS DISPONÍVEIS DO TIPO: **GRATUITO** QUEM SÃO OS DOMÍNIOS: __`.wordpress.com`__ CLIQUE EM: **<Selecionar>**, NO TIPO DE PUBLICAÇÃO SELECIONE: **Construir um site escolar ou sem fins lucrativos**, ESCOLHA O SEU TEMA GRATUITO (RECOMENDADO O Retrospect OU da sua escolha), PERSONALIZE O SEU SITE, TENTE REPLICAR OS CONCEITOS APRENDIDOS NO WORDPRESS LOCAL.
 
-**OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS *DESAFIOS DO CMS WORDPRESS*, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS **FICA FORA DO AR (INDISPONÍVEL)** E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
+> **OBSERVAÇÃO IMPORTANTE:** CONFORME COMENTADO E RELATADO POR ALGUNS USUÁRIOS QUE ESTÃO FAZENDO OS *DESAFIOS DO CMS WORDPRESS*, APÓS INSTALAR E CONFIGURAR OS PLUGINS OU TEMAS, O WORDPRESS DEPOIS DE ALGUM TEMPO PEDE PARA ATUALIZAR O SISTEMA, APÓS A ATUALIZAÇÃO, O SISTEMA DO WORDPRESS **FICA FORA DO AR (INDISPONÍVEL)** E APRESENTA A SEGUINTE MENSAGEM NO NAVEGADOR: *Momentaneamente indisponível para manutenção programada. Confira novamente em um minuto.* ESSA FALHA ESTÁ ASSOCIADA NO MOMENTO DE APLICAR A ATUALIZAÇÃO DO WORDPRESS, ELE TIRA O SITE DO AR PARA DEPOIS VOLTAR COM AS MUDANÇAS, MAIS PODE ACONTECER DELE NÃO VOLTAR, PARA CORRIGIR ESSA FALHA DIGITE OS COMANDOS ABAIXO (SOMENTE SE NECESSÁRIO):
 
 ```bash
 #acessar o diretório do site do Wordpress (ALTERE CONFORME SUA NECESSIDADE)

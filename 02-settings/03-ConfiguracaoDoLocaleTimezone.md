@@ -54,12 +54,12 @@ sudo localectl
 ```
 
 Entendendo a saída do comando: __`localectl`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo           | Valor              | Descrição                    |
-| --------------- | ------------------ | ---------------------------- |
-| `System Locale` | `LANG=en_US.UTF-8` | Define o idioma e codificação do sistema. Neste caso, está em **inglês (EUA)** com codificação **UTF-8**. Afeta mensagens de sistema, data, hora e ordenação alfabética. |
-| `VC Keymap`     | `n/a`              | Layout do teclado para consoles virtuais (tty). **n/a** indica que não está configurado ou não se aplica. |
-| `X11 Layout`    | `us`               | Layout do teclado para ambientes gráficos (X11), neste caso, **layout americano padrão (us)**. Mesmo em servidores sem interface gráfica, esse campo pode ser exibido.   |
-| `X11 Model`     | `pc105`            | Modelo de teclado reconhecido (105 teclas padrão internacional). Importante em ambientes gráficos ou terminais compatíveis. |
+| Campo | Valor | Descrição |
+| ----- | ----- | --------- |
+| **System Locale** | *LANG=en_US.UTF-8* | Define o idioma e codificação do sistema. Neste caso, está em **inglês (EUA)** com codificação **UTF-8**. Afeta mensagens de sistema, data, hora e ordenação alfabética. |
+| **VC Keymap** | *n/a* | Layout do teclado para consoles virtuais (tty). **n/a** indica que não está configurado ou não se aplica. |
+| **X11 Layout** | *us* | Layout do teclado para ambientes gráficos (X11), neste caso, **layout americano padrão (us)**. Mesmo em servidores sem interface gráfica, esse campo pode ser exibido.   |
+| **X11 Model** | *pc105* | Modelo de teclado reconhecido (105 teclas padrão internacional). Importante em ambientes gráficos ou terminais compatíveis. |
 
 ```bash
 #verificando as informações de localidades instaladas no Ubuntu Server 
@@ -68,12 +68,12 @@ sudo locale -a
 ```
 
 Entendendo a saída do comando: __`locale`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Locale       | Descrição                                                                                               |
-| ------------ | ------------------------------------------------------------------------------------------------------- |
-| `C`          | Locale padrão minimalista do sistema (equivalente ao `POSIX`). Usa codificação ASCII.                   |
-| `C.utf8`     | Variante do `C` locale com suporte à codificação UTF-8. Leve, rápida, mas sem formatação local.         |
-| `en_US.utf8` | Locale para **inglês dos Estados Unidos** com codificação UTF-8. Utilizado por padrão no Ubuntu Server. |
-| `POSIX`      | Locale mais básico possível. Idêntico ao `C`. Compatível com padrões UNIX antigos.                      |
+| Locale | Descrição |
+| ------ | --------- |
+| **C** | Locale padrão minimalista do sistema (equivalente ao `POSIX`). Usa codificação ASCII. |
+| **C.utf8** | Variante do `C` locale com suporte à codificação UTF-8. Leve, rápida, mas sem formatação local. |
+| **en_US.utf8** | Locale para **inglês dos Estados Unidos** com codificação UTF-8. Utilizado por padrão no Ubuntu Server. |
+| **POSIX** | Locale mais básico possível. Idêntico ao `C`. Compatível com padrões UNIX antigos. |
 
 ## 02_ Configurando o Locale (Localidade) do Brasil no Sistema Operacional Ubuntu Server
 
@@ -114,15 +114,15 @@ sudo timedatectl
 ```
 
 Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo                       | Valor                         | Descrição                                               |
-| --------------------------- | ----------------------------- | ------------------------------------------------------- |
-| `Local time`                | `ter 2025-06-24 20:00:50 UTC` | Hora local do sistema operacional com base no fuso horário configurado. |
-| `Universal time`            | `ter 2025-06-24 20:00:50 UTC` | Hora universal (UTC). Usada para consistência em sistemas distribuídos. |
-| `RTC time`                  | `ter 2025-06-24 20:00:50`     | Hora armazenada no **RTC (Relógio de Tempo Real)** da placa-mãe. |
-| `Time zone`                 | `Etc/UTC (UTC, +0000)`        | Fuso horário atual do sistema. Neste caso, está definido como UTC. |
-| `System clock synchronized` | `yes`                         | Indica se o relógio do sistema está sincronizado com servidores NTP. |
-| `NTP service`               | `active`                      | Estado do serviço de sincronização automática via NTP. |
-| `RTC in local TZ`           | `no`                          | Define se o relógio de hardware está usando o fuso horário local (`yes`) ou UTC (`no`). Em servidores, é recomendado manter como `no`. |
+| Campo | Valor | Descrição |
+| ----- | ----- | --------- |
+| **Local time** | *ter 2025-06-24 20:00:50 UTC`* | Hora local do sistema operacional com base no fuso horário configurado. |
+| **Universal time** | *ter 2025-06-24 20:00:50 UTC* | Hora universal (UTC). Usada para consistência em sistemas distribuídos. |
+| **RTC time** | *ter 2025-06-24 20:00:50* | Hora armazenada no **RTC (Relógio de Tempo Real)** da placa-mãe. |
+| **Time zone** | *Etc/UTC (UTC, +0000)* | Fuso horário atual do sistema. Neste caso, está definido como UTC. |
+| **System clock synchronized** | *yes* | Indica se o relógio do sistema está sincronizado com servidores NTP. |
+| **NTP service** | *active* | Estado do serviço de sincronização automática via NTP. |
+| **RTC in local TZ** | *no* | Define se o relógio de hardware está usando o fuso horário local (`yes`) ou UTC (`no`). Em servidores, é recomendado manter como `no`. |
 
 ## 04_ Configurando o Timezone (Fuso Horário) de São Paulo no Sistema Operacional Ubuntu Server
 
@@ -192,21 +192,21 @@ sudo timedatectl timesync-status
 ```
 
 Entendendo a saída do comando: __`timedatectl`__ (NÃO COMENTADO NO VÍDEO)<br>
-| Campo             | Valor                               | Descrição                                    |
-| ----------------- | ----------------------------------- | -------------------------------------------- |
-| **Server**        | `200.160.7.186 (a.st1.ntp.br)`      | Endereço IP e nome do servidor NTP atualmente em uso. |
-| **Poll interval** | `1min 4s` (min: 32s; max: 34min 8s) | Intervalo de verificação da hora. Mostra o tempo atual, mínimo e máximo de polling.|
-| **Leap**          | `normal`                            | Estado de ajuste de segundos (ex: `normal`, `insert second`, `delete second`).|
-| **Version**       | `4`                                 | Versão do protocolo NTP utilizado. |
-| **Stratum**       | `1`                                 | Nível de proximidade com a fonte de tempo. `1` indica servidor de referência (ex: GPS, relógio atômico). |
-| **Reference**     | `ONBR`                              | Identificador da fonte de tempo utilizada pelo servidor NTP remoto. |
-| **Precision**     | `1us (-22)`                         | Precisão estimada do relógio local. |
-| **Root distance** | `1.022ms (max: 5s)`                 | Distância total (erro estimado) até a fonte de tempo confiável. |
-| **Offset**        | `+5.324ms`                          | Diferença atual entre o relógio do sistema e o relógio do servidor NTP. |
-| **Delay**         | `33.551ms`                          | Tempo de ida e volta da comunicação com o servidor NTP. |
-| **Jitter**        | `0`                                 | Variação de atraso entre pacotes consecutivos — ideal quando está baixo. |
-| **Packet count**  | `1`                                 | Número de pacotes trocados desde a última inicialização. |
-| **Frequency**     | `-458,403ppm`                       | Ajuste de frequência aplicado ao relógio do sistema para mantê-lo sincronizado. |
+| Campo | Valor | Descrição |
+| ----- | ----- | --------- |
+| **Server** | *200.160.7.186 (a.st1.ntp.br)* | Endereço IP e nome do servidor NTP atualmente em uso. |
+| **Poll interval** | *1min 4s (min: 32s; max: 34min 8s)* | Intervalo de verificação da hora. Mostra o tempo atual, mínimo e máximo de polling.|
+| **Leap** | *normal* | Estado de ajuste de segundos (ex: `normal`, `insert second`, `delete second`).|
+| **Version** | *4* | Versão do protocolo NTP utilizado. |
+| **Stratum** | *1* | Nível de proximidade com a fonte de tempo. `1` indica servidor de referência (ex: GPS, relógio atômico). |
+| **Reference** | *ONBR* | Identificador da fonte de tempo utilizada pelo servidor NTP remoto. |
+| **Precision** | *1us (-22)* | Precisão estimada do relógio local. |
+| **Root distance** | *1.022ms (max: 5s)* | Distância total (erro estimado) até a fonte de tempo confiável. |
+| **Offset** | *+5.324ms* | Diferença atual entre o relógio do sistema e o relógio do servidor NTP. |
+| **Delay** | *33.551ms* | Tempo de ida e volta da comunicação com o servidor NTP. |
+| **Jitter** | *0* | Variação de atraso entre pacotes consecutivos — ideal quando está baixo. |
+| **Packet count** | *1* | Número de pacotes trocados desde a última inicialização. |
+| **Frequency** | *-458,403ppm* | Ajuste de frequência aplicado ao relógio do sistema para mantê-lo sincronizado. |
 
 ## 07_ Configuração de Data e Hora Manual no Sistema Operacional Ubuntu Server (SOMENTE SE NECESSÁRIO)
 

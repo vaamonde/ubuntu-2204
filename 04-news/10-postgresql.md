@@ -89,7 +89,7 @@ zlib1g-dev apt-transport-https build-essential software-properties-common gnupg 
 libssl-dev libffi-dev libgmp3-dev virtualenv python3-pip libpq-dev python3-dev libexpat1 ssl-cert
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
+> **OBSERVAÇÃO IMPORTANTE:** o tempo todo a *Biblioteca Libssl* sofre alteração, antes de fazer o download do arquivo verifique a versão no link: http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/
 
 ```bash
 #download da última versão do Libssl (link atualizado em 15/08/2025)

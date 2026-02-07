@@ -56,7 +56,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_Hp8fuKdfCo
 
 ## 01_ Instalando as Dependências do Graylog Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI A DEPENDÊNCIA DO BANCO DE DADOS NO-SQL MONGODB SERVER, ESSE APLICATIVO JÁ FOI INSTALADO NA ETAPA: 08 DO MONGODB SERVER (VERSÃO 8.x).
+> **OBSERVAÇÃO IMPORTANTE:** O GRAYLOG POSSUI A DEPENDÊNCIA DO BANCO DE DADOS NO-SQL MONGODB SERVER, ESSE APLICATIVO JÁ FOI INSTALADO NA ETAPA: 08 DO MONGODB SERVER (VERSÃO 8.x).
 
 ```bash
 #atualizando as lista do apt
@@ -82,9 +82,9 @@ sudo java -version
 
 ## 02_ Baixando e instalando a Chave GPG do OpenSearch no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** No mês de *Maio/2025* foi lançado a versão 3.0.x do OpenSearch conforme link do site Oficial: https://opensearch.org/blog/opensearch-3-0-enhances-vector-database-performance/ - até o momento, a última versão do *Graylog Server 6.3.x/6.4.x* não suporta a nova versão do OpenSearch, sendo necessário ainda instalar a versão 2.x do OpenSearch para o correto funcionamento do servidor, caso você instale a versão 3.x a seguinte mensagem é mostrada no comando: __`sudo journalctl -xeu graylog-server`__
+> **OBSERVAÇÃO IMPORTANTE:** No mês de *Maio/2025* foi lançado a versão 3.0.x do OpenSearch conforme link do site Oficial: https://opensearch.org/blog/opensearch-3-0-enhances-vector-database-performance/ - até o momento, a última versão do *Graylog Server 6.3.x/6.4.x* não suporta a nova versão do OpenSearch, sendo necessário ainda instalar a versão 2.x do OpenSearch para o correto funcionamento do servidor, caso você instale a versão 3.x a seguinte mensagem é mostrada no comando: __`sudo journalctl -xeu graylog-server`__
 
-Exception in thread "main" org.graylog2.bootstrap.preflight.PreflightCheckException: Unsupported (Elastic/Open)Search version <OpenSearch:3.0.0>. Supported versions: <[SearchVersionRange{distribution=OpenSearch, expression=^1.0.0}, SearchVersionRange{distribution=OpenSearch, expression=^2.0.0}, SearchVersionRange{distribution=Elasticsearch, expression=^7.0.0}, SearchVersionRange{distribution=Datanode, expression=^5.2.0}]>
+> Exception in thread "main" org.graylog2.bootstrap.preflight.PreflightCheckException: Unsupported (Elastic/Open)Search version <OpenSearch:3.0.0>. Supported versions: <[SearchVersionRange{distribution=OpenSearch, expression=^1.0.0}, SearchVersionRange{distribution=OpenSearch, expression=^2.0.0}, SearchVersionRange{distribution=Elasticsearch, expression=^7.0.0}, SearchVersionRange{distribution=Datanode, expression=^5.2.0}]>
 
 ```bash
 #baixando a chave GPG do OpenSearch (Link atualizado no dia 11/05/2025)
@@ -102,7 +102,7 @@ echo "deb [signed-by=/usr/share/keyrings/opensearch-keyring] https://artifacts.o
 
 ## 03_ Instalando o OpenSearch no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** A versão do OpenSearch >=2.12 e superior agora requer a configuração da __`OPENSEARCH_INITIAL_ADMIN_PASSWORD`__ variável de ambiente durante a instalação. A senha deve ter no mínimo: **8 (oito) caracteres** com pelo menos 1 (uma) letra maiúscula, 1 (uma) letra minúscula, 1 (um) número e 1 (um) caractere especial.
+> **OBSERVAÇÃO IMPORTANTE:** A versão do OpenSearch >=2.12 e superior agora requer a configuração da __`OPENSEARCH_INITIAL_ADMIN_PASSWORD`__ variável de ambiente durante a instalação. A senha deve ter no mínimo: **8 (oito) caracteres** com pelo menos 1 (uma) letra maiúscula, 1 (uma) letra minúscula, 1 (um) número e 1 (um) caractere especial.
 
 ```bash
 #atualizando as listas do Apt com o Sources List do OpenSearch
@@ -214,7 +214,7 @@ sudo systemctl start opensearch
 sudo journalctl -xeu opensearch
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do OpenSearch via Terminal ou Navegador
@@ -235,7 +235,7 @@ firefox ou google chrome: http://endereço_ipv4_ubuntuserver:9200
 
 ## 09_ Verificando a Porta de Conexão do OpenSearch no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-9200 do OpenSearch
@@ -245,7 +245,7 @@ sudo lsof -nP -iTCP:'9200' -sTCP:LISTEN
 
 ## 10_ Adicionando o Repositório do Graylog Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Graylog* sofre alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última versão do software no Link: https://packages.graylog2.org/packages
+> **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Graylog* sofre alteração o tempo todo, sempre acessar o projeto do Graylog para verificar a última versão do software no Link: https://packages.graylog2.org/packages
 
 ```bash
 #baixando o repositório do Graylog Server (Link atualizado no dia 03/01/2026)
@@ -271,7 +271,7 @@ sudo apt install --install-recommends graylog-server
 
 ## 12_ Gerando as senhas das Variáveis: password_secret e root_password_sha2 do Graylog Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS CONFIGURAÇÕES DAS VARIÁVEIS DO GRAYLOG SERVER NAS PRÓXIMAS ETAPAS.
+> **OBSERVAÇÃO IMPORTANTE:** COPIAR A SENHA GERADA NO BLOCO DE NOTAS PARA ALTERAR NAS CONFIGURAÇÕES DAS VARIÁVEIS DO GRAYLOG SERVER NAS PRÓXIMAS ETAPAS.
 
 ```bash
 #gerando a senha aleatório da variável: password_secret do Graylog Server
@@ -391,7 +391,7 @@ sudo systemctl start graylog-server
 sudo journalctl -xeu graylog-server
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
+> **OBSERVAÇÃO IMPORTANTE:** Por que sempre é necessário verificar a versão do serviço de rede que você está implementando ou configurando no Servidor Ubuntu Server, devido as famosas falhas de segurança chamadas de: *CVE (Common Vulnerabilities and Exposures)*, com base na versão utilizada podemos pesquisar no site do **Ubuntu Security CVE Reports:** https://ubuntu.com/security/cves as falhas de segurança encontradas e corrigidas da versão do nosso aplicativo, o que ela afeta, se foi corrigida e como aplicar a correção.
 
 ```bash
 #verificando a versão do Graylog Server no Ubuntu Server
@@ -401,7 +401,7 @@ sudo dpkg -l graylog-server
 
 ## 17_ Verificando a Porta de Conexão do Graylog Server no Ubuntu Server
 
-**OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
+> **OBSERVAÇÃO IMPORTANTE:** no Ubuntu Server as Regras de Firewall utilizando o comando: __` iptables `__ ou: __` ufw `__ está desabilitado por padrão **(INACTIVE)**, caso você tenha habilitado algum recurso de Firewall é necessário fazer a liberação do *Fluxo de Entrada (INPUT), Porta (PORT) e Protocolo (PROTOCOL) TCP* do Serviço corresponde nas tabelas do firewall e testar a conexão.
 
 ```bash
 #verificando a porta padrão TCP-9000 do Graylog Server
@@ -522,7 +522,7 @@ sudo systemctl status rsyslog
 
 ## 22_ Exportando os Logs do Rsyslog/Syslog do Linux Mint e Event Viewer do Windows 10
 
-**OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO É CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO DE REDE QUE VOCÊ ESTÁ OBTENDO OS LOGS.
+> **OBSERVAÇÃO IMPORTANTE:** NESSE CENÁRIO VOU UTILIZAR O MESMO INPUT DO SYSLOG UDP CONFIGURADO NO GRAYLOG SERVER, O CORRETO É CRIAR UM NOVO INPUT PARA CADA SERVER OU SERVIÇO DE REDE QUE VOCÊ ESTÁ OBTENDO OS LOGS.
 
 ### Exportando dos Logs do GNU/Linux Mint para o Graylog Server
 ```bash
@@ -582,7 +582,7 @@ Download
   Completed the NXLog-CE Setup Wizard: <Finish>
 ```
 
-**OBSERVAÇÃO IMPORTANTE:** fazer a instalação do *NXLog-CE Windows* utilizando o *Powershell* em modo: **Executar como Administrador**.
+> **OBSERVAÇÃO IMPORTANTE:** fazer a instalação do *NXLog-CE Windows* utilizando o *Powershell* em modo: **Executar como Administrador**.
 
 ```bash
 #editando o arquivo de configuração do NXLog-CE via Powershell
