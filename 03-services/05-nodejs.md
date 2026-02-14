@@ -46,11 +46,12 @@ Site Oficial do W3C School Node.JS: https://www.w3schools.com/nodejs/<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
+Perplexity: https://www.perplexity.ai/<br>
+Anthropic Claude: https://claude.ai<br>
 Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
-Perplexity: https://www.perplexity.ai/<br>
 
 **PERGUNTA PARA A IA**
 

@@ -42,11 +42,12 @@ Site Oficial do W3C School Java24: https://www.w3schools.com/java/default.asp
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
+Perplexity: https://www.perplexity.ai/<br>
+Anthropic Claude: https://claude.ai<br>
 Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
-Perplexity: https://www.perplexity.ai/<br>
 
 > **Prompt-01:** Para rodar uma aplicação desenvolvida em Eclipse utilizando o JAVA para vários usuários simultâneos, é melhor criar um arquivo to tipo WAR e publicar no Apache TomCat? Qual outra aplicação poderia fazer a mesma coisa?
 

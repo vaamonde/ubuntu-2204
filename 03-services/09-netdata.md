@@ -47,11 +47,12 @@ Site Oficial do Netdata: https://www.netdata.cloud/<br>
 
 **Sites de IA (Inteligência Artificial) indicados para os Desafios**<br>
 OpenAI ChatGPT: https://chatgpt.com<br>
+Perplexity: https://www.perplexity.ai/<br>
+Anthropic Claude: https://claude.ai<br>
 Microsoft Copilot: https://copilot.microsoft.com<br>
 Google Gemini: https://gemini.google.com<br>
 DeepSeek: https://chat.deepseek.com/<br>
 x.AI Grok: https://grok.com/<br>
-Perplexity: https://www.perplexity.ai/<br>
 
 **O QUE É E PARA QUE SERVER O NETDATA:** Netdata é uma ferramenta de código aberto projetada para coletar métricas em tempo real, como uso de CPU, atividade de disco, uso de largura de banda, visitas a sites etc..., e exibi-las em gráficos ao vivo e fáceis de interpretar.
 
