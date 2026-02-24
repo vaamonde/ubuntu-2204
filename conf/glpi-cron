@@ -6,13 +6,13 @@
 # Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Data de criação: 24/05/2024
-# Data de atualização: 24/05/2024
-# Versão: 0.06
+# Data de atualização: 23/02/2026
+# Versão: 0.07
 # Testado e homologado para a versão do Ubuntu Server 22.04.x LTS x64x
 # Testado e homologado para a versão do GLPI Help Desk v10.0.x
 #
 # Agendamento das atualização dos Registros do GLPI a cada 1 minuto, todos os dias
 # [minutos] [horas] [dias do mês] [mês] [dias da semana] [usuário] [comando]
-*/1 * * * * root /usr/bin/php8.1 /var/www/html/glpi/front/cron.php --debug &> /dev/null
+*/1 * * * * root /usr/bin/php8.3 /var/www/html/glpi/front/cron.php --debug &> /dev/null
 
 #Fim do agendamento, obrigatório ter uma linha em branco no final do arquivo para a execução correta.

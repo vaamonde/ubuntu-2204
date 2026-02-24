@@ -26,6 +26,10 @@ Protocol 2
 # via protocolo SSH (Alterar o valor do endereço IPv4 da sua rede)
 ListenAddress ENDEREÇO_IPV4_SERVIDOR
 #
+# Especifica qual família de endereços IP o OpenSSH deve suportar.
+# Os argumentos válidos são: any (IPv4 e IPV6), inet (somente IPv4), inet6 (somente IPv6)
+AddressFamily inet
+#
 # Métodos de Autenticação do OpenSSH, utilizar chaves públicas e autenticação por senha
 # Por padrão o Servidor de OpenSSH não trabalhar com Chaves Pública para autenticação, 
 # utilizando o arquivo /etc/passwd para se autenticar no servidor, por motivos de segurança, 
@@ -117,10 +121,6 @@ MaxSessions 2
 # | 10=tentativas de conexão, se o número de tentativas chegar a 6, todas as tentativas 
 # de conexões do IP origem serão recusadas.
 MaxStartups 5:60:10
-#
-# Especifica qual família de endereços IP o OpenSSH deve suportar.
-# Os argumentos válidos são: any (IPv4 e IPV6), inet (somente IPv4), inet6 (somente IPv6)
-AddressFamily inet
 #
 # Não ler os arquivos de configurações ~/.rhosts e ~/.shosts
 IgnoreRhosts yes

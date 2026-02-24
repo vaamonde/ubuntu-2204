@@ -7,8 +7,8 @@
 #Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 #YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 #Data de criação: 24/05/2024<br>
-#Data de atualização: 03/01/2026<br>
-#Versão: 0.15<br>
+#Data de atualização: 23/02/2026<br>
+#Versão: 0.16<br>
 
 **OBSERVAÇÃO IMPORTANTE:** COMENTAR NO VÍDEO DO GLPI SE VOCÊ CONSEGUIU IMPLEMENTAR COM A SEGUINTE FRASE: *Implementação do GLPI realizado com sucesso!!! #BoraParaPrática*
 
@@ -65,7 +65,7 @@ sudo apt update
 sudo apt install php-curl php-gd php-intl php-pear php-imagick php-imap php-memcache php-pspell \
 php-mysql php-tidy php-xmlrpc php-mbstring php-ldap php-cas php-apcu php-json php-xml php-cli \
 xmlrpc-api-utils bzip2 unzip curl php-soap php-common php-bcmath php-zip php-bz2 ghostscript \
-xz-utils libgs9 libgs9-common php-opcache php-dev pwgen libmcrypt-dev zlib1g zlib1g-dev
+xz-utils libgs10 libgs10-common php-opcache php-dev pwgen libmcrypt-dev zlib1g zlib1g-dev
 ```
 
 ## 02_ Criando a Base de Dados do GLPI Help Desk no MySQL Server no Ubuntu Server
@@ -234,52 +234,52 @@ INSERT
 ```
 ```bash
 #altere o caminho do PHP ou do GLPI Help Desk na linha: 16
-*/1 * * * * root /usr/bin/php8.1 /var/www/html/glpi/front/cron.php --debug &> /dev/null
+*/1 * * * * root /usr/bin/php8.3 /var/www/html/glpi/front/cron.php --debug &> /dev/null
 ```
 ```bash
 #salvar e sair do arquivo
 ESC SHIFT :x <Enter>
 
 #editando o arquivo de configuração do PHP
-sudo vim /etc/php/8.1/apache2/php.ini
+sudo vim /etc/php/8.3/apache2/php.ini
 
 #entrando no modo de edição do editor de texto VIM
 INSERT
 ```
 ```php
-#descomentar e alterar o valor da variável: date.timezone na linha: 968
+#descomentar e alterar o valor da variável: date.timezone na linha: 989
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO CONFIGURAR PARA EFEITO DE COMPATIBILIDADE
 date.timezone = America/Sao_Paulo
 
-#descomentar e alterar o valor da variável: session.cookie_secure na linha: 1371
+#descomentar e alterar o valor da variável: session.cookie_secure na linha: 1400
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 #SOMENTE SE VOCÊ ESTÁ USANDO HTTPS COM SUPORTE AO SSL/TLS, CASO CONTRÁRIO DEIXAR DESATIVADO
 session.cookie_secure = off
 
-#alterar o valor da variável: session.cookie_httponly na linha: 1403
+#alterar o valor da variável: session.cookie_httponly na linha: 1432
 #OBSERVAÇÃO IMPORTANTE: a opção: on tem que ser em: MINÚSCULA para funcionar.
 session.cookie_httponly = on
 
-#alterar o valor da variável: session.cookie_samesite na linha: 1409
+#alterar o valor da variável: session.cookie_samesite na linha: 1438
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 session.cookie_samesite = Lax
 
-#descomentar e alterar o valor da variável: opcache.enable na linha: 1767
+#descomentar e alterar o valor da variável: opcache.enable na linha: 1782
 #habilitando o suporte ao Zend OpCache
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 opcache.enable = 1
 
-#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1773
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1788
 #Máximo de memória que poderá ser utilizado pelo opcache
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 opcache.memory_consumption = 1024
 
-#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1780
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1795
 #Define a quantidade máximas de arquivos PHP que poderão ser salvos no Cache.
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 opcache.max_accelerated_files = 20000
 
-#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1798
+#descomentar e alterar o valor da variável: opcache.memory_consumption na linha: 1813
 #Define com que frequência, em segundos, os arquivos em cache deverão expirar
 #OBSERVAÇÃO IMPORTANTE: NÃO COMENTADO NO VÍDEO, RECOMENDO HABILITAR PARA EFEITO DE SEGURANÇA
 opcache.revalidate_freq = 0
