@@ -102,8 +102,8 @@ sudo mkdir -pv /etc/prometheus/{targets,rules} /var/lib/prometheus
 > **OBSERVAÇÃO IMPORTANTE:** o executável e os arquivos de configuração do *Prometheus* sofre alteração o tempo todo, sempre acessar o projeto do Github para verificar a última versão do software no Link: https://github.com/prometheus/prometheus/releases/
 
 ```bash
-#download do Prometheus do Github (Link atualizado no dia 09/01/2026)
-wget https://github.com/prometheus/prometheus/releases/download/v3.9.1/prometheus-3.9.1.linux-amd64.tar.gz
+#download do Prometheus do Github (Link atualizado no dia 26/02/2026)
+wget https://github.com/prometheus/prometheus/releases/download/v3.10.0/prometheus-3.10.0.linux-amd64.tar.gz
 
 #listando o download do arquivo do Prometheus
 #opção do comando ls: -l (long listing), -h (human-readable)
@@ -266,7 +266,7 @@ sudo vim /etc/prometheus/prometheus.yml
 INSERT
 ```
 ```yaml
-#alterar os valores das viráveis a partir da linha: 22
+#alterar os valores das viráveis a partir da linha: 23
 external_labels:
   monitor: "prometheus-wsvaamonde"
   ambiente: "laboratorio"
@@ -633,7 +633,7 @@ Visualization: Gauge
     Title: (DEFAULT)
     Value: (DEFAULT)
   Standard options:
-    Unit: Parcent (0-100)
+    Unit: Misc, Parcent (0-100)
     Min: (DEFAULT)
     Max: (DEFAULT)
     Field min/max: (OFF)
@@ -676,7 +676,7 @@ Visualization: Gauge
     Title: (DEFAULT)
     Value: (DEFAULT)
   Standard options:
-    Unit: Parcent (0-100)
+    Unit: Misc, Percent (0-100)
     Min: (DEFAULT)
     Max: (DEFAULT)
     Field min/max: (OFF)
@@ -698,11 +698,11 @@ Visualization: Gauge
 Data source: prometheus-wsvaamonde
   hd (wsvaamonde)
     Code:
-      Metrics browser: sum by (device) (rate(node_disk_io_time_seconds_total[1m])) * 100
+      Metrics browser: sum by (device) (rate(node_disk_io_time_seconds_total[1m])) * 1000
 Visualization: Gauge
   Panel options:
-    Title: RAM Prometheus
-    Description: Utilização da RAM obtida do Prometheus
+    Title: HD-IO Prometheus
+    Description: Utilização do HD obtida do Prometheus
     Transparent background: (OFF)
     Panel links: (DEFAULT)
     Repeat options: (DEFAULT)
@@ -719,7 +719,7 @@ Visualization: Gauge
     Title: (DEFAULT)
     Value: (DEFAULT)
   Standard options:
-    Unit: Parcent (0-100)
+    Unit: Percent (0-100)
     Min: (DEFAULT)
     Max: (DEFAULT)
     Field min/max: (OFF)
@@ -747,8 +747,8 @@ Data source: prometheus-wsvaamonde
       Metrics browser: rate(node_network_transmit_bytes_total{host="wsvaamonde",device="enp0s3"}[1m])
 Visualization: Pie chart
   Panel options:
-    Title: NIC Zabbix SNMP
-    Description: Utilização da NIC obtida do Zabbix SNMP
+    Title: NIC Prometheus
+    Description: Utilização da NIC obtida do Prometheus
     Transparent background: (OFF)
     Panel links: (DEFAULT)
     Repeat options: (DEFAULT)
@@ -764,8 +764,11 @@ Visualization: Pie chart
     Tooltip mode: Hidden
   Legend:
     Visibility: (OFF)
+    Mode: List
+    Placement: Bottom
+    Legend values: (DEFAULT)
   Standard options:
-    Unit: Parcent (0-100)
+    Unit: Misc, Percent (0-100)
     Min: (DEFAULT)
     Max: (DEFAULT)
     Field min/max: (OFF)
